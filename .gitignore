@@ -35,3 +35,10 @@
 
 # Composer PHAR
 /composer.phar
+
+# custom
+/web/app_dev.php
+/app/flux2.db
+composer.lock
+.htaccess
+check.php
