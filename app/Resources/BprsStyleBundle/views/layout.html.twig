@@ -1,0 +1,71 @@
+{% extends "BprsStyleBundle::base.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/bprsstyle/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/bprsstyle/css/custom.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block header %}
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{{ name|default('') }}</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                {% block nav_head%}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block messages %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="container">
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                {{ flashMessage|trans }}
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="container">
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                {{ flashMessage|trans }}
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for flashMessage in app.session.flashbag.get('warning') %}
+        <div class="container">
+            <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                {{ flashMessage|trans }}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        {% block body_main %}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="navbar-fixed-bottom footer">
+        <div class="container">
+            <p class="text-muted">{{ version|default('') }}</p>
+        </div>
+    </div>
+{% endblock %}
