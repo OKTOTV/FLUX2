@@ -4,8 +4,22 @@
     <h1>Episode creation</h1>
 
     {{ form_start(form) }}
-        {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.posterframe, 'adapter': 'gallery', 'hidePrevious': true, 'uploadID':'posterframe_id'} %}
-        {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.video, 'adapter': 'video', 'hidePrevious': true, 'uploadID':'video_id'} %}
+        {% include "BprsAssetBundle::singleUpload.html.twig"
+            with {
+                'widget': form.posterframe,
+                'adapter': 'gallery',
+                'hidePrevious': true,
+                'uploadID':'posterframe_id'
+            }
+        %}
+        {% include "BprsAssetBundle::singleUpload.html.twig"
+            with {
+                'widget': form.video,
+                'adapter': 'video',
+                'hidePrevious': true,
+                'uploadID':'video_id'
+            }
+        %}
     {{ form_end(form) }}
 
         <ul class="record_actions">

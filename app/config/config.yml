@@ -122,5 +122,5 @@ oneup_uploader:
             frontend: blueimp
             storage:
                 type: gaufrette
-                filesystem: gaufrette.gallery_filesystem
+                filesystem: gaufrette.video_filesystem
                 stream_wrapper: gaufrette://video/
