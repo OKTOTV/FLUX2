@@ -23,11 +23,9 @@ class Asset extends BaseAsset
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="episode", type="string", length=255)
-     */
-    private $episode;
+    * @ORM\Column(name="name", type="string", length=1024)
+    */
+    private $name;
 
 
     /**
@@ -41,25 +39,25 @@ class Asset extends BaseAsset
     }
 
     /**
-     * Set episode
+     * Set name
      *
-     * @param string $episode
+     * @param string $name
      * @return Asset
      */
-    public function setEpisode($episode)
+    public function setName($name)
     {
-        $this->episode = $episode;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get episode
+     * Get name
      *
      * @return string
      */
-    public function getEpisode()
+    public function getName()
     {
-        return $this->episode;
+        return $this->name;
     }
 }

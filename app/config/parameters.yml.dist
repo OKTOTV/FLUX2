@@ -24,3 +24,4 @@ parameters:
     bprs_user.mailadress: bot@host.com
     bprs_user.name: MAILBOT
     xsendfile: true
+    bprs_asset.junksize: 200000

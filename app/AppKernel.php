@@ -17,6 +17,9 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Bprs\StyleBundle\BprsStyleBundle(),
+            new Bprs\AssetBundle\BprsAssetBundle(),
+            new Oneup\UploaderBundle\OneupUploaderBundle(),
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Oktolab\MediaBundle\OktolabMediaBundle(),
             new AppBundle\AppBundle(),
         );

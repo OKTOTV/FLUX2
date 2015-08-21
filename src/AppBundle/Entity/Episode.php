@@ -35,6 +35,7 @@ class Episode extends BaseEpisode
      */
     public function __construct()
     {
+        parent::__construct();
         $this->pins = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -87,7 +88,7 @@ class Episode extends BaseEpisode
     /**
      * Get posterframe
      *
-     * @return \AppBundle\Entity\Asset 
+     * @return \AppBundle\Entity\Asset
      */
     public function getPosterframe()
     {
@@ -110,7 +111,7 @@ class Episode extends BaseEpisode
     /**
      * Get video
      *
-     * @return \AppBundle\Entity\Asset 
+     * @return \AppBundle\Entity\Asset
      */
     public function getVideo()
     {

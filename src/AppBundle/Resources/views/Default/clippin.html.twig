@@ -1,5 +1,7 @@
-<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 pin clip-pin">
-    <img src="{{ pin.image|thumb(120,60) }}"/>
-    <h1>{{ pin.title }}</h1>
-    <p>{{ pin.description }}</p>
+<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 pin">
+    <div class="clip-pin">
+        <img src="{{ pin.episode.posterframe|thumb(270,480) }}" class="img-responsive "/>
+        <h1>{{ pin.title }}</h1>
+        <p>{{ pin.description }}</p>
+    </div>
 </div>

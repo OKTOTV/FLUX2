@@ -17,4 +17,16 @@ class DefaultController extends Controller
     {
         return array();
     }
+
+    /**
+    * @Route("/slider", name="slider")
+    * @Template()
+    */
+    public function sliderAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $episodePins = $em->getRepository('AppBundle:EpisodePin')->findBy(array(), array('onlineAt' => 'ASC'), 5, 0);
+
+        return array('slides' => $episodePins);
+    }
 }

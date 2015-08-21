@@ -5,13 +5,14 @@
 {% endblock %}
 {% block body %}
     {# top slider, search and channels #}
-    <div class="container-fluid">
-
+    <div>
+        {{ render(controller('AppBundle:Default:slider')) }}
     </div>
     {# top slider, search and channels END #}
     {# rest of the page #}
     <div class="container">
-        
+        {# render newest episodes #}
+        {{ render(controller('AppBundle:EpisodePin:episodePinStack')) }}
     </div>
     {# rest of the page END #}
 {% endblock %}

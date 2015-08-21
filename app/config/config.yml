@@ -30,6 +30,13 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        name:         "FLUX2"
+        version:      "Alpha"
+        junksize:     "%bprs_asset.junksize%"
+    form:
+        resources:
+            - 'BprsStyleBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -73,3 +80,47 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+bprs_asset:
+    class:  "AppBundle\Entity\Asset"
+    adapters:
+        gallery:
+            url:  "http://localhost/FLUX2/web/uploads/posterframes"
+            path: "/opt/local/apache2/htdocs/FLUX2/web/uploads/posterframes"
+        video:
+            url:  "http://localhost/FLUX2/web/uploads/videos"
+            path: "/opt/local/apache2/htdocs/FLUX2/web/uploads/videos"
+
+knp_gaufrette:
+    adapters:
+        posterframe:
+            local:
+                directory: %kernel.root_dir%/../web/uploads/posterframes
+                create: true
+        video:
+            local:
+                directory: %kernel.root_dir%/../web/uploads/videos
+                create: true
+
+    filesystems:
+        gallery:
+            adapter: posterframe
+        video:
+            adapter: video
+
+    stream_wrapper: ~
+
+oneup_uploader:
+    mappings:
+        gallery:
+            frontend: blueimp
+            storage:
+                type: gaufrette
+                filesystem: gaufrette.gallery_filesystem
+                sync_buffer_size: 100M
+        video:
+            frontend: blueimp
+            storage:
+                type: gaufrette
+                filesystem: gaufrette.gallery_filesystem
+                stream_wrapper: gaufrette://video/

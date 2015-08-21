@@ -3,6 +3,7 @@
 {% block stylesheets %}
     <link href="{{ asset('bundles/bprsstyle/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('bundles/bprsstyle/css/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/custom.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block header %}
@@ -63,7 +64,7 @@
 {% endblock %}
 
 {% block footer %}
-    <div class="navbar-fixed-bottom footer">
+    <div class="navbar-bottom footer">
         <div class="container">
             <p class="text-muted">{{ version|default('') }}</p>
         </div>

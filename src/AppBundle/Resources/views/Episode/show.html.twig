@@ -1,7 +1,7 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
 {% block body -%}
-    <h1>ClipPin</h1>
+    <h1>Episode</h1>
 
     <table class="record_properties">
         <tbody>
@@ -14,12 +14,12 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('episodepin') }}">
+        <a href="{{ path('episode') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('episodepin_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('episode_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

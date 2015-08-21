@@ -1,7 +1,7 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
 {% block body -%}
-    <h1>Pin list</h1>
+    <h1>Episode list</h1>
 
     <table class="records_list">
         <thead>
@@ -13,14 +13,14 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('episodepin_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('episode_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('episodepin_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('episode_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('episodepin_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('episode_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -31,7 +31,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('episodepin_new') }}">
+            <a href="{{ path('episode_new') }}">
                 Create a new entry
             </a>
         </li>

@@ -7,44 +7,44 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use AppBundle\Entity\EpisodePin;
-use AppBundle\Form\EpisodePinType;
+use AppBundle\Entity\Episode;
+use AppBundle\Form\EpisodeType;
 
 /**
- * EpisodePin controller.
+ * Episode controller.
  *
- * @Route("/episodepin")
+ * @Route("/episode")
  */
-class EpisodePinController extends Controller
+class EpisodeController extends Controller
 {
 
     /**
-     * Lists all EpisodePin entities.
+     * Lists all Episode entities.
      *
-     * @Route("/", name="episodepin")
+     * @Route("/", name="episode")
      * @Method("GET")
      * @Template()
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('AppBundle:EpisodePin')->findAll();
+        $entities = $em->getRepository('AppBundle:Episode')->findAll();
 
         return array(
             'entities' => $entities,
         );
     }
+
     /**
-     * Creates a new EpisodePin entity.
+     * Creates a new Episode entity.
      *
-     * @Route("/", name="episodepin_create")
+     * @Route("/", name="episode_create")
      * @Method("POST")
-     * @Template("AppBundle:EpisodePin:new.html.twig")
+     * @Template("AppBundle:Episode:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new EpisodePin();
+        $entity = new Episode();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -53,7 +53,7 @@ class EpisodePinController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('episodepin_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('episode_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -63,16 +63,16 @@ class EpisodePinController extends Controller
     }
 
     /**
-     * Creates a form to create a EpisodePin entity.
+     * Creates a form to create a Episode entity.
      *
-     * @param EpisodePin $entity The entity
+     * @param Episode $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(EpisodePin $entity)
+    private function createCreateForm(Episode $entity)
     {
-        $form = $this->createForm(new EpisodePinType(), $entity, array(
-            'action' => $this->generateUrl('episodepin_create'),
+        $form = $this->createForm(new EpisodeType(), $entity, array(
+            'action' => $this->generateUrl('episode_create'),
             'method' => 'POST',
         ));
 
@@ -82,15 +82,15 @@ class EpisodePinController extends Controller
     }
 
     /**
-     * Displays a form to create a new EpisodePin entity.
+     * Displays a form to create a new Episode entity.
      *
-     * @Route("/new", name="episodepin_new")
+     * @Route("/new", name="episode_new")
      * @Method("GET")
      * @Template()
      */
     public function newAction()
     {
-        $entity = new EpisodePin();
+        $entity = new Episode();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -100,9 +100,9 @@ class EpisodePinController extends Controller
     }
 
     /**
-     * Finds and displays a EpisodePin entity.
+     * Finds and displays a Episode entity.
      *
-     * @Route("/{id}", name="episodepin_show")
+     * @Route("/{id}", name="episode_show")
      * @Method("GET")
      * @Template()
      */
@@ -110,10 +110,10 @@ class EpisodePinController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:EpisodePin')->find($id);
+        $entity = $em->getRepository('AppBundle:Episode')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EpisodePin entity.');
+            throw $this->createNotFoundException('Unable to find Episode entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -125,9 +125,9 @@ class EpisodePinController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing EpisodePin entity.
+     * Displays a form to edit an existing Episode entity.
      *
-     * @Route("/{id}/edit", name="episodepin_edit")
+     * @Route("/{id}/edit", name="episode_edit")
      * @Method("GET")
      * @Template()
      */
@@ -135,10 +135,10 @@ class EpisodePinController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:EpisodePin')->find($id);
+        $entity = $em->getRepository('AppBundle:Episode')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EpisodePin entity.');
+            throw $this->createNotFoundException('Unable to find Episode entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -152,16 +152,16 @@ class EpisodePinController extends Controller
     }
 
     /**
-    * Creates a form to edit a EpisodePin entity.
+    * Creates a form to edit a Episode entity.
     *
-    * @param EpisodePin $entity The entity
+    * @param Episode $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(EpisodePin $entity)
+    private function createEditForm(Episode $entity)
     {
-        $form = $this->createForm(new EpisodePinType(), $entity, array(
-            'action' => $this->generateUrl('episodepin_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new EpisodeType(), $entity, array(
+            'action' => $this->generateUrl('episode_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -170,20 +170,20 @@ class EpisodePinController extends Controller
         return $form;
     }
     /**
-     * Edits an existing EpisodePin entity.
+     * Edits an existing Episode entity.
      *
-     * @Route("/{id}", name="episodepin_update")
+     * @Route("/{id}", name="episode_update")
      * @Method("PUT")
-     * @Template("AppBundle:EpisodePin:edit.html.twig")
+     * @Template("AppBundle:Episode:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:EpisodePin')->find($id);
+        $entity = $em->getRepository('AppBundle:Episode')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find EpisodePin entity.');
+            throw $this->createNotFoundException('Unable to find Episode entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -193,7 +193,7 @@ class EpisodePinController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('episodepin_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('episode_edit', array('id' => $id)));
         }
 
         return array(
@@ -203,9 +203,9 @@ class EpisodePinController extends Controller
         );
     }
     /**
-     * Deletes a EpisodePin entity.
+     * Deletes a Episode entity.
      *
-     * @Route("/{id}", name="episodepin_delete")
+     * @Route("/{id}", name="episode_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -215,21 +215,21 @@ class EpisodePinController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AppBundle:EpisodePin')->find($id);
+            $entity = $em->getRepository('AppBundle:Episode')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find EpisodePin entity.');
+                throw $this->createNotFoundException('Unable to find Episode entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('episodepin'));
+        return $this->redirect($this->generateUrl('episode'));
     }
 
     /**
-     * Creates a form to delete a EpisodePin entity by id.
+     * Creates a form to delete a Episode entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -238,22 +238,10 @@ class EpisodePinController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('episodepin_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('episode_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
-    }
-
-    /**
-    * @Route("/episodePinStack", name="episodepin_stack")
-    * @Template("AppBundle:Default:clipstack.html.twig")
-    */
-    public function episodePinStackAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $episodePins = $em->getRepository('AppBundle:EpisodePin')->findBy(array(), array('onlineAt' => 'ASC'), 5, 0);
-
-        return array('pins' => $episodePins);
     }
 }
