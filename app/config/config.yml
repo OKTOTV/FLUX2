@@ -72,6 +72,8 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        resolve_target_entities:
+            Bprs\AssetBundle\Entity\AssetInterface: AppBundle\Entity\Asset
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -80,6 +82,24 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+oktolab_media:
+    episode_class: "AppBundle\Entity\Episode"
+    series_class: "AppBundle\Entity\Series"
+
+jms_serializer:
+    metadata:
+            directories:
+                OKTOLAB:
+                    namespace_prefix: "Oktolab\MediaBundle"
+                    path: "@AppBundle/Resources/serializer/OKTOLAB"
+                APPBUNDLE:
+                    namespace_prefix: "AppBundle"
+                    path: "@AppBundle\Resources/serializer/APPBUNDLE"
+
+bprs_command_line:
+    php_path: %php_path%
+    worker_queue: %worker_queue%
 
 bprs_asset:
     class:  "AppBundle\Entity\Asset"

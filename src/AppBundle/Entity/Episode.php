@@ -14,21 +14,14 @@ use AppBundle\Entity\EpisodePin;
 class Episode extends BaseEpisode
 {
     /**
-    * @ORM\OneToMany(targetEntity="EpisodePin", mappedBy="episode")
+    * @ORM\OneToMany(targetEntity="EpisodePin", mappedBy="episode", cascade={"remove"})
     */
     private $pins;
 
     /**
-    * @ORM\OneToOne(targetEntity="Asset")
-    * @ORM\JoinColumn(name="posterframe_id", referencedColumnName="id")
+    * @ORM\ManyToOne(targetEntity="Series", inversedBy="episodes", cascade={"persist"})
     */
-    private $posterframe;
-
-    /**
-    * @ORM\OneToOne(targetEntity="Asset")
-    * @ORM\JoinColumn(name="video_id", referencedColumnName="id")
-    */
-    private $video;
+    private $series;
 
     /**
      * Constructor
@@ -73,48 +66,24 @@ class Episode extends BaseEpisode
     }
 
     /**
-     * Set posterframe
+     * Set series
      *
-     * @param \AppBundle\Entity\Asset $posterframe
+     * @param \Oktolab\MediaBundle\Entity\Series $series
      * @return Episode
      */
-    public function setPosterframe(\AppBundle\Entity\Asset $posterframe = null)
+    public function setSeries($series = null)
     {
-        $this->posterframe = $posterframe;
-
+        $this->series = $series;
         return $this;
     }
 
     /**
-     * Get posterframe
+     * Get series
      *
-     * @return \AppBundle\Entity\Asset
+     * @return \Oktolab\MediaBundle\Entity\Series
      */
-    public function getPosterframe()
+    public function getSeries()
     {
-        return $this->posterframe;
-    }
-
-    /**
-     * Set video
-     *
-     * @param \AppBundle\Entity\Asset $video
-     * @return Episode
-     */
-    public function setVideo(\AppBundle\Entity\Asset $video = null)
-    {
-        $this->video = $video;
-
-        return $this;
-    }
-
-    /**
-     * Get video
-     *
-     * @return \AppBundle\Entity\Asset
-     */
-    public function getVideo()
-    {
-        return $this->video;
+        return $this->series;
     }
 }

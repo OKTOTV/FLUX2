@@ -1,0 +1,16 @@
+Oktolab\MediaBundle\Entity\Episode:
+    exclusion_policy: ALL
+    access_type: public_method
+    properties:
+        id:
+            expose: false
+            read_only: true
+            exclude: true
+        uniqID:
+            serialized_name: uniqID
+        name:
+            expose: true
+        description:
+            expose: true
+        createdAt:
+            expose: true

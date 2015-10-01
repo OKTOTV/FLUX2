@@ -1,0 +1,10 @@
+AppBundle\Entity\Episode:
+    exclusion_policy: ALL
+    access_type: public_method
+    properties:
+        name:
+            expose: true
+        series:
+            expose: true
+            type: AppBundle\Entity\Series
+            max_depth: 2

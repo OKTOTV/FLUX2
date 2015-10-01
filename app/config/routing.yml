@@ -5,3 +5,8 @@ app:
 oneup_uploader:
     resource: .
     type: uploader
+
+oktolab_media:
+    resource: "@OktolabMediaBundle/Controller/"
+    type:     annotation
+    prefix:   /

@@ -4,14 +4,14 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Bprs\AssetBundle\Entity\Asset as BaseAsset;
-
+use Bprs\AssetBundle\Entity\AssetInterface;
 /**
  * Asset
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Asset extends BaseAsset
+class Asset extends BaseAsset implements AssetInterface
 {
     /**
      * @var integer
