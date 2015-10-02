@@ -1,6 +1,15 @@
+homepage:
+    path:      /{_locale}
+    defaults:  { _controller: AppBundle:Default:index, _locale: de }
+    requirements:
+        _locale:  de|en
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+    prefix: /{_locale}
+    requirements:
+        _locale: de|en
 
 oneup_uploader:
     resource: .

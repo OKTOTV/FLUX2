@@ -4,5 +4,5 @@ AppBundle\Entity\Series:
     properties:
         episodes:
             expose: true
-            type: AppBundle\Entity\Episode
+            type: ArrayCollection<AppBundle\Entity\Episode>
             max_depth: 2

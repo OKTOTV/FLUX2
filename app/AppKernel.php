@@ -25,7 +25,8 @@ class AppKernel extends Kernel
             new Bprs\CommandLineBundle\BprsCommandLineBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(),
-            new Bprs\AppLinkBundle\BprsAppLinkBundle()
+            new Bprs\AppLinkBundle\BprsAppLinkBundle(),
+            new Bprs\UserBundle\BprsUserBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

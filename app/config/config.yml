@@ -83,6 +83,13 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+bprs_user:
+    class: "AppBundle\Entity\User"
+    mail:
+        commandline_host: %bprs_user.host%
+        adress:           %bprs_user.mailadress%
+        name:             %bprs_user.name%
+
 oktolab_media:
     episode_class: "AppBundle\Entity\Episode"
     series_class: "AppBundle\Entity\Series"

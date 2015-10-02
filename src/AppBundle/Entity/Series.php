@@ -57,7 +57,7 @@ class Series extends BaseSeries
         return $this->episodes;
     }
 
-    public function setEpisodes($episodes = null)
+    public function setEpisodes($episodes)
     {
         $this->episodes = $episodes;
         return $this;
