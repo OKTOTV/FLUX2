@@ -92,7 +92,7 @@ jms_serializer:
             directories:
                 OKTOLAB:
                     namespace_prefix: "Oktolab\MediaBundle"
-                    path: "@AppBundle/Resources/serializer/OKTOLAB"
+                    path: "@OktolabMediaBundle/Resources/serializer/OKTOLAB"
                 APPBUNDLE:
                     namespace_prefix: "AppBundle"
                     path: "@AppBundle\Resources/serializer/APPBUNDLE"
