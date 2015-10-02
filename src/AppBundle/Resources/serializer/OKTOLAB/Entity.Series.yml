@@ -17,3 +17,6 @@ Oktolab\MediaBundle\Entity\Series:
         updatedAt:
             expose: true
             type: DateTime
+        isActive:
+            expose: true
+            type: boolean
