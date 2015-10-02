@@ -20,3 +20,6 @@ Oktolab\MediaBundle\Entity\Series:
         isActive:
             expose: true
             type: boolean
+        webtitle:
+            expose: true
+            type: string

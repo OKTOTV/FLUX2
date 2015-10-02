@@ -2,8 +2,6 @@ AppBundle\Entity\Series:
     exclusion_policy: ALL
     access_type: public_method
     properties:
-        name:
-            expose: true
         episodes:
             expose: true
             type: AppBundle\Entity\Episode

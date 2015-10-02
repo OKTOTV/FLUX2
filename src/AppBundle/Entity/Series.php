@@ -22,7 +22,7 @@ class Series extends BaseSeries
 
     public function __construct() {
         parent::__construct();
-        $this->episodes = new ArrayCollection();
+        $this->episodes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
