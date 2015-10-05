@@ -16,7 +16,7 @@
     </ul>
         {# example for an login area #}
          <ul class="nav navbar-nav navbar-right">
-            <li {% if selected == "selected_5" %}class="active"{% endif %}><a href="#">HOCHLADEN</a></li>
+            <li {% if selected == "selected_5" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank">HOCHLADEN</a></li>
         {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
             <li {% if dropdown == "dropdown_1" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
@@ -36,13 +36,13 @@
             </li>
             <li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span></a><li>
         {% else %}
-            <li {% if selected == "selected_9" %}class="active"{% endif %}><a href="#">LOGIN</a></li>
+            <li {% if selected == "login" %}class="active"{% endif %}><a href="{{ path('bprs_user_login') }}">LOGIN</a></li>
         {% endif %}
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> SPRACHEN</a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Deutsch</a></li>
-                    <li><a href="#">English</a></li>
+                    <li><a href="{{ path('homepage', {'_locale': 'de'}) }}">Deutsch</a></li>
+                    <li><a href="{{ path('homepage', {'_locale': 'en'}) }}">English</a></li>
                     <li></li>
                 </ul>
             </li>

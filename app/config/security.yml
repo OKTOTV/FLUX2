@@ -36,13 +36,14 @@ security:
             form_login:
                 login_path: bprs_user_login
                 check_path: bprs_user_login_check
-                default_target_path: intake_backend
+                default_target_path: homepage
                 csrf_provider: form.csrf_provider
                 default_target_path: /de
             logout:
                 path: bprs_user_logout
                 target: /de
             anonymous: ~
+            provider: database
 
     access_control:
         - { path: /backend, roles: ROLE_USER }

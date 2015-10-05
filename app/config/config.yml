@@ -34,6 +34,7 @@ twig:
         name:         "FLUX2"
         version:      "Alpha"
         junksize:     "%bprs_asset.junksize%"
+        intake_url:   "http://intake.okto.tv"
     form:
         resources:
             - 'BprsStyleBundle:Form:fields.html.twig'
