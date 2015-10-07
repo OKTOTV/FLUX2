@@ -1,0 +1,15 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body %}
+<div class="page-header">
+    <h1>{{ 'flux2.backend_header'}}</h1>
+</div>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Sendereihen</a></li>
+  <li role="presentation"><a href="#">Schlüsselkasten</a></li>
+</ul>
+{% endblock %}

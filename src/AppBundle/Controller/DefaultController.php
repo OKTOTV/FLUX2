@@ -13,7 +13,37 @@ class DefaultController extends Controller
      * @Route("/", name="homepage")
      * @Template()
      */
-    public function indexAction()
+    public function oktothekAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $episodes = $em->getRepository('AppBundle:Episode')->findBy(array(), array('createdAt' => 'ASC'), 4);
+        $newest_episodes = $em->getRepository('AppBundle:Episode')->findNewestEpisodes(4);
+        return array('episodes' => $episodes, 'newest_episodes' => $newest_episodes);
+    }
+
+    /**
+     * @Route("/tv", name="tv")
+     * @Template
+     */
+    public function tvAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/participate", name="participate")
+     * @Template
+     */
+    public function participateAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/news", name="news")
+     * @Template
+     */
+    public function newsAction()
     {
         return array();
     }

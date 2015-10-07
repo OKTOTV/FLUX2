@@ -9,15 +9,10 @@ use AppBundle\Entity\EpisodePin;
  * Episode
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\EpisodeRepository")
  */
 class Episode extends BaseEpisode
 {
-    /**
-    * @ORM\OneToMany(targetEntity="EpisodePin", mappedBy="episode", cascade={"remove"})
-    */
-    private $pins;
-
     /**
     * @ORM\ManyToOne(targetEntity="Series", inversedBy="episodes", cascade={"persist"})
     */
@@ -30,39 +25,6 @@ class Episode extends BaseEpisode
     {
         parent::__construct();
         $this->pins = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add pins
-     *
-     * @param \AppBundle\Entity\EpisodePin $pins
-     * @return Episode
-     */
-    public function addPin(EpisodePin $pins)
-    {
-        $this->pins[] = $pins;
-
-        return $this;
-    }
-
-    /**
-     * Remove pins
-     *
-     * @param \AppBundle\Entity\EpisodePin $pins
-     */
-    public function removePin(EpisodePin $pins)
-    {
-        $this->pins->removeElement($pins);
-    }
-
-    /**
-     * Get pins
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPins()
-    {
-        return $this->pins;
     }
 
     /**

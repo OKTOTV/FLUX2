@@ -1,4 +1,4 @@
-.pin {
+/*.pin {
     border-style: dashed;
     border-color: gray;
     border-width: 2px;
@@ -40,9 +40,17 @@ body {
     color: white;
     /*text-shadow: 1px 2px black;*/
 }
-
+/*
 .navbar-inverse .navbar-nav > li > a:hover {
     background-color: #707070;
+}
+
+.active {
+    text-decoration: underline;
+}*/
+
+.carousel img {
+    min-width: 100%;
 }
 
 .footer {

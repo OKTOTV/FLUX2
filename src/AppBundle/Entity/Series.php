@@ -17,6 +17,7 @@ class Series extends BaseSeries
     /**
     *
     * @ORM\OneToMany(targetEntity="Episode", mappedBy="series")
+    * @ORM\OrderBy({"onlineStart" = "DESC"})
     */
     private $episodes;
 

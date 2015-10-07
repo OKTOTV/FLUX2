@@ -1,6 +1,8 @@
 <div class="item {% if loop.index0 == 0 %}active{% endif %}">
-    <img src="{{ slide.episode.posterframe|path}}" alt="{{ slide.episode.name }}">
-    <div class="carousel-caption">
-        {{ slide.episode.name }}
-    </div>
+    <a href="{{ path('oktothek_show_episode', {'uniqID': slide.uniqID}) }}">
+        <img src="{{ slide.posterframe|path}}" alt="{{ slide.name }}" style="width:100%">
+        <div class="carousel-caption">
+            {{ slide.name }}
+        </div>
+    </a>
 </div>
