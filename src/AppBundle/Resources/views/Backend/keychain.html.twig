@@ -1,0 +1,20 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body %}
+<div class="page-header">
+    <h1>{{ 'flux2.backend_header'}}</h1>
+</div>
+
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="#">Sendereihen</a></li>
+  <li role="presentation" class="active"><a href="#">Schlüsselkasten</a></li>
+</ul>
+
+<div class="list-group">
+    <a href="{{ path('oktolab_media_list_keychains') }}" role="list-group-item" class="list-group-item">{{ 'oktolab_media.keychain'|trans }}</a>
+    <a href="#" role="list-group-item disabled" class="list-group-item">{{ 'bprs_user.keychain'|trans }}</a>
+</div>
+{% endblock %}

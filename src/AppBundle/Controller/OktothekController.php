@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\Series;
+use AppBundle\Entity\Playlist;
 
 /**
  * Episode controller.
@@ -35,6 +36,15 @@ class OktothekController extends Controller
     public function showSeriesAction(Series $series)
     {
         return array('series' => $series);
+    }
+
+    /**
+    * @Route("/playlist/{uniqID}", name="oktothek_show_playlist")
+    * @Template
+    */
+    public function showPlaylistAction(Playlist $playlist)
+    {
+        return array('playlist' => $playlist);
     }
 }
  ?>

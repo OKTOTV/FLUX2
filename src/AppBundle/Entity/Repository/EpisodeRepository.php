@@ -1,7 +1,8 @@
 <?php
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\Episode;
 
 class EpisodeRepository extends EntityRepository
 {

@@ -18,7 +18,13 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $episodes = $em->getRepository('AppBundle:Episode')->findBy(array(), array('createdAt' => 'ASC'), 4);
         $newest_episodes = $em->getRepository('AppBundle:Episode')->findNewestEpisodes(4);
-        return array('episodes' => $episodes, 'newest_episodes' => $newest_episodes);
+        $newest_playlists = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists(4);
+
+        return array(
+            'episodes' => $episodes,
+            'newest_episodes' => $newest_episodes,
+            'newest_playlists' => $newest_playlists
+        );
     }
 
     /**

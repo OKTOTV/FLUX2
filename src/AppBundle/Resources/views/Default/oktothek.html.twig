@@ -20,8 +20,12 @@
 
         {# render favorites #}
 
-        {# render favourite playlists #}
-
+        {# render newest playlists #}
+        <div class="newest-playlists">
+            <h1>{{ 'oktothek.newest_playlists'|trans }}</h1>
+            {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': newest_playlists} %}
+            <a href="#" class="pull-right">{{ 'oktothek.newest_playlists.show_more'|trans}}</a>
+        </div>
         {# render news pins #}
     </div>
     {# rest of the page END #}

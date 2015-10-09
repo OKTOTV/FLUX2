@@ -4,6 +4,7 @@
         <img src="{{ episode.posterframe|thumb(135,240) }}" class="img-responsive"/>
             <h2>{{ episode.series.name }}</h2>
             <p>{{ episode.name }}</p>
+            <p><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</p>
         </div>
     </a>
 </div>

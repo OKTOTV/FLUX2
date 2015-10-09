@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EpisodePinType extends AbstractType
+class PlaylistType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,10 +15,9 @@ class EpisodePinType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('episode', 'entity', array('class' => 'AppBundle:Episode', 'choice_label' => 'name'))//, array('class' => 'AppBundle\Entity\Asset'))
-            ->add('title')//, array('class' => 'AppBundle\Entity\Asset'))
+            ->add('name')
             ->add('description')
-            ->add('onlineAt', 'datetime')
+            ->add('items')
         ;
     }
 
@@ -28,7 +27,7 @@ class EpisodePinType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\EpisodePin'
+            'data_class' => 'AppBundle\Entity\Playlist'
         ));
     }
 
@@ -37,6 +36,6 @@ class EpisodePinType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_episodepin';
+        return 'appbundle_playlist';
     }
 }

@@ -7,6 +7,9 @@
 
     <div class="episode">
         <div id="player">
+            {% if episode.video is empty %}
+                <img src="{{ episode.posterframe|path }}" />
+            {% endif %}
         </div>
         <div class="series">
             <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}">{{ episode.series.name }}</a>
@@ -19,6 +22,9 @@
         </div>
         <div class="description">
             {{ episode.description }}
+        </div>
+        <div class="misc">
+            <a href="#" id="favorite" data-uniqID="{{episode.uniqID}}"><span class="glyphicon glyphicon-heart-empty"></span> {{ episode.users|length}}</a>
         </div>
     </div>
 
@@ -43,5 +49,18 @@
     {% endif %}
     <script type="text/javascript">
         $('[data-toggle="tooltip"]').tooltip({'placement': 'auto top'});
+        $('#favorite').click(function(e){
+            e.preventDefault();
+            // console.log('clicked favorite');
+            $.ajax({
+                url: "{{ path('backend_add_favourite') }}",
+                data: { 'uniqID': '{{ episode.uniqID }}', 'type': 'episode'},
+                type: 'POST',
+                success: function(data) {
+                    // console.log('success');
+                    $(this)
+                }
+            })
+        });
     </script>
 {% endblock %}

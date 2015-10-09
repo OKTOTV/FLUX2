@@ -9,7 +9,7 @@ use AppBundle\Entity\EpisodePin;
  * Episode
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\EpisodeRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\EpisodeRepository")
  */
 class Episode extends BaseEpisode
 {
@@ -19,12 +19,17 @@ class Episode extends BaseEpisode
     private $series;
 
     /**
+    * @ORM\ManyToMany(targetEntity="User", mappedBy="favorites")
+    */
+    private $users;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         parent::__construct();
-        $this->pins = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -47,5 +52,38 @@ class Episode extends BaseEpisode
     public function getSeries()
     {
         return $this->series;
+    }
+
+    /**
+     * Add users
+     *
+     * @param \AppBundle\Entity\User $users
+     * @return Episode
+     */
+    public function addUser(\AppBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \AppBundle\Entity\User $users
+     */
+    public function removeUser(\AppBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

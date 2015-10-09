@@ -11,4 +11,115 @@ use Bprs\UserBundle\Entity\User as BaseUser;
  */
 class User extends BaseUser
 {
+
+    /**
+    * @ORM\OneToMany(targetEntity="Playlist", mappedBy="user")
+    */
+    private $playlists;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Episode", inversedBy="users")
+     * @ORM\JoinTable(name="users_favorites")
+     */
+    private $favorites;
+
+    /**
+    * @ORM\Column(name="uniqID", type="string", length=13)
+    */
+    private $uniqID;
+
+    public function __construct() {
+        parent::__construct();
+        $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->playlists = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add playlists
+     *
+     * @param \AppBundle\Entity\Playlist $playlists
+     * @return User
+     */
+    public function addPlaylist(\AppBundle\Entity\Playlist $playlists)
+    {
+        $this->playlists[] = $playlists;
+
+        return $this;
+    }
+
+    /**
+     * Remove playlists
+     *
+     * @param \AppBundle\Entity\Playlist $playlists
+     */
+    public function removePlaylist(\AppBundle\Entity\Playlist $playlists)
+    {
+        $this->playlists->removeElement($playlists);
+    }
+
+    /**
+     * Get playlists
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlaylists()
+    {
+        return $this->playlists;
+    }
+
+    /**
+     * Set uniqID
+     *
+     * @param string $uniqID
+     * @return User
+     */
+    public function setUniqID($uniqID)
+    {
+        $this->uniqID = $uniqID;
+
+        return $this;
+    }
+
+    /**
+     * Get uniqID
+     *
+     * @return string
+     */
+    public function getUniqID()
+    {
+        return $this->uniqID;
+    }
+
+    /**
+     * Add favorites
+     *
+     * @param \AppBundle\Entity\Episode $favorites
+     * @return User
+     */
+    public function addFavorite(\AppBundle\Entity\Episode $favorites)
+    {
+        $this->favorites[] = $favorites;
+
+        return $this;
+    }
+
+    /**
+     * Remove favorites
+     *
+     * @param \AppBundle\Entity\Episode $favorites
+     */
+    public function removeFavorite(\AppBundle\Entity\Episode $favorites)
+    {
+        $this->favorites->removeElement($favorites);
+    }
+
+    /**
+     * Get favorites
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFavorites()
+    {
+        return $this->favorites;
+    }
 }
