@@ -8,7 +8,7 @@
     <div class="episode">
         <div id="player">
             {% if episode.video is empty %}
-                <img src="{{ episode.posterframe|path }}" />
+                <img src="{{ episode.posterframe|path }}" class="img-responsive" />
             {% endif %}
         </div>
         <div class="series">

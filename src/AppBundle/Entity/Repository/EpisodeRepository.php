@@ -27,5 +27,15 @@ class EpisodeRepository extends EntityRepository
             ->setMaxResults($numberEpisodes)
             ->getResult();
     }
+
+    public function findTopEpisodes($numberEpisodes)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT e FROM AppBundle:Episode e WHERE e.isActive = 1 ORDER BY e.onlineStart ASC'
+            )
+            ->setMaxResults($numberEpisodes)
+            ->getResult();
+    }
 }
 ?>
