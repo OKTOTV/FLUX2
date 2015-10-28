@@ -94,6 +94,7 @@ bprs_user:
 oktolab_media:
     episode_class: "AppBundle\Entity\Episode"
     series_class: "AppBundle\Entity\Series"
+    asset_class: "AppBundle\Entity\Asset"
 
 jms_serializer:
     metadata:
