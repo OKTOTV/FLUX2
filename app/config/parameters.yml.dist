@@ -27,3 +27,4 @@ parameters:
     bprs_asset.junksize: 200000
     php_path: "/path/to/php"
     worker_queue: "flux2"
+    redis_backend: 'localhost:6379'

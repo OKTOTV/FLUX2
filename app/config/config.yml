@@ -109,6 +109,7 @@ jms_serializer:
 bprs_command_line:
     php_path: %php_path%
     worker_queue: %worker_queue%
+    redis_backend: "%redis_backend%"
 
 bprs_asset:
     class:  "AppBundle\Entity\Asset"
