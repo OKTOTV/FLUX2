@@ -1,25 +1,34 @@
 /* in anderes CSS verschieben!!!*/
 body {
-    padding-top: 200px;
+    padding-top: 180px;
 }
 
 /* Fonts */
 
 /* Color */
-.navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .navbar-nav > li > a, header input.form-control {
     color: white;
+}
+header .form-control::-moz-placeholder { /* Placeholderstyles nicht möglich zu gruppieren */
+  color: #fff;
+}
+header .form-control:-ms-input-placeholder {
+  color: #fff;
+}
+header .form-control::-webkit-input-placeholder {
+  color: #fff;
 }
 
 /* Backgroundcolor */
-.navbar-inverse {
+.navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control {
     background-color: transparent;
 }
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer {
-    background-color: transparent;
+header .searchfield {
+	background-color:#757575;
 }
 
 /* Border */
-.navbar-inverse {
+.navbar-inverse, header input.form-control, header input.form-control:focus {
     border-color: transparent;
 }
 .footer {
@@ -28,15 +37,29 @@ body {
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
 	border-bottom:solid 2px #ffffff;
 }
+header .searchfield {
+	border:solid 1px #ffffff;
+}
 
 /* Effects */
 .navbar-inverse .navbar-nav > li > a {
     /*text-shadow: 1px 2px black;*/
 }
+header input.form-control:focus {
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
 
 /* Backgroundimages */
 .navbar-brand object .brandimage {
 	background-image:url(../images/logo_okto_white_90.png);
+	background-repeat:no-repeat;
+}
+header form button[type="submit"], header form button[type="submit"].btn:active {
+	background-image:url(../images/icon_search.png);
+	background-repeat:no-repeat;
+	background-position:center center;
 }
 
 
@@ -84,36 +107,81 @@ body {
 }*/
 
 /* Header */
-.navbar .container-fluid {
+header .navbar {
+	height:180px;
+	margin-bottom:0;
+}
+header .navbar-collapse {
+	height:90px;
+}
+header .navbar .container-fluid {
 	padding:0 50px;
 }
-.navbar-brand {
+header .navbar-brand {
 	display:block;
 }
-.navbar-brand, .navbar-brand object {
+header .navbar-brand, header .navbar-brand object {
+	width:90px;
+}
+header .navbar-brand object {
 	width:90px;
 	height:150px;
 }
-.navbar-brand object .brandimage span {
+header .navbar-brand object .brandimage span {
 	margin-left:-9990px;
 }
-.navbar .nav > li {
+header .navbar .nav > li {
 	padding:25px 10px;
 }
-.navbar-brand {
+header .navbar-brand {
 	padding:25px 0;
 	margin-right:40px;
+	height:200px;
 }
-.navbar .nav > li > a {
+header .navbar .nav > li > a {
 	display:inline;
 	padding:0 0 5px 0;
 	vertical-align:top;
+}
+header .navbar .navbar-form {
+	margin-top:-200px;
+	text-align:center;
+}
+header form button[type="submit"] {
+	height:34px;
+	width:54px;
+	margin-left:12px;
+}
+header .searchfield {
+	float:left;
+}
+header .search-tagnav-container .dropdown {
+	display:none;
+}
+@media (min-width: 768px) {
+	header .navbar .navbar-form {
+		margin-top:-110px;
+	}
+	header .navbar-form input.form-control {
+		width: 300px;
+	}
+	.small-tagnav { /*Tagmenü wird nur für mobiles Dropdownmenü angezeigt*/
+		display:none;
+	}
+	header .search-tagnav-container .dropdown {
+		display:block;
+		margin-left:406px;
+	}
+	header .search-tagnav-container {
+		width:526px;
+		margin:0 auto;
+	}
 }
 
 
 /* Slider */
 #slider {
-	margin-top:-200px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
+	margin-top:-180px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
 }
 .carousel img {
     min-width: 100%;

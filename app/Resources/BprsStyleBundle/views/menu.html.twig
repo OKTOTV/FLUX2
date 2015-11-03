@@ -1,57 +1,88 @@
 {# Here is an example Menu. You'll want to overwrite this in app/Resources/BprsStyleBundle/views/menu.html.twig #}
 {% block menu %}
-    <ul class="nav navbar-nav">
-        <li {% if selected == "oktothek" %}class="active"{% endif %}>
-            <a href="{{ path('homepage') }}">OKTOTHEK</a>
-        </li>
-        <li {% if selected == "tv" %}class="active"{% endif %}>
-            <a href="{{ path('tv') }}">TV</a>
-        </li>
-        <li {% if selected == "participate" %}class="active"{% endif %}>
-            <a href="{{ path('participate') }}">MITMACHEN</a>
-        </li>
-        <li {% if selected == "news" %}class="active"{% endif %}>
-            <a href="{{ path('news') }}">NEWS</a>
-        </li>
-    </ul>
+	<div class="collapse navbar-collapse" role="navigation">
+		<ul class="nav navbar-nav">
+        	<li {% if selected == "oktothek" %}class="active"{% endif %}>
+            	<a href="{{ path('homepage') }}">OKTOTHEK</a>
+        	</li>
+        	<li {% if selected == "tv" %}class="active"{% endif %}>
+            	<a href="{{ path('tv') }}">TV</a>
+       	 	</li>
+        	<li {% if selected == "participate" %}class="active"{% endif %}>
+            	<a href="{{ path('participate') }}">MITMACHEN</a>
+        	</li>
+        	<li {% if selected == "news" %}class="active"{% endif %}>
+            	<a href="{{ path('news') }}">NEWS</a>
+        	</li>
+    	</ul>
         {# example for an login area #}
-         <ul class="nav navbar-nav navbar-right">
-            <li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank">HOCHLADEN</a></li>
-        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
-            <li {% if dropdown == "dropdown_1" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
-                <ul class="dropdown-menu" role="menu">
-                    <li {% if selected == "backend" %}class="active"{% endif %}>
-                        <a href="{{ path('backend') }}">Backend</a>
-                    </li>
-                    <li {% if selected == "series" %}class="active"{% endif %}>
-                        <a href="{{ path('oktolab_series')}}">Sendereihen</a>
-                    </li>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <li {% if selected == "selected_8" %}class="active"{% endif %}>
-                            <a href="#">Schlüsselbund</a>
-                        </li>
-                    {% endif %}
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> {{'bprs_user.button.logout'|trans}}</a><li>
-                </ul>
-            </li>
-        {% else %}
-            <li {% if selected == "login" %}class="active"{% endif %}><a href="{{ path('bprs_user_login') }}"> {{ 'bprs_user.button.login'|trans }}</a></li>
-        {% endif %}
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> SPRACHEN</a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{ path('homepage', {'_locale': 'de'}) }}">Deutsch</a></li>
-                    <li><a href="{{ path('homepage', {'_locale': 'en'}) }}">English</a></li>
-                    <li></li>
-                </ul>
-            </li>
-        </ul>
-		<!--<form class="navbar-form clearfix" role="search">
-        	<div class="form-group">
-          		<input type="text" class="form-control" placeholder="Suchen">
-        	</div>
-        	<button type="submit" class="btn btn-default">Los</button>
-      	</form>-->
+        <ul class="nav navbar-nav navbar-right">
+        	<li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank">HOCHLADEN</a></li>
+        	{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+            	<li {% if dropdown == "dropdown_1" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
+                	<ul class="dropdown-menu" role="menu">
+                    	<li {% if selected == "backend" %}class="active"{% endif %}>
+                        	<a href="{{ path('backend') }}">Backend</a>
+                    	</li>
+                    	<li {% if selected == "series" %}class="active"{% endif %}>
+                        	<a href="{{ path('oktolab_series')}}">Sendereihen</a>
+                    	</li>
+                    	{% if is_granted('ROLE_ADMIN') %}
+                        	<li {% if selected == "selected_8" %}class="active"{% endif %}>
+                            	<a href="#">Schlüsselbund</a>
+                        	</li>
+                    	{% endif %}
+                    	<li role="separator" class="divider"></li>
+                    	<li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> {{'bprs_user.button.logout'|trans}}</a><li>
+                	</ul>
+            	</li>
+        	{% else %}
+            	<li {% if selected == "login" %}class="active"{% endif %}><a href="{{ path('bprs_user_login') }}"> {{ 'bprs_user.button.login'|trans }}</a></li>
+        	{% endif %}
+            	<li class="dropdown">
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> SPRACHEN</a>
+                	<ul class="dropdown-menu" role="menu">
+                    	<li><a href="{{ path('homepage', {'_locale': 'de'}) }}">Deutsch</a></li>
+                    	<li><a href="{{ path('homepage', {'_locale': 'en'}) }}">English</a></li>
+                    	<li></li>
+                	</ul>
+            	</li>
+        	</ul>
+			<ul class="nav navbar-nav small-tagnav">
+				<li>Kunst &lig; Kultur</li>
+			  	<li>Musik</li>
+			  	<li>Film</li>
+			  	<li>Oktotainment</li>
+			  	<li>Info</li>
+			  	<li>Zivilgesellschaft</li>
+			  	<li>Magazin</li>
+			  	<li>Talk</li>
+			</ul>
+		</div>
+		<div class="search-tagnav-container">
+			<form class="navbar-form" role="search">
+        		<div class="form-group searchfield">
+          			<input type="text" class="form-control" placeholder="Suche">
+					<button type="submit" class="btn"></button>
+        		</div>
+			</form>
+			<div class="dropdown" role="navigation">
+  				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    				Dropdown-Menü
+    				<span class="caret"></span>
+  				</button>
+  				<ul class="dropdown-menu" aria-labelledby="Tagsnavigation">
+			  		<li>Kunst &amp; Kultur</li>
+			  		<li>Musik</li>
+			  		<li>Film</li>
+			  		<li>Oktotainment</li>
+			  		<li>Info</li>
+			  		<li>Zivilgesellschaft</li>
+			  		<li>Magazin</li>
+			  		<li>Talk</li>
+			  	</ul>
+			</li>
+		</ul>
+	</div>
 {% endblock %}
