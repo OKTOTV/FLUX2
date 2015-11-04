@@ -1,0 +1,41 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+{% block body %}
+    {# top slider, search and channels #}
+    <div id="slider">
+        {% include 'AppBundle:Default:slider.html.twig' with {'slides': episodes } %}
+    </div>
+    {# top slider, search and channels END #}
+    {# rest of the page #}
+    <div class="container">
+        {# render newest episodes #}
+        <div class="newest-videos">
+            <h1>{{ 'oktothek.newest_videos'|trans }}</h1>
+            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes} %}
+            <a href="#" class="pull-right">{{ 'oktothek.newest_videos.show_more'|trans}}</a>
+        </div>
+
+        {# render favorites #}
+
+        {# render newest playlists #}
+        <div class="newest-playlists">
+            <h1>{{ 'oktothek.newest_playlists'|trans }}</h1>
+            {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': newest_playlists} %}
+            <a href="#" class="pull-right">{{ 'oktothek.newest_playlists.show_more'|trans}}</a>
+        </div>
+        {# render news pins #}
+    </div>
+    {# rest of the page END #}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip({'placement': 'auto top'});
+        });
+    </script>
+{% endblock %}
