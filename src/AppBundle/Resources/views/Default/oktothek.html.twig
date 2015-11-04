@@ -3,6 +3,8 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
+
+{% set body_class = "slider" %}
 {% block body %}
     {# top slider, search and channels #}
     <div id="slider">
