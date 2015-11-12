@@ -4,7 +4,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "slider" %}
+{% set body_class = "slider white-color" %}
 {% block body %}
     {# top slider, search and channels #}
     <div id="slider">
@@ -38,6 +38,22 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip({'placement': 'auto top'});
+            
+            /* Sollte in ein allgemeines JavaScriptfile verschoben werden, Anfang */
+            function addHeaderBG() {
+		      if($(document).scrollTop() == 0) {
+                  $('body').addClass('white-color');
+    		      $('body').removeClass('black-color');
+    	       } else {
+                  $('body').removeClass('white-color');
+    		      $('body').addClass('black-color');
+    	        }
+	         }
+	         addHeaderBG();
+        
+	         $(document).scroll(function(){
+		       addHeaderBG();
+              });
         });
     </script>
 {% endblock %}

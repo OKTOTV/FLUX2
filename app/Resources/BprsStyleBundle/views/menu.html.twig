@@ -1,7 +1,7 @@
 {# Here is an example Menu. You'll want to overwrite this in app/Resources/BprsStyleBundle/views/menu.html.twig #}
 {% block menu %}
 	<div class="collapse navbar-collapse" role="navigation">
-		<ul class="nav navbar-nav">
+		<ul class="nav navbar-nav mainmenu">
         	<li {% if selected == "oktothek" %}class="active"{% endif %}>
             	<a href="{{ path('homepage') }}">OKTOTHEK</a>
         	</li>
@@ -49,40 +49,42 @@
                 	</ul>
             	</li>
         	</ul>
-			<ul class="nav navbar-nav small-tagnav">
-				<li>Kunst &lig; Kultur</li>
-			  	<li>Musik</li>
-			  	<li>Film</li>
-			  	<li>Oktotainment</li>
-			  	<li>Info</li>
-			  	<li>Zivilgesellschaft</li>
-			  	<li>Magazin</li>
-			  	<li>Talk</li>
+			<ul class="nav navbar-nav visible-xs-block">
+                <li><h3>Beliebteste Themen</h3></li>
+				<li><a href="#">Kunst &amp; Kultur</a></li>
+			  	<li><a href="#">Musik</a></li>
+			  	<li><a href="#">Film</a></li>
+			  	<li><a href="#">Oktotainment</a></li>
+			  	<li><a href="#">Info</a></li>
+			  	<li><a href="#">Zivilgesellschaft</a></li>
+			  	<li><a href="#">Magazin</a></li>
+			  	<li><a href="#">Talk</a></li>
 			</ul>
 		</div>
 		<div class="search-tagnav-container">
+            <div class="search-tagnav-position">
 			<form class="navbar-form" role="search">
         		<div class="form-group searchfield">
-          			<input type="text" class="form-control" placeholder="Suche">
-					<button type="submit" class="btn"></button>
+                    <button type="submit" class="btn"></button>
+          			<div class="searchfield-container"><input type="text" class="form-control" placeholder="Suche"></div>
         		</div>
 			</form>
 			<div class="dropdown" role="navigation">
-  				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    				Dropdown-Menü
+  				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuTags" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    				Themen
     				<span class="caret"></span>
   				</button>
   				<ul class="dropdown-menu" aria-labelledby="Tagsnavigation">
-			  		<li>Kunst &amp; Kultur</li>
-			  		<li>Musik</li>
-			  		<li>Film</li>
-			  		<li>Oktotainment</li>
-			  		<li>Info</li>
-			  		<li>Zivilgesellschaft</li>
-			  		<li>Magazin</li>
-			  		<li>Talk</li>
+			  		<li><a href="#">Kunst &amp; Kultur</a></li>
+			  		<li><a href="#">Musik</a></li>
+			  		<li><a href="#">Film</a></li>
+			  		<li><a href="#">Oktotainment</a></li>
+			  		<li><a href="#">Info</a></li>
+			  		<li><a href="#">Zivilgesellschaft</a></li>
+			  		<li><a href="#">Magazin</a></li>
+			  		<li><a href="#">Talk</a></li>
 			  	</ul>
-			</li>
-		</ul>
-	</div>
+			</div>
+            </div>
+	   </div>
 {% endblock %}

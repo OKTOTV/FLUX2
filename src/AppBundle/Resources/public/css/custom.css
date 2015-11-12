@@ -4,12 +4,25 @@ body {
 }
 
 /* Fonts */
+header .collapse.in h3 {
+	font-size:14px;
+}
+header .navbar-nav a, header #dropdownMenuTags.btn-default {
+	text-transform:uppercase;
+}
 
-/* Color */
-.navbar-inverse .navbar-nav > li > a, header input.form-control {
+/****************************** Color, Effects ******************************/
+
+/* Header*/
+
+/* Basic Color */
+/* Menu*/
+header input.form-control, #dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover {
     color: white;
 }
-header .form-control::-moz-placeholder { /* Placeholderstyles nicht möglich zu gruppieren */
+
+/* Placeholderstyles (nicht möglich zu gruppieren) */
+header .form-control::-moz-placeholder { 
   color: #fff;
 }
 header .form-control:-ms-input-placeholder {
@@ -18,40 +31,65 @@ header .form-control:-ms-input-placeholder {
 header .form-control::-webkit-input-placeholder {
   color: #fff;
 }
+.navbar-inverse .navbar-nav > li > a, header .collapse.in a, header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+	color: #333333;
+}
 
 /* Backgroundcolor */
-.navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control {
+
+/* Header */
+.navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control, header #dropdownMenuTags.btn-default, header #dropdownMenuTags.btn-default:hover, header #dropdownMenuTags.btn-default:focus, header #dropdownMenuTags.btn-default:active, header #dropdownMenuTags.btn-default.active, .open > header #dropdownMenuTags.dropdown-toggle.btn-default {
     background-color: transparent;
 }
 header .searchfield {
 	background-color:#757575;
 }
+header .navbar-toggle, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse {
+	background-color:#ffffff;
+}
+header .navbar-inverse .navbar-toggle .icon-bar, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
+	background-color:#333333;
+}
 
 /* Border */
-.navbar-inverse, header input.form-control, header input.form-control:focus {
+
+/* Header */
+.navbar-inverse, header input.form-control, header input.form-control:focus, .navbar-inverse .navbar-form, header .navbar-inverse .navbar-toggle, header .navbar-inverse .navbar-collapse, header .navbar-inverse .navbar-form {
     border-color: transparent;
 }
-.footer {
-    border-top: dashed gray 2px;
-}
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-	border-bottom:solid 2px #ffffff;
+	border-bottom:none
 }
-header .searchfield {
+header .searchfield, header #dropdownMenuTags.btn-default {
 	border:solid 1px #ffffff;
+}
+header .navbar-collapse .navbar-nav {
+	border-top:solid 1px #cccccc;
+}
+header .navbar-collapse .navbar-nav:first-child {
+	border-top:none;
+}
+header #dropdownMenuTags.btn-default, header .dropdown-menu, header .navbar-form input.form-control {
+	border-radius:0px;
 }
 
 /* Effects */
-.navbar-inverse .navbar-nav > li > a {
-    /*text-shadow: 1px 2px black;*/
-}
+
+/* Header */
 header input.form-control:focus {
     -webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
+header .navbar-collapse {
+	-webkit-box-shadow: 5px 5px 20px grey;
+	-moz-box-shadow: 5px 5px 20px grey;
+	box-shadow: 5px 5px 20px grey;
+}
 
 /* Backgroundimages */
+
+/* Header */
 .navbar-brand object .brandimage {
 	background-image:url(../images/logo_okto_white_90.png);
 	background-repeat:no-repeat;
@@ -60,6 +98,86 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	background-image:url(../images/icon_search.png);
 	background-repeat:no-repeat;
 	background-position:center center;
+}
+
+
+@media (min-width: 768px) {
+	/* Color */
+	.navbar-inverse .navbar-nav > li > a, header .collapse.in a, header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > 	.active > a:focus, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+		color: #ffffff;
+	}
+	/* Backgroundcolor */
+	header .navbar-collapse, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
+		background-color:transparent;
+	}
+	/* Border */
+	header .navbar-collapse .navbar-nav {
+		border-top:none;
+	}
+	.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+		border-bottom:solid 2px #ffffff;
+	}
+	/* Effects */
+	header .navbar-collapse {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+}
+
+
+/* Individuelle Farben */
+.white-color svg path, 
+.black-color svg path
+.white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .white-color header .mainmenu li:hover a
+.black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .black-color header .mainmenu li:hover a
+ {
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-ms-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+
+/* White Class */
+.white-color svg path {
+	fill: white;
+}
+.white-color header input.form-control, .white-color #dropdownMenuTags.btn-default, .white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .white-color header .mainmenu li:hover a, .white-color header .mainmenu li:hover a:hover {
+    color: white;
+}
+@media (min-width: 768px) {
+	/* Color */
+	/* Menu */
+	.white-color .navbar-inverse .navbar-nav > li > a, .white-color header .collapse.in a, .white-color header .navbar-inverse .navbar-nav > .active > a, .white-color header .navbar-inverse .navbar-nav > .active > a:hover, .white-color header .navbar-inverse .navbar-nav > 	.active > a:focus, .white-color .navbar-inverse .navbar-nav > li > a:hover, .white-color .navbar-inverse .navbar-nav > li > a:focus {
+		color: #ffffff;
+	}
+	.white-color navbar-inverse .navbar-nav > .active > a, .white-color .navbar-inverse .navbar-nav > .active > a:hover, .white-color .navbar-inverse .navbar-nav > .active > a:focus {
+		border-bottom:solid 2px #ffffff;
+	}
+}
+
+/* Black Class */
+.black-color svg path {
+	fill: black;
+}
+.black-color header input.form-control, .black-color #dropdownMenuTags.btn-default, .black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .black-color header .mainmenu li:hover a, .black-color header .mainmenu li:hover a:hover {
+	color: black;
+}
+@media (min-width: 768px) {
+	/* Color */
+	/* Menu */
+	.black-color .navbar-inverse .navbar-nav > li > a, .black-color header .collapse.in a, .black-color header .navbar-inverse .navbar-nav > .active > a, .black-color header .navbar-inverse .navbar-nav > .active > a:hover, .black-color header .navbar-inverse .navbar-nav > 	.active > a:focus, .black-color .navbar-inverse .navbar-nav > li > a:hover, .black-color .navbar-inverse .navbar-nav > li > a:focus {
+		color: black;
+	}
+	.black-color .navbar-inverse .navbar-nav > .active > a, .black-color .navbar-inverse .navbar-nav > .active > a:hover, .black-color .navbar-inverse .navbar-nav > .active > a:focus {
+		border-bottom:solid 2px #000000;
+	}
+}
+
+/* Footer */
+.footer {
+    border-top: dashed gray 2px;
 }
 
 
@@ -112,67 +230,145 @@ header .navbar {
 	margin-bottom:0;
 }
 header .navbar-collapse {
-	height:90px;
+	height:auto;
 }
 header .navbar .container-fluid {
-	padding:0 50px;
+	padding:0 15px;
 }
 header .navbar-brand {
 	display:block;
 }
 header .navbar-brand, header .navbar-brand object {
-	width:90px;
+	vertical-align:top;
+	width:60px;
 }
 header .navbar-brand object {
-	width:90px;
-	height:150px;
+	height:100px;
 }
 header .navbar-brand object .brandimage span {
 	margin-left:-9990px;
 }
 header .navbar .nav > li {
-	padding:25px 10px;
+	padding:5px 10px;
 }
 header .navbar-brand {
-	padding:25px 0;
-	margin-right:40px;
-	height:200px;
+	padding:10px 0;
+	height:100px;
 }
 header .navbar .nav > li > a {
 	display:inline;
 	padding:0 0 5px 0;
 	vertical-align:top;
 }
-header .navbar .navbar-form {
-	margin-top:-200px;
-	text-align:center;
+header .navbar-collapse .navbar-nav {
+	margin:7.5px 0;
+}
+header .navbar-inverse .navbar-toggle {	/*Small Menubutton*/
+	margin-top:10px;
+	padding:10px;
+	position:relative;
+	z-index:10;
+}
+/*header .navbar .navbar-form {
+	margin-top:-100px;
+}*/
+header .navbar-content {
+	margin-top:-40px;
 }
 header form button[type="submit"] {
 	height:34px;
 	width:54px;
-	margin-left:12px;
+	float:right;
+	margin-left:0;
 }
-header .searchfield {
-	float:left;
+header form .searchfield-container {
+	position:relative;
+	overflow:hidden;
+	height:34px;
+}
+header .search-tagnav-container {
+	position:absolute;
+	z-index:1;
+	width:100%;
+	top:0px;
+}
+header .search-tagnav-position  {
+	margin:0;
+}
+header .search-tagnav-position .navbar-form {
+	margin-top:-1px;
 }
 header .search-tagnav-container .dropdown {
 	display:none;
 }
+header .searchfield {
+	margin-left:75px;
+	margin-right:105px;
+}
+header .navbar-form input.form-control {
+	display:inline;
+}
+header .dropdown-menu {
+	padding:0;
+}
+header .dropdown-menu li a {
+	padding:2px 12px;
+}
 @media (min-width: 768px) {
-	header .navbar .navbar-form {
-		margin-top:-110px;
+	
+	header .navbar .container-fluid {
+		padding:0 50px;
 	}
+	header .navbar-brand {
+		padding:25px 0;
+		height:200px;
+	}
+	header .navbar-brand {
+		margin-right:40px;
+	}
+	header .navbar-content {
+		margin-top:0;
+	}
+	header .navbar-collapse {
+		height:90px;
+	}
+	header .navbar-brand, header .navbar-brand object {
+		width:90px;
+	}
+	header .navbar-brand object {
+		height:150px;
+	}
+	header .searchfield {
+		float:left;
+		margin:0;
+		width:366px;
+	}
+	/*header .navbar .navbar-form {
+		margin-top:-110px;
+	}*/
 	header .navbar-form input.form-control {
 		width: 300px;
 	}
-	.small-tagnav { /*Tagmenü wird nur für mobiles Dropdownmenü angezeigt*/
-		display:none;
+	header form button[type="submit"] {
+		margin-left:12px;
 	}
+	/*.small-tagnav { Tagmenü wird nur für mobiles Dropdownmenü angezeigt
+		display:none;
+	}*/
 	header .search-tagnav-container .dropdown {
 		display:block;
 		margin-left:406px;
 	}
+	header .navbar-collapse .navbar-nav {
+		margin:0;
+	}
+	header .navbar .nav > li {
+		padding:25px 10px;
+	}
 	header .search-tagnav-container {
+		top:116px;
+	}
+	header .search-tagnav-position  {
 		width:526px;
 		margin:0 auto;
 	}
