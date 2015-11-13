@@ -1,4 +1,5 @@
 {
+    "minimum-stability": "dev",
     "name": "rs/flux2",
     "license": "proprietary",
     "type": "project",
