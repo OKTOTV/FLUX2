@@ -86,6 +86,11 @@ header .navbar-collapse {
 	-moz-box-shadow: 5px 5px 20px grey;
 	box-shadow: 5px 5px 20px grey;
 }
+header .dropshadow {
+	-webkit-box-shadow: 2px 2px 5px grey;
+	-moz-box-shadow: 2px 2px 5px grey;
+	box-shadow: 2px 2px 5px grey;
+}
 
 /* Backgroundimages */
 
@@ -127,52 +132,81 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 
 
 /* Individuelle Farben */
-.white-color svg path, 
-.black-color svg path
-.white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .white-color header .mainmenu li:hover a
-.black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .black-color header .mainmenu li:hover a
+.head-white-color svg path, 
+.head-black-color svg path,
+.head-white-color header .navbar-inverse .navbar-nav.mainmenu > a, .head-white-color header .mainmenu li a,
+.head-black-color header .navbar-inverse .navbar-nav.mainmenu > a, .head-black-color header .mainmenu li a,
+.head-white-bg .navbar-fixed-top,
+.head-black-bg .navbar-fixed-top,
+.head-white-color header .searchfield, .head-white-color header #dropdownMenuTags.btn-default,
+.head-black-color header .searchfield, .head-black-color header #dropdownMenuTags.btn-default
+
  {
-	-webkit-transition: all 1s;
-	-moz-transition: all 1s;
-	-ms-transition: all 1s;
-	-o-transition: all 1s;
-	transition: all 1s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
 }
 
-/* White Class */
-.white-color svg path {
+/* Header hite Color Class */
+.head-white-color svg path {
 	fill: white;
 }
-.white-color header input.form-control, .white-color #dropdownMenuTags.btn-default, .white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .white-color header .mainmenu li:hover a, .white-color header .mainmenu li:hover a:hover {
+.head-white-color header input.form-control, .head-white-color #dropdownMenuTags.btn-default, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .head-white-color header .mainmenu li:hover a, .head-white-color header .mainmenu li:hover a:hover {
     color: white;
 }
 @media (min-width: 768px) {
 	/* Color */
 	/* Menu */
-	.white-color .navbar-inverse .navbar-nav > li > a, .white-color header .collapse.in a, .white-color header .navbar-inverse .navbar-nav > .active > a, .white-color header .navbar-inverse .navbar-nav > .active > a:hover, .white-color header .navbar-inverse .navbar-nav > 	.active > a:focus, .white-color .navbar-inverse .navbar-nav > li > a:hover, .white-color .navbar-inverse .navbar-nav > li > a:focus {
+	.head-white-color .navbar-inverse .navbar-nav > li > a, .head-white-color header .collapse.in a, .head-white-color header .navbar-inverse .navbar-nav > .active > a, .head-white-color header .navbar-inverse .navbar-nav > .active > a:hover, .head-white-color header .navbar-inverse .navbar-nav > 	.active > a:focus, .head-white-color .navbar-inverse .navbar-nav > li > a:hover, .head-white-color .navbar-inverse .navbar-nav > li > a:focus {
 		color: #ffffff;
 	}
-	.white-color navbar-inverse .navbar-nav > .active > a, .white-color .navbar-inverse .navbar-nav > .active > a:hover, .white-color .navbar-inverse .navbar-nav > .active > a:focus {
+	.head-white-color navbar-inverse .navbar-nav > .active > a, .head-white-color .navbar-inverse .navbar-nav > .active > a:hover, .head-white-color .navbar-inverse .navbar-nav > .active > a:focus {
 		border-bottom:solid 2px #ffffff;
+	}
+	.head-white-color header .searchfield, .head-white-color header #dropdownMenuTags.btn-default {
+		border-color: #ffffff;
 	}
 }
 
-/* Black Class */
-.black-color svg path {
+/* Header Black Color Class */
+.head-black-color svg path {
 	fill: black;
 }
-.black-color header input.form-control, .black-color #dropdownMenuTags.btn-default, .black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .black-color header .mainmenu li:hover a, .black-color header .mainmenu li:hover a:hover {
+.head-black-color header input.form-control, .head-black-color #dropdownMenuTags.btn-default, .head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .head-black-color header .mainmenu li:hover a, .head-black-color header .mainmenu li:hover a:hover {
 	color: black;
+}
+.head-black-color header .searchfield {
+	border-color:transparent;
+}
+.head-black-color header #dropdownMenuTags.btn-default {
+	border-color: #000000;
 }
 @media (min-width: 768px) {
 	/* Color */
 	/* Menu */
-	.black-color .navbar-inverse .navbar-nav > li > a, .black-color header .collapse.in a, .black-color header .navbar-inverse .navbar-nav > .active > a, .black-color header .navbar-inverse .navbar-nav > .active > a:hover, .black-color header .navbar-inverse .navbar-nav > 	.active > a:focus, .black-color .navbar-inverse .navbar-nav > li > a:hover, .black-color .navbar-inverse .navbar-nav > li > a:focus {
+	.head-black-color .navbar-inverse .navbar-nav > li > a, .head-black-color header .collapse.in a, .head-black-color header .navbar-inverse .navbar-nav > .active > a, .head-black-color header .navbar-inverse .navbar-nav > .active > a:hover, .head-black-color header .navbar-inverse .navbar-nav > .active > a:focus, .head-black-color .navbar-inverse .navbar-nav > li > a:hover, .head-black-color .navbar-inverse .navbar-nav > li > a:focus {
 		color: black;
 	}
-	.black-color .navbar-inverse .navbar-nav > .active > a, .black-color .navbar-inverse .navbar-nav > .active > a:hover, .black-color .navbar-inverse .navbar-nav > .active > a:focus {
+	.head-black-color .navbar-inverse .navbar-nav > .active > a, .head-black-color .navbar-inverse .navbar-nav > .active > a:hover, .head-black-color .navbar-inverse .navbar-nav > .active > a:focus {
 		border-bottom:solid 2px #000000;
 	}
+}
+
+/* Transparent Header Background */
+.head-transparent-bg .navbar-fixed-top {
+	background-color:transparent;
+}
+
+/* White Header Background */
+.head-white-bg .navbar-fixed-top {
+	background-color:#FFFFFF;
+}
+
+/* Black Header Background */
+.head-black-bg .navbar-fixed-top {
+	background-color:#000000;
 }
 
 /* Footer */

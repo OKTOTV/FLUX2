@@ -3,11 +3,17 @@ $(document).ready(function(){
 	/* Sollte in ein allgemeines JavaScriptfile verschoben werden, Anfang */
 	function addHeaderBG() {
 	  if($(document).scrollTop() == 0) {
-		  $('body').addClass('white-color');
-		  $('body').removeClass('black-color');
+		  $('body').addClass('head-white-color');
+		  $('body').removeClass('head-black-color');
+		  $('body').addClass('head-transparent-bg');
+		  $('body').removeClass('head-white-bg');
+		  $('.navbar-fixed-top').removeClass('dropshadow');
 	   } else {
-		  $('body').removeClass('white-color');
-		  $('body').addClass('black-color');
+		  $('body').removeClass('head-white-color');
+		  $('body').addClass('head-black-color');
+		  $('body').addClass('head-white-bg');
+		  $('body').removeClass('head-transparent-bg');
+		  $('.navbar-fixed-top').addClass('dropshadow');
 		}
 	 }
 	 addHeaderBG();
