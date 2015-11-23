@@ -3,11 +3,14 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'tv', 'dropdown': ''} %}
 {% endblock %}
+
+{% set body_class = "head-black-color" %}
 {% block body_main %}
 
     <div id="player">
     </div>
 
+    <div class="container">
     <!-- <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -55,6 +58,7 @@
 
     <div class="program">
     </div>
+	</div>
 
 {% endblock %}
 

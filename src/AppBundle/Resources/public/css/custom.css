@@ -10,7 +10,7 @@ header .collapse.in h3 {
 .carousel-caption {
 	font-size:20px;
 }
-header .navbar-nav a, header #dropdownMenuTags.btn-default {
+header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a {
 	text-transform:uppercase;
 }
 @media (min-width: 768px) {
@@ -21,23 +21,23 @@ header .navbar-nav a, header #dropdownMenuTags.btn-default {
 
 /****************************** Color, Effects ******************************/
 
-/* Header*/
+/**************************** Header ****************************/
 
 /* Basic Color */
 /* Menu*/
 header input.form-control, #dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover {
-    color: white;
+    color: #ffffff;
 }
 
 /* Placeholderstyles (nicht möglich zu gruppieren) */
 header .form-control::-moz-placeholder { 
-  color: #fff;
+  color: #ffffff;
 }
 header .form-control:-ms-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 header .form-control::-webkit-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 .navbar-inverse .navbar-nav > li > a, header .collapse.in a, header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
 	color: #333333;
@@ -46,13 +46,13 @@ header .form-control::-webkit-input-placeholder {
 /* Backgroundcolor */
 
 /* Header */
-.navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control, header #dropdownMenuTags.btn-default, header #dropdownMenuTags.btn-default:hover, header #dropdownMenuTags.btn-default:focus, header #dropdownMenuTags.btn-default:active, header #dropdownMenuTags.btn-default.active, .open > header #dropdownMenuTags.dropdown-toggle.btn-default {
+.slider .navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control, header #dropdownMenuTags.btn-default, header #dropdownMenuTags.btn-default:hover, header #dropdownMenuTags.btn-default:focus, header #dropdownMenuTags.btn-default:active, header #dropdownMenuTags.btn-default.active, .open > header #dropdownMenuTags.dropdown-toggle.btn-default {
     background-color: transparent;
 }
 header .searchfield {
 	background-color:#757575;
 }
-header .navbar-toggle, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse {
+.navbar-inverse, header .navbar-toggle, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse {
 	background-color:#ffffff;
 }
 header .navbar-inverse .navbar-toggle .icon-bar, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
@@ -220,13 +220,20 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	background-color:#000000;
 }
 
-/*Carousell*/
-/*.carousel-caption.black-bg {
-	color:#ffffff;
-}*/
+/**************************** Footer ****************************/
+footer .nav > li > a {
+	color:#000000;
+}
+footer .nav > li > a:active, footer .nav > li > a:hover {
+	color:#000000;
+}
+
+footer .nav > li > a:active, footer .nav > li > a:hover {
+	background-color:transparent;
+}
 
 /* Footer */
-.footer {
+footer {
     border-top: dashed gray 2px;
 }
 
@@ -273,6 +280,10 @@ body {
 .active {
     text-decoration: underline;
 }*/
+html, body {
+	height:100%;
+}
+
 
 /* Header */
 header .navbar {
@@ -429,9 +440,6 @@ header .dropdown-menu li a {
 #slider {
 	margin-top:-180px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
 }
-/*.carousel img {
-    min-width: 100%;
-}*/
 .carousel .item {
   min-width: 100%;
   height: 100%;
@@ -450,4 +458,21 @@ header .dropdown-menu li a {
 	left:5%;
 	right:5%;
 	text-align:left;
+}
+
+/* Footer */
+footer nav {
+	text-align:center;
+	padding-top:50px;
+}
+footer nav ul {
+	width:auto;
+}
+footer .nav > li, footer .nav > li > a {
+	display:block;
+}
+@media (min-width: 768px) {
+	footer .nav > li, footer .nav > li > a {
+		display:inline;
+	}
 }
