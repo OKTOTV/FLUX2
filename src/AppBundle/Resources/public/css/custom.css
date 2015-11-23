@@ -7,8 +7,16 @@ body {
 header .collapse.in h3 {
 	font-size:14px;
 }
+.carousel-caption {
+	font-size:20px;
+}
 header .navbar-nav a, header #dropdownMenuTags.btn-default {
 	text-transform:uppercase;
+}
+@media (min-width: 768px) {
+	.carousel-caption {
+		font-size:30px;
+	}
 }
 
 /****************************** Color, Effects ******************************/
@@ -90,6 +98,9 @@ header .dropshadow {
 	-webkit-box-shadow: 2px 2px 5px grey;
 	-moz-box-shadow: 2px 2px 5px grey;
 	box-shadow: 2px 2px 5px grey;
+}
+.carousel-caption {
+	text-shadow: none;
 }
 
 /* Backgroundimages */
@@ -208,6 +219,11 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 .head-black-bg .navbar-fixed-top {
 	background-color:#000000;
 }
+
+/*Carousell*/
+/*.carousel-caption.black-bg {
+	color:#ffffff;
+}*/
 
 /* Footer */
 .footer {
@@ -413,7 +429,25 @@ header .dropdown-menu li a {
 #slider {
 	margin-top:-180px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
 }
-.carousel img {
+/*.carousel img {
     min-width: 100%;
+}*/
+.carousel .item {
+  min-width: 100%;
+  height: 100%;
 }
-
+.carousel-inner > .item > img {
+  min-width: 100%;
+  height: 100%;
+}
+.carousel-caption {
+  z-index: 10;
+}
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+	max-width:none;
+}
+.carousel-caption {
+	left:5%;
+	right:5%;
+	text-align:left;
+}
