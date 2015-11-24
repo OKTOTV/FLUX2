@@ -460,7 +460,16 @@ header .dropdown-menu li a {
 	text-align:left;
 }
 
+/* Oktothek */
+.participart h2 {
+	text-align:center;
+}
+
 /* Footer */
+.footer {
+	height:300px;
+	width:100%;
+}
 footer nav {
 	text-align:center;
 	padding-top:50px;

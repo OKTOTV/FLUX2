@@ -42,7 +42,8 @@ $(document).ready(function(){
         width = [], //create empty array to store height values
         //shortest; //create variable to make note of the shortest slide
 		Winheight,
-		Winwidth;
+		Winwidth,
+		borderbottom = 70;
 
         if (items.length) {
 			function Imagesize(el) {
@@ -51,7 +52,7 @@ $(document).ready(function(){
 			}
 			
             function normalizeHeights() {
-				var Winheight = $( window ).height();
+				var Winheight = $( window ).height() - borderbottom;
 				var Winwidth = $( window ).width();
 				
 				if (width.length == 0) { //beim ersten Mal Array füllen

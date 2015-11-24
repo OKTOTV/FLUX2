@@ -6,6 +6,7 @@
 
 {% set body_class = "slider head-white-color head-transparent-bg" %}
 {% block body %}
+    
     {# top slider, search and channels #}
     <div id="slider">
         {% include 'AppBundle:Default:slider.html.twig' with {'slides': episodes } %}
@@ -13,9 +14,13 @@
     {# top slider, search and channels END #}
     {# rest of the page #}
     <div class="container">
+		<div class="participart">
+		  <h2>Mitmachen</h2>
+		  <p>Ich bin ein großer Bereich für Mitmachen, weiß aber noch nicht was hier stehen soll.</p>
+		</div>
         {# render newest episodes #}
         <div class="newest-videos">
-            <h1>{{ 'oktothek.newest_videos'|trans }}</h1>
+            <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes} %}
             <a href="#" class="pull-right">{{ 'oktothek.newest_videos.show_more'|trans}}</a>
         </div>
@@ -24,7 +29,7 @@
 
         {# render newest playlists #}
         <div class="newest-playlists">
-            <h1>{{ 'oktothek.newest_playlists'|trans }}</h1>
+            <h2>{{ 'oktothek.newest_playlists'|trans }}</h2>
             {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': newest_playlists} %}
             <a href="#" class="pull-right">{{ 'oktothek.newest_playlists.show_more'|trans}}</a>
         </div>
