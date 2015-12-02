@@ -1,8 +1,10 @@
-<div class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="{{ playlist.description }}">
+<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="{{ playlist.description }}">
     <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}">
         <div class="playlist-pin pin">
-        <img src="{{ playlist.items[0].episode.posterframe|thumb(135,240) }}" class="img-responsive"/>
-            <h2>{{ playlist.name }}</h2>
+            <img src="{{ playlist.items[0].episode.posterframe|thumb(135,240) }}" class="img-responsive"/>
+			<div>
+                <h3>{{ playlist.name }}</h3>
+		    </div>
         </div>
     </a>
-</div>
+</article>

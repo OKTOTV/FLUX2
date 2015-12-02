@@ -13,26 +13,28 @@
     </div>
     {# top slider, search and channels END #}
     {# rest of the page #}
-    <div class="container">
-		<div class="participart">
-		  <h2>Mitmachen</h2>
+    <div class="container" id="oktothek">
+		<section class="participart">
+		  <h2>Mitmachen <span id="button_down" class="glyphicon glyphicon-chevron-down"> </span></h2>
+		  <article class="dummybox">
 		  <p>Ich bin ein großer Bereich für Mitmachen, weiß aber noch nicht was hier stehen soll.</p>
-		</div>
+		  </article>
+		</section>
         {# render newest episodes #}
-        <div class="newest-videos">
+        <section class="newest-videos">
             <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes} %}
             <a href="#" class="pull-right">{{ 'oktothek.newest_videos.show_more'|trans}}</a>
-        </div>
+        </section>
 
         {# render favorites #}
 
         {# render newest playlists #}
-        <div class="newest-playlists">
+        <section class="newest-playlists">
             <h2>{{ 'oktothek.newest_playlists'|trans }}</h2>
             {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': newest_playlists} %}
             <a href="#" class="pull-right">{{ 'oktothek.newest_playlists.show_more'|trans}}</a>
-        </div>
+        </section>
         {# render news pins #}
     </div>
     {# rest of the page END #}

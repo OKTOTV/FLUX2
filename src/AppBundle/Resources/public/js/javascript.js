@@ -6,17 +6,26 @@ $(document).ready(function(){
 	function addHeaderBG() {
 	  if ($('body').hasClass('slider')) {
 	      if($(document).scrollTop() <= headerScrollheight) {
+			  //Header transparent setzen und Schlagschatten entfernen
 	          $('body').addClass('head-white-color')
 		               .removeClass('head-black-color')
 				       .addClass('head-transparent-bg')
 				       .removeClass('head-white-bg');
 		      $('.navbar-fixed-top').removeClass('dropshadow');
+			  
+			  //Downbutton erscheinen lassen
+			  $('.slider #button_down').css('display','inline');
+			  
 	      } else if ($(document).scrollTop() > headerScrollheight) {
+			  //Header weiß setzen und Schlagschatten hinzufügen
 		      $('body').removeClass('head-white-color')
 			          .addClass('head-black-color')
 					  .addClass('head-white-bg')
 					  .removeClass('head-transparent-bg');
 		      $('.navbar-fixed-top').addClass('dropshadow');
+			  
+			  //Downbutton ausblenden
+			  $('.slider #button_down').css('display','none');
 		   }
 	    } else {
 			if($(document).scrollTop() <= headerScrollheight) {
@@ -43,7 +52,7 @@ $(document).ready(function(){
         //shortest; //create variable to make note of the shortest slide
 		Winheight,
 		Winwidth,
-		borderbottom = 70;
+		borderbottom = 60;
 
         if (items.length) {
 			function Imagesize(el) {
@@ -88,24 +97,26 @@ $(document).ready(function(){
     }
     carouselNormalization();
 	
+	//Anker
+	$('.slider #button_down').click(function() {
+		console.log('click');
+		var offset = $('#oktothek').offset();
+		$("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
+		$( this ).css('display','none');
+	});
 	
 	 
 	 
 	 function loadWinHeight() {
 	     var Winheight = $( window ).height();
-		 //$('#slider .item img').css('height',Winheight);
-		 //$('#slider .item img').css('width','auto'); 
-		 //$('#slider').height(Winheight);                     
+		              
 	 }
-	 //loadWinHeight();
 	 
 	 function resizeWinHeight() {
-		 //$('#slider .item img').css('height','auto');
-		 //$('#slider .item img').css('width','100%');
+		
 	 }
 	 $(window).on("resize", function(){
-        //resizeWinHeight();
-		//console.log('bis heir');
+       
     });
 	 
 });

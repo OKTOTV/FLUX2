@@ -4,13 +4,13 @@ body {
 }
 
 /* Fonts */
-header .collapse.in h3 {
+header .collapse.in h3, #oktothek article h3 {
 	font-size:14px;
 }
 .carousel-caption {
 	font-size:20px;
 }
-header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a {
+header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right {
 	text-transform:uppercase;
 }
 @media (min-width: 768px) {
@@ -115,6 +115,11 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	background-repeat:no-repeat;
 	background-position:center center;
 }
+#button_down {
+	/*background-image:url(../images/pfeil_down.png);
+	background-repeat:no-repeat;
+	background-position:center center;*/
+}
 
 
 @media (min-width: 768px) {
@@ -218,6 +223,12 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 /* Black Header Background */
 .head-black-bg .navbar-fixed-top {
 	background-color:#000000;
+}
+
+
+/**************************** Content ****************************/
+#oktothek article a, a.pull-right {
+	color:#000000;
 }
 
 /**************************** Footer ****************************/
@@ -375,6 +386,9 @@ header .dropdown-menu {
 header .dropdown-menu li a {
 	padding:2px 12px;
 }
+#button_down {
+	display:none;
+}
 @media (min-width: 768px) {
 	
 	header .navbar .container-fluid {
@@ -433,6 +447,19 @@ header .dropdown-menu li a {
 		width:526px;
 		margin:0 auto;
 	}
+	#button_down {
+		position:absolute;
+		display:inline-block;
+		vertical-align:middle;
+		line-height:50px;
+		width:30px;
+		height:30px;
+		margin-left:50px;
+		cursor:pointer;
+	}
+	#button_down.glyphicon {
+		top:auto;
+	}
 }
 
 
@@ -460,9 +487,26 @@ header .dropdown-menu li a {
 	text-align:left;
 }
 
+/* Content allgemein */
+section {
+	margin-bottom:80px;
+}
+h2 {
+	margin-bottom:20px;
+}
+
 /* Oktothek */
-.participart h2 {
+#oktothek article {
+	position:relative;
+}
+#oktothek h2 {
 	text-align:center;
+}
+#oktothek article h3, #oktothek article p {
+	margin:0;
+}
+#oktothek .pin div  {
+	margin-top:5px;
 }
 
 /* Footer */
@@ -484,4 +528,11 @@ footer .nav > li, footer .nav > li > a {
 	footer .nav > li, footer .nav > li > a {
 		display:inline;
 	}
+}
+
+.dummybox {
+	min-height:200px;
+	background-color:#757575;
+	padding:20px;
+	color:#ffffff;
 }
