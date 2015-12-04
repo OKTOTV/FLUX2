@@ -4,7 +4,7 @@ body {
 }
 
 /* Fonts */
-header .collapse.in h3, #oktothek article h3 {
+header .collapse.in h3, #oktothek article h3, .footer h3 {
 	font-size:14px;
 }
 .carousel-caption {
@@ -103,7 +103,7 @@ header .dropshadow {
 	text-shadow: none;
 }
 
-/* Backgroundimages */
+/****************************** Backgroundimages ******************************/
 
 /* Header */
 .navbar-brand object .brandimage {
@@ -119,6 +119,31 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	/*background-image:url(../images/pfeil_down.png);
 	background-repeat:no-repeat;
 	background-position:center center;*/
+}
+
+/* Footer */
+
+.footer .socialnetworks li a {
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+.footer .facebook {
+	background-image:url(../images/icon_facebook.png);
+}
+.footer .twitter {
+	background-image:url(../images/icon_twitter.png);
+}
+.footer .googleplus {
+	background-image:url(../images/icon_googleplus.png);
+}
+.footer .instagramm {
+	background-image:url(../images/icon_instagramm.png);
+}
+.footer .pinterest {
+	background-image:url(../images/icon_pinterest.png);
+}
+footer .youtube {
+	background-image:url(../images/icon_youtube.png);
 }
 
 
@@ -232,19 +257,19 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 }
 
 /**************************** Footer ****************************/
-footer .nav > li > a {
+.footer .nav > li > a {
 	color:#000000;
 }
-footer .nav > li > a:active, footer .nav > li > a:hover {
+.footer .nav > li > a:active, .footer .nav > li > a:hover {
 	color:#000000;
 }
 
-footer .nav > li > a:active, footer .nav > li > a:hover {
+.footer .nav > li > a:active, .footer .nav > li > a:hover {
 	background-color:transparent;
 }
 
 /* Footer */
-footer {
+.footer {
     border-top: dashed gray 2px;
 }
 
@@ -494,6 +519,12 @@ section {
 h2 {
 	margin-bottom:20px;
 }
+.aligncenter {
+	text-align:center;
+}
+.more { /* Weiter Link */
+	margin-top:20px;
+}
 
 /* Oktothek */
 #oktothek article {
@@ -502,7 +533,7 @@ h2 {
 #oktothek h2 {
 	text-align:center;
 }
-#oktothek article h3, #oktothek article p {
+#oktothek article .pin h3, #oktothek article .pin p {
 	margin:0;
 }
 #oktothek .pin div  {
@@ -514,25 +545,72 @@ h2 {
 	height:300px;
 	width:100%;
 }
-footer nav {
-	text-align:center;
-	padding-top:50px;
+.footer ul, .footer li {
+	list-style:none;
 }
-footer nav ul {
+.footer nav, .footer .partner {
+	text-align:center;
+}
+.footer nav, .footer section {
+	padding-top:50px;
+	margin-bottom:0;
+}
+.footer nav ul {
 	width:auto;
 }
-footer .nav > li, footer .nav > li > a {
+.footer .nav > li, .footer .nav > li > a, .footer .partner li {
 	display:block;
 }
+.footer .networks div.col-md-6 ul {
+	padding-top:30px;
+}
+.footer .networks h3 {
+	margin-top:0;
+}
+.footer .networks div.col-md-6:first-child {
+	text-align:right;
+}
+.footer .input-group {
+	width:200px;
+}
+.footer .socialnetworks li {
+	display:inline;
+}
+.footer .socialnetworks a {
+	display:inline-block;
+	text-align:left;
+	height:30px;
+	width:30px;
+	outline:0;
+}
+.footer .socialnetworks a span {
+	margin-left:-9990px;
+}
+
 @media (min-width: 768px) {
-	footer .nav > li, footer .nav > li > a {
+	.footer .nav > li, .footer .nav > li > a, .footer .partner li {
 		display:inline;
+	}
+	.footer .partner li {
+		margin-left:40px;
+	}
+	.footer .partner li:first-child {
+		margin-left:0px;
+	}
+	.footer .networks div.col-md-6 {
+		vertical-align:bottom;
 	}
 }
 
+
+/* für Clickdummy: */
 .dummybox {
 	min-height:200px;
 	background-color:#757575;
 	padding:20px;
 	color:#ffffff;
+}
+#oktothek .pin img {
+	width:260px;
+	height:auto;
 }
