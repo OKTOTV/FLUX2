@@ -4,13 +4,13 @@ body {
 }
 
 /* Fonts */
-header .collapse.in h3, #oktothek article h3, .footer h3 {
+header .collapse.in h3, .oktothek article h3, .footer h3 {
 	font-size:14px;
 }
 .carousel-caption {
 	font-size:20px;
 }
-header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right {
+header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer {
 	text-transform:uppercase;
 }
 @media (min-width: 768px) {
@@ -121,31 +121,6 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	background-position:center center;*/
 }
 
-/* Footer */
-
-.footer .socialnetworks li a {
-	background-repeat:no-repeat;
-	background-position:center center;
-}
-.footer .facebook {
-	background-image:url(../images/icon_facebook.png);
-}
-.footer .twitter {
-	background-image:url(../images/icon_twitter.png);
-}
-.footer .googleplus {
-	background-image:url(../images/icon_googleplus.png);
-}
-.footer .instagramm {
-	background-image:url(../images/icon_instagramm.png);
-}
-.footer .pinterest {
-	background-image:url(../images/icon_pinterest.png);
-}
-footer .youtube {
-	background-image:url(../images/icon_youtube.png);
-}
-
 
 @media (min-width: 768px) {
 	/* Color */
@@ -250,13 +225,44 @@ footer .youtube {
 	background-color:#000000;
 }
 
+/* Body  Weiße Schrift */
+.body-white-color, .body-white-color a, .body-white-color a.pull-right {
+	color:white;
+}
+
 
 /**************************** Content ****************************/
-#oktothek article a, a.pull-right {
+.episode .misc a {
 	color:#000000;
 }
 
+.oktothek article a, a.pull-right {
+	color:#000000;
+}
+
+.comments {
+	background-color:#757575;
+}
+
+.tags li a {
+	border: solid 1px #cccccc;
+}
+.tags li a {
+	-moz-border-radius:4px;
+	-khtml-border-radius:4px;
+	border-radius: 4px;
+}
+
+/* Content */
+.icon-views {
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/icon_views.png);
+}
+
+
 /**************************** Footer ****************************/
+
 .footer .nav > li > a {
 	color:#000000;
 }
@@ -268,7 +274,33 @@ footer .youtube {
 	background-color:transparent;
 }
 
+
+
 /* Footer */
+
+.footer .socialnetworks li a {
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+.footer .icon-facebook {
+	background-image:url(../images/icon_facebook.png);
+}
+.footer .icon-twitter {
+	background-image:url(../images/icon_twitter.png);
+}
+.footer .icon-googleplus {
+	background-image:url(../images/icon_googleplus.png);
+}
+.footer .icon-instagramm {
+	background-image:url(../images/icon_instagramm.png);
+}
+.footer .icon-pinterest {
+	background-image:url(../images/icon_pinterest.png);
+}
+.footer .icon-youtube {
+	background-image:url(../images/icon_youtube.png);
+}
+
 .footer {
     border-top: dashed gray 2px;
 }
@@ -513,11 +545,17 @@ header .dropdown-menu li a {
 }
 
 /* Content allgemein */
+.container-fluid {
+	padding:0;
+}
 section {
 	margin-bottom:80px;
 }
-h2 {
+h2, .episode h1.name, .episode time {
 	margin-bottom:20px;
+}
+.episode .series {
+	margin-bottom:0;
 }
 .aligncenter {
 	text-align:center;
@@ -527,19 +565,67 @@ h2 {
 }
 
 /* Oktothek */
-#oktothek article {
+.oktothek article {
 	position:relative;
 }
-#oktothek h2 {
+.oktothek h2, .episode h2 {
 	text-align:center;
 }
-#oktothek article .pin h3, #oktothek article .pin p {
+.oktothek figcaption h3, .oktothek figcaption p {
 	margin:0;
 }
-#oktothek .pin div  {
+.oktothek figcaption  {
 	margin-top:5px;
 }
+.episode article {
+	margin-top:40px;
+}
+.episode article time[pubdate="pubdate"] {
+	display:block;
+}
+.episode h1.name {
+	margin-top:0;
+}
+.icon-views {
+	display:inline-block;
+	height:15px;
+	width:20px;
+}
+.episode .misc a, .episode .misc span.views {
+	margin-right:10px;
+}
+.tags li {
+	display:inline;
+	padding-right:5px;
+}
+.tags li a {
+	display:inline-block;
+	white-space: nowrap;
+	padding:6px 12px;
+	vertical-align:middle;
+	text-align:center;
+}
 
+/* Kommentare */
+.comments {
+	padding-top:40px;
+	padding-bottom:40px;
+}
+.comments .comment-form {
+	margin-top:40px;
+}
+.answer-text {
+	padding-left:80px;
+}
+.comments article, .answer-text {
+	margin-top:20px;
+}
+.comments h2:first-child {
+	margin-top:0;
+}
+.comments .answer {
+	cursor:pointer;
+}
 /* Footer */
 .footer {
 	height:300px;
@@ -567,11 +653,12 @@ h2 {
 .footer .networks h3 {
 	margin-top:0;
 }
-.footer .networks div.col-md-6:first-child {
-	text-align:right;
+.footer .networks div.col-md-6, .footer .networks div.col-md-6:first-child {
+	text-align:center;
 }
 .footer .input-group {
 	width:200px;
+	margin:0 auto;
 }
 .footer .socialnetworks li {
 	display:inline;
@@ -600,6 +687,16 @@ h2 {
 	.footer .networks div.col-md-6 {
 		vertical-align:bottom;
 	}
+	.footer .networks div.col-md-6 {
+		text-align:left;
+	}
+	.footer .networks div.col-md-6:first-child {
+	    text-align:right;
+	}
+	.footer .input-group {
+	    width:200px;
+	    margin:0;
+	}
 }
 
 
@@ -610,7 +707,7 @@ h2 {
 	padding:20px;
 	color:#ffffff;
 }
-#oktothek .pin img {
+figure.pin img {
 	width:260px;
 	height:auto;
 }
