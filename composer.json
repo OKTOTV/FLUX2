@@ -1,5 +1,6 @@
 {
     "minimum-stability": "dev",
+    "prefer-stable" : true,
     "name": "rs/flux2",
     "license": "proprietary",
     "type": "project",
@@ -24,7 +25,9 @@
         "oktolab/media-bundle": "dev-master",
         "bprs/style-bundle": "^1.1",
         "bprs/user-bundle": "^2.0",
-        "bprs/asset-bundle": "^1.0"
+        "bprs/asset-bundle": "^1.0",
+        "knplabs/knp-markdown-bundle": "^1.4@dev",
+        "gedmo/doctrine-extensions": "^2.4@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

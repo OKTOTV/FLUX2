@@ -1,0 +1,32 @@
+# FLUX2
+
+# oktothek
+## oktothek index
+oktothek.participate_header:            Mitmachen
+oktothek.newest_videos:                 Neue Videos
+oktothek.newest_videos_show_more:       Mehr anzeigen
+oktothek.newest_playlists:              Neue Playlisten
+oktothek.newest_playlists_show_more:    Mehr anzeigen
+
+## news post
+## form labels
+oktothek.post_name_label:               Titel
+oktothek.post_description_label:        Text
+oktothek.post_isActive_label:           Ist Aktiv
+oktothek.post_onlineAt_label:           Online Ab
+oktothek.post_assets_label:             Anhänge
+## form placeholder
+oktothek.post_onlineAt_placeholder:     TT.MM.JJJJ HH:MM
+
+## post create
+oktothek.post_create_header:            Neuer Post
+oktothek.post_create_button:            Veröffentlichen
+
+## post edit
+oktothek.post_edit_header:              Post bearbeiten
+oktothek.post_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
+oktothek.post_delete_button:            <span class="glyphicon glyphicon-trash"></span> Post löschen
+
+## post index
+oktothek.create_new_post_button:        Neuen Beitrag anlegen
+oktothek.post_show_more:                Mehr dazu anzeigen

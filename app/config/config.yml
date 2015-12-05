@@ -75,6 +75,12 @@ doctrine:
         auto_mapping: true
         resolve_target_entities:
             Bprs\AssetBundle\Entity\AssetInterface: AppBundle\Entity\Asset
+        # mappings:
+        #     sluggable:
+        #         type: annotation
+        #         alias: Gedmo
+        #         prefix: Gedmo\Sluggable\Entity
+        #         dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Sluggable/Entity"
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -154,3 +160,14 @@ oneup_uploader:
                 type: gaufrette
                 filesystem: gaufrette.video_filesystem
                 stream_wrapper: gaufrette://video/
+
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig   # sliding pagination controls template
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig # sort link template

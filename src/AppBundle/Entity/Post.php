@@ -3,12 +3,14 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Post
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\PostRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
@@ -22,9 +24,15 @@ class Post
     private $id;
 
     /**
+     * @ORM\Column(length=32, unique=true)
+     * @Gedmo\Slug(fields={"name"}, updatable=false, separator="_")
+     */
+    private $slug;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=64)
      */
     private $name;
 
@@ -63,6 +71,18 @@ class Post
      */
     private $onlineAt;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Asset")
+     * @ORM\JoinTable(name="post_asset",
+     *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $assets;
+
+    public function __construct() {
+        $this->assets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -144,19 +164,6 @@ class Post
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Post
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * Get createdAt
      *
      * @return \DateTime
@@ -164,19 +171,6 @@ class Post
     public function getCreatedAt()
     {
         return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     * @return Post
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 
     /**
@@ -210,5 +204,85 @@ class Post
     public function getOnlineAt()
     {
         return $this->onlineAt;
+    }
+
+    /**
+     * Add assets
+     *
+     * @param \AppBundle\Entity\Asset $assets
+     * @return Post
+     */
+    public function addAsset($asset)
+    {
+        $this->assets[] = $asset;
+
+        return $this;
+    }
+
+    /**
+     * Remove assets
+     *
+     * @param \AppBundle\Entity\Asset $assets
+     */
+    public function removeAsset($asset)
+    {
+        $this->assets->removeElement($asset);
+    }
+
+    public function setAssets($assets = null)
+    {
+        $this->assets = $assets;
+    }
+
+    /**
+     * Get assets
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAssets()
+    {
+        return $this->assets;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAt()
+    {
+        $this->createdAt = new \DateTime();
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAt()
+    {
+        $this->updatedAt = new \DateTime();
+        return $this;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Post
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

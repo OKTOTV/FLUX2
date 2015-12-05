@@ -1,0 +1,23 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ name|default('OKTO')~' | '~post.name }}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'news', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "head-black-color" %}
+{% block body %}
+<div class="container">
+    <div class="page-header">
+        <h1>{{ post.name }}</h1>
+    </div>
+    {{ post.description|markdown() }}
+    {% for asset in post.assets %}
+        {% if asset.mimetype == 'image/jpeg' or asset.mimetype == 'image/png' %}
+            <img src="{{ asset|path() }}" class="img img-responsive" />
+        {% else %}
+            <a href="{{ asset|path() }}" >{{ asset.name }}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
