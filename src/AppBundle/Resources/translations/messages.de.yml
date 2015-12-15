@@ -4,9 +4,10 @@
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Neue Videos
-oktothek.newest_videos_show_more:       Mehr anzeigen
+oktothek.newest_videos_show_more:       Mehr Videos anzeigen
 oktothek.newest_playlists:              Neue Playlisten
-oktothek.newest_playlists_show_more:    Mehr anzeigen
+oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen
+oktothek.newest_news_show_more:         Mehr News anzeigen
 
 ## news post
 ## form labels

@@ -6,7 +6,7 @@
 
 {% set body_class = "slider oktothek head-white-color head-transparent-bg" %}
 {% block body %}
-    
+
     {# top slider, search and channels #}
     <div id="slider">
         {% include 'AppBundle:Default:slider.html.twig' with {'slides': episodes } %}
@@ -25,7 +25,7 @@
         <section class="newest-videos">
             <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes} %}
-            <a href="#" class="pull-right more" title="Weitere neueste Videos anzeigen">{{ 'oktothek.newest_videos.show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a href="#" class="pull-right more" title="Weitere neueste Videos anzeigen">{{ 'oktothek.newest_videos_show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
         </section>
 
         {# render favorites #}
@@ -41,7 +41,7 @@
 			<p class="aligncenter">Melde Dich an um eine neue Playlist zu erstellen!</p>
 			<p class="aligncenter"><a href="#" class="btn btn-default">ANMELDEN</a></p>
             {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': newest_playlists} %}
-            <a href="#" class="pull-right more" title="Weitere Playsliten anzeigen">{{ 'oktothek.newest_playlists.show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a href="#" class="pull-right more" title="Weitere Playsliten anzeigen">{{ 'oktothek.newest_playlists_show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
         </section>
         {# render news pins #}
 		<section class="news">
@@ -100,7 +100,7 @@
                     </a>
                 </article>
             </div>
-            <a href="#" class="pull-right more" title="Weitere News anzeigen">{{ 'oktothek.newest_playlists.show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a href="#" class="pull-right more" title="Weitere News anzeigen">{{ 'oktothek.newest_news_show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
         </section>
     </div>
     {# rest of the page END #}
