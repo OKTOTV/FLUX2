@@ -8,21 +8,21 @@ $(document).ready(function(){
 	      if($(document).scrollTop() <= headerScrollheight) {
 			  //Header transparent setzen und Schlagschatten entfernen
 	          $('body').addClass('head-white-color')
-		               .removeClass('head-black-color')
+		               .removeClass('head-white-color')
 				       .addClass('head-transparent-bg')
-				       .removeClass('head-white-bg');
-		      $('.navbar-fixed-top').removeClass('dropshadow');
+				       .removeClass('head-black-bg');
+		      //$('.navbar-fixed-top').removeClass('dropshadow'); //Schlagschatten
 			  
 			  //Downbutton erscheinen lassen
 			  $('.slider #button_down').css('display','inline');
 			  
 	      } else if ($(document).scrollTop() > headerScrollheight) {
-			  //Header weiß setzen und Schlagschatten hinzufügen
+			  //Header schwarz setzen und Schlagschatten hinzufügen
 		      $('body').removeClass('head-white-color')
-			          .addClass('head-black-color')
-					  .addClass('head-white-bg')
+			          .addClass('head-white-color')
+					  .addClass('head-black-bg')
 					  .removeClass('head-transparent-bg');
-		      $('.navbar-fixed-top').addClass('dropshadow');
+		      //$('.navbar-fixed-top').addClass('dropshadow'); //Schlagschatten
 			  
 			  //Downbutton ausblenden
 			  $('.slider #button_down').css('display','none');

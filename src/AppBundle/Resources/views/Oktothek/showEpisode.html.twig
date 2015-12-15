@@ -4,7 +4,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "episode head-black-color" %}
+{% set body_class = "episode head-white-color" %}
 {% block body %}
     <div class="container-fluid">
         <section class="container">
@@ -33,7 +33,7 @@
 		    <h2>Kommentare <span class="comments-counter">1</span></h2>
 			<!-- Kommentar -->
 			<article class="row">
-			    <div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>
+			    <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
 			    <div class="col-md-11">
 			        <div class="author">Klara <time>am 14.Juli 2015<time></div>
 					<div class="comment-text">
@@ -46,7 +46,7 @@
 					    <a class="answer" role="button" data-toggle="collapse" href="#answer_comment_1" aria-expanded="false" aria-controls="answer_comment_1">Antworten</a>
 						<div class="answer-text collapse" id="answer_comment_1">
 						    <div class="row comment-form">
-							    <div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>
+							    <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
 			                    <div class="col-md-11">
 						            <form action="#" id="form_answer_comment_1" method="POST">
 			                            <div class="input-group">
@@ -58,7 +58,7 @@
 							</div>
 							<!-- Antwort -->
 							<div class="row">
-							    <div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>
+							    <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
 			                    <div class="col-md-11">
 								    <div class="author">Klara <time>am 14.Juli 2015<time></div>
 									<div class="comment-text">
@@ -78,7 +78,7 @@
 			</div>
 			<!-- Ende Kommentar -->
 			<div class="row comment-form">
-			    <div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>
+			    <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
 			    <div class="col-md-11">
 				    <form action="#" id="comments" method="POST">
 			            <div class="input-group">
@@ -105,22 +105,17 @@
 			</ul>
 		</section>
         <section class="container more-clips">
-            <h2>{{ 'oktothek_show_episode.more_from_this_series'|trans }}</h2>
-			<p>Stimmt noch nicht!!!</p>
-			<div class="dropdown" role="navigation">
-  				    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuEpisodeTags" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Alle <span class="caret"></span>
-  				    </button>
-  				    <ul class="dropdown-menu" aria-labelledby="EpisodeTagsnavigation">
-			  		    <li><a href="#" title="Krieg">Krieg</a></li>
-                        <li><a href="#" title="Freiheit">Freiheit</a></li>
-                        <li><a href="#" title="Arabisch">Arabisch</a></li>
-                        <li><a href="#" title="Kulturen">Kulturen</a></li>
-                        <li><a href="#" title="Syrien">Syrien</a></li>
-                        <li><a href="#" title="Demonstration">Demonstration</a></li>
-                        <li><a href="#" title="Andere Sprachen">Andere Sprachen</a></li>
-                        <li><a href="#" title="Zivilgesellschaft">Zivilgesellschaft</a></li>
-			  	    </ul>
-			    </div>
+            <h2>{{ 'oktothek_show_epis>de.more_from_this_series'|trans }}</h2>
+			<select class="form-control">
+			    <option>Krieg</option>
+				<option>Freiheit</option>
+                <option>Arabisch</option>
+                <option>Kulturen</option>
+                <option>Syrien</option>
+                <option>Demonstration</option>
+                <option>Andere Sprachen</option>
+                <option>Zivilgesellschaft</option>
+			</select>
             {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': related} %}
         </section>
 	</div>

@@ -53,7 +53,7 @@ header .searchfield {
 	background-color:#757575;
 }
 .navbar-inverse, header .navbar-toggle, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse {
-	background-color:#ffffff;
+	background-color:#000000;
 }
 header .navbar-inverse .navbar-toggle .icon-bar, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
 	background-color:#333333;
@@ -78,6 +78,8 @@ header .navbar-collapse .navbar-nav:first-child {
 	border-top:none;
 }
 header #dropdownMenuTags.btn-default, header .dropdown-menu, header .navbar-form input.form-control {
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
 	border-radius:0px;
 }
 
@@ -232,8 +234,11 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 
 
 /**************************** Content ****************************/
-.episode .misc a {
-	color:#000000;
+body {
+	background-color:#000000;
+}
+body, .episode .btn-default, .episode .misc a, a, a:hover, .episode select {
+	color:#ffffff;
 }
 
 .oktothek article a, a.pull-right {
@@ -242,6 +247,9 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 
 .comments {
 	background-color:#757575;
+}
+.episode .btn-default, .episode select {
+	background-color:#000000;
 }
 
 .tags li a {
@@ -252,22 +260,30 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	-khtml-border-radius:4px;
 	border-radius: 4px;
 }
+.episode select {
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
+}
 
-/* Content */
+/* Episode */
 .icon-views {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/icon_views.png);
+}
+.episode select {
+	width:auto;
 }
 
 
 /**************************** Footer ****************************/
 
 .footer .nav > li > a {
-	color:#000000;
+	color:#ffffff;
 }
 .footer .nav > li > a:active, .footer .nav > li > a:hover {
-	color:#000000;
+	color:#ffffff;
 }
 
 .footer .nav > li > a:active, .footer .nav > li > a:hover {
