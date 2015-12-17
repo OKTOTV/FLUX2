@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container">
         <nav>
-            {{ render(controller('AppBundle:Page:footer', {'slug': page.slug|default('')})) }}
+            {{ render(controller('AppBundle:Page:footer', {'slug': page.slug|default(app.request.get('_route'))})) }}
         </nav>
         <section class="networks row">
             <div class="col-md-6 socialnetworks">

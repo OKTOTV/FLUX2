@@ -1,6 +1,13 @@
 # FLUX2
 
 # oktothek
+## menu
+oktothek.menu_oktothek:                 Oktothek
+oktothek.menu_tv:                       TV
+oktothek.menu_participate:              Mitmachen
+oktothek.menu_academy:                  Akademie
+
+
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Neue Videos
