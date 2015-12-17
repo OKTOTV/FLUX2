@@ -1,0 +1,30 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ name|default('OKTO')~' | '~page.title }}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "head-black-color" %}
+{% block body %}
+<div class="container">
+    {% if page.id is empty %}
+        <a href="#" onclick="goBack();return false;" class="btn btn-default">{{ 'oktothek.page_preview_back_button'|trans }}</a>
+    {% else %}
+        <a href="{{ path('oktothek_page_edit', {'page': page.id})}}" class="btn btn-default">{{ 'oktothek.page_edit_button'|trans|raw }}</a>
+    {% endif %}
+    {{ page.text|markdown() }}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+    function goBack() {
+        console.log('asdf');
+        window.history.back();
+    }
+
+</script>
+
+{% endblock %}
