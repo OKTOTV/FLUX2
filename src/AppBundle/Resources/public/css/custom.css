@@ -241,7 +241,7 @@ body, .episode .btn-default, .episode .misc a, a, a:hover, .episode select {
 	color:#ffffff;
 }
 
-.oktothek article a, a.pull-right {
+.oktothek article a, a.pull-right, .modal {
 	color:#000000;
 }
 
@@ -275,6 +275,9 @@ body, .episode .btn-default, .episode .misc a, a, a:hover, .episode select {
 .episode select {
 	width:auto;
 }
+#collapseShare {
+    border-top: dashed gray 2px;
+}
 
 
 /**************************** Footer ****************************/
@@ -294,26 +297,26 @@ body, .episode .btn-default, .episode .misc a, a, a:hover, .episode select {
 
 /* Footer */
 
-.footer .socialnetworks li a {
+.footer .socialnetworks li a, #collapseShare .socialnetworks li a {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-.footer .icon-facebook {
+.footer .icon-facebook, #collapseShare .icon-facebook {
 	background-image:url(../images/icon_facebook.png);
 }
-.footer .icon-twitter {
+.footer .icon-twitter, #collapseShare .icon-twitter {
 	background-image:url(../images/icon_twitter.png);
 }
-.footer .icon-googleplus {
+.footer .icon-googleplus, #collapseShare .icon-googleplus {
 	background-image:url(../images/icon_googleplus.png);
 }
-.footer .icon-instagramm {
+.footer .icon-instagramm, #collapseShare .icon-instagramm {
 	background-image:url(../images/icon_instagramm.png);
 }
-.footer .icon-pinterest {
+.footer .icon-pinterest, #collapseShare .icon-pinterest {
 	background-image:url(../images/icon_pinterest.png);
 }
-.footer .icon-youtube {
+.footer .icon-youtube, #collapseShare .icon-youtube {
 	background-image:url(../images/icon_youtube.png);
 }
 
@@ -367,7 +370,6 @@ body {
 html, body {
 	height:100%;
 }
-
 
 /* Header */
 header .navbar {
@@ -642,6 +644,35 @@ h2, .episode h1.name, .episode time {
 .comments .answer {
 	cursor:pointer;
 }
+
+/* Sharing und Playlistfenster*/
+#collapseShare {
+	margin-top:40px;
+}
+#collapseShare input.form-control {
+	width:400px;
+}
+#collapseShare .btn-group {
+	margin-bottom:40px;
+}
+#collapseShare .socialnetworks {
+    margin-left:0;
+	padding-left:0;
+}
+#collapseShare .socialnetworks li {
+    display: inline;
+}
+#collapseShare .socialnetworks a {
+    display: inline-block;
+    height: 30px;
+    outline: 0 none;
+    text-align: left;
+    width: 30px;
+}
+#collapseShare .socialnetworks a span {
+    margin-left: -9990px;
+}
+
 /* Footer */
 .footer {
 	height:300px;

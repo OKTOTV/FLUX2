@@ -118,5 +118,8 @@ $(document).ready(function(){
 	 $(window).on("resize", function(){
        
     });
+	
+	/*Sharebuttons*/
+	$('#sharingurl').val(window.location.href);
 	 
 });
