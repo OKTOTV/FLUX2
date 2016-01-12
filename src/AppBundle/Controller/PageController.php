@@ -76,6 +76,11 @@ class PageController extends Controller
                     $em->flush();
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_page');
                     return $this->redirect($this->generateUrl('oktothek_page_show', ['page' => $page->getSlug()]));
+                } elseif ($form->get('delete')->isClicked()) {
+                    $em->remove($page);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_page');
+                    return $this->redirect($this->generateUrl('homepage'));
                 } else { //preview
                     return $this->render('AppBundle:Page:preview.html.twig', ['page' => $page]);
                 }

@@ -49,6 +49,7 @@ oktothek.page_create_button:            <span class="glyphicon glyphicon-floppy-
 oktothek.page_preview_button:           Vorschau <span class="glyphicon glyphicon-chevron-right"></span>
 
 oktothek.success_create_page:           Seite erfolgreich angelegt
+oktothek.success_delete_page:           Seite erfolgreich gelöscht
 oktothek.page_create_new_button:        <span class="glyphicon glyphicon-plus"></span> Neue Seite anlegen
 oktothek.page_edit_button:              <span class="glyphicon glyphicon-edit"></span> Seite bearbeiten
 oktothek.page_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern
