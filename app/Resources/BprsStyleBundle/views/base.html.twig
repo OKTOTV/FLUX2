@@ -9,16 +9,16 @@
         <link rel="apple-touch-icon" href="{{ asset('bundles/bprsstyle/img/apple-touch-icon.png') }}">
     </head>
     <body class="{{ body_class|default('') }}">
+        {% block javascripts %}
+            <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
+            <script src="{{ asset('bundles/bprsstyle/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/javascript.js') }}"></script>
+        {% endblock %}
         {% block header %}{% endblock %}
         {% block messages %}{% endblock %}
         <div class="container-fluid">
             {% block body %}{% endblock %}
             {% block footer %}{% endblock %}
         </div>
-        {% block javascripts %}
-            <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
-            <script src="{{ asset('bundles/bprsstyle/js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('bundles/app/js/javascript.js') }}"></script>
-        {% endblock %}
     </body>
 </html>

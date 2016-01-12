@@ -10,5 +10,9 @@
         <h1>{{ 'oktothek.page_create_header'|trans}}</h1>
     </div>
  {{ form_start(form)}}
+    {{ form_row(form.title) }}
+    {{ form_row(form.text) }}
+    {% render(controller('BprsAssetBundle:Asset:modalList', {'page': 1}))%}
  {{ form_end(form)}}
+
 {% endblock %}
