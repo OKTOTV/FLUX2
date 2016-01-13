@@ -5,11 +5,13 @@
 {% endblock %}
 {% block body %}
 <div class="page-header">
-    <h1>{{ 'flux2.backend_header'}}</h1>
+    <h1>{{ 'oktothek.backend_header'|trans}}</h1>
 </div>
 
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Sendereihen</a></li>
-  <li role="presentation"><a href="{{ path('keychains')}}">Schlüsselkasten</a></li>
+<ul class="list-group">
+    <li class="list-group-item"><a href="{{ path('oktolab_series') }}">{{'oktothek.backend_index_media'|trans}}</a></li>
+    <li class="list-group-item"><a href="{{ path('keychains') }}">{{'oktothek.backend_index_api_keychains'|trans}}</a></li>
 </ul>
+
+
 {% endblock %}

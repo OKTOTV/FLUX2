@@ -54,3 +54,8 @@ oktothek.page_create_new_button:        <span class="glyphicon glyphicon-plus"><
 oktothek.page_edit_button:              <span class="glyphicon glyphicon-edit"></span> Seite bearbeiten
 oktothek.page_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern
 oktothek.page_delete_button:            <span class="glyphicon glyphicon-trash"></span> Seite löschen
+
+## backend
+oktothek.backend_header:                Administrationsbereich
+oktothek.backend_index_media:           Oktothek
+oktothek.backend_index_api_keychains:   API Schnittstellen

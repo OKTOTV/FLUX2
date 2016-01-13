@@ -49,7 +49,7 @@
 						    </div>
 						</div>
 						<div role="tabpanel" class="tab-pane" id="div_share_embed">
-						    <form><input type="text" value='<iframe width="420" height="315" src="#" frameborder="0" allowfullscreen></iframe>' class="form-control" id="embedurl"></form>
+						    <form><input type="text" value='<iframe width="420" height="315" src="{{ url('oktothek_embed_episode', {'uniqID': episode.uniqID})}}" frameborder="0" allowfullscreen></iframe>' class="form-control" id="embedurl"></form>
 						</div>
 						<div role="tabpanel" class="tab-pane" id="div_share_email">
 						    Als Email teilen
@@ -79,7 +79,7 @@
 					<div class="comment-text">
 				        <h4>Aswan</h4>
                         <p>Aswan TV: Freiheit für SyrienIn dieser Folge zeigt Aswan TV wie viele Stimmen es in Österreich für ein Freies Syrien gibt und wie wichtig es ist diese wahrzunehmen und ihnen Gehör zu verschaffen. Bei der wöchentlichen Reunion an Stephansplatz werden die Situation Syriens thematisiert und für syrische Bedürftige Spenden gesammelt. Verschiedene Perspektiven und Ansichten werden dieskutiert.  Menschen, die sich für Frieden und Demokratie engagieren, kommen zu Wort.
-				        </p> 
+				        </p>
 					</div>
 					<!-- Antwort Container -->
 					<div class="comment-answer">
@@ -166,10 +166,12 @@
     <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
     {% if episode.video is not empty %}
         <script type="text/javascript">
-            var playerInstance = jwplayer("player");
-            playerInstance.setup({
-                file: "{{ episode.video|path }}",
-                image: "{{ episode.posterframe|path }}"
+            $(document).ready(function() {
+                var playerInstance = jwplayer("player");
+                playerInstance.setup({
+                    file: "{{ episode.video|path }}",
+                    image: "{{ episode.posterframe|path }}"
+                });
             });
         </script>
     {% endif %}

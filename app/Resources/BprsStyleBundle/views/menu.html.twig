@@ -25,14 +25,6 @@
                     	<li {% if selected == "backend" %}class="active"{% endif %}>
                         	<a href="{{ path('backend') }}">Backend</a>
                     	</li>
-                    	<li {% if selected == "series" %}class="active"{% endif %}>
-                        	<a href="{{ path('oktolab_series')}}">Sendereihen</a>
-                    	</li>
-                    	{% if is_granted('ROLE_ADMIN') %}
-                        	<li {% if selected == "selected_8" %}class="active"{% endif %}>
-                            	<a href="#">Schlüsselbund</a>
-                        	</li>
-                    	{% endif %}
                     	<li role="separator" class="divider"></li>
                     	<li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> {{'bprs_user.button.logout'|trans}}</a><li>
                 	</ul>

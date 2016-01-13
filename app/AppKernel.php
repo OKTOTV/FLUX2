@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Oktolab\MediaBundle\OktolabMediaBundle(),
             new AppBundle\AppBundle(),
+            new MediaBundle\MediaBundle(),
             new Bprs\CommandLineBundle\BprsCommandLineBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(),

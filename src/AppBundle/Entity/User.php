@@ -32,6 +32,7 @@ class User extends BaseUser
         parent::__construct();
         $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
         $this->playlists = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->uniqID = uniqID();
     }
 
     /**

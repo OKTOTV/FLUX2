@@ -30,6 +30,16 @@ class OktothekController extends Controller
     }
 
     /**
+     * @Route("episode/{uniqID}/embed", name="oktothek_embed_episode")
+     * @Template()
+     */
+    public function empedEpisodeAction(Episode $episode)
+    {
+        return ['episode' => $episode];
+    }
+
+
+    /**
      * @Route("/series/{uniqID}", name="oktothek_show_series")
      * @Template()
      */
