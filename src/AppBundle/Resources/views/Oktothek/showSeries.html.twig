@@ -4,18 +4,18 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "head-white-color" %}
+{% set body_class = "series head-white-color" %}
 {% block body %}
-    <div class="series">
+    <div class="series-content">
         <div class="series-ident">
-            <img src="{{ series.posterframe|path() }}" />
-        </div>
-        <div class="series-name">
-            {{ series.name }}
-        </div>
-        <div class="series-description">
-            {{ series.description }}
-        </div>
+            <figure class="series-posterframe">
+                <img src="{{ series.posterframe|path() }}" />
+            </figure>
+			<article class="series-description">
+			    <h1>{{ series.name }}</h1>
+				<p class="description">{{ series.description }}</p>
+			</article>
+		</div>
     </div>
     <div class="container">
         <div class="more">
@@ -23,7 +23,6 @@
             {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': series.episodes} %}
         </div>
 	</div>
-
 {% endblock %}
 
 {% block javascripts %}

@@ -44,6 +44,12 @@ $(document).ready(function(){
 	 });
 	  
 	 /*Slider*/
+	var borderbottom = 60;
+	 
+    function Imagesize(el) {
+        aspectRatio = $(el).width() / $(el).height();
+        return aspectRatio;
+    }
 	 
 	 /*Alle Bilder auf gleiche Höhe bringen (nach der kleinsten Höhe)*/
 	function carouselNormalization() {
@@ -51,14 +57,9 @@ $(document).ready(function(){
         width = [], //create empty array to store height values
         //shortest; //create variable to make note of the shortest slide
 		Winheight,
-		Winwidth,
-		borderbottom = 60;
+		Winwidth;
 
         if (items.length) {
-			function Imagesize(el) {
-				aspectRatio = $(el).width() / $(el).height();
-				return aspectRatio;
-			}
 			
             function normalizeHeights() {
 				var Winheight = $( window ).height() - borderbottom;
@@ -97,6 +98,35 @@ $(document).ready(function(){
     }
     carouselNormalization();
 	
+	 function resizeImage(el) {
+        var image, _ref;
+		var Winwidth = $( window ).width();
+		var Winheight = $( window ).height() - borderbottom;
+
+        image = $(el);
+        if ((_ref = image.ratio) == null) {
+           // image.ratio = (image.height() / image.width()).toFixed(2);
+		    image.ratio = image.height() / image.width();
+        }
+		console.log($(el).height() + "+" + $(el).width() + "+" + image.ratio);
+        if ($(window).height() / image.ratio > Winwidth) {
+            $(image).width(Winwidth);
+            $(image).height(Winwidth * image.ratio);
+        } else {
+            $(image).height(Winheight);
+            $(image).width(Winheight / image.ratio);
+        }
+    };
+	//Fullscreen Images (Serien,...)
+	//function ImageToFullscreen(el) {
+		
+		//aspectRatio = Imagesize(el);
+		//$(el).width(Winwidth);
+		//$(el).height(Winwidth * aspectRatio);
+	//}
+	if ($('.series figure img').length > 0)
+        resizeImage($('.series figure.series-posterframe img'));
+	
 	//Anchor:
 	$('.slider #button_down').click(function() {
 		console.log('click');
@@ -125,16 +155,17 @@ $(document).ready(function(){
     })
 	 
 	 
-	 function loadWinHeight() {
-	     var Winheight = $( window ).height();
+	function loadWinHeight() {
+	    var Winheight = $( window ).height();
 		              
-	 }
+	}
 	 
-	 function resizeWinHeight() {
-		
-	 }
-	 $(window).on("resize", function(){
-       
+	function resizeWinHeight() {
+	
+	}
+    $(window).on("resize", function(){
+        if ($('.series figure.series-posterframe img').length > 0)
+           resizeImage($('.series figure.series-posterframe img'));
     });
 	
 	/*Sharebuttons*/

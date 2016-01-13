@@ -370,6 +370,9 @@ body {
 html, body {
 	height:100%;
 }
+.episode .series a {
+	text-decoration:underline;
+}
 
 /* Header */
 header .navbar {
@@ -671,6 +674,16 @@ h2, .episode h1.name, .episode time {
     text-align: left;
     width: 30px;
 }
+
+/* Serien */
+.series .series-content, .series .series-ident {
+	position:relative;
+}
+.series .series-content article {
+	position:absolute;
+	bottom:40px;
+}
+
 /* Überschriften für Barrierefreundlichkeit */
 #collapseShare .socialnetworks a span, #collapseShare h3 {
     margin-left: -9990px;
