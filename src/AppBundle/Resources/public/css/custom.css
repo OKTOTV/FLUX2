@@ -461,7 +461,7 @@ header .dropdown-menu {
 header .dropdown-menu li a {
 	padding:2px 12px;
 }
-#button_down {
+#button_down span {
 	display:none;
 }
 @media (min-width: 768px) {
@@ -523,6 +523,9 @@ header .dropdown-menu li a {
 		margin:0 auto;
 	}
 	#button_down {
+		cursor:pointer;
+	}
+	#button_down span {
 		position:absolute;
 		display:inline-block;
 		vertical-align:middle;
@@ -530,9 +533,8 @@ header .dropdown-menu li a {
 		width:30px;
 		height:30px;
 		margin-left:50px;
-		cursor:pointer;
 	}
-	#button_down.glyphicon {
+	#button_down span.glyphicon {
 		top:auto;
 	}
 }
@@ -650,7 +652,7 @@ h2, .episode h1.name, .episode time {
 	margin-top:40px;
 }
 #collapseShare input.form-control {
-	width:400px;
+	width:600px;
 }
 #collapseShare .btn-group {
 	margin-bottom:40px;
@@ -669,7 +671,8 @@ h2, .episode h1.name, .episode time {
     text-align: left;
     width: 30px;
 }
-#collapseShare .socialnetworks a span {
+/* Überschriften für Barrierefreundlichkeit */
+#collapseShare .socialnetworks a span, #collapseShare h3 {
     margin-left: -9990px;
 }
 

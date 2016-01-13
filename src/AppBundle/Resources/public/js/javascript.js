@@ -14,7 +14,7 @@ $(document).ready(function(){
 		      //$('.navbar-fixed-top').removeClass('dropshadow'); //Schlagschatten
 			  
 			  //Downbutton erscheinen lassen
-			  $('.slider #button_down').css('display','inline');
+			  $('.slider #button_down span').css('display','inline');
 			  
 	      } else if ($(document).scrollTop() > headerScrollheight) {
 			  //Header schwarz setzen und Schlagschatten hinzufügen
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		      //$('.navbar-fixed-top').addClass('dropshadow'); //Schlagschatten
 			  
 			  //Downbutton ausblenden
-			  $('.slider #button_down').css('display','none');
+			  $('.slider #button_down span').css('display','none');
 		   }
 	    } else {
 			if($(document).scrollTop() <= headerScrollheight) {
@@ -97,14 +97,32 @@ $(document).ready(function(){
     }
     carouselNormalization();
 	
-	//Anker
+	//Anchor:
 	$('.slider #button_down').click(function() {
 		console.log('click');
 		var offset = $('#oktothek').offset();
 		$("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
-		$( this ).css('display','none');
+		$( this ).find('span').css('display','none');
 	});
 	
+	//Sharing Tabs:
+	$('#collapseShare .sharingnav button').click(function (e) {
+        //e.preventDefault();
+		$('.tab-content div').removeClass('active');
+		switch($(this).attr('id')) {
+            case "share_sn":
+                $('#div_share_sn').addClass('active');
+                break;
+            case "share_embed":
+                $('#div_share_embed').addClass('active');
+                break;
+			case "share_email":
+                $('#div_share_email').addClass('active');
+                break;
+            default:
+                $('#div_share_sn').addClass('active');
+        } 
+    })
 	 
 	 
 	 function loadWinHeight() {
