@@ -30,6 +30,7 @@ class PlaylistController extends Controller
         if ($request->getMethod() == "POST") {
             $form->handleRequest($request);
             if ($form->isValid()) {
+                $playlist->setUser($this->get('security.context')->getToken()->getUser());
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($playlist);
                 $em->flush();

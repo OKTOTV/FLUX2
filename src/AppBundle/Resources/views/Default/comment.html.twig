@@ -1,0 +1,39 @@
+<!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
+<div class="col-md-11">
+    <div class="author">{{ 'oktothek.comment_author'trans({'name': comment.name, 'date': comment.date|date('d.m.Y H:i')})|raw }}</div>
+    <div class="comment-text">
+        <h4>{{ comment.title }}</h4>
+        <p>{{ comment.text }}</p> {# TODO: markdown? #}
+    </div>
+    <!-- Antwort Container -->
+    <div class="comment-answer">
+    {% for answer in comment.childs %}
+        <a class="answer" role="button" data-toggle="collapse" href="#answer_comment_1" aria-expanded="false" aria-controls="answer_comment_1">Antworten</a>
+        <div class="answer-text collapse" id="answer_comment_1">
+            <div class="row comment-form">
+                <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
+                <div class="col-md-11">
+                    <form action="#" id="form_answer_comment_1" method="POST">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Schreibe eine Antwort...">
+                            <span class="input-group-btn"><button class="btn btn-default" type="button">Senden</button></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Antwort -->
+            <div class="row">
+                <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
+                <div class="col-md-11">
+                    <div class="author">Klara <time>am 14.Juli 2015<time></div>
+                    <div class="comment-text">
+                        <h4>Hallo!</h4>
+                        <p>Und ich bin die Antwort!!!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Ende Antwort -->
+        </div>
+        <!-- Ende Antwort Container -->
+    {% endfor %}
+</div>

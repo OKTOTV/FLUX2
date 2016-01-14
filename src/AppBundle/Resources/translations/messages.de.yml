@@ -65,6 +65,16 @@ oktothek.playlist_index_filter_createdAt: Erstellt
 oktothek.playlist_index_filter_updatedAt: Letzte Aktualisierung
 oktothek.playlist_index_new_playlist:   <span class="glyphicon glyphicon-plus"></span> Playlist anlegen
 
+## episode
+oktothek.episode_show_playlist_header:  Playlisten
+oktothek.episode_show_playlist_login_register: Du kannst Playlisten nur mit einem %link% verwalten
+oktothek.episode_show_playlist_login_register_link: Account
+oktothek.episode_show_playlist_no_playlists: Noch keine Playlisten angelegt
+oktothek.episode_show_update_playlists: Änderungen übernehmen
+
+
+## comment
+oktothek.comment_author:                %name% am <time>%date%</time>
 ## backend
 oktothek.backend_header:                Administrationsbereich
 oktothek.backend_index_media:           Oktothek

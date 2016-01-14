@@ -61,8 +61,29 @@
 				<!-- Start Modal Window Playlist-->
 				<div class="collapse" id="collapsePlaylist">
                     <div>
-                        <h3>Playlist</h3>
+                        <h3>{{ 'oktothek.episode_show_playlist_header'|trans }}</h3>
                     </div>
+                    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                        {% if app.user.playlists|length > 0%}
+                            <ul class="list-group playlists">
+                            {% for playlist in app.user.playlists %}
+                            {# TODO: check if episode is part of any playlistitem in the playlist #}
+                                <li class="list-group-item playlist" data-uniqID="{{ playlist.uniqID }}">{{ playlist.name }}</li>
+                            {% endfor %}
+                            </ul>
+                            <input class="btn btn-default" id="update-playlists" type="button" value="{{ 'oktothek.episode_show_update_playlists'|trans }}" />
+                        {% else %}
+                            <p>{{ 'oktothek.episode_show_playlist_no_playlists'|trans }}</p>
+                        {% endif %}
+                        <div class="playlist-form">
+                            {# TODO: render modal form (playlistMinimalistType and send with ajax) and update playlists  #}
+                        </div>
+                    {% else %}
+                        <p>{{ 'oktothek.episode_show_playlist_login_register'|trans({
+                            '%link%': '<a href="#">'~'oktothek.episode_show_playlist_login_register_link'|trans~'</a>'
+                            })|raw }}
+                        </p>
+                    {% endif %}
                 </div>
 				<!-- End Modal Window Playlist-->
 			</article>
@@ -189,6 +210,30 @@
                     $(this)
                 }
             })
+        });
+
+        $(document).on('click', '.playlist', function(e){
+            if (this.hasClass('selected')) {
+                this.removeClass('selected');
+                $.ajax({
+                    url: "#", //TODO: make function, add url and action in backend
+                    data: { 'uniqID': this.val('uniqID'), 'action': 'remove'},
+                    type: 'POST',
+                    success: function(data) {
+                        console.log('removed from playlist');
+                    }
+                });
+            } else {
+                this.addClass('selected');
+                $.ajax({
+                    url: "#",
+                    data: { 'uniqID': this.val('uniqID'), 'action': 'add'},
+                    type: 'POST',
+                    success: function(data) {
+                        console.log('added to playlist');
+                    }
+                });
+            }
         });
     </script>
 {% endblock %}
