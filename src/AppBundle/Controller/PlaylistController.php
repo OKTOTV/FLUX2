@@ -18,17 +18,14 @@ use AppBundle\Form\PlaylistType;
 class PlaylistController extends Controller
 {
     /**
-     * @Route("/create", name="playlist_create")
+     * @Route("/new", name="oktothek_playlist_new")
      * @Template()
      */
-    public function createAction(Request $request)
+    public function newAction(Request $request)
     {
         $playlist = new Playlist();
-        $form = $this->createForm(new PlaylistType(), $playlist, array(
-            'action' => $this->generateUrl('playlist_create'),
-            'method' => 'POST',
-        ));
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form = $this->createForm(new PlaylistType(), $playlist);
+        $form->add('submit', 'submit', array('label' => 'oktolab.playlist_create_button'));
 
         if ($request->getMethod() == "POST") {
             $form->handleRequest($request);
@@ -44,13 +41,60 @@ class PlaylistController extends Controller
         return array('form' => $form->createView());
     }
 
-    public function updateAction()
+    /**
+     * @Route("{playlist}/edit", name="playlist_edit")
+     * @Template()
+     */
+    public function editAction(Playlist $playlist)
     {
+        $form = $this->createForm(new PlaylistType(), $playlist);
+        $form->add('submit', 'submit', array('label' => 'oktolab.playlist_create_button'));
 
+        if ($request->getMethod() == "POST") {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if ($form->get('submit')->isClicked()) {
+                    $em->persist($playlist);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'playlist_create.success');
+                    return $this->redirect($this->generateUrl('oktothek_show_playlist', array('uniqID' => $playlist->getUniqID())));
+                } elseif ($form->get('delete')->isClicked()) {
+                    $em->remove($episode);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_episode');
+                    return $this->redirect($this->generateUrl('oktothek_playlist_index'));
+                } else { //???
+                    $this->get('session')->getFlashBag()->add('info', 'oktothek.info_edit_playlist_unknown_button');
+                    return $this->redirect($this->generateUrl('oktolab_playlist_show', ['uniqID' => $playlist->getUniqID()]));
+                }
+            }
+            $this->get('session')->getFlashBag()->add('error', 'oktothek.playlist_create.error');
+        }
+        return array('form' => $form->createView());
     }
 
-    public function deleteAction()
+    /**
+     * @Route("/{playlist}", name="oktothek_playlist_show")
+     * @Template()
+     */
+    public function showAction(Playlist $playlist)
     {
+        return ['playlist' => $playlist];
+    }
 
+    /**
+     * @Route("/{page}", name="oktothek_playlist_show", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Template()
+     */
+    public function indexAction($page)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT p FROM AppBundle:Playlist p";
+        $query = $em->createQuery($dql);
+        $paginator = $this->get('knp_paginator');
+        $playlists = $paginator->paginate($query, $page, 10);
+
+        return ['pagination' => $playlists];
     }
 }

@@ -55,6 +55,16 @@ oktothek.page_edit_button:              <span class="glyphicon glyphicon-edit"><
 oktothek.page_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern
 oktothek.page_delete_button:            <span class="glyphicon glyphicon-trash"></span> Seite löschen
 
+## playlist
+### index
+oktothek.playlist_index_header:         Playlisten
+oktothek.playlist_index_description:    Über %count% Playlisten warten darauf, von dir entdeckt zu werden
+oktothek.playlist_index_filter:         <span class="glyphicon glyphicon-filter"></span> Sortieren <span class="caret"></span>
+oktothek.playlist_index_filter_name:    Name
+oktothek.playlist_index_filter_createdAt: Erstellt
+oktothek.playlist_index_filter_updatedAt: Letzte Aktualisierung
+oktothek.playlist_index_new_playlist:   <span class="glyphicon glyphicon-plus"></span> Playlist anlegen
+
 ## backend
 oktothek.backend_header:                Administrationsbereich
 oktothek.backend_index_media:           Oktothek

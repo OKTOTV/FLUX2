@@ -134,7 +134,6 @@ class EpisodeController extends BaseController
      */
     public function editAction(Request $request, $episode)
     {
-        // die(var_dump($episode));
         $form = $this->createForm(new EpisodeType(), $episode);
         $form->add('submit', 'submit', ['label' => 'oktolab_media.edit_episode_button', 'attr' => ['class' => 'btn btn-primary']]);
         $form->add('delete', 'submit', ['label' => 'oktolab_media.delete_episode_button', 'attr' => ['class' => 'btn btn-danger']]);
