@@ -1,0 +1,66 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'delorian', 'dropdown': ''} %}
+{% endblock %}
+
+{% block body_main -%}
+    <div class="page-header">
+        <h1>{{ series.name }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            {% if series.posterframe is not empty %}
+                <img src="{{ series.posterframe|path }}" class="img-responsive" />
+            {% endif %}
+            {{ series.description }}
+        </div>
+        <div class="col-md-4">
+            <p>Angelegt am: {{ series.createdAt|date('Y-m-d H:i:s') }}</p>
+            <p>Aktualisiert am: {{ series.updatedAt|date('Y-m-d H:i:s') }}</p>
+            {% if series.isActive %}
+                <p>Sendereihe ist: Aktiv</p>
+            {% else %}
+                <p>Sendereihe ist: Inaktiv</p>
+            {% endif %}
+            <p>ID: {{ series.uniqID }}</p>
+            <p>Webtitel: {{ series.webtitle }}</p>
+            <a href="{{ path('oktolab_series_edit', { 'series': series.id }) }}" class="btn btn-default">
+                Edit
+            </a>
+        </div>
+    </div>
+    <a class="btn btn-default" href="{{ path('oktolab_episode_new')}}">{{ 'oktolab_media.series_add_new_episode'|trans|raw }}</a>
+        {{ render(controller('OktolabMediaBundle:Series:paginationEpisodes', {'page': 1, 'series': series.id })) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+
+        var updateView = function(e, link) {
+            e.preventDefault();
+            var link = $(link);
+            $.ajax({
+                url: link.attr('href'),
+                context: document.body
+            }).success(function(data) {
+                $(link.parents('.pager')).replaceWith(data);
+            });
+        }
+        // AJAX pagination
+        $( document ).on('click', '.pagination > li > a', function(e){
+            updateView(e, this);
+        });
+
+        $( document ).on('click', '.sortable', function(e){
+            updateView(e, this);
+        });
+        $( document ).on('click', '.asc', function(e){
+            updateView(e, this);
+        });
+        $( document ).on('click', '.desc', function(e){
+            updateView(e, this);
+        });
+    </script>
+{% endblock %}

@@ -16,9 +16,8 @@ oneup_uploader:
     type: uploader
 
 oktolab_media:
-    resource: "@OktolabMediaBundle/Controller/"
-    type:     annotation
-    prefix:   /
+    resource: .
+    type:     oktolab_media
 
 bprs_user:
     resource: .
