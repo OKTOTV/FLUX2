@@ -16,8 +16,8 @@
             {{ series.description }}
         </div>
         <div class="col-md-4">
-            <p>Angelegt am: {{ series.createdAt|date('Y-m-d H:i:s') }}</p>
-            <p>Aktualisiert am: {{ series.updatedAt|date('Y-m-d H:i:s') }}</p>
+            <p>Angelegt am: {{ series.createdAt|date('d.m.Y H:i') }}</p>
+            <p>Aktualisiert am: {{ series.updatedAt|date('d.m.Y H:i') }}</p>
             {% if series.isActive %}
                 <p>Sendereihe ist: Aktiv</p>
             {% else %}

@@ -20,7 +20,7 @@ class SeriesController extends BaseController
     /**
      * Finds and displays a Series entity.
      * @ParamConverter("series", class="AppBundle:Series")
-     * @Route("/{series/show/{series}")
+     * @Route("/show/{series}", name="oktolab_series_show")
      * @Method("GET")
      * @Template()
      */

@@ -98,4 +98,16 @@ class PlaylistController extends Controller
 
         return ['pagination' => $playlists];
     }
+
+    /**
+     * @Route("/ajax", name="oktothek_playlist_ajax")
+     * @Method("POST")
+     */
+    public function ajaxPlaylistAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+
+        }
+        return $this->redirect($this->generateUrl('oktothek_show_user_playlist'));
+    }
 }
