@@ -24,6 +24,15 @@ class Episode extends BaseEpisode
     private $users;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Comment")
+     * @ORM\JoinTable(name="episode_comment",
+     *      joinColumns={@ORM\JoinColumn(name="episode_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="comment_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $comments;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -85,5 +94,38 @@ class Episode extends BaseEpisode
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \AppBundle\Entity\Comment $comments
+     * @return Episode
+     */
+    public function addComment(\AppBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \AppBundle\Entity\Comment $comments
+     */
+    public function removeComment(\AppBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

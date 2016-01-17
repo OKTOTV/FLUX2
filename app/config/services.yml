@@ -8,6 +8,10 @@ services:
         class: AppBundle\Model\PostService
         arguments: [ @doctrine.orm.entity_manager, @bprs.asset_helper]
 
+    oktothek_playlist_service:
+        class:  AppBundle\Model\PlaylistService
+        arguments: [ @doctrine.orm.entity_manager ]
+
 
     gedmo.listener.sluggable:
         class: Gedmo\Sluggable\SluggableListener

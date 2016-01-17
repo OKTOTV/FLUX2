@@ -77,6 +77,7 @@
 		<!-- Kommentare -->
 		<section class="comments body-white-color">
 		  <div class="container">
+              {#
 		    <h2>Kommentare <span class="comments-counter">1</span></h2>
 			<!-- Kommentar -->
 			<article class="row">
@@ -137,7 +138,8 @@
 			</div>
 		  </div>
         </section>
-		<!-- Ende Kommentare -->
+		<!-- Ende Kommentare --> #}
+        {% include "AppBundle:Default:EpisodeComment.html.twig" with {'comments': episode.comments} %}
 		<section class="container tags">
 		    <h2>Tags</h2>
 		    <ul>
@@ -192,21 +194,31 @@
             if (playlist.hasClass('selected')) {
                 playlist.removeClass('selected');
                 $.ajax({
-                    url: "#", //TODO: make function, add url and action in backend
-                    data: { 'uniqID': playlist.attr('data-uniqID'), 'action': 'remove'},
+                    url: "{{ path('oktothek_playlist_ajax') }}", //TODO: make function, add url and action in backend
+                    data: {
+                        'uniqID': playlist.attr('data-uniqID'),
+                        'episodeID': playlist.attr('data-episodeID'),
+                        'action': 'remove'
+                    },
                     type: 'POST',
                     success: function(data) {
                         console.log('removed from playlist');
+                        console.log(data);
                     }
                 });
             } else {
                 playlist.addClass('selected');
                 $.ajax({
-                    url: "#",
-                    data: { 'uniqID': playlist.attr('data-uniqID'), 'action': 'add'},
+                    url: "{{ path('oktothek_playlist_ajax') }}",
+                    data: {
+                        'uniqID': playlist.attr('data-uniqID'),
+                        'episodeID': playlist.attr('data-episodeID'),
+                        'action': 'add'
+                    },
                     type: 'POST',
                     success: function(data) {
                         console.log('added to playlist');
+                        console.log(data);
                     }
                 });
             }

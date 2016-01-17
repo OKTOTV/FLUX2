@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -76,16 +77,16 @@ class PlaylistController extends Controller
     }
 
     /**
-     * @Route("/{playlist}", name="oktothek_playlist_show")
+     * @Route("/show/{playlist}/{page}", name="oktothek_playlist_show", requirements={"page": "\d+"}, defaults={"page": 1})
      * @Template()
      */
-    public function showAction(Playlist $playlist)
+    public function showAction(Playlist $playlist, $page)
     {
         return ['playlist' => $playlist];
     }
 
     /**
-     * @Route("/{page}", name="oktothek_playlist_show", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Route("/{page}", name="oktothek_playlist_index", requirements={"page": "\d+"}, defaults={"page": 1})
      * @Template()
      */
     public function indexAction($page)
@@ -106,7 +107,17 @@ class PlaylistController extends Controller
     public function ajaxPlaylistAction(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-
+            $em = $this->getDoctrine()->getManager();
+            $playlistID = $request->request->get('uniqID');
+            $episodeID = $request->request->get('episodeID');
+            $action = $request->request->get('action');
+            $user = $this->get('security.context')->getToken()->getUser();
+            if ($action == "add") {
+                $this->get('oktothek_playlist_service')->addToPlaylist($episodeID, $playlistID, $user);
+            } else {
+            $this->get('oktothek_playlist_service')->removeFromPlaylist($episodeID, $playlistID, $user);
+            }
+            return new Response();
         }
         return $this->redirect($this->generateUrl('oktothek_show_user_playlist'));
     }

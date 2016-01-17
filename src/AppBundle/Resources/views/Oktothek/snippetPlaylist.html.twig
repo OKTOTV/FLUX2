@@ -12,7 +12,7 @@
                     {% set isInPlaylist = "1" %}
                 {% endif %}
             {% endfor %}
-            <li class="list-group-item playlist{% if isInPlaylist %} selected{% endif %}" data-uniqID="{{ playlist.uniqID }}">{{ playlist.name }}</li>
+            <li class="list-group-item playlist{% if isInPlaylist %} selected{% endif %}" data-episodeID="{{ episode.uniqID }}" data-uniqID="{{ playlist.uniqID }}">{{ playlist.name }}</li>
         {% endfor %}
         </ul>
         <input class="btn btn-default" id="update-playlists" type="button" value="{{ 'oktothek.episode_show_update_playlists'|trans }}" />
@@ -20,7 +20,7 @@
         <p>{{ 'oktothek.episode_show_playlist_no_playlists'|trans }}</p>
     {% endif %}
     <div class="playlist-form">
-        {# TODO: render modal form (playlistMinimalistType and send with ajax) and update playlists  #}
+        {# TODO: render form (playlistMinimalistType and send with ajax) and update playlists  #}
     </div>
 {% else %}
     <p>{{ 'oktothek.episode_show_playlist_login_register'|trans({

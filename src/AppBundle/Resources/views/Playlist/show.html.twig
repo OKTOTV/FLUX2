@@ -7,33 +7,16 @@
 {% set body_class = "head-white-color" %}
 {% block body %}
     <div class="page-header">
-        <h1>{{ 'oktothek.playlist_index_header'|trans }}</h1>
-        <p>{{ 'oktothek.playlist_index_description'|trans({'%count%': pagination.getTotalItemCount}) }}</p>
-        <div class="dropdown pull-left">
-          <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            {{ 'oktothek.playlist_index_filter'|trans|raw }}
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="filter_menu">
-            <li {% if pagination.isSorted('p.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(pagination, 'oktothek.playlist_index_filter_name'|trans, 'p.name') }}</li>
-            <li {% if pagination.isSorted('p.createdAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(pagination, 'oktothek.playlist_index_filter_createdAt'|trans, 'p.createdAt') }}</li>
-            <li {% if pagination.isSorted('p.updatedAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(pagination, 'oktothek.playlist_index_filter_updatedAt'|trans, 'p.updatedAt') }}</li>
-          </ul>
-        </div>
-        <a href="{{ path('oktothek_playlist_new') }}" class="btn btn-default">{{ 'oktothek.playlist_index_new_playlist'|trans|raw }}</a>
+        <h1>{{ playlist.name }}</h1>
+        <a href="{{ path('oktothek_playlist_new') }}" class="btn btn-default">{{ 'oktothek.playlist_show_new_playlist'|trans|raw }}</a>
     </div>
 
     <figure id="player"></figure>
 
-    <div class="navigation">
-        {{ knp_pagination_render(pagination) }}
-    </div>
     <div class="row">
-    {% for playlist in pagination %}
-        {% include 'AppBundle:Default:Playlist/PlaylistThumb.html.twig' %}P
+    {% for playlistItem in playlist.items %}
+        {% include 'AppBundle::Default/EpisodeThumb.html.twig' with {'episode': playlistItem.episode } %}
     {% endfor %}
-    </div>
-    <div class="navigation">
-        {{ knp_pagination_render(pagination) }}
     </div>
 {% endblock %}
 
@@ -44,7 +27,7 @@
     $(document).ready(function(){
         var playerInstance = jwplayer("player");
         playerInstance.setup({
-            playlist: [{% for episode in playlist.episodes %}{ image:{{ episode.posterframe|path }}, file: {{ episode.video|path }} }{% if not loop.last%},{% endif %}{% endfor %}]
+            playlist: [{% for playlistItem in playlist.items %}{ image:"{{ playlistItem.episode.posterframe|path }}", file: "{{ playlistItem.episode.video|path }}" }{% if not loop.last%},{% endif %}{% endfor %}]
         });
     });
 </script>
