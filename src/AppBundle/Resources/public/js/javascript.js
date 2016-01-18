@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var headerScrollheight = 50;
 	
 	function addHeaderBG() {
-	  if ($('body').hasClass('slider')) {
+	  if ($('body').hasClass('fullscreen-images')) {
 	      if($(document).scrollTop() <= headerScrollheight) {
 			  //Header transparent setzen und Schlagschatten entfernen
 	          $('body').addClass('head-white-color')
@@ -14,7 +14,7 @@ $(document).ready(function(){
 		      //$('.navbar-fixed-top').removeClass('dropshadow'); //Schlagschatten
 			  
 			  //Downbutton erscheinen lassen
-			  $('.slider #button_down span').css('display','inline');
+			  $('.fullscreen-images #button_down span').css('display','inline');
 			  
 	      } else if ($(document).scrollTop() > headerScrollheight) {
 			  //Header schwarz setzen und Schlagschatten hinzufügen
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		      //$('.navbar-fixed-top').addClass('dropshadow'); //Schlagschatten
 			  
 			  //Downbutton ausblenden
-			  $('.slider #button_down span').css('display','none');
+			  $('.fullscreen-images #button_down span').css('display','none');
 		   }
 	    } else {
 			if($(document).scrollTop() <= headerScrollheight) {
@@ -46,16 +46,30 @@ $(document).ready(function(){
 	 /*Slider*/
 	var borderbottom = 60;
 	 
-    function Imagesize(el) {
-        aspectRatio = $(el).width() / $(el).height();
+    function ImageRatio(el) {
+        aspectRatio = $(el).height() / $(el).width();
         return aspectRatio;
     }
+	
+	function resizeImage(el, container, _ratio) {
+		var Winheight = $( window ).height() - borderbottom;
+		var Winwidth = $( window ).width();
+		
+		$(container).find('figure').parent('div').css('height',Winheight + 'px').css('overflow','hidden');
+		
+		if ($(window).height() / _ratio > Winwidth) {
+			newMargin = (Winwidth - (Winheight / _ratio)) / 2;
+			el.css('height', Winheight + 'px').css('width', (Winheight / _ratio) + 'px').css('margin-left', newMargin + "px");
+        } else {
+			el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
+        }
+		
+	}
 	 
 	 /*Alle Bilder auf gleiche Höhe bringen (nach der kleinsten Höhe)*/
-	function carouselNormalization() {
-        var items = jQuery('#slider .item'), //grab all slides
+	function carouselNormalization(container) {
+        var items = $(container).find('.item'), //grab all slides
         width = [], //create empty array to store height values
-        //shortest; //create variable to make note of the shortest slide
 		Winheight,
 		Winwidth;
 
@@ -67,69 +81,52 @@ $(document).ready(function(){
 				
 				if (width.length == 0) { //beim ersten Mal Array füllen
                 	items.each(function() { //Aspect Ratio Array hinzufügen
-						aspectRatio = Imagesize(this);
+						aspectRatio = ImageRatio(this);
                     	width.push(aspectRatio);
                 	});
 				}
 				
 				var i=0;
                 items.each(function() {
-					
-                    jQuery('.carousel-inner').css('height',Winheight + 'px').css('overflow','hidden');
-					
-					newWidth = Winheight * width[i];
-					if (newWidth >= Winwidth) {
-						newMargin = (Winwidth - newWidth) / 2;
-						jQuery('.carousel-inner .item img').css('height',Winheight + 'px').css('width',newWidth + 'px').css('margin-left',newMargin + "px");
-					} else {
-						newHeight = parseInt(Winwidth / width[i]);
-					    jQuery('.carousel-inner .item img').css('height',newHeight + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
-					}
+					//Bildgröße berechnen lassen:
+                    resizeImage($(this).find('img'), container, width[i]);
 					i++;
                 });
             };
             normalizeHeights();
 
-            jQuery(window).on('resize orientationchange', function () {
+            $(window).on('resize orientationchange', function () {
                 Winheight = 0, Winwidth = 0; //reset vars
                 normalizeHeights(); //run it again
             });
         }
     }
-    carouselNormalization();
+	$('.fullscreen-images .carousel img').load(function() {
+        carouselNormalization($('.fullscreen-images .carousel'));
+	});
 	
-	 function resizeImage(el) {
-        var image, _ref;
+	 function resizeSingleImage(el) {
+        var _ref;
 		var Winwidth = $( window ).width();
-		var Winheight = $( window ).height() - borderbottom;
+		var Winheight = $( window ).height() - borderbottom - $('header .navbar').height();
 
-        image = $(el);
-        if ((_ref = image.ratio) == null) {
+        if ((_ref = el.ratio) == null) {
+			el.ratio =ImageRatio(el);
            // image.ratio = (image.height() / image.width()).toFixed(2);
-		    image.ratio = image.height() / image.width();
         }
-		console.log($(el).height() + "+" + $(el).width() + "+" + image.ratio);
-        if ($(window).height() / image.ratio > Winwidth) {
-            $(image).width(Winwidth);
-            $(image).height(Winwidth * image.ratio);
-        } else {
-            $(image).height(Winheight);
-            $(image).width(Winheight / image.ratio);
-        }
-    };
-	//Fullscreen Images (Serien,...)
-	//function ImageToFullscreen(el) {
 		
-		//aspectRatio = Imagesize(el);
-		//$(el).width(Winwidth);
-		//$(el).height(Winwidth * aspectRatio);
-	//}
-	if ($('.series figure img').length > 0)
-        resizeImage($('.series figure.series-posterframe img'));
+		//Bildgröße berechnen lassen:
+		resizeImage(el, el.parent('figure').parent('div'), el.ratio);
+		
+    };
+	
+	$('.series figure img').load(function() {
+	    if ($('.series figure img').length > 0)
+            resizeSingleImage($('.series figure.series-posterframe img'));
+	});
 	
 	//Anchor:
-	$('.slider #button_down').click(function() {
-		console.log('click');
+	$('.fullscreen-images #button_down').click(function() {
 		var offset = $('#oktothek').offset();
 		$("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
 		$( this ).find('span').css('display','none');
@@ -138,20 +135,19 @@ $(document).ready(function(){
 	//Sharing Tabs:
 	$('#collapseShare .sharingnav button').click(function (e) {
         //e.preventDefault();
-		$('.tab-content div').removeClass('active');
+		$('#collapseShare .tab-content div').removeClass('active');
+		$('#collapseShare .sharingnav button').removeClass('active');
 		switch($(this).attr('id')) {
             case "share_sn":
-                $('#div_share_sn').addClass('active');
+                $('#collapseShare #div_share_sn').addClass('active');
                 break;
             case "share_embed":
-                $('#div_share_embed').addClass('active');
-                break;
-			case "share_email":
-                $('#div_share_email').addClass('active');
+                $('#collapseShare #div_share_embed').addClass('active');
                 break;
             default:
-                $('#div_share_sn').addClass('active');
+                $('#collapseShare #div_share_sn').addClass('active');
         } 
+		$(this).addClass('active');
     })
 	 
 	 
@@ -163,9 +159,10 @@ $(document).ready(function(){
 	function resizeWinHeight() {
 	
 	}
-    $(window).on("resize", function(){
+    $(window).on("resize orientationchange", function(){
         if ($('.series figure.series-posterframe img').length > 0)
-           resizeImage($('.series figure.series-posterframe img'));
+           resizeSingleImage($('.series figure.series-posterframe img'));
+		   
     });
 	
 	/*Sharebuttons*/

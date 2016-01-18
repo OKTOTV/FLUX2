@@ -46,7 +46,7 @@ header .form-control::-webkit-input-placeholder {
 /* Backgroundcolor */
 
 /* Header */
-.slider .navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control, header #dropdownMenuTags.btn-default, header #dropdownMenuTags.btn-default:hover, header #dropdownMenuTags.btn-default:focus, header #dropdownMenuTags.btn-default:active, header #dropdownMenuTags.btn-default.active, .open > header #dropdownMenuTags.dropdown-toggle.btn-default {
+.fullscreen-images .navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control, header #dropdownMenuTags.btn-default, header #dropdownMenuTags.btn-default:hover, header #dropdownMenuTags.btn-default:focus, header #dropdownMenuTags.btn-default:active, header #dropdownMenuTags.btn-default.active, .open > header #dropdownMenuTags.dropdown-toggle.btn-default {
     background-color: transparent;
 }
 header .searchfield {
@@ -237,19 +237,22 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 body {
 	background-color:#000000;
 }
-body, .episode .btn-default, .episode .misc a, a, a:hover, .episode select {
+body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.btn-default:hover {
 	color:#ffffff;
 }
 
-.oktothek article a, a.pull-right, .modal {
+.oktothek article a.btn-default, a.pull-right, .modal, button .btn-default.active, .series .series-content article {
 	color:#000000;
 }
 
 .comments {
 	background-color:#757575;
 }
-.episode .btn-default, .episode select {
+.btn-default, select, .oktothek article a.btn-default:hover {
 	background-color:#000000;
+}
+button .btn-default.active, .series .series-content article, .oktothek article a.btn-default {
+	background-color:#ffffff;
 }
 
 .tags li a {
@@ -275,7 +278,7 @@ body, .episode .btn-default, .episode .misc a, a, a:hover, .episode select {
 .episode select {
 	width:auto;
 }
-#collapseShare {
+#collapseShare, #collapsePlaylist {
     border-top: dashed gray 2px;
 }
 
@@ -543,8 +546,8 @@ header .dropdown-menu li a {
 }
 
 
-/* Slider */
-#slider {
+/* Slider und Fullscreen Images */
+#slider, .series-content {
 	margin-top:-180px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
 }
 .carousel .item {
@@ -651,11 +654,14 @@ h2, .episode h1.name, .episode time {
 }
 
 /* Sharing und Playlistfenster*/
-#collapseShare {
+#collapseShare, #collapsePlaylist {
 	margin-top:40px;
 }
-#collapseShare input.form-control {
+#collapseShare input.form-control, #collapsePlaylist input.form-control {
 	width:600px;
+}
+#collapsePlaylist .input-group-btn {
+	width:auto;
 }
 #collapseShare .btn-group {
 	margin-bottom:40px;
@@ -663,9 +669,14 @@ h2, .episode h1.name, .episode time {
 #collapseShare .socialnetworks {
     margin-left:0;
 	padding-left:0;
+	display:inline;
 }
 #collapseShare .socialnetworks li {
     display: inline;
+}
+#collapseShare div {
+    vertical-align:middle;
+	line-height:30px;
 }
 #collapseShare .socialnetworks a {
     display: inline-block;
@@ -673,6 +684,30 @@ h2, .episode h1.name, .episode time {
     outline: 0 none;
     text-align: left;
     width: 30px;
+}
+#div_share_sn form, #collapsePlaylist form {
+	margin-top:20px;
+}
+#collapsePlaylist ul, #collapsePlaylist li {
+	margin-left:0;
+	padding-left:0;
+	list-style:none;
+}
+#collapsePlaylist ul {
+	display:table;
+	margin-top:40px;
+}
+#collapsePlaylist li {
+	display:table-row;
+}
+#collapsePlaylist li button, #collapsePlaylist li span {
+	display:table-cell;
+}
+#collapsePlaylist li button {
+	width:100px;
+}
+#collapsePlaylist li span {
+	padding-left:10px;
 }
 
 /* Serien */
@@ -688,6 +723,27 @@ h2, .episode h1.name, .episode time {
 #collapseShare .socialnetworks a span, #collapseShare h3 {
     margin-left: -9990px;
 }
+#collapseShare h3 {
+	display:inline;
+}
+
+@media (min-width: 768px) {
+	.series .series-content article {
+		left:50%;
+        margin-left:-375px;
+	}
+}
+@media (min-width: 992px) {
+	.series .series-content article {
+        margin-left:-485px;
+	}
+}
+@media (min-width: 1200px) {
+.series .series-content article {
+	margin-left:-585px;
+}
+}
+
 
 /* Footer */
 .footer {

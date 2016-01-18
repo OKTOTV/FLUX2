@@ -4,14 +4,14 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "series head-white-color" %}
+{% set body_class = "series head-white-color head-transparent-bg fullscreen-images" %}
 {% block body %}
     <div class="series-content">
         <div class="series-ident">
             <figure class="series-posterframe">
                 <img src="{{ series.posterframe|path() }}" />
             </figure>
-			<article class="series-description">
+			<article class="series-description container">
 			    <h1>{{ series.name }}</h1>
 				<p class="description">{{ series.description }}</p>
 			</article>
