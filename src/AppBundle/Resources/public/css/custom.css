@@ -263,7 +263,7 @@ button .btn-default.active, .series .series-content article, .oktothek article a
 	-khtml-border-radius:4px;
 	border-radius: 4px;
 }
-.episode select {
+.more-clips select {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -275,7 +275,7 @@ button .btn-default.active, .series .series-content article, .oktothek article a
 	background-position:center center;
 	background-image:url(../images/icon_views.png);
 }
-.episode select {
+.more-clips select {
 	width:auto;
 }
 #collapseShare, #collapsePlaylist {
@@ -603,7 +603,7 @@ h2, .episode h1.name, .episode time {
 .oktothek figcaption  {
 	margin-top:5px;
 }
-.episode article {
+.episode article, .more-clips article {
 	margin-top:40px;
 }
 .episode article time[pubdate="pubdate"] {
