@@ -120,14 +120,18 @@ $(document).ready(function(){
 		
     };
 	
-	$('.series figure img').load(function() {
+	$('.series figure.episode-posterframe img').load(function() {
 	    if ($('.series figure img').length > 0)
-            resizeSingleImage($('.series figure.series-posterframe img'));
+            resizeSingleImage($('.series figure.episode-posterframe img'));
 	});
 	
-	//Anchor:
-	$('.fullscreen-images #button_down').click(function() {
-		var offset = $('#oktothek').offset();
+	//Anchor Oktothek und Serie:
+	$('#button_down').click(function() {
+		if ($('body').hasClass('oktothek')) {
+		    var offset = $('#oktothek').offset();
+		} else if ($('body').hasClass('series')) {
+			var offset = $('section.more-clips').offset();
+		}
 		$("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
 		$( this ).find('span').css('display','none');
 	});
@@ -150,6 +154,13 @@ $(document).ready(function(){
 		$(this).addClass('active');
     })
 	 
+	/* Oktothek: */
+	if (
+	    $('body').hasClass('oktothek') ||
+		$('body').hasClass('episode') || 
+	    $('body').hasClass('series')) {
+	    $('[data-toggle="tooltip"]').tooltip({'placement': 'auto right'}); 
+	}
 	 
 	function loadWinHeight() {
 	    var Winheight = $( window ).height();
@@ -160,8 +171,8 @@ $(document).ready(function(){
 	
 	}
     $(window).on("resize orientationchange", function(){
-        if ($('.series figure.series-posterframe img').length > 0)
-           resizeSingleImage($('.series figure.series-posterframe img'));
+        if ($('.series figure.episode-posterframe img').length > 0)
+           resizeSingleImage($('.series figure.episode-posterframe img'));
 		   
     });
 	

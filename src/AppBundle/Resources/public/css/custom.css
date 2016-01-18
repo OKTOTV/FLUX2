@@ -237,11 +237,11 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 body {
 	background-color:#000000;
 }
-body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.btn-default:hover {
+body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover {
 	color:#ffffff;
 }
 
-.oktothek article a.btn-default, a.pull-right, .modal, button .btn-default.active, .series .series-content article {
+.oktothek article a.btn-default, a.pull-right, .modal, button .btn-default.active, .series div.series-description {
 	color:#000000;
 }
 
@@ -251,19 +251,25 @@ body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.bt
 .btn-default, select, .oktothek article a.btn-default:hover {
 	background-color:#000000;
 }
-button .btn-default.active, .series .series-content article, .oktothek article a.btn-default {
+button .btn-default.active, .series div.series-description, .oktothek article a.btn-default {
 	background-color:#ffffff;
+}
+.play-episode.btn-default {
+	background-color:transparent;
 }
 
 .tags li a {
 	border: solid 1px #cccccc;
+}
+.play-episode.btn-default {
+	border: solid 1px #ffffff;
 }
 .tags li a {
 	-moz-border-radius:4px;
 	-khtml-border-radius:4px;
 	border-radius: 4px;
 }
-.more-clips select {
+.more-clips select, .play-episode.btn-default {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -298,33 +304,37 @@ button .btn-default.active, .series .series-content article, .oktothek article a
 
 
 
-/* Footer */
-
-.footer .socialnetworks li a, #collapseShare .socialnetworks li a {
+.footer .socialnetworks li a, #collapseShare .socialnetworks li a, .series .series-description li a {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-.footer .icon-facebook, #collapseShare .icon-facebook {
+.footer .icon-facebook, #collapseShare .icon-facebook, .series .series-description .icon-facebook {
 	background-image:url(../images/icon_facebook.png);
 }
-.footer .icon-twitter, #collapseShare .icon-twitter {
+.footer .icon-twitter, #collapseShare .icon-twitter, .series .series-description .icon-twitter {
 	background-image:url(../images/icon_twitter.png);
 }
-.footer .icon-googleplus, #collapseShare .icon-googleplus {
+.footer .icon-googleplus, #collapseShare .icon-googleplus, .series .series-description .icon-googleplus {
 	background-image:url(../images/icon_googleplus.png);
 }
-.footer .icon-instagramm, #collapseShare .icon-instagramm {
+.footer .icon-instagramm, #collapseShare .icon-instagramm, .series .series-description .icon-instagramm {
 	background-image:url(../images/icon_instagramm.png);
 }
-.footer .icon-pinterest, #collapseShare .icon-pinterest {
+.footer .icon-pinterest, #collapseShare .icon-pinterest, .series .series-description .icon-pinterest {
 	background-image:url(../images/icon_pinterest.png);
 }
-.footer .icon-youtube, #collapseShare .icon-youtube {
+.footer .icon-youtube, #collapseShare .icon-youtube, .series .series-description .icon-youtube {
 	background-image:url(../images/icon_youtube.png);
 }
 
 .footer {
     border-top: dashed gray 2px;
+}
+
+
+/**************************** Backend ****************************/
+.panel-body {
+	color:#000000;
 }
 
 
@@ -577,6 +587,17 @@ header .dropdown-menu li a {
 section {
 	margin-bottom:80px;
 }
+#collapsePlaylist ul, #collapsePlaylist li, .series div.series-description aside ul, .footer ul, .footer li {
+	list-style:none;
+}
+#collapsePlaylist ul, #collapsePlaylist li, .series div.series-description aside ul {
+	margin-left:0;
+	padding-left:0;
+}
+
+h1 {
+	margin-top:0;
+}
 h2, .episode h1.name, .episode time {
 	margin-bottom:20px;
 }
@@ -608,9 +629,6 @@ h2, .episode h1.name, .episode time {
 }
 .episode article time[pubdate="pubdate"] {
 	display:block;
-}
-.episode h1.name {
-	margin-top:0;
 }
 .icon-views {
 	display:inline-block;
@@ -688,11 +706,6 @@ h2, .episode h1.name, .episode time {
 #div_share_sn form, #collapsePlaylist form {
 	margin-top:20px;
 }
-#collapsePlaylist ul, #collapsePlaylist li {
-	margin-left:0;
-	padding-left:0;
-	list-style:none;
-}
 #collapsePlaylist ul {
 	display:table;
 	margin-top:40px;
@@ -714,13 +727,54 @@ h2, .episode h1.name, .episode time {
 .series .series-content, .series .series-ident {
 	position:relative;
 }
-.series .series-content article {
+.series div.series-description, .series .play-episode {
 	position:absolute;
+}
+.series section.series-content {
+	margin-bottom:0;
+}
+.series div.series-description {
 	bottom:40px;
+	padding:15px;
+}
+.series div.series-description article, .series div.series-description aside {
+	display:block;
+	vertical-align:top;
+}
+.series .series-posterframe img {
+	max-width:250px;
+	height:auto;
+}
+.series div.series-description aside ul {
+	margin-top:10px;
+}
+.series div.series-description .socialnetworks li {
+	display:inline;
+}
+.series div.series-description .socialnetworks a {
+	display:inline-block;
+    height: 30px;
+    outline: 0 none;
+    text-align: left;
+    width: 30px;
+}
+.play-episode {
+	top:50%;
+	left:50%;
+	margin-top:-25px;
+	margin-left:-25px;
+}
+.play-episode.btn-default {
+	width:50px;
+	height:50px;
+	padding:0;
+	line-height:50px;
+	vertical-align:middle;
+	text-align:center;
 }
 
 /* Überschriften für Barrierefreundlichkeit */
-#collapseShare .socialnetworks a span, #collapseShare h3 {
+#collapseShare .socialnetworks a span, .series div.series-description .socialnetworks a span, #collapseShare h3 {
     margin-left: -9990px;
 }
 #collapseShare h3 {
@@ -728,18 +782,24 @@ h2, .episode h1.name, .episode time {
 }
 
 @media (min-width: 768px) {
-	.series .series-content article {
+	.series div.series-description {
 		left:50%;
         margin-left:-375px;
 	}
+	.series div.series-description article, .series div.series-description aside {
+	    display:table-cell;
+    }
+	.series div.series-description aside {
+        width:250px;
+    }
 }
 @media (min-width: 992px) {
-	.series .series-content article {
+	.series div.series-description {
         margin-left:-485px;
 	}
 }
 @media (min-width: 1200px) {
-.series .series-content article {
+.series div.series-description {
 	margin-left:-585px;
 }
 }
@@ -749,9 +809,6 @@ h2, .episode h1.name, .episode time {
 .footer {
 	height:300px;
 	width:100%;
-}
-.footer ul, .footer li {
-	list-style:none;
 }
 .footer nav, .footer .partner {
 	text-align:center;
