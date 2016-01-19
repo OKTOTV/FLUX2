@@ -28,6 +28,7 @@ class PostType extends AbstractType
                     //'attr' => ['placeholder' => 'oktothek.post_onlineAt_placeholder']
                 ])
             ->add('assets', 'assets', ['label' => 'oktothek.post_assets_label'])
+            ->add('tags', 'tag')
         ;
     }
 
