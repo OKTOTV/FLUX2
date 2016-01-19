@@ -1,8 +1,9 @@
-{% form_theme commentForm 'AppBundle:Comment:commentFields.html.twig' %}
+{{ form(commentForm) }}
+{# {% form_theme commentForm 'AppBundle:Comment:commentFields.html.twig' %}
 
 {{ form_start(commentForm) }}
     {{form_widget(commentForm.text)}}
-{{ form_end(commentForm) }}
+{{ form_end(commentForm) }} #}
 {#
 <form action="#" id="form_answer_comment_{{ loop.index }}" method="POST">
     <div class="input-group">

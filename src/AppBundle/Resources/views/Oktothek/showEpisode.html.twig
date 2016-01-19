@@ -75,71 +75,9 @@
 			</article>
         </section>
 		<!-- Kommentare -->
-		<section class="comments body-white-color">
-		  <div class="container">
-              {#
-		    <h2>Kommentare <span class="comments-counter">1</span></h2>
-			<!-- Kommentar -->
-			<article class="row">
-			    <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
-			    <div class="col-md-11">
-			        <div class="author">Klara <time>am 14.Juli 2015<time></div>
-					<div class="comment-text">
-				        <h4>Aswan</h4>
-                        <p>Aswan TV: Freiheit für SyrienIn dieser Folge zeigt Aswan TV wie viele Stimmen es in Österreich für ein Freies Syrien gibt und wie wichtig es ist diese wahrzunehmen und ihnen Gehör zu verschaffen. Bei der wöchentlichen Reunion an Stephansplatz werden die Situation Syriens thematisiert und für syrische Bedürftige Spenden gesammelt. Verschiedene Perspektiven und Ansichten werden dieskutiert.  Menschen, die sich für Frieden und Demokratie engagieren, kommen zu Wort.
-				        </p>
-					</div>
-					<!-- Antwort Container -->
-					<div class="comment-answer">
-					    <a class="answer" role="button" data-toggle="collapse" href="#answer_comment_1" aria-expanded="false" aria-controls="answer_comment_1">Antworten</a>
-						<div class="answer-text collapse" id="answer_comment_1">
-						    <div class="row comment-form">
-							    <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
-			                    <div class="col-md-11">
-						            <form action="#" id="form_answer_comment_1" method="POST">
-			                            <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Schreibe eine Antwort...">
-                                            <span class="input-group-btn"><button class="btn btn-default" type="button">Senden</button></span>
-						                </div>
-			                        </form>
-								</div>
-							</div>
-							<!-- Antwort -->
-							<div class="row">
-							    <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
-			                    <div class="col-md-11">
-								    <div class="author">Klara <time>am 14.Juli 2015<time></div>
-									<div class="comment-text">
-								        <h4>Hallo!</h4>
-								        <p>Und ich bin die Antwort!!!</p>
-								    </div>
-								</div>
-							</div>
-							<!-- Ende Antwort -->
-						</div>
-				    </div>
-					<!-- Ende Antwort Container -->
-			    </div>
-			</article>
-			<div class="row">
-			    <a href="#" class="pull-right more" title="&Auml;ltere Kommentare anzeigen">&Auml;ltere Kommentare anzeigen <span class="glyphicon glyphicon-chevron-right"></span></a>
-			</div>
-			<!-- Ende Kommentar -->
-			<div class="row comment-form">
-			    <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
-			    <div class="col-md-11">
-				    <form action="#" id="comments" method="POST">
-			            <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Schreibe ein Kommentar...">
-                            <span class="input-group-btn"><button class="btn btn-default" type="button">Senden</button></span>
-						</div>
-			        </form>
-				</div>
-			</div>
-		  </div>
-        </section>
-		<!-- Ende Kommentare --> #}
-        {% include "AppBundle:Default:EpisodeComment.html.twig" with {'comments': episode.comments} %}
+        {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
+        {# {% include "AppBundle:Default:EpisodeComment.html.twig" with {'comments': episode.comments} %} #}
+        <!-- Ende Kommentare -->
 		<section class="container tags">
 		    <h2>Tags</h2>
 		    <ul>
@@ -222,6 +160,18 @@
                     }
                 });
             }
+        });
+
+        // AJAX pagination
+        $( document ).on('click', '.pagination > li > a', function(e){
+            e.preventDefault();
+            var link = $(this);
+            $.ajax({
+                url: link.attr('href'),
+                context: document.body
+            }).success(function(data) {
+                $(link.parents('.comment-pager')).replaceWith(data);
+            });
         });
     </script>
 {% endblock %}

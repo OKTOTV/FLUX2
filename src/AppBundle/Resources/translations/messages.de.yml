@@ -71,10 +71,13 @@ oktothek.episode_show_playlist_login_register: Du kannst Playlisten nur mit eine
 oktothek.episode_show_playlist_login_register_link: Account
 oktothek.episode_show_playlist_no_playlists: Noch keine Playlisten angelegt
 oktothek.episode_show_update_playlists: Änderungen übernehmen
-
+oktothek.episode_comment_header:        Kommentare <span class="comments-counter">%count%</span>
 
 ## comment
 oktothek.comment_author:                %name% am <time>%date%</time>
+oktothek.comment_reply:                 Antworten (%count%)
+oktothek.comment_reply_button:          Antwort senden
+oktothek.comment_create_button:         Kommentar senden
 ## backend
 oktothek.backend_header:                Administrationsbereich
 oktothek.backend_index_media:           Oktothek

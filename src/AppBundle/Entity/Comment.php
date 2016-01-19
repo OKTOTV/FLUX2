@@ -22,8 +22,14 @@ class Comment
      */
     private $id;
 
+    /**
+     * @ORM\Column(name="text", type="text")
+     */
     private $text;
 
+    /**
+     * @ORM\Column(name="created_at", type="datetime")
+     */
     private $createdAt;
 
     /**
@@ -39,9 +45,14 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
-     * @ORM\JoinColumn(name="comment_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
+
+    /**
+     * @ORM\Column(name="referer", type="string", length=13)
+     */
+    private $referer;
 
     public function __construct()
     {
@@ -50,7 +61,7 @@ class Comment
 
     public function setText($text = "")
     {
-        $this->$text = $text;
+        $this->text = $text;
         return $this;
     }
 
@@ -79,7 +90,7 @@ class Comment
      * @param \AppBundle\Entity\Category $parent
      * @return Comment
      */
-    public function setParent(\AppBundle\Entity\Category $parent = null)
+    public function setParent(\AppBundle\Entity\Comment $parent = null)
     {
         $this->parent = $parent;
 
@@ -155,10 +166,33 @@ class Comment
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set referer
+     *
+     * @param string $referer
+     * @return Comment
+     */
+    public function setReferer($referer)
+    {
+        $this->referer = $referer;
+
+        return $this;
+    }
+
+    /**
+     * Get referer
+     *
+     * @return string
+     */
+    public function getReferer()
+    {
+        return $this->referer;
     }
 }
