@@ -31,7 +31,7 @@
                         <h3>Teilen</h3>
 						<div>
 						    <div class="btn-group sharingnav">
-						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button> <button type="button" class="btn btn-default" data-toggle="tab" id="share_embed">Einbetten</button> 
+						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button> <button type="button" class="btn btn-default" data-toggle="tab" id="share_embed">Einbetten</button>
 					        </div>
 						</div>
 						<div class="tab-content">
@@ -79,22 +79,17 @@
         {# {% include "AppBundle:Default:EpisodeComment.html.twig" with {'comments': episode.comments} %} #}
         <!-- Ende Kommentare -->
 		<section class="container tags">
-		    <h2>Tags</h2>
+		    <h2>{{ 'oktothek.episode_tag_header'|trans }}</h2>
 		    <ul>
-			    <li><a href="#" title="Krieg">Krieg</a></li>
-                <li><a href="#" title="Freiheit">Freiheit</a></li>
-                <li><a href="#" title="Arabisch">Arabisch</a></li>
-                <li><a href="#" title="Kulturen">Kulturen</a></li>
-                <li><a href="#" title="Syrien">Syrien</a></li>
-                <li><a href="#" title="Demonstration">Demonstration</a></li>
-                <li><a href="#" title="Andere Sprachen">Andere Sprachen</a></li>
-                <li><a href="#" title="Zivilgesellschaft">Zivilgesellschaft</a></li>
+                {% for tag in episode.tags %}
+                    <li><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
+                {% endfor %}
 			</ul>
 		</section>
-        
-        <!-- Weitere Episoden der Serie Start -->  
+
+        <!-- Weitere Episoden der Serie Start -->
         {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': related} %}
-        <!-- Weitere Episoden der Serie Ende -->  
+        <!-- Weitere Episoden der Serie Ende -->
 	</div>
 {% endblock %}
 

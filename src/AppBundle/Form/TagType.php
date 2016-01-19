@@ -5,22 +5,25 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use AppBundle\Form\DataTransformer\TagTransformer;
 
-class EpisodeType extends AbstractType
+class TagType extends AbstractType
 {
+    private $repository;
+
+    public function __construct($repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('posterframe', 'asset')//, array('class' => 'AppBundle\Entity\Asset'))
-            ->add('video', 'asset')//, array('class' => 'AppBundle\Entity\Asset'))
-            ->add('name')
-            ->add('description')
-            ->add('isActive')
-        ;
+        $transformer = new TagTransformer($this->repository);
+        $builder->addModelTransformer($transformer);
     }
 
     /**
@@ -29,8 +32,16 @@ class EpisodeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Episode'
+            'invalid_message' => 'The tag does not exist',
+            'type'  => 'text',
+            'allow_add' => true,
+            'allow_delete' => true
         ));
+    }
+
+    public function getParent()
+    {
+        return 'collection';
     }
 
     /**
@@ -38,6 +49,6 @@ class EpisodeType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_episode';
+        return 'tag';
     }
 }

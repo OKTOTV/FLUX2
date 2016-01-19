@@ -19,3 +19,17 @@ services:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
             - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+
+    oktothek_tag.type:
+        class: AppBundle\Form\TagType
+        arguments: [ @oktothek_tag.repository ]
+        tags:
+            - { name: form.type, alias: tag }
+
+    # Asset repository
+    oktothek_tag.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:  [ "AppBundle\Entity\Tag" ]

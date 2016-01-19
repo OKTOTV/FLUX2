@@ -35,14 +35,15 @@
         	</ul>
 			<ul class="nav navbar-nav visible-xs-block">
                 <li><h3>Beliebteste Themen</h3></li>
-				<li><a href="#">Kunst &amp; Kultur</a></li>
+				{{ render(controller('AppBundle:Tag:menuTags')) }}
+				<!-- <li><a href="#">Kunst &amp; Kultur</a></li>
 			  	<li><a href="#">Musik</a></li>
 			  	<li><a href="#">Film</a></li>
 			  	<li><a href="#">Oktotainment</a></li>
 			  	<li><a href="#">Info</a></li>
 			  	<li><a href="#">Zivilgesellschaft</a></li>
 			  	<li><a href="#">Magazin</a></li>
-			  	<li><a href="#">Talk</a></li>
+			  	<li><a href="#">Talk</a></li> -->
 			</ul>
 		</div>
 		<div class="search-tagnav-container">
@@ -57,14 +58,15 @@
   				    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuTags" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Themen <span class="caret"></span>
   				    </button>
   				    <ul class="dropdown-menu" aria-labelledby="Tagsnavigation">
-			  		    <li><a href="#">Kunst &amp; Kultur</a></li>
+						{{ render(controller('AppBundle:Tag:menuTags')) }}
+						<!-- <li><a href="#">Kunst &amp; Kultur</a></li>
 			  		    <li><a href="#">Musik</a></li>
 			  		    <li><a href="#">Film</a></li>
 			  		    <li><a href="#">Oktotainment</a></li>
 			  		    <li><a href="#">Info</a></li>
 			  		    <li><a href="#">Zivilgesellschaft</a></li>
 			  		    <li><a href="#">Magazin</a></li>
-			  		    <li><a href="#">Talk</a></li>
+			  		    <li><a href="#">Talk</a></li> -->
 			  	    </ul>
 			    </div>
             </div>

@@ -1,0 +1,9 @@
+<div class="form-group">
+    {{ form_label(widget)}}
+    <input type="text" class="form-control tag-input" placeholder="{{'oktothek_tag_placeholder'|trans }}" data-url="{{ path('oktothek_tag_ajax') }}">
+    <div class="list-group tags" data-prototype='{{ form_widget(widget.vars.prototype)|raw }}'>
+    </div>
+</div>
+{% do widget.setRendered %}
+
+{# TODO: javascript" #}

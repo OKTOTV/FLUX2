@@ -1,0 +1,18 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "episode head-white-color" %}
+{% block body %}
+    <div class="page-header">
+        <h1>{{ 'oktothek.tag_index_header'|trans }}</h1>
+        <p><a href="{{ path('oktothek_tag_new')}}" class"btn btn-default">{{ 'oktothek.tag_new_button'|trans }}</p>
+    </div>
+    <ul class="list-group">
+        {% for tag in tags %}
+            <li class="list-group-item"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug}) }}">{{ tag.text }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

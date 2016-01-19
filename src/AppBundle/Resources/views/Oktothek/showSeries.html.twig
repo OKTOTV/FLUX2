@@ -11,7 +11,7 @@
             <figure class="episode-posterframe">
                 <img src="{{ series.posterframe|path() }}" />
             </figure>
-			<a class="btn btn-default play-episode" href="#" role="button" title="Zur Episode"><span class="glyphicon glyphicon-play"></span></a>
+			<a class="btn btn-default play-episode" href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" role="button" title="Zur Episode"><span class="glyphicon glyphicon-play"></span></a>
 			<div class="series-description container">
 			    <article>
 			        <h1>{{ series.name }}</h1>

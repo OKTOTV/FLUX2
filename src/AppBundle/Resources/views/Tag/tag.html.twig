@@ -1,0 +1,18 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title%}{{ tag.text }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "episode head-white-color" %}
+{% block body %}
+    <div class="container-fluid">
+        <section class="container">
+            {{ render(controller('AppBundle:Tag:episodeTag', {'tag': tag.slug})) }}
+            {{ render(controller('AppBundle:Tag:seriesTag', {'tag': tag.slug})) }}
+            {{ render(controller('AppBundle:Tag:playlistTag', {'tag': tag.slug})) }}
+            {# {{ render(controller('AppBundle:Tag:postsTag', {'tag': tag.slug})) }} #}
+        </section>
+    </div>
+{% endblock %}
