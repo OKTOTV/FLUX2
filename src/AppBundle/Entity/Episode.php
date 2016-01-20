@@ -39,6 +39,7 @@ class Episode extends BaseEpisode
     {
         parent::__construct();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

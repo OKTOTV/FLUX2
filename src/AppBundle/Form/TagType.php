@@ -35,7 +35,8 @@ class TagType extends AbstractType
             'invalid_message' => 'The tag does not exist',
             'type'  => 'text',
             'allow_add' => true,
-            'allow_delete' => true
+            'allow_delete' => true,
+            'by_reference' => false
         ));
     }
 

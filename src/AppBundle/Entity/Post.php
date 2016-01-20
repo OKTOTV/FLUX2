@@ -72,6 +72,11 @@ class Post
     private $onlineAt;
 
     /**
+     * @ORM\Column(name="uniqID", type="string", length=13)
+     */
+    private $uniqID;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Tag")
      * @ORM\JoinTable(name="post_tags",
      *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
@@ -90,7 +95,9 @@ class Post
     private $assets;
 
     public function __construct() {
+        $this->uniqID = uniqid();
         $this->assets = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -301,7 +308,7 @@ class Post
      * @param \AppBundle\Entity\Tag $tags
      * @return Post
      */
-    public function addTag(\AppBundle\Entity\Tag $tags)
+    public function addTag($tags)
     {
         $this->tags[] = $tags;
 
@@ -313,7 +320,7 @@ class Post
      *
      * @param \AppBundle\Entity\Tag $tags
      */
-    public function removeTag(\AppBundle\Entity\Tag $tags)
+    public function removeTag($tags)
     {
         $this->tags->removeElement($tags);
     }
@@ -326,5 +333,33 @@ class Post
     public function getTags()
     {
         return $this->tags;
+    }
+
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
+    /**
+     * Set uniqID
+     *
+     * @param string $uniqID
+     * @return Post
+     */
+    public function setUniqID($uniqID)
+    {
+        $this->uniqID = $uniqID;
+
+        return $this;
+    }
+
+    /**
+     * Get uniqID
+     *
+     * @return string
+     */
+    public function getUniqID()
+    {
+        return $this->uniqID;
     }
 }

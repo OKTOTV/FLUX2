@@ -21,12 +21,12 @@ class TagTransformer implements DataTransformerInterface
     /**
      * Transforms object (assets) to a string (key).
      *
-     * @param  Asset|null $asset
+     * @param  Tag|null $tag
      * @return string
      */
     public function transform($tags)
     {
-        if (null == $tags) {
+        if (null === $tags) {
             return "";
         }
         $texts = [];
@@ -41,28 +41,27 @@ class TagTransformer implements DataTransformerInterface
     /**
      * Transforms a string (key) to an object (asset).
      *
-     * @param  string $filekey
+     * @param  string $text
      *
-     * @return Asset|null
+     * @return Tag|null
      *
-     * @throws TransformationFailedException if object (asset) is not found.
+     * @throws TransformationFailedException if object (tag) is not found.
      */
     public function reverseTransform($texts)
     {
         if (!$texts) {
             return null;
         }
-        $tags = [];
+        $tags = array();
         foreach ($texts as $text) {
-            $tag = $this->repository->findOneBy(array('text' => $text));
-            if ($tag) {
-                $tags[] = $tag;
-            } else {
+            $tag = $this->repository->findOneBy(['text' => $text]);
+            if (null === $tag) {
                 throw new TransformationFailedException(sprintf(
-                    'An tag with key "%s" does not exist!',
+                    'A tag with key "%s" does not exist!',
                     $text
                 ));
             }
+            $tags[] = $tag;
         }
 
         return $tags;

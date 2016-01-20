@@ -19,5 +19,6 @@
             <a href="{{ asset|path() }}" >{{ asset.name }}</a>
         {% endif %}
     {% endfor %}
+    {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
 </div>
 {% endblock %}
