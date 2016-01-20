@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use AppBundle\Entity\Playlist;
 use AppBundle\Entity\PlaylistItem;
 use AppBundle\Form\PlaylistType;
@@ -37,11 +38,20 @@ class PlaylistController extends Controller
 
     /**
      * @Route("/show/{playlist}/{page}", name="oktothek_playlist_show", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @ParamConverter("playlist", class="AppBundle:Playlist", options={"mapping": {"playlist": "uniqID"}})
      * @Template()
      */
     public function showAction(Playlist $playlist, $page)
     {
         return ['playlist' => $playlist];
+
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT i FROM AppBundle:Playlistitems i JOIN i.episode WHERE i.playlist = :playlist";
+        $query = $em->createQuery($dql);
+        $query->setParameter('playlist', $playlist->getId());
+        $paginator = $this->get('knp_paginator');
+        $items = $paginator->paginate($query, $page, 10);
+        return ['playlist' => $playlist, 'items' => $items];
     }
 
     /**
