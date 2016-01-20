@@ -1,0 +1,6 @@
+<h3>{{ 'oktothek_tag_pages_header'|trans }}</h3>
+<ul>
+    {% for page in pages %}
+        <li><a href="{{ path( 'oktothek_page_show', {'page': page.slug })}}">{{ page.title }}</a></li>
+    {% endfor %}
+</ul>

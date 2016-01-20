@@ -13,6 +13,7 @@
             {{ render(controller('AppBundle:Tag:seriesTag', {'tag': tag.slug})) }}
             {{ render(controller('AppBundle:Tag:playlistTag', {'tag': tag.slug})) }}
             {{ render(controller('AppBundle:Tag:postsTag', {'tag': tag.slug})) }}
+            {{ render(controller('AppBundle:Tag:pagesTag', {'tag': tag.slug})) }}
         </section>
     </div>
 {% endblock %}

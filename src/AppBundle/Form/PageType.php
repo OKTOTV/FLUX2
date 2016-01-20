@@ -17,6 +17,7 @@ class PageType extends AbstractType
         $builder
             ->add('title', 'text', ['label' => 'oktothek.page_title_label'])
             ->add('text', 'textarea', ['label' => 'oktothek.page_text_label', 'attr' => ['rows' => 35]])
+            ->add('tags', 'tag')
             ->add('isActive', 'checkbox', ['label' => 'oktothek.page_isActive_label'])
             ;
     }

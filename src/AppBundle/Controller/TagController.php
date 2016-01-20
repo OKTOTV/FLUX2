@@ -162,6 +162,19 @@ class TagController extends Controller
     }
 
     /**
+     * @Route("/{tag}/pages")
+     * @ParamConverter("tag", class="AppBundle:Tag", options={"mapping": {"tag": "slug"}})
+     * @Template()
+     */
+    public function pagesTagAction(Tag $tag)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $pages = $em->getRepository('AppBundle:Tag')->findPagesWithTag($tag);
+
+        return ['pages' => $pages];
+    }
+
+    /**
      * @Route("/{tag}/playlists")
      * @ParamConverter("tag", class="AppBundle:Tag", options={"mapping": {"tag": "slug"}})
      * @Template()

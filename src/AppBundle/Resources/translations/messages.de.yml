@@ -83,7 +83,7 @@ oktothek.comment_create_button:         Kommentar senden
 
 ## tag
 oktothek.tag_index_header:              Tags
-
+oktothek_tag_pages_header:              Seiten
 ## backend
 oktothek.backend_header:                Administrationsbereich
 oktothek.backend_index_media:           Oktothek
