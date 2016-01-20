@@ -1,30 +1,37 @@
+<div class="collapse" id="collapsePlaylist">
 <div>
     <h3>{{ 'oktothek.episode_show_playlist_header'|trans }}</h3>
 </div>
 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
     {% if app.user.playlists|length > 0%}
         <ul class="list-group playlists">
-        {% for playlist in app.user.playlists %}
-        {# TODO: check if episode is part of any playlistitem in the playlist #}
-            {% set isInPlaylist = "" %}
-            {% for playlistitem in playlist.items %}
-                {% if playlistitem.episode.uniqID == episode.uniqID %}
-                    {% set isInPlaylist = "1" %}
+            {% for playlist in app.user.playlists %}
+                {% set isInPlaylist = "" %}
+                {% for playlistitem in playlist.items %}
+                    {% if playlistitem.episode.uniqID == episode.uniqID %}
+                        {% set isInPlaylist = "1" %}
+                    {% endif %}
+                {% endfor %}
+                {% if isInPlaylist %}
+                    <li><button type="button" class="playlist btn btn-default active" data-uniqID="{{ playlist.uniqID }}">-</button><span>{{ playlist.name }}</span></li>
+                {% else %}
+                    <li><button type="button" class="playlist btn btn-default" data-uniqID="{{ playlist.uniqID }}">+</button><span>{{ playlist.name }}</span></li>
                 {% endif %}
             {% endfor %}
-            <li class="list-group-item playlist{% if isInPlaylist %} selected{% endif %}" data-episodeID="{{ episode.uniqID }}" data-uniqID="{{ playlist.uniqID }}">{{ playlist.name }}</li>
-        {% endfor %}
         </ul>
-        <input class="btn btn-default" id="update-playlists" type="button" value="{{ 'oktothek.episode_show_update_playlists'|trans }}" />
     {% else %}
         <p>{{ 'oktothek.episode_show_playlist_no_playlists'|trans }}</p>
     {% endif %}
-    <div class="playlist-form">
-        {# TODO: render form (playlistMinimalistType and send with ajax) and update playlists  #}
-    </div>
+    <form>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Neue Playlist erstellen" data-prototype='<li><button type="button" class="playlist btn btn-default active">-</button><span>__name__</span></li>'>
+            <span class="input-group-btn"><button class="playlist-new btn btn-default" type="button">Erstellen</button></span>
+        </div>
+    </form>
 {% else %}
     <p>{{ 'oktothek.episode_show_playlist_login_register'|trans({
         '%link%': '<a href="#">'~'oktothek.episode_show_playlist_login_register_link'|trans~'</a>'
         })|raw }}
     </p>
 {% endif %}
+</div>

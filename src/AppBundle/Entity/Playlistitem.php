@@ -40,6 +40,11 @@ class Playlistitem
     */
     private $episode;
 
+    public function __construct()
+    {
+        $this->sortnumber = 1;
+    }
+
     /**
      * Get id
      *
@@ -89,7 +94,7 @@ class Playlistitem
     /**
      * Get playlist
      *
-     * @return \AppBundle\Entity\Playlist 
+     * @return \AppBundle\Entity\Playlist
      */
     public function getPlaylist()
     {
@@ -112,7 +117,7 @@ class Playlistitem
     /**
      * Get episode
      *
-     * @return \AppBundle\Entity\Episode 
+     * @return \AppBundle\Entity\Episode
      */
     public function getEpisode()
     {

@@ -1,5 +1,7 @@
 <div class="row">
 {% for playlist in playlists %}
-    {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
+    {% if playlist.items|length > 0 %}
+        {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
+    {% endif %}
 {% endfor %}
 </div>

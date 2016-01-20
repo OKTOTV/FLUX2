@@ -57,7 +57,7 @@
                 </div>
 				<!-- End Modal Window Share-->
 				<!-- Start Modal Window Playlist-->
-				<div class="collapse" id="collapsePlaylist">
+				<!-- <div class="collapse" id="collapsePlaylist">
 				    <ul>
 					    <li><button type="button" class="btn btn-default">+</button><span>Film</span></li>
 						<li><button type="button" class="btn btn-default">+</button><span>Fussball</span></li>
@@ -68,9 +68,9 @@
                             <input type="text" class="form-control" placeholder="Neue Playlist erstellen">
                             <span class="input-group-btn"><button class="btn btn-default" type="button">Erstellen</button></span>
 						</div>
-					</form>
+					</form> -->
                     {% include 'AppBundle:Oktothek:snippetPlaylist.html.twig' %}
-                </div>
+                <!-- </div> -->
 				<!-- End Modal Window Playlist-->
 			</article>
         </section>
@@ -124,13 +124,14 @@
 
         $(document).on('click', '.playlist', function(e){
             var playlist = $(this);
-            if (playlist.hasClass('selected')) {
-                playlist.removeClass('selected');
+            if (playlist.hasClass('active')) {
+                playlist.removeClass('active');
+                playlist.text('+');
                 $.ajax({
                     url: "{{ path('oktothek_playlist_ajax') }}", //TODO: make function, add url and action in backend
                     data: {
                         'uniqID': playlist.attr('data-uniqID'),
-                        'episodeID': playlist.attr('data-episodeID'),
+                        'episodeID': "{{ episode.uniqID }}",
                         'action': 'remove'
                     },
                     type: 'POST',
@@ -140,12 +141,13 @@
                     }
                 });
             } else {
-                playlist.addClass('selected');
+                playlist.addClass('active');
+                playlist.text('-');
                 $.ajax({
                     url: "{{ path('oktothek_playlist_ajax') }}",
                     data: {
                         'uniqID': playlist.attr('data-uniqID'),
-                        'episodeID': playlist.attr('data-episodeID'),
+                        'episodeID': "{{ episode.uniqID }}",
                         'action': 'add'
                     },
                     type: 'POST',
@@ -155,6 +157,24 @@
                     }
                 });
             }
+        });
+
+        $(document).on('click', '.playlist-new', function(e){
+            var playlist = $(this).parents('.input-group').children('input');
+            var item = playlist.attr('data-prototype');
+            item = item.replace(/__name__/g, playlist.val());
+            $.ajax({
+                url: "{{ path('oktothek_playlist_new')}}",
+                data: {
+                    'name': playlist.val(),
+                    'uniqID': "{{ episode.uniqID }}"
+                },
+                type: 'POST',
+                success: function(data) {
+                    $('.playlists').append(item);
+                    playlist.val('');
+                }
+            })
         });
 
         // AJAX pagination

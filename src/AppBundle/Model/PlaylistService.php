@@ -19,29 +19,22 @@ class PlaylistService
     public function addToPlaylist($episodeID, $playlistID, $user)
     {
         foreach ($user->getPlaylists() as $playlist) {
-            if ($playlistID == $playlist->getUniqID()) { // this is users playlist
+            if ($playlist->getUniqID() == $playlistID) {
                 $NotInPlaylist = true;
-                foreach ($playlist->getItems() as $playlistItem) { // search
-                    if ($playlistItem->getEpisode()->getUniqID() == $episodeID) {
-                        // episode already in playlist
+                foreach ($playlist->getItems() as $item) {
+                    if ($item->getEpisode()->getUniqID() == $episodeID) {
                         $NotInPlaylist = false;
                     }
                 }
-
-                if ($NotInPlaylist) {
-                    $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $episodeID]);
-                    $playlist = $this->em->getRepository('AppBundle:Playlist')->findOneBy(['uniqID' => $playlistID]);
-                    $playlistItem = new PlaylistItem();
-                    $playlistItem->setEpisode($episode);
-                    $playlistItem->setPlaylist($playlist);
-                    $playlist->addItem($playlistItem);
-                    $playlistItem->setSortnumber(count($playlist->getItems())+1);
-
-                    $this->em->persist($playlistItem);
-                    $this->em->persist($playlist);
-
-                    $this->em->flush();
-                }
+                $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $episodeID]);
+                $playlistItem = new PlaylistItem();
+                $playlistItem->setEpisode($episode);
+                $playlist->addItem($playlistItem);
+                $playlistItem->setSortnumber(count($playlist->getItems())+1);
+                $this->em->persist($playlist);
+                $this->em->persist($playlistItem);
+                $this->em->flush();
+                break;
             }
         }
     }
@@ -64,5 +57,22 @@ class PlaylistService
                 }
             }
         }
+    }
+
+    /**
+     * creates a new playlist for user and adds episode 
+     */
+    public function newPlaylist($name, $user, $uniqID)
+    {
+        $playlist = new Playlist();
+        $playlist->setUser($user);
+        $playlist->setName($name);
+        $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
+        $playlistItem = new PlaylistItem();
+        $playlistItem->setEpisode($episode);
+        $playlist->addItem($playlistItem);
+        $this->em->persist($playlist);
+        $this->em->persist($playlistItem);
+        $this->em->flush();
     }
 }

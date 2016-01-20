@@ -129,4 +129,10 @@ class Episode extends BaseEpisode
     {
         return $this->tags;
     }
+
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+        return $this;
+    }
 }
