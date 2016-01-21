@@ -57,26 +57,12 @@
                 </div>
 				<!-- End Modal Window Share-->
 				<!-- Start Modal Window Playlist-->
-				<!-- <div class="collapse" id="collapsePlaylist">
-				    <ul>
-					    <li><button type="button" class="btn btn-default">+</button><span>Film</span></li>
-						<li><button type="button" class="btn btn-default">+</button><span>Fussball</span></li>
-						<li><button type="button" class="btn btn-default active">-</button><span>Architektur</span></li>
-					</ul>
-					<form>
-					    <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Neue Playlist erstellen">
-                            <span class="input-group-btn"><button class="btn btn-default" type="button">Erstellen</button></span>
-						</div>
-					</form> -->
                     {% include 'AppBundle:Oktothek:snippetPlaylist.html.twig' %}
-                <!-- </div> -->
 				<!-- End Modal Window Playlist-->
 			</article>
         </section>
 		<!-- Kommentare -->
         {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
-        {# {% include "AppBundle:Default:EpisodeComment.html.twig" with {'comments': episode.comments} %} #}
         <!-- Ende Kommentare -->
 		<section class="container tags">
 		    <h2>{{ 'oktothek.episode_tag_header'|trans }}</h2>
@@ -110,13 +96,11 @@
     <script type="text/javascript">
         $('#favorite').click(function(e){
             e.preventDefault();
-            // console.log('clicked favorite');
             $.ajax({
                 url: "{{ path('backend_add_favourite') }}",
                 data: { 'uniqID': '{{ episode.uniqID }}', 'type': 'episode'},
                 type: 'POST',
                 success: function(data) {
-                    // console.log('success');
                     $(this)
                 }
             })
@@ -125,8 +109,6 @@
         $(document).on('click', '.playlist', function(e){
             var playlist = $(this);
             if (playlist.hasClass('active')) {
-                playlist.removeClass('active');
-                playlist.text('+');
                 $.ajax({
                     url: "{{ path('oktothek_playlist_ajax') }}", //TODO: make function, add url and action in backend
                     data: {
@@ -136,13 +118,11 @@
                     },
                     type: 'POST',
                     success: function(data) {
-                        console.log('removed from playlist');
-                        console.log(data);
+                        playlist.removeClass('active');
+                        playlist.text('+');
                     }
                 });
             } else {
-                playlist.addClass('active');
-                playlist.text('-');
                 $.ajax({
                     url: "{{ path('oktothek_playlist_ajax') }}",
                     data: {
@@ -152,8 +132,8 @@
                     },
                     type: 'POST',
                     success: function(data) {
-                        console.log('added to playlist');
-                        console.log(data);
+                        playlist.addClass('active');
+                        playlist.text('-');
                     }
                 });
             }

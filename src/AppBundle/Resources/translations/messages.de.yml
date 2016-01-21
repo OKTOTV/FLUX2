@@ -84,6 +84,16 @@ oktothek.comment_create_button:         Kommentar senden
 ## tag
 oktothek.tag_index_header:              Tags
 oktothek_tag_pages_header:              Seiten
+
+## academy
+oktothek_academy_header:                Akademie
+
+## tv
+oktothek_tv_title:                      TV
+
+## participate
+oktothek_participate_title:             Mitmachen
+
 ## backend
 oktothek.backend_header:                Administrationsbereich
 oktothek.backend_index_media:           Oktothek

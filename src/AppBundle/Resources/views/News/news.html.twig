@@ -13,7 +13,7 @@
         </a>
     </div>
     {% for post in posts %}
-        <div class="panel panel-default">
+        {# <div class="panel panel-default">
             <div class="panel-body">
                 {{ post.description|markdown() }}
             </div>
@@ -27,7 +27,8 @@
                 <a href="{{ path('oktothek_show_news', {'slug': post.slug}) }}" class="pull-right">{{ 'oktothek.post_show_more'|trans }}</a>
                 <div class="clearfix"></div>
             </div>
-        </div>
+        </div> #}
+        {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
     {% endfor %}
 </div>
 {% endblock %}
