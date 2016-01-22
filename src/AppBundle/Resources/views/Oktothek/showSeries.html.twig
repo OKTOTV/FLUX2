@@ -9,14 +9,21 @@
     <section class="series-content">
         <div class="series-ident">
             <figure class="episode-posterframe">
-                <img src="{{ series.posterframe|path() }}" />
+                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><img src="{{ series.posterframe|path() }}" /></a>
             </figure>
-
-			<div class="series-description container">
+			<div class="current-episode container">
 			    <div class="bg-opacity"></div>
 			    <div class="content-opacity">
-			        <article>
-			            <h1>{{ series.name }}</h1>
+					<h2>Episodentitel<br>die aktuelle Folge</h2>
+					<p class="description">Künstlerisch, schräg und nerdig wird es diesmal bei New Ordner. Gezeigt werden Links zu folgenden Themen: Noisli | Star Trek Apartment | Web GL Path Tracing | Online Ray Tracer | Augmented Reality Sandbox | Anatomically Correct Art | Cyborg Artist | Goldpillen | Cry My IP </p>
+				</div>
+			</div>
+		</div>
+    </section>
+	<section class="container series-description">
+		<!-- Start Serienbeschreibung -->
+		<header><h1 id="button_down">{{ series.name }} <span class="glyphicon glyphicon-chevron-down"> </span></h1></header>
+		<article>
 				        <p class="description">{{ series.description }}</p>
 						<p class="misc">
                         <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>-->
@@ -66,16 +73,10 @@
                             </ul>
                         </div>
 				    </aside>
-					<div>
-					  <h2>Episode...</h2>
-					  <a class="btn btn-default play-episode" href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" role="button" title="Zur Episode"><span class="glyphicon glyphicon-play"></span></a><a class="btn btn-default play-episode" href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" role="button" title="Zur Episode"><span class="glyphicon glyphicon-play"></span></a>
-					</div>
-				</div>
-			</div>
-		</div>
-    </section>
+		<!-- Ende Serienbeschreibung -->
+	</section>
 	<section class="container more-clips">
-	    <h2 id="button_down">{{ 'oktothek.more_from_this_series'|trans }} <span class="glyphicon glyphicon-chevron-down"> </span></h2>
+	    <h2>{{ 'oktothek.more_from_this_series'|trans }}</h2>
 	    <select class="form-control">
             <option>Alle Folgen</option>
             <option>Krieg</option>

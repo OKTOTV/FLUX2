@@ -130,7 +130,7 @@ $(document).ready(function(){
 		if ($('body').hasClass('oktothek')) {
 		    var offset = $('#oktothek').offset();
 		} else if ($('body').hasClass('series')) {
-			var offset = $('section.more-clips').offset();
+			var offset = $('section.series-description').offset();
 		}
 		$("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
 		$( this ).find('span').css('display','none');

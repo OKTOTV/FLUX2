@@ -411,8 +411,11 @@ h1 {
 h2, .episode h1.name, .episode time {
 	margin-bottom:20px;
 }
-.oktothek h2, .episode h2, .series h2 {
+.oktothek h2, .episode h2, .series h2, .series h1 {
 	text-align:center;
+}
+.series .current-episode h2 {
+	text-align:left;
 }
 
 /* Header */
@@ -743,14 +746,14 @@ section {
 .series .series-content, .series .series-ident, .content-opacity {
 	position:relative;
 }
-.series div.series-description, .series .play-episode, .bg-opacity {
+.series div.current-episode, .series .play-episode, .bg-opacity {
 	position:absolute;
 }
 .series section.series-content {
 	margin-bottom:0;
 }
-.series div.series-description {
-	top:180px;
+.series div.current-episode {
+	top:250px;
 	overflow:hidden;
 }
 .bg-opacity {
@@ -807,24 +810,25 @@ section {
 }
 
 @media (min-width: 768px) {
-	.series div.series-description {
+	.series div.current-episode {
 		left:50%;
         margin-left:-375px;
 	}
-	.series div.series-description article, .series div.series-description aside {
+	.series .series-description article, .series .series-description aside {
 	    display:table-cell;
+		vertical-align:top;
     }
 	.series div.series-description aside {
         width:250px;
     }
 }
 @media (min-width: 992px) {
-	.series div.series-description {
+	.series div.current-episode {
         margin-left:-485px;
 	}
 }
 @media (min-width: 1200px) {
-.series div.series-description {
+.series div.current-episode {
 	margin-left:-585px;
 }
 }
