@@ -1,0 +1,7 @@
+{% if posts|length > 0%}
+    <h3>{{ 'oktolab_series_blog_header'|trans }}</h3>
+{% endif %}
+    {{ render(controller('AppBundle:Series:blogSeries', {'uniqID': uniqID})) }}
+{% for post in posts %}
+    {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
+{% endfor %}

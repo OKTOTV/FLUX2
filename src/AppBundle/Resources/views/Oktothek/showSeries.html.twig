@@ -86,11 +86,12 @@
             <option>Demonstration</option>
             <option>Andere Sprachen</option>
             <option>Zivilgesellschaft</option>
-    </select>
-    {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': series.episodes} %}
+        </select>
+        {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': series.episodes} %}
 	</section>
+    {% include 'AppBundle::Default/Series/blog.html.twig' with {'posts': series.posts, 'uniqID': series.uniqID } %}
 {% endblock %}
 
 {% block javascripts %}
-{{ parent() }}
+    {{ parent() }}
 {% endblock %}
