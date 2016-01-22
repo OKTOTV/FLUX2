@@ -4,7 +4,7 @@ body {
 }
 
 /* Fonts */
-header .collapse.in h3, .oktothek article h3, .footer h3 {
+header .collapse.in h3, article figcaption h3, .footer h3 {
 	font-size:14px;
 }
 .carousel-caption {
@@ -122,6 +122,16 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	background-repeat:no-repeat;
 	background-position:center center;*/
 }
+.page-bg { /*Wäre am besten wenn Klasse an HTML angehängt wäre*/
+	background-image:url(../images/dummy_bleur_bg.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	background-attachment:fixed;
+}
 
 
 @media (min-width: 768px) {
@@ -237,9 +247,6 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 body, .list-group-item, .bg-opacity {
 	background-color:#000000;
 }
-.table-striped > tbody > tr:nth-of-type(2n+1) {
-	background-color:#757575;
-}
 body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover {
 	color:#ffffff;
 }
@@ -248,10 +255,10 @@ body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.bt
 	color:#000000;
 }
 
-.comments {
+.comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog {
 	background-color:#757575;
 }
-.btn-default, select, .oktothek article a.btn-default:hover {
+.btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container {
 	background-color:#000000;
 }
 button .btn-default.active, .oktothek article a.btn-default {
@@ -398,24 +405,33 @@ html, body {
 .episode .series a {
 	text-decoration:underline;
 }
-#collapsePlaylist ul, #collapsePlaylist li, .series div.series-description aside ul, .footer ul, .footer li {
+#collapsePlaylist ul, #collapsePlaylist li, .series .series-description aside ul, .footer ul, .footer li {
 	list-style:none;
 }
-#collapsePlaylist ul, #collapsePlaylist li, .series div.series-description aside ul, .tags ul {
+#collapsePlaylist ul, #collapsePlaylist li, .series .series-description aside ul, .tags ul {
 	margin-left:0;
 	padding-left:0;
 }
 h1 {
 	margin-top:0;
 }
+.series h1, .tagpage h1 {
+	margin-top:20px;
+}
 h2, .episode h1.name, .episode time {
 	margin-bottom:20px;
 }
-.oktothek h2, .episode h2, .series h2, .series h1 {
+figcaption h3, figcaption p {
+	margin:0;
+}
+.oktothek h2, .episode h2, .series h2, .series h1, .tagpage h1, .tagpage .misc, .tagpage h2 {
 	text-align:center;
 }
 .series .current-episode h2 {
 	text-align:left;
+}
+figcaption  {
+	margin-top:5px;
 }
 
 /* Header */
@@ -632,12 +648,6 @@ section {
 .oktothek article {
 	position:relative;
 }
-.oktothek figcaption h3, .oktothek figcaption p {
-	margin:0;
-}
-.oktothek figcaption  {
-	margin-top:5px;
-}
 .episode article, .more-clips article {
 	margin-top:40px;
 }
@@ -753,7 +763,7 @@ section {
 	margin-bottom:0;
 }
 .series div.current-episode {
-	top:250px;
+	bottom:80px;
 	overflow:hidden;
 }
 .bg-opacity {
@@ -765,7 +775,7 @@ section {
 	padding:15px;
 	z-index:1;
 }
-.series div.series-description article, .series div.series-description aside {
+.series .series-description article, .series .series-description aside {
 	display:block;
 	vertical-align:top;
 }
@@ -773,13 +783,13 @@ section {
 	max-width:250px;
 	height:auto;
 }
-.series div.series-description aside ul {
+.series .series-description aside ul {
 	margin-top:10px;
 }
-.series div.series-description .socialnetworks li {
+.series .series-description .socialnetworks li {
 	display:inline;
 }
-.series div.series-description .socialnetworks a {
+.series .series-description .socialnetworks a {
 	display:inline-block;
     height: 30px;
     outline: 0 none;
@@ -802,11 +812,40 @@ section {
 }
 
 /* Überschriften für Barrierefreundlichkeit */
-#collapseShare .socialnetworks a span, .series div.series-description .socialnetworks a span, #collapseShare h3 {
+#collapseShare .socialnetworks a span, .series .series-description .socialnetworks a span, #collapseShare h3 {
     margin-left: -9990px;
 }
 #collapseShare h3 {
 	display:inline;
+}
+
+/* Tags */
+.tagpage .container-fluid header {
+	margin-bottom:80px;
+}
+.tagpage section {
+	margin-bottom:0px;
+	padding-bottom:80px;
+}
+.tagpage article.pin {
+	position:relative;
+}
+.tagpage figcaption {
+	position:absolute;
+	bottom:0;
+	padding-left:5px;
+}
+.tagpage section .row {
+	padding-bottom:15px;
+}
+.tagpage article.pin {
+	padding-right:0;
+}
+.tagpage .small-pins article {
+	padding-left:13px;
+}
+.tagpage .small-pins article:last-child {
+	padding-left:8px;
 }
 
 @media (min-width: 768px) {
@@ -818,7 +857,7 @@ section {
 	    display:table-cell;
 		vertical-align:top;
     }
-	.series div.series-description aside {
+	.series .series-description aside {
         width:250px;
     }
 }
@@ -914,5 +953,13 @@ section {
 }
 figure.pin img {
 	width:260px;
+	height:auto;
+}
+.tagpage .first-pin figure.pin img {
+	width:565px;
+	height:auto;
+}
+.tagpage figure.pin img {
+	width:269px;
 	height:auto;
 }

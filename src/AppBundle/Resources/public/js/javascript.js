@@ -44,7 +44,7 @@ $(document).ready(function(){
 	 });
 	  
 	 /*Slider*/
-	var borderbottom = 60;
+	var borderbottom = 70;
 	 
     function ImageRatio(el) {
         aspectRatio = $(el).height() / $(el).width();
