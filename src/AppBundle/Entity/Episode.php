@@ -135,4 +135,12 @@ class Episode extends BaseEpisode
         $this->tags = $tags;
         return $this;
     }
+
+    public function getPosterframe()
+    {
+        if (parent::getPosterframe()) {
+            return parent::getPosterframe();
+        }
+        return $this->series->getPosterframe();
+    }
 }

@@ -74,6 +74,7 @@ oktothek.episode_show_update_playlists: Änderungen übernehmen
 oktothek.episode_comment_header:        Kommentare <span class="comments-counter">%count%</span>
 oktothek.more_from_this_series:         Mehr aus dieser Sendereihe
 oktothek.episode_tag_header:            Tags
+oktothek_share_email:                   Email
 
 ## comment
 oktothek.comment_author:                %name% am <time>%date%</time>

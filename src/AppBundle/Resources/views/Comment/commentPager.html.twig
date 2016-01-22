@@ -10,7 +10,7 @@
             <div class="col-md-11">
                 <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': comment.user.username, '%date%': comment.createdAt|date('d.m.Y H:i')})|raw }}</div>
                 <div class="comment-text">
-                    <p>{{ comment.text }}</p>
+                    <p>{{ comment.text|nl2br }}</p>
                 </div>
                 <!-- Antwort Container -->
                 <div class="comment-answer">
@@ -28,7 +28,7 @@
                                 <div class="col-md-11">
                                     <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': answer.user.username, '%date%': answer.createdAt|date('d.m.Y H:i')})|raw }}</div>
                                     <div class="comment-text">
-                                        <p>{{ answer.text }}</p>
+                                        <p>{{ answer.text|nl2br }}</p>
                                     </div>
                                 </div>
                             </div>

@@ -44,6 +44,10 @@ class Tag
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(name="rank", type="integer", nullable=true)
+     */
+    private $rank;
 
     /**
      * Get id

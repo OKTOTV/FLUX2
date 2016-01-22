@@ -53,6 +53,14 @@ class TagRepository extends EntityRepository
             ->setMaxResults(5)
             ->getResult();
     }
+
+    public function findPopularTags($number = 10)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT t FROM AppBundle:Tag t ORDER BY t.rank DESC')
+            ->setMaxResults($number)
+            ->getResult();
+    }
 }
 
 
