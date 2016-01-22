@@ -11,7 +11,7 @@
             <figure class="episode-posterframe">
                 <img src="{{ series.posterframe|path() }}" />
             </figure>
-			
+
 			<div class="series-description container">
 			    <div class="bg-opacity"></div>
 			    <div class="content-opacity">
@@ -19,7 +19,7 @@
 			            <h1>{{ series.name }}</h1>
 				        <p class="description">{{ series.description }}</p>
 						<p class="misc">
-                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>--> 
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>-->
                 </p>
 				<!-- Start Collapse Share-->
 				<div class="collapse" id="collapseShare">
@@ -94,4 +94,83 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
+    {% include "BprsStyleBundle::datetimepicker.js.twig" %}
+    <script type="text/javascript">
+        $(document).ready( function(){
+            $('#appbundle_post_onlineAt_picker').datetimepicker({
+                locale: 'de',
+                // format: "DD.MM.YYYY hh:mm",
+                useCurrent: true,
+                calendarWeeks: true,
+                allowInputToggle: true,
+                showTodayButton: true
+            });
+
+            $(".character500").characterCounter({
+                counterCssClass: 'help-block',
+                limit: 400
+            });
+
+            // tags
+            var addInput = function(list, text) {
+                var tag = "<span class='label label-default remove'>"+text+"</span>";
+                tag = $(tag);
+                prototype = list.attr('data-prototype');
+                var length = list.find(':input').length;
+                prototype = prototype.replace(/__name__/g, length);
+                prototype = $(prototype);
+                prototype.attr({value: text, type: 'hidden'});
+                tag.append(prototype);
+                list.append(tag);
+            };
+
+            var tags = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch:   $('.tag-input').attr('data-url')
+            });
+
+            $('.tag-input').typeahead(null, {
+                name: 'tags',
+                source: tags
+            }).bind('typeahead:select', function(ev, suggestion) {
+                // console.log('Selection: ' + suggestion);
+                var list = $(this).parents('.form-group').children('.tags');
+                addInput(list, suggestion);
+            });
+
+            $('.tag-input').keydown(function(e){
+                if(e.keyCode == 13) {
+                    e.preventDefault();
+                    var list = $(this).parents('.form-group').children('.tags');
+                    var text = $(this).val();
+                    $.ajax({
+                        url: $(this).attr('data-url'),
+                        data: {
+                            'action': "add",
+                            'text':   text,
+                        },
+                        type: 'POST',
+                        success: function(data) {
+                            addInput(list, text);
+                            $(this).val('');
+                        }
+                    });
+                }
+            });
+            // end tags
+        });
+        $(document).on('click', '.remove', function(e){
+            $(this).remove();
+        });
+    </script>
+    {% include "BprsAssetBundle::singleUpload.js.twig" %}
+    <script src="{{ asset('bundles/bprsstyle/js/charactercounter.js')}}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/bprsstyle/css/datetimepicker.min.css') }}" rel="stylesheet" />
+    {% include "BprsAssetBundle::singleUpload.css.twig" %}
 {% endblock %}

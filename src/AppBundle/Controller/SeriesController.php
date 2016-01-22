@@ -18,14 +18,14 @@ use AppBundle\Form\PostType;
 class SeriesController extends Controller
 {
     /**
-     * @Route("/series/{series}/blog", name="oktothek_series_blog_post")
+     * @Route("/series/{uniqID}/blog", name="oktothek_series_blog_post")
      * @Method({"GET", "POST"})
      * @Template
      */
     public function blogSeriesAction(Request $request, Series $series)
     {
         $post = new Post();
-        $form = $this->createForm(new PostType(), $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['series' => $series->getUniqID()])]);
+        $form = $this->createForm(new PostType(), $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
         $form->add('submit', 'submit', ['label' => 'oktothek.post_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
@@ -38,7 +38,7 @@ class SeriesController extends Controller
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_post');
 
-                return $this->redirect($this->generateUrl('oktothek_series_show', ['uniqID' => $series->getUniqID()]));
+                return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $series->getUniqID()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_post');
             }
