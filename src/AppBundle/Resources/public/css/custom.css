@@ -21,7 +21,7 @@ header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a
 
 /****************************** Color, Effects ******************************/
 
-/**************************** Header ****************************/
+/**************************** Color, Effects Header ****************************/
 
 /* Basic Color */
 /* Menu*/
@@ -105,7 +105,7 @@ header .dropshadow {
 	text-shadow: none;
 }
 
-/****************************** Backgroundimages ******************************/
+/****************************** Backgroundimages Header ******************************/
 
 /* Header */
 .navbar-brand object .brandimage {
@@ -233,9 +233,12 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 }
 
 
-/**************************** Content ****************************/
-body {
+/****************************  Color, Effects Content ****************************/
+body, .list-group-item {
 	background-color:#000000;
+}
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+	background-color:#757575;
 }
 body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover {
 	color:#ffffff;
@@ -289,7 +292,7 @@ button .btn-default.active, .series div.series-description, .oktothek article a.
 }
 
 
-/**************************** Footer ****************************/
+/****************************  Color, Effects Footer ****************************/
 
 .footer .nav > li > a {
 	color:#ffffff;
@@ -332,7 +335,7 @@ button .btn-default.active, .series div.series-description, .oktothek article a.
 }
 
 
-/**************************** Backend ****************************/
+/****************************  Color, Effects Backend ****************************/
 .panel-body {
 	color:#000000;
 }
@@ -380,11 +383,30 @@ body {
 .active {
     text-decoration: underline;
 }*/
+
+/****************************  Weitere Formatierungen ****************************/
+
 html, body {
 	height:100%;
 }
 .episode .series a {
 	text-decoration:underline;
+}
+#collapsePlaylist ul, #collapsePlaylist li, .series div.series-description aside ul, .footer ul, .footer li {
+	list-style:none;
+}
+#collapsePlaylist ul, #collapsePlaylist li, .series div.series-description aside ul, .tags ul {
+	margin-left:0;
+	padding-left:0;
+}
+h1 {
+	margin-top:0;
+}
+h2, .episode h1.name, .episode time {
+	margin-bottom:20px;
+}
+.oktothek h2, .episode h2, .series h2 {
+	text-align:center;
 }
 
 /* Header */
@@ -587,20 +609,6 @@ header .dropdown-menu li a {
 section {
 	margin-bottom:80px;
 }
-#collapsePlaylist ul, #collapsePlaylist li, .series div.series-description aside ul, .footer ul, .footer li {
-	list-style:none;
-}
-#collapsePlaylist ul, #collapsePlaylist li, .series div.series-description aside ul {
-	margin-left:0;
-	padding-left:0;
-}
-
-h1 {
-	margin-top:0;
-}
-h2, .episode h1.name, .episode time {
-	margin-bottom:20px;
-}
 .episode .series {
 	margin-bottom:0;
 }
@@ -614,9 +622,6 @@ h2, .episode h1.name, .episode time {
 /* Oktothek */
 .oktothek article {
 	position:relative;
-}
-.oktothek h2, .episode h2 {
-	text-align:center;
 }
 .oktothek figcaption h3, .oktothek figcaption p {
 	margin:0;
@@ -648,6 +653,11 @@ h2, .episode h1.name, .episode time {
 	padding:6px 12px;
 	vertical-align:middle;
 	text-align:center;
+}
+
+/* Tooltips */
+.tooltip-inner {
+	text-align:left;
 }
 
 /* Kommentare */

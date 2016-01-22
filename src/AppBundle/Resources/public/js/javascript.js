@@ -57,7 +57,7 @@ $(document).ready(function(){
 		
 		$(container).find('figure').parent('div').css('height',Winheight + 'px').css('overflow','hidden');
 		
-		if ($(window).height() / _ratio > Winwidth) {
+		if (Winheight / _ratio > Winwidth) {
 			newMargin = (Winwidth - (Winheight / _ratio)) / 2;
 			el.css('height', Winheight + 'px').css('width', (Winheight / _ratio) + 'px').css('margin-left', newMargin + "px");
         } else {
