@@ -11,28 +11,66 @@
             <figure class="episode-posterframe">
                 <img src="{{ series.posterframe|path() }}" />
             </figure>
-			<a class="btn btn-default play-episode" href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" role="button" title="Zur Episode"><span class="glyphicon glyphicon-play"></span></a>
+			
 			<div class="series-description container">
-			    <article>
-			        <h1>{{ series.name }}</h1>
-				    <p class="description">{{ series.description }}</p>
-				</article>
-				<aside>
-				  <figure class="series-posterframe">
-                    <img src="{{ series.posterframe|path() }}" />
-                  </figure>
-				  <ul>
-				    <li><strong>Produzent:</strong> Osama Saadalah</li>
-					<li><strong>Ressigeur:</strong> Osama Saadalah</li>
-					<li><strong>Kontakt:</strong> ossa@gmx.at</li>
-				  </ul>
-				  <div class="socialnetworks">
-                <ul>
-                    <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
-                    <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                </ul>
-            </div>
-				</aside>
+			    <div class="bg-opacity"></div>
+			    <div class="content-opacity">
+			        <article>
+			            <h1>{{ series.name }}</h1>
+				        <p class="description">{{ series.description }}</p>
+						<p class="misc">
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>--> 
+                </p>
+				<!-- Start Collapse Share-->
+				<div class="collapse" id="collapseShare">
+                    <div>
+                        <h3>Teilen</h3>
+						<div>
+						    <div class="btn-group sharingnav">
+						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button>
+					        </div>
+						</div>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+						        <div>
+						        <ul class="socialnetworks">
+                                    <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                                    <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                                    <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                                </ul>
+							    <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button>
+							</div>
+						    <form><input type="text" value="" class="form-control" id="sharingurl"></form>
+						</div>
+						</div>
+                    </div>
+                </div>
+				<!-- End Modal Window Share-->
+				    </article>
+				    <aside>
+				        <figure class="series-posterframe">
+                            <img src="{{ series.posterframe|path() }}" />
+                        </figure>
+				        <ul>
+				            <li><strong>Produzent:</strong> Osama Saadalah</li>
+					        <li><strong>Ressigeur:</strong> Osama Saadalah</li>
+					        <li><strong>Kontakt:</strong> ossa@gmx.at</li>
+				        </ul>
+				        <div class="socialnetworks">
+                            <ul>
+                                <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                                <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                            </ul>
+                        </div>
+				    </aside>
+					<div>
+					  <h2>Episode...</h2>
+					  <a class="btn btn-default play-episode" href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" role="button" title="Zur Episode"><span class="glyphicon glyphicon-play"></span></a><a class="btn btn-default play-episode" href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" role="button" title="Zur Episode"><span class="glyphicon glyphicon-play"></span></a>
+					</div>
+				</div>
 			</div>
 		</div>
     </section>

@@ -234,7 +234,7 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 
 
 /****************************  Color, Effects Content ****************************/
-body, .list-group-item {
+body, .list-group-item, .bg-opacity {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
@@ -244,7 +244,7 @@ body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.bt
 	color:#ffffff;
 }
 
-.oktothek article a.btn-default, a.pull-right, .modal, button .btn-default.active, .series div.series-description {
+.oktothek article a.btn-default, a.pull-right, .modal, button .btn-default.active {
 	color:#000000;
 }
 
@@ -254,7 +254,7 @@ body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.bt
 .btn-default, select, .oktothek article a.btn-default:hover {
 	background-color:#000000;
 }
-button .btn-default.active, .series div.series-description, .oktothek article a.btn-default {
+button .btn-default.active, .oktothek article a.btn-default {
 	background-color:#ffffff;
 }
 .play-episode.btn-default {
@@ -289,6 +289,12 @@ button .btn-default.active, .series div.series-description, .oktothek article a.
 }
 #collapseShare, #collapsePlaylist {
     border-top: dashed gray 2px;
+}
+
+.bg-opacity {
+    opacity: 0.7;       /* modern browser */  
+    -moz-opacity: 0.7;  /* older Mozilla browser */  
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */  
 }
 
 
@@ -734,18 +740,27 @@ section {
 }
 
 /* Serien */
-.series .series-content, .series .series-ident {
+.series .series-content, .series .series-ident, .content-opacity {
 	position:relative;
 }
-.series div.series-description, .series .play-episode {
+.series div.series-description, .series .play-episode, .bg-opacity {
 	position:absolute;
 }
 .series section.series-content {
 	margin-bottom:0;
 }
 .series div.series-description {
-	bottom:40px;
+	top:180px;
+	overflow:hidden;
+}
+.bg-opacity {
+	z-index:0;
+	width:100%;
+	height:100%;
+}
+.content-opacity {
 	padding:15px;
+	z-index:1;
 }
 .series div.series-description article, .series div.series-description aside {
 	display:block;
@@ -769,18 +784,18 @@ section {
     width: 30px;
 }
 .play-episode {
-	top:50%;
+/*	top:50%;
 	left:50%;
 	margin-top:-25px;
-	margin-left:-25px;
+	margin-left:-25px;*/
 }
 .play-episode.btn-default {
-	width:50px;
+/*	width:50px;
 	height:50px;
 	padding:0;
 	line-height:50px;
 	vertical-align:middle;
-	text-align:center;
+	text-align:center;*/
 }
 
 /* Überschriften für Barrierefreundlichkeit */
