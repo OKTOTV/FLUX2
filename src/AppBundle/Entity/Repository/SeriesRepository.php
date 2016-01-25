@@ -4,6 +4,7 @@ namespace AppBundle\Entity\Repository;
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Series;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 class SeriesRepository extends EntityRepository
 {
@@ -25,9 +26,17 @@ class SeriesRepository extends EntityRepository
 
     public function getSeriesTags(Series $series)
     {
+        $rsm = new ResultSetMapping();
+        $rsm->addEntityResult('AppBundle:Tag', 't');
+        $rsm->addFieldResult('t', 'id', 'id');
+        $rsm->addFieldResult('t', 'slug', 'slug');
+        $rsm->addFieldResult('t', 'text', 'text');
+        $rsm->addFieldResult('t', 'rank', 'rank');
+
         return $this->getEntityManager()
-            ->createQuery('SELECT t FROM AppBundle:Tag t JOIN AppBundle:Episode e WHERE e.series = :series_id GROUP BY t.id')
-            ->setParameter('series_id', $series->getId())
+            ->createNativeQuery('SELECT t.id, t.slug, t.text ,t.rank FROM tag t JOIN episode_tags et ON t.id = et.tag_id JOIN episode e ON et.episode_id = e.id WHERE e.series_id = 1  AND e.is_active = ? AND (e.online_start > ? OR e.online_start IS NULL) GROUP BY t.id ORDER BY t.rank DESC', $rsm)
+            ->setParameter(1, $series->getId())
+            ->setParameter(2, new \DateTime())
             ->getResult();
     }
 
