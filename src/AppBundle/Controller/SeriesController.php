@@ -46,4 +46,29 @@ class SeriesController extends Controller
 
         return ['form' => $form->createView()];
     }
+
+    /**
+     * @Route("/series/{uniqID}/episodes_with_tags_ajax", name="oktothek_series_episodes_with_tags_ajax")
+     * @Method({"POST", "GET"})
+     * @Template()
+     */
+    public function episodesWithTagsAjaxAction(Request $request, Series $series)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $episodes = [];
+        if ($request->getMethod() == "POST") {
+            if ($request->request->get('tag') == "all") {
+                $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
+                return $this->render('AppBundle::Default/EpisodeStack.html.twig', ['episodes' => $episodes]);
+            } else {
+                $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $request->request->get('tag')]);
+                $episodes = $em->getRepository('AppBundle:Series')->findEpisodesWithTag($series, $tag);
+                return $this->render('AppBundle::Default/EpisodeStack.html.twig', ['episodes' => $episodes]);
+            }
+        } else {
+            $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
+        }
+        $tags = $em->getRepository('AppBundle:Series')->getSeriesTags($series);
+        return ['episodes' => $episodes, 'series' => $series, 'series_tags' => $tags];
+    }
 }

@@ -57,4 +57,4 @@ class OktothekController extends Controller
         return array('playlist' => $playlist);
     }
 }
- ?>
+?>

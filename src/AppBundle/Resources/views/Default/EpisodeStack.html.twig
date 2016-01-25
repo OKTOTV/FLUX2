@@ -1,8 +1,7 @@
 <div class="row">
     {% for episode in episodes %}
-    {% if episode.isActive %}
-    {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
-    {% endif %}
+        {% if episode.isActive %}
+            {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+        {% endif %}
     {% endfor %}
 </div>
-
