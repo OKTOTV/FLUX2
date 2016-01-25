@@ -33,7 +33,8 @@
             	<li {% if selected == "login" %}class="active"{% endif %}><a href="{{ path('bprs_user_login') }}"> {{ 'bprs_user.button.login'|trans }}</a></li>
         	{% endif %}
         	</ul>
-			<ul class="nav navbar-nav visible-xs-block">
+			{{ render(controller('AppBundle:Search:search'))}}
+			{# <ul class="nav navbar-nav visible-xs-block">
                 <li><h3>Beliebteste Themen</h3></li>
 				{{ render(controller('AppBundle:Tag:menuTags')) }}
 			</ul>
@@ -54,5 +55,5 @@
 			  	    </ul>
 			    </div>
             </div>
-	   </div>
+	   </div> #}
 {% endblock %}

@@ -30,7 +30,7 @@ class AppKernel extends Kernel
             new Bprs\UserBundle\BprsUserBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
-            // new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle()
+            new FOS\ElasticaBundle\FOSElasticaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
