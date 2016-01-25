@@ -47,7 +47,7 @@ $(document).ready(function(){
 	var borderbottom = 70;
 	 
     function ImageRatio(el) {
-        aspectRatio = $(el).height() / $(el).width();
+        var aspectRatio = $(el).height() / $(el).width();
         return aspectRatio;
     }
 	
@@ -63,7 +63,6 @@ $(document).ready(function(){
         } else {
 			el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
         }
-		
 	}
 	 
 	 /*Alle Bilder auf gleiche Höhe bringen (nach der kleinsten Höhe)*/
@@ -71,13 +70,12 @@ $(document).ready(function(){
         var items = $(container).find('.item'), //grab all slides
         width = [], //create empty array to store height values
 		Winheight,
-		Winwidth;
+		Winwidth,
+		aspectRatio;
 
         if (items.length) {
 			
             function normalizeHeights() {
-				var Winheight = $( window ).height() - borderbottom;
-				var Winwidth = $( window ).width();
 				
 				if (width.length == 0) { //beim ersten Mal Array füllen
                 	items.each(function() { //Aspect Ratio Array hinzufügen
@@ -101,23 +99,21 @@ $(document).ready(function(){
             });
         }
     }
-	$('.fullscreen-images .carousel img').load(function() {
+	
+	$('#slider .carousel-inner img:last').load(function() {
+		
         carouselNormalization($('.fullscreen-images .carousel'));
 	});
 	
 	 function resizeSingleImage(el) {
-        var _ref;
-		var Winwidth = $( window ).width();
-		var Winheight = $( window ).height() - borderbottom - $('header .navbar').height();
+        var aspectRatio;
 
-        if ((_ref = el.ratio) == null) {
+        if ((aspectRatio = el.ratio) == null) {
 			el.ratio =ImageRatio(el);
-           // image.ratio = (image.height() / image.width()).toFixed(2);
         }
 		
 		//Bildgröße berechnen lassen:
-		resizeImage(el, el.parent('figure').parent('div'), el.ratio);
-		
+		resizeImage(el, el.parents('div.series-ident'), el.ratio);
     };
 	
 	$('.series figure.episode-posterframe img').load(function() {

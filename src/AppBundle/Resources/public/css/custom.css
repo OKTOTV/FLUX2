@@ -123,14 +123,9 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	background-position:center center;*/
 }
 .page-bg { /*Wäre am besten wenn Klasse an HTML angehängt wäre*/
-	background-image:url(../images/dummy_bleur_bg.jpg);
-	background-repeat:no-repeat;
-	background-position:center center;
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-	background-attachment:fixed;
+/*	
+	
+	background-attachment:fixed;*/
 }
 
 
@@ -244,9 +239,6 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 
 
 /****************************  Color, Effects Content ****************************/
-body, .list-group-item, .bg-opacity {
-	background-color:#000000;
-}
 body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover {
 	color:#ffffff;
 }
@@ -255,23 +247,23 @@ body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.bt
 	color:#000000;
 }
 
-.comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog {
-	background-color:#757575;
-}
-.btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container {
+body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container {
 	background-color:#000000;
+}
+.comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control {
+	background-color:#757575;
 }
 button .btn-default.active, .oktothek article a.btn-default {
 	background-color:#ffffff;
 }
-.play-episode.btn-default {
+.play-episode.btn-default, .tagpage header .btn-default {
 	background-color:transparent;
 }
 
 .tags li a {
 	border: solid 1px #cccccc;
 }
-.play-episode.btn-default {
+.play-episode.btn-default, .tagpage .container-fluid header input.form-control {
 	border: solid 1px #ffffff;
 }
 .tags li a {
@@ -291,6 +283,15 @@ button .btn-default.active, .oktothek article a.btn-default {
 	background-position:center center;
 	background-image:url(../images/icon_views.png);
 }
+.bg-bleur {
+	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
+	background-repeat:no-repeat;
+	background-position:center top;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .more-clips select {
 	width:auto;
 }
@@ -302,6 +303,14 @@ button .btn-default.active, .oktothek article a.btn-default {
     opacity: 0.7;       /* modern browser */  
     -moz-opacity: 0.7;  /* older Mozilla browser */  
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */  
+}
+
+.bg-bleur {
+	-webkit-filter: blur(50px);
+	-moz-filter: blur(50px);
+	-o-filter: blur(50px);
+	-ms-filter: blur(50px);
+	filter: blur(50px);
 }
 
 
@@ -527,6 +536,13 @@ header .dropdown-menu li a {
 #button_down span {
 	display:none;
 }
+.bg-bleur {
+	position:fixed;
+	z-index:0;
+	width:100%;
+	height:100%;
+	top:0;
+}
 @media (min-width: 768px) {
 	
 	header .navbar .container-fluid {
@@ -602,11 +618,11 @@ header .dropdown-menu li a {
 	}
 }
 
-
-/* Slider und Fullscreen Images */
 #slider, .series-content {
 	margin-top:-180px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
 }
+
+/* Slider und Fullscreen Images */
 .carousel .item {
   min-width: 100%;
   height: 100%;
@@ -633,6 +649,9 @@ header .dropdown-menu li a {
 }
 section {
 	margin-bottom:80px;
+}
+section.container, .container-fluid header {
+	position:relative;
 }
 .episode .series {
 	margin-bottom:0;
@@ -821,11 +840,15 @@ section {
 
 /* Tags */
 .tagpage .container-fluid header {
-	margin-bottom:80px;
+	margin-bottom:40px;
+	margin-top:40px;
 }
 .tagpage section {
 	margin-bottom:0px;
 	padding-bottom:80px;
+}
+.tagpage section.inc-pins {
+	padding-bottom:65px;
 }
 .tagpage article.pin {
 	position:relative;
@@ -835,17 +858,31 @@ section {
 	bottom:0;
 	padding-left:5px;
 }
-.tagpage section .row {
+.tagpage section .row  {
 	padding-bottom:15px;
 }
 .tagpage article.pin {
 	padding-right:0;
 }
+.tagpage article.first-pin {
+	padding-left:30px;
+}
 .tagpage .small-pins article {
-	padding-left:13px;
+	padding-left:15px;
 }
 .tagpage .small-pins article:last-child {
 	padding-left:8px;
+}
+.tagpage header {
+	text-align:center;
+}
+.tagpage h1, .tagpage .misc {
+	display:inline-block;
+}
+.tagpage .misc {
+	line-height:36px;
+	vertical-align:middle;
+	margin-left: 40px;
 }
 
 @media (min-width: 768px) {
@@ -956,10 +993,10 @@ figure.pin img {
 	height:auto;
 }
 .tagpage .first-pin figure.pin img {
-	width:565px;
+	width:540px;
 	height:auto;
 }
 .tagpage figure.pin img {
-	width:269px;
+	width:255px;
 	height:auto;
 }

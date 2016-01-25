@@ -5,23 +5,24 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "tagpage head-white-color page-bg head-transparent-bg fullscreen-images" %}
+{% set body_class = "tagpage head-white-color head-transparent-bg fullscreen-images" %}
 {% block body %}
-    <div class="container-fluid">
+    <style type="text/css">
+	    .bg-bleur {
+	        background-image:url(http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec);
+        }
+	</style>
+	    <div class="container-fluid">
+	    <div class="bg-bleur"></div>
 	    <header class="container">
 		    <h1># internet</h1>
 			<p class="misc">
-                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>-->
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
                 </p>
 				<!-- Start Collapse Share-->
 				<div class="collapse" id="collapseShare">
                     <div>
                         <h3>Teilen</h3>
-						<div>
-						    <div class="btn-group sharingnav">
-						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button>
-					        </div>
-						</div>
 						<div class="tab-content">
 						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
 						        <div>
@@ -42,7 +43,7 @@
                 </div>
 				<!-- End Collapse Share-->
 	    </header>
-        <section class="container">
+        <section class="container inc-pins">
 		    <h2>Episoden</h2>
 			
 			<!-- Anfang EpisodenTag, später löschen -->
@@ -117,11 +118,11 @@
 		<!-- Ende EpisodenTag, später löschen -->
             <!--{{ render(controller('AppBundle:Tag:episodeTag', {'tag': tag.slug})) }}-->
 		</section>
-		<section class="container">
+		<section class="container inc-pins">
 		    <h2>Serien</h2>
             {{ render(controller('AppBundle:Tag:seriesTag', {'tag': tag.slug})) }}
 		</section>
-		<section class="container">
+		<section class="container inc-pins">
 		    <h2>Playlisten</h2>
             {{ render(controller('AppBundle:Tag:playlistTag', {'tag': tag.slug})) }}
 		</section>
