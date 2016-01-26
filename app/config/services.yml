@@ -33,3 +33,7 @@ services:
         factory_service: doctrine.orm.entity_manager
         factory_method: getRepository
         arguments:  [ "AppBundle\Entity\Tag" ]
+
+    oktothek_search:
+        class: AppBundle\Model\SearchService
+        arguments: [ @fos_elastica.finder.app.episode, @fos_elastica.finder.app.series, @fos_elastica.finder.app.page ]

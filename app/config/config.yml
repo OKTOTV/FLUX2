@@ -173,21 +173,36 @@ knp_paginator:
         pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig # sort link template
 
 fos_elastica:
+    serializer: ~
     clients:
         default: { host: localhost, port: 9200 }
     indexes:
         app:
             types:
                 episode:
-                    mappings:
-                        name: ~
-                        description: ~
                     persistence:
-                        # the driver can be orm, mongodb, phpcr or propel
-                        # listener and finder are not supported by
-                        # propel and should be removed
                         driver: orm
                         model: AppBundle\Entity\Episode
+                        provider: ~
+                        listener:
+                            immediate: ~
+                        finder: ~
+                series:
+                    persistence:
+                        driver: orm
+                        model:  AppBundle\Entity\Series
+                        provider: ~
+                        listener:
+                            immediate: ~
+                        finder: ~
+                page:
+                    mappings:
+                        title: ~
+                        text: ~
+                        is_active: ~
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Page
                         provider: ~
                         listener:
                             immediate: ~

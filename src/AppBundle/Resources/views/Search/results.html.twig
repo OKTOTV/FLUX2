@@ -7,9 +7,10 @@
 {% set body_class = "fullscreen-images oktothek head-white-color head-transparent-bg" %}
 {% block body %}
     <h1>Ich bin die Seite mit den Suchergebnissen und bin noch nicht fertig</h1>
-    {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': episodes } %}
+    {% include 'AppBundle::Search/episode_results.html.twig' with {'episodes': episodes } %}
     {# {{ include('AppBundle::Search/playlist_results.html.twig' with {'playlists': playlists }) }}#}
-    {# {{ include('AppBundle::Search/series_results.html.twig' with {'series': series }) }}#}
+    {% include 'AppBundle::Search/series_results.html.twig' with {'seriess': series } %}
+    {% include 'AppBundle::Search/page_results.html.twig' with {'pages': pages } %}
     {# {{ include('AppBundle::Search/page_results.html.twig' with {'pages': pages }) }}#}
     {# {{ include('AppBundle::Search/post_results.html.twig' with {'posts': posts }) }}#}
 {% endblock %}

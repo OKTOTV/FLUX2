@@ -34,10 +34,15 @@ class SearchController extends Controller
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $data = $form->getData();
-                $finder = $this->container->get('fos_elastica.finder.app.episode');
-                $episodes = $finder->find($data['search']);
-                // die(var_dump($episodes));
-                return $this->render('AppBundle::Search/results.html.twig', ['episodes' => $episodes]);
+                $search = $this->get('oktothek_search');
+                $episodes = $search->searchEpisodes($data['search']);
+                $series = $search->searchSeries($data['search']);
+                $pages = $search->searchPages($data['search']);
+                return $this->render('AppBundle::Search/results.html.twig', [
+                    'episodes' => $episodes,
+                    'series' => $series,
+                    'pages' => $pages
+                ]);
             }
         }
         return ['searchform' => $form->createView()];
