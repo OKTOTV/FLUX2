@@ -108,20 +108,33 @@
             </div>
             <a href="#" class="pull-right more" title="Weitere News anzeigen">{{ 'oktothek.newest_news_show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
         </section>
+		<!-- Start Top Button -->
+	    <button class="btn btn-default btn-top">Top <span class="glyphicon glyphicon-chevron-up"></span></button>
+	    <!-- End Top Button -->
     </div>
-	<div class="dropup" id="anchor-menu">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Mehr entdecken<span class="glyphicon glyphicon-chevron-up"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-		    <li><a href="#top">Top</a></li>
-            <li><a href="#anchor_participart">Mitmachen</a></li>
-           <li><a href="#anchor_newest_videos">{{ 'oktothek.newest_videos'|trans }}</a></li>
-           <li><a href="#anchor_favorite_videos">Beliebteste Videos</a></li>
-           <li><a href="#anchor_playlists">{{ 'oktothek.newest_playlists'|trans }}</a></li>
-		   <li><a href="#anchor_news">News</a></li>
-        </ul>
+	<!-- Start Anchor Menu -->
+    <div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="discoverMore">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
+                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </h4>
+            </div>
+            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
+                <ul class="list-group" aria-labelledby="AnkerMenu">
+		            <li class="list-group-item"><a href="#top">Top</a></li>
+                    <li class="list-group-item"><a href="#anchor_participart">Mitmachen</a></li>
+                    <li class="list-group-item"><a href="#anchor_newest_videos">{{ 'oktothek.newest_videos'|trans }}</a></li>
+                    <li class="list-group-item"><a href="#anchor_favorite_videos">Beliebteste Videos</a></li>
+                    <li class="list-group-item"><a href="#anchor_playlists">{{ 'oktothek.newest_playlists'|trans }}</a></li>
+		            <li class="list-group-item"><a href="#anchor_news">News</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
+	<!-- End Anchor Menu -->
     {# rest of the page END #}
 {% endblock %}
 

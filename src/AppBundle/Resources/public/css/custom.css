@@ -4,14 +4,17 @@ body {
 }
 
 /* Fonts */
-header .collapse.in h3, article figcaption h3, .footer h3 {
+header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title {
 	font-size:14px;
 }
 .carousel-caption {
 	font-size:20px;
 }
-header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer {
+header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer, #anchor-menu .panel-title, .btn-top {
 	text-transform:uppercase;
+}
+#anchor-menu .panel-title .glyphicon, .btn-top .glyphicon {
+	font-size:30px;
 }
 @media (min-width: 768px) {
 	.carousel-caption {
@@ -42,6 +45,7 @@ header .form-control::-webkit-input-placeholder {
 .navbar-inverse .navbar-nav > li > a, header .collapse.in a, header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
 	color: #333333;
 }
+
 
 /* Backgroundcolor */
 
@@ -134,6 +138,9 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	.navbar-inverse .navbar-nav > li > a, header .collapse.in a, header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > 	.active > a:focus, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
 		color: #ffffff;
 	}
+	.navbar-inverse .navbar-nav .dropdown > li > a, header .collapse.in .dropdown a {
+		color: #000000;
+	}
 	/* Backgroundcolor */
 	header .navbar-collapse, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
 		background-color:transparent;
@@ -184,6 +191,9 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	/* Menu */
 	.head-white-color .navbar-inverse .navbar-nav > li > a, .head-white-color header .collapse.in a, .head-white-color header .navbar-inverse .navbar-nav > .active > a, .head-white-color header .navbar-inverse .navbar-nav > .active > a:hover, .head-white-color header .navbar-inverse .navbar-nav > 	.active > a:focus, .head-white-color .navbar-inverse .navbar-nav > li > a:hover, .head-white-color .navbar-inverse .navbar-nav > li > a:focus {
 		color: #ffffff;
+	}
+	.head-white-color .navbar-inverse .navbar-nav .dropdown > li > a, .head-white-color header  .collapse.in .dropdown a {
+		color: #000000;
 	}
 	.head-white-color navbar-inverse .navbar-nav > .active > a, .head-white-color .navbar-inverse .navbar-nav > .active > a:hover, .head-white-color .navbar-inverse .navbar-nav > .active > a:focus {
 		border-bottom:solid 2px #ffffff;
@@ -316,13 +326,13 @@ button .btn-default.active, .oktothek article a.btn-default {
 
 /****************************  Color, Effects Footer ****************************/
 
-.footer .nav > li > a {
-	color:#ffffff;
-}
-.footer .nav > li > a:active, .footer .nav > li > a:hover {
+.footer .nav > li > a, .footer .nav > li > a:active, .footer .nav > li > a:hover, #anchor-menu .panel-default > .panel-heading {
 	color:#ffffff;
 }
 
+#anchor-menu .panel-default > .panel-heading {
+	background-color:#000000;
+}
 .footer .nav > li > a:active, .footer .nav > li > a:hover {
 	background-color:transparent;
 }
@@ -355,7 +365,17 @@ button .btn-default.active, .oktothek article a.btn-default {
 .footer {
     border-top: dashed gray 2px;
 }
-
+#anchor-menu.panel-group .panel, .btn-top {
+    -webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
+}
+#anchor-menu.panel-group .panel, .btn-top {
+	border-bottom:none;
+}
+#anchor-menu .panel > .list-group .list-group-item, #anchor-menu .panel > .panel-collapse > .list-group .list-group-item {
+	border-width:0;
+}
 
 /****************************  Color, Effects Backend ****************************/
 .panel-body {
@@ -650,7 +670,7 @@ header .dropdown-menu li a {
 section {
 	margin-bottom:80px;
 }
-section.container, .container-fluid header {
+section.container, .container-fluid header, .oktothek {
 	position:relative;
 }
 .episode .series {
@@ -956,14 +976,29 @@ section.container, .container-fluid header {
 }
 #anchor-menu {
 	position:fixed;
-	bottom:0;
 	z-index:100;
-	display:none;
 	left:50%;
+	bottom:0;
 	margin-left:-90px;
 }
-#anchor-menu .btn {
+#anchor-menu, .btn-top {
+	display:none;
+}
+#anchor-menu.panel-group {
+	margin-bottom:0;
+}
+#anchor-menu .panel-title, .btn-top {
 	width:180px;
+	line-height:30px;
+	vertical-align:middle;
+}
+#anchor-menu .panel-heading .glyphicon, .btn-top .glyphicon {
+	margin-left:20px;
+	vertical-align:middle;
+}
+#anchor-menu .list-group-item {
+	padding-top:5px;
+	padding-bottom:5px;
 }
 
 @media (min-width: 768px) {
@@ -988,6 +1023,14 @@ section.container, .container-fluid header {
 	.footer .input-group {
 	    width:200px;
 	    margin:0;
+	}
+	.btn-top {
+		margin-left:294px;
+	}
+}
+@media (min-width: 1200px) {
+    .btn-top {
+		margin-left:510px;
 	}
 }
 
