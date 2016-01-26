@@ -2,6 +2,8 @@
 $(document).ready(function(){
 	/* Headerbackground */
 	var headerScrollheight = 50;
+	var headerHeight = 180;
+	var borderbottom = 70;
 	
 	function addHeaderBG() {
 	  if ($('body').hasClass('fullscreen-images')) {
@@ -44,7 +46,6 @@ $(document).ready(function(){
 	 });
 	  
 	 /*Slider*/
-	var borderbottom = 70;
 	 
     function ImageRatio(el) {
         var aspectRatio = $(el).height() / $(el).width();
@@ -100,10 +101,16 @@ $(document).ready(function(){
         }
     }
 	
-	$('#slider .carousel-inner img:last').load(function() {
-		
-        carouselNormalization($('.fullscreen-images .carousel'));
-	});
+	//Bildgröße für Slider erst berechnen lassen, wenn die Höhe existiert
+	function checkImgArrayLoading() {
+		//console.log($('#slider .carousel-inner img:first').height());
+		if($('#slider .carousel-inner img:first').height() > 0) {
+                carouselNormalization($('.fullscreen-images .carousel'));
+			    clearInterval(VarImgArrayLoading);
+		}
+	}
+	var VarImgArrayLoading = setInterval(function(){ checkImgArrayLoading() }, 100);
+	
 	
 	 function resizeSingleImage(el) {
         var aspectRatio;
@@ -116,10 +123,15 @@ $(document).ready(function(){
 		resizeImage(el, el.parents('div.series-ident'), el.ratio);
     };
 	
-	$('.series figure.episode-posterframe img').load(function() {
-	    if ($('.series figure img').length > 0)
-            resizeSingleImage($('.series figure.episode-posterframe img'));
-	});
+	//Bildgröße für Einzelbilder erst berechnen lassen, wenn die Höhe existiert
+	function checkImgLoading() {
+		if($('.series .episode-posterframe img:last').height() > 0) {
+                resizeSingleImage($('.series figure.episode-posterframe img'));
+			    clearInterval(VarImgLoading);
+		}
+	}
+	if ($('.series figure img').length > 0)
+	    var VarImgLoading = setInterval(function(){ checkImgLoading() }, 100);
 	
 	//Anchor Oktothek und Serie:
 	$('#button_down').click(function() {
@@ -158,21 +170,35 @@ $(document).ready(function(){
 	    $('[data-toggle="tooltip"]').tooltip({'placement': 'auto right'}); 
 	}
 	 
-	function loadWinHeight() {
-	    var Winheight = $( window ).height();
-		              
-	}
-	 
-	function resizeWinHeight() {
-	
-	}
     $(window).on("resize orientationchange", function(){
         if ($('.series figure.episode-posterframe img').length > 0)
            resizeSingleImage($('.series figure.episode-posterframe img'));
-		   
     });
 	
 	/*Sharebuttons*/
 	$('#sharingurl').val(window.location.href);
+	
+	/*Ankermenü*/
+	if ($( window ).width() >= 768) {
+	    var Ts_offset = 250;
+        var Ts_duration = 300;
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > Ts_offset) {
+                $('#anchor-menu').fadeIn(Ts_duration);
+            } else {
+                $('#anchor-menu').fadeOut(Ts_duration);
+            }
+        });
+
+        $('#anchor-menu a').click(function(event) {
+            event.preventDefault();
+			var target = $(this).attr('href');
+			var offset = $(target).offset();
+			$("html, body").animate({scrollTop : offset.top - headerHeight + "px"}, Ts_duration);
+			//$('div[id="' + anch + '"]')
+            //jQuery('html, body').animate({scrollTop: 0}, Ts_duration);
+            return false;
+        })
+    }
 	 
 });

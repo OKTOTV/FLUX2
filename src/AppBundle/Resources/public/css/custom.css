@@ -954,6 +954,17 @@ section.container, .container-fluid header {
 .footer .socialnetworks a span {
 	margin-left:-9990px;
 }
+#anchor-menu {
+	position:fixed;
+	bottom:0;
+	z-index:100;
+	display:none;
+	left:50%;
+	margin-left:-90px;
+}
+#anchor-menu .btn {
+	width:180px;
+}
 
 @media (min-width: 768px) {
 	.footer .nav > li, .footer .nav > li > a, .footer .partner li {
