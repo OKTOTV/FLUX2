@@ -38,10 +38,12 @@ class SearchController extends Controller
                 $episodes = $search->searchEpisodes($data['search']);
                 $series = $search->searchSeries($data['search']);
                 $pages = $search->searchPages($data['search']);
+                $posts = $search->searchPosts($data['search']);
                 return $this->render('AppBundle::Search/results.html.twig', [
                     'episodes' => $episodes,
                     'series' => $series,
-                    'pages' => $pages
+                    'pages' => $pages,
+                    'posts' => $posts
                 ]);
             }
         }

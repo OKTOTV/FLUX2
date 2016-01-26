@@ -207,3 +207,15 @@ fos_elastica:
                         listener:
                             immediate: ~
                         finder: ~
+                post:
+                    mappings:
+                        name: ~
+                        description: ~
+                        is_active: ~
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Post
+                        provider: ~
+                        listener:
+                            immediate: ~
+                        finder: ~
