@@ -179,7 +179,7 @@ $(document).ready(function(){
 	$('#sharingurl').val(window.location.href);
 	
 	/*Ankermenü*/
-	if ($( window ).width() >= 768) {
+	if ($( window ).width() >= 768 && $('body').hasClass('oktothek')) {
 	    var Ts_offset = 250;
         var Ts_duration = 300;
 		var Footer_target = $('#anchor-menu li:last a').attr('href');
