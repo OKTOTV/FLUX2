@@ -9,16 +9,16 @@
 {% block body %}
     <style type="text/css">
 	    .bg-bleur {
-	        background-image:url(http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec);
+	        background-image:url( {{ background_episode.posterframe|path() }});
         }
 	</style>
 	    <div class="container-fluid">
 	    <div class="bg-bleur"></div>
 	    <header class="container">
-		    <h1># internet</h1>
+		    <h1>{{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
 			<p class="misc">
-                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
-                </p>
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+            </p>
 				<!-- Start Collapse Share-->
 				<div class="collapse" id="collapseShare">
                     <div>
@@ -43,81 +43,7 @@
                 </div>
 				<!-- End Collapse Share-->
 	    </header>
-        <section class="container inc-pins">
-		    <h2>Episoden</h2>
-			
-			<!-- Anfang EpisodenTag, später löschen -->
-			<div class="row">
-                <article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin first-pin" data-toggle="tooltip" data-placement="right" title="Künstlerisch, schräg und nerdig wird es diesmal bei New Ordner. Gezeigt werden Links zu folgenden Themen: Noisli | Star Trek Apartment | Web GL Path Tracing | Online Ray Tracer | Augmented Reality Sandbox | Anatomically Correct Art | Cyborg Artist | Goldpillen | Cry My IP">
-                <a href="/FLUX2/web/app_dev.php/de/oktothek/episode/15963" title="... ansehen">
-                <figure class="episode-pin pin">
-				    <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
-					<figcaption>
-                        <h3>New Ordner</h3>
-                        <p>Titel</p>
-                        <p><span class="glyphicon glyphicon-heart"></span> 1</p>
-			        </figcaption>
-                </figure>
-                </a>
-            </article>
-			<div class="col-md-6 col-lg-6 col-sm-8 col-xs-12 small-pins">
-			  <div class="row">
-			<article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="Künstlerisch, schräg und nerdig wird es diesmal bei New Ordner. Gezeigt werden Links zu folgenden Themen: Noisli | Star Trek Apartment | Web GL Path Tracing | Online Ray Tracer | Augmented Reality Sandbox | Anatomically Correct Art | Cyborg Artist | Goldpillen | Cry My IP">
-                <a href="/FLUX2/web/app_dev.php/de/oktothek/episode/15963" title="... ansehen">
-                <figure class="episode-pin pin">
-				    <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
-					<figcaption>
-                        <h3>New Ordner</h3>
-                        <p>Titel</p>
-                        <p><span class="glyphicon glyphicon-heart"></span> 1</p>
-			        </figcaption>
-                </figure>
-                </a>
-            </article>
-			<article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="Künstlerisch, schräg und nerdig wird es diesmal bei New Ordner. Gezeigt werden Links zu folgenden Themen: Noisli | Star Trek Apartment | Web GL Path Tracing | Online Ray Tracer | Augmented Reality Sandbox | Anatomically Correct Art | Cyborg Artist | Goldpillen | Cry My IP">
-                <a href="/FLUX2/web/app_dev.php/de/oktothek/episode/15963" title="... ansehen">
-                <figure class="episode-pin pin">
-				    <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
-					<figcaption>
-                        <h3>New Ordner</h3>
-                        <p>Titel</p>
-                        <p><span class="glyphicon glyphicon-heart"></span> 1</p>
-			        </figcaption>
-                </figure>
-                </a>
-            </article>
-			</div>
-			<div class="row">
-			<article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="Künstlerisch, schräg und nerdig wird es diesmal bei New Ordner. Gezeigt werden Links zu folgenden Themen: Noisli | Star Trek Apartment | Web GL Path Tracing | Online Ray Tracer | Augmented Reality Sandbox | Anatomically Correct Art | Cyborg Artist | Goldpillen | Cry My IP">
-                <a href="/FLUX2/web/app_dev.php/de/oktothek/episode/15963" title="... ansehen">
-                <figure class="episode-pin pin">
-				    <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
-					<figcaption>
-                        <h3>New Ordner</h3>
-                        <p>Titel</p>
-                        <p><span class="glyphicon glyphicon-heart"></span> 1</p>
-			        </figcaption>
-                </figure>
-                </a>
-            </article>
-			<article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="Künstlerisch, schräg und nerdig wird es diesmal bei New Ordner. Gezeigt werden Links zu folgenden Themen: Noisli | Star Trek Apartment | Web GL Path Tracing | Online Ray Tracer | Augmented Reality Sandbox | Anatomically Correct Art | Cyborg Artist | Goldpillen | Cry My IP">
-                <a href="/FLUX2/web/app_dev.php/de/oktothek/episode/15963" title="... ansehen">
-                <figure class="episode-pin pin">
-				    <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
-					<figcaption>
-                        <h3>New Ordner</h3>
-                        <p>Titel</p>
-                        <p><span class="glyphicon glyphicon-heart"></span> 1</p>
-			        </figcaption>
-                </figure>
-                </a>
-            </article>
-			</div>
-			</div>
-        </div>
-		<!-- Ende EpisodenTag, später löschen -->
-            <!--{{ render(controller('AppBundle:Tag:episodeTag', {'tag': tag.slug})) }}-->
-		</section>
+            {{ render(controller('AppBundle:Tag:episodeTag', {'tag': tag.slug})) }}
 		<section class="container inc-pins">
 		    <h2>Serien</h2>
             {{ render(controller('AppBundle:Tag:seriesTag', {'tag': tag.slug})) }}

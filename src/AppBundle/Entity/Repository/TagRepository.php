@@ -6,11 +6,11 @@ use AppBundle\Entity\Tag;
 
 class TagRepository extends EntityRepository
 {
-    public function findEpisodesWithTag(Tag $tag) {
+    public function findEpisodesWithTag(Tag $tag, $number = 5) {
         return $this->getEntityManager()
             ->createQuery('SELECT e FROM AppBundle:Episode e JOIN e.tags t WHERE t.id = :tag_id')
             ->setParameter('tag_id', $tag->getId())
-            ->setMaxResults(5)
+            ->setMaxResults($number)
             ->getResult();
     }
 

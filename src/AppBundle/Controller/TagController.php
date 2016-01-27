@@ -119,7 +119,10 @@ class TagController extends Controller
      */
     public function tagAction(Tag $slug)
     {
-        return ['tag' => $slug];
+        $em = $this->getDoctrine()->getManager();
+        $episode = $em->getRepository('AppBundle:Tag')->findEpisodesWithTag($slug, 1);
+
+        return ['tag' => $slug, 'background_episode' => $episode[0]];
     }
 
     /**

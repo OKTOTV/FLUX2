@@ -85,6 +85,8 @@ oktothek.comment_create_button:         Kommentar senden
 ## tag
 oktothek.tag_index_header:              Tags
 oktothek_tag_pages_header:              Seiten
+oktothek_tag_header:                    "# %title%"
+oktothek_tag_episode_header:            Episoden
 
 ## academy
 oktothek_academy_header:                Akademie
