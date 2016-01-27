@@ -6,6 +6,7 @@
 
 {% set body_class = "series head-white-color head-transparent-bg fullscreen-images" %}
 {% block body %}
+    <div id="top"></div>
     <section class="series-content">
         <div class="series-ident">
             <figure class="episode-posterframe">
@@ -77,12 +78,14 @@
 	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
 	<section class="blog">
+	    <div id="anchor_blog"></div>
 	    <div class="container">
 	        <h2>Blog</h2>
             {% include 'AppBundle::Default/Series/blog.html.twig' with {'posts': series.posts, 'uniqID': series.uniqID } %}
 	    </div>
 	</section>
 	<section class="container series-playlists">
+	    <div id="anchor_playlists"></div>
 	    <h2>Playlisten</h2>
 		<!-- Ab hier Dummyplaylist -->
 		       <div class="row">
@@ -121,6 +124,29 @@
                 </div>
 	    <!-- Bis hier Dummyplaylist -->
 	</section>
+	<!-- Start Top Button -->
+	<button class="btn btn-default btn-top">Top <span class="glyphicon glyphicon-chevron-up"></span></button>
+	<!-- End Top Button -->
+	<!-- Start Anchor Menu -->
+    <div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="discoverMore">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
+                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </h4>
+            </div>
+            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
+                <ul class="list-group" aria-labelledby="AnkerMenu">
+		            <li class="list-group-item"><a href="#top">Top</a></li>
+                    <li class="list-group-item"><a href="#anchor_blog">Blog</a></li>
+                    <li class="list-group-item"><a href="#anchor_playlists">Playlisten</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	<!-- End Anchor Menu -->
 {% endblock %}
 
 {% block javascripts %}

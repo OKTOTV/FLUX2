@@ -121,6 +121,11 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	background-repeat:no-repeat;
 	background-position:center center;
 }
+header .navbar-fixed-top {
+	background-image:url(../images/gradient_bg.png);
+	background-repeat:repeat-x;
+	background-position:left top;
+}
 #button_down {
 	/*background-image:url(../images/pfeil_down.png);
 	background-repeat:no-repeat;
@@ -980,8 +985,6 @@ section.container, .container-fluid header, .oktothek {
 	left:50%;
 	bottom:0;
 	margin-left:-90px;
-}
-#anchor-menu, .btn-top {
 	display:none;
 }
 #anchor-menu.panel-group {

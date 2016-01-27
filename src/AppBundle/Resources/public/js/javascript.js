@@ -1,12 +1,12 @@
 // JavaScript Document
 $(document).ready(function(){
 	/* Headerbackground */
-	var headerScrollheight = 50;
+	var headerScrollheight = $(window).height()/2;
 	var headerHeight = 180;
 	var borderbottom = 70;
 
 	function addHeaderBG() {
-	  if ($('body').hasClass('fullscreen-images')) {
+	  if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
 	      if($(document).scrollTop() <= headerScrollheight) {
 			  //Header transparent setzen und Schlagschatten entfernen
 	          $('body').addClass('head-white-color')
@@ -179,34 +179,36 @@ $(document).ready(function(){
 	$('#sharingurl').val(window.location.href);
 
 	/*Ankermenü*/
-	if ($( window ).width() >= 768 && $('body').hasClass('oktothek')) {
+	if ($( window ).width() >= 768) {
 	    var Ts_offset = 250;
         var Ts_duration = 300;
 		var Footer_target = $('#anchor-menu li:last a').attr('href');
 	    var Footer_offset = $(Footer_target).offset();
-        $(window).scroll(function() {
-			//"Mehr" Button anzeigen
-            if ($(this).scrollTop() > Ts_offset && $(this).scrollTop() < Footer_offset.top) {
-                $('#anchor-menu').fadeIn(Ts_duration);
-            } else {
-                $('#anchor-menu').fadeOut(Ts_duration);
-            }
-			if ($(this).scrollTop() > Footer_offset.top) {
-                $('.btn-top').fadeIn(Ts_duration);
-            } else {
-                $('.btn-top').fadeOut(Ts_duration);
-            }
-			//Top Button anzeigen
-			$('#anchor-menu .collapse').collapse('hide'); //Ankermenü einklappen bei Scrollen
-        });
-        //Anker Menü
-        $('#anchor-menu .list-group-item a').click(function(event) {
-            event.preventDefault();
-			var target = $(this).attr('href');
-			var offset = $(target).offset();
-			$("html, body").animate({scrollTop : offset.top - headerHeight + "px"}, Ts_duration);
-            return false;
-        })
+		if (!$('body').hasClass('fullscreen-images')) {
+		    $('#anchor-menu').fadeIn(Ts_duration);
+		}
+		if ($('#anchor-menu').length > 0) {
+            $(window).scroll(function() {
+			    //"Mehr" Button anzeigen
+                if ($('body').hasClass('fullscreen-images') && $(this).scrollTop() > Ts_offset && ($(this).scrollTop()+$(window).height()) < Footer_offset.top) {
+                    $('#anchor-menu').fadeIn(Ts_duration);
+				} else if (!$('body').hasClass('fullscreen-images') && $(this).scrollTop() >= 0 && ($(this).scrollTop()+$(window).height()) < Footer_offset.top) {
+                    $('#anchor-menu').fadeIn(Ts_duration);
+                } else {
+                    $('#anchor-menu').fadeOut(Ts_duration);
+                }
+			    //Top Button anzeigen
+		 	    $('#anchor-menu .collapse').collapse('hide'); //Ankermenü einklappen bei Scrollen
+            });
+            //Anker Menü
+            $('#anchor-menu .list-group-item a').click(function(event) {
+                event.preventDefault();
+			    var target = $(this).attr('href');
+			    var offset = $(target).offset();
+			    $("html, body").animate({scrollTop : offset.top - headerHeight + "px"}, Ts_duration);
+                return false;
+            })
+		}
 		//Top Button
 		$('.btn-top').click(function(event) {
             event.preventDefault();

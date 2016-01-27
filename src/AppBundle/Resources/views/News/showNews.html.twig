@@ -7,5 +7,10 @@
 
 {% set body_class = "head-white-color" %}
 {% block body %}
+    <div id="top"></div>
     {% include 'AppBundle::News/post.html.twig' %}
+	
+	<!-- Start Top Button -->
+	    <button class="btn btn-default btn-top">Top <span class="glyphicon glyphicon-chevron-up"></span></button>
+	    <!-- End Top Button -->
 {% endblock %}
