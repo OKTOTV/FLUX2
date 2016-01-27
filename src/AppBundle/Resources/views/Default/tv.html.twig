@@ -19,52 +19,53 @@
     {{ parent() }}
     <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            var playerInstance = jwplayer("player");
+            playerInstance.setup({
+                file: "http://d2jk87psbjrjdz.cloudfront.net/livehttporigin/okto/playlist.m3u8",
+                image: "{{ asset('bundles/app/images/player.jpg') }}"
+            });
 
-        var playerInstance = jwplayer("player");
-        playerInstance.setup({
-            file: "http://d2jk87psbjrjdz.cloudfront.net/livehttporigin/okto/playlist.m3u8",
-            image: "{{ asset('bundles/app/images/player.jpg') }}"
-        });
-
-        $.ajax({
-            type: "GET",
-            url: "http://localhost/DELORIAN/web/app_dev.php/delorian/api/program/{{ start|default('')|date('Y-m-d\\TH:i')}}/{{ end|default("today"|date('Y-m-d\\TH:i')|date_modify("+1 day"))|date('Y-m-d\\TH:i')}}",
-            dataType: 'json',
-            success: function (data){
-                console.log('loaded program');
-                var first = true;
-                var accordion = '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
-                for (show in data) {
-                    accordion = accordion +
-                    '<div class="panel panel-default"><div class="panel-heading" role="tab" id="heading'+show+'">' +
-                        '<h4 class="panel-title">' +
-                            '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#'+show+'" aria-expanded="';
-                            if (first) {
-                                accordion = accordion + 'true';
-                            } else {
-                                accordion = accordion + 'false';
-                            }
-                            accordion = accordion +'" aria-controls="'+show+'">' +
-                                data[show]['series_name'] +
-                            '</a>' +
-                        '</h4>' +
-                    '</div>' +
-                    '<div id="'+show+'" class="panel-collapse collapse';
-                    if (first) {
-                        accordion = accordion + ' in';
-                        first = false;
-                    }
-                    accordion = accordion + '" role="tabpanel" aria-labelledby="heading'+show+'">' +
-                        '<div class="panel-body">' +
-                            data[show]['description'] +
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/DELORIAN/web/app_dev.php/de/delorian/api/program/{{ start|default('')|date('Y-m-d\\TH:i')}}/{{ end|default("today"|date('Y-m-d\\TH:i')|date_modify("+1 day"))|date('Y-m-d\\TH:i')}}",
+                dataType: 'json',
+                success: function (data){
+                    console.log('loaded program');
+                    var first = true;
+                    var accordion = '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
+                    for (show in data) {
+                        accordion = accordion +
+                        '<div class="panel panel-default"><div class="panel-heading" role="tab" id="heading'+show+'">' +
+                            '<h4 class="panel-title">' +
+                                '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#'+show+'" aria-expanded="';
+                                if (first) {
+                                    accordion = accordion + 'true';
+                                } else {
+                                    accordion = accordion + 'false';
+                                }
+                                accordion = accordion +'" aria-controls="'+show+'">' +
+                                    data[show]['series_name'] +
+                                '</a>' +
+                            '</h4>' +
                         '</div>' +
-                    '</div>' +
+                        '<div id="'+show+'" class="panel-collapse collapse';
+                        if (first) {
+                            accordion = accordion + ' in';
+                            first = false;
+                        }
+                        accordion = accordion + '" role="tabpanel" aria-labelledby="heading'+show+'">' +
+                            '<div class="panel-body">' +
+                                data[show]['description'] +
+                            '</div>' +
+                        '</div>' +
+                        '</div>';
+                    }
+                    accordion = accordion +
                     '</div>';
+                    $('.program').append(accordion);
                 }
-                accordion = accordion +
-                '</div>';
-                $('.program').append(accordion);
-            }
+                });
             });
     </script>
 
