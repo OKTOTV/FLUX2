@@ -4,7 +4,7 @@ body {
 }
 
 /* Fonts */
-header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .news h2, .news h3, .news .label {
+header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label {
 	font-size:14px;
 }
 .carousel-caption {
@@ -22,7 +22,7 @@ header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a
 	}
 }
 
-.news .label {
+.newsarchiv .label {
 	font-weight:400;
 }
 
@@ -269,13 +269,13 @@ body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.bt
 body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container {
 	background-color:#000000;
 }
-.comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control, .news aside .box {
+.comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control, .newsarchiv aside .box {
 	background-color:#757575;
 }
 button .btn-default.active, .oktothek article a.btn-default {
 	background-color:#ffffff;
 }
-.play-episode.btn-default, .tagpage header .btn-default, .news .label-default {
+.play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default {
 	background-color:transparent;
 }
 
@@ -285,10 +285,10 @@ button .btn-default.active, .oktothek article a.btn-default {
 .play-episode.btn-default, .tagpage .container-fluid header input.form-control {
 	border: solid 1px #ffffff;
 }
-.news article {
+.newsarchiv article {
 	border-top:solid 1px #ffffff;
 }
-.news .page-header, .news article:first-child {
+.newsarchiv .page-header, .newsarchiv article:first-child {
 	border:none;
 }
 .tags li a {
@@ -296,7 +296,7 @@ button .btn-default.active, .oktothek article a.btn-default {
 	-khtml-border-radius:4px;
 	border-radius: 4px;
 }
-.more-clips select, .play-episode.btn-default, .news .label {
+.more-clips select, .play-episode.btn-default, .newsarchiv .label {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -354,26 +354,26 @@ button .btn-default.active, .oktothek article a.btn-default {
 
 
 
-.footer .socialnetworks li a, .collapseShare .socialnetworks li a, .news aside .socialnetworks li a, .series .series-description li a {
+.footer .socialnetworks li a, .collapseShare .socialnetworks li a, .newsarchiv aside .socialnetworks li a, .series .series-description li a {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-.footer .icon-facebook, .collapseShare .icon-facebook, .series .series-description .icon-facebook, .news aside .icon-facebook {
+.footer .icon-facebook, .collapseShare .icon-facebook, .series .series-description .icon-facebook, .newsarchiv aside .icon-facebook {
 	background-image:url(../images/icon_facebook.png);
 }
-.footer .icon-twitter, .collapseShare .icon-twitter, .series .series-description .icon-twitter, .news aside .icon-twitter {
+.footer .icon-twitter, .collapseShare .icon-twitter, .series .series-description .icon-twitter, .newsarchiv aside .icon-twitter {
 	background-image:url(../images/icon_twitter.png);
 }
-.footer .icon-googleplus, .collapseShare .icon-googleplus, .series .series-description .icon-googleplus, .news aside .icon-googleplus {
+.footer .icon-googleplus, .collapseShare .icon-googleplus, .series .series-description .icon-googleplus, .newsarchiv aside .icon-googleplus {
 	background-image:url(../images/icon_googleplus.png);
 }
-.footer .icon-instagramm, .collapseShare .icon-instagramm, .series .series-description .icon-instagramm, .news aside .icon-instagramm {
+.footer .icon-instagramm, .collapseShare .icon-instagramm, .series .series-description .icon-instagramm, .newsarchiv aside .icon-instagramm {
 	background-image:url(../images/icon_instagramm.png);
 }
-.footer .icon-pinterest, .collapseShare .icon-pinterest, .series .series-description .icon-pinterest, .news aside .icon-pinterest {
+.footer .icon-pinterest, .collapseShare .icon-pinterest, .series .series-description .icon-pinterest, .newsarchiv aside .icon-pinterest {
 	background-image:url(../images/icon_pinterest.png);
 }
-.footer .icon-youtube, .collapseShare .icon-youtube, .series .series-description .icon-youtube, .news aside .icon-youtube {
+.footer .icon-youtube, .collapseShare .icon-youtube, .series .series-description .icon-youtube, .newsarchiv aside .icon-youtube {
 	background-image:url(../images/icon_youtube.png);
 }
 
@@ -449,10 +449,10 @@ html, body {
 .episode .series a {
 	text-decoration:underline;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .footer ul, .footer li, .news aside ul {
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .footer ul, .footer li, .newsarchiv aside ul {
 	list-style:none;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .tags ul, .news aside ul {
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .tags ul, .newsarchiv aside ul {
 	margin-left:0;
 	padding-left:0;
 }
@@ -465,7 +465,7 @@ h1 {
 h2, .episode h1.name, .episode time {
 	margin-bottom:20px;
 }
-.news aside .box h3:first-child {
+.newsarchiv aside .box h3:first-child {
 	padding-top:0;
 	margin-top:0;
 }
@@ -925,30 +925,30 @@ section.container, .container-fluid header, .oktothek {
 }
 
 /* News */
-.news .page-header {
+.newsarchiv .page-header {
 	padding-bottom:0;
 }
-.news .label {
+.newsarchiv .label {
     display: inline;
     padding: 0;
     text-align: left;
 }
-.news aside {
+.newsarchiv aside {
 	padding-top:15px;
 }
-.news aside .box {
+.newsarchiv aside .box {
 	padding:15px;
 }
-.news aside .box, .news .filter-news {
+.newsarchiv aside .box, .news .filter-news {
     margin-bottom:40px;
 }
-.news aside .socialnetworks li {
+.newsarchiv aside .socialnetworks li {
 	display:inline;
 }
-.news aside .socialnetworks a span {
+.newsarchiv aside .socialnetworks a span {
 	margin-left:-9990px;
 }
-.news aside .socialnetworks a {
+.newsarchiv aside .socialnetworks a {
 	display:inline-block;
 	text-align:left;
 	height:30px;
