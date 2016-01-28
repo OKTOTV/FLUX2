@@ -24,15 +24,21 @@ class NewsController extends Controller
      */
     public function newsAction($page)
     {
-        //TODO: service!
         $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT p FROM AppBundle:Post p WHERE p.isActive = :active AND p.onlineAt < :now";
-        $query = $em->createQuery($dql);
-        $query->setParameter('active', true);
-        $query->setParameter('now', new \DateTime());
         $paginator = $this->get('knp_paginator');
-        $posts = $paginator->paginate($query, $page, 10);
+        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findActivePostQuery(), $page, 10);
 
+        return ['posts' => $posts];
+    }
+
+    /**
+     * @Route("/pinned", name="oktothek_news_pinned")
+     * @Template()
+     */
+    public function pinnedNewsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $posts = $em->getRepository('AppBundle:Post')->findPinnedPosts();
         return ['posts' => $posts];
     }
 

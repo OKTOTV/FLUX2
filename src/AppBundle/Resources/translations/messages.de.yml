@@ -23,6 +23,8 @@ oktothek.post_description_label:        Text
 oktothek.post_isActive_label:           Ist Aktiv
 oktothek.post_onlineAt_label:           Online Ab
 oktothek.post_assets_label:             Anhänge
+oktothek_news_pinned_header:            Okto informiert
+
 ## form placeholder
 oktothek.post_onlineAt_placeholder:     TT.MM.JJJJ HH:MM
 

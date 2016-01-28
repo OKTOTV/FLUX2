@@ -51,6 +51,11 @@ class Post
     private $isActive;
 
     /**
+     * @ORM\Column(name="pinned", type="boolean", options={"default" = 0})
+     */
+    private $pinned;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
@@ -96,6 +101,7 @@ class Post
 
     public function __construct() {
         $this->uniqID = uniqid();
+        $this->pinned = false;
         $this->assets = new \Doctrine\Common\Collections\ArrayCollection();
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -361,5 +367,28 @@ class Post
     public function getUniqID()
     {
         return $this->uniqID;
+    }
+
+    /**
+     * Set pinned
+     *
+     * @param boolean $pinned
+     * @return Post
+     */
+    public function setPinned($pinned)
+    {
+        $this->pinned = $pinned;
+
+        return $this;
+    }
+
+    /**
+     * Get pinned
+     *
+     * @return boolean
+     */
+    public function getPinned()
+    {
+        return $this->pinned;
     }
 }

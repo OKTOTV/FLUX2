@@ -19,6 +19,7 @@ class PostType extends AbstractType
             ])
             ->add('description', 'textarea', ['label' => 'oktothek.post_description_label'])
             ->add('isActive', 'checkbox', ['label' => 'oktothek.post_isActive_label'])
+            ->add('pinned', 'checkbox', ['label' => 'oktothek.post_pinned_label'])
             ->add('onlineAt', 'datetime',
                 [
                     'widget' => 'single_text',

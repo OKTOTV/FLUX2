@@ -49,65 +49,7 @@
             <a href="#" class="pull-right more" title="Weitere Playsliten anzeigen">{{ 'oktothek.newest_playlists_show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
         </section>
         {# render news pins #}
-		<section class="news">
-		    <div id="anchor_news"></div>
-            <h2>Okto informiert</h2>
-			<div class="row">
-                <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" title="">
-                    <a href="#" title="Mehr über ... lesen">
-                        <div class="news-pin pin">
-					        <div>
-							    <div class="dummybox">Bild</div>
-								<div>
-							        <h3>Headline</h3>
-							        <p>News kurzer Beschreibungstext</p>
-							    </div>
-                           </div>
-                        </div>
-                    </a>
-                </article>
-				<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" title="">
-                    <a href="#" title="Mehr über ... lesen">
-                        <div class="news-pin pin">
-					        <div>
-							    <div class="dummybox">Bild</div>
-							    <div>
-							        <h3>Headline</h3>
-							        <p>News kurzer Beschreibungstext</p>
-							    </div>
-                           </div>
-                        </div>
-                    </a>
-                </article>
-				<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" title="">
-                    <a href="#" title="Mehr über ... lesen">
-                        <div class="news-pin pin">
-					        <div>
-							    <div class="dummybox">Bild</div>
-							    <div>
-							        <h3>Headline</h3>
-							        <p>News kurzer Beschreibungstext</p>
-							    </div>
-                           </div>
-                        </div>
-                    </a>
-                </article>
-				<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" title="">
-                    <a href="#" title="Mehr über ... lesen">
-                        <div class="news-pin pin">
-					        <div>
-							    <div class="dummybox">Bild</div>
-								<div>
-							        <h3>Headline</h3>
-							        <p>News kurzer Beschreibungstext</p>
-							    </div>
-                           </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
-            <a href="#" class="pull-right more" title="Weitere News anzeigen">{{ 'oktothek.newest_news_show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </section>
+        {{ render(controller('AppBundle:News:pinnedNews')) }}
 		<!-- Start Top Button -->
 	    <button class="btn btn-default btn-top">Top <span class="glyphicon glyphicon-chevron-up"></span></button>
 	    <!-- End Top Button -->
