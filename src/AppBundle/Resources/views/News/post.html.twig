@@ -70,5 +70,7 @@
        </div>
     </div>
     <!-- End Collapse Share-->
+	<div class="comments body-white-color comment-pager">
     {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
+	</div>
 </article>

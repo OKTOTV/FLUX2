@@ -75,7 +75,9 @@
         </section>
 		<!-- Kommentare -->
 		<div id="anchor_comments"></div>
+		<section class="comments body-white-color comment-pager">
         {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
+		</section>
         <!-- Ende Kommentare -->
 		<section class="container tags">
 		    <h2>{{ 'oktothek.episode_tag_header'|trans }}</h2>
