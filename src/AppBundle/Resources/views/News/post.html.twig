@@ -43,7 +43,7 @@
             </a>
         </div>
     {% endif %}
-	<p>Tags: {% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default">{{ tag.text }}</span></a>, {% endfor %}</p>
+	<p>{% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default">{{ tag.text }}</span></a> {% endfor %}</p>
 	<p class="misc">
         <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
     </p>
