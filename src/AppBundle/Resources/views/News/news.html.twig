@@ -4,16 +4,73 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'news', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "head-white-color" %}
+{% set body_class = "news head-white-color" %}
 {% block body %}
+<div id="top"></div>
 <div class="container">
     <div class="page-header">
         <a href="{{ path('oktothek_new_news') }}" class="btn btn-default">
             <span class="glyphicon glyphicon-plus"></span> {{ 'oktothek.create_new_post_button'|trans }}
         </a>
     </div>
-    {% for post in posts %}
-        {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
-    {% endfor %}
+	<div class="row">
+	    <div class="col-xs-9">
+            {% for post in posts %}
+            {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
+            {% endfor %}
+	    </div>
+	    <aside class="col-xs-3">
+		    <form class="filter-news">
+			    <p>
+			        <label for="posts_chronologic">ZEIGE ALLE NEWS VON:</label>
+                    <select class="form-control" id="posts_chronologic">
+                        <option data-slug="all">September 2015</option>
+				        <option data-slug="all">Oktober 2015</option>
+				        <option data-slug="all">November 2015</option>
+				        <option data-slug="all">Dezember 2015</option>
+				        <option data-slug="all">Jänner 2016</option>
+				        <option data-slug="all">Februar 2016</option>
+                    </select>
+				</p>
+				<p>
+			        <label for="posts_tags">TAGS:</label>
+                    <select class="form-control" id="posts_tags">
+					    <option data-slug="all">Alle</option>
+                        <option data-slug="all">internet</option>
+				        <option data-slug="all">informatik</option>
+                    </select>
+				</p>
+			</form>
+			<div class="box">
+			    <form>
+			        <h3>NEWSLETTER</h3>
+                    <p>Mit dem Okto Newsletter immer up to date</p>
+				    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Email" aria-describedby="Newsletter">
+						<span class="input-group-btn">
+                            <button class="btn btn-default" type="button">»</button>
+                        </span>
+                    </div>
+				</form>
+			</div>
+			<div class="box">
+			    <h3>NEWSFEEDS</h3>
+                <p>Täglich informiert werden mit dem Okto Newsfeed.</p>
+				<p class="aligncenter"><button class="btn btn-default">ABBONIEREN</button></p>
+			</div>
+			<div class="box">
+			    <h3>SOCIAL NETWORKS</h3>
+                <p>Folgen Sie uns auf:</p>
+                <ul class="socialnetworks">
+                    <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                    <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                    <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                </ul>
+			</div>
+	    </aside>
+	</div>
 </div>
 {% endblock %}

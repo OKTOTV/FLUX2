@@ -1,8 +1,7 @@
-<div class="container">
-    <div class="page-header">
-        <h1>{{ post.name }}</h1>
-        <p>{% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default">{{ tag.text }}</span></a>{% endfor %}</p>
-    </div>
+<article>
+    <header class="page-header">
+        <h2>{{ post.name }}</h2>
+    </header>
     {{ post.description|markdown() }}
     {% if post.assets is empty %} {# no assets#}
     {% elseif post.assets|length == 1 %} {# one photo or video #}
@@ -44,5 +43,32 @@
             </a>
         </div>
     {% endif %}
+	<p>Tags: {% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default">{{ tag.text }}</span></a>, {% endfor %}</p>
+	<p class="misc">
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+    </p>
+	<!-- Start Collapse Share-->
+	<div class="collapse collapseShare">
+        <div>
+            <h3>Teilen</h3>
+			<div class="tab-content">
+			    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+				    <div>
+					    <ul class="socialnetworks">
+                            <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                            <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                            <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                            <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                            <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                            <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                        </ul>
+					    <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button>
+				   </div>
+				   <form><input type="text" value="" class="form-control" id="sharingurl"></form>
+			   </div>
+		   </div>
+       </div>
+    </div>
+    <!-- End Collapse Share-->
     {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
-</div>
+</article>

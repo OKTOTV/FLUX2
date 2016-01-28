@@ -5,12 +5,17 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'news', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "head-white-color" %}
+{% set body_class = "news head-white-color" %}
 {% block body %}
     <div id="top"></div>
-    {% include 'AppBundle::News/post.html.twig' %}
-	
-	<!-- Start Top Button -->
-	    <button class="btn btn-default btn-top">Top <span class="glyphicon glyphicon-chevron-up"></span></button>
-	    <!-- End Top Button -->
+    <div class="container">
+		<div class="row">
+		    <div class="col-xs-9">
+                {% include 'AppBundle::News/post.html.twig' %}
+			</div>
+			<div class="col-xs-3">
+                Submenü
+			</div>
+		</div>
+	</div>
 {% endblock %}
