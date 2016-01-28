@@ -45,10 +45,10 @@
     {% endif %}
 	<p>{% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default">{{ tag.text }}</span></a> {% endfor %}</p>
 	<p class="misc">
-        <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
     </p>
 	<!-- Start Collapse Share-->
-	<div class="collapse collapseShare">
+	<div class="collapse collapseShare" id="collape-{{ newsloop|default('1') }}">
         <div>
             <h3>Teilen</h3>
 			<div class="tab-content">

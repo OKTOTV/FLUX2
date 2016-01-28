@@ -600,11 +600,11 @@ header .dropdown-menu li a {
 	header .navbar-collapse {
 		height:90px;
 	}
-	header .navbar-brand, header .navbar-brand object {
-		width:90px;
+	header .navbar-brand {
+		width:70px;
 	}
 	header .navbar-brand object {
-		height:150px;
+		height:100px;
 	}
 	header .searchfield {
 		float:left;
