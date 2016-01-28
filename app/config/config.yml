@@ -91,7 +91,7 @@ swiftmailer:
     spool:     { type: memory }
 
 bprs_user:
-    class: "AppBundle\Entity\User"
+    class: %bprs_user.class%
     mail:
         commandline_host: %bprs_user.host%
         adress:           %bprs_user.mailadress%

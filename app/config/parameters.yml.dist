@@ -23,6 +23,7 @@ parameters:
     bprs_user.host: localhost.host
     bprs_user.mailadress: bot@host.com
     bprs_user.name: MAILBOT
+	bprs_user.class: "AppBundle\\Entity\\User"
     xsendfile: true
     bprs_asset.junksize: 200000
     php_path: "/path/to/php"
