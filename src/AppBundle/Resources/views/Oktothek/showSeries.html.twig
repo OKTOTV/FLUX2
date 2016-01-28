@@ -6,6 +6,7 @@
 
 {% set body_class = "series head-white-color head-transparent-bg fullscreen-images" %}
 {% block body %}
+    <div id="top"></div>
     <section class="series-content">
         <div class="series-ident">
             <figure class="episode-posterframe">
@@ -26,10 +27,10 @@
 		<article>
 				        <p class="description">{{ series.description }}</p>
 						<p class="misc">
-                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>-->
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>-->
                 </p>
 				<!-- Start Collapse Share-->
-				<div class="collapse" id="collapseShare">
+				<div class="collapse collapseShare" id="collapseShareArea">
                     <div>
                         <h3>Teilen</h3>
 						<div>
@@ -77,12 +78,14 @@
 	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
 	<section class="blog">
+	    <div id="anchor_blog"></div>
 	    <div class="container">
 	        <h2>Blog</h2>
             {% include 'AppBundle::Default/Series/blog.html.twig' with {'posts': series.posts, 'uniqID': series.uniqID } %}
 	    </div>
 	</section>
 	<section class="container series-playlists">
+	    <div id="anchor_playlists"></div>
 	    <h2>Playlisten</h2>
 		<!-- Ab hier Dummyplaylist -->
 		       <div class="row">
@@ -121,6 +124,26 @@
                 </div>
 	    <!-- Bis hier Dummyplaylist -->
 	</section>
+	<!-- Start Anchor Menu -->
+    <div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="discoverMore">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
+                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </h4>
+            </div>
+            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
+                <ul class="list-group" aria-labelledby="AnkerMenu">
+		            <li class="list-group-item"><a href="#top">Top</a></li>
+                    <li class="list-group-item"><a href="#anchor_blog">Blog</a></li>
+                    <li class="list-group-item"><a href="#anchor_playlists">Playlisten</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	<!-- End Anchor Menu -->
 {% endblock %}
 
 {% block javascripts %}

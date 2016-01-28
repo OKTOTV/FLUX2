@@ -14,6 +14,7 @@
 
 {% set body_class = "episode head-white-color" %}
 {% block body %}
+    <div id="top"></div>
     <div class="container-fluid">
         <section class="container">
             <figure id="player">
@@ -31,10 +32,10 @@
                     {{ episode.description }}
                 </p>
                 <p class="misc">
-                    <a href="#" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video"><span class="glyphicon glyphicon-heart-empty"></span> {{ episode.users|length}}</a> <span class="views"><span class="icon-views"></span>0</span> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button> <button type="button" class="btn btn-default" title="e{{ episode.series.name }} abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="e{{ episode.series.name }} abbonieren">Abboniert</button>--> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylist" aria-expanded="false" aria-controls="collapsePlaylist" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
+                    <a href="#" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video"><span class="glyphicon glyphicon-heart-empty"></span> {{ episode.users|length}}</a> <span class="views"><span class="icon-views"></span>0</span> <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button> <button type="button" class="btn btn-default" title="e{{ episode.series.name }} abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="e{{ episode.series.name }} abbonieren">Abboniert</button>--> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylist" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
                 </p>
 				<!-- Start Collapse Share-->
-				<div class="collapse" id="collapseShare">
+				<div class="collapse collapseShare" id="collapseShareArea">
                     <div>
                         <h3>Teilen</h3>
 						<div>
@@ -73,6 +74,7 @@
 			</article>
         </section>
 		<!-- Kommentare -->
+		<div id="anchor_comments"></div>
         {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
         <!-- Ende Kommentare -->
 		<section class="container tags">
@@ -85,9 +87,30 @@
 		</section>
 
         <!-- Weitere Episoden der Serie Start -->
+		<div id="anchor_series"></div>
 		{{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': episode.series.uniqID})) }}
         <!-- Weitere Episoden der Serie Ende -->
 	</div>
+	<!-- Start Anchor Menu -->
+    <div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="discoverMore">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
+                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </h4>
+            </div>
+            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
+                <ul class="list-group" aria-labelledby="AnkerMenu">
+		            <li class="list-group-item"><a href="#top">Top</a></li>
+                    <li class="list-group-item"><a href="#anchor_comments">Kommentare</a></li>
+                    <li class="list-group-item"><a href="#anchor_series">{{ 'oktothek.episode_tag_header'|trans }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	<!-- End Anchor Menu -->
 {% endblock %}
 
 {% block javascripts %}

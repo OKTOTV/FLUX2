@@ -5,13 +5,14 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "tagpage head-white-color head-transparent-bg fullscreen-images" %}
+{% set body_class = "tagpage head-white-color head-transparent-bg fullscreen-background" %}
 {% block body %}
     <style type="text/css">
 	    .bg-bleur {
 	        background-image:url( {{ background_episode.posterframe|path() }});
         }
 	</style>
+	<div id="top"></div>
 	    <div class="container-fluid">
 	    <div class="bg-bleur"></div>
 	    <header class="container">
@@ -45,20 +46,46 @@
 	    </header>
             {{ render(controller('AppBundle:Tag:episodeTag', {'tag': tag.slug})) }}
 		<section class="container inc-pins">
+		    <div id="anchor_series"></div>
 		    <h2>Serien</h2>
             {{ render(controller('AppBundle:Tag:seriesTag', {'tag': tag.slug})) }}
 		</section>
 		<section class="container inc-pins">
+		    <div id="anchor_playlists"></div>
 		    <h2>Playlisten</h2>
             {{ render(controller('AppBundle:Tag:playlistTag', {'tag': tag.slug})) }}
 		</section>
 		<section class="container">
+		    <div id="anchor_posts"></div>
 		    <h2>Posts</h2>
             {{ render(controller('AppBundle:Tag:postsTag', {'tag': tag.slug})) }}
 		</section>
 		<section class="container">
+		    <div id="anchor_pages"></div>
 		    <h2>Seiten</h2>
             {{ render(controller('AppBundle:Tag:pagesTag', {'tag': tag.slug})) }}
         </section>
     </div>
+	<!-- Start Anchor Menu -->
+    <div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="discoverMore">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
+                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </h4>
+            </div>
+            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
+                <ul class="list-group" aria-labelledby="AnkerMenu">
+		            <li class="list-group-item"><a href="#top">Top</a></li>
+                    <li class="list-group-item"><a href="#anchor_series">Serien</a></li>
+                    <li class="list-group-item"><a href="#anchor_playlists">Playlisten</a></li>
+					<li class="list-group-item"><a href="#anchor_posts">Posts</a></li>
+					<li class="list-group-item"><a href="#anchor_pages">Seiten</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	<!-- End Anchor Menu -->
 {% endblock %}
