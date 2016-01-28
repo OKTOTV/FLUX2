@@ -145,19 +145,19 @@ $(document).ready(function(){
 	});
 
 	//Sharing Tabs:
-	$('#collapseShare .sharingnav button').click(function (e) {
+	$('#collapseShareArea .sharingnav button').click(function (e) {
         //e.preventDefault();
-		$('#collapseShare .tab-content div').removeClass('active');
-		$('#collapseShare .sharingnav button').removeClass('active');
+		$('#collapseShareArea .tab-content div').removeClass('active');
+		$('#collapseShareArea .sharingnav button').removeClass('active');
 		switch($(this).attr('id')) {
             case "share_sn":
-                $('#collapseShare #div_share_sn').addClass('active');
+                $('#collapseShareArea #div_share_sn').addClass('active');
                 break;
             case "share_embed":
-                $('#collapseShare #div_share_embed').addClass('active');
+                $('#collapseShareArea #div_share_embed').addClass('active');
                 break;
             default:
-                $('#collapseShare #div_share_sn').addClass('active');
+                $('#collapseShareArea #div_share_sn').addClass('active');
         }
 		$(this).addClass('active');
     })
@@ -217,5 +217,8 @@ $(document).ready(function(){
         })
 		$('#anchor-menu .collapse').collapse(); //Ankermenü Collapse aktivieren
     }
+	
+	//TV
+	$('.schedule .collapse').collapse(); //Ankermenü Collapse aktivieren
 
 });

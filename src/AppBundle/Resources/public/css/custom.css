@@ -1,9 +1,12 @@
 /* in anderes CSS verschieben!!!*/
 body {
-    padding-top: 180px;
+    padding-top: 140px;
 }
 
 /* Fonts */
+.programm p.current-episode {
+	font-size:12px;
+}
 header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label {
 	font-size:14px;
 }
@@ -13,17 +16,16 @@ header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-t
 header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer, #anchor-menu .panel-title, .btn-top {
 	text-transform:uppercase;
 }
-#anchor-menu .panel-title .glyphicon, .btn-top .glyphicon {
+#anchor-menu .panel-title .glyphicon, .btn-top .glyphicon, .programm header h1 time {
 	font-size:30px;
+}
+.newsarchiv .label, label {
+	font-weight:400;
 }
 @media (min-width: 768px) {
 	.carousel-caption {
 		font-size:30px;
 	}
-}
-
-.newsarchiv .label {
-	font-weight:400;
 }
 
 /****************************** Color, Effects ******************************/
@@ -269,13 +271,13 @@ body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.bt
 body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container {
 	background-color:#000000;
 }
-.comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control, .newsarchiv aside .box {
+.comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control, .newsarchiv aside .box, .programm .schedule header.page-header {
 	background-color:#757575;
 }
 button .btn-default.active, .oktothek article a.btn-default {
 	background-color:#ffffff;
 }
-.play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default {
+.play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel {
 	background-color:transparent;
 }
 
@@ -288,7 +290,12 @@ button .btn-default.active, .oktothek article a.btn-default {
 .newsarchiv article {
 	border-top:solid 1px #ffffff;
 }
-.newsarchiv .page-header, .newsarchiv article:first-child {
+.programm .schedule .panel-default {
+	border-top:none;
+	border-left:none;
+	border-right:none;
+}
+.newsarchiv article:first-child, .programm header .navbar-default, header.page-header {
 	border:none;
 }
 .tags li a {
@@ -296,7 +303,7 @@ button .btn-default.active, .oktothek article a.btn-default {
 	-khtml-border-radius:4px;
 	border-radius: 4px;
 }
-.more-clips select, .play-episode.btn-default, .newsarchiv .label {
+.navbar, .more-clips select, .play-episode.btn-default, .newsarchiv .label, .schedule .panel-heading, .programm .schedule .panel-default {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -449,10 +456,10 @@ html, body {
 .episode .series a {
 	text-decoration:underline;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .footer ul, .footer li, .newsarchiv aside ul {
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul {
 	list-style:none;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .tags ul, .newsarchiv aside ul {
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul {
 	margin-left:0;
 	padding-left:0;
 }
@@ -472,7 +479,7 @@ h2, .episode h1.name, .episode time {
 figcaption h3, figcaption p {
 	margin:0;
 }
-.oktothek h2, .episode h2, .series h2, .series h1, .tagpage h1, .tagpage .misc, .tagpage h2 {
+.oktothek h2, .episode h2, .series h2, .series h1, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form {
 	text-align:center;
 }
 .series .current-episode h2 {
@@ -481,10 +488,13 @@ figcaption h3, figcaption p {
 figcaption  {
 	margin-top:5px;
 }
+header.page-header .navbar {
+	height:auto;
+}
 
 /* Header */
 header .navbar {
-	height:180px;
+	height:140px;
 	margin-bottom:0;
 }
 header .navbar-collapse {
@@ -588,8 +598,8 @@ header .dropdown-menu li a {
 		padding:0 50px;
 	}
 	header .navbar-brand {
-		padding:25px 0;
-		height:200px;
+		padding:15px 0;
+		height:150px;
 	}
 	header .navbar-brand {
 		margin-right:40px;
@@ -625,7 +635,7 @@ header .dropdown-menu li a {
 	}*/
 	header .search-tagnav-container .dropdown {
 		display:block;
-		margin-left:406px;
+		margin-left:386px;
 	}
 	header .navbar-collapse .navbar-nav {
 		margin:0;
@@ -634,7 +644,7 @@ header .dropdown-menu li a {
 		padding:25px 10px;
 	}
 	header .search-tagnav-container {
-		top:116px;
+		top:86px;
 	}
 	header .search-tagnav-position  {
 		width:526px;
@@ -658,7 +668,7 @@ header .dropdown-menu li a {
 }
 
 #slider, .series-content {
-	margin-top:-180px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
+	margin-top:-140px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
 }
 
 /* Slider und Fullscreen Images */
@@ -956,6 +966,97 @@ section.container, .container-fluid header, .oktothek {
 	outline:0;
 }
 
+/* TV */
+.programm {
+	margin-top:40px;
+}
+.programm header.page-header #nav-programm, .programm .schedule header {
+	width:100%;
+}
+.programm header.page-header nav, .programm .schedule header {
+	display:table;
+}
+.programm header.page-header nav, .programm .schedule header {
+	margin-left:-15px;
+}
+.programm header.page-header .row, .programm .schedule #page-header-content {
+	display:table-row;
+	width:100%;
+}
+.programm .schedule header.page-header {
+	padding-bottom:0;
+}
+.programm .schedule .row {
+	margin-right:15px;
+}
+.programm .schedule header.page-header div {
+	padding:2px;
+}
+.programm header.page-header time {
+	line-height:34px;
+}
+.programm header.page-header h1, .programm .schedule header h2 {
+	display:inline;
+}
+.programm .schedule .panel-heading time {
+	display:inline-block;
+	width:10%;
+}
+.programm .schedule .panel-collapse {
+	margin-left:10%;
+	padding: 0 15px;
+}
+.programm header.page-header .navbar-nav, .programm .schedule header .page-header-content div {
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	float:none;
+}
+.programm header.page-header .navbar-nav:first-child, .programm .schedule header .page-header-content div:first-child {
+	width:10%;
+	text-align:left;
+}
+.programm header.page-header .navbar-nav:last-child, .programm .schedule header .page-header-content div:last-child {
+	width:10%;
+	text-align:right;
+}
+.programm header.page-header .navbar {
+	min-height:34px;
+}
+.programm button {
+	vertical-align:middle;
+	margin:0;
+}
+.programm button.today {
+	margin-left:20px;
+}
+.programm p.current-episode {
+	margin-bottom:0;
+}
+.programm p.current-episode + h2 {
+	margin-top:0;
+}
+.programm .schedule h4 {
+	margin:0;
+}
+.programm .posterframe {
+	float:right;
+}
+
+/* Academy */
+.academy .newsletter label {
+	display:block;
+}
+.academy .newsletter .input-group, .academy .newsletter .input-group-btn {
+	width:auto;
+}
+.academy .newsletter .form-control {
+	width:300px;
+}
+.academy .newsletter .input-group {
+	margin:0 auto;
+}
+
 @media (min-width: 768px) {
 	.series div.current-episode {
 		left:50%;
@@ -1091,7 +1192,7 @@ section.container, .container-fluid header, .oktothek {
 	padding:20px;
 	color:#ffffff;
 }
-figure.pin img {
+figure.pin img, .programm .schedule img {
 	width:260px;
 	height:auto;
 }
