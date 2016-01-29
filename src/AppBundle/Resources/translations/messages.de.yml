@@ -1,0 +1,109 @@
+# FLUX2
+
+# oktothek
+## menu
+oktothek.menu_oktothek:                 Oktothek
+oktothek.menu_tv:                       TV
+oktothek.menu_participate:              Mitmachen
+oktothek.menu_academy:                  Akademie
+
+
+## oktothek index
+oktothek.participate_header:            Mitmachen
+oktothek.newest_videos:                 Neue Videos
+oktothek.newest_videos_show_more:       Mehr Videos anzeigen
+oktothek.newest_playlists:              Neue Playlisten
+oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen
+oktothek.newest_news_show_more:         Mehr News anzeigen
+
+## news post
+## form labels
+oktothek.post_name_label:               Titel
+oktothek.post_description_label:        Text
+oktothek.post_isActive_label:           Ist Aktiv
+oktothek.post_onlineAt_label:           Online Ab
+oktothek.post_assets_label:             Anhänge
+oktothek_news_pinned_header:            Okto informiert
+
+## form placeholder
+oktothek.post_onlineAt_placeholder:     TT.MM.JJJJ HH:MM
+
+## post create
+oktothek.post_create_header:            Neuer Post
+oktothek.post_create_button:            Veröffentlichen
+
+## post edit
+oktothek.post_edit_header:              Post bearbeiten
+oktothek.post_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
+oktothek.post_delete_button:            <span class="glyphicon glyphicon-trash"></span> Post löschen
+
+## post index
+oktothek.create_new_post_button:        Neuen Beitrag anlegen
+oktothek.post_show_more:                Mehr dazu anzeigen
+
+## page
+### new page
+oktothek.page_create_header:            Neue Seite anlegen
+oktothek.page_title_label:              Pageheader
+oktothek.page_text_label:               Seiteninhalt
+oktothek.page_isActive_label:           Seite Aktiv
+oktothek.page_create_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Speichern
+oktothek.page_preview_button:           Vorschau <span class="glyphicon glyphicon-chevron-right"></span>
+
+oktothek.success_create_page:           Seite erfolgreich angelegt
+oktothek.success_delete_page:           Seite erfolgreich gelöscht
+oktothek.page_create_new_button:        <span class="glyphicon glyphicon-plus"></span> Neue Seite anlegen
+oktothek.page_edit_button:              <span class="glyphicon glyphicon-edit"></span> Seite bearbeiten
+oktothek.page_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern
+oktothek.page_delete_button:            <span class="glyphicon glyphicon-trash"></span> Seite löschen
+
+## playlist
+### index
+oktothek.playlist_index_header:         Playlisten
+oktothek.playlist_index_description:    Über %count% Playlisten warten darauf, von dir entdeckt zu werden
+oktothek.playlist_index_filter:         <span class="glyphicon glyphicon-filter"></span> Sortieren <span class="caret"></span>
+oktothek.playlist_index_filter_name:    Name
+oktothek.playlist_index_filter_createdAt: Erstellt
+oktothek.playlist_index_filter_updatedAt: Letzte Aktualisierung
+oktothek.playlist_index_new_playlist:   <span class="glyphicon glyphicon-plus"></span> Playlist anlegen
+
+## episode
+oktothek.episode_show_playlist_header:  Playlisten
+oktothek.episode_show_playlist_login_register: Du kannst Playlisten nur mit einem %link% verwalten
+oktothek.episode_show_playlist_login_register_link: Account
+oktothek.episode_show_playlist_no_playlists: Noch keine Playlisten angelegt
+oktothek.episode_show_update_playlists: Änderungen übernehmen
+oktothek.episode_comment_header:        Kommentare <span class="comments-counter">%count%</span>
+oktothek.more_from_this_series:         Mehr aus dieser Sendereihe
+oktothek.episode_tag_header:            Tags
+oktothek_share_email:                   Email
+
+## comment
+oktothek.comment_author:                %name% am <time>%date%</time>
+oktothek.comment_reply:                 Antworten (%count%)
+oktothek.comment_reply_button:          Antwort senden
+oktothek.comment_create_button:         Kommentar senden
+
+## tag
+oktothek.tag_index_header:              Tags
+oktothek_tag_pages_header:              Seiten
+oktothek_tag_header:                    "# %title%"
+oktothek_tag_episode_header:            Episoden
+
+## academy
+oktothek_academy_header:                Akademie
+
+## tv
+oktothek_tv_title:                      TV
+
+## participate
+oktothek_participate_title:             Mitmachen
+
+## backend
+oktothek.backend_header:                Administrationsbereich
+oktothek.backend_index_media:           Oktothek
+oktothek.backend_index_api_keychains:   API Schnittstellen
+
+## series
+oktothek_series_blog_header:            Blog
+oktothek_series_episodes_all:           Alle Folgen

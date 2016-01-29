@@ -3,17 +3,20 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
+
+{% set body_class = "head-white-color" %}
 {% block body %}
+    <div class="container">
+	    <div id="top"></div>
+        <div class="page-header">
+            <h1>{{ playlist.name }}</h1>
+            <p>{{ playlist.description }}</p>
+        </div>
 
-    <div class="page-header">
-        <h1>{{ playlist.name }}</h1>
-        <p>{{ playlist.description }}</p>
+        {% for item in playlist.items %}
+            {% include 'AppBundle:Default:EpisodeThumb.html.twig' with {'episode': item.episode} %}
+        {% endfor %}
     </div>
-
-    {% for item in playlist.items %}
-        {% include 'AppBundle:Default:EpisodeThumb.html.twig' with {'episode': item.episode} %}
-    {% endfor %}
-
 {% endblock %}
 
 {% block javascripts %}

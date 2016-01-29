@@ -22,11 +22,15 @@ class AppKernel extends Kernel
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Oktolab\MediaBundle\OktolabMediaBundle(),
             new AppBundle\AppBundle(),
+            new MediaBundle\MediaBundle(),
             new Bprs\CommandLineBundle\BprsCommandLineBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(),
             new Bprs\AppLinkBundle\BprsAppLinkBundle(),
-            new Bprs\UserBundle\BprsUserBundle()
+            new Bprs\UserBundle\BprsUserBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new FOS\ElasticaBundle\FOSElasticaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

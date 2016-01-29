@@ -1,57 +1,123 @@
 /* in anderes CSS verschieben!!!*/
 body {
-    padding-top: 180px;
+    padding-top: 140px;
 }
 
 /* Fonts */
-
-/* Color */
-.navbar-inverse .navbar-nav > li > a, header input.form-control {
-    color: white;
+.programm p.current-episode {
+	font-size:12px;
 }
-header .form-control::-moz-placeholder { /* Placeholderstyles nicht möglich zu gruppieren */
-  color: #fff;
+header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label {
+	font-size:14px;
+}
+.carousel-caption {
+	font-size:20px;
+}
+header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer, #anchor-menu .panel-title, .btn-top {
+	text-transform:uppercase;
+}
+#anchor-menu .panel-title .glyphicon, .btn-top .glyphicon, .programm header h1 time {
+	font-size:30px;
+}
+.newsarchiv .label, label {
+	font-weight:400;
+}
+@media (min-width: 768px) {
+	.carousel-caption {
+		font-size:30px;
+	}
+}
+
+/****************************** Color, Effects ******************************/
+
+/**************************** Color, Effects Header ****************************/
+
+/* Basic Color */
+/* Menu*/
+header input.form-control, #dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover {
+    color: #ffffff;
+}
+
+/* Placeholderstyles (nicht möglich zu gruppieren) */
+header .form-control::-moz-placeholder { 
+  color: #ffffff;
 }
 header .form-control:-ms-input-placeholder {
-  color: #fff;
+  color: #ffffff;
 }
 header .form-control::-webkit-input-placeholder {
-  color: #fff;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > li > a, header .collapse.in a, header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+	color: #333333;
 }
 
+
 /* Backgroundcolor */
-.navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control {
+
+/* Header */
+.fullscreen-images .navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control, header #dropdownMenuTags.btn-default, header #dropdownMenuTags.btn-default:hover, header #dropdownMenuTags.btn-default:focus, header #dropdownMenuTags.btn-default:active, header #dropdownMenuTags.btn-default.active, .open > header #dropdownMenuTags.dropdown-toggle.btn-default {
     background-color: transparent;
 }
 header .searchfield {
 	background-color:#757575;
 }
+.navbar-inverse, header .navbar-toggle, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse {
+	background-color:#000000;
+}
+header .navbar-inverse .navbar-toggle .icon-bar, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
+	background-color:#333333;
+}
 
 /* Border */
-.navbar-inverse, header input.form-control, header input.form-control:focus {
+
+/* Header */
+.navbar-inverse, header input.form-control, header input.form-control:focus, .navbar-inverse .navbar-form, header .navbar-inverse .navbar-toggle, header .navbar-inverse .navbar-collapse, header .navbar-inverse .navbar-form {
     border-color: transparent;
 }
-.footer {
-    border-top: dashed gray 2px;
-}
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-	border-bottom:solid 2px #ffffff;
+	border-bottom:none
 }
-header .searchfield {
+header .searchfield, header #dropdownMenuTags.btn-default {
 	border:solid 1px #ffffff;
+}
+header .navbar-collapse .navbar-nav {
+	border-top:solid 1px #cccccc;
+}
+header .navbar-collapse .navbar-nav:first-child {
+	border-top:none;
+}
+header #dropdownMenuTags.btn-default, header .dropdown-menu, header .navbar-form input.form-control {
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
 }
 
 /* Effects */
-.navbar-inverse .navbar-nav > li > a {
-    /*text-shadow: 1px 2px black;*/
-}
+
+/* Header */
 header input.form-control:focus {
     -webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
+header .navbar-collapse {
+	-webkit-box-shadow: 5px 5px 20px grey;
+	-moz-box-shadow: 5px 5px 20px grey;
+	box-shadow: 5px 5px 20px grey;
+}
+header .dropshadow {
+	-webkit-box-shadow: 2px 2px 5px grey;
+	-moz-box-shadow: 2px 2px 5px grey;
+	box-shadow: 2px 2px 5px grey;
+}
+.carousel-caption {
+	text-shadow: none;
+}
 
-/* Backgroundimages */
+/****************************** Backgroundimages Header ******************************/
+
+/* Header */
 .navbar-brand object .brandimage {
 	background-image:url(../images/logo_okto_white_90.png);
 	background-repeat:no-repeat;
@@ -60,6 +126,282 @@ header form button[type="submit"], header form button[type="submit"].btn:active 
 	background-image:url(../images/icon_search.png);
 	background-repeat:no-repeat;
 	background-position:center center;
+}
+header .navbar-fixed-top {
+	background-image:url(../images/gradient_bg.png);
+	background-repeat:repeat-x;
+	background-position:left top;
+}
+#button_down {
+	/*background-image:url(../images/pfeil_down.png);
+	background-repeat:no-repeat;
+	background-position:center center;*/
+}
+.page-bg { /*Wäre am besten wenn Klasse an HTML angehängt wäre*/
+/*	
+	
+	background-attachment:fixed;*/
+}
+
+
+@media (min-width: 768px) {
+	/* Color */
+	.navbar-inverse .navbar-nav > li > a, header .collapse.in a, header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > 	.active > a:focus, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+		color: #ffffff;
+	}
+	.navbar-inverse .navbar-nav .dropdown > li > a, header .collapse.in .dropdown a {
+		color: #000000;
+	}
+	/* Backgroundcolor */
+	header .navbar-collapse, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
+		background-color:transparent;
+	}
+	/* Border */
+	header .navbar-collapse .navbar-nav {
+		border-top:none;
+	}
+	.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+		border-bottom:solid 2px #ffffff;
+	}
+	/* Effects */
+	header .navbar-collapse {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+}
+
+
+/* Individuelle Farben */
+.head-white-color svg path, 
+.head-black-color svg path,
+.head-white-color header .navbar-inverse .navbar-nav.mainmenu > a, .head-white-color header .mainmenu li a,
+.head-black-color header .navbar-inverse .navbar-nav.mainmenu > a, .head-black-color header .mainmenu li a,
+.head-white-bg .navbar-fixed-top,
+.head-black-bg .navbar-fixed-top,
+.head-white-color header .searchfield, .head-white-color header #dropdownMenuTags.btn-default,
+.head-black-color header .searchfield, .head-black-color header #dropdownMenuTags.btn-default
+
+ {
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* Header hite Color Class */
+.head-white-color svg path {
+	fill: white;
+}
+.head-white-color header input.form-control, .head-white-color #dropdownMenuTags.btn-default, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .head-white-color header .mainmenu li:hover a, .head-white-color header .mainmenu li:hover a:hover {
+    color: white;
+}
+@media (min-width: 768px) {
+	/* Color */
+	/* Menu */
+	.head-white-color .navbar-inverse .navbar-nav > li > a, .head-white-color header .collapse.in a, .head-white-color header .navbar-inverse .navbar-nav > .active > a, .head-white-color header .navbar-inverse .navbar-nav > .active > a:hover, .head-white-color header .navbar-inverse .navbar-nav > 	.active > a:focus, .head-white-color .navbar-inverse .navbar-nav > li > a:hover, .head-white-color .navbar-inverse .navbar-nav > li > a:focus {
+		color: #ffffff;
+	}
+	.head-white-color .navbar-inverse .navbar-nav .dropdown > li > a, .head-white-color header  .collapse.in .dropdown a {
+		color: #000000;
+	}
+	.head-white-color navbar-inverse .navbar-nav > .active > a, .head-white-color .navbar-inverse .navbar-nav > .active > a:hover, .head-white-color .navbar-inverse .navbar-nav > .active > a:focus {
+		border-bottom:solid 2px #ffffff;
+	}
+	.head-white-color header .searchfield, .head-white-color header #dropdownMenuTags.btn-default {
+		border-color: #ffffff;
+	}
+}
+
+/* Header Black Color Class */
+.head-black-color svg path {
+	fill: black;
+}
+.head-black-color header input.form-control, .head-black-color #dropdownMenuTags.btn-default, .head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .head-black-color header .mainmenu li:hover a, .head-black-color header .mainmenu li:hover a:hover {
+	color: black;
+}
+.head-black-color header .searchfield {
+	border-color:transparent;
+}
+.head-black-color header #dropdownMenuTags.btn-default {
+	border-color: #000000;
+}
+@media (min-width: 768px) {
+	/* Color */
+	/* Menu */
+	.head-black-color .navbar-inverse .navbar-nav > li > a, .head-black-color header .collapse.in a, .head-black-color header .navbar-inverse .navbar-nav > .active > a, .head-black-color header .navbar-inverse .navbar-nav > .active > a:hover, .head-black-color header .navbar-inverse .navbar-nav > .active > a:focus, .head-black-color .navbar-inverse .navbar-nav > li > a:hover, .head-black-color .navbar-inverse .navbar-nav > li > a:focus {
+		color: black;
+	}
+	.head-black-color .navbar-inverse .navbar-nav > .active > a, .head-black-color .navbar-inverse .navbar-nav > .active > a:hover, .head-black-color .navbar-inverse .navbar-nav > .active > a:focus {
+		border-bottom:solid 2px #000000;
+	}
+}
+
+/* Transparent Header Background */
+.head-transparent-bg .navbar-fixed-top {
+	background-color:transparent;
+}
+
+/* White Header Background */
+.head-white-bg .navbar-fixed-top {
+	background-color:#FFFFFF;
+}
+
+/* Black Header Background */
+.head-black-bg .navbar-fixed-top {
+	background-color:#000000;
+}
+
+/* Body  Weiße Schrift */
+.body-white-color, .body-white-color a, .body-white-color a.pull-right {
+	color:white;
+}
+
+
+/****************************  Color, Effects Content ****************************/
+body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover {
+	color:#ffffff;
+}
+
+.oktothek article a.btn-default, a.pull-right, .modal, button .btn-default.active {
+	color:#000000;
+}
+
+body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container {
+	background-color:#000000;
+}
+.comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control, .newsarchiv aside .box, .programm .schedule header.page-header {
+	background-color:#757575;
+}
+button .btn-default.active, .oktothek article a.btn-default {
+	background-color:#ffffff;
+}
+.play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel {
+	background-color:transparent;
+}
+
+.tags li a {
+	border: solid 1px #cccccc;
+}
+.play-episode.btn-default, .tagpage .container-fluid header input.form-control {
+	border: solid 1px #ffffff;
+}
+.newsarchiv article {
+	border-top:solid 1px #ffffff;
+}
+.programm .schedule .panel-default {
+	border-top:none;
+	border-left:none;
+	border-right:none;
+}
+.newsarchiv article:first-child, .programm header .navbar-default, header.page-header {
+	border:none;
+}
+.tags li a {
+	-moz-border-radius:4px;
+	-khtml-border-radius:4px;
+	border-radius: 4px;
+}
+.navbar, .more-clips select, .play-episode.btn-default, .newsarchiv .label, .schedule .panel-heading, .programm .schedule .panel-default {
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
+}
+
+/* Episode */
+.icon-views {
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/icon_views.png);
+}
+.bg-bleur {
+	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
+	background-repeat:no-repeat;
+	background-position:center top;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.more-clips select {
+	width:auto;
+}
+.collapseShare, .collapsePlaylist {
+    border-top: dashed gray 2px;
+}
+
+.bg-opacity {
+    opacity: 0.7;       /* modern browser */  
+    -moz-opacity: 0.7;  /* older Mozilla browser */  
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */  
+}
+
+.bg-bleur {
+	-webkit-filter: blur(50px);
+	-moz-filter: blur(50px);
+	-o-filter: blur(50px);
+	-ms-filter: blur(50px);
+	filter: blur(50px);
+}
+
+
+/****************************  Color, Effects Footer ****************************/
+
+.footer .nav > li > a, .footer .nav > li > a:active, .footer .nav > li > a:hover, #anchor-menu .panel-default > .panel-heading {
+	color:#ffffff;
+}
+
+#anchor-menu .panel-default > .panel-heading {
+	background-color:#000000;
+}
+.footer .nav > li > a:active, .footer .nav > li > a:hover {
+	background-color:transparent;
+}
+
+
+
+.footer .socialnetworks li a, .collapseShare .socialnetworks li a, .newsarchiv aside .socialnetworks li a, .series .series-description li a {
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+.footer .icon-facebook, .collapseShare .icon-facebook, .series .series-description .icon-facebook, .newsarchiv aside .icon-facebook {
+	background-image:url(../images/icon_facebook.png);
+}
+.footer .icon-twitter, .collapseShare .icon-twitter, .series .series-description .icon-twitter, .newsarchiv aside .icon-twitter {
+	background-image:url(../images/icon_twitter.png);
+}
+.footer .icon-googleplus, .collapseShare .icon-googleplus, .series .series-description .icon-googleplus, .newsarchiv aside .icon-googleplus {
+	background-image:url(../images/icon_googleplus.png);
+}
+.footer .icon-instagramm, .collapseShare .icon-instagramm, .series .series-description .icon-instagramm, .newsarchiv aside .icon-instagramm {
+	background-image:url(../images/icon_instagramm.png);
+}
+.footer .icon-pinterest, .collapseShare .icon-pinterest, .series .series-description .icon-pinterest, .newsarchiv aside .icon-pinterest {
+	background-image:url(../images/icon_pinterest.png);
+}
+.footer .icon-youtube, .collapseShare .icon-youtube, .series .series-description .icon-youtube, .newsarchiv aside .icon-youtube {
+	background-image:url(../images/icon_youtube.png);
+}
+
+.footer {
+    border-top: dashed gray 2px;
+}
+#anchor-menu.panel-group .panel, .btn-top {
+    -webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
+}
+#anchor-menu.panel-group .panel, .btn-top {
+	border-bottom:none;
+}
+#anchor-menu .panel > .list-group .list-group-item, #anchor-menu .panel > .panel-collapse > .list-group .list-group-item {
+	border-width:0;
+}
+
+/****************************  Color, Effects Backend ****************************/
+.panel-body {
+	color:#000000;
 }
 
 
@@ -106,84 +448,759 @@ body {
     text-decoration: underline;
 }*/
 
+/****************************  Weitere Formatierungen ****************************/
+
+html, body {
+	height:100%;
+}
+.episode .series a {
+	text-decoration:underline;
+}
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul {
+	list-style:none;
+}
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul {
+	margin-left:0;
+	padding-left:0;
+}
+h1 {
+	margin-top:0;
+}
+.series h1, .tagpage h1 {
+	margin-top:20px;
+}
+h2, .episode h1.name, .episode time {
+	margin-bottom:20px;
+}
+.newsarchiv aside .box h3:first-child {
+	padding-top:0;
+	margin-top:0;
+}
+figcaption h3, figcaption p {
+	margin:0;
+}
+.oktothek h2, .episode h2, .series h2, .series h1, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form {
+	text-align:center;
+}
+.series .current-episode h2 {
+	text-align:left;
+}
+figcaption  {
+	margin-top:5px;
+}
+header.page-header .navbar {
+	height:auto;
+}
+
 /* Header */
 header .navbar {
-	height:180px;
+	height:140px;
 	margin-bottom:0;
 }
 header .navbar-collapse {
-	height:90px;
+	height:auto;
 }
 header .navbar .container-fluid {
-	padding:0 50px;
+	padding:0 15px;
 }
 header .navbar-brand {
 	display:block;
 }
 header .navbar-brand, header .navbar-brand object {
-	width:90px;
+	vertical-align:top;
+	width:60px;
 }
 header .navbar-brand object {
-	width:90px;
-	height:150px;
+	height:100px;
 }
 header .navbar-brand object .brandimage span {
 	margin-left:-9990px;
 }
 header .navbar .nav > li {
-	padding:25px 10px;
+	padding:5px 10px;
 }
 header .navbar-brand {
-	padding:25px 0;
-	margin-right:40px;
-	height:200px;
+	padding:10px 0;
+	height:100px;
 }
 header .navbar .nav > li > a {
 	display:inline;
 	padding:0 0 5px 0;
 	vertical-align:top;
 }
-header .navbar .navbar-form {
-	margin-top:-200px;
-	text-align:center;
+header .navbar-collapse .navbar-nav {
+	margin:7.5px 0;
+}
+header .navbar-inverse .navbar-toggle {	/*Small Menubutton*/
+	margin-top:10px;
+	padding:10px;
+	position:relative;
+	z-index:10;
+}
+/*header .navbar .navbar-form {
+	margin-top:-100px;
+}*/
+header .navbar-content {
+	margin-top:-40px;
 }
 header form button[type="submit"] {
 	height:34px;
 	width:54px;
-	margin-left:12px;
+	float:right;
+	margin-left:0;
 }
-header .searchfield {
-	float:left;
+header form .searchfield-container {
+	position:relative;
+	overflow:hidden;
+	height:34px;
+}
+header .search-tagnav-container {
+	position:absolute;
+	z-index:1;
+	width:100%;
+	top:0px;
+}
+header .search-tagnav-position  {
+	margin:0;
+}
+header .search-tagnav-position .navbar-form {
+	margin-top:-1px;
 }
 header .search-tagnav-container .dropdown {
 	display:none;
 }
+header .searchfield {
+	margin-left:75px;
+	margin-right:105px;
+}
+header .navbar-form input.form-control {
+	display:inline;
+}
+header .dropdown-menu {
+	padding:0;
+}
+header .dropdown-menu li a {
+	padding:2px 12px;
+}
+#button_down span {
+	display:none;
+}
+.bg-bleur {
+	position:fixed;
+	z-index:0;
+	width:100%;
+	height:100%;
+	top:0;
+}
 @media (min-width: 768px) {
-	header .navbar .navbar-form {
-		margin-top:-110px;
+	
+	header .navbar .container-fluid {
+		padding:0 50px;
 	}
+	header .navbar-brand {
+		padding:15px 0;
+		height:150px;
+	}
+	header .navbar-brand {
+		margin-right:40px;
+	}
+	header .navbar-content {
+		margin-top:0;
+	}
+	header .navbar-collapse {
+		height:90px;
+	}
+	header .navbar-brand {
+		width:70px;
+	}
+	header .navbar-brand object {
+		height:100px;
+	}
+	header .searchfield {
+		float:left;
+		margin:0;
+		width:366px;
+	}
+	/*header .navbar .navbar-form {
+		margin-top:-110px;
+	}*/
 	header .navbar-form input.form-control {
 		width: 300px;
 	}
-	.small-tagnav { /*Tagmenü wird nur für mobiles Dropdownmenü angezeigt*/
-		display:none;
+	header form button[type="submit"] {
+		margin-left:12px;
 	}
+	/*.small-tagnav { Tagmenü wird nur für mobiles Dropdownmenü angezeigt
+		display:none;
+	}*/
 	header .search-tagnav-container .dropdown {
 		display:block;
-		margin-left:406px;
+		margin-left:386px;
+	}
+	header .navbar-collapse .navbar-nav {
+		margin:0;
+	}
+	header .navbar .nav > li {
+		padding:25px 10px;
 	}
 	header .search-tagnav-container {
+		top:86px;
+	}
+	header .search-tagnav-position  {
 		width:526px;
 		margin:0 auto;
 	}
+	#button_down {
+		cursor:pointer;
+	}
+	#button_down span {
+		position:absolute;
+		display:inline-block;
+		vertical-align:middle;
+		line-height:50px;
+		width:30px;
+		height:30px;
+		margin-left:50px;
+	}
+	#button_down span.glyphicon {
+		top:auto;
+	}
+}
+
+#slider, .series-content {
+	margin-top:-140px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
+}
+
+/* Slider und Fullscreen Images */
+.carousel .item {
+  min-width: 100%;
+  height: 100%;
+}
+.carousel-inner > .item > img {
+  min-width: 100%;
+  height: 100%;
+}
+.carousel-caption {
+  z-index: 10;
+}
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+	max-width:none;
+}
+.carousel-caption {
+	left:5%;
+	right:5%;
+	text-align:left;
+}
+
+/* Content allgemein */
+.container-fluid {
+	padding:0;
+}
+section {
+	margin-bottom:80px;
+}
+section.container, .container-fluid header, .oktothek {
+	position:relative;
+}
+.episode .series {
+	margin-bottom:0;
+}
+.aligncenter {
+	text-align:center;
+}
+.more { /* Weiter Link */
+	margin-top:20px;
+}
+
+/* Oktothek */
+.oktothek article {
+	position:relative;
+}
+.episode article, .more-clips article {
+	margin-top:40px;
+}
+.episode article time[pubdate="pubdate"] {
+	display:block;
+}
+.icon-views {
+	display:inline-block;
+	height:15px;
+	width:20px;
+}
+.episode .misc a, .episode .misc span.views {
+	margin-right:10px;
+}
+.tags li {
+	display:inline;
+	padding-right:5px;
+}
+.tags li a {
+	display:inline-block;
+	white-space: nowrap;
+	padding:6px 12px;
+	vertical-align:middle;
+	text-align:center;
+}
+
+/* Tooltips */
+.tooltip-inner {
+	text-align:left;
+}
+
+/* Kommentare */
+.comments {
+	padding-top:40px;
+	padding-bottom:40px;
+}
+.comments .comment-form {
+	margin-top:40px;
+}
+.answer-text {
+	padding-left:80px;
+}
+.comments article, .answer-text {
+	margin-top:20px;
+}
+.comments h2:first-child {
+	margin-top:0;
+}
+.comments .answer {
+	cursor:pointer;
+}
+
+/* Sharing und Playlistfenster*/
+.collapseShare, .collapsePlaylist {
+	margin-top:40px;
+}
+#collapseShare input.form-control, .collapsePlaylist input.form-control {
+	width:600px;
+}
+.collapsePlaylist .input-group-btn {
+	width:auto;
+}
+.collapseShare .btn-group {
+	margin-bottom:40px;
+}
+.collapseShare .socialnetworks {
+    margin-left:0;
+	padding-left:0;
+	display:inline;
+}
+.collapseShare .socialnetworks li {
+    display: inline;
+}
+.collapseShare div {
+    vertical-align:middle;
+	line-height:30px;
+}
+.collapseShare .socialnetworks a {
+    display: inline-block;
+    height: 30px;
+    outline: 0 none;
+    text-align: left;
+    width: 30px;
+}
+#div_share_sn form, .collapsePlaylist form {
+	margin-top:20px;
+}
+.collapsePlaylist ul {
+	display:table;
+	margin-top:40px;
+}
+.collapsePlaylist li {
+	display:table-row;
+}
+.collapsePlaylist li button, .collapsePlaylist li span {
+	display:table-cell;
+}
+.collapsePlaylist li button {
+	width:100px;
+}
+.collapsePlaylist li span {
+	padding-left:10px;
+}
+
+/* Serien */
+.series .series-content, .series .series-ident, .content-opacity {
+	position:relative;
+}
+.series div.current-episode, .series .play-episode, .bg-opacity {
+	position:absolute;
+}
+.series section.series-content {
+	margin-bottom:0;
+}
+.series div.current-episode {
+	bottom:80px;
+	overflow:hidden;
+}
+.bg-opacity {
+	z-index:0;
+	width:100%;
+	height:100%;
+}
+.content-opacity {
+	padding:15px;
+	z-index:1;
+}
+.series .series-description article, .series .series-description aside {
+	display:block;
+	vertical-align:top;
+}
+.series .series-posterframe img {
+	max-width:250px;
+	height:auto;
+}
+.series .series-description aside ul {
+	margin-top:10px;
+}
+.series .series-description .socialnetworks li {
+	display:inline;
+}
+.series .series-description .socialnetworks a {
+	display:inline-block;
+    height: 30px;
+    outline: 0 none;
+    text-align: left;
+    width: 30px;
+}
+.play-episode {
+/*	top:50%;
+	left:50%;
+	margin-top:-25px;
+	margin-left:-25px;*/
+}
+.play-episode.btn-default {
+/*	width:50px;
+	height:50px;
+	padding:0;
+	line-height:50px;
+	vertical-align:middle;
+	text-align:center;*/
+}
+
+/* Überschriften für Barrierefreundlichkeit */
+.collapseShare .socialnetworks a span, .series .series-description .socialnetworks a span, #collapseShare h3 {
+    margin-left: -9990px;
+}
+.collapseShare h3 {
+	display:inline;
+}
+
+/* Tags */
+.tagpage .container-fluid header {
+	margin-bottom:40px;
+	margin-top:40px;
+}
+.tagpage section {
+	margin-bottom:0px;
+	padding-bottom:80px;
+}
+.tagpage section.inc-pins {
+	padding-bottom:65px;
+}
+.tagpage article.pin {
+	position:relative;
+}
+.tagpage figcaption {
+	position:absolute;
+	bottom:0;
+	padding-left:5px;
+}
+.tagpage section .row  {
+	padding-bottom:15px;
+}
+.tagpage article.pin {
+	padding-right:0;
+}
+.tagpage article.first-pin {
+	padding-left:30px;
+}
+.tagpage .small-pins article {
+	padding-left:15px;
+}
+.tagpage .small-pins article:last-child {
+	padding-left:8px;
+}
+.tagpage header {
+	text-align:center;
+}
+.tagpage h1, .tagpage .misc {
+	display:inline-block;
+}
+.tagpage .misc {
+	line-height:36px;
+	vertical-align:middle;
+	margin-left: 40px;
+}
+
+/* News */
+.newsarchiv .page-header {
+	padding-bottom:0;
+}
+.newsarchiv .label {
+    display: inline;
+    padding: 0;
+    text-align: left;
+}
+.newsarchiv aside {
+	padding-top:15px;
+}
+.newsarchiv aside .box {
+	padding:15px;
+}
+.newsarchiv aside .box, .news .filter-news {
+    margin-bottom:40px;
+}
+.newsarchiv aside .socialnetworks li {
+	display:inline;
+}
+.newsarchiv aside .socialnetworks a span {
+	margin-left:-9990px;
+}
+.newsarchiv aside .socialnetworks a {
+	display:inline-block;
+	text-align:left;
+	height:30px;
+	width:30px;
+	outline:0;
+}
+
+/* TV */
+.programm {
+	margin-top:40px;
+}
+.programm header.page-header #nav-programm, .programm .schedule header {
+	width:100%;
+}
+.programm header.page-header nav, .programm .schedule header {
+	display:table;
+}
+.programm header.page-header nav, .programm .schedule header {
+	margin-left:-15px;
+}
+.programm header.page-header .row, .programm .schedule #page-header-content {
+	display:table-row;
+	width:100%;
+}
+.programm .schedule header.page-header {
+	padding-bottom:0;
+}
+.programm .schedule .row {
+	margin-right:15px;
+}
+.programm .schedule header.page-header div {
+	padding:2px;
+}
+.programm header.page-header time {
+	line-height:34px;
+}
+.programm header.page-header h1, .programm .schedule header h2 {
+	display:inline;
+}
+.programm .schedule .panel-heading time {
+	display:inline-block;
+	width:10%;
+}
+.programm .schedule .panel-collapse {
+	margin-left:10%;
+	padding: 0 15px;
+}
+.programm header.page-header .navbar-nav, .programm .schedule header .page-header-content div {
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	float:none;
+}
+.programm header.page-header .navbar-nav:first-child, .programm .schedule header .page-header-content div:first-child {
+	width:10%;
+	text-align:left;
+}
+.programm header.page-header .navbar-nav:last-child, .programm .schedule header .page-header-content div:last-child {
+	width:10%;
+	text-align:right;
+}
+.programm header.page-header .navbar {
+	min-height:34px;
+}
+.programm button {
+	vertical-align:middle;
+	margin:0;
+}
+.programm button.today {
+	margin-left:20px;
+}
+.programm p.current-episode {
+	margin-bottom:0;
+}
+.programm p.current-episode + h2 {
+	margin-top:0;
+}
+.programm .schedule h4 {
+	margin:0;
+}
+.programm .posterframe {
+	float:right;
+}
+
+/* Academy */
+.academy .newsletter label {
+	display:block;
+}
+.academy .newsletter .input-group, .academy .newsletter .input-group-btn {
+	width:auto;
+}
+.academy .newsletter .form-control {
+	width:300px;
+}
+.academy .newsletter .input-group {
+	margin:0 auto;
+}
+
+@media (min-width: 768px) {
+	.series div.current-episode {
+		left:50%;
+        margin-left:-375px;
+	}
+	.series .series-description article, .series .series-description aside {
+	    display:table-cell;
+		vertical-align:top;
+    }
+	.series .series-description aside {
+        width:250px;
+    }
+}
+@media (min-width: 992px) {
+	.series div.current-episode {
+        margin-left:-485px;
+	}
+}
+@media (min-width: 1200px) {
+.series div.current-episode {
+	margin-left:-585px;
+}
 }
 
 
-/* Slider */
-#slider {
-	margin-top:-180px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
+/* Footer */
+.footer {
+	height:300px;
+	width:100%;
 }
-.carousel img {
-    min-width: 100%;
+.footer nav, .footer .partner {
+	text-align:center;
+}
+.footer nav, .footer section {
+	padding-top:50px;
+	margin-bottom:0;
+}
+.footer nav ul {
+	width:auto;
+}
+.footer .nav > li, .footer .nav > li > a, .footer .partner li {
+	display:block;
+}
+.footer .networks div.col-md-6 ul {
+	padding-top:30px;
+}
+.footer .networks h3 {
+	margin-top:0;
+}
+.footer .networks div.col-md-6, .footer .networks div.col-md-6:first-child {
+	text-align:center;
+}
+.footer .input-group {
+	width:200px;
+	margin:0 auto;
+}
+.footer .socialnetworks li {
+	display:inline;
+}
+.footer .socialnetworks a {
+	display:inline-block;
+	text-align:left;
+	height:30px;
+	width:30px;
+	outline:0;
+}
+.footer .socialnetworks a span {
+	margin-left:-9990px;
+}
+#anchor-menu {
+	position:fixed;
+	z-index:100;
+	left:50%;
+	bottom:0;
+	margin-left:-90px;
+	display:none;
+}
+#anchor-menu.panel-group {
+	margin-bottom:0;
+}
+#anchor-menu .panel-title, .btn-top {
+	width:180px;
+	line-height:30px;
+	vertical-align:middle;
+}
+#anchor-menu .panel-heading .glyphicon, .btn-top .glyphicon {
+	margin-left:20px;
+	vertical-align:middle;
+}
+#anchor-menu .list-group-item {
+	padding-top:5px;
+	padding-bottom:5px;
 }
 
+@media (min-width: 768px) {
+	.footer .nav > li, .footer .nav > li > a, .footer .partner li {
+		display:inline;
+	}
+	.footer .partner li {
+		margin-left:40px;
+	}
+	.footer .partner li:first-child {
+		margin-left:0px;
+	}
+	.footer .networks div.col-md-6 {
+		vertical-align:bottom;
+	}
+	.footer .networks div.col-md-6 {
+		text-align:left;
+	}
+	.footer .networks div.col-md-6:first-child {
+	    text-align:right;
+	}
+	.footer .input-group {
+	    width:200px;
+	    margin:0;
+	}
+	.btn-top {
+		margin-left:294px;
+	}
+}
+@media (min-width: 1200px) {
+    .btn-top {
+		margin-left:510px;
+	}
+}
+
+
+/* für Clickdummy: */
+.dummybox {
+	min-height:200px;
+	background-color:#757575;
+	padding:20px;
+	color:#ffffff;
+}
+figure.pin img, .programm .schedule img {
+	width:260px;
+	height:auto;
+}
+.tagpage .first-pin figure.pin img {
+	width:540px;
+	height:auto;
+}
+.tagpage figure.pin img {
+	width:255px;
+	height:auto;
+}

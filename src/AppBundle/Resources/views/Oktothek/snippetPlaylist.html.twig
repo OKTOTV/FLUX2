@@ -1,0 +1,37 @@
+<div class="collapse collapsePlaylist" id="collapsePlaylistArea">
+<div>
+    <h3>{{ 'oktothek.episode_show_playlist_header'|trans }}</h3>
+</div>
+{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+    {% if app.user.playlists|length > 0%}
+        <ul class="list-group playlists">
+            {% for playlist in app.user.playlists %}
+                {% set isInPlaylist = "" %}
+                {% for playlistitem in playlist.items %}
+                    {% if playlistitem.episode.uniqID == episode.uniqID %}
+                        {% set isInPlaylist = "1" %}
+                    {% endif %}
+                {% endfor %}
+                {% if isInPlaylist %}
+                    <li><button type="button" class="playlist btn btn-default active" data-uniqID="{{ playlist.uniqID }}">-</button><span><a href="{{ path('oktothek_playlist_show', {'playlist': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
+                {% else %}
+                    <li><button type="button" class="playlist btn btn-default" data-uniqID="{{ playlist.uniqID }}">+</button><span><a href="{{ path('oktothek_playlist_show', {'playlist': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{{ 'oktothek.episode_show_playlist_no_playlists'|trans }}</p>
+    {% endif %}
+    <form>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Neue Playlist erstellen" data-prototype='<li><button type="button" class="playlist btn btn-default active">-</button><span>__name__</span></li>'>
+            <span class="input-group-btn"><button class="playlist-new btn btn-default" type="button">Erstellen</button></span>
+        </div>
+    </form>
+{% else %}
+    <p>{{ 'oktothek.episode_show_playlist_login_register'|trans({
+        '%link%': '<a href="#">'~'oktothek.episode_show_playlist_login_register_link'|trans~'</a>'
+        })|raw }}
+    </p>
+{% endif %}
+</div>

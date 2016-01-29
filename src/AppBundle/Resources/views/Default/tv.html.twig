@@ -1,113 +1,281 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ name|default('OKTO')~' | '~ 'oktothek_tv_title'|trans }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'tv', 'dropdown': ''} %}
 {% endblock %}
-{% block body_main %}
 
+{% set body_class = "head-white-color livestream" %}
+{% block body_main %}
+    <div id="top"></div>
     <div id="player">
     </div>
-
-    <!-- <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
-          <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Collapsible Group Item #1
-            </a>
-          </h4>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingTwo">
-          <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Collapsible Group Item #2
-            </a>
-          </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="panel-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-          <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Collapsible Group Item #3
-            </a>
-          </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-          <div class="panel-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="program">
-    </div>
-
+    <div class="container programm">
+        <header class="page-header">
+		  <nav class="navbar navbar-default" id="nav-programm">
+		    <div class="row">
+			    <div class="nav navbar-nav">
+			        <button class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></button>
+			    </div>
+				<div class="nav navbar-nav">
+				    <h1><time datetime="2016-01-28 00:00">28.Jänner 2016</time><h1><button class="btn btn-default today">Heute</button>
+				</div>
+		        <div class="nav navbar-nav">
+			        <button class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></button>
+			    </div>
+			</div>
+		  </nav>
+		</header>
+		<section>
+		    <header>
+			  <p class="current-episode">Derzeit auf Okto</p>
+			  <h2 class="name">Aswan TV: Freiheit für Syrien</h1>
+			  <p class="description">
+			      Aswan TV: Freiheit für SyrienIn dieser Folge zeigt Aswan TV wie viele Stimmen es in Österreich für ein Freies Syrien gibt und wie wichtig es ist diese
+wahrzunehmen und ihnen Gehör zu verschaffen. Bei der wöchentlichen Reunion an Stephansplatz werden die Situation Syriens thematisiert und für syrische
+Bedürftige Spenden gesammelt. Verschiedene Perspektiven und Ansichten werden dieskutiert. Menschen, die sich für Frieden und Demokratie engagieren,
+kommen zu Wort.
+			  </p>
+			  <p class="misc">
+			      <a href="#">Episode ansehen</a> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="..." title="... teilen">Teilen</button>
+                </p>
+				<!-- Start Collapse Share-->
+				<div class="collapse collapseShare" id="collapseShareArea">
+                    <div>
+                        <h3>Teilen</h3>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+						        <div>
+						            <ul class="socialnetworks">
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u=#" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>
+                                        <!-- <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li> -->
+                                        <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                                        <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                                        <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                                        <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                                        <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                                    </ul>
+                                    <a href="mailto:?to=&subject=#" class="btn btn-default">Email</a>
+							    <!-- <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button> -->
+							</div>
+						    <form><input type="text" value="" class="form-control" id="sharingurl"></form>
+						</div>
+						</div>
+                    </div>
+                </div>
+				<!-- End Modal Window Share-->
+			</header>
+			<article>
+			</article>
+		</section>
+		<!-- Start Programmübersicht -->
+		<section class="schedule">
+		  <header class="page-header">
+		      <div class="page-header-content">
+		          <div> </div>
+		          <div><h2>Danach</h2></div>
+		          <div><button class="btn btn-default">GESAMTES PROGRAMM ANZEIGEN</button></div>
+			  </div>
+		  </header>
+		  <ul class="panel-group" id="schedule-content" role="tablist" aria-multiselectable="true">
+		      <li class="panel panel-default row">
+			      <div class="panel-heading" role="tab" id="item1">
+					  <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content" href="#collapse1" aria-expanded="true" aria-controls"collapse1">
+					  <time datetime="2016-01-28 07:00">07:00</time><span>Democracy Now!</span></a></h4>
+				  </div>
+			      <div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="item1"> 
+					  <div class="description">
+					      <p>¿demokratie? im Gespräch mit Heinz Mayer, Professor für Staats- und Verwaltungsrecht, sowie Dekan der Rechtswissenschaftlichen Fakultät der Universität Wien, zum Thema "Demokratie und die Europäische Union". Mayer schildert die Vorzüge der Europäischen Union in Bezug auf internationale Belange. So findet z.B. die Strafverfolgung bereits über die Staatsgrenzen hinweg statt. Gleichzeitig geht Mayer auch auf die Defizite der EU ein.</p>
+						      <p class="misc">
+			      <a href="#">Episode ansehen</a> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea1" aria-expanded="false" aria-controls="collapseShareArea1" id="ButtonShare" data-uniqID="..." title="... teilen">Teilen</button>
+                </p>
+				<!-- Start Collapse Share-->
+				<div class="collapse collapseShare" id="collapseShareArea1">
+                    <div>
+                        <h3>Teilen</h3>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+						        <div>
+						            <ul class="socialnetworks">
+                                        <li><a href="https://www.facebook.com/sharer/sharer.php?u=#" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>
+                                        <!-- <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li> -->
+                                        <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                                        <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                                        <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                                        <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                                        <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                                    </ul>
+                                    <a href="mailto:?to=&subject=#" class="btn btn-default">Email</a>
+							    <!-- <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button> -->
+							</div>
+						    <form><input type="text" value="" class="form-control" id="sharingurl"></form>
+						</div>
+						</div>
+                    </div>
+                </div>
+				<!-- End Modal Window Share-->
+						  </div>
+					  <div class="posterframe"><img scr="#" alt=""></div>
+				  </div>
+			  </li>
+			  <li class="panel panel-default row">
+			      <div class="panel-heading" role="tab" id="item2">
+				      <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content" href="#collapse2" aria-expanded="true" aria-controls"collapse2"><time datetime="2016-01-28 08:00">08:00</time><span>Wie Geht Das?: Rausgebrannt</span></a></h4>
+				  </div>
+			      <div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="item2"> 
+					  <div class="description">¿demokratie? im Gespräch mit Heinz Mayer, Professor für Staats- und Verwaltungsrecht, sowie Dekan der Rechtswissenschaftlichen Fakultät der Universität Wien, zum Thema "Demokratie und die Europäische Union". Mayer schildert die Vorzüge der Europäischen Union in Bezug auf internationale Belange. So findet z.B. die Strafverfolgung bereits über die Staatsgrenzen hinweg statt. Gleichzeitig geht Mayer auch auf die Defizite der EU ein.</div>
+					  <div class="posterframe"><img scr="#" alt=""></div>
+				  </div>
+			  </li>
+			  <li class="panel panel-default row">
+			      <div class="panel-heading" role="tab" id="item3">
+				      <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content" href="#collapse3" aria-expanded="true" aria-controls"collapse3"><time datetime="2016-01-28 09:00">09:00</time><span>tango-tv</span></a></h4>
+				  </div>
+			      <div id="collapse3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="item3">    
+					  <div class="description">¿demokratie? im Gespräch mit Heinz Mayer, Professor für Staats- und Verwaltungsrecht, sowie Dekan der Rechtswissenschaftlichen Fakultät der Universität Wien, zum Thema "Demokratie und die Europäische Union". Mayer schildert die Vorzüge der Europäischen Union in Bezug auf internationale Belange. So findet z.B. die Strafverfolgung bereits über die Staatsgrenzen hinweg statt. Gleichzeitig geht Mayer auch auf die Defizite der EU ein.</div>
+					  <div class="posterframe"><img scr="#" alt=""></div>
+				  </div>
+			  </li>
+		  </ul>
+		</section>
+		<section class="schedule">
+		  <header class="page-header">
+		      <div class="page-header-content">
+		          <div> </div>
+		          <div><h2>Hauptabendprogramm</h2></div>
+		          <div><button class="btn btn-default">ANZEIGEN</button></div>
+			  </div>
+		  </header>
+		  <ul class="panel-group" id="schedule-content-evening" role="tablist" aria-multiselectable="true">
+		      <li class="panel panel-default row">
+			      <div class="panel-heading" role="tab" id="item4">
+					  <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content-evening" href="#collapse1" aria-expanded="true" aria-controls"collapse4">
+					  <time datetime="2016-01-28 07:00">07:00</time><span>Democracy Now!</span></a></h4>
+				  </div>
+			      <div id="collapse4" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="item4"> 
+					  <div class="description">¿demokratie? im Gespräch mit Heinz Mayer, Professor für Staats- und Verwaltungsrecht, sowie Dekan der Rechtswissenschaftlichen Fakultät der Universität Wien, zum Thema "Demokratie und die Europäische Union". Mayer schildert die Vorzüge der Europäischen Union in Bezug auf internationale Belange. So findet z.B. die Strafverfolgung bereits über die Staatsgrenzen hinweg statt. Gleichzeitig geht Mayer auch auf die Defizite der EU ein.</div>
+					  <div class="posterframe"><img scr="#" alt=""></div>
+				  </div>
+			  </li>
+			  <li class="panel panel-default row">
+			      <div class="panel-heading" role="tab" id="item5">
+				      <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content" href="#collapse5" aria-expanded="true" aria-controls"collapse5"><time datetime="2016-01-28 08:00">08:00</time><span>Wie Geht Das?: Rausgebrannt</span></a></h4>
+				  </div>
+			      <div id="collapse5" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="item5"> 
+					  <div class="description">¿demokratie? im Gespräch mit Heinz Mayer, Professor für Staats- und Verwaltungsrecht, sowie Dekan der Rechtswissenschaftlichen Fakultät der Universität Wien, zum Thema "Demokratie und die Europäische Union". Mayer schildert die Vorzüge der Europäischen Union in Bezug auf internationale Belange. So findet z.B. die Strafverfolgung bereits über die Staatsgrenzen hinweg statt. Gleichzeitig geht Mayer auch auf die Defizite der EU ein.</div>
+					  <div class="posterframe"><img scr="#" alt=""></div>
+				  </div>
+			  </li>
+			  <li class="panel panel-default row">
+			      <div class="panel-heading" role="tab" id="item6">
+				      <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content" href="#collapse6" aria-expanded="true" aria-controls"collapse6"><time datetime="2016-01-28 09:00">09:00</time><span>tango-tv</span></a></h4>
+				  </div>
+			      <div id="collapse6" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="item6">    
+					  <div class="description">¿demokratie? im Gespräch mit Heinz Mayer, Professor für Staats- und Verwaltungsrecht, sowie Dekan der Rechtswissenschaftlichen Fakultät der Universität Wien, zum Thema "Demokratie und die Europäische Union". Mayer schildert die Vorzüge der Europäischen Union in Bezug auf internationale Belange. So findet z.B. die Strafverfolgung bereits über die Staatsgrenzen hinweg statt. Gleichzeitig geht Mayer auch auf die Defizite der EU ein.</div>
+					  <div class="posterframe"><img scr="#" alt=""></div>
+				  </div>
+			  </li>
+		  </ul>
+		</section>
+		<section class="schedule">
+		  <header class="page-header">
+		      <div class="page-header-content">
+		          <div> </div>
+		          <div><h2>Nachtprogramm</h2></div>
+		          <div><button class="btn btn-default">ANZEIGEN</button></div>
+			  </div>
+		  </header>
+		  <ul class="panel-group" id="schedule-content" role="tablist" aria-multiselectable="true">
+		      <li class="panel panel-default row">
+			      <div class="panel-heading" role="tab" id="item7">
+					  <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content" href="#collapse7" aria-expanded="true" aria-controls"collapse7">
+					  <time datetime="2016-01-28 07:00">07:00</time><span>Democracy Now!</span></a></h4>
+				  </div>
+			      <div id="collapse7" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="item7"> 
+					  <div class="description">¿demokratie? im Gespräch mit Heinz Mayer, Professor für Staats- und Verwaltungsrecht, sowie Dekan der Rechtswissenschaftlichen Fakultät der Universität Wien, zum Thema "Demokratie und die Europäische Union". Mayer schildert die Vorzüge der Europäischen Union in Bezug auf internationale Belange. So findet z.B. die Strafverfolgung bereits über die Staatsgrenzen hinweg statt. Gleichzeitig geht Mayer auch auf die Defizite der EU ein.</div>
+					  <div class="posterframe"><img scr="#" alt=""></div>
+				  </div>
+			  </li>
+			  <li class="panel panel-default row">
+			      <div class="panel-heading" role="tab" id="item8">
+				      <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content" href="#collapse8" aria-expanded="true" aria-controls"collapse8"><time datetime="2016-01-28 08:00">08:00</time><span>Wie Geht Das?: Rausgebrannt</span></a></h4>
+				  </div>
+			      <div id="collapse8" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="item8"> 
+					  <div class="description">¿demokratie? im Gespräch mit Heinz Mayer, Professor für Staats- und Verwaltungsrecht, sowie Dekan der Rechtswissenschaftlichen Fakultät der Universität Wien, zum Thema "Demokratie und die Europäische Union". Mayer schildert die Vorzüge der Europäischen Union in Bezug auf internationale Belange. So findet z.B. die Strafverfolgung bereits über die Staatsgrenzen hinweg statt. Gleichzeitig geht Mayer auch auf die Defizite der EU ein.</div>
+					  <div class="posterframe"><img scr="#" alt=""></div>
+				  </div>
+			  </li>
+			  <li class="panel panel-default row">
+			      <div class="panel-heading" role="tab" id="item9">
+				      <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content" href="#collapse9" aria-expanded="true" aria-controls"collapse9"><time datetime="2016-01-28 09:00">09:00</time><span>tango-tv</span></a></h4>
+				  </div>
+			      <div id="collapse9" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="item9">    
+					  <div class="description">¿demokratie? im Gespräch mit Heinz Mayer, Professor für Staats- und Verwaltungsrecht, sowie Dekan der Rechtswissenschaftlichen Fakultät der Universität Wien, zum Thema "Demokratie und die Europäische Union". Mayer schildert die Vorzüge der Europäischen Union in Bezug auf internationale Belange. So findet z.B. die Strafverfolgung bereits über die Staatsgrenzen hinweg statt. Gleichzeitig geht Mayer auch auf die Defizite der EU ein.</div>
+					  <div class="posterframe"><img scr="#" alt=""></div>
+				  </div>
+			  </li>
+		  </ul>
+		</section>
+		<!-- Ende Programmübersicht -->
+		<!-- Anfang Programmtipps -->
+		<section>
+		    <h2>Demnächst auf Okto</h2>
+		</section>
+		<!-- Ende Programmtipps -->
+	</div>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
     <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            var playerInstance = jwplayer("player");
+            playerInstance.setup({
+                file: "http://d2jk87psbjrjdz.cloudfront.net/livehttporigin/okto/playlist.m3u8",
+                image: "{{ asset('bundles/app/images/player.jpg') }}"
+            });
 
-        var playerInstance = jwplayer("player");
-        playerInstance.setup({
-            file: "http://d2jk87psbjrjdz.cloudfront.net/livehttporigin/okto/playlist.m3u8",
-            image: "{{ asset('bundles/app/images/player.jpg') }}"
-        });
-
-        $.ajax({
-            type: "GET",
-            url: "http://localhost/DELORIAN/web/app_dev.php/delorian/api/program/{{ start|default('')|date('Y-m-d\\TH:i')}}/{{ end|default("today"|date('Y-m-d\\TH:i')|date_modify("+1 day"))|date('Y-m-d\\TH:i')}}",
-            dataType: 'json',
-            success: function (data){
-                console.log('loaded program');
-                var first = true;
-                var accordion = '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
-                for (show in data) {
-                    accordion = accordion +
-                    '<div class="panel panel-default"><div class="panel-heading" role="tab" id="heading'+show+'">' +
-                        '<h4 class="panel-title">' +
-                            '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#'+show+'" aria-expanded="';
-                            if (first) {
-                                accordion = accordion + 'true';
-                            } else {
-                                accordion = accordion + 'false';
-                            }
-                            accordion = accordion +'" aria-controls="'+show+'">' +
-                                data[show]['series_name'] +
-                            '</a>' +
-                        '</h4>' +
-                    '</div>' +
-                    '<div id="'+show+'" class="panel-collapse collapse';
-                    if (first) {
-                        accordion = accordion + ' in';
-                        first = false;
-                    }
-                    accordion = accordion + '" role="tabpanel" aria-labelledby="heading'+show+'">' +
-                        '<div class="panel-body">' +
-                            data[show]['description'] +
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/DELORIAN/web/app_dev.php/de/delorian/api/program/{{ start|default('')|date('Y-m-d\\TH:i')}}/{{ end|default("today"|date('Y-m-d\\TH:i')|date_modify("+1 day"))|date('Y-m-d\\TH:i')}}",
+                dataType: 'json',
+                success: function (data){
+                    console.log('loaded program');
+                    var first = true;
+                    var accordion = '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
+                    for (show in data) {
+                        accordion = accordion +
+                        '<div class="panel panel-default"><div class="panel-heading" role="tab" id="heading'+show+'">' +
+                            '<h4 class="panel-title">' +
+                                '<a role="button" data-toggle="collapse" data-parent="#accordion" href="#'+show+'" aria-expanded="';
+                                if (first) {
+                                    accordion = accordion + 'true';
+                                } else {
+                                    accordion = accordion + 'false';
+                                }
+                                accordion = accordion +'" aria-controls="'+show+'">' +
+                                    data[show]['series_name'] +
+                                '</a>' +
+                            '</h4>' +
                         '</div>' +
-                    '</div>' +
+                        '<div id="'+show+'" class="panel-collapse collapse';
+                        if (first) {
+                            accordion = accordion + ' in';
+                            first = false;
+                        }
+                        accordion = accordion + '" role="tabpanel" aria-labelledby="heading'+show+'">' +
+                            '<div class="panel-body">' +
+                                data[show]['description'] +
+                            '</div>' +
+                        '</div>' +
+                        '</div>';
+                    }
+                    accordion = accordion +
                     '</div>';
+                    $('.program').append(accordion);
                 }
-                accordion = accordion +
-                '</div>';
-                $('.program').append(accordion);
-            }
+                });
             });
     </script>
 

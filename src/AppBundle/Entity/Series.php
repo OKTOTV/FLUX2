@@ -9,7 +9,7 @@ use AppBundle\Entity\EpisodePin;
  * Series
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\SeriesRepository")
  */
 class Series extends BaseSeries
 {
@@ -24,7 +24,16 @@ class Series extends BaseSeries
     public function __construct() {
         parent::__construct();
         $this->episodes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Post")
+     * @ORM\JoinTable(name="series_posts",
+     *                  joinColumns={@ORM\JoinColumn(name="series_id", referencedColumnName="id")},
+     *                  inverseJoinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id", unique=true)})
+     */
+    private $posts;
 
     /**
      * Add episodes
@@ -35,6 +44,7 @@ class Series extends BaseSeries
     public function addEpisode(\Oktolab\MediaBundle\Entity\Episode $episodes)
     {
         $this->episodes[] = $episodes;
+        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
         return $this;
     }
 
@@ -62,5 +72,43 @@ class Series extends BaseSeries
     {
         $this->episodes = $episodes;
         return $this;
+    }
+
+    /**
+     * Add posts
+     *
+     * @param \AppBundle\Entity\Post $posts
+     * @return Series
+     */
+    public function addPost(\AppBundle\Entity\Post $posts)
+    {
+        $this->posts[] = $posts;
+
+        return $this;
+    }
+
+    /**
+     * Remove posts
+     *
+     * @param \AppBundle\Entity\Post $posts
+     */
+    public function removePost(\AppBundle\Entity\Post $posts)
+    {
+        $this->posts->removeElement($posts);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    public function setPosts($posts)
+    {
+        $this->posts = $posts;
     }
 }

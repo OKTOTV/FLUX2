@@ -4,6 +4,36 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    oktothek_post_service:
+        class: AppBundle\Model\PostService
+        arguments: [ @doctrine.orm.entity_manager, @bprs.asset_helper]
+
+    oktothek_playlist_service:
+        class:  AppBundle\Model\PlaylistService
+        arguments: [ @doctrine.orm.entity_manager ]
+
+
+    gedmo.listener.sluggable:
+        class: Gedmo\Sluggable\SluggableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+
+    oktothek_tag.type:
+        class: AppBundle\Form\TagType
+        arguments: [ @oktothek_tag.repository ]
+        tags:
+            - { name: form.type, alias: tag }
+
+    # Asset repository
+    oktothek_tag.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:  [ "AppBundle\Entity\Tag" ]
+
+    oktothek_search:
+        class: AppBundle\Model\SearchService
+        arguments: [ @fos_elastica.finder.app.episode, @fos_elastica.finder.app.series, @fos_elastica.finder.app.page, @fos_elastica.finder.app.post ]

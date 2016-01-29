@@ -45,7 +45,7 @@ class Playlist
      * @var string
      * @JMS\Expose
      * @JMS\Type("string")
-     * @ORM\Column(name="description", type="string", length=500)
+     * @ORM\Column(name="description", type="string", length=500, nullable=true)
      */
     private $description;
 
@@ -242,7 +242,7 @@ class Playlist
     public function addItem(\AppBundle\Entity\Playlistitem $items)
     {
         $this->items[] = $items;
-
+        $items->setPlaylist($this);
         return $this;
     }
 

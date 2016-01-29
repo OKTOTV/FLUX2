@@ -1,0 +1,7 @@
+{{ form_start(form)}}
+   {{ form_row(form.name)}}
+   {{ form_row(form.description)}}
+   {% include "BprsStyleBundle::datetimepicker.html.twig" with {'widget': form.onlineAt} %}
+   {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.assets, 'adapter': 'gallery', 'type': 'multiple'} %}
+   {% include "AppBundle::Tag/widget.html.twig" with {'widget': form.tags} %}
+{{ form_end(form)}}

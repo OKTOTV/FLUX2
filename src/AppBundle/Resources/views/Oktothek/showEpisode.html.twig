@@ -1,38 +1,118 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
+{% block metas %}
+<meta property="og:url" content="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID })}}" />
+<meta property="og:title" content="{{ episode.name }}" />
+<meta property="og:description" content="{{ episode.description }}" />
+<meta property="og:image" content="{{ episode.posterframe|path() }}" />
+{% endblock %}
+
+{% block title %}{{ name|default('OKTO')~' | '~ episode.name }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
+
+{% set body_class = "episode head-white-color" %}
 {% block body %}
+    <div id="top"></div>
+    <div class="container-fluid">
+        <section class="container">
+            <figure id="player">
+                {% if episode.video is empty %}
+                    <img src="{{ episode.posterframe|path }}" class="img-responsive" />
+                {% endif %}
+            </figure>
+			<article>
+                <p class="series">
+                    <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="Mehr über {{ episode.series.name }} erfahren">{{ episode.series.name }}</a>
+                </p>
+                <h1 class="name">{{ episode.name }}</h1>
+                <time pubdate="pubdate">online seit {{ episode.onlineStart|date('d.m.Y')}}</time>
+                <p class="description">
+                    {{ episode.description }}
+                </p>
+                <p class="misc">
+                    <a href="#" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video"><span class="glyphicon glyphicon-heart-empty"></span> {{ episode.users|length}}</a> <span class="views"><span class="icon-views"></span>0</span> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button> <button type="button" class="btn btn-default" title="e{{ episode.series.name }} abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="e{{ episode.series.name }} abbonieren">Abboniert</button>--> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
+                </p>
+				<!-- Start Collapse Share-->
+				<div class="collapse collapseShare" id="collapseShareArea">
+                    <div>
+                        <h3>Teilen</h3>
+						<div>
+						    <div class="btn-group sharingnav">
+						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button> <button type="button" class="btn btn-default" data-toggle="tab" id="share_embed">Einbetten</button>
+					        </div>
+						</div>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+						        <div>
+						        <ul class="socialnetworks">
+                                    {% set share_url = url('oktothek_show_episode', {'uniqID': episode.uniqID}) %}
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ episode.name|url_encode }}" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>
+                                    <!-- <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li> -->
+                                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                                    <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                                    <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                                </ul>
+                                <a href="mailto:?to=&subject={{ episode.name }}&body={{ share_url }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
+							    <!-- <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button> -->
+							</div>
+						    <form><input type="text" value="" class="form-control" id="sharingurl"></form>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="div_share_embed">
+						    <form><input type="text" value='<iframe width="420" height="315" src="{{ url('oktothek_embed_episode', {'uniqID': episode.uniqID})}}" frameborder="0" allowfullscreen></iframe>' class="form-control" id="embedurl"></form>
+						</div>
+						</div>
+                    </div>
+                </div>
+				<!-- End Modal Window Share-->
+				<!-- Start Modal Window Playlist-->
+                    {% include 'AppBundle:Oktothek:snippetPlaylist.html.twig' %}
+				<!-- End Modal Window Playlist-->
+			</article>
+        </section>
+		<!-- Kommentare -->
+		<div id="anchor_comments"></div>
+		<section class="comments body-white-color comment-pager">
+        {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
+		</section>
+        <!-- Ende Kommentare -->
+		<section class="container tags">
+		    <h2>{{ 'oktothek.episode_tag_header'|trans }}</h2>
+		    <ul>
+                {% for tag in episode.tags %}
+                    <li><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
+                {% endfor %}
+			</ul>
+		</section>
 
-    <div class="episode">
-        <div id="player">
-            {% if episode.video is empty %}
-                <img src="{{ episode.posterframe|path }}" class="img-responsive" />
-            {% endif %}
-        </div>
-        <div class="series">
-            <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}">{{ episode.series.name }}</a>
-        </div>
-        <div class="name">
-            {{ episode.name }}
-        </div>
-        <div class="date">
-            {{ episode.onlineStart|date('d.m.Y')}}
-        </div>
-        <div class="description">
-            {{ episode.description }}
-        </div>
-        <div class="misc">
-            <a href="#" id="favorite" data-uniqID="{{episode.uniqID}}"><span class="glyphicon glyphicon-heart-empty"></span> {{ episode.users|length}}</a>
+        <!-- Weitere Episoden der Serie Start -->
+		<div id="anchor_series"></div>
+		{{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': episode.series.uniqID})) }}
+        <!-- Weitere Episoden der Serie Ende -->
+	</div>
+	<!-- Start Anchor Menu -->
+    <div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="discoverMore">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
+                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </h4>
+            </div>
+            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
+                <ul class="list-group" aria-labelledby="AnkerMenu">
+		            <li class="list-group-item"><a href="#top">Top</a></li>
+                    <li class="list-group-item"><a href="#anchor_comments">Kommentare</a></li>
+                    <li class="list-group-item"><a href="#anchor_series">{{ 'oktothek.episode_tag_header'|trans }}</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <div class="more">
-        <h1>{{ 'oktothek_show_episode.more_from_this_series'|trans }}</h1>
-        {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': related} %}
-    </div>
-
+	<!-- End Anchor Menu -->
 {% endblock %}
 
 {% block javascripts %}
@@ -40,27 +120,104 @@
     <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
     {% if episode.video is not empty %}
         <script type="text/javascript">
-            var playerInstance = jwplayer("player");
-            playerInstance.setup({
-                file: "{{ episode.video|path }}",
-                image: "{{ episode.posterframe|path }}"
+            $(document).ready(function() {
+                var playerInstance = jwplayer("player");
+                playerInstance.setup({
+                    file: "{{ episode.video|path }}",
+                    image: "{{ episode.posterframe|path }}"
+                });
             });
         </script>
     {% endif %}
     <script type="text/javascript">
-        $('[data-toggle="tooltip"]').tooltip({'placement': 'auto top'});
         $('#favorite').click(function(e){
             e.preventDefault();
-            // console.log('clicked favorite');
             $.ajax({
                 url: "{{ path('backend_add_favourite') }}",
                 data: { 'uniqID': '{{ episode.uniqID }}', 'type': 'episode'},
                 type: 'POST',
                 success: function(data) {
-                    // console.log('success');
                     $(this)
                 }
             })
         });
+
+        $(document).on('click', '.playlist', function(e){
+            var playlist = $(this);
+            if (playlist.hasClass('active')) {
+                $.ajax({
+                    url: "{{ path('oktothek_playlist_ajax') }}", //TODO: make function, add url and action in backend
+                    data: {
+                        'uniqID': playlist.attr('data-uniqID'),
+                        'episodeID': "{{ episode.uniqID }}",
+                        'action': 'remove'
+                    },
+                    type: 'POST',
+                    success: function(data) {
+                        playlist.removeClass('active');
+                        playlist.text('+');
+                    }
+                });
+            } else {
+                $.ajax({
+                    url: "{{ path('oktothek_playlist_ajax') }}",
+                    data: {
+                        'uniqID': playlist.attr('data-uniqID'),
+                        'episodeID': "{{ episode.uniqID }}",
+                        'action': 'add'
+                    },
+                    type: 'POST',
+                    success: function(data) {
+                        playlist.addClass('active');
+                        playlist.text('-');
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', '.playlist-new', function(e){
+            var playlist = $(this).parents('.input-group').children('input');
+            var item = playlist.attr('data-prototype');
+            item = item.replace(/__name__/g, playlist.val());
+            $.ajax({
+                url: "{{ path('oktothek_playlist_new')}}",
+                data: {
+                    'name': playlist.val(),
+                    'uniqID': "{{ episode.uniqID }}"
+                },
+                type: 'POST',
+                success: function(data) {
+                    $('.playlists').append(item);
+                    playlist.val('');
+                }
+            })
+        });
+
+        // AJAX pagination
+        $( document ).on('click', '.pagination > li > a', function(e){
+            e.preventDefault();
+            var link = $(this);
+            $.ajax({
+                url: link.attr('href'),
+                context: document.body
+            }).success(function(data) {
+                $(link.parents('.comment-pager')).replaceWith(data);
+            });
+        });
+
+        $(document).on('change', '#episode-tag', function(){
+            var optionSelected = $("option:selected", this);
+            console.log(optionSelected);
+            console.log($(optionSelected).attr('data-slug'));
+            var slug = $(optionSelected).attr('data-slug');
+            $.ajax({
+                url: "{{ path('oktothek_series_episodes_with_tags_ajax', {'uniqID': episode.series.uniqID}) }}",
+                data: {'tag': slug},
+                type: 'POST',
+                success: function(data) {
+                    $('#episode-tag-stack').replaceWith('<div id="episode-tag-stack">'+data+'<div>');
+                }
+            })
+        })
     </script>
 {% endblock %}

@@ -1,0 +1,29 @@
+<section class="news">
+    <div id="anchor_news"></div>
+    <h2>{{ 'oktothek_news_pinned_header'|trans }}</h2>
+    <div class="row">
+    {% for post in posts %}
+        <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" title="{{ post.name }}">
+            <a href="{{ path('oktothek_show_news', {'slug': post.slug})}}" title="Mehr über ... lesen">
+                <div class="news-pin pin">
+                    <div>
+                            {% for asset in post.assets %}
+                                {% if asset|isImage() %}
+                                    <img src="{{ asset|thumb(200, 263) }}" />
+                                {% endif %}
+                            {% endfor %}
+                        <div>
+                            <h3>{{ post.name }}</h3>
+                            <p>{{ post.teaser|nl2br }}</p>
+                        </div>
+                   </div>
+                </div>
+            </a>
+        </article>
+    {% endfor %}
+    {% if posts is empty %}
+        {{ 'oktothek_news_no_pins'|trans }}
+    {% endif %}
+    </div>
+    <a href="{{ path('oktothek_news')}}" class="pull-right more" title="{{ 'oktothek.newest_news_show_more'|trans}}">{{ 'oktothek.newest_news_show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
+</section>

@@ -1,0 +1,18 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "search head-white-color" %}
+{% block body %}
+<div id="top"></div>
+<div class="container">
+    <h1>Ich bin die Seite mit den Suchergebnissen und bin noch nicht fertig</h1>
+    {% include 'AppBundle::Search/episode_results.html.twig' with {'episodes': episodes } %}
+    {# {{ include('AppBundle::Search/playlist_results.html.twig' with {'playlists': playlists }) }}#}
+    {% include 'AppBundle::Search/series_results.html.twig' with {'seriess': series } %}
+    {% include 'AppBundle::Search/page_results.html.twig' with {'pages': pages } %}
+    {% include 'AppBundle::Search/post_results.html.twig' with {'posts': posts } %}
+</div>
+{% endblock %}

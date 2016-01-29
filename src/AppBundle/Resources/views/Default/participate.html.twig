@@ -1,7 +1,13 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ name|default('OKTO')~' | '~ 'oktothek_participate_title'|trans }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'participate', 'dropdown': ''} %}
 {% endblock %}
+
+{% set body_class = "head-white-color" %}
 {% block body %}
+<div class="container">
+    <div id="top"></div>
+</div>
 {% endblock %}

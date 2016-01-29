@@ -16,7 +16,7 @@ class DefaultController extends Controller
     public function oktothekAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $episodes = $em->getRepository('AppBundle:Episode')->findBy(array(), array('createdAt' => 'ASC'), 4);
+        $episodes = $em->getRepository('AppBundle:Episode')->findNewestEpisodes(4);
         $newest_episodes = $em->getRepository('AppBundle:Episode')->findNewestEpisodes(4);
         $newest_playlists = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists(4);
 
@@ -41,15 +41,6 @@ class DefaultController extends Controller
      * @Template
      */
     public function participateAction()
-    {
-        return array();
-    }
-
-    /**
-     * @Route("/news", name="news")
-     * @Template
-     */
-    public function newsAction()
     {
         return array();
     }

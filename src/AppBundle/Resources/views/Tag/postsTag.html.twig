@@ -1,0 +1,3 @@
+{% for post in posts %}
+    {% include 'AppBundle::News/post.html.twig' with {'newsloop': loop.index }%}
+{% endfor %}

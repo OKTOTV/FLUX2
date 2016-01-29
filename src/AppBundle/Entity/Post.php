@@ -3,12 +3,14 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Post
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\PostRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
@@ -22,9 +24,15 @@ class Post
     private $id;
 
     /**
+     * @ORM\Column(length=32, unique=true)
+     * @Gedmo\Slug(fields={"name"}, updatable=false, separator="_")
+     */
+    private $slug;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=64)
      */
     private $name;
 
@@ -35,12 +43,22 @@ class Post
      */
     private $description;
 
+   /**
+    * @ORM\Column(name="teaser", type="string", length=230, nullable=true)
+    */
+    private $teaser;
+
     /**
      * @var boolean
      *
      * @ORM\Column(name="isActive", type="boolean")
      */
     private $isActive;
+
+    /**
+     * @ORM\Column(name="pinned", type="boolean", options={"default" = 0})
+     */
+    private $pinned;
 
     /**
      * @var \DateTime
@@ -63,6 +81,35 @@ class Post
      */
     private $onlineAt;
 
+    /**
+     * @ORM\Column(name="uniqID", type="string", length=13)
+     */
+    private $uniqID;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\JoinTable(name="post_tags",
+     *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+     *      )
+     */
+    private $tags;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Asset")
+     * @ORM\JoinTable(name="post_asset",
+     *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $assets;
+
+    public function __construct() {
+        $this->uniqID = uniqid();
+        $this->pinned = false;
+        $this->assets = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -144,19 +191,6 @@ class Post
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Post
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
      * Get createdAt
      *
      * @return \DateTime
@@ -164,19 +198,6 @@ class Post
     public function getCreatedAt()
     {
         return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     * @return Post
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
     }
 
     /**
@@ -210,5 +231,192 @@ class Post
     public function getOnlineAt()
     {
         return $this->onlineAt;
+    }
+
+    /**
+     * Add assets
+     *
+     * @param \AppBundle\Entity\Asset $assets
+     * @return Post
+     */
+    public function addAsset($asset)
+    {
+        $this->assets[] = $asset;
+
+        return $this;
+    }
+
+    /**
+     * Remove assets
+     *
+     * @param \AppBundle\Entity\Asset $assets
+     */
+    public function removeAsset($asset)
+    {
+        $this->assets->removeElement($asset);
+    }
+
+    public function setAssets($assets = null)
+    {
+        $this->assets = $assets;
+    }
+
+    /**
+     * Get assets
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAssets()
+    {
+        return $this->assets;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAt()
+    {
+        $this->createdAt = new \DateTime();
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAt()
+    {
+        $this->updatedAt = new \DateTime();
+        return $this;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Post
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Add tags
+     *
+     * @param \AppBundle\Entity\Tag $tags
+     * @return Post
+     */
+    public function addTag($tags)
+    {
+        $this->tags[] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Remove tags
+     *
+     * @param \AppBundle\Entity\Tag $tags
+     */
+    public function removeTag($tags)
+    {
+        $this->tags->removeElement($tags);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
+    /**
+     * Set uniqID
+     *
+     * @param string $uniqID
+     * @return Post
+     */
+    public function setUniqID($uniqID)
+    {
+        $this->uniqID = $uniqID;
+
+        return $this;
+    }
+
+    /**
+     * Get uniqID
+     *
+     * @return string
+     */
+    public function getUniqID()
+    {
+        return $this->uniqID;
+    }
+
+    /**
+     * Set pinned
+     *
+     * @param boolean $pinned
+     * @return Post
+     */
+    public function setPinned($pinned)
+    {
+        $this->pinned = $pinned;
+
+        return $this;
+    }
+
+    /**
+     * Get pinned
+     *
+     * @return boolean
+     */
+    public function getPinned()
+    {
+        return $this->pinned;
+    }
+
+    /**
+     * Set teaser
+     *
+     * @param string $teaser
+     * @return Post
+     */
+    public function setTeaser($teaser)
+    {
+        $this->teaser = $teaser;
+
+        return $this;
+    }
+
+    /**
+     * Get teaser
+     *
+     * @return string 
+     */
+    public function getTeaser()
+    {
+        return $this->teaser;
     }
 }

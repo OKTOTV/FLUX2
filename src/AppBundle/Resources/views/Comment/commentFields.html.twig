@@ -1,0 +1,15 @@
+{# {% block form_widget_text %}
+    {% set type = type|default('text') %}
+    {% set attr = attr|merge({'class': attr.class|default()~' form-control'}) %}
+    <div class="input-group">
+        <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}"{% endif %} />
+        <span class="input-group-btn"><button class="btn btn-default" type="button">Senden</button></span>
+    </div>
+{% endblock form_widget_text %}
+
+
+{%- block textarea_widget -%}
+    {% set attr = attr|merge({'class': attr.class|default()~' form-control'}) %}
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+{%- endblock textarea_widget -%}
+#}

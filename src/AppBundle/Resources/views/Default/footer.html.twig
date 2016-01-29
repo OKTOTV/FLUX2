@@ -1,0 +1,40 @@
+<!-- Start Top Button -->
+<div class="container">
+    <button class="btn btn-default btn-top">Top <span class="glyphicon glyphicon-chevron-up"></span></button>
+</div>
+<!-- End Top Button -->
+<footer class="footer">
+    <div class="container">
+        <nav>
+            {{ render(controller('AppBundle:Page:footer', {'slug': page.slug|default(app.request.get('_route'))})) }}
+        </nav>
+        <section class="networks row">
+            <div class="col-md-6 socialnetworks">
+                <ul>
+                    <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                    <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                    <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Newsletter Anmeldung</h3>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Email" aria-describedby="einfaches-addon2">
+                    <span class="input-group-addon" id="einfaches-addon2">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section class="partner">
+            <ul>
+                <li>Sponsor 1</li>
+                <li>Sponsor 2</li>
+                <li>Sponsor 3</li>
+            </ul>
+        </section>
+    </div>
+</footer>

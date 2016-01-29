@@ -3,31 +3,245 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
+
+{% set body_class = "series head-white-color head-transparent-bg fullscreen-images" %}
 {% block body %}
-
-    <div class="series">
+    <div id="top"></div>
+    <section class="series-content">
         <div class="series-ident">
-            <img src="{{ series.posterframe|path() }}" />
-        </div>
-        <div class="series-name">
-            {{ series.name }}
-        </div>
-        <div class="series-description">
-            {{ series.description }}
+            <figure class="episode-posterframe">
+                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><img src="{{ series.episodes[0].posterframe|path() }}" /></a>
+            </figure>
+			<div class="current-episode container">
+			    <div class="bg-opacity"></div>
+			    <div class="content-opacity">
+					<h2>{{ series.name }}<!--{{ series.episodes[0].name }}--></h2>
+					<h3>aktuelle Folge</h3>
+					<p class="description">{{ series.episodes[0].description }}</p>
+				</div>
+			</div>
+		</div>
+    </section>
+	<section class="container series-description">
+		<!-- Start Serienbeschreibung -->
+		<header><h1 id="button_down">Details zu {{ series.name }} <span class="glyphicon glyphicon-chevron-down"> </span></h1></header>
+		<article>
+				        <p class="description">{{ series.description }}</p>
+						<p class="misc">
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>-->
+                </p>
+				<!-- Start Collapse Share-->
+				<div class="collapse collapseShare" id="collapseShareArea">
+                    <div>
+                        <h3>Teilen</h3>
+						<div>
+						    <div class="btn-group sharingnav">
+						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button>
+					        </div>
+						</div>
+						<div class="tab-content">
+						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+						        <div>
+						        <ul class="socialnetworks">
+                                    <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                                    <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                                    <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                                </ul>
+							    <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button>
+							</div>
+						    <form><input type="text" value="" class="form-control" id="sharingurl"></form>
+						</div>
+						</div>
+                    </div>
+                </div>
+				<!-- End Collapse Share-->
+				    </article>
+				    <aside>
+				        <figure class="series-posterframe">
+                            <img src="{{ series.posterframe|path() }}" />
+                        </figure>
+				        <ul>
+				            <li><strong>Produzent:</strong> Osama Saadalah</li>
+					        <li><strong>Ressigeur:</strong> Osama Saadalah</li>
+					        <li><strong>Kontakt:</strong> ossa@gmx.at</li>
+				        </ul>
+				        <div class="socialnetworks">
+                            <ul>
+                                <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                                <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                            </ul>
+                        </div>
+				    </aside>
+		<!-- Ende Serienbeschreibung -->
+	</section>
+    {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
+	<section class="blog">
+	    <div id="anchor_blog"></div>
+	    <div class="container">
+	        <h2>Blog</h2>
+            {% include 'AppBundle::Default/Series/blog.html.twig' with {'posts': series.posts, 'uniqID': series.uniqID } %}
+	    </div>
+	</section>
+	<section class="container series-playlists">
+	    <div id="anchor_playlists"></div>
+	    <h2>Playlisten</h2>
+		<!-- Ab hier Dummyplaylist -->
+		       <div class="row">
+                   <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="Die erste Playlist. Derzeit ohne Möglichkeit, Folgen direkt im Browser zu kreieren">
+                       <a href="/FLUX2/web/app_dev.php/de/oktothek/playlist/5616385102b6e" title="... ansehen">
+                            <figure class="playlist-pin pin">
+                                <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
+			                    <figcaption><h3>Playlist 1</h3></figcaption>
+                            </figure>
+                        </a>
+                    </article>
+                    <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="">
+                        <a href="/FLUX2/web/app_dev.php/de/oktothek/playlist/56a1fc57e99ba" title="... ansehen">
+                            <figure class="playlist-pin pin">
+                                <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
+			                    <figcaption><h3>Computerfilme</h3></figcaption>
+                            </figure>
+                        </a>
+                    </article>
+					<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="Die erste Playlist. Derzeit ohne Möglichkeit, Folgen direkt im Browser zu kreieren">
+                       <a href="/FLUX2/web/app_dev.php/de/oktothek/playlist/5616385102b6e" title="... ansehen">
+                            <figure class="playlist-pin pin">
+                                <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
+			                    <figcaption><h3>Playlist 1</h3></figcaption>
+                            </figure>
+                        </a>
+                    </article>
+                    <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="">
+                        <a href="/FLUX2/web/app_dev.php/de/oktothek/playlist/56a1fc57e99ba" title="... ansehen">
+                            <figure class="playlist-pin pin">
+                                <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
+			                    <figcaption><h3>Computerfilme</h3></figcaption>
+                            </figure>
+                        </a>
+                    </article>
+                </div>
+	    <!-- Bis hier Dummyplaylist -->
+	</section>
+	<!-- Start Anchor Menu -->
+    <div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="discoverMore">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
+                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                </h4>
+            </div>
+            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
+                <ul class="list-group" aria-labelledby="AnkerMenu">
+		            <li class="list-group-item"><a href="#top">Top</a></li>
+                    <li class="list-group-item"><a href="#anchor_blog">Blog</a></li>
+                    <li class="list-group-item"><a href="#anchor_playlists">Playlisten</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="more">
-        <h1>{{ 'oktothek_show_series.more_from_this_series'|trans }}</h1>
-        {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': series.episodes} %}
-    </div>
-
+	<!-- End Anchor Menu -->
 {% endblock %}
 
 {% block javascripts %}
-{{ parent() }}
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip({'placement': 'auto top'});
-    });
-</script>
+    {{ parent() }}
+    <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
+    {% include "BprsStyleBundle::datetimepicker.js.twig" %}
+    <script type="text/javascript">
+        $(document).ready( function(){
+            $('#appbundle_post_onlineAt_picker').datetimepicker({
+                locale: 'de',
+                // format: "DD.MM.YYYY hh:mm",
+                useCurrent: true,
+                calendarWeeks: true,
+                allowInputToggle: true,
+                showTodayButton: true
+            });
+
+            $(".character500").characterCounter({
+                counterCssClass: 'help-block',
+                limit: 400
+            });
+
+            // tags
+            var addInput = function(list, text) {
+                var tag = "<span class='label label-default remove'>"+text+"</span>";
+                tag = $(tag);
+                prototype = list.attr('data-prototype');
+                var length = list.find(':input').length;
+                prototype = prototype.replace(/__name__/g, length);
+                prototype = $(prototype);
+                prototype.attr({value: text, type: 'hidden'});
+                tag.append(prototype);
+                list.append(tag);
+            };
+
+            var tags = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch:   $('.tag-input').attr('data-url')
+            });
+
+            $('.tag-input').typeahead(null, {
+                name: 'tags',
+                source: tags
+            }).bind('typeahead:select', function(ev, suggestion) {
+                // console.log('Selection: ' + suggestion);
+                var list = $(this).parents('.form-group').children('.tags');
+                addInput(list, suggestion);
+            });
+
+            $('.tag-input').keydown(function(e){
+                if(e.keyCode == 13) {
+                    e.preventDefault();
+                    var list = $(this).parents('.form-group').children('.tags');
+                    var text = $(this).val();
+                    $.ajax({
+                        url: $(this).attr('data-url'),
+                        data: {
+                            'action': "add",
+                            'text':   text,
+                        },
+                        type: 'POST',
+                        success: function(data) {
+                            addInput(list, text);
+                            $(this).val('');
+                        }
+                    });
+                }
+            });
+            // end tags
+        });
+        $(document).on('click', '.remove', function(e){
+            $(this).remove();
+        });
+
+        $(document).on('change', '#episode-tag', function(){
+            var optionSelected = $("option:selected", this);
+            console.log(optionSelected);
+            console.log($(optionSelected).attr('data-slug'));
+            var slug = $(optionSelected).attr('data-slug');
+            $.ajax({
+                url: "{{ path('oktothek_series_episodes_with_tags_ajax', {'uniqID': series.uniqID}) }}",
+                data: {'tag': slug},
+                type: 'POST',
+                success: function(data) {
+                    $('#episode-tag-stack').replaceWith('<div id="episode-tag-stack">'+data+'<div>');
+                }
+            })
+        })
+    </script>
+    {% include "BprsAssetBundle::singleUpload.js.twig" %}
+    <script src="{{ asset('bundles/bprsstyle/js/charactercounter.js')}}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/bprsstyle/css/datetimepicker.min.css') }}" rel="stylesheet" />
+    {% include "BprsAssetBundle::singleUpload.css.twig" %}
+
 {% endblock %}

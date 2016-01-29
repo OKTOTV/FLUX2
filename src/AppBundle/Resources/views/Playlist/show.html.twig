@@ -1,0 +1,33 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "head-white-color" %}
+{% block body %}
+    <div class="page-header">
+        <h1>{{ playlist.name }}</h1>
+    </div>
+
+    <figure id="player"></figure>
+
+    <div class="row">
+    {% for playlistItem in playlist.items %}
+        {% include 'AppBundle::Default/EpisodeThumb.html.twig' with {'episode': playlistItem.episode } %}
+    {% endfor %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
+<script>
+    $(document).ready(function(){
+        var playerInstance = jwplayer("player");
+        playerInstance.setup({
+            playlist: [{% for playlistItem in playlist.items %}{ image:"{{ playlistItem.episode.posterframe|path }}", file: "{{ playlistItem.episode.video|path }}" }{% if not loop.last%},{% endif %}{% endfor %}]
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,19 @@
+<div class="search-tagnav-container">
+    <div class="search-tagnav-position">
+        {{ form_start(searchform, {'attr': {'class': 'navbar-form', 'role': 'search'}})}}
+            <div class="form-group searchfield">
+                {{ form_row(searchform.submit, {'attr': {'class': 'btn'}}) }}
+                <div class="searchfield-container">
+                {{ form_widget(searchform.search) }}
+                </div>
+            </div>
+            <div class="dropdown" role="navigation">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuTags" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Themen <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="Tagsnavigation">
+                    {{ render(controller('AppBundle:Tag:menuTags')) }}
+                </ul>
+            </div>
+        {{ form_end(searchform) }}
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "head-white-color" %}
+{% block body_main %}
+        <div class="page-header">
+            <h1>{{ 'oktothek.playlist_index_header'|trans }}</h1>
+            <p>{{ 'oktothek.playlist_index_description'|trans({'%count%': pagination.getTotalItemCount}) }}</p>
+            <div class="dropdown pull-left">
+              <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{ 'oktothek.playlist_index_filter'|trans|raw }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                <li {% if pagination.isSorted('p.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(pagination, 'oktothek.playlist_index_filter_name'|trans, 'p.name') }}</li>
+                <li {% if pagination.isSorted('p.createdAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(pagination, 'oktothek.playlist_index_filter_createdAt'|trans, 'p.createdAt') }}</li>
+                <li {% if pagination.isSorted('p.updatedAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(pagination, 'oktothek.playlist_index_filter_updatedAt'|trans, 'p.updatedAt') }}</li>
+              </ul>
+            </div>
+            <a href="{{ path('oktothek_playlist_new') }}" class="btn btn-default">{{ 'oktothek.playlist_index_new_playlist'|trans|raw }}</a>
+        </div>
+
+
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        <div class="row">
+        {% for playlist in pagination %}
+            {% include 'AppBundle:Default:Playlist/PlaylistThumb.html.twig' %}P
+        {% endfor %}
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+{% endblock %}
