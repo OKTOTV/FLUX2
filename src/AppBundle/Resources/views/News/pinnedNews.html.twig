@@ -7,16 +7,14 @@
             <a href="{{ path('oktothek_show_news', {'slug': post.slug})}}" title="Mehr über ... lesen">
                 <div class="news-pin pin">
                     <div>
-                        <div class="dummybox">
                             {% for asset in post.assets %}
                                 {% if asset|isImage() %}
-                                    <img src="{{ asset|path() }}" />
+                                    <img src="{{ asset|thumb(200, 263) }}" />
                                 {% endif %}
                             {% endfor %}
-                        </div>
                         <div>
                             <h3>{{ post.name }}</h3>
-                            <p>{{ post.description|markdown() }}</p>
+                            <p>{{ post.teaser|nl2br }}</p>
                         </div>
                    </div>
                 </div>

@@ -1,6 +1,7 @@
 <article>
     <header class="page-header">
         <h2>{{ post.name }}</h2>
+        <p><a href="{{ path('oktothek_edit_news', {'post': post.id}) }}" class="btn btn-default">{{ 'oktothek_post_edit_button'|trans }}</a></p>
     </header>
     {{ post.description|markdown() }}
     {% if post.assets is empty %} {# no assets#}

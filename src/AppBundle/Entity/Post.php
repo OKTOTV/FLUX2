@@ -43,6 +43,11 @@ class Post
      */
     private $description;
 
+   /**
+    * @ORM\Column(name="teaser", type="string", length=230, nullable=true)
+    */
+    private $teaser;
+
     /**
      * @var boolean
      *
@@ -390,5 +395,28 @@ class Post
     public function getPinned()
     {
         return $this->pinned;
+    }
+
+    /**
+     * Set teaser
+     *
+     * @param string $teaser
+     * @return Post
+     */
+    public function setTeaser($teaser)
+    {
+        $this->teaser = $teaser;
+
+        return $this;
+    }
+
+    /**
+     * Get teaser
+     *
+     * @return string 
+     */
+    public function getTeaser()
+    {
+        return $this->teaser;
     }
 }
