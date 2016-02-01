@@ -711,6 +711,13 @@ section.container, .container-fluid header, .oktothek {
 .more { /* Weiter Link */
 	margin-top:20px;
 }
+article.pin:nth-child(3) {
+	    clear:none;
+}
+article.pin figure {
+	width:260px;
+	margin:0 auto;
+}
 
 /* Oktothek */
 .oktothek article {
@@ -1058,6 +1065,9 @@ section.container, .container-fluid header, .oktothek {
 }
 
 @media (min-width: 768px) {
+	article.pin:nth-child(3) {
+	    clear:left;
+    }
 	.series div.current-episode {
 		left:50%;
         margin-left:-375px;
@@ -1074,6 +1084,9 @@ section.container, .container-fluid header, .oktothek {
 	.series div.current-episode {
         margin-left:-485px;
 	}
+	article.pin:nth-child(3) {
+	    clear:none;
+    }
 }
 @media (min-width: 1200px) {
 .series div.current-episode {
@@ -1141,6 +1154,10 @@ section.container, .container-fluid header, .oktothek {
 	width:180px;
 	line-height:30px;
 	vertical-align:middle;
+}
+.btn-top {
+	display:block;
+	margin:0 auto;
 }
 #anchor-menu .panel-heading .glyphicon, .btn-top .glyphicon {
 	margin-left:20px;
