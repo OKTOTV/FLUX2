@@ -15,6 +15,10 @@
             	<a href="{{ path('oktothek_academy') }}">{{ 'oktothek.menu_academy'|trans }}</a>
         	</li>
     	</ul>
+		<ul class="nav navbar-nav visible-xs-block">
+            <li><h3>Beliebteste Themen</h3></li>
+		    {{ render(controller('AppBundle:Tag:menuTags')) }}
+	    </ul>
         {# example for an login area #}
         <ul class="nav navbar-nav navbar-right">
         	<li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank">HOCHLADEN</a></li>
@@ -33,10 +37,6 @@
             	<li {% if selected == "login" %}class="active"{% endif %}><a href="{{ path('bprs_user_login') }}"> {{ 'bprs_user.button.login'|trans }}</a></li>
         	{% endif %}
         	</ul>
-			{{ render(controller('AppBundle:Search:search'))}}
-			<ul class="nav navbar-nav visible-xs-block">
-                <li><h3>Beliebteste Themen</h3></li>
-				{{ render(controller('AppBundle:Tag:menuTags')) }}
-			</ul>
 		</div>
+        {{ render(controller('AppBundle:Search:search'))}}   
 {% endblock %}
