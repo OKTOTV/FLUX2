@@ -75,6 +75,7 @@ doctrine:
         auto_mapping: true
         resolve_target_entities:
             Bprs\AssetBundle\Entity\AssetInterface: AppBundle\Entity\Asset
+            Oktolab\MediaBundle\Entity\EpisodeInterface: AppBundle\Entity\Episode
         # mappings:
         #     sluggable:
         #         type: annotation
@@ -119,6 +120,7 @@ bprs_command_line:
 
 bprs_asset:
     class:  "AppBundle\Entity\Asset"
+    filesystem_map: knp_gaufrette.filesystem_map
     adapters:
         gallery:
             url:  "http://localhost/FLUX2/web/uploads/posterframes"

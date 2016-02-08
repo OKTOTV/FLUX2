@@ -30,3 +30,8 @@ bprs_asset:
     requirements:
         _locale:  de|en
     defaults: { _locale: de }
+
+bprs_applink:
+    resource: "@BprsAppLinkBundle/Controller/"
+    type:     annotation
+    prefix:   /

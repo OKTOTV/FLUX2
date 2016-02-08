@@ -37,7 +37,7 @@ security:
                 login_path: bprs_user_login
                 check_path: bprs_user_login_check
                 default_target_path: homepage
-                csrf_provider: form.csrf_provider
+                csrf_provider: security.csrf.token_manager #form.csrf_provider
                 default_target_path: /de
             logout:
                 path: bprs_user_logout
