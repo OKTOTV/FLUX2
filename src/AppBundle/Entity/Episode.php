@@ -14,6 +14,12 @@ use AppBundle\Entity\EpisodePin;
 class Episode extends BaseEpisode
 {
     /**
+     *
+     * @ORM\OneToMany(targetEntity="Oktolab\MediaBundle\Entity\Media", mappedBy="episode")
+     */
+    private $media;
+
+    /**
     * @ORM\ManyToOne(targetEntity="Series", inversedBy="episodes", cascade={"persist"})
     */
     private $series;
@@ -142,5 +148,43 @@ class Episode extends BaseEpisode
             return parent::getPosterframe();
         }
         return $this->series->getPosterframe();
+    }
+    
+    /**
+     * Add media
+     *
+     * @param \Oktolab\MediaBundle\Entity\Media $media
+     * @return Episode
+     */
+    public function addMedia($media)
+    {
+        $this->media[] = $media;
+        $media->setEpisode($this);
+        return $this;
+    }
+
+    public function setMedia($media)
+    {
+        $this->media = $media;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param \Oktolab\MediaBundle\Entity\Media $media
+     */
+    public function removeMedia($media)
+    {
+        $this->media->removeElement($media);
+    }
+
+    /**
+     * Get media
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMedia()
+    {
+        return $this->media;
     }
 }

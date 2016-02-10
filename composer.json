@@ -26,6 +26,7 @@
         "bprs/style-bundle": "^1.1",
         "bprs/user-bundle": "^2.0",
         "bprs/asset-bundle": "^2.0",
+        "oneup/flysystem-bundle": "@stable",
         "knplabs/knp-markdown-bundle": "^1.4@dev",
         "gedmo/doctrine-extensions": "^2.4@dev",
         "friendsofsymfony/elastica-bundle": "^3.1"

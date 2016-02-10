@@ -125,7 +125,8 @@
             $(document).ready(function() {
                 var playerInstance = jwplayer("player");
                 playerInstance.setup({
-                    file: "{{ episode.video|path }}",
+                    sources: [{% for media in episode.media %}{file: "{{ media.asset|path }}", label: "{{ media.quality }}", type: "mp4"}{% if not loop.last %},{% endif %}{% endfor %}],
+                    {# file: "{{ episode.video|path }}", #}
                     image: "{{ episode.posterframe|path }}"
                 });
             });

@@ -64,25 +64,6 @@ class EpisodeController extends BaseController
     // }
 
     /**
-     * Creates a form to create a Episode entity.
-     *
-     * @param Episode $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    // private function createCreateForm(Episode $entity)
-    // {
-    //     $form = $this->createForm(new EpisodeType(), $entity, array(
-    //         'action' => $this->generateUrl('episode_create'),
-    //         'method' => 'POST',
-    //     ));
-    //
-    //     $form->add('submit', 'submit', array('label' => 'Create'));
-    //
-    //     return $form;
-    // }
-
-    /**
      * Displays a form to create a new Episode entity.
      *
      * @Route("/new", name="episode_new")
@@ -164,24 +145,6 @@ class EpisodeController extends BaseController
     }
 
     /**
-    * Creates a form to edit a Episode entity.
-    *
-    * @param Episode $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    // private function createEditForm(Episode $entity)
-    // {
-    //     $form = $this->createForm(new EpisodeType(), $entity, array(
-    //         'action' => $this->generateUrl('episode_update', array('id' => $entity->getId())),
-    //         'method' => 'PUT',
-    //     ));
-    //
-    //     $form->add('submit', 'submit', array('label' => 'Update'));
-    //
-    //     return $form;
-    // }
-    /**
      * Edits an existing Episode entity.
      *
      * @Route("/{id}", name="episode_update")
@@ -238,22 +201,5 @@ class EpisodeController extends BaseController
     //     }
     //
     //     return $this->redirect($this->generateUrl('episode'));
-    // }
-
-    /**
-     * Creates a form to delete a Episode entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    // private function createDeleteForm($id)
-    // {
-    //     return $this->createFormBuilder()
-    //         ->setAction($this->generateUrl('episode_delete', array('id' => $id)))
-    //         ->setMethod('DELETE')
-    //         ->add('submit', 'submit', array('label' => 'Delete'))
-    //         ->getForm()
-    //     ;
     // }
 }
