@@ -13,7 +13,9 @@
                 <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><img src="{{ series.episodes[0].posterframe|path() }}" /></a>
             </figure>
 			<div class="current-episode container">
-			    <div class="bg-opacity"></div>
+			    <div class="container-bg-opacity">
+			        <div class="bg-opacity"></div>
+				</div>
 			    <div class="content-opacity">
 					<h2>{{ series.name }}<!--{{ series.episodes[0].name }}--></h2>
 					<h3>aktuelle Folge</h3>
@@ -26,15 +28,26 @@
 		<!-- Start Serienbeschreibung -->
 		<header><h1 id="button_down">Details zu {{ series.name }} <span class="glyphicon glyphicon-chevron-down"> </span></h1></header>
 		<article>
-				        <p class="description">{{ series.description }}</p>
-						<p class="misc">
-                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>-->
-                </p>
-				<!-- Start Collapse Share-->
-				<div class="collapse collapseShare" id="collapseShareArea">
-                    <div>
-                        <h3>Teilen</h3>
-						<div>
+		    <p class="description">{{ series.description }}</p>
+			<ul>
+			    <li><strong>Produzent:</strong> Osama Saadalah</li>
+				<li><strong>Ressigeur:</strong> Osama Saadalah</li>
+				<li><strong>Kontakt:</strong> ossa@gmx.at</li>
+		    </ul>
+		    <div class="socialnetworks">
+                <ul>
+                    <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                    <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                </ul>
+             </div>
+			<p class="misc">
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="... abbonieren">Abboniert</button>-->
+            </p>
+			<!-- Start Collapse Share-->
+			<div class="collapse collapseShare" id="collapseShareArea">
+                <div>
+                    <h3>Teilen</h3>
+					<div>
 						    <div class="btn-group sharingnav">
 						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button>
 					        </div>
@@ -63,17 +76,6 @@
 				        <figure class="series-posterframe">
                             <img src="{{ series.posterframe|path() }}" />
                         </figure>
-				        <ul>
-				            <li><strong>Produzent:</strong> Osama Saadalah</li>
-					        <li><strong>Ressigeur:</strong> Osama Saadalah</li>
-					        <li><strong>Kontakt:</strong> ossa@gmx.at</li>
-				        </ul>
-				        <div class="socialnetworks">
-                            <ul>
-                                <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
-                                <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                            </ul>
-                        </div>
 				    </aside>
 		<!-- Ende Serienbeschreibung -->
 	</section>

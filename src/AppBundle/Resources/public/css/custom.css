@@ -34,7 +34,7 @@ header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a
 
 /* Basic Color */
 /* Menu*/
-header input.form-control, #dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover {
+header input.form-control, #dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover, .navbar-inverse .navbar-nav > li > a, header .collapse.in a, .navbar-inverse .navbar-nav > li > a {
     color: #ffffff;
 }
 
@@ -48,7 +48,7 @@ header .form-control:-ms-input-placeholder {
 header .form-control::-webkit-input-placeholder {
   color: #ffffff;
 }
-.navbar-inverse .navbar-nav > li > a, header .collapse.in a, header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
 	color: #333333;
 }
 
@@ -62,11 +62,14 @@ header .form-control::-webkit-input-placeholder {
 header .searchfield {
 	background-color:#757575;
 }
-.navbar-inverse, header .navbar-toggle, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse {
+.navbar-inverse, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse {
 	background-color:#000000;
 }
 header .navbar-inverse .navbar-toggle .icon-bar, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
 	background-color:#333333;
+}
+header .navbar-toggle {
+	background-color:#ffffff;
 }
 
 /* Border */
@@ -329,6 +332,7 @@ button .btn-default.active, .oktothek article a.btn-default {
 }
 .collapseShare, .collapsePlaylist {
     border-top: dashed gray 2px;
+	border-bottom: dashed gray 2px;
 }
 
 .bg-opacity {
@@ -456,10 +460,10 @@ html, body {
 .episode .series a {
 	text-decoration:underline;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul {
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul {
 	list-style:none;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description aside ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul {
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul {
 	margin-left:0;
 	padding-left:0;
 }
@@ -566,9 +570,9 @@ header .search-tagnav-position  {
 header .search-tagnav-position .navbar-form {
 	margin-top:-1px;
 }
-header .search-tagnav-container .dropdown {
+/*header .search-tagnav-container .dropdown {
 	display:none;
-}
+}*/
 header .searchfield {
 	margin-left:75px;
 	margin-right:105px;
@@ -606,6 +610,7 @@ header .dropdown-menu li a {
 	}
 	header .navbar-content {
 		margin-top:0;
+		margin-left:110px;
 	}
 	header .navbar-collapse {
 		height:90px;
@@ -634,7 +639,7 @@ header .dropdown-menu li a {
 		display:none;
 	}*/
 	header .search-tagnav-container .dropdown {
-		display:block;
+		/*display:block;*/
 		margin-left:386px;
 	}
 	header .navbar-collapse .navbar-nav {
@@ -645,6 +650,9 @@ header .dropdown-menu li a {
 	}
 	header .search-tagnav-container {
 		top:86px;
+		width:auto;
+		left:50%;
+		margin-left:-223px;
 	}
 	header .search-tagnav-position  {
 		width:526px;
@@ -711,6 +719,16 @@ section.container, .container-fluid header, .oktothek {
 .more { /* Weiter Link */
 	margin-top:20px;
 }
+article.pin:nth-child(2n+1) {
+	    clear:none;
+}
+article.pin figure {
+	width:260px;
+	margin:0 auto;
+}
+article.pin {
+	margin-bottom:20px;
+}
 
 /* Oktothek */
 .oktothek article {
@@ -770,7 +788,8 @@ section.container, .container-fluid header, .oktothek {
 
 /* Sharing und Playlistfenster*/
 .collapseShare, .collapsePlaylist {
-	margin-top:40px;
+	margin:40px 0;
+	padding:20px 0;
 }
 #collapseShare input.form-control, .collapsePlaylist input.form-control {
 	width:600px;
@@ -824,7 +843,7 @@ section.container, .container-fluid header, .oktothek {
 .series .series-content, .series .series-ident, .content-opacity {
 	position:relative;
 }
-.series div.current-episode, .series .play-episode, .bg-opacity {
+.series div.current-episode, .series .play-episode, .container-bg-opacity {
 	position:absolute;
 }
 .series section.series-content {
@@ -834,9 +853,13 @@ section.container, .container-fluid header, .oktothek {
 	bottom:80px;
 	overflow:hidden;
 }
-.bg-opacity {
+.container-bg-opacity {
 	z-index:0;
 	width:100%;
+	height:100%;
+}
+.bg-opacity {
+	margin-right:15px;
 	height:100%;
 }
 .content-opacity {
@@ -851,7 +874,10 @@ section.container, .container-fluid header, .oktothek {
 	max-width:250px;
 	height:auto;
 }
-.series .series-description aside ul {
+.series .series-description .misc {
+	margin-top:40px;
+}
+.series .series-description ul {
 	margin-top:10px;
 }
 .series .series-description .socialnetworks li {
@@ -1058,6 +1084,12 @@ section.container, .container-fluid header, .oktothek {
 }
 
 @media (min-width: 768px) {
+	article.pin:nth-child(2n+1) {
+	    clear:left;
+    }
+	article.pin {
+		margin-bottom:0px;
+	}
 	.series div.current-episode {
 		left:50%;
         margin-left:-375px;
@@ -1074,6 +1106,9 @@ section.container, .container-fluid header, .oktothek {
 	.series div.current-episode {
         margin-left:-485px;
 	}
+	article.pin:nth-child(2n+1) {
+	    clear:none;
+    }
 }
 @media (min-width: 1200px) {
 .series div.current-episode {
@@ -1141,6 +1176,10 @@ section.container, .container-fluid header, .oktothek {
 	width:180px;
 	line-height:30px;
 	vertical-align:middle;
+}
+.btn-top {
+	display:block;
+	margin:0 auto;
 }
 #anchor-menu .panel-heading .glyphicon, .btn-top .glyphicon {
 	margin-left:20px;

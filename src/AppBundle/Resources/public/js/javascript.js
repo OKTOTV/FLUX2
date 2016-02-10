@@ -145,6 +145,16 @@ $(document).ready(function(){
 	});
 
 	//Sharing Tabs:
+	
+	$('#ButtonShare').click(function() {
+	    $('article .collapse').collapse('hide');
+		$('#collapseShareArea .collapse').collapse();
+	});
+	$('#ButtonPlaylist').click(function() {
+	    $('article .collapse').collapse('hide');
+		$('#collapsePlaylistArea .collapse').collapse();
+	});
+	 
 	$('#collapseShareArea .sharingnav button').click(function (e) {
         //e.preventDefault();
 		$('#collapseShareArea .tab-content div').removeClass('active');

@@ -7,7 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-// use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * Search controller.
@@ -26,8 +27,8 @@ class SearchController extends Controller
         $data = ['search' => ''];
         $form = $this->createFormBuilder($data)
             ->setAction($this->generateUrl('oktothek_search'))
-            ->add('search', 'text'/*TextType::class*/)
-            ->add('submit', 'submit', ['label' => " "])
+            ->add('search', TextType::class)
+            ->add('submit', SubmitType::class, ['label' => " "])
             ->getForm();
 
         if ($request->getMethod() == "POST") {
