@@ -26,10 +26,6 @@ bprs_user:
 bprs_asset:
     resource: .
     type: bprs_asset
-    prefix:   /{_locale}
-    requirements:
-        _locale:  de|en
-    defaults: { _locale: de }
 
 bprs_applink:
     resource: "@BprsAppLinkBundle/Controller/"
