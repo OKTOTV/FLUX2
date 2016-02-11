@@ -172,13 +172,6 @@ $(document).ready(function(){
 		$(this).addClass('active');
     })
 
-	/* Oktothek: */
-	if (
-	    $('body').hasClass('oktothek') ||
-		$('body').hasClass('episode') ||
-	    $('body').hasClass('series')) {
-	    $('[data-toggle="tooltip"]').tooltip({'placement': 'auto right'});
-	}
 
     $(window).on("resize orientationchange", function(){
         if ($('.series figure.episode-posterframe img').length > 0)
@@ -188,8 +181,18 @@ $(document).ready(function(){
 	/*Sharebuttons*/
 	$('#sharingurl').val(window.location.href);
 
-	/*Ankermenü*/
+	
 	if ($( window ).width() >= 768) {
+		
+		/* Tooltips: */
+	    if (
+	        $('body').hasClass('oktothek') ||
+		    $('body').hasClass('episode') ||
+	        $('body').hasClass('series')) {
+	        $('[data-toggle="tooltip"]').tooltip({'placement': 'auto right'});
+	    }
+		
+		/*Ankermenü*/
 	    var Ts_offset = 250;
         var Ts_duration = 300;
 		var Footer_target = $('#anchor-menu li:last a').attr('href');

@@ -722,9 +722,19 @@ section.container, .container-fluid header, .oktothek {
 article.pin:nth-child(2n+1) {
 	    clear:none;
 }
-article.pin figure {
+/*article.pin figure {
 	width:260px;
 	margin:0 auto;
+}*/
+article.pin figure {
+	width:100%;
+}
+figure.pin img {
+	float:left;
+	width:50%;
+}
+article.pin:nth-child(2n) figure img {
+	float:right;
 }
 article.pin {
 	margin-bottom:20px;
@@ -1090,6 +1100,11 @@ article.pin {
 	article.pin {
 		margin-bottom:0px;
 	}
+	figure.pin img, .programm .schedule img {
+	    width:260px;
+	    float:none;
+		height:auto;
+	}
 	.series div.current-episode {
 		left:50%;
         margin-left:-375px;
@@ -1231,10 +1246,7 @@ article.pin {
 	padding:20px;
 	color:#ffffff;
 }
-figure.pin img, .programm .schedule img {
-	width:260px;
-	height:auto;
-}
+
 .tagpage .first-pin figure.pin img {
 	width:540px;
 	height:auto;
