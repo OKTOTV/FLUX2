@@ -65,6 +65,12 @@ $(document).ready(function(){
 			el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
         }
 	}
+	
+	function resizeImageMobile(el, container, _ratio) {
+		var Winwidth = $( window ).width();
+		$(container).find('figure').parent('div').css('height','auto');
+		el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
+	}
 
 	 /*Alle Bilder auf gleiche Höhe bringen (nach der kleinsten Höhe)*/
 	function carouselNormalization(container) {
@@ -88,15 +94,19 @@ $(document).ready(function(){
 				var i=0;
                 items.each(function() {
 					//Bildgröße berechnen lassen:
-                    resizeImage($(this).find('img'), container, width[i]);
+					if ($( window ).width() >= 768) {
+                        resizeImage($(this).find('img'), container, width[i]);
+					} else {
+						resizeImageMobile($(this).find('img'), container, width[i]);
+					}
 					i++;
                 });
             };
             normalizeHeights();
 
             $(window).on('resize orientationchange', function () {
-                Winheight = 0, Winwidth = 0; //reset vars
-                normalizeHeights(); //run it again
+				Winheight = 0, Winwidth = 0; //reset vars
+                    normalizeHeights(); //run it again
             });
         }
     }
@@ -109,8 +119,6 @@ $(document).ready(function(){
 			    clearInterval(VarImgArrayLoading);
 		}
 	}
-	var VarImgArrayLoading = setInterval(function(){ checkImgArrayLoading() }, 100);
-
 
 	 function resizeSingleImage(el) {
         var aspectRatio;
@@ -120,8 +128,18 @@ $(document).ready(function(){
         }
 
 		//Bildgröße berechnen lassen:
-		resizeImage(el, el.parents('div.series-ident'), el.ratio);
+		if ($( window ).width() >= 768) {
+		    resizeImage(el, el.parents('div.series-ident'), el.ratio);
+		} else {
+			resizeImageMobile(el, el.parents('div.series-ident'), el.ratio);
+		}
     };
+	
+	$(window).on("resize orientationchange", function(){
+	    //Episodenposterframe in Größe anpassen
+        if ($('.series figure.episode-posterframe img').length > 0)
+            resizeSingleImage($('.series figure.episode-posterframe img'));
+    });
 
 	//Bildgröße für Einzelbilder erst berechnen lassen, wenn die Höhe existiert
 	function checkImgLoading() {
@@ -130,8 +148,14 @@ $(document).ready(function(){
 			    clearInterval(VarImgLoading);
 		}
 	}
-	if ($('.series figure img').length > 0)
+	
+	/* Slider an Monitor anpassen*/
+	var VarImgArrayLoading = setInterval(function(){ checkImgArrayLoading() }, 100);
+	
+	/* Posterframe an Monitor anpassen*/
+    if ($('.series figure img').length > 0)
 	    var VarImgLoading = setInterval(function(){ checkImgLoading() }, 100);
+	
 
 	//Anchor Oktothek und Serie:
 	$('#button_down').click(function() {
@@ -173,24 +197,18 @@ $(document).ready(function(){
     })
 
 
-    $(window).on("resize orientationchange", function(){
-        if ($('.series figure.episode-posterframe img').length > 0)
-           resizeSingleImage($('.series figure.episode-posterframe img'));
-    });
-
 	/*Sharebuttons*/
 	$('#sharingurl').val(window.location.href);
-
-	
-	if ($( window ).width() >= 768) {
-		
-		/* Tooltips: */
+	/* Tooltips: */
 	    if (
 	        $('body').hasClass('oktothek') ||
 		    $('body').hasClass('episode') ||
 	        $('body').hasClass('series')) {
 	        $('[data-toggle="tooltip"]').tooltip({'placement': 'auto right'});
 	    }
+
+	
+	if ($( window ).width() >= 768) {
 		
 		/*Ankermenü*/
 	    var Ts_offset = 250;

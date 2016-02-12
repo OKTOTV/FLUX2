@@ -62,7 +62,7 @@ header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar
 header .searchfield {
 	background-color:#757575;
 }
-.navbar-inverse, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse {
+.navbar-inverse, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse, header .navbar-fixed-top {
 	background-color:#000000;
 }
 header .navbar-inverse .navbar-toggle .icon-bar, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
@@ -121,19 +121,22 @@ header .dropshadow {
 /****************************** Backgroundimages Header ******************************/
 
 /* Header */
-.navbar-brand object .brandimage {
+/*.navbar-brand object .brandimage {
 	background-image:url(../images/logo_okto_white_90.png);
 	background-repeat:no-repeat;
-}
+}*/
 header form button[type="submit"], header form button[type="submit"].btn:active {
 	background-image:url(../images/icon_search.png);
 	background-repeat:no-repeat;
 	background-position:center center;
 }
 header .navbar-fixed-top {
-	background-image:url(../images/gradient_bg.png);
-	background-repeat:repeat-x;
-	background-position:left top;
+	background-image:none;
+}
+header .brandimage {
+	background-image:url(../images/okto_logo_mobil.svg);
+	background-repeat:no-repeat;
+	background-position:center left;
 }
 #button_down {
 	/*background-image:url(../images/pfeil_down.png);
@@ -156,9 +159,19 @@ header .navbar-fixed-top {
 		color: #000000;
 	}
 	/* Backgroundcolor */
-	header .navbar-collapse, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
+	header .navbar-collapse, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active, header .navbar-fixed-top {
 		background-color:transparent;
 	}
+	header .brandimage {
+	    background-image:url(../images/okto_logo.svg);
+	    background-repeat:no-repeat;
+	    background-position:center center;
+    }
+	header .navbar-fixed-top {
+	    background-image:url(../images/gradient_bg.png);
+	    background-repeat:repeat-x;
+	    background-position:left top;
+    }
 	/* Border */
 	header .navbar-collapse .navbar-nav {
 		border-top:none;
@@ -242,9 +255,7 @@ header .navbar-fixed-top {
 }
 
 /* Transparent Header Background */
-.head-transparent-bg .navbar-fixed-top {
-	background-color:transparent;
-}
+
 
 /* White Header Background */
 .head-white-bg .navbar-fixed-top {
@@ -252,13 +263,19 @@ header .navbar-fixed-top {
 }
 
 /* Black Header Background */
-.head-black-bg .navbar-fixed-top {
+.head-black-bg .navbar-fixed-top, .head-transparent-bg .navbar-fixed-top {
 	background-color:#000000;
 }
 
 /* Body  Weiße Schrift */
 .body-white-color, .body-white-color a, .body-white-color a.pull-right {
 	color:white;
+}
+
+@media (min-width: 768px) {
+    .head-transparent-bg .navbar-fixed-top {
+	    background-color:transparent;
+    }
 }
 
 
@@ -498,7 +515,7 @@ header.page-header .navbar {
 
 /* Header */
 header .navbar {
-	height:140px;
+	height:50px;
 	margin-bottom:0;
 }
 header .navbar-collapse {
@@ -510,14 +527,12 @@ header .navbar .container-fluid {
 header .navbar-brand {
 	display:block;
 }
-header .navbar-brand, header .navbar-brand object {
+header .navbar-brand .brandimage {
 	vertical-align:top;
-	width:60px;
+	width:40px;
+	height:36px;
 }
-header .navbar-brand object {
-	height:100px;
-}
-header .navbar-brand object .brandimage span {
+header .navbar-brand .brandimage span {
 	margin-left:-9990px;
 }
 header .navbar .nav > li {
@@ -525,7 +540,7 @@ header .navbar .nav > li {
 }
 header .navbar-brand {
 	padding:10px 0;
-	height:100px;
+	height:50px;
 }
 header .navbar .nav > li > a {
 	display:inline;
@@ -546,6 +561,7 @@ header .navbar-inverse .navbar-toggle {	/*Small Menubutton*/
 }*/
 header .navbar-content {
 	margin-top:-40px;
+	margin-left:30px;
 }
 header form button[type="submit"] {
 	height:34px;
@@ -574,17 +590,24 @@ header .search-tagnav-position .navbar-form {
 	display:none;
 }*/
 header .searchfield {
-	margin-left:75px;
-	margin-right:105px;
+	margin-left:20px;
+	margin-right:115px;
 }
 header .navbar-form input.form-control {
 	display:inline;
+}
+header .navbar-fixed-top .collapse {
+	position:relative;
+	z-index:2;
 }
 header .dropdown-menu {
 	padding:0;
 }
 header .dropdown-menu li a {
 	padding:2px 12px;
+}
+header .navbar-fixed-top .navbar-toggle {
+	margin-right:0;
 }
 #button_down span {
 	display:none;
@@ -601,6 +624,9 @@ header .dropdown-menu li a {
 	header .navbar .container-fluid {
 		padding:0 50px;
 	}
+	header .navbar {
+	    height:140px;
+    }
 	header .navbar-brand {
 		padding:15px 0;
 		height:150px;
@@ -615,10 +641,8 @@ header .dropdown-menu li a {
 	header .navbar-collapse {
 		height:90px;
 	}
-	header .navbar-brand {
+	header .navbar-brand .brandimage {
 		width:70px;
-	}
-	header .navbar-brand object {
 		height:100px;
 	}
 	header .searchfield {
@@ -676,7 +700,13 @@ header .dropdown-menu li a {
 }
 
 #slider, .series-content {
-	margin-top:-140px;  /* Ausbessern sobald eigene Bodyclass vorhanden */
+	margin-top:-90px; 
+}
+header + .container-fluid {
+	margin-top:-90px;
+}
+.fullscreen-images header + .container-fluid {
+	margin-top:0px;
 }
 
 /* Slider und Fullscreen Images */
@@ -722,22 +752,9 @@ section.container, .container-fluid header, .oktothek {
 article.pin:nth-child(2n+1) {
 	    clear:none;
 }
-/*article.pin figure {
-	width:260px;
-	margin:0 auto;
-}*/
-article.pin figure {
-	width:100%;
-}
-figure.pin img {
-	float:left;
-	width:50%;
-}
-article.pin:nth-child(2n) figure img {
-	float:right;
-}
 article.pin {
 	margin-bottom:20px;
+	width:100%;
 }
 
 /* Oktothek */
@@ -757,6 +774,13 @@ article.pin {
 }
 .episode .misc a, .episode .misc span.views {
 	margin-right:10px;
+}
+figure.pin img, .programm .schedule img {
+	width:100%;
+	max-width:100%;
+	float:none;
+	height:auto;
+	margin:0 auto;
 }
 .tags li {
 	display:inline;
@@ -1092,18 +1116,29 @@ article.pin {
 .academy .newsletter .input-group {
 	margin:0 auto;
 }
-
-@media (min-width: 768px) {
+@media (min-width: 580px) {
+	article.pin {
+		width:50%;
+	}
+    figure.pin img, .programm .schedule img {
+	    /*width:260px;*/
+	    height:auto;
+	    margin:0;
+		float:none;
+    }
 	article.pin:nth-child(2n+1) {
 	    clear:left;
     }
 	article.pin {
 		margin-bottom:0px;
 	}
-	figure.pin img, .programm .schedule img {
-	    width:260px;
-	    float:none;
-		height:auto;
+}
+@media (min-width: 768px) {
+	#slider, .series-content {
+	    margin-top:-140px; 
+    }
+	header + .container-fluid {
+		margin-top:0;
 	}
 	.series div.current-episode {
 		left:50%;
@@ -1124,11 +1159,16 @@ article.pin {
 	article.pin:nth-child(2n+1) {
 	    clear:none;
     }
+	article.pin {
+		width:25%;
+	}
+	
+	
 }
 @media (min-width: 1200px) {
-.series div.current-episode {
-	margin-left:-585px;
-}
+    .series div.current-episode {
+	    margin-left:-585px;
+    }
 }
 
 
