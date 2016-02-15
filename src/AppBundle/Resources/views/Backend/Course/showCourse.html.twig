@@ -3,13 +3,13 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
 {% endblock %}
-{% block body %}
-<div class="page-header">
-    <h1>{{ course.coursetype }}</h1>
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ course.coursetype }}</h1>
+        <a href="{{ path('oktothek_backend_show_coursetype', {'coursetype': course.coursetype.id})}}" class="btn btn-default">{{'oktothek_backend_show_course_back_to_type'|trans}}</a>
+        <a href="" class="btn btn-default">{{ 'oktothek_backend_edit_course'|trans|raw }}</a>
+    </div>
 
-</div>
-
-<div class="container">
     <ul class="list-group">
         <li class="list-group-item">{{ course.trainer }}</li>
         <li class="list-group-item">{{ course.coursetype }}</li>
@@ -23,8 +23,8 @@
         <tbody>
             {% for date in course.dates %}
                 <tr>
-                    <td>{{ date.courseStart|date('h:i d.m.Y') }}</td>
-                    <td>{{ date.courseEnd|date('h:i d.m.Y') }}</td>
+                    <td>{{ date.courseStart|date('H:i d.m.Y') }}</td>
+                    <td>{{ date.courseEnd|date('H:i d.m.Y') }}</td>
                 </tr>
             {% endfor %}
         <tbody>
@@ -45,5 +45,4 @@
             {% endif %}
         <tbody>
     </table>
-</div>
 {% endblock %}

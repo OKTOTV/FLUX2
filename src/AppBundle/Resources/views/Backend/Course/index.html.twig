@@ -3,15 +3,15 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
 {% endblock %}
-{% block body %}
+{% block body_main %}
 <div class="page-header">
     <h1>{{ 'oktothek.backend_academy_header'|trans}}</h1>
-    <a href="{{ path('oktothek_backend_new_coursetype') }}" class="btn btn-default">{{'oktothek_backend_academy_new_coursetype'|trans }}</a>
+    <a href="{{ path('oktothek_backend_new_coursetype') }}" class="btn btn-default">{{'oktothek_backend_academy_new_coursetype'|trans|raw }}</a>
 </div>
 
 <div class="list-group">
 {% for coursetype in coursetypes %}
-    <a href="{{ path('oktothek_backend_show_coursetype', {'coursetype': coursetype.id})}}" class="list-group-item">{{ coursetype }}</a>
+    <a href="{{ path('oktothek_backend_show_coursetype', {'coursetype': coursetype.id})}}" class="list-group-item"><span class="badge">{{ coursetype.courses|length}}</span>{{ coursetype }}</a>
 {% endfor %}
 </div>
 {% endblock %}

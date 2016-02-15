@@ -49,11 +49,11 @@
             var number = $(this).parent().find('.form-group').length;
             prototype = prototype.replace(/__name__/g, number);
             prototype = $(prototype);
-            $.each(prototype.find(':input'), function(number, input){
+            $.each(prototype.find(':input'), function(index, input){
                 console.log(input);
                 $(input).wrap('<div class="input-group" id="picker-'+number+'"></div>');
                 $(input).parent().append('<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>');
-                // $(input).attr('id', 'picker-'+number);
+                number++;
             });
             // console.log(prototype);
             $(this).parent().append(prototype);

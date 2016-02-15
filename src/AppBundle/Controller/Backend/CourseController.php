@@ -68,12 +68,13 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/course/new", name="oktothek_backend_new_course")
+     * @Route("/course/{coursetype}/new", name="oktothek_backend_new_course")
      * @Template()
      */
-    public function newCourseAction(Request $request)
+    public function newCourseAction(Request $request, Coursetype $coursetype)
     {
         $course = new Course();
+        $course->setCoursetype($coursetype);
         $form = $this->createForm(new CourseFormType(), $course);
         $form->add('submit', 'submit', ['label' => 'oktothek.course_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
