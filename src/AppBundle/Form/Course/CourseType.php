@@ -5,6 +5,8 @@ namespace AppBundle\Form\Course;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use AppBundle\Form\Course\CoursedateType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class CourseType extends AbstractType
 {
@@ -18,7 +20,11 @@ class CourseType extends AbstractType
             ->add('coursetype')
             ->add('trainer')
             ->add('max_attendees')
-            ->add('dates')
+            ->add('dates', CollectionType::class, [
+                'entry_type' => CoursedateType::class,
+                'allow_add' => true,
+                'allow_delete' => true
+            ])
         ;
     }
 

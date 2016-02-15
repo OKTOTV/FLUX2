@@ -103,7 +103,7 @@ class Coursedate
      * @param \AppBundle\Entity\Course $course
      * @return Coursedate
      */
-    public function setCourse(\AppBundle\Entity\Course $course = null)
+    public function setCourse($course = null)
     {
         $this->course = $course;
 

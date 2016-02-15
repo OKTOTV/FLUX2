@@ -24,7 +24,7 @@ class Course
     /**
      * @var \stdClass
      *
-     * @ORM\ManyToOne(targetEntity="Courstype", inversedBy="courses")
+     * @ORM\ManyToOne(targetEntity="Coursetype", inversedBy="courses")
      * @ORM\JoinColumn(name="coursetype_id", referencedColumnName="id")
      */
     private $coursetype;
@@ -49,7 +49,7 @@ class Course
     private $max_attendees;
 
     /**
-     * @ORM\OneToMany(targetEntity="Coursedate", mappedBy="course")
+     * @ORM\OneToMany(targetEntity="Coursedate", mappedBy="course", cascade={"persist", "remove"})
      */
     private $dates;
 
@@ -165,7 +165,7 @@ class Course
      * @param \AppBundle\Entity\Attendee $attendees
      * @return Course
      */
-    public function addAttendee(\AppBundle\Entity\Attendee $attendees)
+    public function addAttendee($attendees)
     {
         $this->attendees[] = $attendees;
 
@@ -177,7 +177,7 @@ class Course
      *
      * @param \AppBundle\Entity\Attendee $attendees
      */
-    public function removeAttendee(\AppBundle\Entity\Attendee $attendees)
+    public function removeAttendee($attendees)
     {
         $this->attendees->removeElement($attendees);
     }
@@ -188,10 +188,10 @@ class Course
      * @param \AppBundle\Entity\Coursedate $dates
      * @return Course
      */
-    public function addDate(\AppBundle\Entity\Coursedate $dates)
+    public function addDate($dates)
     {
         $this->dates[] = $dates;
-
+        $dates->setCourse($this);
         return $this;
     }
 
@@ -200,7 +200,7 @@ class Course
      *
      * @param \AppBundle\Entity\Coursedate $dates
      */
-    public function removeDate(\AppBundle\Entity\Coursedate $dates)
+    public function removeDate($dates)
     {
         $this->dates->removeElement($dates);
     }

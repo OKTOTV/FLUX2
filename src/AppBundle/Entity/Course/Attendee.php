@@ -61,6 +61,11 @@ class Attendee
      */
     private $courses;
 
+    public function __toString()
+    {
+        return $this->name.' '.$this->surname;
+    }
+
     /**
      * Get id
      *
@@ -199,7 +204,7 @@ class Attendee
      * @param \AppBundle\Entity\Course $courses
      * @return Attendee
      */
-    public function addCourse(\AppBundle\Entity\Course $courses)
+    public function addCourse($courses)
     {
         $this->courses[] = $courses;
 
@@ -211,7 +216,7 @@ class Attendee
      *
      * @param \AppBundle\Entity\Course $courses
      */
-    public function removeCourse(\AppBundle\Entity\Course $courses)
+    public function removeCourse($courses)
     {
         $this->courses->removeElement($courses);
     }

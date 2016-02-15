@@ -1,0 +1,39 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body %}
+<div class="page-header">
+    <h1>{{ coursetype }}</h1>
+    <a href="{{path('oktothek_backend_new_course')}}" class="btn btn-default">
+        {{ 'oktothek_backend_new_course'|trans }}
+    </a>
+</div>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {%if coursetype.image is not empty %}
+                <img src="{{ coursetype.image|link }}" />
+            {% endif %}
+        </div>
+        <div class="panel-footer">
+            {{ coursetype.description }}
+        </div>
+    </div>
+    <div class="row">
+        {% for course in coursetype.courses %}
+            <div class="col-md-3">
+                <a href="{{ path('oktothek_backend_show_course', {'course': course.id}) }}">
+                    <ul class="list-group">
+                        {% for date in course.dates %}
+                            <li class="list-group-item">{{ date.courseStart|date('d.m.Y')}}</li>
+                        {% endfor %}
+                    </ul>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

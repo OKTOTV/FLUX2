@@ -5,6 +5,7 @@ namespace AppBundle\Form\Course;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\Type\DatetimeType;
 
 class CoursedateType extends AbstractType
 {
@@ -15,9 +16,10 @@ class CoursedateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('courseStart')
-            ->add('courseEnd')
-            ->add('course')
+            ->add('courseStart', 'datetime', ['widget' => 'single_text',
+            'html5' => false])
+            ->add('courseEnd', 'datetime', ['widget' => 'single_text',
+            'html5' => false])
         ;
     }
 

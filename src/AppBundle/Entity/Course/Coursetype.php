@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Coursetype
@@ -51,7 +52,7 @@ class Coursetype
     private $highlight;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle:Asset")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Asset")
      * @ORM\JoinColumn(name="image", referencedColumnName="id")
      */
     private $image;
@@ -59,7 +60,7 @@ class Coursetype
     /**
      * downloadable documents for this course
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle:Asset")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Asset")
      * @ORM\JoinTable(name="coursetype_asset",
      *      joinColumns={@ORM\JoinColumn(name="coursetype_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=true)}
@@ -69,7 +70,7 @@ class Coursetype
 
     /**
      * @var string
-     *
+     * @Gedmo\Slug(fields={"title"}, updatable=false, separator="_")
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
@@ -79,8 +80,14 @@ class Coursetype
      */
     private $courses;
 
+    /**
+     * @ORM\Column(name="is_active", type="boolean", options={"default"=false})
+     */
+    private $is_active;
+
     public function __construct() {
-        $this->features = new ArrayCollection();
+        $this->is_active = false;
+        $this->features = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function __toString()
@@ -288,7 +295,7 @@ class Coursetype
      * @param \AppBundle\Entity\Course $courses
      * @return Coursetype
      */
-    public function addCourse(\AppBundle\Entity\Course $courses)
+    public function addCourse($courses)
     {
         $this->courses[] = $courses;
 
@@ -300,7 +307,7 @@ class Coursetype
      *
      * @param \AppBundle\Entity\Course $courses
      */
-    public function removeCourse(\AppBundle\Entity\Course $courses)
+    public function removeCourse($courses)
     {
         $this->courses->removeElement($courses);
     }
@@ -321,7 +328,7 @@ class Coursetype
      * @param \AppBundle\Entity\Course\AppBundle:Asset $assets
      * @return Coursetype
      */
-    public function addAsset(\AppBundle\Entity\Course\AppBundle:Asset $assets)
+    public function addAsset($assets)
     {
         $this->assets[] = $assets;
 
@@ -333,7 +340,7 @@ class Coursetype
      *
      * @param \AppBundle\Entity\Course\AppBundle:Asset $assets
      */
-    public function removeAsset(\AppBundle\Entity\Course\AppBundle:Asset $assets)
+    public function removeAsset($assets)
     {
         $this->assets->removeElement($assets);
     }
@@ -346,5 +353,39 @@ class Coursetype
     public function getAssets()
     {
         return $this->assets;
+    }
+
+    /**
+     * Set assets
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function setAssets($assets)
+    {
+        $this->assets = $assets;
+        return $this;
+    }
+
+    /**
+     * Set is_active
+     *
+     * @param boolean $isActive
+     * @return Coursetype
+     */
+    public function setIsActive($isActive)
+    {
+        $this->is_active = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get is_active
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->is_active;
     }
 }

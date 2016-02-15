@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Backend;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -11,7 +11,9 @@ use AppBundle\Entity\Course\Course;
 use AppBundle\Entity\Course\Coursetype;
 use AppBundle\Entity\Course\Coursedate;
 use AppBundle\Entity\Course\Attendee;
-
+use AppBundle\Form\Course\CoursetypeType;
+use AppBundle\Form\Course\CourseType as CourseFormType;
+use AppBundle\Form\Course\CoursedateType;
 /**
  * @Route("/backend/course")
  */
@@ -24,7 +26,7 @@ class CourseController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $coursetypes = $em->getRepository('AppBundle:Course/Coursetype')->findAll();
+        $coursetypes = $em->getRepository('AppBundle:Course\Coursetype')->findAll();
 
         return ['coursetypes' => $coursetypes];
     }
@@ -66,12 +68,39 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("course/{course}/show", name="oktothek_backend_show_course")
+     * @Route("/course/new", name="oktothek_backend_new_course")
+     * @Template()
+     */
+    public function newCourseAction(Request $request)
+    {
+        $course = new Course();
+        $form = $this->createForm(new CourseFormType(), $course);
+        $form->add('submit', 'submit', ['label' => 'oktothek.course_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($course);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_course');
+
+                return $this->redirect($this->generateUrl('oktothek_backend_courses'));
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_course');
+            }
+        }
+
+        return ['form' => $form->createView()];
+    }
+
+    /**
+     * @Route("/{course}/show", name="oktothek_backend_show_course")
      * @Template()
      */
     public function showCourseAction(Course $course)
     {
-        return ['course' => $course]
+        return ['course' => $course];
     }
 
     /**
