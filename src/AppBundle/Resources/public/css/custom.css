@@ -576,7 +576,7 @@ header form .searchfield-container {
 }
 header .search-tagnav-container {
 	position:absolute;
-	z-index:1;
+	z-index:0;
 	width:100%;
 	top:0px;
 }
@@ -645,6 +645,9 @@ header .navbar-fixed-top .navbar-toggle {
 		width:70px;
 		height:100px;
 	}
+	header .search-tagnav-container {
+	    z-index:50;
+    }
 	header .searchfield {
 		float:left;
 		margin:0;
