@@ -219,6 +219,7 @@ $(document).ready(function(){
 		}
 		
 		if ($('#anchor-menu').length > 0) {
+			
 			var VarCollapseFinish;
             $(window).scroll(function() {
 				//Abfrage ob Slider bzw. Fullscreenbild vorhanden oder nicht (unterschiedliche Ausgangshöhen)
@@ -276,5 +277,15 @@ $(document).ready(function(){
 	
 	//TV
 	$('.schedule .collapse').collapse(); //Ankermenü Collapse aktivieren
-
+	
+	//Academy
+	if ($('body').hasClass('academy')) {
+	$('figure.pin img').parent().click(function() {
+		for (k=0; k<$('.collapseCoursedetails').length; k++) {
+			if ($(this).attr('href') != $('.collapseCoursedetails').eq(k).attr('id')) 
+	            $('.collapseCoursedetails').eq(k).collapse('hide');
+		}
+		$('#collapseShareArea .collapse').collapse();
+	});
+	}
 });
