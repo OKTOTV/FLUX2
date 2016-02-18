@@ -10,14 +10,14 @@
         <a href="{{path('oktothek_backend_new_course', {'coursetype': coursetype.id})}}" class="btn btn-default">
             {{ 'oktothek_backend_new_course'|trans|raw }}
         </a>
-        <a href="" class="btn btn-default">{{ 'oktothek_backend_edit_coursetype'|trans|raw }}</a>
+        <a href="{{ path('oktothek_backend_edit_coursetype', {'coursetype': coursetype.id})}}" class="btn btn-default">{{ 'oktothek_backend_edit_coursetype'|trans|raw }}</a>
     </div>
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-body">
                     {%if coursetype.image is not empty %}
-                        <img src="{{ coursetype.image|link }}" />
+                        <img src="{{ coursetype.image|link }}" class="img img-responsive" />
                     {% endif %}
                 </div>
                 <div class="panel-footer">
@@ -52,6 +52,14 @@
                             {{ 'oktothek_backend_courstype_highligt_choice'|transchoice(coursetype.highlight) }}
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            {{ 'oktothek_backend_coursetype_isActive_info'|trans }}
+                        </td>
+                        <td>
+                            {{ 'oktothek_backend_courstype_isActive_choice'|transchoice(coursetype.isActive) }}
+                        </td>
+                    </tr>
                     {% for asset in coursetype.assets %}
                     <tr>
                         <td>
@@ -66,6 +74,7 @@
             </table>
         </div>
     </div>
+    <h3>Kurse</h3>
     <div class="row">
         {% for course in coursetype.courses %}
             <div class="col-md-3">
@@ -73,7 +82,7 @@
                         {% if course.dates is not empty %}
                             <li class="list-group-item"><a href="{{ path('oktothek_backend_show_course', {'course': course.id}) }}">{{ 'oktothek_backend_course_month_choice'|transchoice(course.dates[0].courseStart|date('n'))}}</a></li>
                         {% else %}
-
+                            <li class="list-group-item list-group-item-danger"><a href="{{ path('oktothek_backend_show_course', {'course': course.id}) }}">{{ 'oktothek_backend_course_no_dates'|trans }}</a></li>
                         {% endif %}
                         {% for date in course.dates %}
                             <li class="list-group-item">{{ date.courseStart|date('d.m.Y')}}</li>

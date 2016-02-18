@@ -3,10 +3,12 @@
 namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Coursedate
  *
+ * @Assert\Callback(methods={"isStartBeforeEnd"})
  * @ORM\Table()
  * @ORM\Entity
  */
@@ -23,14 +25,14 @@ class Coursedate
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotNull(message="oktothek.backend_coursedate_start_notblank")
      * @ORM\Column(name="course_start", type="datetime")
      */
     private $courseStart;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank(message="oktothek.backend_coursedate_end_notblank")
      * @ORM\Column(name="course_end", type="datetime")
      */
     private $courseEnd;
@@ -118,5 +120,13 @@ class Coursedate
     public function getCourse()
     {
         return $this->course;
+    }
+
+    /**
+     * @Assert\IsTrue(message = "oktothek.backend_coursedate_start_before_end")
+     */
+    public function isStartBeforeEnd()
+    {
+        return $this->courseStart < $this->courseEnd;
     }
 }

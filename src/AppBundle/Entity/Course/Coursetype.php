@@ -4,6 +4,7 @@ namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Coursetype
@@ -24,23 +25,30 @@ class Coursetype
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="oktothek.backend_coursetype_title_notblank")
+     * @Assert\Length(max=255, maxMessage="oktothek.backend_coursetype_title_maxLength")
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
     /**
+     * @Assert\Length(max=400, maxMessage="oktothek.backend_coursetype_description_maxLength")
+     * @Assert\NotBlank(message="oktothek.backend_coursetype_description_notblank")
      * @ORM\Column(name="description", type="string", length=400)
      */
     private $description;
 
     /**
+     * @Assert\NotBlank(message="oktothek.backend_coursetype_price_notblank")
+     * @Assert\GreaterThanOrEqual(value= 0, message="oktothek.backend_coursetype_price_greaterthan")
      * scale = number of digits in total, precision = number of .digits
      * @ORM\Column(name="price", type="decimal", scale=6, precision=2)
      */
     private $price;
 
     /**
+     * @Assert\NotBlank(message="oktothek.backend_coursetype_price_reduced_notblank")
+     * @Assert\GreaterThanOrEqual(value=0, message="oktothek.backend_coursetype_price_reduced_greaterthan")
      * scale = number of digits in total, precision = number of .digits
      * @ORM\Column(name="price_reduced", type="decimal", scale=6, precision=2)
      */
@@ -387,5 +395,13 @@ class Coursetype
     public function getIsActive()
     {
         return $this->is_active;
+    }
+
+    /**
+     * @Assert\IsTrue(message = "oktothek.backend_coursetype_price_cheaper_than_reduced")
+     */
+    public function isReducedCheapterThenFullprice()
+    {
+        return $this->price >= $this->price_reduced;
     }
 }

@@ -1,0 +1,113 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+
+
+{% form_theme form _self %}
+{% block _appbundle_course_dates_entry_row %}
+    <div class="coursedate">
+        {{ form_label(form)}}
+        {{ form_errors(form)}}
+        {{ form_row(form.courseStart)}}
+        {{ form_row(form.courseEnd)}}
+    </div>
+{% endblock %}
+{% block _appbundle_course_dates_entry_label %}
+    <label><span class="glyphicon glyphicon-trash remove-coursedate"></span> Termin</label>
+{% endblock %}
+{% block _appbundle_course_dates_entry_courseStart_row %}
+    <div class='form-group'>
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        <div class="input-group date">
+            {{ form_widget(form) }}
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+{% endblock %}
+{% block _appbundle_course_dates_entry_courseEnd_row %}
+    <div class='form-group'>
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        <div class="input-group date">
+            {{ form_widget(form) }}
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+{% endblock %}
+{% block body_main %}
+<div class="page-header">
+    <h1>{{ 'oktothek.backend_edit_course_header'|trans }}</h1>
+</div>
+
+{{ form_start(form) }}
+    {{ form_errors(form)}}
+    {{ form_row(form.coursetype)}}
+    {{ form_row(form.trainer)}}
+    {{ form_row(form.max_attendees)}}
+    <button id="add-date" class="btn btn-default">{{'oktothek_backend_course_add_new_date'|trans|raw }}</button>
+    {{ form_row(form.dates)}}
+    {% do form.dates.setRendered %}
+
+{{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent()}}
+    <script src="{{ asset('bundles/bprsstyle/js/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/bprsstyle/js/moment/de.js') }}"></script>
+    <script src="{{ asset('bundles/bprsstyle/js/datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('bundles/bprsstyle/js/charactercounter.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.each($('#appbundle_course_dates').find('.input-group'), function(index, input){
+                $(input).attr('id', 'default-'+index);
+                activatePicker($(input).attr('id'));
+            });
+        });
+
+        var activatePicker = function(input) {
+                console.log($('#'+input).children(':input').val());
+                console.log(moment($('#'+input).children(':input').val()));
+                $('#'+input).datetimepicker({
+                    locale: 'de',
+                    date: moment($('#'+input).children(':input').val()),
+                    useCurrent: true,
+                    calendarWeeks: true,
+                    allowInputToggle: true,
+                    showTodayButton: true
+                });
+        };
+
+        $(document).on('click', '#add-date', function(e) {
+            e.preventDefault();
+            var prototype = $('#appbundle_course_dates').attr('data-prototype');
+            var number = $('#appbundle_course_dates').find('.coursedate').length;
+            prototype = prototype.replace(/__name__/g, number);
+            prototype = $(prototype);
+
+            $('#appbundle_course_dates').append(prototype);
+            $.each(prototype.find('.input-group'), function(index, input){
+                $(input).attr('id', 'picker-'+number);
+                activatePicker($(input).attr('id'));
+                number++;
+            });
+        });
+        $(document).on('click', '.remove-coursedate', function(e) {
+            e.preventDefault();
+            $(this).parents('.coursedate').remove();
+        })
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link href="{{ asset('bundles/bprsstyle/css/datetimepicker.min.css') }}" rel="stylesheet" />
+{% endblock %}

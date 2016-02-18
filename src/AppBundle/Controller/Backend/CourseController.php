@@ -14,6 +14,9 @@ use AppBundle\Entity\Course\Attendee;
 use AppBundle\Form\Course\CoursetypeType;
 use AppBundle\Form\Course\CourseType as CourseFormType;
 use AppBundle\Form\Course\CoursedateType;
+use Doctrine\Common\Collections\ArrayCollection;
+
+
 /**
  * @Route("/backend/course")
  */
@@ -59,6 +62,40 @@ class CourseController extends Controller
     }
 
     /**
+     * @Route("/coursetype/{coursetype}/edit", name="oktothek_backend_edit_coursetype")
+     * @Template()
+     */
+    public function editCoursetypeAction(Request $request, Coursetype $coursetype)
+    {
+        $form = $this->createForm(new CoursetypeType(), $coursetype);
+        $form->add('delete', 'submit', ['label' => 'oktothek.coursetype_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('submit', 'submit', ['label' => 'oktothek.coursetype_edit_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if ($form->get('submit')->isClicked()) {
+                    $em->persist($coursetype);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_update_coursetype');
+                    return $this->redirect($this->generateUrl('oktothek_backend_show_coursetype', ['coursetype' => $coursetype->getId()]));
+                } else { //delete post
+                    // TODO: service -> send mail to attendees, etc
+                    $em->remove($coursetype);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_coursetype');
+                    return $this->redirect($this->generateUrl('oktothek_backend_courses'));
+                }
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_update_coursetype');
+            }
+        }
+
+        return ['form' => $form->createView()];
+    }
+
+    /**
      * @Route("/coursetype/{coursetype}/show", name="oktothek_backend_show_coursetype")
      * @Template()
      */
@@ -87,6 +124,50 @@ class CourseController extends Controller
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_course');
 
                 return $this->redirect($this->generateUrl('oktothek_backend_courses'));
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_course');
+            }
+        }
+
+        return ['form' => $form->createView()];
+    }
+
+    /**
+     * @Route("/course/{course}/edit", name="oktothek_backend_edit_course")
+     * @Template()
+     */
+    public function editCourseAction(Request $request, Course $course)
+    {
+        $form = $this->createForm(new CourseFormType(), $course);
+        $form->add('delete', 'submit', ['label' => 'oktothek.course_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('submit', 'submit', ['label' => 'oktothek.course_edit_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $old_dates = new ArrayCollection();
+            foreach ($course->getDates() as $date) {
+                $old_dates->add($date);
+            }
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if ($form->get('submit')->isClicked()) {
+                    foreach ($old_dates as $date) {
+                        if (false === $course->getDates()->contains($date)) {
+                            $em->remove($date);
+                        }
+                    }
+                    $em->persist($course);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_course');
+                    return $this->redirect($this->generateUrl('oktothek_backend_show_coursetype', ['coursetype' => $course->getCoursetype()->getId()]));
+                } else { //delete post
+                    // TODO: service -> send mail to attendees, etc
+                    $coursetype = $course->getCoursetype();
+                    $em->remove($course);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_course');
+                    return $this->redirect($this->generateUrl('oktothek_backend_show_coursetype', ['coursetype' => $coursetype->getId()]));
+                }
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_course');
             }

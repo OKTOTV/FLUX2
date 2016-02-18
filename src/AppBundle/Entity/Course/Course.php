@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Course
@@ -22,7 +23,6 @@ class Course
     private $id;
 
     /**
-     * @var \stdClass
      *
      * @ORM\ManyToOne(targetEntity="Coursetype", inversedBy="courses")
      * @ORM\JoinColumn(name="coursetype_id", referencedColumnName="id")
@@ -30,9 +30,8 @@ class Course
     private $coursetype;
 
     /**
-     *
-     *
-     * @ORM\Column(name="trainer", type="string", length=255)
+     * @Assert\Length(max=255, maxMessage="oktothek.backend_course_trainer_maxLength")
+     * @ORM\Column(name="trainer", type="string", length=255, nullable=true)
      */
     private $trainer;
 
@@ -44,14 +43,22 @@ class Course
     private $attendees;
 
     /**
+     * @Assert\GreaterThan(value=1, message="oktothek.backend_course_attendees_greater_than")
      * @ORM\Column(type="smallint", name="max_attendees")
      */
     private $max_attendees;
 
     /**
+     * @Assert\Valid()
      * @ORM\OneToMany(targetEntity="Coursedate", mappedBy="course", cascade={"persist", "remove"})
+     * @ORM\OrderBy({"courseStart" = "ASC"})
      */
     private $dates;
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean", options={"default"=false})
+     */
+    private $is_active;
 
     public function __construct() {
         $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
@@ -202,6 +209,7 @@ class Course
      */
     public function removeDate($dates)
     {
+        $dates->setCourse();
         $this->dates->removeElement($dates);
     }
 
@@ -213,5 +221,28 @@ class Course
     public function getDates()
     {
         return $this->dates;
+    }
+
+    /**
+     * Set is_active
+     *
+     * @param boolean $isActive
+     * @return Course
+     */
+    public function setIsActive($isActive)
+    {
+        $this->is_active = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get is_active
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->is_active;
     }
 }

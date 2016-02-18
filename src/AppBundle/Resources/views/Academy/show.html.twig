@@ -11,122 +11,45 @@
     <header class="page-header">
         <h1>AKADEMIE</h1>
 	</header>
-	<!-- Start Infoabend -->
+	<!-- Start Highlights -->
     <section>
-	    <article class="row">
-		    <div class="pin col-xs-3">
-			    <a href="#" title="... ansehen">
-                    <figure class="episode-pin pin">
-                        <img src="#" class="img-responsive"/>
-                    </figure>
-                </a>
-			</div>
-			<div class="description col-xs-9">
-	            <h2>Der Okto-Infoabend</h2>
-				<p>Lernen Sie Okto näher kennen bei einem unserer monatlich stattfindenden Info-Abende. Bei einer kurzen Präsentation
-stellt einE KollegIn aus dem Programmteam den Sender vor, zeigt Ausschnitte aus dem Programm, erklärt wie man zu
-einer eigenen Sendung kommt und geht auf alle Fragen ein, die möglicherweise offen geblieben sind.</p>
-                <p class="misc">1.5h | Kostenlos</p>
-			</div>
-	    </article>
+        <article class="row">
+            {% for coursetype in coursetypes if coursetype.highlight %}
+                    <div class="pin col-xs-3">
+                        <a href="#" title="... ansehen">
+                            <figure class="episode-pin pin">
+                                <img src="{{ coursetype.image|link }}" class="img-responsive"/>
+                            </figure>
+                        </a>
+                    </div>
+                    <div class="description col-xs-9">
+                        <h2>{{ coursetype.title }}</h2>
+                        <p>{{ coursetype.description }}</p>
+                        <p class="misc">{{ coursetype.courses[0].dates|hours~'h' }}</p>
+                    </div>
+            {% endfor %}
+        </article>
 	</section>
-	<!-- Ende Infoabend -->
+	<!-- Ende Highlights -->
 	<!-- Start Kursauflistung -->
-	<section class="courses">
-	    <h2>Kursangebote</h2>
-	    <div class="row">
-		    <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                <a href="#" title="... ansehen">
-                    <figure class="episode-pin pin">
-                        <img src="#" class="img-responsive"/>
-			            <figcaption>
-                            <h3>Untertitelung</h3>
-                            <p>4h | EUR 45/EUR 40</p>
-			            </figcaption>
-                    </figure>
-                </a>
-            </article>
-			<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                <a href="#" title="... ansehen">
-                    <figure class="episode-pin pin">
-                        <img src="#" class="img-responsive"/>
-			            <figcaption>
-                            <h3>Untertitelung</h3>
-                            <p>4h | EUR 45/EUR 40</p>
-			            </figcaption>
-                    </figure>
-                </a>
-            </article>
-			<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                <a href="#" title="... ansehen">
-                    <figure class="episode-pin pin">
-                        <img src="#" class="img-responsive"/>
-			            <figcaption>
-                            <h3>Untertitelung</h3>
-                            <p>4h | EUR 45/EUR 40</p>
-			            </figcaption>
-                    </figure>
-                </a>
-            </article>
-			<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                <a href="#" title="... ansehen">
-                    <figure class="episode-pin pin">
-                        <img src="#" class="img-responsive"/>
-			            <figcaption>
-                            <h3>Untertitelung</h3>
-                            <p>4h | EUR 45/EUR 40</p>
-			            </figcaption>
-                    </figure>
-                </a>
-            </article>
-		</div>
-		<div class="row">
-		    <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                <a href="#" title="... ansehen">
-                    <figure class="episode-pin pin">
-                        <img src="#" class="img-responsive"/>
-			            <figcaption>
-                            <h3>Untertitelung</h3>
-                            <p>4h | EUR 45/EUR 40</p>
-			            </figcaption>
-                    </figure>
-                </a>
-            </article>
-			<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                <a href="#" title="... ansehen">
-                    <figure class="episode-pin pin">
-                        <img src="#" class="img-responsive"/>
-			            <figcaption>
-                            <h3>Untertitelung</h3>
-                            <p>4h | EUR 45/EUR 40</p>
-			            </figcaption>
-                    </figure>
-                </a>
-            </article>
-			<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                <a href="#" title="... ansehen">
-                    <figure class="episode-pin pin">
-                        <img src="#" class="img-responsive"/>
-			            <figcaption>
-                            <h3>Untertitelung</h3>
-                            <p>4h | EUR 45/EUR 40</p>
-			            </figcaption>
-                    </figure>
-                </a>
-            </article>
-			<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                <a href="#" title="... ansehen">
-                    <figure class="episode-pin pin">
-                        <img src="#" class="img-responsive"/>
-			            <figcaption>
-                            <h3>Untertitelung</h3>
-                            <p>4h | EUR 45/EUR 40</p>
-			            </figcaption>
-                    </figure>
-                </a>
-            </article>
-		</div>
-	</section>
+    <section class="courses">
+        <h2>Kursangebote</h2>
+        {% for coursetype in coursetypes if not coursetype.highlight %}
+            <div class="row">
+                <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
+                    <a href="#" title="... ansehen">
+                        <figure class="episode-pin pin">
+                            <img src="{{ coursetype.image|link }}" class="img-responsive"/>
+    			            <figcaption>
+                                <h3>{{ coursetype.title }}</h3>
+                                <p>{{ coursetype.courses[0].dates|hours~'h'}} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
+    			            </figcaption>
+                        </figure>
+                    </a>
+                </article>
+            </div>
+        {% endfor %}
+    </section>
 	<!-- Ende Kursauflistung -->
 	<!-- Anfang Gruppenangebot -->
 	<section class="groups">

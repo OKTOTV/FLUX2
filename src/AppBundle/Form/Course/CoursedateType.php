@@ -5,7 +5,7 @@ namespace AppBundle\Form\Course;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Form\Extension\Core\Type\DatetimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class CoursedateType extends AbstractType
 {
@@ -16,17 +16,26 @@ class CoursedateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('courseStart', 'datetime', ['widget' => 'single_text',
-            'html5' => false])
-            ->add('courseEnd', 'datetime', ['widget' => 'single_text',
-            'html5' => false])
+            ->add('courseStart', DateTimeType::class,
+            [
+                'widget' => 'single_text',
+                'html5' => false,
+                'label' => 'oktothek.backend_coursedate_start_label'
+            ])
+            ->add('courseEnd', 'datetime',
+            [
+                'widget' => 'single_text',
+                'html5' => false,
+                'label' => 'oktothek.backend_coursedate_end_label'
+            ])
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Course\Coursedate'
+            'data_class' => 'AppBundle\Entity\Course\Coursedate',
+            'error_bubbling' => false
         ));
     }
 
