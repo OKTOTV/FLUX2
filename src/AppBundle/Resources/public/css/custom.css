@@ -347,7 +347,7 @@ button .btn-default.active, .oktothek article a.btn-default {
 .more-clips select {
 	width:auto;
 }
-.collapseShare, .collapsePlaylist {
+.collapseShare, .collapsePlaylist, .collapseCoursedetails {
     border-top: dashed gray 2px;
 	border-bottom: dashed gray 2px;
 }
@@ -824,7 +824,7 @@ figure.pin img, .programm .schedule img {
 }
 
 /* Sharing und Playlistfenster*/
-.collapseShare, .collapsePlaylist {
+.collapseShare, .collapsePlaylist, .collapseCoursedetails {
 	margin:40px 0;
 	padding:20px 0;
 }
