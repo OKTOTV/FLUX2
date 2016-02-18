@@ -40,7 +40,6 @@ $(document).ready(function(){
 
 	 addHeaderBG();
 
-
 	 $(document).scroll(function(){
 	     addHeaderBG();
 	 });
@@ -218,27 +217,53 @@ $(document).ready(function(){
 		if (!$('body').hasClass('fullscreen-images')) {
 		    $('#anchor-menu').fadeIn(Ts_duration);
 		}
+		
 		if ($('#anchor-menu').length > 0) {
+			var VarCollapseFinish;
             $(window).scroll(function() {
-			    //"Mehr" Button anzeigen
-                if ($('body').hasClass('fullscreen-images') && $(this).scrollTop() > Ts_offset && ($(this).scrollTop()+$(window).height()) < Footer_offset.top) {
-                    $('#anchor-menu').fadeIn(Ts_duration);
-				} else if (!$('body').hasClass('fullscreen-images') && $(this).scrollTop() >= 0 && ($(this).scrollTop()+$(window).height()) < Footer_offset.top) {
-                    $('#anchor-menu').fadeIn(Ts_duration);
-                } else {
-                    $('#anchor-menu').fadeOut(Ts_duration);
-                }
+				//Abfrage ob Slider bzw. Fullscreenbild vorhanden oder nicht (unterschiedliche Ausgangshöhen)
+			    if ($('body').hasClass('fullscreen-images')) 
+				    TsStart = Ts_offset;
+				else 
+				    TsStart = 0;
+				TsEnd = $(this).scrollTop()+$('footer').height();
+				
+                if ($(this).scrollTop() >= TsStart && TsEnd < Footer_offset.top)
+                    $('#anchor-menu').fadeIn(Ts_duration, function() {$(this).css('display','block')});
+				else 
+				    $('#anchor-menu').fadeOut(Ts_duration, function() {$(this).css('display','none')});
+               
 			    //Top Button anzeigen
 		 	    $('#anchor-menu .collapse').collapse('hide'); //Ankermenü einklappen bei Scrollen
             });
-            //Anker Menü
+            
+			function hideAnchorlist() {
+			    if (!$('#AnchorList').hasClass('in')) {
+					$( "#anchor-menu" ).animate({
+                        bottom: "-35px"
+                    }, Ts_duration, function(){$(this).css('bottom','-35px');});
+					clearInterval(VarCollapseFinish);
+				}
+			}
+			
             $('#anchor-menu .list-group-item a').click(function(event) {
                 event.preventDefault();
 			    var target = $(this).attr('href');
 			    var offset = $(target).offset();
 			    $("html, body").animate({scrollTop : offset.top - headerHeight + "px"}, Ts_duration);
+				VarCollapseFinish = setInterval(function(){ hideAnchorlist() }, 100);
                 return false;
             })
+			$( "#anchor-menu" ).mouseenter(function() {
+				console.log("eingelangt");
+                $( "#anchor-menu" ).animate({
+                    bottom: "0px"
+                }, Ts_duration, function(){$(this).css('bottom','0px');});
+            });
+			$( "#anchor-menu" ).mouseleave(function() {
+				$('#anchor-menu .collapse').collapse('hide');
+				VarCollapseFinish = setInterval(function(){ hideAnchorlist() }, 100);
+            });
 		}
 		//Top Button
 		$('.btn-top').click(function(event) {

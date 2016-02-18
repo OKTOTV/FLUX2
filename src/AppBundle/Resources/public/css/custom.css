@@ -1223,24 +1223,37 @@ figure.pin img, .programm .schedule img {
 	position:fixed;
 	z-index:100;
 	left:50%;
-	bottom:0;
-	margin-left:-90px;
+	bottom:-35px;
+	margin-left:-110px;
 	display:none;
+	cursor:pointer;
+	width:220px;
 }
 #anchor-menu.panel-group {
 	margin-bottom:0;
 }
+#anchor-menu .panel-heading {
+	height:50px;
+	padding:0;
+}
+#anchor-menu .panel-heading a {
+	padding: 2px;
+	display:block;
+	width:220px;
+	height:50px;
+}
 #anchor-menu .panel-title, .btn-top {
-	width:180px;
-	line-height:30px;
+	width:220px;
+	line-height:46px;
 	vertical-align:middle;
+	text-align:center;
 }
 .btn-top {
 	display:block;
 	margin:0 auto;
 }
 #anchor-menu .panel-heading .glyphicon, .btn-top .glyphicon {
-	margin-left:20px;
+	margin-left:5px;
 	vertical-align:middle;
 }
 #anchor-menu .list-group-item {
@@ -1272,12 +1285,12 @@ figure.pin img, .programm .schedule img {
 	    margin:0;
 	}
 	.btn-top {
-		margin-left:294px;
+		margin-left:264px;
 	}
 }
 @media (min-width: 1200px) {
     .btn-top {
-		margin-left:510px;
+		margin-left:480px;
 	}
 }
 
