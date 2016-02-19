@@ -1,0 +1,72 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+<div class="page-header">
+    <h1>{{ 'oktothek.backend_new_course_header'|trans}}</h1>
+</div>
+
+{{ form_start(form) }}
+    {{ form_row(form.coursetype)}}
+    {{ form_row(form.trainer)}}
+    {{ form_row(form.max_attendees)}}
+    <div id="dates" data-prototype="{{ form_widget(form.dates.vars.prototype)|e }}">
+    {% for date in form.vars.value.dates %}
+
+    {% endfor %}
+        <button id="add-date" class="btn btn-default">{{'oktothek_backend_course_add_new_date'|trans }}</button>
+    </div>
+    {% do form.dates.setRendered %}
+
+{{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent()}}
+    <script src="{{ asset('bundles/bprsstyle/js/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/bprsstyle/js/moment/de.js') }}"></script>
+    <script src="{{ asset('bundles/bprsstyle/js/datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('bundles/bprsstyle/js/charactercounter.js')}}"></script>
+    <script type="text/javascript">
+        var activatePicker = function(input) {
+                console.log($('#'+input));
+                $('#'+input).datetimepicker({
+                    locale: 'de',
+                    // format: "DD.MM.YYYY hh:mm",
+                    useCurrent: true,
+                    calendarWeeks: true,
+                    allowInputToggle: true,
+                    showTodayButton: true
+                });
+        };
+
+        $(document).on('click', '#add-date', function(e) {
+            e.preventDefault();
+            var prototype = $(this).parent().attr('data-prototype');
+            var number = $(this).parent().find('.form-group').length;
+            prototype = prototype.replace(/__name__/g, number);
+            prototype = $(prototype);
+            $.each(prototype.find(':input'), function(index, input){
+                console.log(input);
+                $(input).wrap('<div class="input-group" id="picker-'+number+'"></div>');
+                $(input).parent().append('<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>');
+                number++;
+            });
+            // console.log(prototype);
+            $(this).parent().append(prototype);
+            $.each(prototype.find('.input-group'), function(number, input){
+                console.log(input);
+                activatePicker($(input).attr('id'));
+                // $(input).attr('id', 'picker-'+number);
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link href="{{ asset('bundles/bprsstyle/css/datetimepicker.min.css') }}" rel="stylesheet" />
+{% endblock %}

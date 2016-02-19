@@ -92,6 +92,15 @@ oktothek_tag_episode_header:            Episoden
 
 ## academy
 oktothek_academy_header:                Akademie
+oktothek_academy_misc_info:             %price%€ / %price_reduced%€
+oktothek_academy_courses:               Kursangebote
+oktothek_academy_b2b:                   Gruppen Angebote
+oktothek_academy_b2b_paragraph: >
+    Ob B2B-KundInnen, Kindergartengruppen, Schulkinder, SeniorInnen - wir gehen mit unseren Angeboten ganz auf die individuellen Bedürfnisse unserer KundInnen
+    ein: Medientrainings für Menschen, die beruflich öfter mal vor der Kamera stehen, Workshops für Schulklassen, private Kindergruppen, die einen Kindergeburtstag
+    mit einem TV-Workshop verbinden wollen - all das ist bei Okto möglich!
+oktothek_academy_b2b_more:              Weitere Informationen bekommen Sie hier»
+oktothe_academy_book_course_header:     Kurs buchen
 
 ## tv
 oktothek_tv_title:                      TV
@@ -107,3 +116,70 @@ oktothek.backend_index_api_keychains:   API Schnittstellen
 ## series
 oktothek_series_blog_header:            Blog
 oktothek_series_episodes_all:           Alle Folgen
+
+## academy
+# Coursetype
+oktothek.backend_coursetype_title_label: Titel
+oktothek.backend_coursetype_description_label: Beschreibung
+oktothek.backend_coursetype_price_label:    Vollpreis
+oktothek.backend_coursetype_priceReduced_label: Ermäßigter Preis
+oktothek.backend_coursetype_highlight_label: Hervorgehoben
+oktothek.backend_coursetype_isActive_label: Aktiv
+oktothek.backend_coursetype_image_label: Bild
+oktothek.backend_coursetype_assets_label: Kursunterlagen
+oktothek_backend_coursetype_isActive_info: Aktiv
+oktothek_backend_courstype_isActive_choice: "{0} Nein|{1} Ja"
+
+
+# Course
+oktothek.error_create_course:           Der Kurs konnte nicht angelegt werden
+oktothek.backend_course_trainer_label:  Trainer
+oktothek.backend_course_coursetype_label: Kurstyp
+oktothek.backend_course_trainer_maxAttendees_label: Teilnehmeranzahl
+oktothek.backend_course_isActive_label: Aktiv
+oktothek.backend_course_dates_label:    Termine
+
+# Coursedate
+oktothek.backend_coursedate_start_label: Terminbeginn
+oktothek.backend_coursedate_end_label:  Terminende
+# Attendee
+oktothek_attendee_name_label:           Vorname
+oktothek_attendee_surname_label:        Nachname
+oktothek_attendee_email_label:          Mailadresse
+oktothek_attendee_tel_label:            Telefonnummer
+oktothek_attendee_reduced_label:        Ermäßigt
+oktothek.attendee_create_button:        Kurs buchen
+
+oktothek_backend_academy_new_coursetype: <span class="glyphicon glyphicon-plus"></span> Neuen Kurstyp anlegen
+oktothek.backend_academy_header:        Kurstypen
+oktothek_backend_new_course:            <span class="glyphicon glyphicon-plus"></span> Neuen Kurs hinzufügen
+oktothek.backend_new_course_header:     Neuer Kurs
+oktothek_backend_course_add_new_date:   <span class="glyphicon glyphicon-plus"></span> Kurstermin hinzufügen
+oktothek.course_create_button:          <span class="glyphicon glyphicon-floppy-disk"></span> Kurs anlegen
+oktothek_backend_course_month_choice:   "{1} Jänner|{2} Februar|{3} März|{4} April|{5} Mai|{6} Juni|{7} Juli|{8} August|{9} September|{10} Oktober|{11} November|{12} Dezember"
+oktothek_backend_show_course_back_to_type: Zurück zum Kurstyp
+oktothek_backend_edit_course:           Kurs bearbeiten
+oktothek_backend_back_to_coursetypes:   Zurück zur Kurstyp Übersicht
+oktothek_backend_edit_coursetype:       <span class="glyphicon glyphicon-edit"></span> Kurstyp bearbeiten
+
+oktothek_backend_coursetype_price_info: Vollpreis
+oktothek_backend_courstype_price:       %amount% €
+oktothek_backend_coursetype_price_reduced_info: Ermäßigter Preis
+oktothek_backend_courstype_price_reduced: %amount% €
+oktothek_backend_coursetype_highlight_info: Hervorgehoben
+oktothek_backend_courstype_highligt_choice: "{0} Nein|{1} Ja"
+oktothek_backend_coursetype_attachment_info: Anhang
+oktothek_backend_course_no_dates:       Kurs ohne Termine!
+
+oktothek.backend_edit_course_header:    Kurs bearbeiten
+oktothek.course_delete_button:          <span class="glyphicon glyphicon-trash"></span> Kurs löschen
+oktothek.course_edit_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
+
+oktothek.backend_edit_coursetype_header: Kurstyp bearbeiten
+oktothek.backend_new_coursetype_header:  Neuer Kurstyp
+oktothek.coursetype_delete_button:       <span class="glyphicon glyphicon-trash"></span> Kurstyp löschen
+oktothek.coursetype_edit_button:         <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
+oktothek.success_create_coursetype:      Kurstyp erfolgreich angelegt
+oktothek.success_update_coursetype:      Kurstyp erfolgreich geändert
+oktothek.error_update_coursetype:        Änderungen konnten nicht gespeichert werden
+oktothek.success_delete_coursetype:      Kurstyp erfolgreich gelöscht

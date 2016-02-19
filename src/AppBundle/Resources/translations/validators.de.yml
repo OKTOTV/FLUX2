@@ -1,0 +1,21 @@
+# Courstetype
+oktothek.backend_coursetype_price_cheaper_than_reduced: Vollpreis ist günstiger als der reduzierte Preis
+oktothek.backend_coursetype_title_notblank:             Du musst einen Titel angeben
+oktothek.backend_coursetype_title_maxLength:            Der Titel muss kürzer sein
+oktothek.backend_coursetype_description_notblank:       Du musst eine Beschreibung angeben
+oktothek.backend_coursetype_description_maxLength:      Die Beschreibung ist zu lang
+oktothek.backend_coursetype_price_notblank:             Du musst einen Preis angeben. Für gratis Kurse gib 0 an
+oktothek.backend_coursetype_price_greaterthan:          Der Preis darf mindestens 0 betragen
+oktothek.backend_coursetype_price_reduced_notblank:     Der reduzierte Preis darf nicht leer sein
+oktothek.backend_coursetype_price_reduced_greaterthan:  Der reduzierte Preis darf mindestens 0 betragen
+
+# Course
+oktothek.backend_course_trainer_maxLength:              Die Trainer Info muss kürzer sein
+oktothek.backend_course_attendees_greater_than:         Die Teilnehmeranzahl muss größer als 0 sein
+
+# Coursedate
+oktothek.backend_coursedate_start_before_end:           Der Kursbeginn kann nicht nach oder während dem Ende sein. Wir haben keine Zeitmaschine.
+oktothek.backend_coursedate_start_notblank:             Du musst einen Kursbeginn angeben
+oktothek.backend_coursedate_end_notblank:               Du musst ein Kursende angeben
+
+# Attendee

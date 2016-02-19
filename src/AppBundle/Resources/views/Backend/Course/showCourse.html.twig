@@ -1,0 +1,48 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ course.coursetype }}</h1>
+        <a href="{{ path('oktothek_backend_show_coursetype', {'coursetype': course.coursetype.id})}}" class="btn btn-default">{{'oktothek_backend_show_course_back_to_type'|trans}}</a>
+        <a href="{{ path('oktothek_backend_edit_course', {'course': course.id})}}" class="btn btn-default">{{ 'oktothek_backend_edit_course'|trans|raw }}</a>
+    </div>
+
+    <ul class="list-group">
+        <li class="list-group-item">{{ course.trainer }}</li>
+        <li class="list-group-item">{{ course.coursetype }}</li>
+        <li class="list-group-item">{{ course.maxAttendees }}</li>
+        <li class="list-group-item">{{ course.attendees|length }}</li>
+    </ul>
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>Von</th><th>Bis</th></tr>
+        </thead>
+        <tbody>
+            {% for date in course.dates %}
+                <tr>
+                    <td>{{ date.courseStart|date('H:i d.m.Y') }}</td>
+                    <td>{{ date.courseEnd|date('H:i d.m.Y') }}</td>
+                </tr>
+            {% endfor %}
+        <tbody>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+            <tr><th>Teilnehmer</th><th>Aktionen</th></tr>
+        </thead>
+        <tbody>
+            {% for attendee in course.attendees %}
+                <tr>
+                    <td>{{ attendee }}</td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+            {% if course.attendees is empty %}
+                <tr><td colspan="2">Noch keine Teilnehmer</td></tr>
+            {% endif %}
+        <tbody>
+    </table>
+{% endblock %}

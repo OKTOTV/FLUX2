@@ -1,0 +1,97 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ coursetype }}</h1>
+        <a href="{{ path('oktothek_backend_courses')}}" class="btn btn-default">{{ 'oktothek_backend_back_to_coursetypes'|trans }}</a>
+        <a href="{{path('oktothek_backend_new_course', {'coursetype': coursetype.id})}}" class="btn btn-default">
+            {{ 'oktothek_backend_new_course'|trans|raw }}
+        </a>
+        <a href="{{ path('oktothek_backend_edit_coursetype', {'coursetype': coursetype.id})}}" class="btn btn-default">{{ 'oktothek_backend_edit_coursetype'|trans|raw }}</a>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {%if coursetype.image is not empty %}
+                        <img src="{{ coursetype.image|link }}" class="img img-responsive" />
+                    {% endif %}
+                </div>
+                <div class="panel-footer">
+                    {{ coursetype.description }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td>
+                            {{ 'oktothek_backend_coursetype_price_info'|trans }}
+                        </td>
+                        <td>
+                            {{ 'oktothek_backend_courstype_price'|trans({'%amount%': coursetype.price}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ 'oktothek_backend_coursetype_price_reduced_info'|trans }}
+                        </td>
+                        <td>
+                            {{ 'oktothek_backend_courstype_price_reduced'|trans({'%amount%': coursetype.priceReduced}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ 'oktothek_backend_coursetype_highlight_info'|trans }}
+                        </td>
+                        <td>
+                            {{ 'oktothek_backend_courstype_highligt_choice'|transchoice(coursetype.highlight) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ 'oktothek_backend_coursetype_isActive_info'|trans }}
+                        </td>
+                        <td>
+                            {{ 'oktothek_backend_courstype_isActive_choice'|transchoice(coursetype.isActive) }}
+                        </td>
+                    </tr>
+                    {% for asset in coursetype.assets %}
+                    <tr>
+                        <td>
+                            {{ 'oktothek_backend_coursetype_attachment_info'|trans }}
+                        </td>
+                        <td>
+                            {{ asset.name }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h3>Kurse</h3>
+    <div class="navigation">
+        {{ knp_pagination_render(courses) }}
+    </div>
+    <div class="row">
+        {% for course in courses %}
+            <div class="col-md-3">
+                    <ul class="list-group">
+                        {% if course.dates is not empty %}
+                            <li class="list-group-item"><a href="{{ path('oktothek_backend_show_course', {'course': course.id}) }}">{{ 'oktothek_backend_course_month_choice'|transchoice(course.dates[0].courseStart|date('n'))}}</a></li>
+                        {% else %}
+                            <li class="list-group-item list-group-item-danger"><a href="{{ path('oktothek_backend_show_course', {'course': course.id}) }}">{{ 'oktothek_backend_course_no_dates'|trans }}</a></li>
+                        {% endif %}
+                        {% for date in course.dates %}
+                            <li class="list-group-item">{{ date.courseStart|date('d.m.Y')}}</li>
+                        {% endfor %}
+                    </ul>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
