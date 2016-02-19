@@ -36,8 +36,8 @@
         <tbody>
             {% for attendee in course.attendees %}
                 <tr>
-                    <td>attendee.</td>
-                    <td>{{ date.courseEnd|date('h:i d.m.Y') }}</td>
+                    <td>{{ attendee }}</td>
+                    <td></td>
                 </tr>
             {% endfor %}
             {% if course.attendees is empty %}

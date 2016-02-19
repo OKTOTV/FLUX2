@@ -9,7 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Course
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CourseRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Course
 {
@@ -63,6 +64,16 @@ class Course
     public function __construct() {
         $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
+    /**
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updatedAt;
 
     /**
      * Get id
@@ -244,5 +255,44 @@ class Course
     public function getIsActive()
     {
         return $this->is_active;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAt()
+    {
+        $this->createdAt = new \DateTime();
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAt()
+    {
+        $this->updatedAt = new \DateTime();
+        return $this;
     }
 }

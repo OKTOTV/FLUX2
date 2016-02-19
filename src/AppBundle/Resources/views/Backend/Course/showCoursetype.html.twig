@@ -75,8 +75,11 @@
         </div>
     </div>
     <h3>Kurse</h3>
+    <div class="navigation">
+        {{ knp_pagination_render(courses) }}
+    </div>
     <div class="row">
-        {% for course in coursetype.courses %}
+        {% for course in courses %}
             <div class="col-md-3">
                     <ul class="list-group">
                         {% if course.dates is not empty %}

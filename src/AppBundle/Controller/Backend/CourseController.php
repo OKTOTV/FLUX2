@@ -96,12 +96,15 @@ class CourseController extends Controller
     }
 
     /**
-     * @Route("/coursetype/{coursetype}/show", name="oktothek_backend_show_coursetype")
+     * @Route("/coursetype/{coursetype}/show/{page}", name="oktothek_backend_show_coursetype", requirements={"page": "\d+"}, defaults={"page":1})
      * @Template()
      */
-    public function showCoursetypeAction(Coursetype $coursetype)
+    public function showCoursetypeAction(Coursetype $coursetype, $page)
     {
-        return ['coursetype' => $coursetype];
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $courses = $paginator->paginate($em->getRepository('AppBundle:Course\Course')->findCoursesForCoursetypeQuery($coursetype), $page, 2);
+        return ['coursetype' => $coursetype, 'courses' => $courses];
     }
 
     /**
