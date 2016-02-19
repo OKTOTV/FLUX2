@@ -93,7 +93,13 @@ oktothek_tag_episode_header:            Episoden
 ## academy
 oktothek_academy_header:                Akademie
 oktothek_academy_misc_info:             %price%€ / %price_reduced%€
-
+oktothek_academy_courses:               Kursangebote
+oktothek_academy_b2b:                   Gruppen Angebote
+oktothek_academy_b2b_paragraph: >
+    Ob B2B-KundInnen, Kindergartengruppen, Schulkinder, SeniorInnen - wir gehen mit unseren Angeboten ganz auf die individuellen Bedürfnisse unserer KundInnen
+    ein: Medientrainings für Menschen, die beruflich öfter mal vor der Kamera stehen, Workshops für Schulklassen, private Kindergruppen, die einen Kindergeburtstag
+    mit einem TV-Workshop verbinden wollen - all das ist bei Okto möglich!
+oktothek_academy_b2b_more:              Weitere Informationen bekommen Sie hier»
 ## tv
 oktothek_tv_title:                      TV
 
@@ -121,6 +127,7 @@ oktothek.backend_coursetype_image_label: Bild
 oktothek.backend_coursetype_assets_label: Kursunterlagen
 oktothek_backend_coursetype_isActive_info: Aktiv
 oktothek_backend_courstype_isActive_choice: "{0} Nein|{1} Ja"
+
 
 # Course
 oktothek.error_create_course:           Der Kurs konnte nicht angelegt werden
