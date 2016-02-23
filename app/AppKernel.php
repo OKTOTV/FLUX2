@@ -26,7 +26,7 @@ class AppKernel extends Kernel
             new MediaBundle\MediaBundle(),
             new Bprs\CommandLineBundle\BprsCommandLineBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(),
+            // new EightPoints\Bundle\GuzzleBundle\GuzzleBundle(),
             new Bprs\AppLinkBundle\BprsAppLinkBundle(),
             new Bprs\UserBundle\BprsUserBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
