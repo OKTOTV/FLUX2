@@ -49,8 +49,8 @@ class AcademyController extends Controller
         $course->addAttendee($attendee);
 
         $form = $this->createForm(new AttendeeType(), $attendee);
-        $form->add('submit', 'submit', ['label' => 'oktothek.attendee_create_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $form->add('sofort', 'submit', ['label' => 'oktothek.book_sofort_button', 'attr' => ['class' => 'btn btn-default']]);
+        $form->add('sofort', 'submit', ['label' => 'oktothek.book_sofort_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('submit', 'submit', ['label' => 'oktothek.attendee_create_button', 'attr' => ['class' => 'btn btn-default']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -81,7 +81,7 @@ class AcademyController extends Controller
         $em = $this->getDoctrine()->getManager();
         $attendee = $em->getRepository('AppBundle:Course\Attendee')->findOneBy(['uniqID' => $uniqID]);
         $this->get('oktothek_academy')->completedPayment($attendee);
-        $this->get('session')->getFlashBag()->add('success', 'oktothek.success_book_course');
+        $this->get('session')->getFlashBag()->add('success', 'oktothek.success_book_SOFORT_course');
         return $this->redirect($this->generateUrl('oktothek_academy'));
     }
 

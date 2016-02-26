@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Attendee
@@ -23,7 +24,8 @@ class Attendee
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Length(max=250)
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -31,20 +33,24 @@ class Attendee
     /**
      * @var string
      * family name
+     * @Assert\NotBlank()
+     * @Assert\Length(max=250)
      * @ORM\Column(name="surname", type="string", length=255)
      */
     private $surname;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Length(max=250)
+     * @Assert\Email(checkMX = true)
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
     /**
      * @var string
-     *
+     * @Assert\Length(max=250)
      * @ORM\Column(name="tel", type="string", length=255, nullable=true)
      */
     private $tel;
@@ -309,7 +315,7 @@ class Attendee
     /**
      * Get uniqID
      *
-     * @return string 
+     * @return string
      */
     public function getUniqID()
     {
