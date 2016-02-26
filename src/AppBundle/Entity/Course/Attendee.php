@@ -61,6 +61,21 @@ class Attendee
      */
     private $courses;
 
+    /**
+     * @ORM\Column(name="transactionId", type="string", length=255, nullable=true)
+     */
+    private $transactionId;
+
+    /**
+     * @ORM\Column(name="paymentStatus", type="string", length=255, nullable=true)
+     */
+    private $paymentStatus;
+
+    /**
+     * @ORM\Column(name="uniqID", type="string", length=255, nullable=true)
+     */
+    private $uniqID;
+
     public function __toString()
     {
         return $this->name.' '.$this->surname;
@@ -195,6 +210,7 @@ class Attendee
      */
     public function __construct()
     {
+        $this->uniqID = uniqID();
         $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -229,5 +245,74 @@ class Attendee
     public function getCourses()
     {
         return $this->courses;
+    }
+
+    /**
+     * Set transactionId
+     *
+     * @param string $transactionId
+     * @return Attendee
+     */
+    public function setTransactionId($transactionId)
+    {
+        $this->transactionId = $transactionId;
+
+        return $this;
+    }
+
+    /**
+     * Get transactionId
+     *
+     * @return string
+     */
+    public function getTransactionId()
+    {
+        return $this->transactionId;
+    }
+
+    /**
+     * Set paymentStatus
+     *
+     * @param string $paymentStatus
+     * @return Attendee
+     */
+    public function setPaymentStatus($paymentStatus)
+    {
+        $this->paymentStatus = $paymentStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get paymentStatus
+     *
+     * @return string
+     */
+    public function getPaymentStatus()
+    {
+        return $this->paymentStatus;
+    }
+
+    /**
+     * Set uniqID
+     *
+     * @param string $uniqID
+     * @return Attendee
+     */
+    public function setUniqID($uniqID)
+    {
+        $this->uniqID = $uniqID;
+
+        return $this;
+    }
+
+    /**
+     * Get uniqID
+     *
+     * @return string 
+     */
+    public function getUniqID()
+    {
+        return $this->uniqID;
     }
 }

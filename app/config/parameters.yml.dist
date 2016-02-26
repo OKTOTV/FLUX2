@@ -29,3 +29,7 @@ parameters:
     php_path: "/path/to/php"
     worker_queue: "flux2"
     redis_backend: 'localhost:6379'
+
+    customer_id:    123456
+    project_id:     123456
+    api_id:         123456789ABCDEFGHIJKLMNOPQRST

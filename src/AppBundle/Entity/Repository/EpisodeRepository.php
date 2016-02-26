@@ -22,7 +22,7 @@ class EpisodeRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.isActive = 1 ORDER BY e.onlineStart ASC'
+                'SELECT e FROM AppBundle:Episode e WHERE e.isActive = 1 ORDER BY e.onlineStart DESC'
             )
             ->setMaxResults($numberEpisodes)
             ->getResult();
