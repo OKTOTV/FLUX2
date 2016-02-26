@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Attendee
@@ -23,7 +24,8 @@ class Attendee
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Length(max=250)
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -31,20 +33,24 @@ class Attendee
     /**
      * @var string
      * family name
+     * @Assert\NotBlank()
+     * @Assert\Length(max=250)
      * @ORM\Column(name="surname", type="string", length=255)
      */
     private $surname;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Length(max=250)
+     * @Assert\Email(checkMX = true)
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
     /**
      * @var string
-     *
+     * @Assert\Length(max=250)
      * @ORM\Column(name="tel", type="string", length=255, nullable=true)
      */
     private $tel;
@@ -60,6 +66,21 @@ class Attendee
      * @ORM\ManyToMany(targetEntity="Course", mappedBy="attendees")
      */
     private $courses;
+
+    /**
+     * @ORM\Column(name="transactionId", type="string", length=255, nullable=true)
+     */
+    private $transactionId;
+
+    /**
+     * @ORM\Column(name="paymentStatus", type="string", length=255, nullable=true)
+     */
+    private $paymentStatus;
+
+    /**
+     * @ORM\Column(name="uniqID", type="string", length=255, nullable=true)
+     */
+    private $uniqID;
 
     public function __toString()
     {
@@ -195,6 +216,7 @@ class Attendee
      */
     public function __construct()
     {
+        $this->uniqID = uniqID();
         $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -229,5 +251,74 @@ class Attendee
     public function getCourses()
     {
         return $this->courses;
+    }
+
+    /**
+     * Set transactionId
+     *
+     * @param string $transactionId
+     * @return Attendee
+     */
+    public function setTransactionId($transactionId)
+    {
+        $this->transactionId = $transactionId;
+
+        return $this;
+    }
+
+    /**
+     * Get transactionId
+     *
+     * @return string
+     */
+    public function getTransactionId()
+    {
+        return $this->transactionId;
+    }
+
+    /**
+     * Set paymentStatus
+     *
+     * @param string $paymentStatus
+     * @return Attendee
+     */
+    public function setPaymentStatus($paymentStatus)
+    {
+        $this->paymentStatus = $paymentStatus;
+
+        return $this;
+    }
+
+    /**
+     * Get paymentStatus
+     *
+     * @return string
+     */
+    public function getPaymentStatus()
+    {
+        return $this->paymentStatus;
+    }
+
+    /**
+     * Set uniqID
+     *
+     * @param string $uniqID
+     * @return Attendee
+     */
+    public function setUniqID($uniqID)
+    {
+        $this->uniqID = $uniqID;
+
+        return $this;
+    }
+
+    /**
+     * Get uniqID
+     *
+     * @return string
+     */
+    public function getUniqID()
+    {
+        return $this->uniqID;
     }
 }

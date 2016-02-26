@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
+            new Bprs\SOFORT\Bundle\BprsSOFORTBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

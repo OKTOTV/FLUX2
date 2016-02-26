@@ -1,0 +1,43 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ attendee }}</h1>
+    </div>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>{{ 'attendee_info_name'|trans }}</td>
+                <td>{{ attendee.name }}</td>
+            </tr>
+            <tr>
+                <td>{{ 'attendee_info_surname'|trans }}</td>
+                <td>{{ attendee.surname }}</td>
+            </tr>
+            <tr>
+                <td>{{ 'attendee_info_email'|trans }}</td>
+                <td>{{ attendee.email }}</td>
+            </tr>
+            <tr>
+                <td>{{ 'attendee_info_tel'|trans }}</td>
+                <td>{{ attendee.tel }}</td>
+            </tr>
+            <tr>
+                <td>{{ 'attendee_info_reduced'|trans }}</td>
+                <td>{{ 'attendee_info_reduced_choice'|transchoice(attendee.reducedEligible) }}</td>
+            </tr>
+            <tr>
+                <td>{{ 'attendee_info_transactionId'|trans }}</td>
+                <td>{{ attendee.transactionId }}</td>
+            </tr>
+            <tr>
+                <td>{{ 'attendee_info_paymentStatus'|trans }}</td>
+                <td>{{ attendee.paymentStatus|trans }}</td>
+            </tr>
+        <tbody>
+    </table>
+
+{% endblock %}

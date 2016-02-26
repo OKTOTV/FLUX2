@@ -13,8 +13,8 @@
     <ul class="list-group">
         <li class="list-group-item">{{ course.trainer }}</li>
         <li class="list-group-item">{{ course.coursetype }}</li>
-        <li class="list-group-item">{{ course.maxAttendees }}</li>
-        <li class="list-group-item">{{ course.attendees|length }}</li>
+        <li class="list-group-item">{{ 'oktothek.backend_course_maxAttendees'|trans({'%count%': course.maxAttendees}) }}</li>
+        <li class="list-group-item">{{ 'oktothek.backend_course_attendees'|trans({'%count%': course.attendees|length}) }}</li>
     </ul>
     <table class="table table-bordered">
         <thead>
@@ -31,13 +31,13 @@
     </table>
     <table class="table table-bordered">
         <thead>
-            <tr><th>Teilnehmer</th><th>Aktionen</th></tr>
+            <tr><th>Teilnehmer</th><th>Status</th></tr>
         </thead>
         <tbody>
             {% for attendee in course.attendees %}
                 <tr>
-                    <td>{{ attendee }}</td>
-                    <td></td>
+                    <td><a href="{{ path('oktothek_backend_show_attendee', {'attendee': attendee.id })}}">{{ attendee }}</a></td>
+                    <td>{{ attendee.paymentStatus|trans }}</td>
                 </tr>
             {% endfor %}
             {% if course.attendees is empty %}
