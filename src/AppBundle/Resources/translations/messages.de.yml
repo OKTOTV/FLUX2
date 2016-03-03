@@ -24,6 +24,9 @@ oktothek.post_isActive_label:           Ist Aktiv
 oktothek.post_onlineAt_label:           Online Ab
 oktothek.post_assets_label:             Anhänge
 oktothek_news_pinned_header:            Okto informiert
+oktothek_post_edit_button:              Post bearbeiten
+oktothek.post_teaser_label:             Teasertext
+oktothek.post_pinned_label:             An Startseite Pinnen
 
 ## form placeholder
 oktothek.post_onlineAt_placeholder:     TT.MM.JJJJ HH:MM
@@ -89,7 +92,7 @@ oktothek.tag_index_header:              Tags
 oktothek_tag_pages_header:              Seiten
 oktothek_tag_header:                    "# %title%"
 oktothek_tag_episode_header:            Episoden
-
+oktothek_tag_placeholder:               Katzen, YOLO and more
 ## academy
 oktothek_academy_header:                Akademie
 oktothek_academy_misc_info:             %price%€ / %price_reduced%€
