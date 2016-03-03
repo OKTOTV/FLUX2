@@ -34,8 +34,8 @@
 	<!-- Start Kursauflistung -->
     <section class="courses">
         <h2>{{ 'oktothek_academy_courses'|trans }}</h2>
+        <div class="row">
         {% for coursetype in coursetypes if not coursetype.highlight %}
-            <div class="row">
                 <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
                     <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
                         <figure class="episode-pin pin">
@@ -47,8 +47,8 @@
                         </figure>
                     </a>
                 </article>
-            </div>
         {% endfor %}
+        </div>
     </section>
 	<!-- Ende Kursauflistung -->
 	<!-- Anfang Gruppenangebot -->

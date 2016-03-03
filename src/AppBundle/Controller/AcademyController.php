@@ -49,17 +49,25 @@ class AcademyController extends Controller
         $course->addAttendee($attendee);
 
         $form = $this->createForm(new AttendeeType(), $attendee);
-        $form->add('sofort', 'submit', ['label' => 'oktothek.book_sofort_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $form->add('submit', 'submit', ['label' => 'oktothek.attendee_create_button', 'attr' => ['class' => 'btn btn-default']]);
-
+        if ($course->getCoursetype()->getPrice() <= 0) {
+            $form->add('register', 'submit', ['label' => 'oktothek.register_attendee_button', 'attr' => ['class' => 'btn btn-primary']]);
+        } else {
+            $form->add('sofort', 'submit', ['label' => 'oktothek.book_sofort_button', 'attr' => ['class' => 'btn btn-primary']]);
+            $form->add('submit', 'submit', ['label' => 'oktothek.attendee_create_button', 'attr' => ['class' => 'btn btn-default']]);
+        }
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
             if ($form->isValid()) {
-                if ($form->get('sofort')->isClicked()) {
+                // die(var_dump($form->getClickedButton()));
+                if ($form->has('sofort') && $form->get('sofort')->isClicked()) {
                     if ($url = $this->get('oktothek_academy')->bookCourseSOFORT($attendee, $course)) {
                         return $this->redirect($url);
                     }
                     $this->get('session')->getFlashBag()->add('error', 'oktothek.error_sofort_book_course');
+                } elseif ($form->has('register') && $form->get('register')->isClicked()) {
+                    $this->get('oktothek_academy')->registerCourse($attendee, $course);
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_register_course');
+                    return $this->redirect($this->generateUrl('oktothek_academy_coursetype', ['coursetype' => $course->getCoursetype()->getId()]));
                 } else {
                     $this->get('oktothek_academy')->bookCourse($attendee, $course);
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_book_course');

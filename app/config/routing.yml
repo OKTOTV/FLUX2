@@ -3,9 +3,9 @@ bprs_sofort:
     type:     annotation
     prefix:   /
 
-homepage:
-    path:      /{_locale}
-    defaults:  { _controller: AppBundle:Default:index, _locale: de }
+start:
+    path:      /
+    defaults:  { _controller: AppBundle:Default:oktothek, _locale: de }
     requirements:
         _locale:  de|en
 

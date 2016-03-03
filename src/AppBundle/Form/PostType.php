@@ -18,7 +18,7 @@ class PostType extends AbstractType
             ->add('name', 'text', ['label' => 'oktothek.post_name_label'
             ])
             ->add('teaser', 'textarea', ['label' => 'oktothek.post_teaser_label'])
-            ->add('description', 'textarea', ['label' => 'oktothek.post_description_label'])
+            ->add('description', 'textarea', ['label' => 'oktothek.post_description_label', 'attr' => ['rows' => 32]])
             ->add('isActive', 'checkbox', ['label' => 'oktothek.post_isActive_label'])
             ->add('pinned', 'checkbox', ['label' => 'oktothek.post_pinned_label'])
             ->add('onlineAt', 'datetime',

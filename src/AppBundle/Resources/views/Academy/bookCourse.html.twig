@@ -16,8 +16,12 @@
     {% for date in course.dates %}
         <p>{{ date.courseStart|date('H:i d.m.Y')}} - {{ date.courseEnd|date('H:i d.m.Y')}}</p>
     {% endfor %}
-    <p>Vollpreis / Ermäßigter Preis</p>
-    <p>{{ 'oktothek_academy_misc_info'|trans({'%price%': course.coursetype.price, '%price_reduced%': course.coursetype.priceReduced}) }}</p>
+    {% if course.coursetype.price <= 0 %}
+        <p>{{ 'oktothek_academy_course_free'|trans }}</p>
+    {% else %}
+        <p>Vollpreis / Ermäßigter Preis</p>
+        <p>{{ 'oktothek_academy_misc_info'|trans({'%price%': course.coursetype.price, '%price_reduced%': course.coursetype.priceReduced}) }}</p>
+    {% endif %}
     {{ form_start(form) }}
     {{ form_end(form) }}
     <img src="{{ asset('bundles/bprssofort/images/sofort_175x75.png') }}" class="img img-rounded img-responsive" />
