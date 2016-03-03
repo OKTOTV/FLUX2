@@ -96,6 +96,7 @@ oktothek_tag_placeholder:               Katzen, YOLO and more
 ## academy
 oktothek_academy_header:                Akademie
 oktothek_academy_misc_info:             %price%€ / %price_reduced%€
+oktothek_academy_course_free:           Dieser Kurs ist Kostenlos
 oktothek_academy_courses:               Kursangebote
 oktothek_academy_b2b:                   Gruppen Angebote
 oktothek_academy_b2b_paragraph: >
@@ -125,7 +126,9 @@ oktothek_series_episodes_all:           Alle Folgen
 oktothek.success_book_SOFORT_course:    Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Buchungsbestätigung
 oktothek.book_sofort_button:            Mit SOFORTÜberweisung bezahlen
 oktothek.attendee_create_button:        Per Überweisung oder Bar bezahlen
+oktothek.register_attendee_button:      Kostenlos Registrieren
 oktothek.error_book_course:             Der Kurs konnte nicht gebucht werden. Überprüfen Sie die Formularfelder
+oktothek.success_register_course:       Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Registrierungsbestätigung
 
 oktothek_attende_name_placeholder:      Max
 oktothek_attende_surname_placeholder:   Musterfrau

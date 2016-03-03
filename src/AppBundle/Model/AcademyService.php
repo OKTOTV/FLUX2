@@ -52,10 +52,29 @@ class AcademyService
     public function bookCourse($attendee, $course)
     {
         $em = $this->em;
+        $attendee->setPaymentStatus(AcademyService::ACADEMY_MONEY);
         $em->persist($attendee);
         $em->persist($course);
         $em->flush();
         $this->sendBookingSuccessMail($attendee);
+    }
+
+    public function attendeePayedWithMoney($attendee)
+    {
+        $em = $this->em;
+        $attendee->setPaymentStatus(AcademyService::ACADEMY_MONEY_CLOSED);
+        $em->persist($attendee);
+        $em->flush();
+        $this->sendPayedMoneySuccessMail($attendee);
+    }
+
+    public function registerCourse($attendee, $course)
+    {
+        $em = $this->em;
+        $em->persist($attendee);
+        $em->persist($course);
+        $em->flush();
+        $this->sendRegisterSuccessMail($attendee);
     }
 
     public function completedPayment($attendee)
@@ -70,5 +89,15 @@ class AcademyService
     private function sendBookingSuccessMail($attendee)
     {
         //TODO: add mailer and send a mail
+    }
+
+    private function sendRegisterSuccessMail($attendee)
+    {
+        //TODO: add mailer and send a mail
+    }
+
+    private function sendPayedMoneySuccessMail($attendee)
+    {
+        //TODO: add mailder and send a mail
     }
 }
