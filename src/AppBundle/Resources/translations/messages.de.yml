@@ -216,3 +216,33 @@ oktothek.success_create_coursetype:      Kurstyp erfolgreich angelegt
 oktothek.success_update_coursetype:      Kurstyp erfolgreich geändert
 oktothek.error_update_coursetype:        Änderungen konnten nicht gespeichert werden
 oktothek.success_delete_coursetype:      Kurstyp erfolgreich gelöscht
+
+markdown_markup_head:                   <kbd>*Ich*</kbd>,<kbd>**bin**</kbd>,<kbd>***anders***</kbd>
+markdown_linebreak_head:                <kbd>Leertaste x2</kbd>
+markdown_list_head:                     <kbd>* Ungeordnete Liste</kbd>
+markdown_ordered_list_head:             <kbd>1. Numerierte Liste</kbd>
+markdown_headline_head:                 <kbd># Überschriften</kbd>
+markdown_blockquote_head:               <kbd>> Blockquote</kbd>
+markdown_hyperlink_head:                <kbd>[]() Hyperlinks</kbd>
+markdown_images_head:                   <kbd>![]() Images</kbd>
+markdown_markup_info: |
+    *Ich*, **bin**, ***anders***
+markdown_linebreak_info: |
+    Benutze am Ende einer Zeile<kbd>Leertaste x2</kbd><br />
+    Um einen Umbruch zu erzeugen
+markdown_list_info: |
+    * Mit Stern <kbd>*</kbd>
+    * Kann man eine
+    * Unsortierte Liste erzeugen
+markdown_ordered_list_info: |
+    1. Numerierte Listen
+    2. Einfach mit <kbd>1. </kbd>
+    3. Anstelle von * erzeugen
+markdown_headline_info: |
+    Mit <kbd>#</kbd> lassen sich Überschriften erzeugen. Mehrere <kbd>###</kbd> erzeugen eine Überschrift kleinerer Ordnung (h3)
+markdown_blockquote_info: |
+    > Mit <kbd>></kbd> Lassen sich prima quotes erzeugen
+markdown_hyperlink_info: |
+    <kbd>[</kbd>Ich bin ein Linktext<kbd>](</kbd>www.ich-bin-die-url.at <kbd>"</kbd>Mousehover<kbd>")</kbd>
+markdown_images_info: |
+    <kbd>![</kbd>Alternativtext<kbd>](</kbd>www.ich-bin-die-url.at/bild.png <kbd>"</kbd>Mousehover<kbd>")</kbd>
