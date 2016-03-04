@@ -15,6 +15,7 @@
     <section>
         <article class="row">
             {% for coursetype in coursetypes if coursetype.highlight %}
+			        <h2>{{ coursetype.title }}</h2>
                     <div class="pin col-xs-3">
                         <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
                             <figure class="episode-pin pin">
@@ -23,7 +24,6 @@
                         </a>
                     </div>
                     <div class="description col-xs-9">
-                        <h2>{{ coursetype.title }}</h2>
                         <p>{{ coursetype.description }}</p>
                         <p class="misc">{{ coursetype.courses[0].dates|hours~'h' }} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
                     </div>

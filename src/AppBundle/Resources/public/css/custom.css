@@ -713,6 +713,10 @@ header + .container-fluid {
 }
 
 /* Slider und Fullscreen Images */
+.carousel-inner {
+	overflow:auto;
+	height:auto;
+}
 .carousel .item {
   min-width: 100%;
   height: 100%;
@@ -889,6 +893,10 @@ figure.pin img, .programm .schedule img {
 .series div.current-episode {
 	bottom:80px;
 	overflow:hidden;
+}
+.series-ident {
+	overflow:auto;
+	height:auto;
 }
 .container-bg-opacity {
 	z-index:0;
@@ -1154,6 +1162,12 @@ figure.pin img, .programm .schedule img {
 	.series .series-description aside {
         width:250px;
     }
+	.series-ident {
+		overflow:hidden;
+	}
+	.carousel-inner {
+		overflow:hidden;
+	}
 }
 @media (min-width: 992px) {
 	.series div.current-episode {
@@ -1243,10 +1257,12 @@ figure.pin img, .programm .schedule img {
 	height:50px;
 }
 #anchor-menu .panel-title, .btn-top {
-	width:220px;
 	line-height:46px;
 	vertical-align:middle;
 	text-align:center;
+}
+#anchor-menu .panel-title {
+	width:220px;
 }
 .btn-top {
 	display:block;
