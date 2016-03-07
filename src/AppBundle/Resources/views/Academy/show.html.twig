@@ -18,7 +18,7 @@
 			        <h2>{{ coursetype.title }}</h2>
                     <div class="pin col-xs-3">
                         <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
-                            <figure class="episode-pin pin">
+                            <figure class="academy-pin pin">
                                 <img src="{{ coursetype.image|link }}" class="img-responsive"/>
                             </figure>
                         </a>
@@ -37,18 +37,27 @@
         <div class="row">
         {% for coursetype in coursetypes if not coursetype.highlight %}
                 <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                    <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
-                        <figure class="episode-pin pin">
-                            <img src="{{ coursetype.image|link }}" class="img-responsive"/>
+                        <figure class="academy-pin pin">
+                            <a role="button" data-toggle="collapse" href="#collapseDetail" aria-expanded="false" aria-controls="collapseDetail"><img src="{{ coursetype.image|link }}" class="img-responsive"/></a>
     			            <figcaption>
+							  <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
                                 <h3>{{ coursetype.title }}</h3>
                                 <p>{{ coursetype.courses[0].dates|hours~'h'}} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
+								</a>
     			            </figcaption>
                         </figure>
-                    </a>
+                    
                 </article>
         {% endfor %}
         </div>
+		<!-- Schnellansicht Details Start -->
+		<article class="collapse row collapseCoursedetails" id="collapseDetail">
+          <div class="col-md-12">
+            <h3>Untertitelung</h3>
+			<p>Ich bin eine Kurzbeschreibung</p>
+          </div>
+        </article>
+		<!-- Schnellansicht Details Ende -->
     </section>
 	<!-- Ende Kursauflistung -->
 	<!-- Anfang Gruppenangebot -->

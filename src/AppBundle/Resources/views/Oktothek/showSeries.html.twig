@@ -7,12 +7,12 @@
 {% set body_class = "series head-white-color head-transparent-bg fullscreen-images" %}
 {% block body %}
     <div id="top"></div>
-    <section class="series-content">
-        <div class="series-ident">
-            <figure class="episode-posterframe">
+    <section class="series-content fs-image-content">
+        <div class="series-ident fs-image-ident">
+            <figure class="episode-posterframe fs-image">
                 <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><img src="{{ series.episodes[0].posterframe|path() }}" /></a>
             </figure>
-			<div class="current-episode container">
+			<div class="current-episode container description-wrapper">
 			    <div class="container-bg-opacity">
 			        <div class="bg-opacity"></div>
 				</div>

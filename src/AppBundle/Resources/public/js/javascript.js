@@ -139,9 +139,9 @@ $(document).ready(function(){
 
 		//Bildgröße berechnen lassen:
 		if (Winwidth >= 768) {
-		    resizeImage(el, el.parents('div.series-ident'), el.ratio);
+		    resizeImage(el, el.parents('div.fs-image-ident'), el.ratio);
 		} else {
-			resizeImageMobile(el, el.parents('div.series-ident'), el.ratio);
+	        resizeImageMobile(el, el.parents('.fs-image-ident'), el.ratio);
 		}
     };
 	
@@ -149,23 +149,22 @@ $(document).ready(function(){
 		Winheight = $( window ).height() - borderbottom;
 	    Winwidth = $( window ).width();
 	    //Episodenposterframe in Größe anpassen
-        if ($('.series figure.episode-posterframe img').length > 0)
-            resizeSingleImage($('.series figure.episode-posterframe img'));
+        if ($('figure.fs-image img').length > 0)
+            resizeSingleImage($('figure.fs-image img'));
     });
 
 	//Bildgröße für Einzelbilder erst berechnen lassen, wenn die Höhe existiert
 	function checkImgLoading() {
-		if($('.series .episode-posterframe img:last').height() > 0) {
-                resizeSingleImage($('.series figure.episode-posterframe img'));
-			    clearInterval(VarImgLoading);
-		}
+        resizeSingleImage($('figure.fs-image img'));
+		clearInterval(VarImgLoading);
+		
 	}
 	
 	/* Slider an Monitor anpassen*/
 	var VarImgArrayLoading = setInterval(function(){ checkImgArrayLoading() }, 100);
 	
 	/* Posterframe an Monitor anpassen*/
-    if ($('.series figure img').length > 0)
+    if ($('.fs-image-ident figure img').length > 0)
 	    var VarImgLoading = setInterval(function(){ checkImgLoading() }, 100);
 	
 
@@ -175,6 +174,8 @@ $(document).ready(function(){
 		    var offset = $('#oktothek').offset();
 		} else if ($('body').hasClass('series')) {
 			var offset = $('section.series-description').offset();
+		}  else if ($('body').hasClass('academy')) {
+			var offset = $('section.academy-description').offset();
 		}
 		$("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
 		$( this ).find('span').css('display','none');

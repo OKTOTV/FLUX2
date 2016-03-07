@@ -22,6 +22,7 @@ header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a
 .newsarchiv .label, label {
 	font-weight:400;
 }
+
 @media (min-width: 768px) {
 	.carousel-caption {
 		font-size:30px;
@@ -307,8 +308,11 @@ button .btn-default.active, .oktothek article a.btn-default {
 .play-episode.btn-default, .tagpage .container-fluid header input.form-control {
 	border: solid 1px #ffffff;
 }
-.newsarchiv article {
+.newsarchiv article, .academy .timetable li:first-child {
 	border-top:solid 1px #ffffff;
+}
+.academy .timetable li {
+	border-bottom:solid 1px #ffffff;
 }
 .programm .schedule .panel-default {
 	border-top:none;
@@ -702,7 +706,7 @@ header .navbar-fixed-top .navbar-toggle {
 	}
 }
 
-#slider, .series-content {
+#slider, .fs-image-content {
 	margin-top:-90px; 
 }
 header + .container-fluid {
@@ -881,20 +885,20 @@ figure.pin img, .programm .schedule img {
 }
 
 /* Serien */
-.series .series-content, .series .series-ident, .content-opacity {
+.fs-image-content, .fs-image-ident, .content-opacity {
 	position:relative;
 }
-.series div.current-episode, .series .play-episode, .container-bg-opacity {
+.series div.current-episode, .series .play-episode, .container-bg-opacity, .academy div.current-course {
 	position:absolute;
 }
-.series section.series-content {
+section.fs-image-content {
 	margin-bottom:0;
 }
-.series div.current-episode {
+.fs-image-ident div.description-wrapper {
 	bottom:80px;
 	overflow:hidden;
 }
-.series-ident {
+.fs-image-ident {
 	overflow:auto;
 	height:auto;
 }
@@ -1127,6 +1131,17 @@ figure.pin img, .programm .schedule img {
 .academy .newsletter .input-group {
 	margin:0 auto;
 }
+.academy .timetable {
+	width:100%;
+	display:table;
+}
+.academy .timetable li {
+	line-height:2em;
+	display:table-row;
+}
+.academy .timetable span {
+	display:table-cell;
+}
 @media (min-width: 580px) {
 	article.pin {
 		width:50%;
@@ -1145,13 +1160,13 @@ figure.pin img, .programm .schedule img {
 	}
 }
 @media (min-width: 768px) {
-	#slider, .series-content {
+	#slider, .fs-image-content {
 	    margin-top:-140px; 
     }
 	header + .container-fluid {
 		margin-top:0;
 	}
-	.series div.current-episode {
+	.fs-image-ident div.description-wrapper {
 		left:50%;
         margin-left:-375px;
 	}
@@ -1162,7 +1177,7 @@ figure.pin img, .programm .schedule img {
 	.series .series-description aside {
         width:250px;
     }
-	.series-ident {
+	.fs-image-ident {
 		overflow:hidden;
 	}
 	.carousel-inner {
@@ -1170,7 +1185,7 @@ figure.pin img, .programm .schedule img {
 	}
 }
 @media (min-width: 992px) {
-	.series div.current-episode {
+	.fs-image-ident div.description-wrapper {
         margin-left:-485px;
 	}
 	article.pin:nth-child(2n+1) {
@@ -1183,7 +1198,7 @@ figure.pin img, .programm .schedule img {
 	
 }
 @media (min-width: 1200px) {
-    .series div.current-episode {
+    .fs-image-ident div.description-wrapper {
 	    margin-left:-585px;
     }
 }
@@ -1309,6 +1324,13 @@ figure.pin img, .programm .schedule img {
 		margin-left:480px;
 	}
 }
+
+
+/* Backend */
+body .panel, .bootstrap .datetimepicker .widget a {
+	color:#000;
+}
+
 
 
 /* für Clickdummy: */
