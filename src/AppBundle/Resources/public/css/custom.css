@@ -308,10 +308,10 @@ button .btn-default.active, .oktothek article a.btn-default {
 .play-episode.btn-default, .tagpage .container-fluid header input.form-control {
 	border: solid 1px #ffffff;
 }
-.newsarchiv article, .academy .timetable li:first-child {
+.newsarchiv article, .academy .timetable li:first-child p {
 	border-top:solid 1px #ffffff;
 }
-.academy .timetable li {
+.academy .timetable li p {
 	border-bottom:solid 1px #ffffff;
 }
 .programm .schedule .panel-default {
@@ -481,10 +481,10 @@ html, body {
 .episode .series a {
 	text-decoration:underline;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul {
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable {
 	list-style:none;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul {
+.collapsePlaylist ul, .collapsePlaylist li, .series .series-description ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable {
 	margin-left:0;
 	padding-left:0;
 }
@@ -1131,6 +1131,20 @@ section.fs-image-content {
 .academy .newsletter .input-group {
 	margin:0 auto;
 }
+.academy-content .content-opacity {
+	display:table-row;
+}
+.academy-content .content-opacity div {
+	display:table-cell;
+	vertical-align:top;
+}
+.academy-content .content-opacity div:first-child {
+	padding-left:15px;
+}
+.academy-content .misc {
+	width:180px;
+	padding-top:70px;
+}
 .academy .timetable {
 	width:100%;
 	display:table;
@@ -1139,8 +1153,20 @@ section.fs-image-content {
 	line-height:2em;
 	display:table-row;
 }
-.academy .timetable span {
+.academy .timetable p {
 	display:table-cell;
+}
+.academy .timetable li p {
+	vertical-align:middle;
+	padding:2px;
+}
+.academy .timetable li p:last-child {
+	vertical-align:bottom;
+	text-align:right;
+}
+.academy .timetable span {
+	display:inline-block;
+	width:120px;
 }
 @media (min-width: 580px) {
 	article.pin {
