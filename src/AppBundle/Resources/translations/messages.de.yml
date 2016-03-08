@@ -16,6 +16,15 @@ oktothek.newest_playlists:              Neue Playlisten
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen
 oktothek.newest_news_show_more:         Mehr News anzeigen
 
+## register
+oktothek.user_name_label:               Benutzername
+oktothek.user_name_placeholder:         Username. Ist öffentlich zugänglich.
+oktothek.user_email_label:              Email
+oktothek.user_email_placeholder:        Deine Email. Bleibt privat und wird zum registrieren verwendet
+oktothek.register_user_button:          Account anlegen
+oktothek.error_create_account:          Account konnte nicht angelegt werden
+oktothek.success_create_account:         Account wurde angelegt. Schau in dein Postfach!
+
 ## news post
 ## form labels
 oktothek.post_name_label:               Titel

@@ -1,0 +1,10 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "fullscreen-images oktothek head-white-color head-transparent-bg" %}
+{% block body_main %}
+    {{ form(form) }}
+{% endblock %}
