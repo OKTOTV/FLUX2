@@ -768,6 +768,12 @@ article.pin {
 	width:100%;
 }
 
+/* Fullscreen Images*/
+figure.fs-image img {
+	width:100%;
+	height:auto;
+}
+
 /* Oktothek */
 .oktothek article {
 	position:relative;

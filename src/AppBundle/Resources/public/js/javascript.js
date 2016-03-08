@@ -3,9 +3,6 @@ $(document).ready(function(){
 	/* Headerbackground */
 	var headerScrollheight = $(window).height()/2;
 	var headerHeight = 180;
-	var borderbottom = 70;
-	var Winheight = $( window ).height() - borderbottom;
-	var Winwidth = $( window ).width();
 
 	function addHeaderBG() {
 	  if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
@@ -46,126 +43,7 @@ $(document).ready(function(){
 	     addHeaderBG();
 	 });
 
-	 /*Slider*/
-
-    function ImageRatio(el) {
-        var aspectRatio = $(el).height() / $(el).width();
-        return aspectRatio;
-    }
-
-	function resizeImage(el, container, _ratio) {
-		
-
-		//$(container).find('figure').parent('div').css('height',Winheight + 'px').css('overflow','hidden');
-		_parentContainer = $(container).find('figure').parent('div');
-		if (_parentContainer.height() != Winheight)
-			$(_parentContainer).css('height',Winheight + 'px');
-
-		if (Winheight / _ratio > Winwidth) {
-			newMargin = (Winwidth - (Winheight / _ratio)) / 2;
-			el.css('height', Winheight + 'px').css('width', (Winheight / _ratio) + 'px').css('margin-left', newMargin + "px");
-        } else {
-			el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
-        }
-	}
-	
-	function resizeImageMobile(el, container, _ratio) {
-		//var Winwidth = $( window ).width();
-		_parentContainer = $(container).find('figure').parent('div');
-		if (_parentContainer.css('height') != "auto")
-			$(container).find('figure').parent('div').css('height','auto');
-		el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
-	}
-
-	 /*Alle Bilder auf gleiche Höhe bringen (nach der kleinsten Höhe)*/
-	function carouselNormalization(container) {
-        var items = $(container).find('.item'), //grab all slides
-        //width = [], //create empty array to store height values
-		//Winheight,
-		//Winwidth,
-		aspectRatio;
-
-        if (items.length) {
-
-            function normalizeHeights() {
-
-				aspectRatio = ImageRatio($(items[0]).find('img'));
-				//if (width.length == 0) { //beim ersten Mal Array füllen
-                	//items.each(function() { //Aspect Ratio Array hinzufügen
-						//aspectRatio = ImageRatio(this);
-                    	//width.push(aspectRatio);
-                	//});
-				//Winwidth = $( window ).width();
-
-				var i=0;
-                //items.each(function() {
-					//Bildgröße berechnen lassen:
-					if (Winwidth >= 768) {
-                        //resizeImage($(this).find('img'), container, width[i]);
-						resizeImage($(items).find('img'), container, aspectRatio);
-					} else {
-						//resizeImageMobile($(this).find('img'), container, width[i]);
-						resizeImageMobile($(items).find('img'), container, aspectRatio);
-					}
-					//i++;
-                //});
-            };
-            normalizeHeights();
-
-            $(window).on('resize orientationchange', function () {
-				//Winheight = 0, Winwidth = 0; //reset vars
-				Winheight = $( window ).height() - borderbottom;
-				Winwidth = $( window ).width();
-                    normalizeHeights(); //run it again
-            });
-        }
-    }
-
-	//Bildgröße für Slider erst berechnen lassen, wenn die Höhe existiert
-	function checkImgArrayLoading() {
-		//console.log($('#slider .carousel-inner img:first').height());
-		if($('#slider .carousel-inner img:first').height() > 0) {
-                carouselNormalization($('.fullscreen-images .carousel'));
-			    clearInterval(VarImgArrayLoading);
-		}
-	}
-
-	 function resizeSingleImage(el) {
-        var aspectRatio;
-
-        if ((aspectRatio = el.ratio) == null) {
-			el.ratio =ImageRatio(el);
-        }
-
-		//Bildgröße berechnen lassen:
-		if (Winwidth >= 768) {
-		    resizeImage(el, el.parents('div.fs-image-ident'), el.ratio);
-		} else {
-	        resizeImageMobile(el, el.parents('.fs-image-ident'), el.ratio);
-		}
-    };
-	
-	$(window).on("resize orientationchange", function(){
-		Winheight = $( window ).height() - borderbottom;
-	    Winwidth = $( window ).width();
-	    //Episodenposterframe in Größe anpassen
-        if ($('figure.fs-image img').length > 0)
-            resizeSingleImage($('figure.fs-image img'));
-    });
-
-	//Bildgröße für Einzelbilder erst berechnen lassen, wenn die Höhe existiert
-	function checkImgLoading() {
-        resizeSingleImage($('figure.fs-image img'));
-		clearInterval(VarImgLoading);
-		
-	}
-	
-	/* Slider an Monitor anpassen*/
-	var VarImgArrayLoading = setInterval(function(){ checkImgArrayLoading() }, 100);
-	
-	/* Posterframe an Monitor anpassen*/
-    if ($('.fs-image-ident figure img').length > 0)
-	    var VarImgLoading = setInterval(function(){ checkImgLoading() }, 100);
+	 
 	
 
 	//Anchor Oktothek und Serie:
