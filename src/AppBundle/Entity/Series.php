@@ -36,7 +36,7 @@ class Series extends BaseSeries
     private $posts;
 
     /**
-    * @ORM\ManyToMany(targetEntity="User", mappedBy="favorites")
+    * @ORM\ManyToMany(targetEntity="User", mappedBy="channels")
     */
     private $users;
 
@@ -143,7 +143,7 @@ class Series extends BaseSeries
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {

@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\User;
 use AppBundle\Form\RegisterType;
 
@@ -28,30 +29,32 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/favorites", name="user_favorites")
+     * @Route("/favorites", name="user_favorites", requirements={"page": "\d+"}, defaults={"page": 1})
      * @Template()
      */
-    public function favoritesAction()
+    public function favoritesAction($page)
     {
-        //TODO paginate me!
-        $favorites = $this->getUser()->getFavorites();
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $favorites = $paginator->paginate($em->getRepository('AppBundle:User')->findFavoritesQuery($this->getUser()), $page, 10);
         return ['favorites' => $favorites];
     }
 
     /**
-     * @Route("/channels", name="user_channels")
+     * @Route("/channels", name="user_channels", requirements={"page": "\d+"}, defaults={"page": 1})
      * @Template()
      */
-    public function channelsAction()
+    public function channelsAction($page)
     {
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $channels = $paginator->paginate($em->getRepository('AppBundle:User'->findChannelsQuery($this->getUser()), $page, 10));
+        $channels = $paginator->paginate($em->getRepository('AppBundle:User')->findChannelsQuery($this->getUser()), $page, 10);
         return ['channels' => $channels];
     }
 
     /**
      * @Route("/addFavorite", name="backend_add_favourite")
+     * @deprecated use updateFavorite
      */
     public function addFavoriteAction(Request $request)
     {
@@ -73,6 +76,7 @@ class UserController extends Controller
 
     /**
      * @Route("/removeFavorite", name="backend_remove_favourite")
+     * @deprecated use updateFavorite
      */
     public function removeFavoriteAction(Request $request)
     {
@@ -92,15 +96,29 @@ class UserController extends Controller
         return new Response('', Response::HTTP_BAD_REQUEST);
     }
 
+    /**
+     * @Route("/updateFavorite", name="user_update_favorite")
+     */
+    public function updateFavoriteAciton(Request $request)
+    {
+        $uniqID = $request->request->get('uniqID');
+        if ($uniqID) {
+            $this->get('user_service')->updateFavoriteAciton($this->getUser(), $uniqID);
+            return new Response('', Response::HTTP_OK);
+        }
+        return new Response('', Response::HTTP_BAD_REQUEST);
+    }
 
     /**
-     * @Route
+     * @Route("/updateSubscription", name="user_update_subscription")
      */
     public function updateSubscriptionAction(Request $request)
     {
-        $uniqID = $request->reqeust->get('uniqID');
+        $uniqID = $request->request->get('uniqID');
         if ($uniqID) {
             $this->get('user_service')->updateSubscription($this->getUser(), $uniqID);
+            return new Response('', Response::HTTP_OK);
         }
+        return new Response('', Response::HTTP_BAD_REQUEST);
     }
 }

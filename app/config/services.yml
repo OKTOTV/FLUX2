@@ -27,6 +27,10 @@ services:
         tags:
             - { name: form.type, alias: tag }
 
+    user_service:
+        class: AppBundle\Model\UserService
+        arguments: [ @doctrine.orm.entity_manager]
+
     # Asset repository
     oktothek_tag.repository:
         class: Doctrine\ORM\EntityRepository

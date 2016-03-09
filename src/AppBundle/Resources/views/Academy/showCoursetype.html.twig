@@ -45,9 +45,12 @@
 			    </p>
 				<p class="booking">
                     <a href="{{ path('oktothek_academy_book_course', {'course': course.id})}}" class="btn btn-default">{{'oktothek_academy_book_course'|trans }}</a>
-			    </p>  
+			    </p>
 			</li>
         {% endfor %}
 		</ul>
     </section>
+{% endblock %}
+{% block javascript_footer %}
+    
 {% endblock %}

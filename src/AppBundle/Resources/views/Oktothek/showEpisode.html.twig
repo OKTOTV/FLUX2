@@ -32,9 +32,13 @@
                     {{ episode.description }}
                 </p>
                 <p class="misc">
-                    <button type="button" class="btn btn-default" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video"><span class="glyphicon glyphicon-heart-empty"></span> {{ episode.users|length}}</button>
-                    <button type="button" class="btn btn-default" title="e{{ episode.series.name }} abbonieren">Abbonieren</button>
-                    <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
+                    {% if app.user is empty %}
+
+                    {% else %}
+                        <button type="button" class="btn btn-default" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video"><span class="glyphicon glyphicon-heart-empty"></span> {{ episode.users|length}}</button>
+                        <button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="{% if episode.series in app.user.channels %}1{% else %}0{% endif %}">{% if episode.series in app.user.channels %}{{ 'oktothek_user_unsubscribe'|trans|raw }}{% else %}{{ 'oktothek_user_subscribe'|trans|raw }}{% endif %}</button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
+                    {% endif %}
                     <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button>
                 </p>
 				<!-- Start Collapse Share-->
@@ -103,16 +107,40 @@
         </script>
     {% endif %}
     <script type="text/javascript">
-        $('#favorite').click(function(e){
-            e.preventDefault();
-            $.ajax({
-                url: "{{ path('backend_add_favourite') }}",
-                data: { 'uniqID': '{{ episode.uniqID }}', 'type': 'episode'},
-                type: 'POST',
-                success: function(data) {
-                    $(this)
-                }
-            })
+        $(document).ready(function(){
+            $('#favorite').click(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ path('backend_add_favourite') }}",
+                    data: { 'uniqID': '{{ episode.uniqID }}', 'type': 'episode'},
+                    type: 'POST',
+                    success: function(data) {
+                        $(this)
+                    }
+                })
+            });
+
+            $('#subscribe').click(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ path('user_update_subscription') }}",
+                    data: { 'uniqID': '{{ episode.series.uniqID }}'},
+                    type: 'POST',
+                    success: function(data) {
+                        var button = $('#subscribe');
+                        if (button.attr('data-subscribed') == '1') {
+                            console.log('now unsubscribed');
+                            button.attr('data-subscribed', '0');
+                            button.text('{{'oktothek_user_subscribe'|trans|raw}}');
+                        } else {
+                            console.log('now subscribed');
+                            button.attr('data-subscribed', '1');
+                            button.text('{{'oktothek_user_unsubscribe'|trans|raw }}');
+                        }
+                        // console.log($(this));
+                    }
+                })
+            });
         });
 
         $(document).on('click', '.playlist', function(e){
@@ -180,8 +208,6 @@
 
         $(document).on('change', '#episode-tag', function(){
             var optionSelected = $("option:selected", this);
-            console.log(optionSelected);
-            console.log($(optionSelected).attr('data-slug'));
             var slug = $(optionSelected).attr('data-slug');
             $.ajax({
                 url: "{{ path('oktothek_series_episodes_with_tags_ajax', {'uniqID': episode.series.uniqID}) }}",
@@ -191,6 +217,6 @@
                     $('#episode-tag-stack').replaceWith('<div id="episode-tag-stack">'+data+'<div>');
                 }
             })
-        })
+        });
     </script>
 {% endblock %}

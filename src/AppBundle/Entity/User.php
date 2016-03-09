@@ -184,7 +184,7 @@ class User extends BaseUser
     public function addChannel(\AppBundle\Entity\Series $channels)
     {
         $this->channels[] = $channels;
-
+        $channels->addUser($this);
         return $this;
     }
 
@@ -201,7 +201,7 @@ class User extends BaseUser
     /**
      * Get channels
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getChannels()
     {

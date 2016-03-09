@@ -13,7 +13,6 @@
         {% block javascripts %}
             <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
             <script src="{{ asset('bundles/bprsstyle/js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('bundles/app/js/javascript.js') }}"></script>
         {% endblock %}
         {% block header %}{% endblock %}
         {% block messages %}{% endblock %}
@@ -21,5 +20,8 @@
             {% block body %}{% endblock %}
             {% block footer %}{% endblock %}
         </div>
+        {% block javascript_footer %}
+            <script src="{{ asset('bundles/app/js/javascript.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

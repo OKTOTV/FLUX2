@@ -6,7 +6,10 @@ oktothek.menu_oktothek:                 Oktothek
 oktothek.menu_tv:                       TV
 oktothek.menu_participate:              Mitmachen
 oktothek.menu_academy:                  Akademie
-
+oktothek.menu_user_playlists:           Playlisten
+oktothek.menu_user_channels:            Channels
+oktothek.menu_user_favorites:           Favoriten
+oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> Abmelden
 
 ## oktothek index
 oktothek.participate_header:            Mitmachen
@@ -255,3 +258,26 @@ markdown_hyperlink_info: |
     <kbd>[</kbd>Ich bin ein Linktext<kbd>](</kbd>www.ich-bin-die-url.at <kbd>"</kbd>Mousehover<kbd>")</kbd>
 markdown_images_info: |
     <kbd>![</kbd>Alternativtext<kbd>](</kbd>www.ich-bin-die-url.at/bild.png <kbd>"</kbd>Mousehover<kbd>")</kbd>
+
+# user
+oktothek_user_subscribe:                    Abonnieren
+oktothek_user_unsubscribe:                  Abo beenden
+
+## playlists
+oktothek.user_playlist_header:              Meine Playlisten
+oktothek_user_playlists_title:              Meine Playlisten
+
+## favorites
+oktothek.user_favorites_header:             Meine Favoriten
+oktothek_user_favorites_title:              Meine Favoriten
+oktothek.user_favorites_filter:             <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
+oktothek.favorite_index_filter_name:        Name
+oktothek.favorite_index_filter_firstranAt:  Ausstrahlungsdatum
+oktothek.favorite_index_filter_series:      Sendereihe
+
+## channels
+oktothek.user_channels_header:              Meine Abonnements
+oktothek_user_channels_title:               Meine Abonnements
+oktothek.user_channels_filter:              <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
+oktothek_user_channel_filter_name:          Name
+oktothek_user_channel_filter_updatedAt:     Zuletzt aktualisiert

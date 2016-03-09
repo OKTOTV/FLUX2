@@ -1,0 +1,35 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ name|default('OKTO')~' | '~ 'oktothek_user_channels_title'|trans }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'channels', 'dropdown': 'user_menu'} %}
+{% endblock %}
+
+{% set body_class = "head-white-color" %}
+{% block body_main %}
+<div class="page-header">
+    <h1>{{ 'oktothek.user_channels_header'|trans }}</h1>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        {{ 'oktothek.user_channels_filter'|trans|raw }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="filter_menu">
+        <li {% if channels.isSorted('s.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_name'|trans, 's.name') }}</li>
+        <li {% if channels.isSorted('s.updatedAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_updatedAt'|trans, 's.updatedAt') }}</li>
+      </ul>
+    </div>
+</div>
+    <div class="navigation">
+        {{ knp_pagination_render(channels) }}
+    </div>
+    <div class="row">
+    {% for channel in channels %}
+        <h3>{{ channel }}</h3>
+        {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': channel.episodes|slice(0,3)} %}
+    {% endfor %}
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(channels) }}
+    </div>
+
+{% endblock %}
