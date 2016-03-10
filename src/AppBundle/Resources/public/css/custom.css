@@ -721,13 +721,12 @@ header + .container-fluid {
 	overflow:auto;
 	height:auto;
 }
-.carousel .item {
-  min-width: 100%;
-  height: 100%;
+.carousel .item, .carousel-inner > .item > a > img, .carousel-inner > .item > img, .fs-image-content figure, .fs-image-content figure img {
+    height: 100%;
 }
-.carousel-inner > .item > img {
-  min-width: 100%;
-  height: 100%;
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .fs-image-content figure img {
+	min-width: 100%;
+	width:auto;
 }
 .carousel-caption {
   z-index: 10;
@@ -739,6 +738,26 @@ header + .container-fluid {
 	left:5%;
 	right:5%;
 	text-align:left;
+}
+
+/* Fullscreen Images*/
+/*figure.fs-image img {
+	width:100%;
+	height:auto;
+}*/
+section.fs-image-content {
+	margin-bottom:0;
+}
+.fs-image-ident div.description-wrapper {
+	bottom:80px;
+	overflow:hidden;
+}
+.fs-image-ident {
+	overflow:auto;
+	height:auto;
+}
+.fs-image-content figure img {
+	display:none;
 }
 
 /* Content allgemein */
@@ -768,11 +787,7 @@ article.pin {
 	width:100%;
 }
 
-/* Fullscreen Images*/
-figure.fs-image img {
-	width:100%;
-	height:auto;
-}
+
 
 /* Oktothek */
 .oktothek article {
@@ -896,17 +911,6 @@ figure.pin img, .programm .schedule img {
 }
 .series div.current-episode, .series .play-episode, .container-bg-opacity, .academy div.current-course {
 	position:absolute;
-}
-section.fs-image-content {
-	margin-bottom:0;
-}
-.fs-image-ident div.description-wrapper {
-	bottom:80px;
-	overflow:hidden;
-}
-.fs-image-ident {
-	overflow:auto;
-	height:auto;
 }
 .container-bg-opacity {
 	z-index:0;
