@@ -103,7 +103,7 @@ class UserController extends Controller
     {
         $uniqID = $request->request->get('uniqID');
         if ($uniqID) {
-            $this->get('user_service')->updateFavoriteAciton($this->getUser(), $uniqID);
+            $this->get('user_service')->updateFavorite($this->getUser(), $uniqID);
             return new Response('', Response::HTTP_OK);
         }
         return new Response('', Response::HTTP_BAD_REQUEST);

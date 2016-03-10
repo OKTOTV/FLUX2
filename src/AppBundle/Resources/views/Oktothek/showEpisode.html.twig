@@ -35,7 +35,7 @@
                     {% if app.user is empty %}
 
                     {% else %}
-                        <button type="button" class="btn btn-default" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video"><span class="glyphicon glyphicon-heart-empty"></span> {{ episode.users|length}}</button>
+                        <button type="button" class="btn btn-default" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-favorites="{{ episode.users|length }}" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart{% else %}glyphicon-heart-empty{% endif %}"></span> {{ episode.users|length}}</button>
                         <button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="{% if episode.series in app.user.channels %}1{% else %}0{% endif %}">{% if episode.series in app.user.channels %}{{ 'oktothek_user_unsubscribe'|trans|raw }}{% else %}{{ 'oktothek_user_subscribe'|trans|raw }}{% endif %}</button>
                         <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
                     {% endif %}
@@ -70,26 +70,6 @@
 		{{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': episode.series.uniqID})) }}
         <!-- Weitere Episoden der Serie Ende -->
 	</div>
-	<!-- Start Anchor Menu -->
-<!--    <div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="discoverMore">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
-                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
-                    </a>
-                </h4>
-            </div>
-            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
-                <ul class="list-group" aria-labelledby="AnkerMenu">
-		            <li class="list-group-item"><a href="#top">Top</a></li>
-                    <li class="list-group-item"><a href="#anchor_comments">Kommentare</a></li>
-                    <li class="list-group-item"><a href="#anchor_series">{{ 'oktothek.episode_tag_header'|trans }}</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>-->
-	<!-- End Anchor Menu -->
 {% endblock %}
 
 {% block javascripts %}
@@ -108,18 +88,32 @@
     {% endif %}
     <script type="text/javascript">
         $(document).ready(function(){
+            // add/remove from favorites
             $('#favorite').click(function(e){
                 e.preventDefault();
                 $.ajax({
-                    url: "{{ path('backend_add_favourite') }}",
-                    data: { 'uniqID': '{{ episode.uniqID }}', 'type': 'episode'},
+                    url: "{{ path('user_update_favorite') }}",
+                    data:   {'uniqID': '{{ episode.uniqID}}'},
                     type: 'POST',
                     success: function(data) {
-                        $(this)
+                        var button = $('#favorite');
+                        var favorites = button.attr('data-favorites');
+                        if (button.attr('data-fav') == '1') {
+                            console.log('now unfav');
+                            button.attr('data-fav', '0');
+                            var text = "<span class='glyphicon glyphicon-heart-empty'></span> "+ favorites;
+                            button.html(text);
+                        } else {
+                            console.log('now fav');
+                            button.attr('data-fav', '1');
+                            var text = "<span class='glyphicon glyphicon-heart'></span> "+ (parseInt(favorites)+1);
+                            button.html(text);
+                        }
                     }
                 })
             });
 
+            // subscribe/unsubscribe
             $('#subscribe').click(function(e){
                 e.preventDefault();
                 $.ajax({
@@ -147,7 +141,7 @@
             var playlist = $(this);
             if (playlist.hasClass('active')) {
                 $.ajax({
-                    url: "{{ path('oktothek_playlist_ajax') }}", //TODO: make function, add url and action in backend
+                    url: "{{ path('oktothek_playlist_ajax') }}",
                     data: {
                         'uniqID': playlist.attr('data-uniqID'),
                         'episodeID': "{{ episode.uniqID }}",
