@@ -4,6 +4,8 @@ $(document).ready(function(){
 	var headerScrollheight = $(window).height()/2;
 	var headerHeight = 180;
 	var borderbottom = 70;
+	var Winheight = $( window ).height() - borderbottom;
+	var Winwidth = $( window ).width();
 
 	function addHeaderBG() {
 	  if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
@@ -52,10 +54,12 @@ $(document).ready(function(){
     }
 
 	function resizeImage(el, container, _ratio) {
-		var Winheight = $( window ).height() - borderbottom;
-		var Winwidth = $( window ).width();
+		
 
-		$(container).find('figure').parent('div').css('height',Winheight + 'px').css('overflow','hidden');
+		//$(container).find('figure').parent('div').css('height',Winheight + 'px').css('overflow','hidden');
+		_parentContainer = $(container).find('figure').parent('div');
+		if (_parentContainer.height() != Winheight)
+			$(_parentContainer).css('height',Winheight + 'px');
 
 		if (Winheight / _ratio > Winwidth) {
 			newMargin = (Winwidth - (Winheight / _ratio)) / 2;
@@ -66,45 +70,52 @@ $(document).ready(function(){
 	}
 	
 	function resizeImageMobile(el, container, _ratio) {
-		var Winwidth = $( window ).width();
-		$(container).find('figure').parent('div').css('height','auto');
+		//var Winwidth = $( window ).width();
+		_parentContainer = $(container).find('figure').parent('div');
+		if (_parentContainer.css('height') != "auto")
+			$(container).find('figure').parent('div').css('height','auto');
 		el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
 	}
 
 	 /*Alle Bilder auf gleiche Höhe bringen (nach der kleinsten Höhe)*/
 	function carouselNormalization(container) {
         var items = $(container).find('.item'), //grab all slides
-        width = [], //create empty array to store height values
-		Winheight,
-		Winwidth,
+        //width = [], //create empty array to store height values
+		//Winheight,
+		//Winwidth,
 		aspectRatio;
 
         if (items.length) {
 
             function normalizeHeights() {
 
-				if (width.length == 0) { //beim ersten Mal Array füllen
-                	items.each(function() { //Aspect Ratio Array hinzufügen
-						aspectRatio = ImageRatio(this);
-                    	width.push(aspectRatio);
-                	});
-				}
+				aspectRatio = ImageRatio($(items[0]).find('img'));
+				//if (width.length == 0) { //beim ersten Mal Array füllen
+                	//items.each(function() { //Aspect Ratio Array hinzufügen
+						//aspectRatio = ImageRatio(this);
+                    	//width.push(aspectRatio);
+                	//});
+				//Winwidth = $( window ).width();
 
 				var i=0;
-                items.each(function() {
+                //items.each(function() {
 					//Bildgröße berechnen lassen:
-					if ($( window ).width() >= 768) {
-                        resizeImage($(this).find('img'), container, width[i]);
+					if (Winwidth >= 768) {
+                        //resizeImage($(this).find('img'), container, width[i]);
+						resizeImage($(items).find('img'), container, aspectRatio);
 					} else {
-						resizeImageMobile($(this).find('img'), container, width[i]);
+						//resizeImageMobile($(this).find('img'), container, width[i]);
+						resizeImageMobile($(items).find('img'), container, aspectRatio);
 					}
-					i++;
-                });
+					//i++;
+                //});
             };
             normalizeHeights();
 
             $(window).on('resize orientationchange', function () {
-				Winheight = 0, Winwidth = 0; //reset vars
+				//Winheight = 0, Winwidth = 0; //reset vars
+				Winheight = $( window ).height() - borderbottom;
+				Winwidth = $( window ).width();
                     normalizeHeights(); //run it again
             });
         }
@@ -127,32 +138,33 @@ $(document).ready(function(){
         }
 
 		//Bildgröße berechnen lassen:
-		if ($( window ).width() >= 768) {
-		    resizeImage(el, el.parents('div.series-ident'), el.ratio);
+		if (Winwidth >= 768) {
+		    resizeImage(el, el.parents('div.fs-image-ident'), el.ratio);
 		} else {
-			resizeImageMobile(el, el.parents('div.series-ident'), el.ratio);
+	        resizeImageMobile(el, el.parents('.fs-image-ident'), el.ratio);
 		}
     };
 	
 	$(window).on("resize orientationchange", function(){
+		Winheight = $( window ).height() - borderbottom;
+	    Winwidth = $( window ).width();
 	    //Episodenposterframe in Größe anpassen
-        if ($('.series figure.episode-posterframe img').length > 0)
-            resizeSingleImage($('.series figure.episode-posterframe img'));
+        if ($('figure.fs-image img').length > 0)
+            resizeSingleImage($('figure.fs-image img'));
     });
 
 	//Bildgröße für Einzelbilder erst berechnen lassen, wenn die Höhe existiert
 	function checkImgLoading() {
-		if($('.series .episode-posterframe img:last').height() > 0) {
-                resizeSingleImage($('.series figure.episode-posterframe img'));
-			    clearInterval(VarImgLoading);
-		}
+        resizeSingleImage($('figure.fs-image img'));
+		clearInterval(VarImgLoading);
+		
 	}
 	
 	/* Slider an Monitor anpassen*/
 	var VarImgArrayLoading = setInterval(function(){ checkImgArrayLoading() }, 100);
 	
 	/* Posterframe an Monitor anpassen*/
-    if ($('.series figure img').length > 0)
+    if ($('.fs-image-ident figure img').length > 0)
 	    var VarImgLoading = setInterval(function(){ checkImgLoading() }, 100);
 	
 
@@ -162,6 +174,8 @@ $(document).ready(function(){
 		    var offset = $('#oktothek').offset();
 		} else if ($('body').hasClass('series')) {
 			var offset = $('section.series-description').offset();
+		}  else if ($('body').hasClass('academy')) {
+			var offset = $('section.academy-description').offset();
 		}
 		$("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
 		$( this ).find('span').css('display','none');

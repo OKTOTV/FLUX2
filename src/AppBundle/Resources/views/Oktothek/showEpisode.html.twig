@@ -32,41 +32,17 @@
                     {{ episode.description }}
                 </p>
                 <p class="misc">
-                    <a href="#" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video"><span class="glyphicon glyphicon-heart-empty"></span> {{ episode.users|length}}</a> <span class="views"><span class="icon-views"></span>0</span> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button> <button type="button" class="btn btn-default" title="e{{ episode.series.name }} abbonieren">Abbonieren</button><!-- <button type="button" class="btn btn-default active" title="e{{ episode.series.name }} abbonieren">Abboniert</button>--> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
+                    {% if app.user is empty %}
+
+                    {% else %}
+                        <button type="button" class="btn btn-default" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-favorites="{{ episode.users|length }}" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart{% else %}glyphicon-heart-empty{% endif %}"></span> {{ episode.users|length}}</button>
+                        <button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="{% if episode.series in app.user.channels %}1{% else %}0{% endif %}">{% if episode.series in app.user.channels %}{{ 'oktothek_user_unsubscribe'|trans|raw }}{% else %}{{ 'oktothek_user_subscribe'|trans|raw }}{% endif %}</button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
+                    {% endif %}
+                    <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button>
                 </p>
 				<!-- Start Collapse Share-->
-				<div class="collapse collapseShare" id="collapseShareArea">
-                    <div>
-                        <h3>Teilen</h3>
-						<div>
-						    <div class="btn-group sharingnav">
-						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button> <button type="button" class="btn btn-default" data-toggle="tab" id="share_embed">Einbetten</button>
-					        </div>
-						</div>
-						<div class="tab-content">
-						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
-						        <div>
-						        <ul class="socialnetworks">
-                                    {% set share_url = url('oktothek_show_episode', {'uniqID': episode.uniqID}) %}
-                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ episode.name|url_encode }}" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>
-                                    <!-- <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li> -->
-                                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
-                                    <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
-                                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
-                                    <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
-                                </ul>
-                                <a href="mailto:?to=&subject={{ episode.name }}&body={{ share_url }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
-							    <!-- <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button> -->
-							</div>
-						    <form><input type="text" value="" class="form-control" id="sharingurl"></form>
-						</div>
-						<div role="tabpanel" class="tab-pane" id="div_share_embed">
-						    <form><input type="text" value='<iframe width="420" height="315" src="{{ url('oktothek_embed_episode', {'uniqID': episode.uniqID})}}" frameborder="0" allowfullscreen></iframe>' class="form-control" id="embedurl"></form>
-						</div>
-						</div>
-                    </div>
-                </div>
+                    {% include 'AppBundle:Oktothek:snippetEpisodeShare.html.twig' with {'episode': episode} %}
 				<!-- End Modal Window Share-->
 				<!-- Start Modal Window Playlist-->
                     {% include 'AppBundle:Oktothek:snippetPlaylist.html.twig' %}
@@ -74,10 +50,9 @@
 			</article>
         </section>
 		<!-- Kommentare -->
-		<div id="anchor_comments"></div>
 		<section class="comments body-white-color comment-pager">
 		    <div class="container">
-        {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
+                {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
 		    </div>
 		</section>
         <!-- Ende Kommentare -->
@@ -95,26 +70,6 @@
 		{{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': episode.series.uniqID})) }}
         <!-- Weitere Episoden der Serie Ende -->
 	</div>
-	<!-- Start Anchor Menu -->
-    <div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="discoverMore">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
-                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
-                    </a>
-                </h4>
-            </div>
-            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
-                <ul class="list-group" aria-labelledby="AnkerMenu">
-		            <li class="list-group-item"><a href="#top">Top</a></li>
-                    <li class="list-group-item"><a href="#anchor_comments">Kommentare</a></li>
-                    <li class="list-group-item"><a href="#anchor_series">{{ 'oktothek.episode_tag_header'|trans }}</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-	<!-- End Anchor Menu -->
 {% endblock %}
 
 {% block javascripts %}
@@ -126,30 +81,67 @@
                 var playerInstance = jwplayer("player");
                 playerInstance.setup({
                     sources: [{% for media in episode.media %}{file: "{{ media.asset|path }}", label: "{{ media.quality }}", type: "mp4"}{% if not loop.last %},{% endif %}{% endfor %}],
-                    {# file: "{{ episode.video|path }}", #}
                     image: "{{ episode.posterframe|path }}"
                 });
             });
         </script>
     {% endif %}
     <script type="text/javascript">
-        $('#favorite').click(function(e){
-            e.preventDefault();
-            $.ajax({
-                url: "{{ path('backend_add_favourite') }}",
-                data: { 'uniqID': '{{ episode.uniqID }}', 'type': 'episode'},
-                type: 'POST',
-                success: function(data) {
-                    $(this)
-                }
-            })
+        $(document).ready(function(){
+            // add/remove from favorites
+            $('#favorite').click(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ path('user_update_favorite') }}",
+                    data:   {'uniqID': '{{ episode.uniqID}}'},
+                    type: 'POST',
+                    success: function(data) {
+                        var button = $('#favorite');
+                        var favorites = button.attr('data-favorites');
+                        if (button.attr('data-fav') == '1') {
+                            console.log('now unfav');
+                            button.attr('data-fav', '0');
+                            var text = "<span class='glyphicon glyphicon-heart-empty'></span> "+ favorites;
+                            button.html(text);
+                        } else {
+                            console.log('now fav');
+                            button.attr('data-fav', '1');
+                            var text = "<span class='glyphicon glyphicon-heart'></span> "+ (parseInt(favorites)+1);
+                            button.html(text);
+                        }
+                    }
+                })
+            });
+
+            // subscribe/unsubscribe
+            $('#subscribe').click(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ path('user_update_subscription') }}",
+                    data: { 'uniqID': '{{ episode.series.uniqID }}'},
+                    type: 'POST',
+                    success: function(data) {
+                        var button = $('#subscribe');
+                        if (button.attr('data-subscribed') == '1') {
+                            console.log('now unsubscribed');
+                            button.attr('data-subscribed', '0');
+                            button.text('{{'oktothek_user_subscribe'|trans|raw}}');
+                        } else {
+                            console.log('now subscribed');
+                            button.attr('data-subscribed', '1');
+                            button.text('{{'oktothek_user_unsubscribe'|trans|raw }}');
+                        }
+                        // console.log($(this));
+                    }
+                })
+            });
         });
 
         $(document).on('click', '.playlist', function(e){
             var playlist = $(this);
             if (playlist.hasClass('active')) {
                 $.ajax({
-                    url: "{{ path('oktothek_playlist_ajax') }}", //TODO: make function, add url and action in backend
+                    url: "{{ path('oktothek_playlist_ajax') }}",
                     data: {
                         'uniqID': playlist.attr('data-uniqID'),
                         'episodeID': "{{ episode.uniqID }}",
@@ -210,8 +202,6 @@
 
         $(document).on('change', '#episode-tag', function(){
             var optionSelected = $("option:selected", this);
-            console.log(optionSelected);
-            console.log($(optionSelected).attr('data-slug'));
             var slug = $(optionSelected).attr('data-slug');
             $.ajax({
                 url: "{{ path('oktothek_series_episodes_with_tags_ajax', {'uniqID': episode.series.uniqID}) }}",
@@ -221,6 +211,6 @@
                     $('#episode-tag-stack').replaceWith('<div id="episode-tag-stack">'+data+'<div>');
                 }
             })
-        })
+        });
     </script>
 {% endblock %}

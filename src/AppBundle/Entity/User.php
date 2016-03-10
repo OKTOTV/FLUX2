@@ -7,10 +7,15 @@ use Bprs\UserBundle\Entity\User as BaseUser;
 /**
  * IntakeUser
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Bprs\UserBundle\Entity\UserRepository")
+ * ORM\Entity(repositoryClass="Bprs\UserBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\UserRepository")
  */
 class User extends BaseUser
 {
+    const ROLE_USER = "ROLE_OKTOLAB_USER";
+    const ROLE_PRODUCER = "ROLE_OKTOLAB_PRODUCER";
+    const ROLE_BACKEND = "ROLE_OKTOLAB_BACKEND";
+    const ROLE_ADMIN = "ROLE_OKTOLAB_ADMIN";
 
     /**
     * @ORM\OneToMany(targetEntity="Playlist", mappedBy="user")
@@ -24,6 +29,12 @@ class User extends BaseUser
     private $favorites;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Series", inversedBy="users")
+     * @ORM\JoinTable(name="users_channels")
+     */
+    private $channels;
+
+    /**
     * @ORM\Column(name="uniqID", type="string", length=13)
     */
     private $uniqID;
@@ -35,6 +46,7 @@ class User extends BaseUser
 
     public function __construct() {
         parent::__construct();
+        $this->channels = new \Doctrine\Common\Collections\ArrayCollection();
         $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
         $this->playlists = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
@@ -161,5 +173,38 @@ class User extends BaseUser
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Add channels
+     *
+     * @param \AppBundle\Entity\Series $channels
+     * @return User
+     */
+    public function addChannel(\AppBundle\Entity\Series $channels)
+    {
+        $this->channels[] = $channels;
+        $channels->addUser($this);
+        return $this;
+    }
+
+    /**
+     * Remove channels
+     *
+     * @param \AppBundle\Entity\Series $channels
+     */
+    public function removeChannel(\AppBundle\Entity\Series $channels)
+    {
+        $this->channels->removeElement($channels);
+    }
+
+    /**
+     * Get channels
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChannels()
+    {
+        return $this->channels;
     }
 }

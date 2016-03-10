@@ -2,6 +2,10 @@ security:
 
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
+        ROLE_USER:  ROLE_OKTOLAB_ADMIN
+        ROLE_OKTOLAB_ADMIN: ROLE_OKTOLAB_BACKEND
+        ROLE_OKTOLAB_BACKEND: ROLE_OKTOLAB_PRODUCER
+        ROLE_OKTOLAB_PRODUCER: ROLE_OKTOLAB_USER
 
     providers:
         bprs_applink:

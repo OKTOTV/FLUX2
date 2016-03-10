@@ -15,15 +15,15 @@
     <section>
         <article class="row">
             {% for coursetype in coursetypes if coursetype.highlight %}
+			        <h2>{{ coursetype.title }}</h2>
                     <div class="pin col-xs-3">
                         <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
-                            <figure class="episode-pin pin">
+                            <figure class="academy-pin pin">
                                 <img src="{{ coursetype.image|link }}" class="img-responsive"/>
                             </figure>
                         </a>
                     </div>
                     <div class="description col-xs-9">
-                        <h2>{{ coursetype.title }}</h2>
                         <p>{{ coursetype.description }}</p>
                         <p class="misc">{{ coursetype.courses[0].dates|hours~'h' }} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
                     </div>
@@ -37,18 +37,54 @@
         <div class="row">
         {% for coursetype in coursetypes if not coursetype.highlight %}
                 <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
-                    <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
-                        <figure class="episode-pin pin">
-                            <img src="{{ coursetype.image|link }}" class="img-responsive"/>
+                        <figure class="academy-pin pin">
+                            <a role="button" data-toggle="collapse" href="#collapseDetail" aria-expanded="false" aria-controls="collapseDetail"><img src="{{ coursetype.image|link }}" class="img-responsive"/></a>
     			            <figcaption>
+							  <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
                                 <h3>{{ coursetype.title }}</h3>
                                 <p>{{ coursetype.courses[0].dates|hours~'h'}} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
+								</a>
     			            </figcaption>
                         </figure>
-                    </a>
+                    
                 </article>
         {% endfor %}
         </div>
+		<!-- Schnellansicht Details Start -->
+		<article class="collapse row collapseCoursedetails" id="collapseDetail">
+          <div class="col-md-12">
+		    <div class="row">
+		        <div class="col-md-6">
+                    <h3>Übersicht Formatentwicklung</h3>
+			        <p>Gestaltungs- und Erzählkompetenzen sind es, die entscheidend sind um mit der eigenen Idee auch ein Publikum zu erreichen. Das ist gerade im nichtkommerziellen Rundfunk, dem die Mittel für große Marketingkampagnen fehlen, ein wesentliches Ziel.</p>
+					<p><a href="#">Details zum Kurs</a></p>
+			    </div>
+				<div class="col-md-6">
+				<h4>Termine</h4>
+			    <ul class="timetable">
+		            <li>
+			            <p>
+                            <span>04.04.2016</span> 12:32 - 12:32<br>
+						    <span>05.04.2016</span> 10:36 - 10:36<br>
+			            </p>
+				        <p class="booking">
+                            <a href="#" class="btn btn-default">Buchen</a>
+			            </p>  
+			         </li>
+				     <li>
+			                <p>
+                               <span>07.03.2016</span>  13:00 - 13:00<br>
+			                </p>
+				            <p class="booking">
+                               <a href="#" class="btn btn-default">Buchen</a>
+			                </p>  
+			            </li>
+		            </ul>
+					</div>
+                </div>
+			</div>
+        </article>
+		<!-- Schnellansicht Details Ende -->
     </section>
 	<!-- Ende Kursauflistung -->
 	<!-- Anfang Gruppenangebot -->

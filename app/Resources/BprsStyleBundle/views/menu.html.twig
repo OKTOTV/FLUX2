@@ -22,7 +22,24 @@
         {# example for an login area #}
         <ul class="nav navbar-nav navbar-right">
         	<li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank">HOCHLADEN</a></li>
-        	{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+			{% if is_granted('ROLE_OKTOLAB_USER') or is_granted('ROLE_OKTOLAB_PRODUCER') %}
+				<li {% if dropdown == "user_menu" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
+					<ul class="dropdown-menu" role="menu">
+						<li {% if selected == "playlists" %}class="active"{% endif %}>
+							<a href="{{ path('user_playlists') }}">{{ 'oktothek.menu_user_playlists'|trans|raw }}</a>
+						</li>
+						<li {% if selected == "channels" %}class="active"{% endif %}>
+							<a href="{{ path('user_channels') }}">{{ 'oktothek.menu_user_channels'|trans|raw }}</a>
+						</li>
+						<li {% if selected == "favorites" %}class="active"{% endif %}>
+							<a href="{{ path('user_favorites') }}">{{ 'oktothek.menu_user_favorites'|trans|raw }}</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li><a href="{{ path('bprs_user_logout') }}">{{'oktothek.menu_user_logout'|trans|raw }}</a><li>
+					</ul>
+				</li>
+			{% elseif is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_OKTOLAB_ADMIN') or is_granted('ROLE_ADMIN') %}
             	<li {% if dropdown == "dropdown_1" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
                 	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
                 	<ul class="dropdown-menu" role="menu">
@@ -30,7 +47,7 @@
                         	<a href="{{ path('backend') }}">Backend</a>
                     	</li>
                     	<li role="separator" class="divider"></li>
-                    	<li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> {{'bprs_user.button.logout'|trans}}</a><li>
+                    	<li><a href="{{ path('bprs_user_logout') }}"><span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> {{'bprs_user.button.logout'|trans}}</a><li>
                 	</ul>
             	</li>
         	{% else %}
@@ -38,5 +55,5 @@
         	{% endif %}
         	</ul>
 		</div>
-        {{ render(controller('AppBundle:Search:search'))}}   
+        {{ render(controller('AppBundle:Search:search'))}}
 {% endblock %}

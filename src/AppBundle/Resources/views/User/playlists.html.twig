@@ -1,0 +1,36 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ name|default('OKTO')~' | '~ 'oktothek_user_playlists_title'|trans }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'playlists', 'dropdown': 'user_menu'} %}
+{% endblock %}
+
+{% set body_class = "head-white-color" %}
+{% block body_main %}
+        <div class="page-header">
+            <h1>{{ 'oktothek.user_playlist_header'|trans }}</h1>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{ 'oktothek.playlist_index_filter'|trans|raw }}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                <li {% if playlists.isSorted('p.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.playlist_index_filter_name'|trans, 'p.name') }}</li>
+                <li {% if playlists.isSorted('p.createdAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.playlist_index_filter_createdAt'|trans, 'p.createdAt') }}</li>
+                <li {% if playlists.isSorted('p.updatedAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.playlist_index_filter_updatedAt'|trans, 'p.updatedAt') }}</li>
+              </ul>
+            </div>
+        </div>
+
+
+        <div class="navigation">
+            {{ knp_pagination_render(playlists) }}
+        </div>
+        <div class="row">
+        {% for playlist in playlists %}
+            {% include 'AppBundle:Default:Playlist/PlaylistThumb.html.twig' %}
+        {% endfor %}
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(playlists) }}
+        </div>
+{% endblock %}
