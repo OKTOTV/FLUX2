@@ -10,9 +10,7 @@
     <div id="top"></div>
     <section class="academy-content fs-image-content">
         <div class="academy-ident fs-image-ident">
-            <figure class="academy-image fs-image">
-                <img src="{{ coursetype.image|link }}" />
-            </figure>
+            <figure class="academy-image fs-image"><div style="background-image:url({{ coursetype.image|link }});"></div></figure>
 			<div class="current-course container description-wrapper">
 			    <div class="container-bg-opacity">
 			        <div class="bg-opacity"></div>
@@ -50,6 +48,10 @@
         {% endfor %}
 		</ul>
     </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+	<script src="{{ asset('bundles/bprsstyle/js/imagesloaded.pkgd.min.js')}}"></script>
 {% endblock %}
 {% block javascript_footer %}
     

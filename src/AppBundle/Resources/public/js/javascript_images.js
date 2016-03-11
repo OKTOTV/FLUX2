@@ -6,17 +6,22 @@ $(document).ready(function(){
 	
 	//Containerelement auf Windowgröße setzen
 	
-	/* Slider an Monitor anpassen*/
-	if ($('#slider').length > 0) {
-		posDescription($('#slider .carousel-inner'));
-	    var VarImgArrayLoading = setInterval(function(){ checkImgArrayLoading() }, 100);
-	}
+	
 	
 		
 /*Slider*/
 
 	function posDescription(container) {
-		$(container).css('height',Winheight);
+		if (Winwidth >= 768) {
+		    $(container).css('height',Winheight);
+			if ($(container).hasClass('fs-image-ident'))
+			    $('.fs-image').css('height','100%');
+		} else {
+			if ($(container).hasClass('fs-image-ident')) {/*== $('.fs-image-ident')*/
+			    $(container).css('height','auto');
+				$('.fs-image').css('height',(Winwidth/16)*9);
+			}
+		}
 	}
 
     function ImageRatio(el) {
@@ -72,56 +77,35 @@ $(document).ready(function(){
     }
 
 	//Bildgröße für Slider erst berechnen lassen, wenn die Höhe existiert
-	function checkImgArrayLoading() {
+	/*function checkImgArrayLoading() {
 		if($('#slider .carousel-inner img:first').height() > 0) {
                 carouselNormalization($('.fullscreen-images .carousel'));
 			    clearInterval(VarImgArrayLoading);
 		}
-	}
-
-	 function resizeSingleImage(el) {
-        var aspectRatio;
-		
-        if ((aspectRatio = el.ratio) == null) {
-			el.ratio =ImageRatio(el);
-        }
-
-		//Bildgröße berechnen lassen:
-		if (Winwidth >= 768) {
-		    resizeImage(el, el.parents('div.fs-image-ident'), el.ratio);
-		} else {
-	        resizeImageMobile(el, el.parents('.fs-image-ident'), el.ratio);
-		}
-    };
+	}*/
 	
-	$(window).on("resize orientationchange", function(){
-		if ($('.fs-image-ident figure img').length > 0) {
-		    Winheight = $( window ).height() - borderbottom;
-	        Winwidth = $( window ).width();
-			if (Winwidth >= 768) {
-				posDescription($('.fs-image-ident'));
-			}
-	        //Episodenposterframe in Größe anpassen
-            if ($('figure.fs-image img').length > 0)
-                resizeSingleImage($('figure.fs-image img'));
-		}
-    });
-
-	//Bildgröße für Einzelbilder erst berechnen lassen, wenn die Höhe existiert
-	function checkImgLoading() {
-		//console.log($('figure.fs-image img').prop('naturalHeight'));
-		if($('figure.fs-image img').prop('naturalHeight') > 0) {
-          resizeSingleImage($('figure.fs-image img'));
-		  clearInterval(VarImgLoading);
-		}
+	/* Slider an Monitor anpassen*/
+	if ($('#slider').length > 0) {
+		posDescription($('#slider .carousel-inner'));
+		$('#slider figure a').imagesLoaded()
+            .done( function( instance ) {
+            carouselNormalization($('.fullscreen-images .carousel'));
+        });
+	    //var VarImgArrayLoading = setInterval(function(){ checkImgArrayLoading() }, 100);
 	}
 	
 	/* Posterframe an Monitor anpassen*/
-    if ($('.fs-image-ident figure img').length > 0) {
+    if ($('.fs-image-ident figure').length > 0) {
 		posDescription($('.fs-image-ident'));
-		checkImgLoading();
-	    var VarImgLoading = setInterval(function(){ checkImgLoading() }, 100);
 	}
+	
+	$(window).on("resize orientationchange", function(){
+		if ($('.fs-image-ident figure').length > 0) {
+		    Winheight = $( window ).height() - borderbottom;
+	        Winwidth = $( window ).width();
+			posDescription($('.fs-image-ident'));
+		}
+    });
 	
 	
 });

@@ -10,7 +10,7 @@
     <section class="series-content fs-image-content">
         <div class="series-ident fs-image-ident">
             <figure class="episode-posterframe fs-image">
-                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><img src="{{ series.episodes[0].posterframe|path() }}" /></a>
+                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><div style="background-image:url({{ series.episodes[0].posterframe|path() }});"></div></a>
             </figure>
 			<div class="current-episode container description-wrapper">
 			    <div class="container-bg-opacity">
@@ -151,10 +151,14 @@
 
 {% block javascripts %}
     {{ parent() }}
+	<script src="{{ asset('bundles/bprsstyle/js/imagesloaded.pkgd.min.js')}}"></script>
     <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
     {% include "BprsStyleBundle::datetimepicker.js.twig" %}
     <script type="text/javascript">
         $(document).ready( function(){
+		    //Image Preloader
+		    var image = $('img').attr('src', '{{ series.episodes[0].posterframe|path() }}');
+			
             $('#appbundle_post_onlineAt_picker').datetimepicker({
                 locale: 'de',
                 // format: "DD.MM.YYYY hh:mm",
