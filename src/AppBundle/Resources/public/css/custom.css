@@ -289,7 +289,7 @@ body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.bt
 	color:#000000;
 }
 
-body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container {
+body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container, .preloader {
 	background-color:#000000;
 }
 .comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control, .newsarchiv aside .box, .programm .schedule header.page-header {
@@ -741,6 +741,19 @@ header + .container-fluid {
 	left:5%;
 	right:5%;
 	text-align:left;
+}
+/*.carousel .active {
+	display:none;
+}*/
+.preloader {
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:100;
+	top:0px;
+	bottom:70px;
+	left:0px;
+	right:0px;
 }
 
 /* Fullscreen Images*/

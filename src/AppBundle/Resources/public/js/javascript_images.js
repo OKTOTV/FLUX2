@@ -3,6 +3,7 @@ $(document).ready(function(){
 	var borderbottom = 70;
     var Winheight = $( window ).height() - borderbottom;
     var Winwidth = $( window ).width();
+	var carouselslide = false;
 	
 	//Containerelement auf Windowgröße setzen
 	
@@ -37,7 +38,7 @@ $(document).ready(function(){
         } else {
 			$(el).css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
         }
-		$(el).fadeIn(600);
+		//$(el).fadeIn(600);
 	}
 	
 	function resizeImageMobile(el, container, _ratio) {
@@ -64,6 +65,12 @@ $(document).ready(function(){
 				} else {
 					resizeImageMobile($(items).find('img'), container, aspectRatio);
 				}
+				if (carouselslide == false) {
+					$('.preloader').fadeOut('slow','linear',function(){
+				        $('.carousel').carousel();
+					    carouselslide = true;
+					});
+				}
             };
             normalizeHeights();
 
@@ -75,23 +82,14 @@ $(document).ready(function(){
             });
         }
     }
-
-	//Bildgröße für Slider erst berechnen lassen, wenn die Höhe existiert
-	/*function checkImgArrayLoading() {
-		if($('#slider .carousel-inner img:first').height() > 0) {
-                carouselNormalization($('.fullscreen-images .carousel'));
-			    clearInterval(VarImgArrayLoading);
-		}
-	}*/
 	
 	/* Slider an Monitor anpassen*/
 	if ($('#slider').length > 0) {
 		posDescription($('#slider .carousel-inner'));
 		$('#slider figure a').imagesLoaded()
             .done( function( instance ) {
-            carouselNormalization($('.fullscreen-images .carousel'));
+                carouselNormalization($('.fullscreen-images .carousel'));
         });
-	    //var VarImgArrayLoading = setInterval(function(){ checkImgArrayLoading() }, 100);
 	}
 	
 	/* Posterframe an Monitor anpassen*/
