@@ -7,8 +7,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use AppBundle\Entity\User;
-use AppBundle\Form\RegisterType;
+use AppBundle\Entity\Abonnement;
+use AppBundle\Form\AbonnementType;
 
 /**
  * @Route("/user")
@@ -48,7 +48,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $channels = $paginator->paginate($em->getRepository('AppBundle:User')->findChannelsQuery($this->getUser()), $page, 10);
+        $channels = $paginator->paginate($em->getRepository('AppBundle:User')->findAbonnementsQuery($this->getUser()), $page, 10);
         return ['channels' => $channels];
     }
 
@@ -120,5 +120,33 @@ class UserController extends Controller
             return new Response('', Response::HTTP_OK);
         }
         return new Response('', Response::HTTP_BAD_REQUEST);
+    }
+
+    /**
+     * @Route("/updateAbonnement/{abonnement}", name="user_update_abonnement")
+     * @Template()
+     */
+    public function updateAbonnementAction(Request $request, Abonnement $abonnement)
+    {
+        $this->denyAccessUnlessGranted('view', $abonnement); //symfony voter
+
+        $form = $this->createForm(new AbonnementType(), $abonnement);
+        $form->add('submit', 'submit', ['label' => 'oktothek.user_update_abonnement_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($post);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_abonnement');
+
+                return $this->redirect($this->generateUrl('user_channels'));
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_post');
+            }
+        }
+
+        return ['form' => $form->createView(), 'series' => $abonnement->getSeries()];
     }
 }

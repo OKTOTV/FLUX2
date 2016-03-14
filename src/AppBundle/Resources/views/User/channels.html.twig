@@ -25,7 +25,8 @@
     <div class="row">
     {% for channel in channels %}
         <h3>{{ channel }}</h3>
-        {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': channel.episodes|slice(0,3)} %}
+        <a href="{{ path('user_update_abonnement', {'abonnement': channel.id})}}" class="btn btn-default">{{ 'user_edit_subscription'|trans }}</a>
+        {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': channel.series.episodes|slice(0,3)} %}
     {% endfor %}
     </div>
     <div class="navigation">

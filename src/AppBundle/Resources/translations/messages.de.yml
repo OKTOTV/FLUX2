@@ -260,6 +260,15 @@ markdown_images_info: |
     <kbd>![</kbd>Alternativtext<kbd>](</kbd>www.ich-bin-die-url.at/bild.png <kbd>"</kbd>Mousehover<kbd>")</kbd>
 
 # user
+## subscriptions
+oktothek.user_update_subscription_header:   Benachrichtigungseinstellungen für %series%
+oktothek_abonnement_livestream_label:       Bei Livestreams benachrichtigen
+oktothek_abonnement_new_episode_label:      Bei neuen Episoden benachrichtigen
+oktothek_abonnement_new_post_label:         Bei neuen Beiträgen benachrichtigen
+oktothek_abonnement_send_mails_label:       Benachrichtigungen auch als Email senden
+oktothek.user_update_abonnement_button:     Einstellungen aktualisieren
+user_edit_subscription:                     Benachrichtigungseinstellungen
+
 oktothek_user_subscribe:                    Abonnieren
 oktothek_user_unsubscribe:                  Abo beenden
 
