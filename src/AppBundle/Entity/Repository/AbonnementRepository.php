@@ -21,7 +21,7 @@ class AbonnementRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery('SELECT n FROM AppBundle:Notification n WHERE n.user = :user_id AND n.newEpisode = 1 ORDER BY n.createdAt DESC')
-            ->setParameter('user_id', $user->getId());
+            ->setParameter('user_id', $user->getId())
             ->setMaxResults(3);
     }
 
@@ -34,7 +34,7 @@ class AbonnementRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery('SELECT n FROM AppBundle:Notification n WHERE n.user = :user_id AND n.newPost = 1 ORDER BY n.createdAt DESC')
-            ->setParameter('user_id', $user->getId());
+            ->setParameter('user_id', $user->getId())
             ->setMaxResults(3);
     }
 
@@ -47,7 +47,7 @@ class AbonnementRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery('SELECT n FROM AppBundle:Notification n WHERE n.user = :user_id AND n.livestream = 1 ORDER BY n.createdAt DESC')
-            ->setParameter('user_id', $user->getId());
+            ->setParameter('user_id', $user->getId())
             ->setMaxResults(3);
     }
 }
