@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Abonnement;
 use AppBundle\Form\AbonnementType;
-
+use AppBundle\Entity\Notification;
 /**
  * @Route("/user")
  */
@@ -148,5 +148,28 @@ class UserController extends Controller
         }
 
         return ['form' => $form->createView(), 'series' => $abonnement->getSeries()];
+    }
+
+    /**
+     * @Route("/notification/{notification}", name="user_notification")
+     */
+    public function showNotificationAction(Notification $notification)
+    {
+        // TODO: notification voter!
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($notification);
+        $em->flush();
+        switch ($notification->getType()) {
+            case Notification::NEW_POST:
+                return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $notification->getSeries()->getUniqID()]));
+                break;
+            case Notification::NEW_EPISODE:
+                //TODO: return redirect to newest series episode (maybe playlist?)
+                return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $notification->getSeries()->getUniqID()]));
+                break;
+            case Notification::LIVESTREAM:
+                return $this->redirect($this->generateUrl('tv'));
+                break;
+        }
     }
 }

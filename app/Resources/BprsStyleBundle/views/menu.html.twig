@@ -36,20 +36,31 @@
 							<a href="{{ path('user_favorites') }}">{{ 'oktothek.menu_user_favorites'|trans|raw }}</a>
 						</li>
 						<li role="separator" class="divider"></li>
+						{% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_OKTOLAB_ADMIN') or is_granted('ROLE_ADMIN') %}
+	                    	<li {% if selected == "backend" %}class="active"{% endif %}>
+	                        	<a href="{{ path('backend') }}">Backend</a>
+	                    	</li>
+						{% endif %}
+						<li role="separator" class="divider"></li>
 						<li><a href="{{ path('bprs_user_logout') }}">{{'oktothek.menu_user_logout'|trans|raw }}</a><li>
 					</ul>
 				</li>
-			{% elseif is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_OKTOLAB_ADMIN') or is_granted('ROLE_ADMIN') %}
-            	<li {% if dropdown == "dropdown_1" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
-                	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
-                	<ul class="dropdown-menu" role="menu">
-                    	<li {% if selected == "backend" %}class="active"{% endif %}>
-                        	<a href="{{ path('backend') }}">Backend</a>
-                    	</li>
-                    	<li role="separator" class="divider"></li>
-                    	<li><a href="{{ path('bprs_user_logout') }}"><span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> {{'bprs_user.button.logout'|trans}}</a><li>
-                	</ul>
-            	</li>
+				{% if is_granted('ROLE_OKTOLAB_USER') %}
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							{% if app.user.notifications is not empty %}{{ 'oktothek.menu_user_notifications'|trans|raw }}
+							{% else %}{{ 'oktothek.menu_user_notifications_empty'|trans|raw }}{% endif %}
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							{% for notification in app.user.notifications %}
+								<li><a href="{{ path('user_notification', {'notification': notification.id })}}">{{ 'oktothek.menu_user_notification_choice'|transchoice(notification.type, {'%series%': notification.series})}}</a></li>
+							{% endfor %}
+							{% if app.user.notifications is empty %}
+								<li><a href="#">{{ 'oktothek.menu_user_no_notifications'|trans}}</a></li>
+							{% endif %}
+						</ul>
+					</li>
+				{% endif %}
         	{% else %}
             	<li {% if selected == "login" %}class="active"{% endif %}><a href="{{ path('bprs_user_login') }}"> {{ 'bprs_user.button.login'|trans }}</a></li>
         	{% endif %}

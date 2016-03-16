@@ -211,4 +211,37 @@ class User extends BaseUser
     {
         return $this->abonnements;
     }
+
+    /**
+     * Add notifications
+     *
+     * @param \AppBundle\Entity\Notification $notifications
+     * @return User
+     */
+    public function addNotification(\AppBundle\Entity\Notification $notifications)
+    {
+        $this->notifications[] = $notifications;
+
+        return $this;
+    }
+
+    /**
+     * Remove notifications
+     *
+     * @param \AppBundle\Entity\Notification $notifications
+     */
+    public function removeNotification(\AppBundle\Entity\Notification $notifications)
+    {
+        $this->notifications->removeElement($notifications);
+    }
+
+    /**
+     * Get notifications
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNotifications()
+    {
+        return $this->notifications;
+    }
 }

@@ -58,12 +58,12 @@ class UserRepository extends BaseRepository
     {
         if ($withEmail) {
             return $this->getEntityManager()
-                ->createQuery('SELECT u FORM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.new_episode = 1 AND a.send_mails = 1')
-                ->setParameter('series_id', $series->getId())
+                ->createQuery('SELECT u FROM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.newEpisode = 1 AND a.send_mails = 1')
+                ->setParameter('series_id', $series->getId());
         }
         return $this->getEntityManager()
-            ->createQuery('SELECT u FORM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.new_episode = 1')
-            ->setParameter('series_id', $series->getId())
+            ->createQuery('SELECT u FROM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.newEpisode = 1')
+            ->setParameter('series_id', $series->getId());
     }
 
     public function findAboUsersWithNotificationForLivestream($series, $withEmail = false)
@@ -75,12 +75,12 @@ class UserRepository extends BaseRepository
     {
         if ($withEmail) {
             return $this->getEntityManager()
-                ->createQuery('SELECT u FORM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.livestream = 1 AND a.send_mails = 1')
-                ->setParameter('series_id', $series->getId())
+                ->createQuery('SELECT u FROM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.livestream = 1 AND a.send_mails = 1')
+                ->setParameter('series_id', $series->getId());
         }
         return $this->getEntityManager()
-            ->createQuery('SELECT u FORM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.livestream = 1')
-            ->setParameter('series_id', $series->getId())
+            ->createQuery('SELECT u FROM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.livestream = 1')
+            ->setParameter('series_id', $series->getId());
     }
 
     public function findAboUsersWithNotificationNewPost($series, $withEmail = false)
@@ -92,11 +92,11 @@ class UserRepository extends BaseRepository
     {
         if ($withEmail) {
             return $this->getEntityManager()
-                ->createQuery('SELECT u FORM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.new_post = 1 AND a.send_mails = 1')
-                ->setParameter('series_id', $series->getId())
+                ->createQuery('SELECT u FROM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.new_post = 1 AND a.send_mails = 1')
+                ->setParameter('series_id', $series->getId());
         }
         return $this->getEntityManager()
-            ->createQuery('SELECT u FORM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.new_post = 1')
-            ->setParameter('series_id', $series->getId())
+            ->createQuery('SELECT u FROM AppBundle:User u JOIN u.abonnements a WHERE a.series = :series_id AND a.new_post = 1')
+            ->setParameter('series_id', $series->getId());
     }
 }

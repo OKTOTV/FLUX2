@@ -42,7 +42,7 @@ class NotificationService
         }
 
         $batchSize = 0;
-        foreach($user in $users) {
+        foreach($users as $user) {
             $notification = new Notification();
             $notification->setUser($user);
             $notification->setSeries($series);
@@ -61,19 +61,19 @@ class NotificationService
             switch ($type) {
                 case Notification::LIVESTREAM:
                     $subject = $this->translator->trans('oktothek_mail_notification_livestream_subject');
-                    foreach($user in $users) {
+                    foreach($users as $user) {
                         $this->mailer->sendMail($user->getEmail(), $this->livestream_template, [], $subject);
                     }
                     break;
                 case Notification::NEW_EPISODE:
                     $subject = $this->translator->trans('oktothek_mail_notification_new_episode_subject');
-                    foreach($user in $users) {
+                    foreach($users as $user) {
                         $this->mailer->sendMail($user->getEmail(), $this->new_episode_template, [], $subject);
                     }
                     break;
                 case Notification::NEW_POST:
                     $subject = $this->translator->trans('oktothek_mail_notification_new_post_subject');
-                    foreach($user in $users) {
+                    foreach($users as $user) {
                         $this->mailer->sendMail($user->getEmail(), $this->new_post_template, [], $subject);
                     }
                     break;

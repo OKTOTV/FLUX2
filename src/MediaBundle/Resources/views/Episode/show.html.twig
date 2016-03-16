@@ -8,6 +8,7 @@
     <div class="page-header">
         <h1>{{ episode.name }}</h1>
         <a href="{{ path('oktolab_episode_edit', {'episode': episode.id}) }}" class="btn btn-default">Bearbeiten</a>
+        {{ render(controller('OktolabMediaBundle:Episode:publishEpisode', {'episode': episode.id})) }}
     </div>
     <div class="row">
         <div class="col-md-8">

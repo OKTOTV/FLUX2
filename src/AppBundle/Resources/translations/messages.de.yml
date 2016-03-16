@@ -10,7 +10,10 @@ oktothek.menu_user_playlists:           Playlisten
 oktothek.menu_user_channels:            Channels
 oktothek.menu_user_favorites:           Favoriten
 oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> Abmelden
-
+oktothek.menu_user_notifications:       <span class="glyphicon glyphicon-bookmark" style="color:red"></span>
+oktothek.menu_user_notifications_empty: <span class="glyphicon glyphicon-bookmark"></span>
+oktothek.menu_user_no_notifications:    Derzeit keine Benachrichtigungen
+oktothek.menu_user_notification_choice: "{1} %series% hat eine neue Episode veröffentlicht |{2} %series% hat einen neuen Post veröffentlicht |{3} %series% sendet Live"
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Neue Videos
@@ -26,7 +29,8 @@ oktothek.user_email_label:              Email
 oktothek.user_email_placeholder:        Deine Email. Bleibt privat und wird zum registrieren verwendet
 oktothek.register_user_button:          Account anlegen
 oktothek.error_create_account:          Account konnte nicht angelegt werden
-oktothek.success_create_account:         Account wurde angelegt. Schau in dein Postfach!
+oktothek.success_create_account:        Account wurde angelegt. Schau in dein Postfach!
+oktothek.login_register:                Neuen Account anlegen
 
 ## news post
 ## form labels
@@ -92,6 +96,7 @@ oktothek.episode_comment_header:        Kommentare <span class="comments-counter
 oktothek.more_from_this_series:         Mehr aus dieser Sendereihe
 oktothek.episode_tag_header:            Tags
 oktothek_share_email:                   Email
+oktothek.success_publish_episode:       Episode veröffentlichen
 
 ## comment
 oktothek.comment_author:                %name% am <time>%date%</time>

@@ -12,4 +12,42 @@ use Doctrine\ORM\EntityRepository;
  */
 class AbonnementRepository extends EntityRepository
 {
+    public function findNewEpisodeNotificationsForUser($user)
+    {
+        return $this->findNewEpisodeNotificationsForUser($user)->getResult();
+    }
+
+    public function findNewEpisodeNotificationsForUserQuery($user)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT n FROM AppBundle:Notification n WHERE n.user = :user_id AND n.newEpisode = 1 ORDER BY n.createdAt DESC')
+            ->setParameter('user_id', $user->getId());
+            ->setMaxResults(3);
+    }
+
+    public function findNewPostNotificationsForUser($user)
+    {
+        return $this->findNewPostNotificationsForUser($user)->getResult();
+    }
+
+    public function findNewPostNotificationsForUserQuery($user)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT n FROM AppBundle:Notification n WHERE n.user = :user_id AND n.newPost = 1 ORDER BY n.createdAt DESC')
+            ->setParameter('user_id', $user->getId());
+            ->setMaxResults(3);
+    }
+
+    public function findLivestreamNotificationsForUser($user)
+    {
+        return $this->findLivestreamNotificationsForUser($user)->getResult();
+    }
+
+    public function findLivestreamNotificationsForUserQuery($user)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT n FROM AppBundle:Notification n WHERE n.user = :user_id AND n.livestream = 1 ORDER BY n.createdAt DESC')
+            ->setParameter('user_id', $user->getId());
+            ->setMaxResults(3);
+    }
 }
