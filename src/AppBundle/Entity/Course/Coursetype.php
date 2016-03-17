@@ -41,16 +41,16 @@ class Coursetype
     /**
      * @Assert\NotBlank(message="oktothek.backend_coursetype_price_notblank")
      * @Assert\GreaterThanOrEqual(value= 0, message="oktothek.backend_coursetype_price_greaterthan")
-     * scale = number of digits in total, precision = number of .digits
-     * @ORM\Column(name="price", type="decimal", scale=6, precision=2)
+     * precision = number of digits in total, scale = number of .digits
+     * @ORM\Column(name="price", type="decimal", scale=2, precision=6)
      */
     private $price;
 
     /**
      * @Assert\NotBlank(message="oktothek.backend_coursetype_price_reduced_notblank")
      * @Assert\GreaterThanOrEqual(value=0, message="oktothek.backend_coursetype_price_reduced_greaterthan")
-     * scale = number of digits in total, precision = number of .digits
-     * @ORM\Column(name="price_reduced", type="decimal", scale=6, precision=2)
+     * precision = number of digits in total, scale = number of .digits
+     * @ORM\Column(name="price_reduced", type="decimal", scale=2, precision=6)
      */
     private $price_reduced;
 
