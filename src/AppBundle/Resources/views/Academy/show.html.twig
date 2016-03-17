@@ -46,45 +46,41 @@
 								</a>
     			            </figcaption>
                         </figure>
-                    
+
                 </article>
-        {% endfor %}
         </div>
+
 		<!-- Schnellansicht Details Start -->
 		<article class="collapse row collapseCoursedetails" id="collapseDetail">
           <div class="col-md-12">
 		    <div class="row">
 		        <div class="col-md-6">
-                    <h3>Übersicht Formatentwicklung</h3>
-			        <p>Gestaltungs- und Erzählkompetenzen sind es, die entscheidend sind um mit der eigenen Idee auch ein Publikum zu erreichen. Das ist gerade im nichtkommerziellen Rundfunk, dem die Mittel für große Marketingkampagnen fehlen, ein wesentliches Ziel.</p>
-					<p><a href="#">Details zum Kurs</a></p>
+                    <h3>{{ coursetype.title }}</h3>
+			        <p>{{ coursetype.description }}</p>
+					<p><a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}">Details zum Kurs</a></p>
 			    </div>
 				<div class="col-md-6">
-				<h4>Termine</h4>
-			    <ul class="timetable">
-		            <li>
-			            <p>
-                            <span>04.04.2016</span> 12:32 - 12:32<br>
-						    <span>05.04.2016</span> 10:36 - 10:36<br>
-			            </p>
-				        <p class="booking">
-                            <a href="#" class="btn btn-default">Buchen</a>
-			            </p>  
-			         </li>
-				     <li>
-			                <p>
-                               <span>07.03.2016</span>  13:00 - 13:00<br>
-			                </p>
-				            <p class="booking">
-                               <a href="#" class="btn btn-default">Buchen</a>
-			                </p>  
-			            </li>
-		            </ul>
+    				<h4>Termine</h4>
+    			    <ul class="timetable">
+                        {% for course in coursetype.courses %}
+        		            <li>
+        			            <p>
+                                    {% for date in course.dates %}
+                                        <span>{{ date.courseStart|date('d.m.Y') }}</span> {{ date.courseStart|date('H:i') }} - {{ date.courseEnd|date('H:i') }}<br />
+                                    {% endfor %}
+        			            </p>
+        				        <p class="booking">
+                                    <a href="{{ path('oktothek_academy_book_course', {'course': course.id})}}" class="btn btn-default">{{'oktothek_academy_book_course'|trans }}</a>
+        			            </p>
+        			         </li>
+                         {% endfor %}
+    		            </ul>
 					</div>
                 </div>
 			</div>
         </article>
 		<!-- Schnellansicht Details Ende -->
+        {% endfor %}
     </section>
 	<!-- Ende Kursauflistung -->
 	<!-- Anfang Gruppenangebot -->
