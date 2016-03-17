@@ -38,7 +38,7 @@
 		    <li>
 			    <p>
                     {% for date in course.dates %}
-                        <span>{{ date.courseStart|date('d.m.Y') }}</span> {{ date.courseStart|date('H:i') }} - {{ date.courseStart|date('H:i') }}<br>
+                        <span>{{ date.courseStart|date('d.m.Y') }}</span> {{ date.courseStart|date('H:i') }} - {{ date.courseEnd|date('H:i') }}<br>
                     {% endfor %}
 			    </p>
 				<p class="booking">
@@ -54,5 +54,5 @@
 	<script src="{{ asset('bundles/bprsstyle/js/imagesloaded.pkgd.min.js')}}"></script>
 {% endblock %}
 {% block javascript_footer %}
-    
+
 {% endblock %}
