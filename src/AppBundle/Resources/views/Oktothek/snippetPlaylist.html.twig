@@ -13,9 +13,9 @@
                     {% endif %}
                 {% endfor %}
                 {% if isInPlaylist %}
-                    <li><button type="button" class="playlist btn btn-default active" data-uniqID="{{ playlist.uniqID }}">-</button><span><a href="{{ path('oktothek_playlist_show', {'playlist': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
+                    <li><button type="button" class="playlist btn btn-default active" data-uniqID="{{ playlist.uniqID }}">-</button><span><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
                 {% else %}
-                    <li><button type="button" class="playlist btn btn-default" data-uniqID="{{ playlist.uniqID }}">+</button><span><a href="{{ path('oktothek_playlist_show', {'playlist': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
+                    <li><button type="button" class="playlist btn btn-default" data-uniqID="{{ playlist.uniqID }}">+</button><span><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
                 {% endif %}
             {% endfor %}
         </ul>

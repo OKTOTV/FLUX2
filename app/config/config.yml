@@ -251,26 +251,10 @@ fos_elastica:
                         listener:
                             immediate: ~
                         finder: ~
-                page:
-                    mappings:
-                        title: ~
-                        text: ~
-                        is_active: ~
+                playlist:
                     persistence:
                         driver: orm
-                        model: AppBundle\Entity\Page
-                        provider: ~
-                        listener:
-                            immediate: ~
-                        finder: ~
-                post:
-                    mappings:
-                        name: ~
-                        description: ~
-                        is_active: ~
-                    persistence:
-                        driver: orm
-                        model: AppBundle\Entity\Post
+                        model:  AppBundle\Entity\Playlist
                         provider: ~
                         listener:
                             immediate: ~

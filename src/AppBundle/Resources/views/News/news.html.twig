@@ -14,33 +14,15 @@
         </a>
     </div>
 	<div class="row">
+        <div class="navigation">
+            {{ knp_pagination_render(posts) }}
+        </div>
 	    <div class="col-xs-9">
             {% for post in posts %}
             {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
             {% endfor %}
 	    </div>
 	    <aside class="col-xs-3">
-		    <form class="filter-news">
-			    <p>
-			        <label for="posts_chronologic">ZEIGE ALLE NEWS VON:</label>
-                    <select class="form-control" id="posts_chronologic">
-                        <option data-slug="all">September 2015</option>
-				        <option data-slug="all">Oktober 2015</option>
-				        <option data-slug="all">November 2015</option>
-				        <option data-slug="all">Dezember 2015</option>
-				        <option data-slug="all">Jänner 2016</option>
-				        <option data-slug="all">Februar 2016</option>
-                    </select>
-				</p>
-				<p>
-			        <label for="posts_tags">TAGS:</label>
-                    <select class="form-control" id="posts_tags">
-					    <option data-slug="all">Alle</option>
-                        <option data-slug="all">internet</option>
-				        <option data-slug="all">informatik</option>
-                    </select>
-				</p>
-			</form>
 			<div class="box">
 			    <form>
 			        <h3>NEWSLETTER</h3>

@@ -1,7 +1,6 @@
 <article>
     <header class="page-header">
-        <h2>{{ post.name }}</h2>
-        <p><a href="{{ path('oktothek_edit_news', {'post': post.id}) }}" class="btn btn-default">{{ 'oktothek_post_edit_button'|trans }}</a></p>
+        <h1><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h1>
     </header>
     {{ post.description|markdown() }}
     {% if post.assets is empty %} {# no assets#}
@@ -36,11 +35,11 @@
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel-post-{{ newsloop|default('1') }}" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+                <span class="sr-only">{{'Previous'|trans}}</span>
             </a>
             <a class="right carousel-control" href="#carousel-post-{{ newsloop|default('1') }}" role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+                <span class="sr-only">{{'Next'|trans}}</span>
             </a>
         </div>
     {% endif %}
@@ -71,7 +70,7 @@
        </div>
     </div>
     <!-- End Collapse Share-->
-	<div class="comments body-white-color comment-pager">
+	{# <div class="comments body-white-color comment-pager">
     {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
-	</div>
+	</div> #}
 </article>

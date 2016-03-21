@@ -1,4 +1,7 @@
 # FLUX2
+# misc
+Previous:   Vorherige
+Next:       Nächste
 
 # oktothek
 ## menu
@@ -31,6 +34,9 @@ oktothek.register_user_button:          Account anlegen
 oktothek.error_create_account:          Account konnte nicht angelegt werden
 oktothek.success_create_account:        Account wurde angelegt. Schau in dein Postfach!
 oktothek.login_register:                Neuen Account anlegen
+
+## search and results
+oktothek_results_header:                Ergebnisse
 
 ## news post
 ## form labels
@@ -85,6 +91,8 @@ oktothek.playlist_index_filter_name:    Name
 oktothek.playlist_index_filter_createdAt: Erstellt
 oktothek.playlist_index_filter_updatedAt: Letzte Aktualisierung
 oktothek.playlist_index_new_playlist:   <span class="glyphicon glyphicon-plus"></span> Playlist anlegen
+oktothek.playlist_show:                 Playlist %playlist%
+
 
 ## episode
 oktothek.episode_show_playlist_header:  Playlisten

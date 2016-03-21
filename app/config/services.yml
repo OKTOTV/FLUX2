@@ -52,7 +52,7 @@ services:
 
     oktothek_search:
         class: AppBundle\Model\SearchService
-        arguments: [ @fos_elastica.finder.app.episode, @fos_elastica.finder.app.series, @fos_elastica.finder.app.page, @fos_elastica.finder.app.post ]
+        arguments: [ @fos_elastica.finder.app.episode, @fos_elastica.finder.app.series, @fos_elastica.finder.app.playlist ]
 
     oktothek_academy:
         class: AppBundle\Model\AcademyService
