@@ -42,3 +42,5 @@
 composer.lock
 .htaccess
 check.php
+
+app/data.db3
