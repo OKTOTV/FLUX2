@@ -46,11 +46,7 @@
                 position: "right",
                 size: 234
             },
-            playlist: [{% for playlistItem in playlist.items %}{
-                image:"{{ playlistItem.episode.posterframe|path }}",
-                title:"{{ playlistItem.episode.name }}",
-                sources:[{% for media in playlistItem.episode.media %}{% if media.public %}{ file: "{{ media.asset|path }}", label: "{{ media.quality }}", type: "mp4" }{% if not loop.last %},{% endif %}{% endif %}{% endfor %}]
-            } {% if not loop.last%},{% endif %}{% endfor %}],
+            playlist: "{{ url('oktothek_show_playlist', {'uniqID': playlist.uniqID, '_format': 'json'})}}"
         });
     });
 </script>

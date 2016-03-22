@@ -38,7 +38,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * @Route("/show/{uniqID}/{page}", name="oktothek_show_playlist", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Route("/show/{uniqID}/{page}.{_format}", name="oktothek_show_playlist", requirements={"page": "\d+"}, defaults={"page": 1, "_format": "html"})
      * @ ParamConverter("playlist", class="AppBundle:Playlist", options={"mapping": {"playlist": "uniqID"}})
      * @Template()
      */
