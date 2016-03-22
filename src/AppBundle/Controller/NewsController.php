@@ -51,16 +51,21 @@ class NewsController extends Controller
         $post = new Post();
         $form = $this->createForm(new PostType(), $post);
         $form->add('submit', 'submit', ['label' => 'oktothek.post_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('preview', 'submit', ['label' => 'oktothek.page_preview_button']);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($post);
-                $em->flush();
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_post');
+                if ($form->get('submit')->isClicked()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($post);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_post');
 
-                return $this->redirect($this->generateUrl('oktothek_news'));
+                    return $this->redirect($this->generateUrl('oktothek_news'));
+                } else { //preview
+                    return $this->render('AppBundle:News:previewNews.html.twig', ['post' => $post]);
+                }
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_post');
             }
@@ -88,6 +93,7 @@ class NewsController extends Controller
         $form = $this->createForm(new PostType(), $post);
         $form->add('delete', 'submit', ['label' => 'oktothek.post_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
         $form->add('submit', 'submit', ['label' => 'oktothek.post_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('preview', 'submit', ['label' => 'oktothek.page_preview_button']);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -98,10 +104,12 @@ class NewsController extends Controller
                     $em->flush();
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_post');
                     return $this->redirect($this->generateUrl('oktothek_news'));
-                } else { // delete post
+                } elseif ($form->get('delete')->isClicked()) { // delete post
                     $this->get('oktothek_post_service')->deletePost($post);
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_post');
                     return $this->redirect($this->generateUrl('oktothek_news'));
+                } else {
+                    return $this->render('AppBundle:News:previewNews.html.twig', ['post' => $post]);
                 }
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_post');

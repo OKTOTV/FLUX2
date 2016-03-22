@@ -49,7 +49,8 @@ oktothek_news_pinned_header:            Okto informiert
 oktothek_post_edit_button:              Post bearbeiten
 oktothek.post_teaser_label:             Teasertext
 oktothek.post_pinned_label:             An Startseite Pinnen
-
+oktothek.error_create_post:             Newsbeitrag konnte nicht angelegt werden
+oktothek.post_preview_back_button:      <span class="glyphicon glyphicon-chevron-left"></span> Zurück
 ## form placeholder
 oktothek.post_onlineAt_placeholder:     TT.MM.JJJJ HH:MM
 
