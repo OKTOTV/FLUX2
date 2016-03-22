@@ -2,6 +2,9 @@
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
 #    parameter_name: value
+    livestream_template:    "Mail/livestream.html.twig"
+    new_post_template:      "Mail/new_post.html.twig"
+    new_episode_template:   "Mail/new_episode.html.twig"
 
 services:
     oktothek_post_service:
@@ -20,7 +23,6 @@ services:
         calls:
             - [ setAnnotationReader, [ "@annotation_reader" ] ]
 
-
     oktothek_tag.type:
         class: AppBundle\Form\TagType
         arguments: [ @oktothek_tag.repository ]
@@ -31,6 +33,16 @@ services:
         class: AppBundle\Model\UserService
         arguments: [ @doctrine.orm.entity_manager]
 
+    oktothek_notification_service:
+        class: AppBundle\Model\NotificationService
+        arguments: [ @doctrine.orm.entity_manager, @bprs_user.mailer, @translator, %livestream_template%, %new_post_template%, %new_episode_template% ]
+
+    oktothek_notification_listener:
+        class: AppBundle\Event\NotificationListener
+        arguments: [ @logger, @oktothek_notification_service ]
+        tags:
+            - { name: kernel.event_listener, event: oktolab_media.encoded_episode, method: createNewEpisodeNotifications }
+
     # Asset repository
     oktothek_tag.repository:
         class: Doctrine\ORM\EntityRepository
@@ -40,11 +52,19 @@ services:
 
     oktothek_search:
         class: AppBundle\Model\SearchService
-        arguments: [ @fos_elastica.finder.app.episode, @fos_elastica.finder.app.series, @fos_elastica.finder.app.page, @fos_elastica.finder.app.post ]
+        arguments: [ @fos_elastica.finder.app.episode, @fos_elastica.finder.app.series, @fos_elastica.finder.app.playlist ]
 
     oktothek_academy:
         class: AppBundle\Model\AcademyService
         arguments: [ @bprs_sofort, @doctrine.orm.entity_manager, @router]
+
+# voter
+    oktothek_subscription_voter:
+        class: AppBundle\Security\SubscriptionVoter
+        tags:
+            - { name: security.voter }
+        # small performance boost
+        public: false
 
 # TWIG Extension
     oktothek.twig_extension:

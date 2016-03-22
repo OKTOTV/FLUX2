@@ -1,0 +1,19 @@
+[
+    {% for playlistItem in playlist.items %}
+        {
+            "image": "{{ playlistItem.episode.posterframe|thumb(720,1280)}}",
+            "title": "{{ playlistItem.episode.name }}",
+            "sources": [
+                {% for media in playlistItem.episode.media %}
+
+                        {
+                            "file": "{{ media.asset|link }}",
+                            "label": "{{ media.quality }}",
+                            "type": "mp4"
+                        }{% if not loop.last %},{% endif %}
+
+                {% endfor %}
+            ]
+        }{% if not loop.last %},{% endif %}
+    {% endfor %}
+]

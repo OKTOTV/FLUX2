@@ -1,4 +1,0 @@
-<h3>{{ 'oktothek_search_post_header'|trans }}</h3>
-{% for post in posts %}
-    {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
-{% endfor %}

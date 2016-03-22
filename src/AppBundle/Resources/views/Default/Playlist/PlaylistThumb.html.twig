@@ -1,8 +1,12 @@
 <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="{{ playlist.description }}">
     <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="... ansehen">
         <figure class="playlist-pin pin">
+            {% if playlist.items is not empty %}
             <img src="{{ playlist.items[0].episode.posterframe|thumb(135,240) }}" class="img-responsive"/>
-			<figcaption>
+            {% else %}
+            {# TODO: placeholder #}
+            {% endif %}
+            <figcaption>
                 <h3>{{ playlist.name }}</h3>
 		    </figcaption>
         </figure>

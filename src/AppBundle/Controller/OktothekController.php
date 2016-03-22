@@ -33,7 +33,7 @@ class OktothekController extends Controller
      * @Route("episode/{uniqID}/embed", name="oktothek_embed_episode")
      * @Template()
      */
-    public function empedEpisodeAction(Episode $episode)
+    public function embedEpisodeAction(Episode $episode)
     {
         return ['episode' => $episode];
     }
@@ -48,13 +48,5 @@ class OktothekController extends Controller
         return array('series' => $series);
     }
 
-    /**
-    * @Route("/playlist/{uniqID}", name="oktothek_show_playlist")
-    * @Template
-    */
-    public function showPlaylistAction(Playlist $playlist)
-    {
-        return array('playlist' => $playlist);
-    }
 }
 ?>

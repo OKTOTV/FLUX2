@@ -13,6 +13,10 @@ use AppBundle\Entity\EpisodePin;
  */
 class Series extends BaseSeries
 {
+    /**
+     * @ORM\OneToMany(targetEntity="Abonnement", mappedBy="user")
+     */
+    private $abonnements;
 
     /**
     *
@@ -23,6 +27,7 @@ class Series extends BaseSeries
 
     public function __construct() {
         parent::__construct();
+        $this->abonnements = new \Doctrine\Common\Collections\ArrayCollection();
         $this->episodes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -148,5 +153,38 @@ class Series extends BaseSeries
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add abonnements
+     *
+     * @param \AppBundle\Entity\Abonnements $abonnements
+     * @return Series
+     */
+    public function addAbonnement(\AppBundle\Entity\Abonnement $abonnements)
+    {
+        $this->abonnements[] = $abonnements;
+
+        return $this;
+    }
+
+    /**
+     * Remove abonnements
+     *
+     * @param \AppBundle\Entity\Abonnements $abonnements
+     */
+    public function removeAbonnement(\AppBundle\Entity\Abonnement $abonnements)
+    {
+        $this->abonnements->removeElement($abonnements);
+    }
+
+    /**
+     * Get abonnements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAbonnements()
+    {
+        return $this->abonnements;
     }
 }

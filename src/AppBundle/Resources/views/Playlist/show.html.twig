@@ -1,5 +1,8 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
+{% block title %}
+    {{ name|default('OKTO')~' | '~'oktothek.playlist_show'|trans({'%playlist%': playlist.name}) }}
+{% endblock %}
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
@@ -8,15 +11,23 @@
 {% block body %}
     <div class="page-header">
         <h1>{{ playlist.name }}</h1>
+        {% if app.user == playlist.user %}
+        <a href="{{ path('oktothek_edit_playlist', {'uniqID': playlist.uniqID}) }}" class="btn btn-default">Bearbeiten</a>
+        {% endif %}
     </div>
-
-    <figure id="player"></figure>
-
     <div class="row">
-    {% for playlistItem in playlist.items %}
-        {% include 'AppBundle::Default/EpisodeThumb.html.twig' with {'episode': playlistItem.episode } %}
-    {% endfor %}
+        <div class="col-md-9">
+            <figure id="player"></figure>
+        </div>
+        <div class="col-md-3">
+            <div class="list-group">
+                {% for playlistItem in playlist.items %}
+                    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="list-group-item playme" data-list="{{loop.index0}}">{{ playlistItem.episode.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
     </div>
+    <p>{{ playlist.description }}</p>
 {% endblock %}
 
 {% block javascripts %}
@@ -24,9 +35,18 @@
 <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
 <script>
     $(document).ready(function(){
+        $('.playme').click(function(e){
+            e.preventDefault();
+            playerInstance.playlistItem($(this).data('list'));
+        })
+
         var playerInstance = jwplayer("player");
         playerInstance.setup({
-            playlist: [{% for playlistItem in playlist.items %}{ image:"{{ playlistItem.episode.posterframe|path }}", file: "{{ playlistItem.episode.video|path }}" }{% if not loop.last%},{% endif %}{% endfor %}]
+            listbar: {
+                position: "right",
+                size: 234
+            },
+            playlist: "{{ url('oktothek_show_playlist', {'uniqID': playlist.uniqID, '_format': 'json'})}}"
         });
     });
 </script>

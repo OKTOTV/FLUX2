@@ -29,10 +29,14 @@ class User extends BaseUser
     private $favorites;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Series", inversedBy="users")
-     * @ORM\JoinTable(name="users_channels")
+     * @ORM\OneToMany(targetEntity="Abonnement", mappedBy="user")
      */
-    private $channels;
+    private $abonnements;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Notification", mappedBy="user")
+     */
+    private $notifications;
 
     /**
     * @ORM\Column(name="uniqID", type="string", length=13)
@@ -46,7 +50,7 @@ class User extends BaseUser
 
     public function __construct() {
         parent::__construct();
-        $this->channels = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->abonnements = new \Doctrine\Common\Collections\ArrayCollection();
         $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
         $this->playlists = new \Doctrine\Common\Collections\ArrayCollection();
         $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
@@ -176,35 +180,68 @@ class User extends BaseUser
     }
 
     /**
-     * Add channels
+     * Add abonnements
      *
-     * @param \AppBundle\Entity\Series $channels
+     * @param \AppBundle\Entity\Abonnements $abonnements
      * @return User
      */
-    public function addChannel(\AppBundle\Entity\Series $channels)
+    public function addAbonnement(\AppBundle\Entity\Abonnement $abonnements)
     {
-        $this->channels[] = $channels;
-        $channels->addUser($this);
+        $this->abonnements[] = $abonnements;
+
         return $this;
     }
 
     /**
-     * Remove channels
+     * Remove abonnements
      *
-     * @param \AppBundle\Entity\Series $channels
+     * @param \AppBundle\Entity\Abonnements $abonnements
      */
-    public function removeChannel(\AppBundle\Entity\Series $channels)
+    public function removeAbonnement(\AppBundle\Entity\Abonnement $abonnements)
     {
-        $this->channels->removeElement($channels);
+        $this->abonnements->removeElement($abonnements);
     }
 
     /**
-     * Get channels
+     * Get abonnements
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getChannels()
+    public function getAbonnements()
     {
-        return $this->channels;
+        return $this->abonnements;
+    }
+
+    /**
+     * Add notifications
+     *
+     * @param \AppBundle\Entity\Notification $notifications
+     * @return User
+     */
+    public function addNotification(\AppBundle\Entity\Notification $notifications)
+    {
+        $this->notifications[] = $notifications;
+
+        return $this;
+    }
+
+    /**
+     * Remove notifications
+     *
+     * @param \AppBundle\Entity\Notification $notifications
+     */
+    public function removeNotification(\AppBundle\Entity\Notification $notifications)
+    {
+        $this->notifications->removeElement($notifications);
+    }
+
+    /**
+     * Get notifications
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNotifications()
+    {
+        return $this->notifications;
     }
 }

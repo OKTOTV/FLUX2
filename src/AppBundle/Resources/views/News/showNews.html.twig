@@ -9,13 +9,7 @@
 {% block body %}
     <div id="top"></div>
     <div class="container">
-		<div class="row">
-		    <div class="col-xs-9">
-                {% include 'AppBundle::News/post.html.twig' %}
-			</div>
-			<div class="col-xs-3">
-                Submenü
-			</div>
-		</div>
+        {% include 'AppBundle::News/post.html.twig' %}
+        {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
 	</div>
 {% endblock %}

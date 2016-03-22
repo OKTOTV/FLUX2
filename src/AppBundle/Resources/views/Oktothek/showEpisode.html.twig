@@ -36,7 +36,15 @@
 
                     {% else %}
                         <button type="button" class="btn btn-default" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-favorites="{{ episode.users|length }}" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart{% else %}glyphicon-heart-empty{% endif %}"></span> {{ episode.users|length}}</button>
-                        <button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="{% if episode.series in app.user.channels %}1{% else %}0{% endif %}">{% if episode.series in app.user.channels %}{{ 'oktothek_user_unsubscribe'|trans|raw }}{% else %}{{ 'oktothek_user_subscribe'|trans|raw }}{% endif %}</button>
+                        {% set in_abo = false %}
+                        {% for abonnement in app.user.abonnements if abonnement.series.uniqID == episode.series.uniqID %}
+                            {% set in_abo = true %}
+                        {% endfor %}
+                        {% if in_abo %}
+                            <button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
+                        {% else %}
+                            <button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+                        {% endif %}
                         <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
                     {% endif %}
                     <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button>

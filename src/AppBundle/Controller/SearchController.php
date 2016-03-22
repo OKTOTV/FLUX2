@@ -38,13 +38,13 @@ class SearchController extends Controller
                 $search = $this->get('oktothek_search');
                 $episodes = $search->searchEpisodes($data['search']);
                 $series = $search->searchSeries($data['search']);
-                $pages = $search->searchPages($data['search']);
-                $posts = $search->searchPosts($data['search']);
+                $playlists = $search->searchPlaylists($data['search']);
+
                 return $this->render('AppBundle::Search/results.html.twig', [
                     'episodes' => $episodes,
                     'series' => $series,
-                    'pages' => $pages,
-                    'posts' => $posts
+                    'playlists' => $playlists,
+                    'searchphrase' => $data['search']
                 ]);
             }
         }

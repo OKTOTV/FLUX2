@@ -12,7 +12,7 @@ use JMS\Serializer\Annotation as JMS;
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\PlaylistRepository")
  * @JMS\ExclusionPolicy("all")
  * @ORM\HasLifecycleCallbacks()
- * @JMS\AccessType("public_method")
+ * JMS\AccessType("public_method")
  */
 class Playlist
 {
@@ -22,6 +22,7 @@ class Playlist
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @JMS\ReadOnly
      */
     private $id;
 

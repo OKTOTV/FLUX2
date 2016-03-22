@@ -12,6 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use AppBundle\Entity\Playlist;
 use AppBundle\Entity\PlaylistItem;
 use AppBundle\Form\PlaylistType;
+use AppBundle\Form\PlaylistUserType;
 
 /**
  * Playlist controller.
@@ -37,8 +38,8 @@ class PlaylistController extends Controller
     }
 
     /**
-     * @Route("/show/{playlist}/{page}", name="oktothek_playlist_show", requirements={"page": "\d+"}, defaults={"page": 1})
-     * @ParamConverter("playlist", class="AppBundle:Playlist", options={"mapping": {"playlist": "uniqID"}})
+     * @Route("/show/{uniqID}/{page}.{_format}", name="oktothek_show_playlist", requirements={"page": "\d+"}, defaults={"page": 1, "_format": "html"})
+     * @ ParamConverter("playlist", class="AppBundle:Playlist", options={"mapping": {"playlist": "uniqID"}})
      * @Template()
      */
     public function showAction(Playlist $playlist, $page)
@@ -52,6 +53,40 @@ class PlaylistController extends Controller
         $paginator = $this->get('knp_paginator');
         $items = $paginator->paginate($query, $page, 10);
         return ['playlist' => $playlist, 'items' => $items];
+    }
+
+    /**
+     * @Route("/edit/{uniqID}", name="oktothek_edit_playlist")
+     * @Template()
+     */
+    public function editAction(Request $request, Playlist $playlist)
+    {
+        //TODO: voter
+        $form = $this->createForm(new PlaylistUserType(), $playlist);
+        $form->add('delete', 'submit', ['label' => 'oktothek.playlist_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('submit', 'submit', ['label' => 'oktothek.playlist_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if ($form->get('submit')->isClicked()) { // update post
+                    $em->persist($playlist);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_playlist');
+                    return $this->redirect($this->generateUrl('oktothek_show_playlist', ['uniqID'=> $playlist->getUniqID()]));
+                } else { // delete post
+                    $em->remove($playlist);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_playlist');
+                    return $this->redirect($this->generateUrl('user_playlists'));
+                }
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_playlist');
+            }
+        }
+
+        return ['form' => $form->createView()];
     }
 
     /**

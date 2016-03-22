@@ -289,7 +289,7 @@ body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.bt
 	color:#000000;
 }
 
-body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container {
+body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container, .preloader {
 	background-color:#000000;
 }
 .comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control, .newsarchiv aside .box, .programm .schedule header.page-header {
@@ -339,7 +339,7 @@ button .btn-default.active, .oktothek article a.btn-default {
 	background-position:center center;
 	background-image:url(../images/icon_views.png);
 }
-.bg-bleur {
+.bg-bleur, .fs-image div {
 	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
 	background-repeat:no-repeat;
 	background-position:center top;
@@ -721,13 +721,15 @@ header + .container-fluid {
 	overflow:auto;
 	height:auto;
 }
-.carousel .item {
-  min-width: 100%;
-  height: 100%;
+.carousel .item, .carousel-inner > .item > a > img, .carousel-inner > .item > img, .fs-image-content figure, .fs-image-content figure div {
+    height: 100%;
 }
-.carousel-inner > .item > img {
-  min-width: 100%;
-  height: 100%;
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+	min-width: 100%;
+	width:auto;
+}
+.fs-image-content figure, .fs-image-content figure div {
+	width: 100%;
 }
 .carousel-caption {
   z-index: 10;
@@ -740,6 +742,34 @@ header + .container-fluid {
 	right:5%;
 	text-align:left;
 }
+/*.carousel .active {
+	display:none;
+}*/
+.preloader {
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:100;
+	top:0px;
+	bottom:70px;
+	left:0px;
+	right:0px;
+}
+
+/* Fullscreen Images*/
+section.fs-image-content {
+	margin-bottom:0;
+}
+.fs-image-ident div.description-wrapper {
+	bottom:80px;
+	overflow:hidden;
+}
+.fs-image-ident {
+	height:auto;
+}
+/*.fs-image-content figure img {
+	display:none;
+}*/
 
 /* Content allgemein */
 .container-fluid {
@@ -767,6 +797,8 @@ article.pin {
 	margin-bottom:20px;
 	width:100%;
 }
+
+
 
 /* Oktothek */
 .oktothek article {
@@ -888,19 +920,11 @@ figure.pin img, .programm .schedule img {
 .fs-image-content, .fs-image-ident, .content-opacity {
 	position:relative;
 }
-.series div.current-episode, .series .play-episode, .container-bg-opacity, .academy div.current-course {
+.series .play-episode, .container-bg-opacity {
 	position:absolute;
 }
-section.fs-image-content {
-	margin-bottom:0;
-}
-.fs-image-ident div.description-wrapper {
-	bottom:80px;
-	overflow:hidden;
-}
-.fs-image-ident {
-	overflow:auto;
-	height:auto;
+.fs-image-content .description-wrapper {
+	position:static;
 }
 .container-bg-opacity {
 	z-index:0;
@@ -1192,6 +1216,9 @@ section.fs-image-content {
 	header + .container-fluid {
 		margin-top:0;
 	}
+	.fs-image-content .description-wrapper {
+	    position:absolute;
+    }
 	.fs-image-ident div.description-wrapper {
 		left:50%;
         margin-left:-375px;

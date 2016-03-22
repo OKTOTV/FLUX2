@@ -2,6 +2,8 @@
 
 namespace AppBundle\Model;
 
+use AppBundle\Entity\Abonnement;
+
 class UserService {
 
     private $em;
@@ -13,19 +15,26 @@ class UserService {
 
     public function updateSubscription($user, $uniqID)
     {
-        $series = $this->em->getRepository('AppBundle:Series')->findOneBy(['uniqID' => $uniqID]);
+        $user_abonnement = null;
         $in_abo = false;
-        foreach ($user->getChannels() as $abo_channel) {
-            if ($abo_channel->getUniqID() == $uniqID) {
+        foreach ($user->getAbonnements() as $abonnement) {
+            if ($abonnement->getSeries()->getUniqID() == $uniqID) {
                 $in_abo = true;
+                $user_abonnement = $abonnement;
                 break;
             }
         }
 
         if ($in_abo) {
-            $user->removeChannel($series);
+            $this->em->remove($user_abonnement);
+            // $user->removeAbonnement($user_abonnement);
+            // $series->removeAbonnement($user_abonnement);
         } else {
-            $user->addChannel($series);
+            $series = $this->em->getRepository('AppBundle:Series')->findOneBy(['uniqID' => $uniqID]);
+            $user_abonnement = new Abonnement();
+            $user_abonnement->setUser($user);
+            $user_abonnement->setSeries($series);
+            $this->em->persist($user_abonnement);
         }
         $this->em->persist($series);
         $this->em->persist($user);
