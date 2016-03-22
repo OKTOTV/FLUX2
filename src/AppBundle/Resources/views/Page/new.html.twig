@@ -11,7 +11,14 @@
     </div>
  {{ form_start(form)}}
     {{ form_row(form.title) }}
-    {{ form_row(form.text) }}
+    <div class="row">
+        <div class="col-md-8">
+            {{ form_row(form.text) }}
+        </div>
+        <div class="col-md-4">
+            {% include "AppBundle::Default/markdown_helper.html.twig" %}
+        </div>
+    </div>
     {% render(controller('BprsAssetBundle:Asset:modalList', {'page': 1}))%}
     {% include "AppBundle::Tag/widget.html.twig" with {'widget': form.tags} %}
  {{ form_end(form)}}

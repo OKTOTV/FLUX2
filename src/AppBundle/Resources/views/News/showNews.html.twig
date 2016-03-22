@@ -7,7 +7,6 @@
 
 {% set body_class = "news head-white-color" %}
 {% block body %}
-    <div id="top"></div>
     <div class="container">
         {% include 'AppBundle::News/post.html.twig' %}
         {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
