@@ -1,0 +1,169 @@
+<?php
+
+namespace AppBundle\Entity\Course;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Coursepackage
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Coursepackage
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=500)
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Course", inversedBy="coursepackages")
+     * @ORM\JoinTable(name="packages_coursetypes")
+     */
+    private $coursetypes;
+
+    /**
+     * @ORM\Column(name="is_active", type="boolean", options={"default"=false})
+     */
+    private $is_active;
+
+    public function __construct() {
+        $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Coursepackage
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Coursepackage
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set is_active
+     *
+     * @param boolean $isActive
+     * @return Coursepackage
+     */
+    public function setIsActive($isActive)
+    {
+        $this->is_active = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get is_active
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->is_active;
+    }
+
+    /**
+     * Add courses
+     *
+     * @param \AppBundle\Entity\Course\Course $courses
+     * @return Coursepackage
+     */
+    public function addCourse(\AppBundle\Entity\Course\Course $courses)
+    {
+        $this->courses[] = $courses;
+
+        return $this;
+    }
+
+    /**
+     * Remove courses
+     *
+     * @param \AppBundle\Entity\Course\Course $courses
+     */
+    public function removeCourse(\AppBundle\Entity\Course\Course $courses)
+    {
+        $this->courses->removeElement($courses);
+    }
+
+    /**
+     * Get courses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCourses()
+    {
+        return $this->courses;
+    }
+}

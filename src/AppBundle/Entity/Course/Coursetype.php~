@@ -410,37 +410,4 @@ class Coursetype
     {
         return $this->price >= $this->price_reduced;
     }
-
-    /**
-     * Add coursepackages
-     *
-     * @param \AppBundle\Entity\Course\Coursepackage $coursepackages
-     * @return Coursetype
-     */
-    public function addCoursepackage(\AppBundle\Entity\Course\Coursepackage $coursepackages)
-    {
-        $this->coursepackages[] = $coursepackages;
-
-        return $this;
-    }
-
-    /**
-     * Remove coursepackages
-     *
-     * @param \AppBundle\Entity\Course\Coursepackage $coursepackages
-     */
-    public function removeCoursepackage(\AppBundle\Entity\Course\Coursepackage $coursepackages)
-    {
-        $this->coursepackages->removeElement($coursepackages);
-    }
-
-    /**
-     * Get coursepackages
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCoursepackages()
-    {
-        return $this->coursepackages;
-    }
 }

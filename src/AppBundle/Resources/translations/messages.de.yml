@@ -162,6 +162,11 @@ oktothek_attende_surname_placeholder:   Musterfrau
 oktothek_attende_mail_placeholder:      max@musterfrau.at
 oktothek_attende_tel_placeholder:       +43 123 456 789
 
+# Coursepackage
+oktothek.backend_coursepackage_name_label: Name
+oktothek.backend_coursepackage_description_label: Beschreibung
+oktothek.backend_coursepackage_coursetypes_label: Kurstypen
+oktothek.coursepackage_create_button:      <span class="glyphicon glyphicon-floppy-disk"></span> Speichern
 # Coursetype
 oktothek.backend_coursetype_title_label: Titel
 oktothek.backend_coursetype_description_label: Beschreibung

@@ -62,7 +62,7 @@ class Course
     private $is_active;
 
     public function __construct() {
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dates = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

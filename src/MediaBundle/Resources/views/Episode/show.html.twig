@@ -45,6 +45,8 @@
             {% if episode.posterframe is not empty %}
                 <a href="{{ path('bprs_asset_download', {'key': episode.posterframe.filekey}) }}" class="btn btn-default"><span class="glyphicon glyphicon-download"></span>Posterframe</a>
             {% endif %}
+            <h2>{{ 'oktolab_media_media_for_episode_header'|trans }}</h2>
+            {{ render(controller('OktolabMediaBundle:Media:mediaForEpisode', {'uniqID': episode.uniqID})) }}
         </div>
     </div>
 {% endblock %}
