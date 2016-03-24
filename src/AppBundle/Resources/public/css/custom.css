@@ -1192,6 +1192,9 @@ figure.pin img, .programm .schedule img {
 	display:inline-block;
 	width:120px;
 }
+.academy .collapse {
+	width: 100%;
+}
 @media (min-width: 580px) {
 	article.pin {
 		width:50%;
@@ -1208,6 +1211,9 @@ figure.pin img, .programm .schedule img {
 	article.pin {
 		margin-bottom:0px;
 	}
+	.academy .collapse {
+	    width: 100%;
+    }
 }
 @media (min-width: 768px) {
 	#slider, .fs-image-content {
@@ -1247,6 +1253,9 @@ figure.pin img, .programm .schedule img {
 	article.pin {
 		width:25%;
 	}
+	.academy .collapse {
+	    width: 970px;
+	}
 	
 	
 }
@@ -1254,6 +1263,9 @@ figure.pin img, .programm .schedule img {
     .fs-image-ident div.description-wrapper {
 	    margin-left:-585px;
     }
+	.academy .collapse {
+	    width: 1170px;
+	}
 }
 
 
