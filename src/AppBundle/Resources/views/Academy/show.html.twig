@@ -43,45 +43,46 @@
         {% for coursetype in coursetypes if not coursetype.highlight %}
             <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
                 <figure class="academy-pin pin">
-                    <a role="button" data-toggle="collapse" href="#collapseDetail" aria-expanded="false" aria-controls="collapseDetail"><img src="{{ coursetype.image|link }}" class="img-responsive"/></a>
-    			        <figcaption>
-					        <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
-                                <h3>{{ coursetype.title }}</h3>
-                                <p>{{ coursetype.courses[0].dates|hours~'h'}} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
-							</a>
-    			        </figcaption>
-                    </figure>
-		            <!-- Schnellansicht Details Start -->
-		            <div class="collapse row collapseCoursedetails" id="collapseDetail">
-          <div class="col-md-12">
-		    <div class="row">
-		        <div class="col-md-6">
-                    <h3>{{ coursetype.title }}</h3>
-			        <p>{{ coursetype.description }}</p>
-					<p><a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}">Details zum Kurs</a></p>
-			    </div>
-				<div class="col-md-6">
-    				<h4>Termine</h4>
-    			    <ul class="timetable">
-                        {% for course in coursetype.courses %}
-        		            <li>
-        			            <p>
-                                    {% for date in course.dates %}
+                    <a role="button" data-toggle="collapse" href="#collapseDetail{'coursetype': coursetype.id}" aria-expanded="false" aria-controls="collapseDetail{'coursetype': coursetype.id}"><img src="{{ coursetype.image|link }}" class="img-responsive"/></a>
+    			    <figcaption>
+					    <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
+                            <h3>{{ coursetype.title }}</h3>
+                            <p>{{ coursetype.courses[0].dates|hours~'h'}} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
+						</a>
+    			    </figcaption>
+                </figure>
+			
+		    <!-- Schnellansicht Details Start -->
+		    <div class="collapse row collapseCoursedetails" id="collapseDetail{'coursetype': coursetype.id}">
+                <div class="col-md-12">
+		            <div class="row">
+		                <div class="col-md-6">
+                            <h3>{{ coursetype.title }}</h3>
+			                <p>{{ coursetype.description }}</p>
+					        <p><a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}">Details zum Kurs</a></p>
+			            </div>
+				        <div class="col-md-6">
+    				        <h4>Termine</h4>
+    			            <ul class="timetable">
+                                {% for course in coursetype.courses %}
+        		                <li>
+        			                <p>
+                                        {% for date in course.dates %}
                                         <span>{{ date.courseStart|date('d.m.Y') }}</span> {{ date.courseStart|date('H:i') }} - {{ date.courseEnd|date('H:i') }}<br />
-                                    {% endfor %}
-        			            </p>
-        				        <p class="booking">
-                                    <a href="{{ path('oktothek_academy_book_course', {'course': course.id})}}" class="btn btn-default">{{'oktothek_academy_book_course'|trans }}</a>
-        			            </p>
-        			         </li>
-                         {% endfor %}
-    		            </ul>
-					</div>
-                </div>
+                                        {% endfor %}
+        			                </p>
+        				            <p class="booking">
+                                        <a href="{{ path('oktothek_academy_book_course', {'course': course.id})}}" class="btn btn-default">{{'oktothek_academy_book_course'|trans }}</a>
+        			                </p>
+        			            </li>
+                               {% endfor %}
+    		               </ul>
+					   </div>
+                   </div>
+			    </div>
 			</div>
-			</div>
-        </article>
-		<!-- Schnellansicht Details Ende -->
+		    <!-- Schnellansicht Details Ende -->
+			</article>
         {% endfor %}
 		</div>
     </section>
