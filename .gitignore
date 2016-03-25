@@ -43,3 +43,4 @@ composer.lock
 check.php
 
 app/data.db3
+*.rdb
