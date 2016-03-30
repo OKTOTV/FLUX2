@@ -65,6 +65,24 @@ class Course
         $this->dates = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function __toString()
+    {
+        $label = "";
+        $count = count($this->dates);
+        for ($i=0; $i < $count; $i++) {
+            if ($i == ($count-1)) { //last
+                $label = $label.$this->dates[$i]->getCourseStart()->format('d.m.Y').' '.
+                $this->dates[$i]->getCourseStart()->format('H:i').' - '.
+                $this->dates[$i]->getCourseEnd()->format('H:i');
+            } else {
+                $label = $label.$this->dates[$i]->getCourseStart()->format('d.m.Y').' '.
+                $this->dates[$i]->getCourseStart()->format('H:i').' - '.
+                $this->dates[$i]->getCourseEnd()->format('H:i').' / ';
+            }
+        }
+        return $label;
+    }
+
     /**
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
@@ -186,7 +204,7 @@ class Course
     public function addAttendee($attendees)
     {
         $this->attendees[] = $attendees;
-
+        $attendees->addCourse($this);
         return $this;
     }
 

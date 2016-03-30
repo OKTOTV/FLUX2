@@ -183,4 +183,50 @@ class Coursepackage
     {
         return $this->coursetypes;
     }
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     * @return Coursepackage
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set price_reduced
+     *
+     * @param string $priceReduced
+     * @return Coursepackage
+     */
+    public function setPriceReduced($priceReduced)
+    {
+        $this->price_reduced = $priceReduced;
+
+        return $this;
+    }
+
+    /**
+     * Get price_reduced
+     *
+     * @return string
+     */
+    public function getPriceReduced()
+    {
+        return $this->price_reduced;
+    }
 }

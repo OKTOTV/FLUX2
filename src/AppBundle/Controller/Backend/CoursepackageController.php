@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Course\Coursepackage;
-use AppBundle\Form\Course\CoursepackageType;
+use AppBundle\Entity\Course\CoursepackageSelect;
 
 /**
  * @Route("/backend/coursepackage")
@@ -55,5 +55,51 @@ class CoursepackageController extends Controller
         }
 
         return ['form' => $form->createView()];
+    }
+
+    /**
+     * @Route("/edit/{coursepackage}", name="oktothek_backend_edit_coursepackage")
+     * @Template()
+     */
+    public function editAction(Request $request, Coursepackage $coursepackage)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $coursetypes = $em->getRepository('AppBundle:Course\Coursetype')->findAll();
+
+        $form = $this->createForm(new CoursepackageType(), $coursepackage, ['coursetypes' => $coursetypes]);
+        $form->add('delete', 'submit', ['label' => 'oktothek.coursepackage_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('submit', 'submit', ['label' => 'oktothek.coursepackage_edit_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if ($form->get('submit')->isClicked()) {
+                    $em->persist($coursepackage);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_coursepackage');
+
+                    return $this->redirect($this->generateUrl('oktothek_backend_coursepackages'));
+                } else { //delete
+                    $em->remove($coursepackage);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_coursepackage');
+                    return $this->redirect($this->generateUrl('oktothek_backend_coursepackages'));
+                }
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_coursepackage');
+            }
+        }
+
+        return ['form' => $form->createView()];
+    }
+
+    /**
+     * @Route("/show/{coursepackage}", name="oktothek_backend_show_coursepackage")
+     * @Template()
+     */
+    public function showAction(Coursepackage $coursepackage)
+    {
+        return ['coursepackage' => $coursepackage];
     }
 }

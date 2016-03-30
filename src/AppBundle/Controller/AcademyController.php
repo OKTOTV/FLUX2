@@ -11,6 +11,11 @@ use AppBundle\Entity\Course\Coursetype;
 use AppBundle\Entity\Course\Course;
 use AppBundle\Form\Course\AttendeeType;
 use AppBundle\Entity\Course\Attendee;
+
+use AppBundle\Entity\Course\Coursepackage;
+use AppBundle\Entity\Course\CoursepackageSelect;
+use AppBundle\Form\Course\CoursepackageSelectType;
+
 /**
  * Academy controller.
  * @Route("/academy")
@@ -99,5 +104,64 @@ class AcademyController extends Controller
     public function cancelBookedCourseAction($transactionId)
     {
         # code...
+    }
+
+    /**
+     * @TODO add slug to coursepackage
+     * @Route("/coursepackage/{coursepackage}", name="oktothek_academy_show_coursepackage")
+     * @Template()
+     */
+    public function showCoursepackageAction(Coursepackage $coursepackage)
+    {
+        return ['coursepackage' => $coursepackage];
+    }
+
+    /**
+     * @Route("/coursepackage/{coursepackage}/book", name="oktothek_academy_book_coursepackage")
+     * @Template()
+     */
+    public function bookCoursepackageAction(Request $request, Coursepackage $coursepackage)
+    {
+        $form = $this->get('oktothek_coursepackage')->getFormForCoursepackage($coursepackage);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $coursepackageSelection = $this->get('oktothek_coursepackage')->getCoursepackageSelection($form);
+                if ($form->has('sofort') && $form->get('sofort')->isClicked()) {
+                    if ($url = $this->get('oktothek_course')->bookCoursepackageSOFORT($attendee, $course)) {
+                        return $this->redirect($url);
+                    }
+                    $this->get('session')->getFlashBag()->add('error', 'oktothek.error_sofort_book_coursepackage');
+
+                } elseif ($form->has('register') && $form->get('register')->isClicked()) {
+                    $this->get('oktothek_coursepackage')->registerCourses($coursepackageSelection);
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_register_coursepackage');
+                    return $this->redirect($this->generateUrl('oktothek_academy_coursetype', ['coursetype' => $course->getCoursetype()->getId()]));
+
+                } else {
+                    $this->get('oktothek_coursepackage')->bookCourses($coursepackageSelection);
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_book_coursepackage');
+                    return $this->redirect($this->generateUrl('oktothek_academy'));
+                }
+
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_book_coursepackage');
+            }
+        }
+
+        return ['form' => $form->createView()];
+    }
+
+    /**
+    * @Route("/book/{uniqID}/coursepackage/complete", name="oktothek_academy_complete_book_coursepackage")
+    */
+    public function completeBookCoursepackageAction($uniqID)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $attendee = $em->getRepository('AppBundle:Course\Attendee')->findOneBy(['uniqID' => $uniqID]);
+        $this->get('oktothek_coursepackage')->completedPayment($attendee);
+        $this->get('session')->getFlashBag()->add('success', 'oktothek.success_book_SOFORT_coursepackage');
+        return $this->redirect($this->generateUrl('oktothek_academy'));
     }
 }

@@ -49,14 +49,16 @@ class AcademyService
         return false;
     }
 
-    public function bookCourse($attendee, $course)
+    public function bookCourse($attendee, $course, $sendMail = true, $status = AcademyService::ACADEMY_MONEY)
     {
         $em = $this->em;
-        $attendee->setPaymentStatus(AcademyService::ACADEMY_MONEY);
+        $attendee->setPaymentStatus($status);
         $em->persist($attendee);
         $em->persist($course);
         $em->flush();
-        $this->sendBookingSuccessMail($attendee);
+        if ($sendMail) {
+            $this->sendBookingSuccessMail($attendee);
+        }
     }
 
     public function attendeePayedWithMoney($attendee)
@@ -68,13 +70,15 @@ class AcademyService
         $this->sendPayedMoneySuccessMail($attendee);
     }
 
-    public function registerCourse($attendee, $course)
+    public function registerCourse($attendee, $course, $sendMail = true, $status = AcademyService::ACADEMY_MONEY)
     {
         $em = $this->em;
         $em->persist($attendee);
         $em->persist($course);
         $em->flush();
-        $this->sendRegisterSuccessMail($attendee);
+        if ($sendMail) {
+            $this->sendRegisterSuccessMail($attendee);
+        }
     }
 
     public function completedPayment($attendee)

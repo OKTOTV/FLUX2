@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 
@@ -22,6 +23,8 @@ class CoursepackageType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label' => 'oktothek.backend_coursepackage_name_label'])
             ->add('description', TextareaType::class, ['label' => 'oktothek.backend_coursepackage_description_label'])
+            ->add('price', MoneyType::class, ['label' => 'oktothek.backend_coursepackage_price_label'])
+            ->add('price_reduced', MoneyType::class, ['label' => 'oktothek.backend_coursepackage_priceReduced_label'])
             ->add('is_active', CheckboxType::class, ['label' => 'oktothek.backend_course_isActive_label'])
             ->add('coursetypes', EntityType::class, [
                 'class' => "AppBundle:Course\Coursetype",

@@ -43,6 +43,10 @@ services:
         tags:
             - { name: kernel.event_listener, event: oktolab_media.encoded_episode, method: createNewEpisodeNotifications }
 
+    oktothek_coursepackage:
+        class: AppBundle\Model\CoursepackageService
+        arguments: [ @form.factory, @oktothek_academy ]
+
     # Asset repository
     oktothek_tag.repository:
         class: Doctrine\ORM\EntityRepository
