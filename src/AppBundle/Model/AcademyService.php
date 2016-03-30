@@ -70,7 +70,7 @@ class AcademyService
         $this->sendPayedMoneySuccessMail($attendee);
     }
 
-    public function registerCourse($attendee, $course, $sendMail = true, $status = AcademyService::ACADEMY_MONEY)
+    public function registerCourse($attendee, $course, $sendMail = true)
     {
         $em = $this->em;
         $em->persist($attendee);
