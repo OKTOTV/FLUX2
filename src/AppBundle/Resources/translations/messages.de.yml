@@ -351,3 +351,18 @@ oktothek.error_create_slide:                Fehler beim anlegen des Slides
 oktothek.backend_slider_edit_header:        Slide bearbeiten
 oktothek.slide_update_button:               <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
 oktothek.slide_delete_button:               <span class="glyphicon glyphicon-trash"></span> Löschen
+
+oktothek.success_delete_slide:              Slide erfolgreich gelöscht
+oktothek.success_update_slide:              Slide erfolgreich aktualisiert
+oktothek.error_update_slide:                Slide konnte nicht aktualisiert werden
+
+oktothek_backend_slide_from_episode:        Slide generieren
+
+# news
+## index
+oktothek.backend_news_header:               Posts
+oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus"></span> Neuen Post verfassen
+
+## edit
+oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edit"></span> Beitrag bearbeiten
+oktothek_backend_slide_from_news:           Slide generieren

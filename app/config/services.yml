@@ -62,6 +62,10 @@ services:
         class: AppBundle\Model\AcademyService
         arguments: [ @bprs_sofort, @doctrine.orm.entity_manager, @router]
 
+    oktothek_slide:
+        class: AppBundle\Model\SliderService
+        arguments: [ @bprs.asset_helper, @doctrine.orm.entity_manager, @router]
+
 # voter
     oktothek_subscription_voter:
         class: AppBundle\Security\SubscriptionVoter

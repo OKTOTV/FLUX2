@@ -2,41 +2,49 @@
 
 namespace AppBundle\Model;
 
-use AppBundle\Entity\Slides;
+use AppBundle\Entity\Slide;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class SliderService
 {
 
-    private $episode_repository;
-    private $slide_repository;
+    private $asset_helper;
+    private $em;
     private $router;
 
-    public function __construct($episode_repository, $slide_repository, $router)
+    public function __construct($asset_helper, $em, $router)
     {
-        $this->episode_repository = $episode_repository;
-        $this->slide_repository = $slide_repository;
+        $this->asset_helper = $asset_helper;
+        $this->em = $em;
         $this->router = $router;
     }
 
-
-    public function getSlides($numberSlides = 5)
+    function deleteSlide($slide)
     {
-        $slides = $this->slide_repository->findNewestSlides(3);
-        $numberSlides =- count($slides);
-        $new_episodes = $this->episode_repository->findNewestEpisodes(floor($numberSlides/2));
-        $fav_episodes = $this->episode_repository->find
+        $this->asset_helper->deleteAsset($slide->getAsset());
+        $this->em->remove($slide);
+        $this->em->flush();
     }
 
-    private function addEpisodes($episodes, $slides)
+    public function createSlideFromEpisode($episode)
     {
-        foreach($episode in $episodes) {
-            $slide = new Slide();
-            $slide->setName() = $episode->getName();
-            $slide->setLink() = $this->router->generate(
-                'oktothek_show_episode', array('uniqID' => $episode->getUniqID())
-            );
-            $slides->add($slide);
-        }
+        $slide = new Slide();
+        $slide->setAsset($episode->getPosterframe());
+        $slide->setName($episode->getName());
+        $slide->setOnlineAt(new \DateTime());
+        $slide->setLink($this->router->generate('oktothek_show_episode', ['uniqID' => $episode->getUniqID()], UrlGeneratorInterface::ABSOLUTE_URL));
+        $slide->setSlideType(Slide::TYPE_EPISODE);
+        return $slide;
+    }
+
+    public function createSlideFromNews($news)
+    {
+        $slide = new Slide();
+        $slide->setName($news->getName());
+        $slide->setOnlineAt(new \DateTime());
+        $slide->setLink($this->router->generate('oktothek_show_news', ['slug' => $news->getSlug()], UrlGeneratorInterface::ABSOLUTE_URL));
+        $slide->setSlideType(Slide::TYPE_NEWS);
+        return $slide;
     }
 }
 ?>
