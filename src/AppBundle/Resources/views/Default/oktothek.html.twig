@@ -58,5 +58,6 @@
 
 {% block javascripts %}
     {{ parent() }}
+	<script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
 	<script src="{{ asset('bundles/app/js/javascript_images.js')}}"></script>
 {% endblock %}
