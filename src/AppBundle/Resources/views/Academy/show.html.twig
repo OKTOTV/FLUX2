@@ -23,13 +23,8 @@
                                 <p>{{ coursetype.courses[0].dates|hours~'h'}} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
 								</a>
     			            </figcaption>
-					
+
 					</figure>
-	
-                    <!--<div class="description col-xs-9">
-                        <p>{{ coursetype.description }}</p>
-                        <p class="misc">{{ coursetype.courses[0].dates|hours~'h' }} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
-                    </div>-->
 			    </article>
             {% endfor %}
         </div>
@@ -42,7 +37,7 @@
         {% for coursetype in coursetypes if not coursetype.highlight %}
             <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" data-placement="right" title="#">
                 <figure class="academy-pin pin">
-                    <a role="button" data-toggle="collapse" href="#collapseDetail{'coursetype': coursetype.id}" aria-expanded="false" aria-controls="collapseDetail{'coursetype': coursetype.id}"><img src="{{ coursetype.image|link }}" class="img-responsive"/></a>
+                    <a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}"><img src="{{ coursetype.image|link }}" class="img-responsive"/></a>
     			    <figcaption>
 					    <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
                             <h3>{{ coursetype.title }}</h3>
@@ -50,9 +45,9 @@
 						</a>
     			    </figcaption>
                 </figure>
-			
+
 		    <!-- Schnellansicht Details Start -->
-		    <div class="collapse row collapseCoursedetails" id="collapseDetail{'coursetype': coursetype.id}">
+		    <div class="collapse row collapseCoursedetails" id="collapseDetail{{coursetype.id}}">
                 <div class="col-md-12">
 		            <div class="row">
 		                <div class="col-md-6">
