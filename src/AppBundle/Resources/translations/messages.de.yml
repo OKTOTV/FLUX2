@@ -326,3 +326,28 @@ oktothek_user_channels_title:               Meine Abonnements
 oktothek.user_channels_filter:              <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
 oktothek_user_channel_filter_name:          Name
 oktothek_user_channel_filter_updatedAt:     Zuletzt aktualisiert
+
+# slider
+## index
+oktothek.backend_index_slider:              News & Slides
+oktothek.backend_slider_header:             Slider
+oktothek_backend_slide_new:                 <span class="glyphicon glyphicon-plus"></span> Neues Slide hinzufügen
+oktothek_backend_slide_index:               Zurück zum Index
+## new
+oktothek.backend_slider_new_header:         Neues Slide
+oktothek.backend_slide_name_label:          Titel
+oktothek.backend_slide_link_label:          URL
+oktothek.backend_slide_asset_label:         Bild
+oktothek.slide_create_button:               <span class="glyphicon glyphicon-floppy-disk"></span> Anlegen
+oktothek_slide_type_episode:                Episode
+oktothek_slide_type_news:                   News
+oktothek.backend_slide_type_label:          Typ
+oktothek.backend_slide_onlineAt_label:      Sichtbar ab
+
+oktothek.success_create_slide:              Slide erfolgreich angelegt
+oktothek.error_create_slide:                Fehler beim anlegen des Slides
+
+## edit
+oktothek.backend_slider_edit_header:        Slide bearbeiten
+oktothek.slide_update_button:               <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
+oktothek.slide_delete_button:               <span class="glyphicon glyphicon-trash"></span> Löschen

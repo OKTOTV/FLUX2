@@ -16,10 +16,28 @@ class SlideRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT s FROM AppBundle:Slide s WHERE s.onlineAt >= :startdate ORDER BY e.onlineAt ASC'
+                'SELECT s FROM AppBundle:Slide s WHERE s.onlineAt <= :startdate ORDER BY s.onlineAt DESC'
             )
             ->setParameter('startdate', new \DateTime())
             ->setMaxResults($numberSlides)
             ->getResult();
+    }
+
+    public function findNewestSlidesByType($numberSlides, $type)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT s FROM AppBundle:Slide s WHERE s.onlineAt <= :startdate AND s.slide_type = :type ORDER BY e.onlineAt ASC'
+            )
+            ->setParameter('startdate', new \DateTime())
+            ->setParameter('type', $type)
+            ->setMaxResults($numberSlides)
+            ->getResult();
+    }
+
+    public function findAllSlidesQuery()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT s FROM AppBundle:Slide s');
     }
 }
