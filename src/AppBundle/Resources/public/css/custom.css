@@ -42,13 +42,9 @@ header input.form-control {
 	color: #5a5a5a;
 }
 /* Placeholderstyles (nicht möglich zu gruppieren) */
-<<<<<<< HEAD
 header .form-control::-moz-placeholder {
-  color: #ffffff;
-=======
-header .form-control::-moz-placeholder { 
   color: #5a5a5a;
->>>>>>> origin/dev
+
 }
 header .form-control:-ms-input-placeholder {
   color: #5a5a5a;
