@@ -40,7 +40,7 @@ header input.form-control, #dropdownMenuTags.btn-default, header .navbar-inverse
 }
 
 /* Placeholderstyles (nicht möglich zu gruppieren) */
-header .form-control::-moz-placeholder { 
+header .form-control::-moz-placeholder {
   color: #ffffff;
 }
 header .form-control:-ms-input-placeholder {
@@ -145,8 +145,8 @@ header .brandimage {
 	background-position:center center;*/
 }
 .page-bg { /*Wäre am besten wenn Klasse an HTML angehängt wäre*/
-/*	
-	
+/*
+
 	background-attachment:fixed;*/
 }
 
@@ -190,7 +190,7 @@ header .brandimage {
 
 
 /* Individuelle Farben */
-.head-white-color svg path, 
+.head-white-color svg path,
 .head-black-color svg path,
 .head-white-color header .navbar-inverse .navbar-nav.mainmenu > a, .head-white-color header .mainmenu li a,
 .head-black-color header .navbar-inverse .navbar-nav.mainmenu > a, .head-black-color header .mainmenu li a,
@@ -357,9 +357,9 @@ button .btn-default.active, .oktothek article a.btn-default {
 }
 
 .bg-opacity {
-    opacity: 0.7;       /* modern browser */  
-    -moz-opacity: 0.7;  /* older Mozilla browser */  
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */  
+    opacity: 0.7;       /* modern browser */
+    -moz-opacity: 0.7;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
 }
 
 .bg-bleur {
@@ -624,7 +624,7 @@ header .navbar-fixed-top .navbar-toggle {
 	top:0;
 }
 @media (min-width: 768px) {
-	
+
 	header .navbar .container-fluid {
 		padding:0 50px;
 	}
@@ -707,7 +707,7 @@ header .navbar-fixed-top .navbar-toggle {
 }
 
 #slider, .fs-image-content {
-	margin-top:-90px; 
+	margin-top:-90px;
 }
 header + .container-fluid {
 	margin-top:-90px;
@@ -1217,7 +1217,7 @@ figure.pin img, .programm .schedule img {
 }
 @media (min-width: 768px) {
 	#slider, .fs-image-content {
-	    margin-top:-140px; 
+	    margin-top:-140px;
     }
 	header + .container-fluid {
 		margin-top:0;
@@ -1253,19 +1253,19 @@ figure.pin img, .programm .schedule img {
 	article.pin {
 		width:25%;
 	}
-	.academy .collapse {
+	/*.academy .collapse {
 	    width: 970px;
-	}
-	
-	
+	}*/
+
+
 }
 @media (min-width: 1200px) {
     .fs-image-ident div.description-wrapper {
 	    margin-left:-585px;
     }
-	.academy .collapse {
+	/*.academy .collapse {
 	    width: 1170px;
-	}
+	}*/
 }
 
 
