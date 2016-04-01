@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
+    <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var playerInstance = jwplayer("player");
+            playerInstance.setup({
+                listbar: {
+                    position: "right",
+                    size: 234
+                },
+                playlist: "{{ url('oktothek_show_playlist', {'uniqID': playlist.uniqID, '_format': 'json'})}}"
+            });
+        });
+    </script>
+<title>{{ playlist.name|default(name|default(''))}}</title>
+</head>
+<body>
+<figure id="player">
+</figure>

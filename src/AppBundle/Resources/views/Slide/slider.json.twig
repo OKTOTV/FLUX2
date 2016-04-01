@@ -1,0 +1,6 @@
+[
+    {% foreach slide in slides %}
+        {"name": "{{ slide.name }}", "link": "{{ slide.link}}", "asset": "{{ slide.asset|thumb(720,1280)}}"}
+        {% if not loop.last %},{% endif %}
+    {% endfor %}
+]

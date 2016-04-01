@@ -174,10 +174,13 @@ $(document).ready(function(){
 	if ($('body').hasClass('academy')) {
 	$('figure.pin img').parent().click(function() {
 		for (k=0; k<$('.collapseCoursedetails').length; k++) {
-			if ($(this).attr('href') != $('.collapseCoursedetails').eq(k).attr('id')) 
+			if ($(this).attr('href') != $('.collapseCoursedetails').eq(k).attr('id')) {
 	            $('.collapseCoursedetails').eq(k).collapse('hide');
+			}
 		}
 		$('#collapseShareArea .collapse').collapse();
 	});
 	}
+	
+	
 });

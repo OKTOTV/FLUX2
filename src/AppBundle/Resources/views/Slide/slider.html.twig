@@ -1,0 +1,32 @@
+<div id="carousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+      {% for slide in slides %}
+        <li data-target="#carousel" data-slide-to="{{ loop.index0 }}" {% if loop.index0 == 0 %}class="active"{% endif %}></li>
+      {% endfor %}
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    {% for slide in slides %}
+        <figure class="item {% if loop.index0 == 0 %}active{% endif %}">
+            <a href="{{ slide.link }}">
+                <img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%">
+                <figcaption class="carousel-caption">
+                    {{ slide.name }}
+                </figcaption>
+            </a>
+        </figure>
+    {% endfor %}
+  </div>
+{#
+  <!-- Controls -->
+  <!-- <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+</a> --> #}
+</div>

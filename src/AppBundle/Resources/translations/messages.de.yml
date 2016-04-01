@@ -37,7 +37,7 @@ oktothek.login_register:                Neuen Account anlegen
 
 ## search and results
 oktothek_results_header:                Ergebnisse
-
+oktothek.searchfield_placeholder:       Suche Videos, Leute und Infos
 ## news post
 ## form labels
 oktothek.post_name_label:               Titel
@@ -143,6 +143,8 @@ oktothek_participate_title:             Mitmachen
 oktothek.backend_header:                Administrationsbereich
 oktothek.backend_index_media:           Oktothek
 oktothek.backend_index_api_keychains:   API Schnittstellen
+oktothek.backend_index_academy:         Academy
+oktothek.backend_tag:                   Tags
 
 ## series
 oktothek_series_blog_header:            Blog
@@ -161,6 +163,22 @@ oktothek_attende_name_placeholder:      Max
 oktothek_attende_surname_placeholder:   Musterfrau
 oktothek_attende_mail_placeholder:      max@musterfrau.at
 oktothek_attende_tel_placeholder:       +43 123 456 789
+
+# Coursepackage
+oktothek.backend_coursepackage_name_label: Name
+oktothek.backend_coursepackage_description_label: Beschreibung
+oktothek.backend_coursepackage_coursetypes_label: Kurstypen
+oktothek.coursepackage_create_button:      <span class="glyphicon glyphicon-floppy-disk"></span> Speichern
+oktothek.backend_new_coursepackage_header: Neues Kurspaket
+oktothek.backend_coursepackage_price_label: Vollpreis
+oktothek.backend_coursepackage_priceReduced_label: Reduzierter Preis
+oktothek.success_create_coursepackage:      Kurspaket erfolgreich angelegt
+oktothek.backend_course_isActive_choice:    "{0} Nicht öffentlich|{1} Öffentlich"
+oktothek_backend_edit_coursepackage:        Kurspaket bearbeiten
+oktothek.coursepackage_delete_button:       <span class="glyphicon glyphicon-trash"></span> Kurspaket löschen
+oktothek.coursepackage_edit_button:         <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
+oktothek_academy_coursepackage_select_label: Kursauswahl
+oktothek_academy_coursepackage_select_choice: "{1} Jänner|{2} Februar|{3} März|{4} April|{5} Mai|{6} Juni|{7} Juli|{8} August|{9} September|{10} Oktober|{11} November|{12} Dezember"
 
 # Coursetype
 oktothek.backend_coursetype_title_label: Titel
@@ -209,6 +227,8 @@ oktothek_academy_closed_transaction:    Online Zahlung (bezahlt)
 oktothek_academy_money_open:            Barzahlung (offen)
 oktothek_academy_money_closed:          Barzahlung (bezahlt)
 
+oktothek.backend_academy_package_header: Kurspakete
+oktothek_backend_academy_new_coursepackage: <span class="glyphicon glyphicon-plus"></span> Neues Kurspaket anlegen
 
 oktothek_backend_academy_new_coursetype: <span class="glyphicon glyphicon-plus"></span> Neuen Kurstyp anlegen
 oktothek.backend_academy_header:        Kurstypen
@@ -234,6 +254,7 @@ oktothek_backend_course_no_dates:       Kurs ohne Termine!
 oktothek.backend_edit_course_header:    Kurs bearbeiten
 oktothek.course_delete_button:          <span class="glyphicon glyphicon-trash"></span> Kurs löschen
 oktothek.course_edit_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
+oktothek.coursetype_create_button:      <span class="glyphicon glyphicon-floppy-disk"></span> Anlegen
 
 oktothek.backend_edit_coursetype_header: Kurstyp bearbeiten
 oktothek.backend_new_coursetype_header:  Neuer Kurstyp
@@ -305,3 +326,43 @@ oktothek_user_channels_title:               Meine Abonnements
 oktothek.user_channels_filter:              <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
 oktothek_user_channel_filter_name:          Name
 oktothek_user_channel_filter_updatedAt:     Zuletzt aktualisiert
+
+# slider
+## index
+oktothek.backend_index_slider:              News & Slides
+oktothek.backend_slider_header:             Slider
+oktothek_backend_slide_new:                 <span class="glyphicon glyphicon-plus"></span> Neues Slide hinzufügen
+oktothek_backend_slide_index:               Zurück zum Index
+## new
+oktothek.backend_slider_new_header:         Neues Slide
+oktothek.backend_slide_name_label:          Titel
+oktothek.backend_slide_link_label:          URL
+oktothek.backend_slide_asset_label:         Bild
+oktothek.slide_create_button:               <span class="glyphicon glyphicon-floppy-disk"></span> Anlegen
+oktothek_slide_type_episode:                Episode
+oktothek_slide_type_news:                   News
+oktothek.backend_slide_type_label:          Typ
+oktothek.backend_slide_onlineAt_label:      Sichtbar ab
+
+oktothek.success_create_slide:              Slide erfolgreich angelegt
+oktothek.error_create_slide:                Fehler beim anlegen des Slides
+
+## edit
+oktothek.backend_slider_edit_header:        Slide bearbeiten
+oktothek.slide_update_button:               <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
+oktothek.slide_delete_button:               <span class="glyphicon glyphicon-trash"></span> Löschen
+
+oktothek.success_delete_slide:              Slide erfolgreich gelöscht
+oktothek.success_update_slide:              Slide erfolgreich aktualisiert
+oktothek.error_update_slide:                Slide konnte nicht aktualisiert werden
+
+oktothek_backend_slide_from_episode:        Slide generieren
+
+# news
+## index
+oktothek.backend_news_header:               Posts
+oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus"></span> Neuen Post verfassen
+
+## edit
+oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edit"></span> Beitrag bearbeiten
+oktothek_backend_slide_from_news:           Slide generieren

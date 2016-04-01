@@ -31,7 +31,7 @@
         $(document).ready( function(){
             $('#appbundle_post_onlineAt_picker').datetimepicker({
                 locale: 'de',
-                // format: "DD.MM.YYYY hh:mm",
+                date: moment($('#appbundle_post_onlineAt_picker').children(':input').val()),
                 useCurrent: true,
                 calendarWeeks: true,
                 allowInputToggle: true,

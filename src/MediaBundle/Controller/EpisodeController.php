@@ -57,38 +57,4 @@ class EpisodeController extends BaseController
 
         return ['form' => $form->createView()];
     }
-
-    /**
-     * @Route("/{episode}/publish", name="oktolab_episode_publish")
-     * @ParamConverter("episode", class="AppBundle:Episode")
-     * @Method({"GET", "POST"})
-     * @Template()
-     */
-    public function publishEpisodeAction(Request $request, $episode)
-    {
-        $form = $this->createForm(
-            new PublishEpisodeType(),
-            $episode,
-            ['action' => $this->generateUrl('oktolab_episode_publish', ['episode' => $episode->getId()])]
-        );
-
-        if ($request->getMethod() == "POST") { //sends form
-            $form->handleRequest($request);
-            $em = $this->getDoctrine()->getManager();
-            if ($form->isValid()) { //form is valid, publish
-                $episode->setIsActive(true);
-                $em->persist($episode);
-                $em->flush();
-                $this->get('oktothek_notification_service')
-                    ->createNotificationsForSeries(
-                        $episode->getSeries(),
-                        Notification::NEW_EPISODE);
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_publish_episode');
-                return $this->redirect($this->generateUrl('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]));
-            }
-            $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_episode');
-        }
-
-        return ['form' => $form->createView()];
-    }
 }

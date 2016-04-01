@@ -35,19 +35,22 @@ header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a
 
 /* Basic Color */
 /* Menu*/
-header input.form-control, #dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover, .navbar-inverse .navbar-nav > li > a, header .collapse.in a, .navbar-inverse .navbar-nav > li > a {
+#dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover, .navbar-inverse .navbar-nav > li > a, header .collapse.in a, .navbar-inverse .navbar-nav > li > a {
     color: #ffffff;
 }
-
+header input.form-control {
+	color: #5a5a5a;
+}
 /* Placeholderstyles (nicht möglich zu gruppieren) */
-header .form-control::-moz-placeholder { 
-  color: #ffffff;
+header .form-control::-moz-placeholder {
+  color: #5a5a5a;
+
 }
 header .form-control:-ms-input-placeholder {
-  color: #ffffff;
+  color: #5a5a5a;
 }
 header .form-control::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #5a5a5a;
 }
 header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
 	color: #333333;
@@ -60,16 +63,13 @@ header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar
 .fullscreen-images .navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control, header #dropdownMenuTags.btn-default, header #dropdownMenuTags.btn-default:hover, header #dropdownMenuTags.btn-default:focus, header #dropdownMenuTags.btn-default:active, header #dropdownMenuTags.btn-default.active, .open > header #dropdownMenuTags.dropdown-toggle.btn-default {
     background-color: transparent;
 }
-header .searchfield {
-	background-color:#757575;
-}
 .navbar-inverse, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse, header .navbar-fixed-top {
 	background-color:#000000;
 }
 header .navbar-inverse .navbar-toggle .icon-bar, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
 	background-color:#333333;
 }
-header .navbar-toggle {
+header .navbar-toggle, header .searchfield {
 	background-color:#ffffff;
 }
 
@@ -145,8 +145,8 @@ header .brandimage {
 	background-position:center center;*/
 }
 .page-bg { /*Wäre am besten wenn Klasse an HTML angehängt wäre*/
-/*	
-	
+/*
+
 	background-attachment:fixed;*/
 }
 
@@ -169,7 +169,7 @@ header .brandimage {
 	    background-position:center center;
     }
 	header .navbar-fixed-top {
-	    background-image:url(../images/gradient_bg.png);
+	    background-image:url(../images/header_gradient.png);
 	    background-repeat:repeat-x;
 	    background-position:left top;
     }
@@ -190,7 +190,7 @@ header .brandimage {
 
 
 /* Individuelle Farben */
-.head-white-color svg path, 
+.head-white-color svg path,
 .head-black-color svg path,
 .head-white-color header .navbar-inverse .navbar-nav.mainmenu > a, .head-white-color header .mainmenu li a,
 .head-black-color header .navbar-inverse .navbar-nav.mainmenu > a, .head-black-color header .mainmenu li a,
@@ -357,9 +357,9 @@ button .btn-default.active, .oktothek article a.btn-default {
 }
 
 .bg-opacity {
-    opacity: 0.7;       /* modern browser */  
-    -moz-opacity: 0.7;  /* older Mozilla browser */  
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */  
+    opacity: 0.7;       /* modern browser */
+    -moz-opacity: 0.7;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
 }
 
 .bg-bleur {
@@ -624,7 +624,7 @@ header .navbar-fixed-top .navbar-toggle {
 	top:0;
 }
 @media (min-width: 768px) {
-	
+
 	header .navbar .container-fluid {
 		padding:0 50px;
 	}
@@ -707,7 +707,7 @@ header .navbar-fixed-top .navbar-toggle {
 }
 
 #slider, .fs-image-content {
-	margin-top:-90px; 
+	margin-top:-90px;
 }
 header + .container-fluid {
 	margin-top:-90px;
@@ -1192,6 +1192,9 @@ figure.pin img, .programm .schedule img {
 	display:inline-block;
 	width:120px;
 }
+.academy .collapse {
+	width: 100%;
+}
 @media (min-width: 580px) {
 	article.pin {
 		width:50%;
@@ -1208,10 +1211,13 @@ figure.pin img, .programm .schedule img {
 	article.pin {
 		margin-bottom:0px;
 	}
+	.academy .collapse {
+	    width: 100%;
+    }
 }
 @media (min-width: 768px) {
 	#slider, .fs-image-content {
-	    margin-top:-140px; 
+	    margin-top:-140px;
     }
 	header + .container-fluid {
 		margin-top:0;
@@ -1247,13 +1253,19 @@ figure.pin img, .programm .schedule img {
 	article.pin {
 		width:25%;
 	}
-	
-	
+	/*.academy .collapse {
+	    width: 970px;
+	}*/
+
+
 }
 @media (min-width: 1200px) {
     .fs-image-ident div.description-wrapper {
 	    margin-left:-585px;
     }
+	/*.academy .collapse {
+	    width: 1170px;
+	}*/
 }
 
 

@@ -43,6 +43,10 @@ services:
         tags:
             - { name: kernel.event_listener, event: oktolab_media.encoded_episode, method: createNewEpisodeNotifications }
 
+    oktothek_coursepackage:
+        class: AppBundle\Model\CoursepackageService
+        arguments: [ @form.factory, @oktothek_academy ]
+
     # Asset repository
     oktothek_tag.repository:
         class: Doctrine\ORM\EntityRepository
@@ -57,6 +61,10 @@ services:
     oktothek_academy:
         class: AppBundle\Model\AcademyService
         arguments: [ @bprs_sofort, @doctrine.orm.entity_manager, @router]
+
+    oktothek_slide:
+        class: AppBundle\Model\SliderService
+        arguments: [ @bprs.asset_helper, @doctrine.orm.entity_manager, @router]
 
 # voter
     oktothek_subscription_voter:

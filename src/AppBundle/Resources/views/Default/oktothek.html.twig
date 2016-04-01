@@ -10,7 +10,7 @@
     {# top slider, search and channels #}
 	<div id="top"></div>
     <div id="slider">
-        {% include 'AppBundle:Default:slider.html.twig' with {'slides': episodes } %}
+        {% render(controller('AppBundle:Slide:slider', {'number': 5})) %}
     </div>
     {# top slider, search and channels END #}
     {# rest of the page #}
@@ -58,5 +58,6 @@
 
 {% block javascripts %}
     {{ parent() }}
-	<script src="{{ asset('bundles/bprsstyle/js/imagesloaded.pkgd.min.js')}}"></script>
+	<script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
+	<script src="{{ asset('bundles/app/js/javascript_images.js')}}"></script>
 {% endblock %}

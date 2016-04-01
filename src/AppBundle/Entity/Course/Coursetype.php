@@ -66,6 +66,11 @@ class Coursetype
     private $image;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Coursepackage", mappedBy="courses")
+     */
+    private $coursepackages;
+
+    /**
      * downloadable documents for this course
      *
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Asset")
@@ -96,6 +101,7 @@ class Coursetype
     public function __construct() {
         $this->is_active = false;
         $this->features = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->coursepackages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function __toString()
@@ -403,5 +409,38 @@ class Coursetype
     public function isReducedCheapterThenFullprice()
     {
         return $this->price >= $this->price_reduced;
+    }
+
+    /**
+     * Add coursepackages
+     *
+     * @param \AppBundle\Entity\Course\Coursepackage $coursepackages
+     * @return Coursetype
+     */
+    public function addCoursepackage(\AppBundle\Entity\Course\Coursepackage $coursepackages)
+    {
+        $this->coursepackages[] = $coursepackages;
+
+        return $this;
+    }
+
+    /**
+     * Remove coursepackages
+     *
+     * @param \AppBundle\Entity\Course\Coursepackage $coursepackages
+     */
+    public function removeCoursepackage(\AppBundle\Entity\Course\Coursepackage $coursepackages)
+    {
+        $this->coursepackages->removeElement($coursepackages);
+    }
+
+    /**
+     * Get coursepackages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCoursepackages()
+    {
+        return $this->coursepackages;
     }
 }

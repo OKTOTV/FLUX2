@@ -8,7 +8,7 @@
     <div class="page-header">
         <h1>{{ episode.name }}</h1>
         <a href="{{ path('oktolab_episode_edit', {'episode': episode.id}) }}" class="btn btn-default">Bearbeiten</a>
-        {{ render(controller('OktolabMediaBundle:Episode:publishEpisode', {'episode': episode.id})) }}
+        <a href="{{ path('oktothek_backend_slide_from_episode', {'uniqID': episode.uniqID})}}" class="btn btn-default">{{ 'oktothek_backend_slide_from_episode'|trans }}</a>
     </div>
     <div class="row">
         <div class="col-md-8">
@@ -45,6 +45,8 @@
             {% if episode.posterframe is not empty %}
                 <a href="{{ path('bprs_asset_download', {'key': episode.posterframe.filekey}) }}" class="btn btn-default"><span class="glyphicon glyphicon-download"></span>Posterframe</a>
             {% endif %}
+            <h2>{{ 'oktolab_media_media_for_episode_header'|trans }}</h2>
+            {{ render(controller('OktolabMediaBundle:Media:mediaForEpisode', {'uniqID': episode.uniqID})) }}
         </div>
     </div>
 {% endblock %}

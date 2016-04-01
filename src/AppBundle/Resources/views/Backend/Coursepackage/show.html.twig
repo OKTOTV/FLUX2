@@ -1,0 +1,41 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ coursepackage }}</h1>
+        <a href="{{ path('oktothek_backend_coursepackages')}}" class="btn btn-default">{{'oktothek.backend_academy_package_header'|trans}}</a>
+        <a href="{{ path('oktothek_backend_edit_coursepackage', {'coursepackage': coursepackage.id})}}" class="btn btn-default">{{ 'oktothek_backend_edit_coursepackage'|trans|raw }}</a>
+    </div>
+
+    <table class="table">
+        <tr>
+            <td>{{ 'oktothek.backend_coursepackage_name_label'|trans}}</td>
+            <td>{{ coursepackage }}</td>
+        </tr>
+        <tr>
+            <td>{{ 'oktothek.backend_coursepackage_description_label'|trans}}</td>
+            <td>{{ coursepackage.description }}</td>
+        </tr>
+        <tr>
+            <td>{{ 'oktothek.backend_coursepackage_price_label'|trans}}</td>
+            <td>{{ coursepackage.price }}</td>
+        </tr>
+        <tr>
+            <td>{{ 'oktothek.backend_coursepackage_priceReduced_label'|trans}}</td>
+            <td>{{ coursepackage.priceReduced }}</td>
+        </tr>
+        <tr>
+            <td>{{ 'oktothek.backend_course_isActive_label'|trans}}</td>
+            <td>{{ 'oktothek.backend_course_isActive_choice'|transchoice(coursepackage.isActive)}}</td>
+        </tr>
+    </table>
+
+    <div class="list-group">
+        {% for coursetype in coursepackage.coursetypes %}
+            <a href="{{ path('oktothek_backend_show_coursetype', {'coursetype': coursetype.id})}}" class="list-group-item">{{ coursetype }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

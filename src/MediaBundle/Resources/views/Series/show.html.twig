@@ -45,7 +45,7 @@
                 url: link.attr('href'),
                 context: document.body
             }).success(function(data) {
-                $(link.parents('.pager')).replaceWith(data);
+                $(link.parents('.episode-pager')).replaceWith(data);
             });
         }
         // AJAX pagination

@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Slide
 {
+    const TYPE_EPISODE = 0;
+    const TYPE_NEWS = 1;
+
     /**
      * @var integer
      *
@@ -24,14 +27,14 @@ class Slide
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=600)
+     * @ORM\Column(name="description", type="string", length=600, nullable=true)
      */
     private $description;
 
@@ -53,6 +56,11 @@ class Slide
     * @ORM\Column(name="online_at", type="datetime")
     */
     private $onlineAt;
+
+    /**
+     * @ORM\Column(name="slide_type", type="integer")
+     */
+    private $slideType;
 
     /**
      * Get id
@@ -177,5 +185,28 @@ class Slide
     public function getAsset()
     {
         return $this->asset;
+    }
+
+    /**
+     * Set slideType
+     *
+     * @param integer $slideType
+     * @return Slide
+     */
+    public function setSlideType($slideType)
+    {
+        $this->slideType = $slideType;
+
+        return $this;
+    }
+
+    /**
+     * Get slideType
+     *
+     * @return integer 
+     */
+    public function getSlideType()
+    {
+        return $this->slideType;
     }
 }

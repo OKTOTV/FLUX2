@@ -1,0 +1,22 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="{{ path('oktothek_backend_courses')}}">{{ 'oktothek.backend_academy_header'|trans}}</a></li>
+  <li role="presentation" class="active"><a href="{{ path('oktothek_backend_coursepackages')}}">{{ 'oktothek.backend_academy_package_header'|trans}}</a></li>
+</ul>
+<div class="page-header">
+    <h1>{{ 'oktothek.backend_academy_package_header'|trans}}</h1>
+    <a href="{{ path('oktothek_backend_new_coursepackage') }}" class="btn btn-default">{{'oktothek_backend_academy_new_coursepackage'|trans|raw }}</a>
+</div>
+
+<div class="list-group">
+{% for coursepackage in coursepackages %}
+    <a href="{{ path('oktothek_backend_show_coursepackage', {'coursepackage': coursepackage.id})}}" class="list-group-item">{{ coursepackage }}</a>
+{% endfor %}
+</div>
+{% endblock %}
