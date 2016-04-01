@@ -37,7 +37,7 @@ oktothek.login_register:                Neuen Account anlegen
 
 ## search and results
 oktothek_results_header:                Ergebnisse
-
+oktothek.searchfield_placeholder:       Suche Videos, Leute und Infos
 ## news post
 ## form labels
 oktothek.post_name_label:               Titel

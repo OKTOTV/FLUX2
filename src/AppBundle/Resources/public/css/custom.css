@@ -35,19 +35,26 @@ header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a
 
 /* Basic Color */
 /* Menu*/
-header input.form-control, #dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover, .navbar-inverse .navbar-nav > li > a, header .collapse.in a, .navbar-inverse .navbar-nav > li > a {
+#dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover, .navbar-inverse .navbar-nav > li > a, header .collapse.in a, .navbar-inverse .navbar-nav > li > a {
     color: #ffffff;
 }
-
+header input.form-control {
+	color: #5a5a5a;
+}
 /* Placeholderstyles (nicht möglich zu gruppieren) */
+<<<<<<< HEAD
 header .form-control::-moz-placeholder {
   color: #ffffff;
+=======
+header .form-control::-moz-placeholder { 
+  color: #5a5a5a;
+>>>>>>> origin/dev
 }
 header .form-control:-ms-input-placeholder {
-  color: #ffffff;
+  color: #5a5a5a;
 }
 header .form-control::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #5a5a5a;
 }
 header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
 	color: #333333;
@@ -60,16 +67,13 @@ header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar
 .fullscreen-images .navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control, header #dropdownMenuTags.btn-default, header #dropdownMenuTags.btn-default:hover, header #dropdownMenuTags.btn-default:focus, header #dropdownMenuTags.btn-default:active, header #dropdownMenuTags.btn-default.active, .open > header #dropdownMenuTags.dropdown-toggle.btn-default {
     background-color: transparent;
 }
-header .searchfield {
-	background-color:#757575;
-}
 .navbar-inverse, header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar, header .navbar-collapse, header .navbar-fixed-top {
 	background-color:#000000;
 }
 header .navbar-inverse .navbar-toggle .icon-bar, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active {
 	background-color:#333333;
 }
-header .navbar-toggle {
+header .navbar-toggle, header .searchfield {
 	background-color:#ffffff;
 }
 
@@ -169,7 +173,7 @@ header .brandimage {
 	    background-position:center center;
     }
 	header .navbar-fixed-top {
-	    background-image:url(../images/gradient_bg.png);
+	    background-image:url(../images/header_gradient.png);
 	    background-repeat:repeat-x;
 	    background-position:left top;
     }
