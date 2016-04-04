@@ -88,8 +88,7 @@
             $(document).ready(function() {
                 var playerInstance = jwplayer("player");
                 playerInstance.setup({
-                    sources: [{% for media in episode.media %}{file: "{{ media.asset|path }}", label: "{{ media.quality }}", type: "mp4"}{% if not loop.last %},{% endif %}{% endfor %}],
-                    image: "{{ episode.posterframe|path }}"
+                    playlist: "{{ url('oktothek_show_episode', {'uniqID': episode.uniqID, '_format': 'json'})}}"
                 });
             });
         </script>

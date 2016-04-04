@@ -7,6 +7,7 @@
 {% block body_main -%}
     <div class="page-header">
         <h1>{{ series.name }}</h1>
+        <a href="{{ path('oktolab_series_edit', { 'series': series.id }) }}" class="btn btn-default">{{ 'oktolab_media.series_edit_button'|trans|raw }}</a>
     </div>
     <div class="row">
         <div class="col-md-8">
@@ -25,9 +26,6 @@
             {% endif %}
             <p>ID: {{ series.uniqID }}</p>
             <p>Webtitel: {{ series.webtitle }}</p>
-            <a href="{{ path('oktolab_series_edit', { 'series': series.id }) }}" class="btn btn-default">
-                Edit
-            </a>
         </div>
     </div>
     <a class="btn btn-default" href="{{ path('oktolab_episode_new')}}">{{ 'oktolab_media.series_add_new_episode'|trans|raw }}</a>

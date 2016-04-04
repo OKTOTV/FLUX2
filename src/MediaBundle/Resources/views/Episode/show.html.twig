@@ -39,6 +39,7 @@
                 Online bis: {{ episode.onlineEnd|date("d.m.Y H:i") }}</p>
             {% endif %}
             <p>UniqID: {{ episode.uniqID }}</p>
+            <p>Technischer Status: {{ 'oktolab_media.show_episode_technical_state_choice'|transchoice(episode.technicalStatus) }}</p>
             {% if episode.video is not empty %}
                 <a href="{{ path('bprs_asset_download', {'key': episode.video.filekey}) }}" class="btn btn-default"><span class="glyphicon glyphicon-download"></span>Video</a>
             {% endif %}
