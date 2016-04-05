@@ -94,6 +94,14 @@ oktothek.playlist_index_filter_updatedAt: Letzte Aktualisierung
 oktothek.playlist_index_new_playlist:   <span class="glyphicon glyphicon-plus"></span> Playlist anlegen
 oktothek.playlist_show:                 Playlist %playlist%
 
+### edit
+oktothek.playlist_edit_header:          Wiedergabeliste bearbeiten
+oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Wiedergabeliste löschen
+oktothek.playlist_update_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
+oktothek.playlist_name_label:           Titel
+oktothek.playlist_description_label:    Beschreibung
+oktothek.error_edit_playlist:           Wiedergabeliste konnte nicht gespeichert werden
+oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
 
 ## episode
 oktothek.episode_show_playlist_header:  Playlisten
