@@ -67,6 +67,9 @@ oktothek.post_delete_button:            <span class="glyphicon glyphicon-trash">
 oktothek.create_new_post_button:        Neuen Beitrag anlegen
 oktothek.post_show_more:                Mehr dazu anzeigen
 
+oktothek.success_create_post:           Post erfolgreich angelegt
+ oktothek.success_delete_post  :           Post erfolgreich gelöscht
+
 ## page
 ### new page
 oktothek.page_create_header:            Neue Seite anlegen
@@ -127,6 +130,7 @@ oktothek_tag_pages_header:              Seiten
 oktothek_tag_header:                    "# %title%"
 oktothek_tag_episode_header:            Episoden
 oktothek_tag_placeholder:               Katzen, YOLO and more
+oktothek.tag_new_button:                <span class="glyphicon glyphicon-plus"></span> Neuen Tag anlegen
 ## academy
 oktothek_academy_header:                Akademie
 oktothek_academy_misc_info:             %price%€ / %price_reduced%€
