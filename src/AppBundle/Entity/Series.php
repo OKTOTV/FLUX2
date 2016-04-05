@@ -14,13 +14,13 @@ use AppBundle\Entity\EpisodePin;
 class Series extends BaseSeries
 {
     /**
-     * @ORM\OneToMany(targetEntity="Abonnement", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Abonnement", mappedBy="user", cascade="remove")
      */
     private $abonnements;
 
     /**
     *
-    * @ORM\OneToMany(targetEntity="Episode", mappedBy="series")
+    * @ORM\OneToMany(targetEntity="Episode", mappedBy="series", cascade="remove")
     * @ORM\OrderBy({"onlineStart" = "DESC"})
     */
     private $episodes;
@@ -30,6 +30,7 @@ class Series extends BaseSeries
         $this->abonnements = new \Doctrine\Common\Collections\ArrayCollection();
         $this->episodes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->playlists = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -44,6 +45,14 @@ class Series extends BaseSeries
     * @ORM\ManyToMany(targetEntity="User", mappedBy="channels")
     */
     private $users;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Playlist")
+     * @ORM\JoinTable(name="series_playlists",
+     *      joinColumns={@ORM\JoinColumn(name="series_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="playlist_id", referencedColumnName="id", unique=true)})
+     */
+    private $playlists;
 
     /**
      * Add episodes
@@ -186,5 +195,38 @@ class Series extends BaseSeries
     public function getAbonnements()
     {
         return $this->abonnements;
+    }
+
+    /**
+     * Add playlists
+     *
+     * @param \AppBundle\Entity\Playlist $playlists
+     * @return Series
+     */
+    public function addPlaylist(\AppBundle\Entity\Playlist $playlists)
+    {
+        $this->playlists[] = $playlists;
+
+        return $this;
+    }
+
+    /**
+     * Remove playlists
+     *
+     * @param \AppBundle\Entity\Playlist $playlists
+     */
+    public function removePlaylist(\AppBundle\Entity\Playlist $playlists)
+    {
+        $this->playlists->removeElement($playlists);
+    }
+
+    /**
+     * Get playlists
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlaylists()
+    {
+        return $this->playlists;
     }
 }

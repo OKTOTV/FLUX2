@@ -20,7 +20,7 @@ class OktothekController extends Controller
 {
 
     /**
-     * @Route("/episode/{uniqID}", name="oktothek_show_episode")
+     * @Route("/episode/{uniqID}.{_format}", name="oktothek_show_episode", defaults={"_format": "html"})
      * @Template()
      */
     public function showEpisodeAction(Episode $episode)

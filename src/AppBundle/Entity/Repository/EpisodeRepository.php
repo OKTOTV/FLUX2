@@ -30,12 +30,22 @@ class EpisodeRepository extends EntityRepository
 
     public function findTopEpisodes($numberEpisodes)
     {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.isActive = 1 ORDER BY e.onlineStart ASC'
-            )
+        return $this->createQueryBuilder('e')
+            ->addSelect('COUNT(u) AS HIDDEN personCount')
+            ->leftJoin('e.users', 'u')
+            ->groupBy('e')
+            ->orderBy('personCount', 'DESC')
+            ->where('e.isActive = 1')
+            ->getQuery()
             ->setMaxResults($numberEpisodes)
             ->getResult();
+
+        // return $this->getEntityManager()
+        //     ->createQuery(
+        //         'SELECT e, COUNT(u) AS HIDDEN favoriteCount FROM AppBundle:Episode e LEFT JOIN e.users u WHERE e.isActive = 1 GROUP BY e ORDER BY favoriteCount DESC'
+        //     )
+        //     ->setMaxResults($numberEpisodes)
+        //     ->getResult();
     }
 }
 ?>

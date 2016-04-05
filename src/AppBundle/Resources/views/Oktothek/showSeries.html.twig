@@ -80,85 +80,29 @@
 		<!-- Ende Serienbeschreibung -->
 	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
-	<section class="blog">
+    {# TODO: hide posting form if user not in voter #}
+    <section class="blog">
 	    <div id="anchor_blog"></div>
 	    <div class="container">
 	        <h2>Blog</h2>
             {% include 'AppBundle::Default/Series/blog.html.twig' with {'posts': series.posts, 'uniqID': series.uniqID } %}
 	    </div>
 	</section>
-	<section class="container series-playlists">
-	    <div id="anchor_playlists"></div>
-	    <h2>Playlisten</h2>
-		<!-- Ab hier Dummyplaylist -->
-		       <div class="row">
-                   <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="Die erste Playlist. Derzeit ohne Möglichkeit, Folgen direkt im Browser zu kreieren">
-                       <a href="/FLUX2/web/app_dev.php/de/oktothek/playlist/5616385102b6e" title="... ansehen">
-                            <figure class="playlist-pin pin">
-                                <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
-			                    <figcaption><h3>Playlist 1</h3></figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="">
-                        <a href="/FLUX2/web/app_dev.php/de/oktothek/playlist/56a1fc57e99ba" title="... ansehen">
-                            <figure class="playlist-pin pin">
-                                <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
-			                    <figcaption><h3>Computerfilme</h3></figcaption>
-                            </figure>
-                        </a>
-                    </article>
-					<article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="Die erste Playlist. Derzeit ohne Möglichkeit, Folgen direkt im Browser zu kreieren">
-                       <a href="/FLUX2/web/app_dev.php/de/oktothek/playlist/5616385102b6e" title="... ansehen">
-                            <figure class="playlist-pin pin">
-                                <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
-			                    <figcaption><h3>Playlist 1</h3></figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="">
-                        <a href="/FLUX2/web/app_dev.php/de/oktothek/playlist/56a1fc57e99ba" title="... ansehen">
-                            <figure class="playlist-pin pin">
-                                <img src="http://localhost/FLUX2/web/uploads/posterframes/55fc27ed0d2ec135x240_thumbnail.jpg" class="img-responsive"/>
-			                    <figcaption><h3>Computerfilme</h3></figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                </div>
-	    <!-- Bis hier Dummyplaylist -->
-	</section>
-	<!-- Start Anchor Menu -->
-    <!--<div class="panel-group" id="anchor-menu" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="discoverMore">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#AnchorList" aria-expanded="true" aria-controls"collapseEins">
-                        Mehr entdecken<span class="glyphicon glyphicon-chevron-down"></span>
-                    </a>
-                </h4>
-            </div>
-            <div id="AnchorList" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="discoverMore">
-                <ul class="list-group" aria-labelledby="AnkerMenu">
-		            <li class="list-group-item"><a href="#top">Top</a></li>
-                    <li class="list-group-item"><a href="#anchor_blog">Blog</a></li>
-                    <li class="list-group-item"><a href="#anchor_playlists">Playlisten</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>-->
-	<!-- End Anchor Menu -->
+    {% if series.playlists is not empty %}
+        <section class="container series-playlists">
+    	    <div id="anchor_playlists"></div>
+    	    <h2>Playlisten</h2>
+            {% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with {'playlists': series.playlists} %}
+    	</section>
+    {% endif %}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-	<script src="{{ asset('bundles/bprsstyle/js/imagesloaded.pkgd.min.js')}}"></script>
     <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
     {% include "BprsStyleBundle::datetimepicker.js.twig" %}
     <script type="text/javascript">
         $(document).ready( function(){
-		    //Image Preloader
-		    var image = $('img').attr('src', '{{ series.episodes[0].posterframe|path() }}');
-			
             $('#appbundle_post_onlineAt_picker').datetimepicker({
                 locale: 'de',
                 // format: "DD.MM.YYYY hh:mm",
