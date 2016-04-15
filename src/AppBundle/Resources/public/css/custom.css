@@ -4,7 +4,7 @@ body {
 }
 
 /* Fonts */
-.programm p.current-episode {
+.programm p.current-episode, header .nav {
 	font-size:12px;
 }
 header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label {
@@ -21,6 +21,10 @@ header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a
 }
 .newsarchiv .label, label {
 	font-weight:400;
+}
+
+header .nav {
+	letter-spacing: 0.75px;
 }
 
 @media (min-width: 768px) {
@@ -214,6 +218,9 @@ header .brandimage {
 .head-white-color header input.form-control, .head-white-color #dropdownMenuTags.btn-default, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .head-white-color header .mainmenu li:hover a, .head-white-color header .mainmenu li:hover a:hover {
     color: white;
 }
+.head-white-color header input.form-control {
+	color: #5a5a5a;
+}
 @media (min-width: 768px) {
 	/* Color */
 	/* Menu */
@@ -358,8 +365,8 @@ button .btn-default.active, .oktothek article a.btn-default {
 
 .bg-opacity {
     opacity: 0.7;       /* modern browser */
-    -moz-opacity: 0.7;  /* older Mozilla browser */
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
+    -moz-opacity: 0.6;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE8 in Standard Compliant Mode */
 }
 
 .bg-bleur {
@@ -626,28 +633,31 @@ header .navbar-fixed-top .navbar-toggle {
 @media (min-width: 768px) {
 
 	header .navbar .container-fluid {
-		padding:0 50px;
+		padding:0 20px;
+	}
+	header .navbar > .container .navbar-brand, header .navbar > .container-fluid .navbar-brand {
+    	margin-left: 0px;
 	}
 	header .navbar {
 	    height:140px;
     }
 	header .navbar-brand {
-		padding:15px 0;
+		padding:20px 0;
 		height:150px;
 	}
 	header .navbar-brand {
-		margin-right:40px;
+		margin-right:20px;
 	}
 	header .navbar-content {
 		margin-top:0;
-		margin-left:110px;
+		margin-left:0px;
 	}
 	header .navbar-collapse {
 		height:90px;
 	}
 	header .navbar-brand .brandimage {
-		width:70px;
-		height:100px;
+		width:45px;
+		height:75px;
 	}
 	header .search-tagnav-container {
 	    z-index:50;
@@ -738,9 +748,13 @@ header + .container-fluid {
 	max-width:none;
 }
 .carousel-caption {
-	left:5%;
-	right:5%;
+	bottom:100px;
+	width:600px;
+	margin: 0 0 0 -300px;;
 	text-align:left;
+	padding-bottom:0;
+	left:50%;
+	right:0;
 }
 /*.carousel .active {
 	display:none;

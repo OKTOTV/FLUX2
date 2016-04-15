@@ -93,7 +93,7 @@ $(document).ready(function(){
 	}
 	
 	/* Posterframe an Monitor anpassen*/
-    if ($('.fs-image-ident figure').length > 0) {
+   if ($('.fs-image-ident figure').length > 0) {
 		posDescription($('.fs-image-ident'));
 	}
 	

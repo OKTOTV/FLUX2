@@ -1,3 +1,4 @@
+<div class="preloader"></div>
 <div id="carousel" class="carousel slide">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -13,7 +14,12 @@
             <a href="{{ slide.link }}">
                 <img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%">
                 <figcaption class="carousel-caption">
-                    {{ slide.name }}
+				    <div class="container-bg-opacity">
+			            <div class="bg-opacity"></div>
+				    </div>
+				    <div class="content-opacity">
+                        {{ slide.name }}
+				    </div>
                 </figcaption>
             </a>
         </figure>

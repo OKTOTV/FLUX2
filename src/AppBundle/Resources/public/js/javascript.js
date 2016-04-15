@@ -8,10 +8,10 @@ $(document).ready(function(){
 	  if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
 	      if($(document).scrollTop() <= headerScrollheight) {
 			  //Header transparent setzen und Schlagschatten entfernen
-	          $('body').addClass('head-white-color')
+	          /*$('body').addClass('head-white-color')
 		               .removeClass('head-white-color')
 				       .addClass('head-transparent-bg')
-				       .removeClass('head-black-bg');
+				       .removeClass('head-black-bg');*/
 		      //$('.navbar-fixed-top').removeClass('dropshadow'); //Schlagschatten
 
 			  //Downbutton erscheinen lassen
@@ -19,10 +19,10 @@ $(document).ready(function(){
 
 	      } else if ($(document).scrollTop() > headerScrollheight) {
 			  //Header schwarz setzen und Schlagschatten hinzufügen
-		      $('body').removeClass('head-white-color')
+		     /* $('body').removeClass('head-white-color')
 			          .addClass('head-white-color')
 					  .addClass('head-black-bg')
-					  .removeClass('head-transparent-bg');
+					  .removeClass('head-transparent-bg');*/
 		      //$('.navbar-fixed-top').addClass('dropshadow'); //Schlagschatten
 
 			  //Downbutton ausblenden
