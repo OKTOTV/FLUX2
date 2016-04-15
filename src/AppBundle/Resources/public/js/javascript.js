@@ -43,8 +43,8 @@ $(document).ready(function(){
 	     addHeaderBG();
 	 });
 
-	 
-	
+
+
 
 	//Anchor Oktothek und Serie:
 	$('#button_down').click(function() {
@@ -60,7 +60,7 @@ $(document).ready(function(){
 	});
 
 	//Sharing Tabs:
-	
+
 	$('#ButtonShare').click(function() {
 	    $('article .collapse').collapse('hide');
 		$('#collapseShareArea .collapse').collapse();
@@ -69,7 +69,7 @@ $(document).ready(function(){
 	    $('article .collapse').collapse('hide');
 		$('#collapsePlaylistArea .collapse').collapse();
 	});
-	 
+
 	$('#collapseShareArea .sharingnav button').click(function (e) {
         //e.preventDefault();
 		$('#collapseShareArea .tab-content div').removeClass('active');
@@ -98,9 +98,9 @@ $(document).ready(function(){
 	        $('[data-toggle="tooltip"]').tooltip({'placement': 'auto right'});
 	    }
 
-	
+
 	if ($( window ).width() >= 768) {
-		
+
 		/*Ankermenü*/
 	    var Ts_offset = 250;
         var Ts_duration = 300;
@@ -109,27 +109,27 @@ $(document).ready(function(){
 		if (!$('body').hasClass('fullscreen-images')) {
 		    $('#anchor-menu').fadeIn(Ts_duration);
 		}
-		
+
 		if ($('#anchor-menu').length > 0) {
-			
+
 			var VarCollapseFinish;
             $(window).scroll(function() {
 				//Abfrage ob Slider bzw. Fullscreenbild vorhanden oder nicht (unterschiedliche Ausgangshöhen)
-			    if ($('body').hasClass('fullscreen-images')) 
+			    if ($('body').hasClass('fullscreen-images'))
 				    TsStart = Ts_offset;
-				else 
+				else
 				    TsStart = 0;
 				TsEnd = $(this).scrollTop()+$('footer').height();
-				
+
                 if ($(this).scrollTop() >= TsStart && TsEnd < Footer_offset.top)
                     $('#anchor-menu').fadeIn(Ts_duration, function() {$(this).css('display','block')});
-				else 
+				else
 				    $('#anchor-menu').fadeOut(Ts_duration, function() {$(this).css('display','none')});
-               
+
 			    //Top Button anzeigen
 		 	    $('#anchor-menu .collapse').collapse('hide'); //Ankermenü einklappen bei Scrollen
             });
-            
+
 			function hideAnchorlist() {
 			    if (!$('#AnchorList').hasClass('in')) {
 					$( "#anchor-menu" ).animate({
@@ -138,7 +138,7 @@ $(document).ready(function(){
 					clearInterval(VarCollapseFinish);
 				}
 			}
-			
+
             $('#anchor-menu .list-group-item a').click(function(event) {
                 event.preventDefault();
 			    var target = $(this).attr('href');
@@ -166,10 +166,7 @@ $(document).ready(function(){
         })
 		$('#anchor-menu .collapse').collapse(); //Ankermenü Collapse aktivieren
     }
-	
-	//TV
-	$('.schedule .collapse').collapse(); //Ankermenü Collapse aktivieren
-	
+
 	//Academy
 	
 	if ($('body').hasClass('academy')) {
@@ -240,6 +237,6 @@ $(document).ready(function(){
 			closeCoursePreview(openEl, null);//schließt alle offenen Kursdetails
 		});
 	}
-	
-	
+
+
 });
