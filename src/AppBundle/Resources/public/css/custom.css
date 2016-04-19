@@ -1206,9 +1206,24 @@ figure.pin img, .programm .schedule img {
 	display:inline-block;
 	width:120px;
 }
-.academy .collapse {
+.academy section .collapse {
 	width: 100%;
+	clear:left;
 }
+.academy section .collapse-content {
+	padding-bottom:60px;
+}
+.academy .pin figure div.image-container {
+	position:relative;
+}
+.academy .pin figure div.image-container .preview-button {
+	position:absolute;
+	bottom:0;
+	text-align:center;
+	width:100%;
+	padding:15px 0;
+}
+
 @media (min-width: 580px) {
 	article.pin {
 		width:50%;
@@ -1224,9 +1239,11 @@ figure.pin img, .programm .schedule img {
     }
 	article.pin {
 		margin-bottom:0px;
+		padding-bottom:30px;
 	}
-	.academy .collapse {
+	.academy section .collapse {
 	    width: 100%;
+		padding-bottom:60px;
     }
 }
 @media (min-width: 768px) {

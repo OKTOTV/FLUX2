@@ -171,15 +171,74 @@ $(document).ready(function(){
 	$('.schedule .collapse').collapse(); //Ankermenü Collapse aktivieren
 	
 	//Academy
+	
 	if ($('body').hasClass('academy')) {
-	$('figure.pin img').parent().click(function() {
-		for (k=0; k<$('.collapseCoursedetails').length; k++) {
-			if ($(this).attr('href') != $('.collapseCoursedetails').eq(k).attr('id')) {
-	            $('.collapseCoursedetails').eq(k).collapse('hide');
+		
+		var cur_Id = null;
+		
+		function closeCoursePreview(openEl, targetEl) {//schließt alle offenen Kursdetails
+			if (openEl.length > 0) {
+				for (z=0; z<openEl.length; z++) {
+					targetEl_hide_Id = $(openEl[z]).attr('id');
+					targetButtonEl = $( "button[data-target='#" + targetEl_hide_Id + "']" ).parents('article.pin');
+					
+					if (targetEl != null) 
+					    if(targetEl == "#" + targetEl_hide_Id) 
+						    cur_Id = targetEl; 
+					
+					$(openEl[z]).slideUp('fast','linear',function(){
+						$('section article.pin').removeAttr('style');
+						$(openEl[z]).removeClass('in');
+						$("#" + targetEl_hide_Id).appendTo($(targetButtonEl));
+					});
+				}
 			}
 		}
-		$('#collapseShareArea .collapse').collapse();
-	});
+		
+	    $('figure.pin .preview-button button').click(function() {
+			
+			var cur_section = $(this).parents('section');
+			var targetEl = $(this).attr('data-target');
+		
+		    var openEl = $(cur_section).find('div.in');
+			
+			closeCoursePreview(openEl, targetEl); //schließt alle offenen Kursdetails
+			
+		    if (cur_Id == null) { //öffnet neues Kursdetails, wenn es nicht soeben geöffnet war
+				var Pins = $(cur_section).find('article.pin');
+			    var indexPin = ($(Pins).index($(this).parents('article.pin')));
+				var winwidth = $( window ).width();
+				
+				if (winwidth < 580) { //legt fest nach wieviel Bildern die neue Reihe beginnt.
+					var divisor = 1;
+				} else if (winwidth < 992) {
+					var divisor = 2;
+				} else {
+					var divisor = 4;
+				}
+				var rowPosition = (Math.floor(indexPin/divisor) + 1)*divisor - 1;
+				if (rowPosition > Pins.length-1) rowPosition = Pins.length-1;
+				
+		        $(Pins).eq(rowPosition).after($(targetEl));
+				$(targetEl).slideDown('fast','linear',function(){$(targetEl).addClass('in');});
+				
+				if (winwidth >= 580 && winwidth <= 992) {
+
+					for (j=rowPosition+1; j<$(Pins).length; j++) {
+						$(Pins).eq(j).css('clear','none').css('float','left');
+					}
+					
+				}
+		
+		    }
+			cur_Id = null;
+			
+	    });
+		$( window ).resize(function() {
+  			var winwidth = $( window ).width();
+			var openEl = $('section div.in');
+			closeCoursePreview(openEl, null);//schließt alle offenen Kursdetails
+		});
 	}
 	
 	
