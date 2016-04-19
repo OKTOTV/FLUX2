@@ -71,8 +71,12 @@ oktothek.success_create_post:           Post erfolgreich angelegt
  oktothek.success_delete_post  :           Post erfolgreich gelöscht
 
 ## page
+### index page
+oktothek.backend_page_header:           Seiten
+
 ### new page
 oktothek.page_create_header:            Neue Seite anlegen
+oktothek.page_create_back_to_index:     Zurück zur übersicht
 oktothek.page_title_label:              Pageheader
 oktothek.page_text_label:               Seiteninhalt
 oktothek.page_isActive_label:           Seite Aktiv
@@ -85,6 +89,10 @@ oktothek.page_create_new_button:        <span class="glyphicon glyphicon-plus"><
 oktothek.page_edit_button:              <span class="glyphicon glyphicon-edit"></span> Seite bearbeiten
 oktothek.page_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern
 oktothek.page_delete_button:            <span class="glyphicon glyphicon-trash"></span> Seite löschen
+
+### edit page
+oktothek.success_edit_page:             Seite erfolgreich aktualisiert
+oktothek.page_edit_header:              Seite bearbeiten
 
 ## playlist
 ### index

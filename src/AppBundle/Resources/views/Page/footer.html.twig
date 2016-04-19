@@ -12,5 +12,4 @@
     {% for page in pages %}
         <li {% if slug|default('') == page.slug %}class="active"{% endif %}><a href="{{ path('oktothek_page_show', {'page': page.slug}) }}">{{ page.title }}</a></li>
     {% endfor %}
-    <a href="{{ path('oktothek_page_new') }}" class="btn btn-default">{{ 'oktothek.page_create_new_button'|trans|raw }}</a>
 </ul>

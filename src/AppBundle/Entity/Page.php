@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Page
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\PageRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Page
