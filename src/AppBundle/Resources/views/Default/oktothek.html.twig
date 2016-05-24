@@ -14,17 +14,20 @@
     </div>
     {# top slider, search and channels END #}
     {# rest of the page #}
-    <div class="container" id="oktothek">
-		<section class="participart">
+    <div id="oktothek">
+		<section class="participart bg-fullscreen">
 		    <div id="anchor_participart"></div>
-		    <h2 id="button_down">Mitmachen <span class="glyphicon glyphicon-chevron-down"> </span></h2>
-		    <article class="dummybox">
-		        <p class="aligncenter">Ich bin ein großer Bereich für Mitmachen, weiß aber noch nicht was hier stehen soll.</p>
-		        <p class="aligncenter"><a href="#" class="btn btn-default" title="Mitmachen">MITMACHEN</a></p>
+		    <h2 id="button_down">Mitmachen <span class="icon participant-arrow-down"> </span></h2>
+		    <article class="container">
+		        <p class="aligncenter subheadline">Du produzierst Videos, Beiträge, Dokumentationen? Wir würden sie gerne zeigen.</p>
+				<div class="aligncenter button_container"><a href="#" class="btn btn-default but-full" title="Mitmachen">ICH MACH MIT!</a></div>
+				<ul>
+				  <li></li>
+				</ul>
 		    </article>
 		</section>
         {# render newest episodes #}
-        <section class="newest-videos">
+        <section class="newest-videos container">
 		    <div id="anchor_newest_videos"></div>
             <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes} %}
@@ -32,7 +35,7 @@
         </section>
 
         {# render favorites #}
-		<section class="favorite-videos">
+		<section class="favorite-videos container">
 		    <div id="anchor_favorite_videos"></div>
             <h2>Beliebteste Videos</h2>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes} %}
@@ -40,7 +43,7 @@
         </section>
 
         {# render newest playlists #}
-        <section class="newest-playlists">
+        <section class="newest-playlists container">
 		    <div id="anchor_playlists"></div>
             <h2>{{ 'oktothek.newest_playlists'|trans }}</h2>
             {% if is_granted('ROLE_OKTOLAB_USER') %}

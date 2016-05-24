@@ -3,7 +3,33 @@ body {
     padding-top: 140px;
 }
 
-/* Fonts */
+/* Fonts 
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}*/
+body, .carousel-caption h3, .carousel-caption .slide-content, h2, header .navbar .nav.navbar-right > li > a {
+	font-family: 'Helvetica Neue 55 Roman', Helvetica, sans-serif;
+}
+header .navbar .nav > li > a {
+	font-family: 'Helvetica Neue 65 Medium', Helvetica, sans-serif;
+}
+/*header .navbar .nav > li > a {
+	font-family: sans-serif;
+	font-weight:bold;
+}*/
+carousel-caption .slide-content, .subheadline, .participart .button_container .btn {
+	font-family: 'Helvetica Neue 45 Light', Helvetica, sans-serif;
+}
+/*h2 {
+	font-family: 'Helvetica Neue 65 Medium', Helvetica, Arial, sans-serif;
+}
+.carousel-caption .slide-content {
+	font-family: 'Helvetica Neue 25 UltraLight', Helvetica, Arial, sans-serif;
+}*/
+h2, .h2 {
+	font-size:35px;
+	letter-spacing:0.5px;
+}
 .programm p.current-episode, header .nav {
 	font-size:12px;
 }
@@ -12,13 +38,28 @@ header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-t
 }
 .carousel-caption .type {
 		font-size:14px;
+		letter-spacing:0.25px;
 }
 .carousel-caption h3 {
 	font-size:24px;
 }
-.carousel-caption .slide-content {
+.carousel-caption .slide-content, .subheadline, .participart .button_container .btn {
 		font-size:16px;
 	}
+	/* Placeholderstyles (nicht möglich zu gruppieren) */
+header .form-control::-moz-placeholder {
+  		font-size:16px;
+
+}
+header .form-control:-ms-input-placeholder {
+        font-size:16px;
+}
+header .form-control::-webkit-input-placeholder {
+        font-size:16px;
+}
+.btn {
+	font-size:12px;
+}
 header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer, #anchor-menu .panel-title, .btn-top, .carousel-caption .type {
 	text-transform:uppercase;
 }
@@ -37,9 +78,12 @@ header .nav {
 	
 	.carousel-caption h3 {
 		font-size:45px;
+		letter-spacing: 1px;
+		line-height:0.95em;
 	}
-	.carousel-caption .slide-content {
-		font-size:18px;
+	.carousel-caption .slide-content, .subheadline, .participart .button_container .btn {
+		font-size:19px;
+		letter-spacing: 0.1px;
 	}
 }
 
@@ -346,6 +390,10 @@ button .btn-default.active, .oktothek article a.btn-default {
 .play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel {
 	background-color:transparent;
 }
+/* Spacelayout */
+button .btn-default.but-full.active, .oktothek article a.btn-default.but-full {
+	background-color:#fcce14;
+}
 
 .tags li a {
 	border: solid 1px #cccccc;
@@ -358,6 +406,10 @@ button .btn-default.active, .oktothek article a.btn-default {
 }
 .academy .timetable li p {
 	border-bottom:solid 1px #ffffff;
+}
+/* Spacelayout */
+.btn-default {
+	border: solid 2px #fcce14;
 }
 .programm .schedule .panel-default {
 	border-top:none;
@@ -377,12 +429,43 @@ button .btn-default.active, .oktothek article a.btn-default {
 	-moz-border-radius:0px;
 	border-radius:0px;
 }
+/* Spacelayout */
+.btn {
+	-moz-border-radius:19px;
+	-khtml-border-radius:19px;
+	border-radius: 19px;
+}
+.participart .button_container .btn {
+	-moz-border-radius:25px;
+	-khtml-border-radius:25px;
+	border-radius: 25px;
+}
 
-/* Episode */
+
+/* Hintergründe */
 .icon-views {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/icon_views.png);
+}
+.participant-arrow-down {
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/icon_down_arrow.svg);
+}
+.participart {
+	background-image:url(../images/space.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.participart .button_container {
+	background-image:url(../images/planet_mitmachen.svg);
+	background-repeat:no-repeat;
+	background-position:center center;
 }
 .bg-bleur, .fs-image div {
 	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
@@ -536,10 +619,17 @@ html, body {
 h1 {
 	margin-top:0;
 }
+section.bg-fullscreen h2 {
+	margin-top:0;
+	padding-top:20px;
+}
 .series h1, .tagpage h1 {
 	margin-top:20px;
 }
-h2, .episode h1.name, .episode time {
+h2 {
+	margin-bottom:50px;
+}
+.episode h1.name, .episode time {
 	margin-bottom:20px;
 }
 .newsarchiv aside .box h3:first-child {
@@ -564,6 +654,12 @@ header.page-header .navbar {
 .icon {
 	display:inline-block;
 }
+/* Spacelayout */
+.btn {
+	height:36px;
+	padding:8px 16px;
+}
+
 
 /* Header */
 header .navbar {
@@ -616,7 +712,7 @@ header .navbar-content {
 	margin-left:30px;
 }
 header form button[type="submit"] {
-	height:34px;
+	height:35px;
 	width:54px;
 	float:right;
 	margin-left:0;
@@ -624,7 +720,7 @@ header form button[type="submit"] {
 header form .searchfield-container {
 	position:relative;
 	overflow:hidden;
-	height:34px;
+	height:35px;
 }
 header .search-tagnav-container {
 	position:absolute;
@@ -685,7 +781,7 @@ header .icon.icon-login {
 }
 /* Slider */
 .carousel-caption h3 {
-	margin: -2px 0 25px 0;
+	margin: 4px 0 20px 0;
 }
 @media (min-width: 768px) {
 
@@ -729,6 +825,8 @@ header .icon.icon-login {
 	}*/
 	header .navbar-form input.form-control {
 		width: 300px;
+		height:35px;
+		padding-top:7px;
 	}
 	header form button[type="submit"] {
 		margin-left:12px;
@@ -739,6 +837,10 @@ header .icon.icon-login {
 	header .search-tagnav-container .dropdown {
 		/*display:block;*/
 		margin-left:386px;
+	}
+	header .search-tagnav-container .dropdown button {
+		padding-top:7px;
+		height:35px;
 	}
 	header .navbar-collapse .navbar-nav {
 		margin:0;
@@ -765,8 +867,11 @@ header .icon.icon-login {
 		vertical-align:middle;
 		line-height:50px;
 		width:30px;
-		height:30px;
+		height:45px;
 		margin-left:50px;
+	}
+	.participant-arrow-down {
+		height:45px;
 	}
 	#button_down span.glyphicon {
 		top:auto;
@@ -872,6 +977,23 @@ article.pin {
 
 
 /* Oktothek */
+.participart .button_container {
+	height:180px;
+	width:240px;
+	margin:0 auto;
+}
+.participart .but-full {
+	height:50px;
+}
+.participart .button_container .btn {
+	padding:12px 40px;
+}
+.participart article p {
+	margin-bottom:40px;
+}
+.participart .button_container .but-full {
+	margin-top:90px;
+}
 .oktothek article {
 	position:relative;
 }
