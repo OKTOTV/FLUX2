@@ -1,6 +1,6 @@
 // JavaScript Document
     (function() {
-        var path = '//easy.myfonts.net/v2/js?sid=10259(font-family=Helvetica+Neue+55+Roman)&sid=10261(font-family=Helvetica+Neue+75+Bold)&sid=10263(font-family=Helvetica+Neue+45+Light)&sid=10265(font-family=Helvetica+Neue+65+Medium)&key=vrsfByw6hK',
+        var path = '//easy.myfonts.net/v2/js?sid=10257(font-family=Helvetica+Neue+35+Thin)&sid=10259(font-family=Helvetica+Neue+55+Roman)&sid=10263(font-family=Helvetica+Neue+45+Light)&sid=10265(font-family=Helvetica+Neue+65+Medium)&key=V9xLuNW3q2',
             protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
             trial = document.createElement('script');
         trial.type = 'text/javascript';
@@ -16,13 +16,13 @@ $(document).ready(function(){
 	var headerHeight = 180;
 
 	function addHeaderBG() {
-	  if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
+	 // if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
 	      if($(document).scrollTop() <= headerScrollheight) {
 			  //Header transparent setzen und Schlagschatten entfernen
-	          /*$('body').addClass('head-white-color')
+	          $('body').addClass('head-white-color')
 		               .removeClass('head-white-color')
 				       .addClass('head-transparent-bg')
-				       .removeClass('head-black-bg');*/
+				       .removeClass('head-black-bg');
 		      //$('.navbar-fixed-top').removeClass('dropshadow'); //Schlagschatten
 
 			  //Downbutton erscheinen lassen
@@ -30,22 +30,22 @@ $(document).ready(function(){
 
 	      } else if ($(document).scrollTop() > headerScrollheight) {
 			  //Header schwarz setzen und Schlagschatten hinzufügen
-		     /* $('body').removeClass('head-white-color')
+		      $('body').removeClass('head-white-color')
 			          .addClass('head-white-color')
 					  .addClass('head-black-bg')
-					  .removeClass('head-transparent-bg');*/
+					  .removeClass('head-transparent-bg');
 		      //$('.navbar-fixed-top').addClass('dropshadow'); //Schlagschatten
 
 			  //Downbutton ausblenden
 			  $('.fullscreen-images #button_down span').css('display','none');
 		   }
-	    } else {
+	     /*}else {
 			if($(document).scrollTop() <= headerScrollheight) {
 				$('.navbar-fixed-top').removeClass('dropshadow');
 		    } else if ($(document).scrollTop() > headerScrollheight) {
 				$('.navbar-fixed-top').addClass('dropshadow');
 			}
-		}
+		}*/
 	 }
 
 	 addHeaderBG();
