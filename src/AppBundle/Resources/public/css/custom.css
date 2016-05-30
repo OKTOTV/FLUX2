@@ -10,7 +10,7 @@ body {
 body, .carousel-caption h3, h2, header .navbar .nav.navbar-right > li > a, .pin figcaption p {
 	font-family: 'Helvetica Neue 55 Roman', Helvetica, sans-serif;
 }
-header .navbar .nav > li > a, .oktothek .participart figcaption, .pin figcaption h3 {
+header .navbar .nav > li > a, .oktothek .participart figcaption, .pin figcaption h3, .news h3 {
 	font-family: 'Helvetica Neue 65 Medium', Helvetica, sans-serif;
 }
 /*header .navbar .nav > li > a {
@@ -30,11 +30,11 @@ h2, .h2 {
 	font-size:35px;
 	letter-spacing:0.5px;
 }
-.programm p.current-episode, header .nav, .pin figcaption p {
+.programm p.current-episode, header .nav, .pin figcaption p, .btn, .like-it .glyphicon, .news .tag {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
-header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3 {
+header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3, .news h3 {
 	font-size:14px;
 	letter-spacing:0.25px;
 }
@@ -45,7 +45,7 @@ header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-t
 .carousel-caption h3 {
 	font-size:24px;
 }
-.carousel-caption .slide-content, .subheadline, .participart .button_container .btn {
+.carousel-caption .slide-content, .subheadline, .participart .button_container .btn, .news p {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -59,13 +59,10 @@ header .form-control:-ms-input-placeholder {
 header .form-control::-webkit-input-placeholder {
         font-size:16px;
 }
-.btn, .like-it .glyphicon {
-	font-size:12px;
-}
 .like-it {
 	font-size:10px;
 }
-header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3 {
+header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag {
 	text-transform:uppercase;
 }
 #anchor-menu .panel-title .glyphicon, .btn-top .glyphicon, .programm header h1 time {
@@ -382,14 +379,17 @@ header .icon.icon-login {
 
 
 /****************************  Color, Effects Content ****************************/
-body, .btn-default, .episode .misc a, a, a:hover, select, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover {
+body, .btn-default, .episode .misc a, a:hover, select, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, a .pin figcaption h3, a .like-it, .oktothek .participart-list a  {
 	color:#ffffff;
 }
 
 .oktothek article a.btn-default, a.pull-right, .modal, button .btn-default.active {
 	color:#000000;
 }
-.pin figcaption p {
+a {
+	color:#13fffd;
+}
+.pin figcaption p, .news p {
 	color:#dcdcdc;
 }
 
@@ -689,7 +689,7 @@ h2 {
 figcaption h3, figcaption p {
 	margin:0;
 }
-.oktothek h2, .episode h2, .series h2, .series h1, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form {
+.oktothek h2, .episode h2, .series h2, .series h1, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form, .subheadline {
 	text-align:center;
 }
 .series .current-episode h2 {
@@ -1123,6 +1123,10 @@ figure.pin img, .programm .schedule img {
 	vertical-align:middle;
 	text-align:center;
 }
+.news h3 {
+	margin-top:0;
+	margin-bottom:20px;
+}
 
 /* Tooltips */
 .tooltip-inner {
@@ -1501,6 +1505,9 @@ figure.pin img, .programm .schedule img {
 	article.pin {
 		width:50%;
 	}
+	.news article.pin {
+		width:100%;
+	}
     figure.pin img, .programm .schedule img {
 	    /*width:260px;*/
 	    height:auto;
@@ -1556,6 +1563,9 @@ figure.pin img, .programm .schedule img {
     }
 	article.pin {
 		width:25%;
+	}
+	.news article.pin {
+		width:100%;
 	}
 	/*.academy .collapse {
 	    width: 970px;

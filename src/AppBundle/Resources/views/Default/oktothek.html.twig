@@ -50,13 +50,13 @@
 		    <div id="anchor_playlists"></div>
             <h2>{{ 'oktothek.newest_playlists'|trans }}</h2>
             {% if is_granted('ROLE_OKTOLAB_USER') %}
-                <p class="aligncenter">{{ 'oktothek_default_newest_playlists_text'|trans }}</p>
+                <p class="subheadline">{{ 'oktothek_default_newest_playlists_text'|trans }}</p>
             {% else %}
-                <p class="aligncenter">{{ 'oktothek_default_login_teaser'|trans }}</p>
+                <p class="subheadline">{{ 'oktothek_default_login_teaser'|trans }}</p>
                 <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
             {% endif %}
             {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': newest_playlists} %}
-            <a href="#" class="pull-right more" title="Weitere Playsliten anzeigen">{{ 'oktothek.newest_playlists_show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a href="#" class="pull-right more" title="Weitere Playlisten anzeigen">{{ 'oktothek.newest_playlists_show_more'|trans}} <span class="glyphicon glyphicon-chevron-right"></span></a>
         </section>
         {# render news pins #}
         {{ render(controller('AppBundle:News:pinnedNews')) }}
