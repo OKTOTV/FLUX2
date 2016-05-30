@@ -10,14 +10,14 @@ body {
 body, .carousel-caption h3, h2, header .navbar .nav.navbar-right > li > a, .pin figcaption p {
 	font-family: 'Helvetica Neue 55 Roman', Helvetica, sans-serif;
 }
-header .navbar .nav > li > a, .oktothek .participart figcaption, .pin figcaption h3, .news h3 {
+header .navbar .nav > li > a, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3 {
 	font-family: 'Helvetica Neue 65 Medium', Helvetica, sans-serif;
 }
 /*header .navbar .nav > li > a {
 	font-family: sans-serif;
 	font-weight:bold;
 }*/
-.carousel-caption .slide-content, .subheadline, .participart .button_container .btn {
+.carousel-caption .slide-content, .subheadline, .participart .button_container .btn, .btn.btn-top {
 	font-family: 'Helvetica Neue 45 Light', Helvetica, sans-serif;
 }
 /*h2 {
@@ -30,7 +30,7 @@ h2, .h2 {
 	font-size:35px;
 	letter-spacing:0.5px;
 }
-.programm p.current-episode, header .nav, .pin figcaption p, .btn, .like-it .glyphicon, .news .tag {
+.programm p.current-episode, header .nav, .pin figcaption p, .btn, .like-it .glyphicon, .news .tag, .footer h3, .input-group-addon {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -42,7 +42,17 @@ header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-t
 		font-size:14px;
 		letter-spacing:0.25px;
 }
-.carousel-caption h3 {
+.form-control::-moz-placeholder {
+  		font-size:14px;
+
+}
+.form-control:-ms-input-placeholder {
+        font-size:14px;
+}
+.form-control::-webkit-input-placeholder {
+        font-size:14px;
+}
+.carousel-caption h3, .pull-right .icon {
 	font-size:24px;
 }
 .carousel-caption .slide-content, .subheadline, .participart .button_container .btn, .news p {
@@ -62,8 +72,11 @@ header .form-control::-webkit-input-placeholder {
 .like-it {
 	font-size:10px;
 }
-header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag {
+header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments .answer, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon {
 	text-transform:uppercase;
+}
+.btn.btn-top {
+	text-transform:none;
 }
 #anchor-menu .panel-title .glyphicon, .btn-top .glyphicon, .programm header h1 time {
 	font-size:30px;
@@ -383,17 +396,28 @@ body, .btn-default, .episode .misc a, a:hover, select, .oktothek article a.btn-d
 	color:#ffffff;
 }
 
-.oktothek article a.btn-default, a.pull-right, .modal, button .btn-default.active {
+.oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon {
 	color:#000000;
 }
-a {
+a, a.more  {
 	color:#13fffd;
 }
 .pin figcaption p, .news p {
 	color:#dcdcdc;
 }
+/* Placeholderstyles (nicht möglich zu gruppieren) */
+.form-control::-moz-placeholder {
+  color: #818181;
 
-body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.btn-default:hover, .tagpage section.container, .preloader {
+}
+.form-control:-ms-input-placeholder {
+  color: #818181;
+}
+.form-control::-webkit-input-placeholder {
+  color: #818181;
+}
+
+body, .list-group-item, .bg-opacity, select, .oktothek article a.btn-default:hover, .tagpage section.container, .preloader {
 	background-color:#000000;
 }
 .comments, .table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control, .newsarchiv aside .box, .programm .schedule header.page-header {
@@ -402,11 +426,14 @@ body, .list-group-item, .bg-opacity, .btn-default, select, .oktothek article a.b
 button .btn-default.active, .oktothek article a.btn-default {
 	background-color:#ffffff;
 }
-.play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel {
+.oktothek .news article {
+	background-color:#112022;
+}
+.play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel, .btn-default {
 	background-color:transparent;
 }
 /* Spacelayout */
-button .btn-default.but-full.active, .oktothek article a.btn-default.but-full {
+button .btn-default.but-full.active, .oktothek article a.btn-default.but-full, .input-group-addon {
 	background-color:#fcce14;
 }
 
@@ -426,12 +453,15 @@ button .btn-default.but-full.active, .oktothek article a.btn-default.but-full {
 .btn-default, .btn-default.but-full:hover {
 	border: solid 2px #fcce14;
 }
+.pull-right .icon {
+border: solid 2px #13fffd;
+}
 .programm .schedule .panel-default {
 	border-top:none;
 	border-left:none;
 	border-right:none;
 }
-.newsarchiv article:first-child, .programm header .navbar-default, header.page-header {
+.form-control, .newsarchiv article:first-child, .programm header .navbar-default, header.page-header, .input-group-addon, .btn-default.btn-top  {
 	border:none;
 }
 .tags li a {
@@ -439,13 +469,13 @@ button .btn-default.but-full.active, .oktothek article a.btn-default.but-full {
 	-khtml-border-radius:4px;
 	border-radius: 4px;
 }
-.navbar, .more-clips select, .play-episode.btn-default, .newsarchiv .label, .schedule .panel-heading, .programm .schedule .panel-default {
+.form-control, .navbar, .more-clips select, .play-episode.btn-default, .newsarchiv .label, .schedule .panel-heading, .programm .schedule .panel-default, .input-group-addon {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
 }
 /* Spacelayout */
-.btn {
+.btn, .pull-right .icon {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -546,47 +576,75 @@ section:last-child {
 
 /****************************  Color, Effects Footer ****************************/
 
-.footer .nav > li > a, .footer .nav > li > a:active, .footer .nav > li > a:hover, #anchor-menu .panel-default > .panel-heading {
+.footer .nav > li > a, .footer .nav > li > a:active, .footer .nav > li > a:hover, #anchor-menu .panel-default > .panel-heading, .btn.btn-top:hover {
 	color:#ffffff;
+}
+.btn.btn-top {
+	color:#fcce14;
 }
 
 #anchor-menu .panel-default > .panel-heading {
 	background-color:#000000;
 }
-.footer .nav > li > a:active, .footer .nav > li > a:hover {
+.footer .nav > li > a:active, .footer .nav > li > a:hover, .btn.btn-top:hover {
 	background-color:transparent;
+}
+footer .networks {
+	background-color:#112022;
 }
 
 
-
+.btn-top .icon-top {
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/icon_top_arrow.svg);
+}
 .footer .socialnetworks li a, .collapseShare .socialnetworks li a, .newsarchiv aside .socialnetworks li a, .series .series-description li a {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-.footer .icon-facebook, .collapseShare .icon-facebook, .series .series-description .icon-facebook, .newsarchiv aside .icon-facebook {
+.collapseShare .icon-facebook, .series .series-description .icon-facebook, .newsarchiv aside .icon-facebook {
 	background-image:url(../images/icon_facebook.png);
 }
-.footer .icon-twitter, .collapseShare .icon-twitter, .series .series-description .icon-twitter, .newsarchiv aside .icon-twitter {
+.footer .icon-facebook {
+	background-image:url(../images/icon_facebook.svg);
+}
+.collapseShare .icon-twitter, .series .series-description .icon-twitter, .newsarchiv aside .icon-twitter {
 	background-image:url(../images/icon_twitter.png);
 }
-.footer .icon-googleplus, .collapseShare .icon-googleplus, .series .series-description .icon-googleplus, .newsarchiv aside .icon-googleplus {
+.footer .icon-twitter {
+	background-image:url(../images/icon_twitter.svg);
+}
+.collapseShare .icon-googleplus, .series .series-description .icon-googleplus, .newsarchiv aside .icon-googleplus {
 	background-image:url(../images/icon_googleplus.png);
 }
-.footer .icon-instagramm, .collapseShare .icon-instagramm, .series .series-description .icon-instagramm, .newsarchiv aside .icon-instagramm {
+.footer .icon-googleplus {
+	background-image:url(../images/icon_googleplus.svg);
+}
+.collapseShare .icon-instagramm, .series .series-description .icon-instagramm, .newsarchiv aside .icon-instagramm {
 	background-image:url(../images/icon_instagramm.png);
+}
+.footer .icon-instagramm {
+	background-image:url(../images/icon_instagramm.svg);
 }
 .footer .icon-pinterest, .collapseShare .icon-pinterest, .series .series-description .icon-pinterest, .newsarchiv aside .icon-pinterest {
 	background-image:url(../images/icon_pinterest.png);
 }
-.footer .icon-youtube, .collapseShare .icon-youtube, .series .series-description .icon-youtube, .newsarchiv aside .icon-youtube {
+.collapseShare .icon-youtube, .series .series-description .icon-youtube, .newsarchiv aside .icon-youtube {
 	background-image:url(../images/icon_youtube.png);
+}
+.footer .icon-youtube {
+	background-image:url(../images/icon_youtube.svg);
 }
 .footer section {
 	background-image:none;
 }
 
-.footer {
-    border-top: dashed gray 2px;
+.footer .socialnetworks a {
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border-radius:20px;
+	border-width:0;
 }
 #anchor-menu.panel-group .panel, .btn-top {
     -webkit-border-radius:0px;
@@ -708,6 +766,9 @@ header.page-header .navbar {
 .btn {
 	height:36px;
 	padding:8px 16px;
+}
+.form-control {
+	height:35px;
 }
 
 
@@ -875,7 +936,7 @@ header .icon.icon-login {
 	}*/
 	header .navbar-form input.form-control {
 		width: 300px;
-		height:35px;
+		/*height:35px;*/
 		padding-top:7px;
 	}
 	header form button[type="submit"] {
@@ -1041,6 +1102,11 @@ article.pin {
 	display:block;
 	margin-bottom:3px;
 }
+.pull-right .icon {
+	width:38px;
+	height:38px;
+	text-align:center;
+}
 
 
 
@@ -1127,6 +1193,16 @@ figure.pin img, .programm .schedule img {
 	margin-top:0;
 	margin-bottom:20px;
 }
+.news .col-md-3.pin, .news .col-lg-3.pin, .news .col-sm-6.pin, .news .col-xs-6.pin {
+	padding-left:15px;
+	padding-right:15px;
+}
+.news article.pin {
+	margin-bottom:2px;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
 
 /* Tooltips */
 .tooltip-inner {
@@ -1585,24 +1661,36 @@ figure.pin img, .programm .schedule img {
 
 /* Footer */
 .footer {
-	height:300px;
+	height:350px;
 	width:100%;
 }
-.footer nav, .footer .partner {
-	text-align:center;
+.footer .container {
+	margin:0 auto;
 }
-.footer nav, .footer section {
-	padding-top:50px;
+.footer .partner {
+	text-align:right;
+}
+.footer section {
+	padding-top:120px;
 	margin-bottom:0;
+}
+.footer nav, .footer section.partner {
+	padding-top:35px;
+	margin-bottom:0;
+	height:130px;
 }
 .footer nav ul {
 	width:auto;
+}
+.footer nav ul li {
+	line-height:95px;
+	vertical-align:middle;
 }
 .footer .nav > li, .footer .nav > li > a, .footer .partner li {
 	display:block;
 }
 .footer .networks div.col-md-6 ul {
-	padding-top:30px;
+	padding-top:22px;
 }
 .footer .networks h3 {
 	margin-top:0;
@@ -1620,12 +1708,19 @@ figure.pin img, .programm .schedule img {
 .footer .socialnetworks a {
 	display:inline-block;
 	text-align:left;
-	height:30px;
-	width:30px;
+	height:40px;
+	width:40px;
 	outline:0;
 }
 .footer .socialnetworks a span {
 	margin-left:-9990px;
+}
+.btn-top .icon-top {
+	height:25px;
+	width:22px;
+}
+footer .networks {
+	height:220px;
 }
 #anchor-menu {
 	position:fixed;
@@ -1650,10 +1745,19 @@ figure.pin img, .programm .schedule img {
 	width:220px;
 	height:50px;
 }
-#anchor-menu .panel-title, .btn-top {
+#anchor-menu .panel-title {
 	line-height:46px;
 	vertical-align:middle;
 	text-align:center;
+}
+.btn.btn-top {
+	padding:0;
+	height:auto;
+	text-align:center;
+}
+.btn.btn-top .icon {
+	display:block;
+	margin:0 auto;
 }
 #anchor-menu .panel-title {
 	width:220px;
@@ -1691,18 +1795,11 @@ figure.pin img, .programm .schedule img {
 	    text-align:right;
 	}
 	.footer .input-group {
-	    width:200px;
+	    width:300px;
 	    margin:0;
 	}
-	.btn-top {
-		margin-left:264px;
-	}
 }
-@media (min-width: 1200px) {
-    .btn-top {
-		margin-left:480px;
-	}
-}
+
 
 
 /* Backend */
