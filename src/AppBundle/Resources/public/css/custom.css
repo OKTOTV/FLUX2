@@ -1,31 +1,68 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3226245, 2016-05-31T10:00:39-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: HelveticaNeueLTStd-Lt by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/neue-helvetica/helvetica-45-light/
+ * 
+ * Webfont: HelveticaNeueLTStd-Roman by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/neue-helvetica/helvetica-55-roman/
+ * 
+ * Webfont: HelveticaNeueLTStd-Md by Linotype
+ * URL: http://www.myfonts.com/fonts/linotype/neue-helvetica/helvetica-65-medium/
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3226245
+ * Licensed pageviews: 1,000,000
+ * Webfonts copyright: Copyright &#x00A9; 1988, 1990, 1993, 2002 Adobe Systems Incorporated.  All Rights Reserved. &#x00A9; 1981, 2002 Heidelberger Druckmaschinen AG. All rights reserved.
+ * 
+ * © 2016 MyFonts Inc
+*/
+
+
+/* 
+!!!!!! Freischalten wenn Online !!!!!!!
+@import must be at top of file, otherwise CSS will not work  
+@import url("//hello.myfonts.net/count/313a85");*/
+
+  
+@font-face {font-family: 'HelveticaNeueLTStd-Lt';src: url('../fonts/313A85_0_0.eot');src: url('../fonts/313A85_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/313A85_0_0.woff2') format('woff2'),url('../fonts/313A85_0_0.woff') format('woff'),url('../fonts/313A85_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'HelveticaNeueLTStd-Roman';src: url('../fonts/313A85_1_0.eot');src: url('../fonts/313A85_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/313A85_1_0.woff2') format('woff2'),url('../fonts/313A85_1_0.woff') format('woff'),url('../fonts/313A85_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'HelveticaNeueLTStd-Md';src: url('../fonts/313A85_2_0.eot');src: url('../fonts/313A85_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/313A85_2_0.woff2') format('woff2'),url('../fonts/313A85_2_0.woff') format('woff'),url('../fonts/313A85_2_0.ttf') format('truetype');}
+ 
+
 /* in anderes CSS verschieben!!!*/
 body {
     padding-top: 140px;
 }
 
-/* Fonts 
-body {
-	font-family: Helvetica, Arial, sans-serif;
-}*/
+/* Fonts */
 body, h1, .carousel-caption h3, h2, header .navbar .nav.navbar-right > li > a, .pin figcaption p, .collapseShare .helptext, #episode-tag option {
-	font-family: 'Helvetica Neue 55 Roman', Helvetica, sans-serif;
+	font-family: HelveticaNeueLTStd-Roman, Helvetica, sans-serif;
+	font-weight: normal;
+	font-style: normal;
 }
 header .navbar .nav > li > a, #dropdownMenuTags, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .comments h2, .comments .comment-answer, #episode-tag {
-	font-family: 'Helvetica Neue 65 Medium', Helvetica, sans-serif;
+	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
+	font-weight: normal;
+	font-style: normal;
 }
-/*header .navbar .nav > li > a {
-	font-family: sans-serif;
-	font-weight:bold;
-}*/
 .carousel-caption .slide-content, .subheadline, .participart .button_container .btn, .btn.btn-top, figcaption .description {
-	font-family: 'Helvetica Neue 45 Light', Helvetica, sans-serif;
+	font-family: HelveticaNeueLTStd-Lt, Helvetica, sans-serif;
+	font-weight: normal;
+	font-style: normal;
 }
-/*h2 {
-	font-family: 'Helvetica Neue 65 Medium', Helvetica, Arial, sans-serif;
-}
-.carousel-caption .slide-content {
-	font-family: 'Helvetica Neue 25 UltraLight', Helvetica, Arial, sans-serif;
-}*/
+
 h1, h2, .h2 {
 	font-size:35px;
 	letter-spacing:0.5px;
@@ -510,44 +547,44 @@ section, .participart article  {
 	background-position:center center;
 	background-image:url(../images/icon_views.png);
 }
-.footer .socialnetworks li a, .collapseShare .socialnetworks li a, .newsarchiv aside .socialnetworks li a, .series .series-description li a {
+.footer .socialnetworks li a, .collapseShare .socialnetworks li a, .newsarchiv aside .socialnetworks li a, .series .facts li a {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-.series .series-description .icon-facebook, .newsarchiv aside .icon-facebook {
+.newsarchiv aside .icon-facebook {
 	background-image:url(../images/icon_facebook.png);
 }
-.footer .icon-facebook, .collapseShare .icon-facebook {
+.footer .icon-facebook, .collapseShare .icon-facebook, .series .facts .icon-facebook {
 	background-image:url(../images/icon_facebook.svg);
 }
-.series .series-description .icon-twitter, .newsarchiv aside .icon-twitter {
+.newsarchiv aside .icon-twitter {
 	background-image:url(../images/icon_twitter.png);
 }
-.footer .icon-twitter, .collapseShare .icon-twitter {
+.footer .icon-twitter, .collapseShare .icon-twitter, .series .facts .icon-twitter {
 	background-image:url(../images/icon_twitter.svg);
 }
-.series .series-description .icon-googleplus, .newsarchiv aside .icon-googleplus {
+.newsarchiv aside .icon-googleplus {
 	background-image:url(../images/icon_googleplus.png);
 }
-.footer .icon-googleplus, .collapseShare .icon-googleplus {
+.footer .icon-googleplus, .collapseShare .icon-googleplus, .series .facts .icon-googleplus {
 	background-image:url(../images/icon_googleplus.svg);
 }
-.series .series-description .icon-instagramm, .newsarchiv aside .icon-instagramm {
+.newsarchiv aside .icon-instagramm {
 	background-image:url(../images/icon_instagramm.png);
 }
-.footer .icon-instagramm, .collapseShare .icon-instagramm {
+.footer .icon-instagramm, .collapseShare .icon-instagramm, .series .facts .icon-instagramm {
 	background-image:url(../images/icon_instagramm.svg);
 }
-.series .series-description .icon-pinterest, .newsarchiv aside .icon-pinterest {
+.newsarchiv aside .icon-pinterest {
 	background-image:url(../images/icon_pinterest.png);
 }
-.collapseShare .icon-pinterest {
+.collapseShare .icon-pinterest, .series .facts .icon-pinterest {
 	background-image:url(../images/icon_pinterest.svg);
 }
-.series .series-description .icon-youtube, .newsarchiv aside .icon-youtube {
+.newsarchiv aside .icon-youtube {
 	background-image:url(../images/icon_youtube.png);
 }
-.footer .icon-youtube, .collapseShare .icon-youtube {
+.footer .icon-youtube, .collapseShare .icon-youtube, .series .facts .icon-youtube {
 	background-image:url(../images/icon_youtube.svg);
 }
 .pin .like-it {
@@ -595,7 +632,7 @@ section:last-child, section.fs-image-content {
 .more-clips select {
 	width:auto;
 }
-.footer .socialnetworks a, .collapseShare .socialnetworks li a {
+.footer .socialnetworks a, .collapseShare .socialnetworks li a, .series .facts .socialnetworks li a {
 	-webkit-border-radius:20px;
 	-moz-border-radius:20px;
 	border-radius:20px;
@@ -713,10 +750,10 @@ body {
 html, body {
 	height:100%;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list li {
+.collapsePlaylist ul, .collapsePlaylist li, .series .facts ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list li {
 	list-style:none;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .series-description ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list {
+.collapsePlaylist ul, .collapsePlaylist li, .series .facts ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list {
 	margin-left:0;
 	padding-left:0;
 }
@@ -737,7 +774,7 @@ h2 {
 	margin-bottom:50px;
 	margin-top:10px;
 }
-.footer .socialnetworks a, .collapseShare .socialnetworks li a  {
+.footer .socialnetworks a, .collapseShare .socialnetworks li a, .series .facts .socialnetworks li a  {
 	display:inline-block;
 	text-align:left;
 	height:40px;
@@ -752,7 +789,7 @@ h2 {
 	margin-bottom:4px;
 }
 figcaption .description {
-	margin-bottom:40px;
+	margin-bottom:20px;
 }
 .newsarchiv aside .box h3:first-child {
 	padding-top:0;
@@ -761,10 +798,10 @@ figcaption .description {
 figcaption h3, figcaption p {
 	margin:0;
 }
-.oktothek h2, .episode h2, .series h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form, .subheadline {
+.oktothek h2, .episode h2, .series h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form, .subheadline, figcaption h1, figcaption .misc {
 	text-align:center;
 }
-.series .current-episode h2, .comments h2, figcaption h1, figcaption .subheadline {
+.series .current-episode h2, .comments h2, figcaption .subheadline {
 	text-align:left;
 }
 figcaption  {
@@ -1359,7 +1396,7 @@ figure.pin img, .programm .schedule img {
 	padding:15px;
 	z-index:1;
 }
-.series .series-description article, .series .series-description aside {
+/*.series .series-description article, .series .series-description aside {
 	display:block;
 	vertical-align:top;
 }
@@ -1369,14 +1406,17 @@ figure.pin img, .programm .schedule img {
 }
 .series .series-description .misc {
 	margin-top:40px;
+}*/
+.series .series-description h3 {
+	margin-top:0;
 }
-.series .series-description ul {
+.series .facts ul {
 	margin-top:10px;
 }
-.series .series-description .socialnetworks li {
+.series .facts .socialnetworks li {
 	display:inline;
 }
-.series .series-description .socialnetworks a {
+.series .facts .socialnetworks a {   ??? 
 	display:inline-block;
     height: 30px;
     outline: 0 none;
@@ -1399,7 +1439,7 @@ figure.pin img, .programm .schedule img {
 }
 
 /* Überschriften für Barrierefreundlichkeit */
-.collapseShare .socialnetworks a span, .series .series-description .socialnetworks a span, #collapseShare h3 {
+.collapseShare .socialnetworks a span, .series .facts .socialnetworks a span, #collapseShare h3 {
     margin-left: -9990px;
 }
 .collapseShare h3 {
@@ -1669,13 +1709,13 @@ figure.pin img, .programm .schedule img {
 		left:50%;
         margin-left:-375px;
 	}*/
-	.series .series-description article, .series .series-description aside {
+	/*.series .series-description article, .series .series-description aside {
 	    display:table-cell;
 		vertical-align:top;
     }
 	.series .series-description aside {
         width:250px;
-    }
+    }*/
 	.fs-image-ident {
 		overflow:hidden;
 	}

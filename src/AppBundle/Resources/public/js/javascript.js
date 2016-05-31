@@ -1,14 +1,4 @@
 // JavaScript Document
-    (function() {
-        var path = '//easy.myfonts.net/v2/js?sid=10257(font-family=Helvetica+Neue+35+Thin)&sid=10259(font-family=Helvetica+Neue+55+Roman)&sid=10263(font-family=Helvetica+Neue+45+Light)&sid=10265(font-family=Helvetica+Neue+65+Medium)&key=V9xLuNW3q2',
-            protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
-            trial = document.createElement('script');
-        trial.type = 'text/javascript';
-        trial.async = true;
-        trial.src = protocol + path;
-        var head = document.getElementsByTagName("head")[0];
-        head.appendChild(trial);
-    })();
 $(document).ready(function(){
 	
 	/* Headerbackground */

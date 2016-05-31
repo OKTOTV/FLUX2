@@ -19,6 +19,9 @@
 			    <div class="content-opacity">
 					<h1>{{ series.name }}</h1>
 					<p class="description">{{ series.description }}</p>
+					<p class="misc">
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button>
+                    </p>
 				</div>
 			</figcaption>
 		</div>
@@ -27,21 +30,14 @@
 		<!-- Start Serienbeschreibung -->
 		<header><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
 		<article>
+		    <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
+                <img src="{{ series.episodes[0].posterframe|path() }}" />
+            </figure>
+			<div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		    <h3>{{ series.episodes[0].name }}</h3>
 		    <p class="description">{{ series.episodes[0].description }}</p>
-			<ul>
-			    <li><strong>Produzent:</strong> Osama Saadalah</li>
-				<li><strong>Ressigeur:</strong> Osama Saadalah</li>
-				<li><strong>Kontakt:</strong> ossa@gmx.at</li>
-		    </ul>
-		    <div class="socialnetworks">
-                <ul>
-                    <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
-                    <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                </ul>
-             </div>
-			<p class="misc">
-                <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button>
-            </p>
+			
+			
 			<!-- Start Collapse Share-->
 			<div class="collapse collapseShare" id="collapseShareArea">
                 <div>
@@ -66,13 +62,25 @@
                     </div>
                 </div>
 				<!-- End Collapse Share-->
-				    </article>
-				    <aside>
-				        <figure class="series-posterframe">
-                            <img src="{{ series.episodes[0].posterframe|path() }}" />
-                        </figure>
-				    </aside>
+				    
+				</div>
+		    </article>
 		<!-- Ende Serienbeschreibung -->
+	</section>
+	<section class="container">
+	    <div class="facts">
+		    <ul class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+			    <li><strong>Produzent:</strong> Osama Saadalah</li>
+				<li><strong>Ressigeur:</strong> Osama Saadalah</li>
+				<li><strong>Kontakt:</strong> ossa@gmx.at</li>
+		    </ul>
+		    <div class="socialnetworks col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <ul>
+                    <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                    <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                </ul>
+             </div>
+	    </div>
 	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
     {# TODO: hide posting form if user not in voter #}
