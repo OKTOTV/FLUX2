@@ -24,7 +24,7 @@
         	<li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank"><span class="icon icon-upload"></span> HOCHLADEN</a></li>
 			{% if is_granted('ROLE_OKTOLAB_USER') or is_granted('ROLE_OKTOLAB_PRODUCER') %}
 				<li {% if dropdown == "user_menu" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ app.user.username }}</a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon icon-login"></span> {{ app.user.username }}</a>
 					<ul class="dropdown-menu" role="menu">
 						<li {% if selected == "playlists" %}class="active"{% endif %}>
 							<a href="{{ path('user_playlists') }}">{{ 'oktothek.menu_user_playlists'|trans|raw }}</a>

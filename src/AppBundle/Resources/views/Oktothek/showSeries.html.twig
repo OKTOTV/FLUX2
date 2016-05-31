@@ -10,25 +10,24 @@
     <section class="series-content fs-image-content">
         <div class="series-ident fs-image-ident">
             <figure class="episode-posterframe fs-image">
-                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><div style="background-image:url({{ series.episodes[0].posterframe|path() }});"></div></a>
+                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><div style="background-image:url({{ series.posterframe|path() }});"></div></a>
             </figure>
-			<div class="current-episode container description-wrapper">
+			<figcaption class="current-episode container description-wrapper">
 			    <div class="container-bg-opacity">
 			        <div class="bg-opacity"></div>
 				</div>
 			    <div class="content-opacity">
-					<h2>{{ series.name }}</h2>
-					<h3>aktuelle Folge</h3>
-					<p class="description">{{ series.episodes[0].description }}</p>
+					<h1>{{ series.name }}</h1>
+					<p class="description">{{ series.description }}</p>
 				</div>
-			</div>
+			</figcaption>
 		</div>
     </section>
 	<section class="container series-description">
 		<!-- Start Serienbeschreibung -->
-		<header><h1 id="button_down">Details zu {{ series.name }} <span class="glyphicon glyphicon-chevron-down"> </span></h1></header>
+		<header><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
 		<article>
-		    <p class="description">{{ series.description }}</p>
+		    <p class="description">{{ series.episodes[0].description }}</p>
 			<ul>
 			    <li><strong>Produzent:</strong> Osama Saadalah</li>
 				<li><strong>Ressigeur:</strong> Osama Saadalah</li>
@@ -47,13 +46,9 @@
 			<div class="collapse collapseShare" id="collapseShareArea">
                 <div>
                     <h3>Teilen</h3>
-					<div>
-						    <div class="btn-group sharingnav">
-						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button>
-					        </div>
-						</div>
 						<div class="tab-content">
 						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+							
 						        <div>
 						        <ul class="socialnetworks">
                                     <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
@@ -74,7 +69,7 @@
 				    </article>
 				    <aside>
 				        <figure class="series-posterframe">
-                            <img src="{{ series.posterframe|path() }}" />
+                            <img src="{{ series.episodes[0].posterframe|path() }}" />
                         </figure>
 				    </aside>
 		<!-- Ende Serienbeschreibung -->
