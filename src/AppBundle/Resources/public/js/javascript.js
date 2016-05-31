@@ -248,6 +248,14 @@ $(document).ready(function(){
 			closeCoursePreview(openEl, null);//schließt alle offenen Kursdetails
 		});
 	}
+	
+	if ($('section').hasClass('comments')) {
+		$('.comments button').css('display','none');
+		$('textarea').focus(function() {
+			console.log('geklickt');
+			el = $(this).parents('fieldset').find('button').css('display', 'block');
+		});
+	}
 
 
 });

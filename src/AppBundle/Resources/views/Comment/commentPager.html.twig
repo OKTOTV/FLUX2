@@ -5,25 +5,21 @@
         {{ knp_pagination_render(comments) }}
     </div>
     {% for comment in comments %}
-    <div class="col-md-11">
+    <div class="col-md-11 comment">
         <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': comment.user.username, '%date%': comment.createdAt|date('d.m.Y H:i')})|raw }}</div>
             <div class="comment-text">
                 <p>{{ comment.text|nl2br }}</p>
             </div>
             <!-- Antwort Container -->
             <div class="comment-answer">
-                <a class="answer" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}">{{ 'oktothek.comment_reply'|trans({'%count%': comment.children|length}) }}</a>
+                <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}">{{ 'oktothek.comment_reply'|trans({'%count%': comment.children|length}) }}</a>
                 <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
-                    <div class="row comment-form">
-                        <div class="col-md-11">
-                            {{ render(controller('AppBundle:Comment:answerComment', {'comment': comment.Id}))}}
-                        </div>
-                    </div>
+                    
                     <!-- Antwort -->
                     {% for answer in comment.children %}
                     <div class="row">
                         <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
-                        <div class="col-md-11">
+                        <div class="col-md-11 answer">
                             <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': answer.user.username, '%date%': answer.createdAt|date('d.m.Y H:i')})|raw }}</div>
                             <div class="comment-text">
                                 <p>{{ answer.text|nl2br }}</p>
@@ -32,6 +28,11 @@
                     </div>
                     {% endfor %}
                     <!-- Ende Antwort -->
+					<div class="row comment-form">
+                        <div class="col-md-11">
+                            {{ render(controller('AppBundle:Comment:answerComment', {'comment': comment.Id}))}}
+                        </div>
+                    </div>
                 </div>
                 <!-- Ende Antwort Container -->
             </div>
