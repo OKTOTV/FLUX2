@@ -19,6 +19,7 @@
 			    <div class="content-opacity">
 					<h1>{{ series.name }}</h1>
 					<p class="description">{{ series.description }}</p>
+					<p>Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
 					<p class="misc">
                 <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button>
                     </p>
@@ -67,28 +68,25 @@
 		    </article>
 		<!-- Ende Serienbeschreibung -->
 	</section>
-	<section class="container">
-	    <div class="facts">
-		    <ul class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-			    <li><strong>Produzent:</strong> Osama Saadalah</li>
-				<li><strong>Ressigeur:</strong> Osama Saadalah</li>
-				<li><strong>Kontakt:</strong> ossa@gmx.at</li>
-		    </ul>
-		    <div class="socialnetworks col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <ul>
-                    <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
-                    <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                </ul>
-             </div>
-	    </div>
-	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
     {# TODO: hide posting form if user not in voter #}
     <section class="blog">
 	    <div id="anchor_blog"></div>
 	    <div class="container">
-	        <h2>Blog</h2>
             {% include 'AppBundle::Default/Series/blog.html.twig' with {'posts': series.posts, 'uniqID': series.uniqID } %}
+	    </div>
+	</section>
+	<section class="container">
+	    <div class="infos">
+		    <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
+			
+		    <div class="socialnetworks">
+			    <p class="contact"><strong>Kontakt:</strong> ossa@gmx.at</p>
+                <ul>
+                    <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                    <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                </ul>
+             </div>
 	    </div>
 	</section>
     {% if series.playlists is not empty %}

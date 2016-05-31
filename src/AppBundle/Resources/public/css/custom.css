@@ -52,7 +52,7 @@ body, h1, .carousel-caption h3, h2, header .navbar .nav.navbar-right > li > a, .
 	font-weight: normal;
 	font-style: normal;
 }
-header .navbar .nav > li > a, #dropdownMenuTags, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .comments h2, .comments .comment-answer, #episode-tag {
+header .navbar .nav > li > a, #dropdownMenuTags, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .comments h2, .comments .comment-answer, #episode-tag, .infos h3, .blog aside p a {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -87,7 +87,7 @@ header .form-control:-ms-input-placeholder {
 header .form-control::-webkit-input-placeholder {
         font-size:16px;
 }
-header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3, .news h3, .like-it .glyphicon, .comments h2, .carousel-caption .type, #episode-tag option {
+header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3, .news h3, .like-it .glyphicon, .comments h2, .carousel-caption .type, #episode-tag option, .blog aside p a {
 	font-size:14px;
 	letter-spacing:0.25px;
 }
@@ -100,7 +100,7 @@ header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-t
 .form-control::-webkit-input-placeholder, .like-it {
         font-size:14px;
 }
-.programm p.current-episode, header .nav, .pin figcaption p, .btn, .pin .like-it .glyphicon, .news .tag, .footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .collapseShare .helptext, .comments .author, .comments .comment-answer, #episode-tag {
+.programm p.current-episode, header .nav, .pin figcaption p, .btn, .pin .like-it .glyphicon, .news .tag, .footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .collapseShare .helptext, .comments .author, .comments .comment-answer, #episode-tag, .infos h3, .blog time {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -111,7 +111,7 @@ header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-t
 .pin .like-it {
 	font-size:10px;
 }
-.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption {
+.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3 {
 	text-transform:uppercase;
 }
 
@@ -422,7 +422,7 @@ header .icon.icon-login {
 
 
 /****************************  Color, Effects Content ****************************/
-body, .btn-default, .episode .misc a, a:hover, select.form-control, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, a .pin figcaption h3, a .like-it, .oktothek .participart-list a, .btn.like-it, #episode-tag option  {
+body, .btn-default, .episode .misc a, a:hover, select.form-control, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, a .pin figcaption h3, a .like-it, .oktothek .participart-list a, .btn.like-it, #episode-tag option, .blog aside p a  {
 	color:#ffffff;
 }
 .form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default {
@@ -434,7 +434,7 @@ a, a.more  {
 .pin figcaption p a, .news p, .comments .author {
 	color:#dcdcdc;
 }
-.news a.tag, .comments .comment-answer a {
+.news a.tag, .comments .comment-answer a, .blog time {
 	color:#c0fefd;
 }
 /* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -454,7 +454,7 @@ a, a.more  {
 body, .list-group-item, .bg-opacity, select, .oktothek article a.btn-default:hover, .tagpage section.container, .preloader {
 	background-color:#000000;
 }
-.table-striped > tbody > tr:nth-of-type(2n+1), .blog, .tagpage .container-fluid header input.form-control, .newsarchiv aside .box, .programm .schedule header.page-header {
+.table-striped > tbody > tr:nth-of-type(2n+1), .tagpage .container-fluid header input.form-control, .newsarchiv aside .box, .programm .schedule header.page-header {
 	background-color:#757575;
 }
 button .btn-default.active, .oktothek article a.btn-default, .collapseShare .btn-default {
@@ -547,44 +547,44 @@ section, .participart article  {
 	background-position:center center;
 	background-image:url(../images/icon_views.png);
 }
-.footer .socialnetworks li a, .collapseShare .socialnetworks li a, .newsarchiv aside .socialnetworks li a, .series .facts li a {
+.footer .socialnetworks li a, .collapseShare .socialnetworks li a, .newsarchiv aside .socialnetworks li a, .series .infos li a {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
 .newsarchiv aside .icon-facebook {
 	background-image:url(../images/icon_facebook.png);
 }
-.footer .icon-facebook, .collapseShare .icon-facebook, .series .facts .icon-facebook {
+.footer .icon-facebook, .collapseShare .icon-facebook, .series .infos .icon-facebook {
 	background-image:url(../images/icon_facebook.svg);
 }
 .newsarchiv aside .icon-twitter {
 	background-image:url(../images/icon_twitter.png);
 }
-.footer .icon-twitter, .collapseShare .icon-twitter, .series .facts .icon-twitter {
+.footer .icon-twitter, .collapseShare .icon-twitter, .series .infos .icon-twitter {
 	background-image:url(../images/icon_twitter.svg);
 }
 .newsarchiv aside .icon-googleplus {
 	background-image:url(../images/icon_googleplus.png);
 }
-.footer .icon-googleplus, .collapseShare .icon-googleplus, .series .facts .icon-googleplus {
+.footer .icon-googleplus, .collapseShare .icon-googleplus, .series .infos .icon-googleplus {
 	background-image:url(../images/icon_googleplus.svg);
 }
 .newsarchiv aside .icon-instagramm {
 	background-image:url(../images/icon_instagramm.png);
 }
-.footer .icon-instagramm, .collapseShare .icon-instagramm, .series .facts .icon-instagramm {
+.footer .icon-instagramm, .collapseShare .icon-instagramm, .series .infos .icon-instagramm {
 	background-image:url(../images/icon_instagramm.svg);
 }
 .newsarchiv aside .icon-pinterest {
 	background-image:url(../images/icon_pinterest.png);
 }
-.collapseShare .icon-pinterest, .series .facts .icon-pinterest {
+.collapseShare .icon-pinterest, .series .infos .icon-pinterest {
 	background-image:url(../images/icon_pinterest.svg);
 }
 .newsarchiv aside .icon-youtube {
 	background-image:url(../images/icon_youtube.png);
 }
-.footer .icon-youtube, .collapseShare .icon-youtube, .series .facts .icon-youtube {
+.footer .icon-youtube, .collapseShare .icon-youtube, .series .infos .icon-youtube {
 	background-image:url(../images/icon_youtube.svg);
 }
 .pin .like-it {
@@ -632,7 +632,7 @@ section:last-child, section.fs-image-content {
 .more-clips select {
 	width:auto;
 }
-.footer .socialnetworks a, .collapseShare .socialnetworks li a, .series .facts .socialnetworks li a {
+.footer .socialnetworks a, .collapseShare .socialnetworks li a, .series .infos .socialnetworks li a {
 	-webkit-border-radius:20px;
 	-moz-border-radius:20px;
 	border-radius:20px;
@@ -750,10 +750,10 @@ body {
 html, body {
 	height:100%;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .facts ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list li {
+.collapsePlaylist ul, .collapsePlaylist li, .series .infos ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list li {
 	list-style:none;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .facts ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list {
+.collapsePlaylist ul, .collapsePlaylist li, .series .infos ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list {
 	margin-left:0;
 	padding-left:0;
 }
@@ -774,7 +774,7 @@ h2 {
 	margin-bottom:50px;
 	margin-top:10px;
 }
-.footer .socialnetworks a, .collapseShare .socialnetworks li a, .series .facts .socialnetworks li a  {
+.footer .socialnetworks a, .collapseShare .socialnetworks li a, .series .infos .socialnetworks li a  {
 	display:inline-block;
 	text-align:left;
 	height:40px;
@@ -789,7 +789,7 @@ h2 {
 	margin-bottom:4px;
 }
 figcaption .description {
-	margin-bottom:20px;
+	margin-bottom:15px;
 }
 .newsarchiv aside .box h3:first-child {
 	padding-top:0;
@@ -1096,8 +1096,8 @@ header + .container-fluid {
 }
 .carousel-caption, .fs-image-ident .description-wrapper {
 	bottom:100px;
-	width:600px;
-	margin: 0 0 0 -300px;;
+	width:650px;
+	margin: 0 0 0 -325px;;
 	text-align:left;
 	padding-bottom:0;
 	left:50%;
@@ -1394,6 +1394,7 @@ figure.pin img, .programm .schedule img {
 }
 .content-opacity {
 	padding:15px;
+	margin-right:15px;
 	z-index:1;
 }
 /*.series .series-description article, .series .series-description aside {
@@ -1410,18 +1411,33 @@ figure.pin img, .programm .schedule img {
 .series .series-description h3 {
 	margin-top:0;
 }
-.series .facts ul {
+.series .infos {
+	text-align:center;
+}
+.series .infos h3 {
+	margin-top:0;
+}
+.series .contact {
+	margin-top:20px;
+}
+.series .infos ul {
 	margin-top:10px;
 }
-.series .facts .socialnetworks li {
+.series .infos .socialnetworks, .series .infos .socialnetworks ul {
 	display:inline;
 }
-.series .facts .socialnetworks a {   ??? 
+.series .infos .socialnetworks li {
+	display:inline;
+}
+.series .infos .socialnetworks a {   ??? 
 	display:inline-block;
     height: 30px;
     outline: 0 none;
     text-align: left;
     width: 30px;
+}
+.series figcaption .misc {
+	margin-top:15px;
 }
 .play-episode {
 /*	top:50%;
@@ -1439,7 +1455,7 @@ figure.pin img, .programm .schedule img {
 }
 
 /* Überschriften für Barrierefreundlichkeit */
-.collapseShare .socialnetworks a span, .series .facts .socialnetworks a span, #collapseShare h3 {
+.collapseShare .socialnetworks a span, .series .infos .socialnetworks a span, #collapseShare h3 {
     margin-left: -9990px;
 }
 .collapseShare h3 {
