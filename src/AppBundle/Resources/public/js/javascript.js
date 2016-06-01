@@ -1,11 +1,12 @@
 // JavaScript Document
 $(document).ready(function(){
+	
 	/* Headerbackground */
 	var headerScrollheight = $(window).height()/2;
 	var headerHeight = 180;
 
 	function addHeaderBG() {
-	  if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
+	 // if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
 	      if($(document).scrollTop() <= headerScrollheight) {
 			  //Header transparent setzen und Schlagschatten entfernen
 	          $('body').addClass('head-white-color')
@@ -28,13 +29,13 @@ $(document).ready(function(){
 			  //Downbutton ausblenden
 			  $('.fullscreen-images #button_down span').css('display','none');
 		   }
-	    } else {
+	     /*}else {
 			if($(document).scrollTop() <= headerScrollheight) {
 				$('.navbar-fixed-top').removeClass('dropshadow');
 		    } else if ($(document).scrollTop() > headerScrollheight) {
 				$('.navbar-fixed-top').addClass('dropshadow');
 			}
-		}
+		}*/
 	 }
 
 	 addHeaderBG();
@@ -43,8 +44,8 @@ $(document).ready(function(){
 	     addHeaderBG();
 	 });
 
-	 
-	
+
+
 
 	//Anchor Oktothek und Serie:
 	$('#button_down').click(function() {
@@ -60,7 +61,7 @@ $(document).ready(function(){
 	});
 
 	//Sharing Tabs:
-	
+
 	$('#ButtonShare').click(function() {
 	    $('article .collapse').collapse('hide');
 		$('#collapseShareArea .collapse').collapse();
@@ -69,7 +70,7 @@ $(document).ready(function(){
 	    $('article .collapse').collapse('hide');
 		$('#collapsePlaylistArea .collapse').collapse();
 	});
-	 
+
 	$('#collapseShareArea .sharingnav button').click(function (e) {
         //e.preventDefault();
 		$('#collapseShareArea .tab-content div').removeClass('active');
@@ -98,9 +99,9 @@ $(document).ready(function(){
 	        $('[data-toggle="tooltip"]').tooltip({'placement': 'auto right'});
 	    }
 
-	
+
 	if ($( window ).width() >= 768) {
-		
+
 		/*Ankermenü*/
 	    var Ts_offset = 250;
         var Ts_duration = 300;
@@ -109,27 +110,27 @@ $(document).ready(function(){
 		if (!$('body').hasClass('fullscreen-images')) {
 		    $('#anchor-menu').fadeIn(Ts_duration);
 		}
-		
+
 		if ($('#anchor-menu').length > 0) {
-			
+
 			var VarCollapseFinish;
             $(window).scroll(function() {
 				//Abfrage ob Slider bzw. Fullscreenbild vorhanden oder nicht (unterschiedliche Ausgangshöhen)
-			    if ($('body').hasClass('fullscreen-images')) 
+			    if ($('body').hasClass('fullscreen-images'))
 				    TsStart = Ts_offset;
-				else 
+				else
 				    TsStart = 0;
 				TsEnd = $(this).scrollTop()+$('footer').height();
-				
+
                 if ($(this).scrollTop() >= TsStart && TsEnd < Footer_offset.top)
                     $('#anchor-menu').fadeIn(Ts_duration, function() {$(this).css('display','block')});
-				else 
+				else
 				    $('#anchor-menu').fadeOut(Ts_duration, function() {$(this).css('display','none')});
-               
+
 			    //Top Button anzeigen
 		 	    $('#anchor-menu .collapse').collapse('hide'); //Ankermenü einklappen bei Scrollen
             });
-            
+
 			function hideAnchorlist() {
 			    if (!$('#AnchorList').hasClass('in')) {
 					$( "#anchor-menu" ).animate({
@@ -138,7 +139,7 @@ $(document).ready(function(){
 					clearInterval(VarCollapseFinish);
 				}
 			}
-			
+
             $('#anchor-menu .list-group-item a').click(function(event) {
                 event.preventDefault();
 			    var target = $(this).attr('href');
@@ -166,21 +167,85 @@ $(document).ready(function(){
         })
 		$('#anchor-menu .collapse').collapse(); //Ankermenü Collapse aktivieren
     }
-	
-	//TV
-	$('.schedule .collapse').collapse(); //Ankermenü Collapse aktivieren
-	
+
 	//Academy
+	
 	if ($('body').hasClass('academy')) {
-	$('figure.pin img').parent().click(function() {
-		for (k=0; k<$('.collapseCoursedetails').length; k++) {
-			if ($(this).attr('href') != $('.collapseCoursedetails').eq(k).attr('id')) {
-	            $('.collapseCoursedetails').eq(k).collapse('hide');
+		
+		var cur_Id = null;
+		
+		function closeCoursePreview(openEl, targetEl) {//schließt alle offenen Kursdetails
+			if (openEl.length > 0) {
+				for (z=0; z<openEl.length; z++) {
+					targetEl_hide_Id = $(openEl[z]).attr('id');
+					targetButtonEl = $( "button[data-target='#" + targetEl_hide_Id + "']" ).parents('article.pin');
+					
+					if (targetEl != null) 
+					    if(targetEl == "#" + targetEl_hide_Id) 
+						    cur_Id = targetEl; 
+					
+					$(openEl[z]).slideUp('fast','linear',function(){
+						$('section article.pin').removeAttr('style');
+						$(openEl[z]).removeClass('in');
+						$("#" + targetEl_hide_Id).appendTo($(targetButtonEl));
+					});
+				}
 			}
 		}
-		$('#collapseShareArea .collapse').collapse();
-	});
+		
+	    $('figure.pin .preview-button button').click(function() {
+			
+			var cur_section = $(this).parents('section');
+			var targetEl = $(this).attr('data-target');
+		
+		    var openEl = $(cur_section).find('div.in');
+			
+			closeCoursePreview(openEl, targetEl); //schließt alle offenen Kursdetails
+			
+		    if (cur_Id == null) { //öffnet neues Kursdetails, wenn es nicht soeben geöffnet war
+				var Pins = $(cur_section).find('article.pin');
+			    var indexPin = ($(Pins).index($(this).parents('article.pin')));
+				var winwidth = $( window ).width();
+				
+				if (winwidth < 580) { //legt fest nach wieviel Bildern die neue Reihe beginnt.
+					var divisor = 1;
+				} else if (winwidth < 992) {
+					var divisor = 2;
+				} else {
+					var divisor = 4;
+				}
+				var rowPosition = (Math.floor(indexPin/divisor) + 1)*divisor - 1;
+				if (rowPosition > Pins.length-1) rowPosition = Pins.length-1;
+				
+		        $(Pins).eq(rowPosition).after($(targetEl));
+				$(targetEl).slideDown('fast','linear',function(){$(targetEl).addClass('in');});
+				
+				if (winwidth >= 580 && winwidth <= 992) {
+
+					for (j=rowPosition+1; j<$(Pins).length; j++) {
+						$(Pins).eq(j).css('clear','none').css('float','left');
+					}
+					
+				}
+		
+		    }
+			cur_Id = null;
+			
+	    });
+		$( window ).resize(function() {
+  			var winwidth = $( window ).width();
+			var openEl = $('section div.in');
+			closeCoursePreview(openEl, null);//schließt alle offenen Kursdetails
+		});
 	}
 	
-	
+	if ($('section').hasClass('comments')) {
+		$('.comments button').css('display','none');
+		$('textarea').focus(function() {
+			console.log('geklickt');
+			el = $(this).parents('fieldset').find('button').css('display', 'block');
+		});
+	}
+
+
 });

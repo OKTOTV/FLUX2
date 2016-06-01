@@ -67,9 +67,16 @@ oktothek.post_delete_button:            <span class="glyphicon glyphicon-trash">
 oktothek.create_new_post_button:        Neuen Beitrag anlegen
 oktothek.post_show_more:                Mehr dazu anzeigen
 
+oktothek.success_create_post:           Post erfolgreich angelegt
+ oktothek.success_delete_post  :           Post erfolgreich gelöscht
+
 ## page
+### index page
+oktothek.backend_page_header:           Seiten
+
 ### new page
 oktothek.page_create_header:            Neue Seite anlegen
+oktothek.page_create_back_to_index:     Zurück zur übersicht
 oktothek.page_title_label:              Pageheader
 oktothek.page_text_label:               Seiteninhalt
 oktothek.page_isActive_label:           Seite Aktiv
@@ -83,6 +90,10 @@ oktothek.page_edit_button:              <span class="glyphicon glyphicon-edit"><
 oktothek.page_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern
 oktothek.page_delete_button:            <span class="glyphicon glyphicon-trash"></span> Seite löschen
 
+### edit page
+oktothek.success_edit_page:             Seite erfolgreich aktualisiert
+oktothek.page_edit_header:              Seite bearbeiten
+
 ## playlist
 ### index
 oktothek.playlist_index_header:         Playlisten
@@ -94,6 +105,14 @@ oktothek.playlist_index_filter_updatedAt: Letzte Aktualisierung
 oktothek.playlist_index_new_playlist:   <span class="glyphicon glyphicon-plus"></span> Playlist anlegen
 oktothek.playlist_show:                 Playlist %playlist%
 
+### edit
+oktothek.playlist_edit_header:          Wiedergabeliste bearbeiten
+oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Wiedergabeliste löschen
+oktothek.playlist_update_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
+oktothek.playlist_name_label:           Titel
+oktothek.playlist_description_label:    Beschreibung
+oktothek.error_edit_playlist:           Wiedergabeliste konnte nicht gespeichert werden
+oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
 
 ## episode
 oktothek.episode_show_playlist_header:  Playlisten
@@ -119,6 +138,7 @@ oktothek_tag_pages_header:              Seiten
 oktothek_tag_header:                    "# %title%"
 oktothek_tag_episode_header:            Episoden
 oktothek_tag_placeholder:               Katzen, YOLO and more
+oktothek.tag_new_button:                <span class="glyphicon glyphicon-plus"></span> Neuen Tag anlegen
 ## academy
 oktothek_academy_header:                Akademie
 oktothek_academy_misc_info:             %price%€ / %price_reduced%€
@@ -366,3 +386,8 @@ oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plu
 ## edit
 oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edit"></span> Beitrag bearbeiten
 oktothek_backend_slide_from_news:           Slide generieren
+
+# default (oktothek)
+oktothek_default_login_teaser:              Melde Dich an um eine neue Playlist zu erstellen!
+oktothek_default_login_teaser_link:         ANMELDEN
+oktothek_default_newest_playlists_text:     Hier ist der heiße Scheiß!

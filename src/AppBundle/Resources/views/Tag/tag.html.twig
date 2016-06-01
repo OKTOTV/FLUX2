@@ -9,7 +9,9 @@
 {% block body %}
     <style type="text/css">
 	    .bg-bleur {
+            {% if background_episode is not empty %}
 	        background-image:url( {{ background_episode.posterframe|path() }});
+            {% endif %}
         }
 	</style>
 	<div id="top"></div>

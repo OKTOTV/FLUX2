@@ -133,6 +133,10 @@ oktolab_media:
             video_height: 360
             container: mp4
             public: false
+    player_url: "%player_url%"
+    origin:
+        margin: 30
+        position: "bottom-right"
 
 jms_serializer:
     metadata:

@@ -121,7 +121,9 @@ class TagController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $episode = $em->getRepository('AppBundle:Tag')->findEpisodesWithTag($slug, 1);
-
+        if (!$episode) {
+            return ['tag' => $slug, 'background_episode' => $episode];
+        }
         return ['tag' => $slug, 'background_episode' => $episode[0]];
     }
 

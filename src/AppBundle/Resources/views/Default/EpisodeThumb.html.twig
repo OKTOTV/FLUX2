@@ -1,12 +1,11 @@
-<article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" data-toggle="tooltip" data-placement="right" title="{{ episode.description }}">
-    <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">
-        <figure class="episode-pin pin">
-            <img src="{{ episode.posterframe|thumb(135,240) }}" class="img-responsive"/>
-			<figcaption>
-                <h3>{{ episode.series.name|default('') }}</h3>
-                <p>{{ episode.name }}</p>
-                <p><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</p>
+<article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ episode.description }}">
+    <figure class="episode-pin pin">
+        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen"><img src="{{ episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
+		<div class="like-it"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
+		<figcaption>
+            <h3><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">{{ episode.series.name|default('') }}</a></h3>
+            <p><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">{{ episode.name }}</a></p>
 			</figcaption>
         </figure>
-    </a>
+    
 </article>

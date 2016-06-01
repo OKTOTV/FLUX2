@@ -35,7 +35,7 @@
                     {% if app.user is empty %}
 
                     {% else %}
-                        <button type="button" class="btn btn-default" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-favorites="{{ episode.users|length }}" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart{% else %}glyphicon-heart-empty{% endif %}"></span> {{ episode.users|length}}</button>
+                        <button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-favorites="{{ episode.users|length }}" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> {{ episode.users|length}}</button>
                         {% set in_abo = false %}
                         {% for abonnement in app.user.abonnements if abonnement.series.uniqID == episode.series.uniqID %}
                             {% set in_abo = true %}
@@ -45,7 +45,7 @@
                         {% else %}
                             <button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
                         {% endif %}
-                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Zur Playlist hinzufügen</button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen">Hinzufügen</button>
                     {% endif %}
                     <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button>
                 </p>
@@ -82,17 +82,7 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
-    {% if episode.video is not empty %}
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var playerInstance = jwplayer("player");
-                playerInstance.setup({
-                    playlist: "{{ url('oktothek_show_episode', {'uniqID': episode.uniqID, '_format': 'json'})}}"
-                });
-            });
-        </script>
-    {% endif %}
+    {{ player(episode)|raw }}
     <script type="text/javascript">
         $(document).ready(function(){
             // add/remove from favorites

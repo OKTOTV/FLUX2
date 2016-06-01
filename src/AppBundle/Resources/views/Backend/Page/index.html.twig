@@ -1,0 +1,27 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="{{ path('oktothek_backend_slide_index')}}">{{ 'oktothek.backend_slider_header'|trans}}</a></li>
+  <li role="presentation"><a href="{{ path('oktothek_backend_news_index')}}">{{ 'oktothek.backend_news_header'|trans }}</a></li>
+  <li role="presentation" class="active"><a href="{{ path('oktothek_backend_page_index') }}">{{ 'oktothek.backend_page_header'|trans }}</a></li>
+</ul>
+<div class="page-header">
+    <h1>{{ 'oktothek.backend_page_header'|trans }}</h1>
+    <a href="{{ path('oktothek_page_new') }}" class="btn btn-default">{{ 'oktothek.page_create_new_button'|trans|raw }}</a>
+</div>
+
+<div class="list-group">
+    <div class="navigation">
+        {{ knp_pagination_render(pages) }}
+    </div>
+    {% for page in pages %}
+        <a href="{{ path('oktothek_page_edit', {'page': page.id})}}" class="list-group-item">{{ page.title }}</a>
+    {% endfor %}
+</div>
+
+{% endblock %}

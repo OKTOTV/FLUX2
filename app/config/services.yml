@@ -5,6 +5,7 @@ parameters:
     livestream_template:    "Mail/livestream.html.twig"
     new_post_template:      "Mail/new_post.html.twig"
     new_episode_template:   "Mail/new_episode.html.twig"
+    program_url:            'http://localhost/DELORIAN/web/app.php/de/delorian/public_api/program/%%s/%%s'
 
 services:
     oktothek_post_service:
@@ -46,6 +47,10 @@ services:
     oktothek_coursepackage:
         class: AppBundle\Model\CoursepackageService
         arguments: [ @form.factory, @oktothek_academy ]
+
+    oktothek_tv:
+        class: AppBundle\Model\TvService
+        arguments: [ %program_url% ]
 
     # Asset repository
     oktothek_tag.repository:

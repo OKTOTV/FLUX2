@@ -1,0 +1,33 @@
+<div class="container programm">
+<header class="page-header">
+  <nav class="navbar navbar-default" id="nav-programm">
+    <div class="row">
+        <div class="nav navbar-nav">
+            <a class="btn btn-default loadme" id="yesterday" href="{{ path('oktothek_tv_program_for_date', {'date': date|date_modify('-1 day')|date('d-m-Y')}) }}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        </div>
+        <div class="nav navbar-nav">
+            <h1><time datetime="{{ date|date('d.m.Y H:i') }}">{{ date|date('d.m.Y') }}</time><a href="{{ url('oktothek_tv_program_for_date') }}" class="btn btn-default today loadme">Heute</a></h1>
+        </div>
+        <div class="nav navbar-nav">
+            <a class="btn btn-default loadme" id="tomorrow" href="{{ url('oktothek_tv_program_for_date', {'date': date|date_modify('+1 day')|date('d-m-Y')}) }}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+  </nav>
+</header>
+<section class="schedule">
+    <ul class="panel-group" id="schedule-content-evening" role="tablist" aria-multiselectable="true">
+        {% for show in shows %}
+              <li class="panel panel-default row">
+                  <div class="panel-heading" role="tab" id="item{{ loop.index0 }}">
+                      <h4><a role="button" data-toggle="collapse" data-parent="#schedule-content-evening" href="#collapse{{ loop.index0 }}" aria-expanded="true" aria-controls"collapse{{ loop.index0 }}">
+                      <time datetime="{{ show.airdate|date('Y-m-d H:i') }}">{{ show.airdate|date('H:i') }}</time><span>{{ show.series_name }}</span></a></h4>
+                  </div>
+                  <div id="collapse{{ loop.index0 }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="item4">
+                      <div class="description">{{ show.description }}</div>
+                      <div class="posterframe"><img scr="#" alt=""></div>
+                  </div>
+              </li>
+        {% endfor %}
+    </ul>
+</section>
+</div>

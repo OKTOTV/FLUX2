@@ -1,0 +1,60 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ name|default('OKTO')~' | '~ 'oktothek_tv_title'|trans }}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'tv', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "head-white-color livestream" %}
+{% block body_main %}
+    <div id="top"></div>
+    <div id="player">
+    </div>
+    <section id="current_show">
+        <header>
+          <p class="current-episode">Derzeit auf Okto</p>
+          <h2 class="name">{{ current.name|default(current.series_name)}}</h1>
+          <p class="description">{{ current.description }}</p>
+        </header>
+    </section>
+
+    {{ render(controller('AppBundle:TV:program')) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var playerInstance = jwplayer("player");
+            playerInstance.setup({
+                file: "http://d2jk87psbjrjdz.cloudfront.net/livehttporigin/okto/playlist.m3u8",
+                image: "{{ asset('bundles/app/images/placeholder/LOGO'~random(6)~'.png') }}"
+            });
+        });
+
+        setInterval("updateCurrent()", 10000);
+        function updateCurrent() {
+            $.ajax({
+                url: "{{ path('oktothek_tv_current_show') }}",
+                success: function(data) {
+                    $('#current_show').replaceWith(data);
+                }
+            });
+        }
+
+        function updateProgram(url) {
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    $('.programm').replaceWith(data);
+                }
+            });
+        }
+
+        $(document).on('click', '.loadme', function(e) {
+            e.preventDefault();
+            updateProgram($(this).attr('href'));
+        })
+    </script>
+{% endblock %}

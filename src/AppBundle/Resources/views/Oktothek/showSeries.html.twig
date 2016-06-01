@@ -10,50 +10,42 @@
     <section class="series-content fs-image-content">
         <div class="series-ident fs-image-ident">
             <figure class="episode-posterframe fs-image">
-                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><div style="background-image:url({{ series.episodes[0].posterframe|path() }});"></div></a>
+                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><div style="background-image:url({{ series.posterframe|path() }});"></div></a>
             </figure>
-			<div class="current-episode container description-wrapper">
+			<figcaption class="current-episode container description-wrapper">
 			    <div class="container-bg-opacity">
 			        <div class="bg-opacity"></div>
 				</div>
 			    <div class="content-opacity">
-					<h2>{{ series.name }}</h2>
-					<h3>aktuelle Folge</h3>
-					<p class="description">{{ series.episodes[0].description }}</p>
+					<h1>{{ series.name }}</h1>
+					<p class="description">{{ series.description }}</p>
+					<p>Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
+					<p class="misc">
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button>
+                    </p>
 				</div>
-			</div>
+			</figcaption>
 		</div>
     </section>
 	<section class="container series-description">
 		<!-- Start Serienbeschreibung -->
-		<header><h1 id="button_down">Details zu {{ series.name }} <span class="glyphicon glyphicon-chevron-down"> </span></h1></header>
+		<header><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
 		<article>
-		    <p class="description">{{ series.description }}</p>
-			<ul>
-			    <li><strong>Produzent:</strong> Osama Saadalah</li>
-				<li><strong>Ressigeur:</strong> Osama Saadalah</li>
-				<li><strong>Kontakt:</strong> ossa@gmx.at</li>
-		    </ul>
-		    <div class="socialnetworks">
-                <ul>
-                    <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
-                    <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                </ul>
-             </div>
-			<p class="misc">
-                <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button>
-            </p>
+		    <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
+                <img src="{{ series.episodes[0].posterframe|path() }}" />
+            </figure>
+			<div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		    <h3>{{ series.episodes[0].name }}</h3>
+		    <p class="description">{{ series.episodes[0].description }}</p>
+			
+			
 			<!-- Start Collapse Share-->
 			<div class="collapse collapseShare" id="collapseShareArea">
                 <div>
                     <h3>Teilen</h3>
-					<div>
-						    <div class="btn-group sharingnav">
-						        <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button>
-					        </div>
-						</div>
 						<div class="tab-content">
 						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+							
 						        <div>
 						        <ul class="socialnetworks">
                                     <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
@@ -71,12 +63,9 @@
                     </div>
                 </div>
 				<!-- End Collapse Share-->
-				    </article>
-				    <aside>
-				        <figure class="series-posterframe">
-                            <img src="{{ series.posterframe|path() }}" />
-                        </figure>
-				    </aside>
+				    
+				</div>
+		    </article>
 		<!-- Ende Serienbeschreibung -->
 	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
@@ -84,8 +73,20 @@
     <section class="blog">
 	    <div id="anchor_blog"></div>
 	    <div class="container">
-	        <h2>Blog</h2>
             {% include 'AppBundle::Default/Series/blog.html.twig' with {'posts': series.posts, 'uniqID': series.uniqID } %}
+	    </div>
+	</section>
+	<section class="container">
+	    <div class="infos">
+		    <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
+			
+		    <div class="socialnetworks">
+			    <p class="contact"><strong>Kontakt:</strong> ossa@gmx.at</p>
+                <ul>
+                    <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                    <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                </ul>
+             </div>
 	    </div>
 	</section>
     {% if series.playlists is not empty %}
@@ -103,6 +104,10 @@
     {% include "BprsStyleBundle::datetimepicker.js.twig" %}
     <script type="text/javascript">
         $(document).ready( function(){
+<<<<<<< Updated upstream
+=======
+			
+>>>>>>> Stashed changes
             $('#appbundle_post_onlineAt_picker').datetimepicker({
                 locale: 'de',
                 // format: "DD.MM.YYYY hh:mm",

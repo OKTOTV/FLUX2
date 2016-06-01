@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Playlist
@@ -27,6 +28,7 @@ class Playlist
     private $id;
 
     /**
+     * @Assert\NotNull()
      * @var string
      * @JMS\Expose
      * @JMS\Type("string")
@@ -43,6 +45,7 @@ class Playlist
     private $uniqID;
 
     /**
+     * @Assert\Length(max = 450)
      * @var string
      * @JMS\Expose
      * @JMS\Type("string")

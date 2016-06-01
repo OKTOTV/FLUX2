@@ -30,21 +30,12 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/tv", name="tv")
-     * @Template
-     */
-    public function tvAction()
-    {
-        return array();
-    }
-
-    /**
      * @Route("/participate", name="participate")
      * @Template
      */
     public function participateAction()
     {
-        return array();
+        return [];
     }
 
     /**
