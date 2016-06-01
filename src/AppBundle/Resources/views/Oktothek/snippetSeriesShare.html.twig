@@ -1,0 +1,28 @@
+<div class="collapse collapseShare" id="collapseShareArea">
+    <div>
+        <h3>Teilen</h3>
+        <div>
+            <div class="btn-group sharingnav">
+                <button type="button" class="btn btn-default active" data-toggle="tab" id="share_sn">Teilen</button> <button type="button" class="btn btn-default" data-toggle="tab" id="share_embed">Einbetten</button>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+                <div>
+                <ul class="socialnetworks">
+                    {% set share_url = url('oktothek_show_series', {'uniqID': series.uniqID}) %}
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ series.name|url_encode }}" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>
+                    <!-- <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li> -->
+                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                    <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                    <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                </ul>
+                <a href="mailto:?to=&subject={{ series.name }}&body={{ share_url }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
+                <!-- <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button> -->
+            </div>
+            <form><input type="text" value="" class="form-control" id="sharingurl"></form>
+        </div>
+    </div>
+</div>

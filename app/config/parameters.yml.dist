@@ -33,3 +33,6 @@ parameters:
     customer_id:    123456
     project_id:     123456
     api_id:         123456789ABCDEFGHIJKLMNOPQRST
+
+
+    player_url:     "http://url.to.your/player.js"

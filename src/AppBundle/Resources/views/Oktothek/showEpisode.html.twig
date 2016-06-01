@@ -82,17 +82,7 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
-    {% if episode.video is not empty %}
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var playerInstance = jwplayer("player");
-                playerInstance.setup({
-                    playlist: "{{ url('oktothek_show_episode', {'uniqID': episode.uniqID, '_format': 'json'})}}"
-                });
-            });
-        </script>
-    {% endif %}
+    {{ player(episode)|raw }}
     <script type="text/javascript">
         $(document).ready(function(){
             // add/remove from favorites
