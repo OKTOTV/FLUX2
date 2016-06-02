@@ -10,7 +10,7 @@
     <section class="series-content fs-image-content">
         <div class="series-ident fs-image-ident">
             <figure class="episode-posterframe fs-image">
-                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" title="Zur Episode"><div style="background-image:url({{ series.posterframe|path() }});"></div></a>
+                <div style="background-image:url({{ series.posterframe|path() }});"></div>
             </figure>
 			<figcaption class="current-episode container description-wrapper">
 			    <div class="container-bg-opacity">
@@ -37,6 +37,7 @@
 			<div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12">
 		    <h3>{{ series.episodes[0].name }}</h3>
 		    <p class="description">{{ series.episodes[0].description }}</p>
+			<a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
 			
 			
 			<!-- Start Collapse Share-->
