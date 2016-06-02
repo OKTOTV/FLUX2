@@ -203,7 +203,7 @@ class Slide
     /**
      * Get slideType
      *
-     * @return integer 
+     * @return integer
      */
     public function getSlideType()
     {

@@ -22,6 +22,7 @@ class SlideType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'oktothek.backend_slide_name_label'])
+            ->add('description', TextType::class, ['label' => 'oktothek.backend_slide_description_label'])
             ->add('link', UrlType::class, ['label' => 'oktothek.backend_slide_link_label'] )
             ->add('onlineAt', DateTimeType::class, [
                 'widget' => 'single_text',

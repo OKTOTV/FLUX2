@@ -13,6 +13,7 @@
 
 {{ form_start(form) }}
     {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
     {{ form_row(form.link) }}
     {% include "BprsStyleBundle::datetimepicker.html.twig" with {'widget': form.onlineAt} %}
     {% include "BprsAssetBundle::singleUpload.html.twig" with {
