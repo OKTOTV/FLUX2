@@ -24,7 +24,7 @@ class NewsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findActivePostQuery(), $page, 5);
+        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findAllPostQuery(), $page, 5);
 
         return ['posts' => $posts];
     }

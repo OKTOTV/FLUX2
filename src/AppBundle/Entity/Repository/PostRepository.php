@@ -30,4 +30,9 @@ class PostRepository extends EntityRepository
             ->setParameter('active', true)
             ->setParameter('now', new \DateTime());
     }
+
+    public function findAllPostQuery()
+    {
+        return $this->getEntityManager()->createQuery('Select p From AppBundle:Post p');
+    }
 }
