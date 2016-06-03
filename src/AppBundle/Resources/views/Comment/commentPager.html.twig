@@ -19,7 +19,7 @@
                     <!-- Antwort -->
                     {% for answer in comment.children %}
                     <div class="row">
-                        <div class="col-md-1 avatar-container"><div class="avatar2"></div></div>
+                        <div class="col-md-1 avatar-container"><div></div></div>
                         <div class="col-md-11 answer">
                             <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': answer.user.username, '%date%': answer.createdAt|date('d.m.Y H:i')})|raw }}</div>
                             <div class="comment-text">

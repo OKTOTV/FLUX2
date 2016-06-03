@@ -655,8 +655,7 @@ section, .participart article  {
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
-.avatar1 {
-	background-image:url(../images/avantar_boy1.svg);
+.avatar1, .avatar2, .avatar3, .avatar4 {
 	background-repeat:no-repeat;
 	background-position:center center;
 	-webkit-background-size: 80% 80%;
@@ -664,14 +663,17 @@ section, .participart article  {
     -o-background-size: 80% 80%;
 	background-size: 80% 80%;
 }
+.avatar1 {
+	background-image:url(../images/avantar_boy1.svg);
+}
 .avatar2 {
 	background-image:url(../images/avantar_boy2.svg);
-	background-repeat:no-repeat;
-	background-position:center center;
-	-webkit-background-size: 80% 80%;
-    -moz-background-size: 80% 80%;
-    -o-background-size: 80% 80%;
-	background-size: 80% 80%;
+}
+.avatar3 {
+	background-image:url(../images/avantar_boy3.svg);
+}
+.avatar4 {
+	background-image:url(../images/avantar_boy4.svg);
 }
 section:last-child, section.fs-image-content {
 	background-image:none;
@@ -835,15 +837,18 @@ h2 {
 .episode h1.name {
 	margin-bottom:4px;
 }
-figcaption .description {
+figcaption p.more {
 	margin-bottom:15px;
 }
 .newsarchiv aside .box h3:first-child {
 	padding-top:0;
 	margin-top:0;
 }
-figcaption h3, figcaption p {
+figcaption h3 {
 	margin:0;
+}
+figcaption p {
+	margin:10px 0;
 }
 .oktothek h2, .episode h2, .series h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form, .subheadline, figcaption h1, figcaption .misc {
 	text-align:center;
@@ -1341,10 +1346,10 @@ figure.pin img, .programm .schedule img {
 }
 
 
-/* Tooltips */
+/* Tooltips 
 .tooltip-inner {
 	text-align:left;
-}
+}*/
 
 /* Kommentare */
 .comments {
@@ -1461,6 +1466,10 @@ figure.pin img, .programm .schedule img {
 	margin-right:15px;
 	z-index:1;
 }
+.series .description-wrapper a.more {
+	cursor:pointer;
+}
+
 /*.series .series-description article, .series .series-description aside {
 	display:block;
 	vertical-align:top;
@@ -1472,7 +1481,7 @@ figure.pin img, .programm .schedule img {
 .series .series-description .misc {
 	margin-top:40px;
 }*/
-.series .series-description h3 {
+.series .episode-description h3 {
 	margin-top:0;
 }
 .series .infos {
@@ -1502,6 +1511,7 @@ figure.pin img, .programm .schedule img {
 }
 .series figcaption .misc {
 	margin-top:15px;
+	clear:right;
 }
 .series .blog aside .aside-inner {
 	margin-left:5px;

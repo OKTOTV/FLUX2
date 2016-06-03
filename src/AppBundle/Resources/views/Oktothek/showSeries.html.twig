@@ -18,8 +18,10 @@
 				</div>
 			    <div class="content-opacity">
 					<h1>{{ series.name }}</h1>
-					<p class="description">{{ series.description }}</p>
 					<p>Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
+					<p class="description">
+					    {{ series.description }}</p>
+					<p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
 					<p class="misc">
                 <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button>
                     </p>
@@ -27,8 +29,11 @@
 			</figcaption>
 		</div>
     </section>
-	<section class="container series-description">
-		<!-- Start Serienbeschreibung -->
+	<section class="container episode-description">
+	    <!-- Start Collapse Share-->
+        {% include 'AppBundle:Oktothek:snippetSeriesShare.html.twig' with {'series': series} %}
+		<!-- End Modal Window Share-->
+		<!-- Start Aktuelle Episode -->
 		<header><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
 		<article>
 		    <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
@@ -40,30 +45,7 @@
 			<a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
 			
 			
-			<!-- Start Collapse Share-->
-			<div class="collapse collapseShare" id="collapseShareArea">
-                <div>
-                    <h3>Teilen</h3>
-						<div class="tab-content">
-						    <div role="tabpanel" class="tab-pane active" id="div_share_sn">
-							
-						        <div>
-						        <ul class="socialnetworks">
-                                    <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
-                                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
-                                    <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
-                                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
-                                    <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
-                                </ul>
-							    <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button>
-							</div>
-						    <form><input type="text" value="" class="form-control" id="sharingurl"></form>
-						</div>
-						</div>
-                    </div>
-                </div>
-				<!-- End Collapse Share-->
+			
 				    
 				</div>
 		    </article>
@@ -105,10 +87,10 @@
     {% include "BprsStyleBundle::datetimepicker.js.twig" %}
     <script type="text/javascript">
         $(document).ready( function(){
-<<<<<<< Updated upstream
+/* <<<<<<< Updated upstream
 =======
 			
->>>>>>> Stashed changes
+>>>>>>> Stashed changes */
             $('#appbundle_post_onlineAt_picker').datetimepicker({
                 locale: 'de',
                 // format: "DD.MM.YYYY hh:mm",
