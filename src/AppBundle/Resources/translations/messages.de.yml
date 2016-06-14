@@ -20,11 +20,11 @@ oktothek.menu_user_notification_choice: "{1} %series% hat eine neue Episode ver�
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Neue Videos
-oktothek.newest_videos_show_more:       Mehr Videos anzeigen
+oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class="icon">+</span>
 oktothek.newest_playlists:              Neue Playlisten
-oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen
+oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
 oktothek.newest_news_show_more:         Mehr News anzeigen
-
+oktothek.episode_stack_collapse_title:  Weitere neueste Videos anzeigen
 ## register
 oktothek.user_name_label:               Benutzername
 oktothek.user_name_placeholder:         Username. Ist öffentlich zugänglich.

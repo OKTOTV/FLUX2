@@ -18,9 +18,9 @@ class DefaultController extends Controller
     public function oktothekAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $best_episodes = $em->getRepository('AppBundle:Episode')->findTopEpisodes(4);
-        $newest_episodes = $em->getRepository('AppBundle:Episode')->findNewestEpisodes(4);
-        $newest_playlists = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists(4);
+        $best_episodes = $em->getRepository('AppBundle:Episode')->findTopEpisodes(8);
+        $newest_episodes = $em->getRepository('AppBundle:Episode')->findNewestEpisodes(8);
+        $newest_playlists = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists(8);
 
         return array(
             'best_episodes' => $best_episodes,

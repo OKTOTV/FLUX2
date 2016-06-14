@@ -1,16 +1,22 @@
+{% set collapse_id = collapse_id|default('collapse_rand_'~ random()) %}
+
 <div class="row">
-    {% for episode in episodes %}
+    {% for episode in episodes|slice(0,4) %}
         {% if episode.isActive %}
             {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
         {% endif %}
     {% endfor %}
 </div>
-<div class="row collapse" id="more_new_Episode">
-   {% for episode in episodes %}
+{% if episodes|length > 2 %}
+<div class="row collapse" id="{{ collapse_id }}more_new_Episode">
+   {% for episode in episodes|slice(5,4) %}
         {% if episode.isActive %}
             {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
         {% endif %}
     {% endfor %}
 </div>
 {# Link deaktivieren wenn Episode < 5 #}
-<a href="#more_new_Episode" class="pull-right more" title="Weitere neueste Videos anzeigen" data-toggle="collapse" aria-expanded="false" aria-controls="more_new_Episode">{{ 'oktothek.newest_videos_show_more'|trans}} <span class="icon">+</span></a>
+<a href="#{{collapse_id}}more_new_Episode" class="pull-right more" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title') }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}more_new_Episode">
+    {{ collapse_link|default('oktothek.newest_videos_show_more'|trans)|raw}}
+</a>
+{% endif %}

@@ -149,7 +149,7 @@ class Episode extends BaseEpisode
         }
         return $this->series->getPosterframe();
     }
-    
+
     /**
      * Add media
      *
