@@ -29,11 +29,13 @@
                     </div>
                     {% endfor %}
                     <!-- Ende Antwort -->
+                    {% if is_granted('ROLE_USER') %}
 					<div class="row comment-form">
                         <div class="col-md-11">
                             {{ render(controller('AppBundle:Comment:answerComment', {'comment': comment.Id}))}}
                         </div>
                     </div>
+                    {% endif %}
                 </div>
                 <!-- Ende Antwort Container -->
             </div>
@@ -41,10 +43,10 @@
         {% endfor %}
     </div>
     <!-- Ende Kommentar -->
+    {% if is_granted('ROLE_USER') %}
     <div class="row comment-form">
         <div class="col-md-11">
-            {% if is_granted('ROLE_USER') %}
                 {{ render(controller('AppBundle:Comment:commentEpisode', {'uniqID': uniqID}))}}
-            {% endif %}
         </div>
     </div>
+    {% endif %}
