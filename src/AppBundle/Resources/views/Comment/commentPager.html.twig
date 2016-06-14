@@ -1,4 +1,4 @@
-<h2>{{ 'oktothek.episode_comment_header'|trans({'%count%': comments.getTotalItemCount })|raw }}</h2>
+<h2>{{ 'oktothek.episode_comment_header'|transchoice(comments.getTotalItemCount)|raw }}</h2>
 <!-- Kommentar -->
 <div class="row">
     <div class="navigation">
@@ -13,9 +13,9 @@
             </div>
             <!-- Antwort Container -->
             <div class="comment-answer">
-                <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}">{{ 'oktothek.comment_reply'|trans({'%count%': comment.children|length}) }}</a>
+                <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}">{{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}</a>
                 <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
-                    
+
                     <!-- Antwort -->
                     {% for answer in comment.children %}
                     <div class="row">
@@ -43,8 +43,8 @@
     <!-- Ende Kommentar -->
     <div class="row comment-form">
         <div class="col-md-11">
-            {{ render(controller('AppBundle:Comment:commentEpisode', {'uniqID': uniqID}))}}
+            {% if is_granted('ROLE_USER') %}
+                {{ render(controller('AppBundle:Comment:commentEpisode', {'uniqID': uniqID}))}}
+            {% endif %}
         </div>
     </div>
-
-
