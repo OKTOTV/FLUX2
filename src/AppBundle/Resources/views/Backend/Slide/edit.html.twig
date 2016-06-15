@@ -3,26 +3,26 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
 {% endblock %}
+
 {% block body_main %}
+    <div class="page-header">
+        <h1>{{ 'oktothek.backend_slider_edit_header'|trans}}</h1>
+        <a href="{{ path('oktothek_backend_slide_index')}}" class="btn btn-default">{{ 'oktothek_backend_slide_index'|trans }}</a>
+        <a href="{{ path('oktothek_backend_slide_new') }}" class="btn btn-default">{{'oktothek_backend_slide_new'|trans|raw }}</a>
+    </div>
 
-<div class="page-header">
-    <h1>{{ 'oktothek.backend_slider_edit_header'|trans}}</h1>
-    <a href="{{ path('oktothek_backend_slide_index')}}" class="btn btn-default">{{ 'oktothek_backend_slide_index'|trans }}</a>
-    <a href="{{ path('oktothek_backend_slide_new') }}" class="btn btn-default">{{'oktothek_backend_slide_new'|trans|raw }}</a>
-</div>
-
-{{ form_start(form) }}
-    {{ form_row(form.name) }}
-    {{ form_row(form.description) }}
-    {{ form_row(form.link) }}
-    {% include "BprsStyleBundle::datetimepicker.html.twig" with {'widget': form.onlineAt} %}
-    {% include "BprsAssetBundle::singleUpload.html.twig" with {
-        'widget': form.asset,
-        'adapter': 'posterframe',
-        'asset': form.vars.value.asset
-        }
-    %}
-{{ form_end(form)}}
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.link) }}
+        {% include "BprsStyleBundle::datetimepicker.html.twig" with {'widget': form.onlineAt} %}
+        {% include "BprsAssetBundle::singleUpload.html.twig" with {
+            'widget': form.asset,
+            'adapter': 'posterframe',
+            'asset': form.vars.value.asset
+            }
+        %}
+    {{ form_end(form)}}
 
 {% endblock %}
 
@@ -36,7 +36,7 @@
         $(document).ready( function(){
             $('#appbundle_slide_onlineAt').datetimepicker({
                 locale: 'de',
-                date: moment($('#appbundle_slide_onlineAt').children(':input').val()),
+                date: moment($('#appbundle_slide_onlineAt').val()),
                 useCurrent: true,
                 calendarWeeks: true,
                 allowInputToggle: true,

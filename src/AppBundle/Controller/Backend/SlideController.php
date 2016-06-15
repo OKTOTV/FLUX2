@@ -76,11 +76,11 @@ class SlideController extends Controller
                     $em->flush();
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_update_slide');
 
-                    return $this->redirect($this->generateUrl('oktothek_news'));
+                    return $this->redirect($this->generateUrl('oktothek_backend_slide_index'));
                 } else { //delete
                     $this->get('oktothek_slide')->deleteSlide($slide);
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_slide');
-                    return $this->redirect($this->generateUrl('oktothek_news'));
+                    return $this->redirect($this->generateUrl('oktothek_backend_slide_index'));
                 }
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_update_slide');
