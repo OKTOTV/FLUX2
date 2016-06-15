@@ -1,7 +1,14 @@
 <div class="row">
-{% for playlist in playlists %}
-    {% if playlist.items|length > 0 %}
-        {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
-    {% endif %}
+{% for playlist in playlists|slice(0,4) %}
+    {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
 {% endfor %}
 </div>
+{% if playlists|length > 4 %}
+<div class="row collapse">
+    {% for playlist in playlists|slice(5,4) %}
+        {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
+    {% endfor %}
+</div>
+<a href="#" class="pull-right more" title="" data-toggle="collapse" aria-controls="">{{ 'oktothek.newest_playlists_show_more'|trans|raw }}</a>
+{# <a href="#" class="pull-right more" title="Weitere Playlisten anzeigen">{{ 'oktothek.newest_playlists_show_more'|trans}} <span class="icon">+</span></a> #}
+{% endif %}

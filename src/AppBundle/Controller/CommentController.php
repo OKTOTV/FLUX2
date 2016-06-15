@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Form\CommentType;
 use AppBundle\Entity\Comment;
 
@@ -28,6 +29,7 @@ class CommentController extends Controller
         $commentForm->add('submit', 'submit', ['label' => 'oktothek.comment_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") {
+            $this->denyAccessUnlessGranted('ROLE_USER', null, 'Unable to access this page!');
             $commentForm->handleRequest($request);
             if ($commentForm->isValid()) {
                 $comment->setUser($this->get('security.context')->getToken()->getUser());
@@ -37,7 +39,6 @@ class CommentController extends Controller
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_create_success');
                 return $this->redirect($request->headers->get('referer'));
-                // return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
             }
             $this->get('session')->getFlashBag()->add('error', 'oktothek.comment_create_error');
         }
@@ -45,6 +46,7 @@ class CommentController extends Controller
     }
 
     /**
+     * @Security("has_role('ROLE_USER')")
      * @Route("/answer/{comment}", name="oktothek_answer_comment")
      * @Template()
      */

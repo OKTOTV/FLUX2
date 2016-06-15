@@ -52,7 +52,7 @@ body, h1, .carousel-caption h3, h2, header .navbar .nav.navbar-right > li > a, .
 	font-weight: normal;
 	font-style: normal;
 }
-header .navbar .nav > li > a, #dropdownMenuTags, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .comments h2, .comments .comment-answer, #episode-tag, .infos h3, .blog aside p a {
+header .navbar .nav > li > a, #dropdownMenuTags, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .comments h2, .comments .comment-answer, #episode-tag, .infos h3, .blog aside p a, .blog h3 {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -87,7 +87,7 @@ header .form-control:-ms-input-placeholder {
 header .form-control::-webkit-input-placeholder {
         font-size:16px;
 }
-header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3, .news h3, .like-it .glyphicon, .comments h2, .carousel-caption .type, #episode-tag option, .blog aside p a {
+header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3, .news h3, .like-it .glyphicon, .comments h2, .carousel-caption .type, #episode-tag option, .blog aside p a, .blog h3 {
 	font-size:14px;
 	letter-spacing:0.25px;
 }
@@ -111,7 +111,7 @@ header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-t
 .pin .like-it {
 	font-size:10px;
 }
-.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3 {
+.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3 {
 	text-transform:uppercase;
 }
 
@@ -145,7 +145,7 @@ header .nav {
 
 /* Basic Color */
 /* Menu*/
-#dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover, .navbar-inverse .navbar-nav > li > a, header .collapse.in a, .navbar-inverse .navbar-nav > li > a {
+#dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover, .navbar-inverse .navbar-nav > li > a, header .collapse.in a, .navbar-inverse .navbar-nav > li > a, .blog p {
     color: #ffffff;
 }
 header input.form-control {
@@ -422,7 +422,7 @@ header .icon.icon-login {
 
 
 /****************************  Color, Effects Content ****************************/
-body, .btn-default, .episode .misc a, a:hover, select.form-control, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, a .pin figcaption h3, a .like-it, .oktothek .participart-list a, .btn.like-it, #episode-tag option, .blog aside p a  {
+body, .btn-default, .episode .misc a, a:hover, select.form-control, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, a .pin figcaption h3, a .like-it, .oktothek .participart-list a, .btn.like-it, #episode-tag option, .blog aside p a, .blog a h3  {
 	color:#ffffff;
 }
 .form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default {
@@ -460,7 +460,7 @@ body, .list-group-item, .bg-opacity, select, .oktothek article a.btn-default:hov
 button .btn-default.active, .oktothek article a.btn-default, .collapseShare .btn-default {
 	background-color:#ffffff;
 }
-.oktothek .news article, .collapseShare, .collapsePlaylist, .collapseCoursedetails {
+.oktothek .news article, .collapseShare, .collapsePlaylist, .collapseCoursedetails, .series .news-pin, .series .news-form, .series .blog aside .aside-inner {
 	background-color:#112022;
 }
 .play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel, .btn-default, .btn-primary, #episode-tag {
@@ -522,7 +522,13 @@ border: solid 2px #13fffd;
 	-khtml-border-radius:25px;
 	border-radius: 25px;
 }
-/*.oktothek .participart-list li figure {
+/*.avatar {
+	-moz-border-radius:25px;
+	-khtml-border-radius:25px;
+	border-radius: 25px;
+	border: solid 2px #fc00b2;
+}
+.oktothek .participart-list li figure {
 	border:#787779 dotted 1px;
 	-moz-border-radius:70px;
 	-khtml-border-radius:70px;
@@ -546,6 +552,15 @@ section, .participart article  {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/icon_views.png);
+}
+.small-arrow-right {
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/small_arrow_right.svg);
+	-webkit-background-size: 40% 40%;
+    -moz-background-size: 40% 40%;
+    -o-background-size: 40% 40%;
+	background-size: 40% 40%;
 }
 .footer .socialnetworks li a, .collapseShare .socialnetworks li a, .newsarchiv aside .socialnetworks li a, .series .infos li a {
 	background-repeat:no-repeat;
@@ -616,6 +631,11 @@ section, .participart article  {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
+.avatar-container {
+	background-image:url(../images/avatar_circle.svg);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
 
 .bg-bleur, .fs-image div {
 	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
@@ -625,6 +645,35 @@ section, .participart article  {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+.oktothek .btn.login {
+	background-image:url(../images/icon_login.svg);
+	background-repeat:no-repeat;
+	background-position:90px center;
+	-webkit-background-size: 50% 50%;
+    -moz-background-size: 50% 50%;
+    -o-background-size: 50% 50%;
+	background-size: 50% 50%;
+}
+.avatar1, .avatar2, .avatar3, .avatar4 {
+	background-repeat:no-repeat;
+	background-position:center center;
+	-webkit-background-size: 80% 80%;
+    -moz-background-size: 80% 80%;
+    -o-background-size: 80% 80%;
+	background-size: 80% 80%;
+}
+.avatar1 {
+	background-image:url(../images/avantar_boy1.svg);
+}
+.avatar2 {
+	background-image:url(../images/avantar_boy2.svg);
+}
+.avatar3 {
+	background-image:url(../images/avantar_boy3.svg);
+}
+.avatar4 {
+	background-image:url(../images/avantar_boy4.svg);
 }
 section:last-child, section.fs-image-content {
 	background-image:none;
@@ -750,10 +799,10 @@ body {
 html, body {
 	height:100%;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .infos ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list li {
+.collapsePlaylist ul, .collapsePlaylist li, .series .infos ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul {
 	list-style:none;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .infos ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list {
+.collapsePlaylist ul, .collapsePlaylist li, .series .infos ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul {
 	margin-left:0;
 	padding-left:0;
 }
@@ -788,15 +837,18 @@ h2 {
 .episode h1.name {
 	margin-bottom:4px;
 }
-figcaption .description {
+figcaption p.more {
 	margin-bottom:15px;
 }
 .newsarchiv aside .box h3:first-child {
 	padding-top:0;
 	margin-top:0;
 }
-figcaption h3, figcaption p {
+figcaption h3 {
 	margin:0;
+}
+figcaption p {
+	margin:10px 0;
 }
 .oktothek h2, .episode h2, .series h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form, .subheadline, figcaption h1, figcaption .misc {
 	text-align:center;
@@ -1183,6 +1235,12 @@ article.pin {
 	display:block;
 	margin-bottom:3px;
 }
+a.pull-right {
+	/*line-height:38px;
+	vertical-align:center;
+	display:inline-block;
+	display:block;*/
+}
 .pull-right .icon {
 	width:38px;
 	height:38px;
@@ -1238,6 +1296,9 @@ article.pin {
 .oktothek article {
 	position:relative;
 }
+.oktothek .btn.login {
+	width:150px;
+}
 .episode article, .more-clips article {
 	margin-top:40px;
 }
@@ -1285,10 +1346,10 @@ figure.pin img, .programm .schedule img {
 }
 
 
-/* Tooltips */
+/* Tooltips 
 .tooltip-inner {
 	text-align:left;
-}
+}*/
 
 /* Kommentare */
 .comments {
@@ -1308,8 +1369,16 @@ figure.pin img, .programm .schedule img {
 	cursor:pointer;
 }
 .comment {
-	margin-left:40px;
 	margin-bottom:40px;
+}
+.avatar-container {
+	width:50px;
+	height:50px;
+	padding:0;
+}
+.avatar1, .avatar2 {
+	width:50px;
+	height:50px;
 }
 
 /* Sharing und Playlistfenster*/
@@ -1397,6 +1466,10 @@ figure.pin img, .programm .schedule img {
 	margin-right:15px;
 	z-index:1;
 }
+.series .description-wrapper a.more {
+	cursor:pointer;
+}
+
 /*.series .series-description article, .series .series-description aside {
 	display:block;
 	vertical-align:top;
@@ -1408,7 +1481,7 @@ figure.pin img, .programm .schedule img {
 .series .series-description .misc {
 	margin-top:40px;
 }*/
-.series .series-description h3 {
+.series .episode-description h3 {
 	margin-top:0;
 }
 .series .infos {
@@ -1429,7 +1502,7 @@ figure.pin img, .programm .schedule img {
 .series .infos .socialnetworks li {
 	display:inline;
 }
-.series .infos .socialnetworks a {   ??? 
+.series .infos .socialnetworks a { 
 	display:inline-block;
     height: 30px;
     outline: 0 none;
@@ -1438,6 +1511,14 @@ figure.pin img, .programm .schedule img {
 }
 .series figcaption .misc {
 	margin-top:15px;
+	clear:right;
+}
+.series .blog aside .aside-inner {
+	margin-left:5px;
+	padding:15px;
+}
+.series .blog aside.col-md-3, .series .blog aside.col-lg-3, .series .blog aside.col-sm-3, .series .blog aside.col-xs-3 {
+	padding-left:2px;
 }
 .play-episode {
 /*	top:50%;

@@ -1,6 +1,7 @@
 {% if posts|length > 0%}
     <h2>{{ 'oktolab_series_blog_header'|trans }}</h2>
-    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9">
+	<div class="row">
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9 news-pin">
 {% endif %}
 {% for post in posts %}
     <article>{% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}</article>
@@ -8,32 +9,36 @@
 {% if posts|length > 0%}
     </div>
 	<aside class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
-	    <ul>
-		    <li>
-			    <time pubdate="pubdate">10.06.2015</time>
-                <p><a href="#">Menschenrechtsverletzungen in Ägypten</a></p>
-			</li>
-			<li>
-			    <time pubdate="pubdate">22.04.2015</time>
-                <p><a href="#">Esskultur</a></p>
-			</li>
-			<li>
-			    <time pubdate="pubdate">19.03.2015</time>
-                <p><a href="#">Jugend in Ägypten</a></p>
-			</li>
-			<li>
-			    <time pubdate="pubdate">16.07.2015</time>
-                <p><a href="#">Recht auf ein faires Verfahren</a></p>
-			</li>
-			<li>
-			    <time pubdate="pubdate">20.06.2015</time>
-                <p><a href="#">Geben Sie der Demokratie in Ägypten eine Change</a></p>
-			</li>
-		</ul>
+	    <div class="aside-inner clearfix">
+	        <ul>
+		        <li>
+			        <time pubdate="pubdate">10.06.2015</time>
+                    <p><a href="#">Menschenrechtsverletzungen in Ägypten</a></p>
+			    </li>
+			    <li>
+			        <time pubdate="pubdate">22.04.2015</time>
+                    <p><a href="#">Esskultur</a></p>
+			    </li>
+			    <li>
+			        <time pubdate="pubdate">19.03.2015</time>
+                    <p><a href="#">Jugend in Ägypten</a></p>
+			    </li>
+			    <li>
+			        <time pubdate="pubdate">16.07.2015</time>
+                    <p><a href="#">Recht auf ein faires Verfahren</a></p>
+			    </li>
+			    <li>
+			        <time pubdate="pubdate">20.06.2015</time>
+                    <p><a href="#">Geben Sie der Demokratie in Ägypten eine Change</a></p>
+			    </li>
+		    </ul>
+			<div><a href="#" class="more pull-right"><span class="icon">+</span></a></div>
+		</div>
 	</aside>
+	</div>
 {% endif %}
 <div class="row">
-    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9 news-form">
     {{ render(controller('AppBundle:Series:blogSeries', {'uniqID': uniqID})) }}
 	</div>
 </div>

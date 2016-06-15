@@ -1,14 +1,3 @@
-{{ form(commentForm) }}
-{# {% form_theme commentForm 'AppBundle:Comment:commentFields.html.twig' %}
-
 {{ form_start(commentForm) }}
     {{form_widget(commentForm.text)}}
-{{ form_end(commentForm) }} #}
-{#
-<form action="#" id="form_answer_comment_{{ loop.index }}" method="POST">
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Schreibe eine Antwort...">
-        <span class="input-group-btn"><button class="btn btn-default" type="button">Senden</button></span>
-    </div>
-</form>
-#}
+{{ form_end(commentForm) }}

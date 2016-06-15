@@ -1,10 +1,11 @@
-<h2>{{ 'oktothek.episode_comment_header'|trans({'%count%': comments.getTotalItemCount })|raw }}</h2>
+<h2>{{ 'oktothek.episode_comment_header'|transchoice(comments.getTotalItemCount)|raw }}</h2>
 <!-- Kommentar -->
 <div class="row">
     <div class="navigation">
         {{ knp_pagination_render(comments) }}
     </div>
     {% for comment in comments %}
+	<div class="col-md-1 avatar-container"><div class="avatar2"></div></div>
     <div class="col-md-11 comment">
         <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': comment.user.username, '%date%': comment.createdAt|date('d.m.Y H:i')})|raw }}</div>
             <div class="comment-text">
@@ -12,13 +13,13 @@
             </div>
             <!-- Antwort Container -->
             <div class="comment-answer">
-                <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}">{{ 'oktothek.comment_reply'|trans({'%count%': comment.children|length}) }}</a>
+                <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}">{{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}</a>
                 <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
-                    
+
                     <!-- Antwort -->
                     {% for answer in comment.children %}
                     <div class="row">
-                        <!--<div class="avatar col-md-1"><img src="/images/default_avatar.png" class="img-responsive" width=50 height=50/></div>-->
+                        <div class="col-md-1 avatar-container"><div></div></div>
                         <div class="col-md-11 answer">
                             <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': answer.user.username, '%date%': answer.createdAt|date('d.m.Y H:i')})|raw }}</div>
                             <div class="comment-text">
@@ -28,11 +29,13 @@
                     </div>
                     {% endfor %}
                     <!-- Ende Antwort -->
+                    {% if is_granted('ROLE_USER') %}
 					<div class="row comment-form">
                         <div class="col-md-11">
                             {{ render(controller('AppBundle:Comment:answerComment', {'comment': comment.Id}))}}
                         </div>
                     </div>
+                    {% endif %}
                 </div>
                 <!-- Ende Antwort Container -->
             </div>
@@ -40,10 +43,10 @@
         {% endfor %}
     </div>
     <!-- Ende Kommentar -->
+    {% if is_granted('ROLE_USER') %}
     <div class="row comment-form">
         <div class="col-md-11">
-            {{ render(controller('AppBundle:Comment:commentEpisode', {'uniqID': uniqID}))}}
+                {{ render(controller('AppBundle:Comment:commentEpisode', {'uniqID': uniqID}))}}
         </div>
     </div>
-
-
+    {% endif %}

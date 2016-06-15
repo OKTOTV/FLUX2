@@ -34,7 +34,6 @@
 		    <div id="anchor_newest_videos"></div>
             <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes} %}
-            <a href="#" class="pull-right more" title="Weitere neueste Videos anzeigen">{{ 'oktothek.newest_videos_show_more'|trans}} <span class="icon">+</span></a>
         </section>
 
         {# render favorites #}
@@ -42,7 +41,7 @@
 		    <div id="anchor_favorite_videos"></div>
             <h2>Beliebteste Videos</h2>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes} %}
-            <a href="#" class="pull-right more" title="Weitere beliebteste Videos anzeigen">Mehr Videos anzeigen <span class="icon">+</span></a>
+            {# <a href="#" class="pull-right more" title="Weitere beliebteste Videos anzeigen">Mehr Videos anzeigen <span class="icon">+</span></a> #}
         </section>
 
         {# render newest playlists #}
@@ -53,10 +52,10 @@
                 <p class="subheadline">{{ 'oktothek_default_newest_playlists_text'|trans }}</p>
             {% else %}
                 <p class="subheadline">{{ 'oktothek_default_login_teaser'|trans }}</p>
-                <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
+                <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default login">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
             {% endif %}
             {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': newest_playlists} %}
-            <a href="#" class="pull-right more" title="Weitere Playlisten anzeigen">{{ 'oktothek.newest_playlists_show_more'|trans}} <span class="icon">+</span></a>
+            {# <a href="#" class="pull-right more" title="Weitere Playlisten anzeigen">{{ 'oktothek.newest_playlists_show_more'|trans}} <span class="icon">+</span></a> #}
         </section>
         {# render news pins #}
         {{ render(controller('AppBundle:News:pinnedNews')) }}

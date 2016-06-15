@@ -1,6 +1,6 @@
 <article>
     <header class="page-header">
-        <h1><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h1>
+        <h3><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
     </header>
     {{ post.description|markdown() }}
     {% if post.assets is empty %} {# no assets#}
