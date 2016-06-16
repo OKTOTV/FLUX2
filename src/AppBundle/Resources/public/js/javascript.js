@@ -181,7 +181,7 @@ $(document).ready(function(){
 			if (openEl.length > 0) {
 				for (z=0; z<openEl.length; z++) {
 					targetEl_hide_Id = $(openEl[z]).attr('id');
-					targetButtonEl = $( "button[data-target='#" + targetEl_hide_Id + "']" ).parents('article.pin');
+					targetButtonEl = $( "a[data-target='#" + targetEl_hide_Id + "']" ).parents('article.pin');
 					
 					if (targetEl != null) 
 					    if(targetEl == "#" + targetEl_hide_Id) 
@@ -196,10 +196,10 @@ $(document).ready(function(){
 			}
 		}
 		
-	    $('figure.pin .preview-button button').click(function() {
+	    $('figure.pin .preview-button a').click(function() {
 			
-			var cur_section = $(this).parents('section');
-			var targetEl = $(this).attr('data-target');
+			var cur_section = $(this).parents('section'); 
+			var targetEl = $(this).attr('href');
 		
 		    var openEl = $(cur_section).find('div.in');
 			
@@ -239,6 +239,13 @@ $(document).ready(function(){
   			var winwidth = $( window ).width();
 			var openEl = $('section div.in');
 			closeCoursePreview(openEl, null);//schließt alle offenen Kursdetails
+		});
+		
+		$('.preview-icon').mouseover(function(){
+			$(this).parents('.preview-button').find('.preview-content').css('display','block');
+	    });
+		$('.preview-content a').mouseleave(function(){
+			$(this).parents('.preview-content').css('display','none');
 		});
 	}
 	
