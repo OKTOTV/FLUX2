@@ -52,7 +52,7 @@ body, h1, .carousel-caption h3, h2, header .navbar .nav.navbar-right > li > a, .
 	font-weight: normal;
 	font-style: normal;
 }
-header .navbar .nav > li > a, #dropdownMenuTags, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .comments h2, .comments .comment-answer, #episode-tag, .infos h3, .blog aside p a, .blog h3, .academy .pin .preview-content a {
+header .navbar .nav > li > a, #dropdownMenuTags, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .comments h2, .comments .comment-answer, #episode-tag, .infos h3, .blog aside p a, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .timetable .btn, .academy .price  {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -73,7 +73,7 @@ h1, h2, .h2 {
 .carousel-caption h3, .pull-right .icon, .series h1 {
 	font-size:24px;
 }
-.subheadline, .participart .button_container .btn, .news p, figcaption .description {
+.subheadline, .participart .button_container .btn, .news p, figcaption .description, .academy .preview p {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -87,7 +87,7 @@ header .form-control:-ms-input-placeholder {
 header .form-control::-webkit-input-placeholder {
         font-size:16px;
 }
-header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3, .news h3, .pin-icon .glyphicon, .comments h2, .carousel-caption .type, #episode-tag option, .blog aside p a, .blog h3, .academy .pin .pin-icon .glyphicon {
+h3, .h3, header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3, .news h3, .pin-icon .glyphicon, .comments h2, .carousel-caption .type, #episode-tag option, .blog aside p a, .blog h3, .academy .pin .pin-icon .glyphicon, .courses h4, .academy .preview .timetable p, a.more {
 	font-size:14px;
 	letter-spacing:0.25px;
 }
@@ -100,7 +100,7 @@ header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-t
 .form-control::-webkit-input-placeholder, .pin-icon {
         font-size:14px;
 }
-.programm p.current-episode, header .nav, .pin figcaption p, .btn, .pin .pin-icon .glyphicon, .news .tag, .footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .collapseShare .helptext, .comments .author, .comments .comment-answer, #episode-tag, .infos h3, .blog time, .academy .pin .preview-content a {
+.programm p.current-episode, header .nav, .pin figcaption p, .btn, .pin .pin-icon .glyphicon, .news .tag, .footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .collapseShare .helptext, .comments .author, .comments .comment-answer, #episode-tag, .infos h3, .blog time, .academy .pin .preview-content a, .preview p.misc, a.more {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -111,11 +111,11 @@ header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-t
 .pin .pin-icon {
 	font-size:10px;
 }
-.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.pull-right, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3, .academy .pin .preview-content a {
+.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.more, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4 {
 	text-transform:uppercase;
 }
 
-.btn.btn-top, #episode-tag option {
+.btn.btn-top, #episode-tag option, #slider h3 {
 	text-transform:none;
 }
 .newsarchiv .label, label, .carousel-caption h3, .series h1 {
@@ -299,7 +299,7 @@ header .icon.icon-login {
 	    background-repeat:repeat-x;
 	    background-position:left top;
     }
-	.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+	/*.navbar-inverse .navbar-nav > li > a:hover, */.navbar-inverse .navbar-nav > .active > a/*, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus*/ {
 		background-image:url(../images/menu-border.png);
 	    background-repeat:repeat-x;
 	    background-position:left top;
@@ -307,8 +307,11 @@ header .icon.icon-login {
 	.navbar-inverse .navbar-nav.navbar-right > li > a:hover, .navbar-inverse .navbar-nav.navbar-right > .active > a, .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
 		background-image:none;
 	}
+	.navbar-inverse .navbar-nav > li > a:hover {
+		border-top:solid #ffffff 1px;
+	}
 	/* Border */
-	header .navbar-collapse .navbar-nav {
+	header .navbar-collapse .navbar-nav, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a,  .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
 		border-top:none;
 	}
 	
@@ -425,23 +428,23 @@ header .icon.icon-login {
 
 
 /****************************  Color, Effects Content ****************************/
-body, .btn-default, .episode .misc a, a:hover, select.form-control, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3, .academy .pin .preview-content a  {
+body, .btn-default, .episode .misc a, a:hover, select.form-control, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3  {
 	color:#ffffff;
 }
-.form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default {
+.form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default, .timetable .btn {
 	color:#000000;
 }
-a, a.more  {
+a, a.more  { /* Türkis */
 	color:#13fffd;
 }
-.pin figcaption p a, .pin figcaption a p, .news p, .comments .author {
+.pin figcaption p a, .pin figcaption a p, .news p, .comments .author, .academy .preview p, .academy .pin .preview-content a { /* Hellgrau */
 	color:#dcdcdc;
 }
-.news a.tag, .comments .comment-answer a, .blog time {
+.news a.tag, .comments .comment-answer a, .blog time { /*Helltürkis*/
 	color:#c0fefd;
 }
 /* Placeholderstyles (nicht möglich zu gruppieren) */
-.form-control::-moz-placeholder {
+.form-control::-moz-placeholder { /* Mittelgrau */
   color: #818181;
 }
 .form-control:-ms-input-placeholder {
@@ -460,10 +463,10 @@ body, .list-group-item, .bg-opacity, select, .oktothek article a.btn-default:hov
 .table-striped > tbody > tr:nth-of-type(2n+1), .tagpage .container-fluid header input.form-control, .newsarchiv aside .box, .programm .schedule header.page-header {
 	background-color:#757575;
 }
-button .btn-default.active, .oktothek article a.btn-default, .collapseShare .btn-default {
+button .btn-default.active, .oktothek article a.btn-default, .collapseShare .btn-default, .timetable .btn {
 	background-color:#ffffff;
 }
-.oktothek .news article, .collapseShare, .collapsePlaylist, .collapseCoursedetails, .series .news-pin, .series .news-form, .series .blog aside .aside-inner {
+.oktothek .news article, .collapseShare, .collapsePlaylist, .collapseCoursedetails, .series .news-pin, .series .news-form, .series .blog aside .aside-inner, .academy .courses .collapse-content { /* Dunkelgrau */
 	background-color:#112022;
 }
 .play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel, .btn-default, .btn-primary, #episode-tag {
@@ -480,20 +483,23 @@ button .btn-default.but-full.active, .oktothek article a.btn-default.but-full, .
 .play-episode.btn-default, .tagpage .container-fluid header input.form-control {
 	border: solid 1px #ffffff;
 }
-.newsarchiv article, .academy .timetable li:first-child p {
+.newsarchiv article {
 	border-top:solid 1px #ffffff;
+}
+.academy .timetable li:first-child p {
+	border-top:dotted 1px #5a6769;
 }
 .collapseShare .btn-default, .container-episode-tag {
 	border:solid 2px #ffffff;
 }
 .academy .timetable li p {
-	border-bottom:solid 1px #ffffff;
+	border-bottom:dotted 1px #5a6769;
 }
 /* Spacelayout */
-.btn-default, .btn-default.but-full:hover, .btn-primary {
+.btn-default, .btn-default.but-full:hover, .btn-primary { /* Gelb */
 	border: solid 2px #fcce14;
 }
-.pull-right .icon {
+.pull-right .icon { /* Türkis */
 border: solid 2px #13fffd;
 }
 .programm .schedule .panel-default {
@@ -501,7 +507,7 @@ border: solid 2px #13fffd;
 	border-left:none;
 	border-right:none;
 }
-.form-control, .newsarchiv article:first-child, .programm header .navbar-default, header.page-header, .input-group-addon, .btn-default.btn-top, .btn-default.pin-icon  {
+.form-control, .newsarchiv article:first-child, .programm header .navbar-default, header.page-header, .input-group-addon, .btn-default.btn-top, .btn-default.pin-icon, .timetable .btn  {
 	border:none;
 }
 .tags li a {
@@ -683,6 +689,16 @@ section, .participart article  {
 .avatar4 {
 	background-image:url(../images/avantar_boy4.svg);
 }
+.preview-icon span {
+	background-image:url(../images/icon_preview.svg);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+.preview .collapse-header {
+	background-image:url(../images/speachbubble.svg);
+	background-repeat:no-repeat;
+	background-position:top left;
+}
 section:last-child, section.fs-image-content {
 	background-image:none;
 }
@@ -856,7 +872,7 @@ figcaption h3 {
 	margin:0;
 }
 figcaption p {
-	margin:10px 0;
+	margin:2px 0 10px 0;
 }
 .oktothek h2, .episode h2, .series h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form, .subheadline, figcaption h1, figcaption .misc {
 	text-align:center;
@@ -877,6 +893,10 @@ header.page-header .navbar {
 .btn {
 	height:36px;
 	padding:8px 16px;
+}
+.timetable .btn {
+	height:18px;
+	padding:1px 8px;
 }
 .form-control {
 	height:35px;
@@ -1535,6 +1555,12 @@ figure.pin img, .programm .schedule img {
 	margin-top:15px;
 	clear:right;
 }
+.series figure.series-posterframe {
+	padding-left:0px;
+}
+.series div.series-posterframe {
+	padding-right:0px;
+}
 .series .blog aside .aside-inner {
 	margin-left:5px;
 	padding:15px;
@@ -1776,7 +1802,8 @@ figure.pin img, .programm .schedule img {
 	clear:left;
 }
 .academy section .collapse-content {
-	padding-bottom:60px;
+	padding-bottom:20px;
+	margin-bottom:40px;
 }
 .academy .pin figure div.image-container {
 	position:relative;
@@ -1788,6 +1815,11 @@ figure.pin img, .programm .schedule img {
 	width:100%;
 	padding:0;
 	height:33%;
+}
+.academy .preview-icon span {
+	display:inline-block;
+	width:16px;
+	height:20px;
 }
 .academy .pin figure div.image-container .preview-button button, .academy .pin figure div.image-container .preview-content, .academy .pin .preview-content a {
 	position:absolute;
@@ -1815,6 +1847,23 @@ figure.pin img, .programm .schedule img {
 	display:block;
 	height:100%;
 	width:100%;
+}
+.academy .preview h4 {
+	margin-top:20px;
+}
+.academy .price {
+	margin-right:15px;
+}
+.preview p.misc {
+	margin-top: 20px;
+}
+.preview .collapse-header {
+	width:54px;
+	height:30px;
+	padding:0;
+	margin:0;
+	position:relative;
+	left:0;
 }
 
 
@@ -1887,7 +1936,9 @@ figure.pin img, .programm .schedule img {
 	/*.academy .collapse {
 	    width: 970px;
 	}*/
-
+    .academy .courses .collapse-content .row div:last-child {
+	    padding-left:0px;
+    }
 
 }
 @media (min-width: 1200px) {

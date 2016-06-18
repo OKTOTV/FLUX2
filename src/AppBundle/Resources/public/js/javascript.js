@@ -212,13 +212,25 @@ $(document).ready(function(){
 				
 				if (winwidth < 580) { //legt fest nach wieviel Bildern die neue Reihe beginnt.
 					var divisor = 1;
+					var pin_width = 100;
 				} else if (winwidth < 992) {
 					var divisor = 2;
+					var pin_width = 50;
 				} else {
 					var divisor = 4;
+					var pin_width = 25;
 				}
-				var rowPosition = (Math.floor(indexPin/divisor) + 1)*divisor - 1;
+				/*Reihe ausrechnen*/
+				var _rowPosition = Math.floor(indexPin/divisor);
+				var rowPosition = (_rowPosition + 1)*divisor - 1;
 				if (rowPosition > Pins.length-1) rowPosition = Pins.length-1;
+				
+				/*Position Sprechblase ausrechnen*/
+				var bubble = indexPin - (_rowPosition * divisor) + 1;
+				var bubblepos = bubble * pin_width - pin_width / 2;
+				$('.collapse-header').css('left', bubblepos + '%');
+				$('.collapse-header').css('margin-left', '-' + ($('.collapse-header').width() / 2) + "px");
+				console.log($('.collapse-header').width());
 				
 		        $(Pins).eq(rowPosition).after($(targetEl));
 				$(targetEl).slideDown('fast','linear',function(){$(targetEl).addClass('in');});
