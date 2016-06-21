@@ -29,7 +29,7 @@ class AcademyController extends Controller
     public function showAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $coursetypes = $em->getRepository('AppBundle:Course\Coursetype')->findAll(['isActive' => true]);
+        $coursetypes = $em->getRepository('AppBundle:Course\Coursetype')->findActiveCoursetypes();
 
         return ['coursetypes' => $coursetypes];
     }
