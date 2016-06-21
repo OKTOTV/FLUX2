@@ -7,9 +7,9 @@
 
 {% set body_class = "academy head-white-color" %}
 {% block body_main %}
-    <header class="page-header">
+    <!--<header class="page-header">
         <h1>{{ 'oktothek_academy_header'|trans }}</h1>
-	</header>
+	</header>-->
 	<!-- Start Highlights -->
     <section>
         <div class="row">
@@ -40,28 +40,35 @@
                         <div class="image-container">
 						    <img src="{{ coursetype.image|link }}" class="img-responsive"/>
 						    <div class="preview-button">
-							   <button class="btn btn-primary" type="button" data-target="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}">Vorschau</button>
-							   <!--<div class="bg-opacity"></div>-->
+							    <div class="preview-content">
+								    <div class="bg-opacity"> </div>
+								    <a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}">Schnellansicht</a>
+							       
+							       </div>
+							   <div class="preview-icon"><a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}"><div class="pin-icon"><span> </span></div></a></div>
 							</div>
+							
 						</div>
         			    <figcaption>
     					    <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
                                 <h3>{{ coursetype.title }}</h3>
-                                <p>{{ coursetype.courses[0].dates|hours~'h'}} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
+                                <p><span class="price">{{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</span></p>
     						</a>
         			    </figcaption>
                     </figure>
 					
 					<!-- Schnellansicht Details Start -->
 				<div class="collapse preview" data-placement="right" title="#" id="collapseDetail{{coursetype.id}}">
+				    <div class="collapse-header"> </div>
 				    <div class="col-md-12 collapse-content">
     		            <div class="row">
     		                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                                 <h3>{{ coursetype.title }}</h3>
     			                    <p>{{ coursetype.description }}</p>
-    					            <p><a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}">Details zum Kurs</a></p>
+    					            <p><a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" class="more">Details zum Kurs</a></p>
     			                </div>
     				            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+								    <p class="misc">Dauer {{ coursetype.courses[0].dates|hours~'h'}}</p>
         				            <h4>Termine</h4>
         			                <ul class="timetable">
                                         {% for course in coursetype.courses %}
@@ -92,7 +99,7 @@
 	<section class="groups">
 	    <h2>{{ 'oktothek_academy_b2b'|trans }}</h2>
 		<p>{{ 'oktothek_academy_b2b_paragraph'|trans }}</p>
-        <p><a href="#" title="">{{ 'oktothek_academy_b2b_more'|trans }}</a></p>
+        <p><a href="#" title="" class="pull-right more">{{ 'oktothek_academy_b2b_more'|trans }}</a></p>
 	</section>
 	<!-- Ende Gruppenangebote -->
 	<!-- Anfang Newsletter -->

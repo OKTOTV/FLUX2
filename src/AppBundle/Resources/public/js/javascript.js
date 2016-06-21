@@ -181,7 +181,7 @@ $(document).ready(function(){
 			if (openEl.length > 0) {
 				for (z=0; z<openEl.length; z++) {
 					targetEl_hide_Id = $(openEl[z]).attr('id');
-					targetButtonEl = $( "button[data-target='#" + targetEl_hide_Id + "']" ).parents('article.pin');
+					targetButtonEl = $( "a[data-target='#" + targetEl_hide_Id + "']" ).parents('article.pin');
 					
 					if (targetEl != null) 
 					    if(targetEl == "#" + targetEl_hide_Id) 
@@ -196,10 +196,10 @@ $(document).ready(function(){
 			}
 		}
 		
-	    $('figure.pin .preview-button button').click(function() {
+	    $('figure.pin .preview-button a').click(function() {
 			
-			var cur_section = $(this).parents('section');
-			var targetEl = $(this).attr('data-target');
+			var cur_section = $(this).parents('section'); 
+			var targetEl = $(this).attr('href');
 		
 		    var openEl = $(cur_section).find('div.in');
 			
@@ -212,13 +212,25 @@ $(document).ready(function(){
 				
 				if (winwidth < 580) { //legt fest nach wieviel Bildern die neue Reihe beginnt.
 					var divisor = 1;
+					var pin_width = 100;
 				} else if (winwidth < 992) {
 					var divisor = 2;
+					var pin_width = 50;
 				} else {
 					var divisor = 4;
+					var pin_width = 25;
 				}
-				var rowPosition = (Math.floor(indexPin/divisor) + 1)*divisor - 1;
+				/*Reihe ausrechnen*/
+				var _rowPosition = Math.floor(indexPin/divisor);
+				var rowPosition = (_rowPosition + 1)*divisor - 1;
 				if (rowPosition > Pins.length-1) rowPosition = Pins.length-1;
+				
+				/*Position Sprechblase ausrechnen*/
+				var bubble = indexPin - (_rowPosition * divisor) + 1;
+				var bubblepos = bubble * pin_width - pin_width / 2;
+				$('.collapse-header').css('left', bubblepos + '%');
+				$('.collapse-header').css('margin-left', '-' + ($('.collapse-header').width() / 2) + "px");
+				console.log($('.collapse-header').width());
 				
 		        $(Pins).eq(rowPosition).after($(targetEl));
 				$(targetEl).slideDown('fast','linear',function(){$(targetEl).addClass('in');});
@@ -239,6 +251,13 @@ $(document).ready(function(){
   			var winwidth = $( window ).width();
 			var openEl = $('section div.in');
 			closeCoursePreview(openEl, null);//schließt alle offenen Kursdetails
+		});
+		
+		$('.preview-icon').mouseover(function(){
+			$(this).parents('.preview-button').find('.preview-content').css('display','block');
+	    });
+		$('.preview-content a').mouseleave(function(){
+			$(this).parents('.preview-content').css('display','none');
 		});
 	}
 	

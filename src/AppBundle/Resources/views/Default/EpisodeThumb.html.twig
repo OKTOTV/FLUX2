@@ -1,9 +1,11 @@
 <article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ episode.description }}">
     <figure class="episode-pin pin">
         <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen"><img src="{{ episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
-		<div class="like-it"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
+		<div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
 		<figcaption>
+		    
             <h3><a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="... ansehen">{{ episode.series.name|default('') }}</a></h3>
+			
             <p><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">{{ episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': episode.onlineStart|date('d.m.Y')})) }}</a></p>
 			</figcaption>
         </figure>

@@ -61,8 +61,10 @@ class SlideController extends Controller
      * @Route("/edit/{slide}", name="oktothek_backend_slide_edit")
      * @Template()
      */
-    public function editAction(Request $request, Slide $slide)
+    public function editAction(Request $request, $slide)
     {
+        $slide = $this->getDoctrine()->getManager()->getRepository('AppBundle:Slide')->findSlide($slide);
+
         $form = $this->createForm(new SlideType(), $slide);
         $form->add('submit', 'submit', ['label' => 'oktothek.slide_update_button', 'attr' => ['class' => 'btn btn-primary']]);
         $form->add('delete', 'submit', ['label' => 'oktothek.slide_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
@@ -76,11 +78,11 @@ class SlideController extends Controller
                     $em->flush();
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_update_slide');
 
-                    return $this->redirect($this->generateUrl('oktothek_news'));
+                    return $this->redirect($this->generateUrl('oktothek_backend_slide_index'));
                 } else { //delete
                     $this->get('oktothek_slide')->deleteSlide($slide);
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_slide');
-                    return $this->redirect($this->generateUrl('oktothek_news'));
+                    return $this->redirect($this->generateUrl('oktothek_backend_slide_index'));
                 }
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_update_slide');

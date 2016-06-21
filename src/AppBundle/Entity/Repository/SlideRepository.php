@@ -16,7 +16,7 @@ class SlideRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT s FROM AppBundle:Slide s WHERE s.onlineAt <= :startdate ORDER BY s.onlineAt DESC'
+                'SELECT s FROM AppBundle:Slide s JOIN s.asset a WHERE s.onlineAt <= :startdate ORDER BY s.onlineAt DESC'
             )
             ->setParameter('startdate', new \DateTime())
             ->setMaxResults($numberSlides)
@@ -27,7 +27,7 @@ class SlideRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT s FROM AppBundle:Slide s WHERE s.onlineAt <= :startdate AND s.slide_type = :type ORDER BY e.onlineAt ASC'
+                'SELECT s FROM AppBundle:Slide s JOIN s.asset a WHERE s.onlineAt <= :startdate AND s.slide_type = :type ORDER BY e.onlineAt ASC'
             )
             ->setParameter('startdate', new \DateTime())
             ->setParameter('type', $type)
@@ -38,6 +38,16 @@ class SlideRepository extends EntityRepository
     public function findAllSlidesQuery()
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT s FROM AppBundle:Slide s');
+            ->createQuery('SELECT s FROM AppBundle:Slide s LEFT JOIN s.asset a');
+    }
+
+    public function findSlide($slide)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT s,a FROM AppBundle:Slide s LEFT JOIN s.asset a WHERE s.id = :id'
+            )
+            ->setParameter('id', $slide)
+            ->getOneOrNullResult();
     }
 }

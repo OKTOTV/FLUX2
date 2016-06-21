@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Coursetype
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CoursetypeRepository")
  */
 class Coursetype
 {
@@ -60,7 +60,7 @@ class Coursetype
     private $highlight;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Asset")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Asset",fetch="EAGER")
      * @ORM\JoinColumn(name="image", referencedColumnName="id")
      */
     private $image;
@@ -437,7 +437,7 @@ class Coursetype
     /**
      * Get coursepackages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCoursepackages()
     {
