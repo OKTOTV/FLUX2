@@ -61,7 +61,6 @@
                 var playerInstance = jwplayer("video");
                 playerInstance.setup({
                     sources: [{% for media in episode.media %}{file: "{{ media.asset|path }}", label: "{{ media.quality }}", type: "mp4"}{% if not loop.last %},{% endif %}{% endfor %}],
-                    {# file: "{{ episode.video|path }}", #}
                     image: "{{ episode.posterframe|path }}"
                 });
             });
