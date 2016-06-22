@@ -36,3 +36,8 @@ bprs_applink:
     resource: "@BprsAppLinkBundle/Controller/"
     type:     annotation
     prefix:   /
+
+bprs_commandline:
+    resource: .
+    type: bprs_commandline
+    prefix: /{_locale}/backend
