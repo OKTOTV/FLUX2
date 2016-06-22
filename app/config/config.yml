@@ -135,8 +135,9 @@ oktolab_media:
             public: false
     player_url: "%player_url%"
     origin:
-        margin: 30
-        position: "bottom-right"
+        margin: 20
+        position: "top-right"
+        logo: "bundles/media/img/logo.png"
 
 jms_serializer:
     metadata:

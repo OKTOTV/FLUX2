@@ -39,8 +39,11 @@
 						{% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_OKTOLAB_ADMIN') or is_granted('ROLE_ADMIN') %}
 	                    	<li {% if selected == "backend" %}class="active"{% endif %}>
 	                        	<a href="{{ path('backend') }}">Backend</a>
-								<a href="{{ path('list_status')}}">{{ 'bprs_commandline.job_menu'|trans }}</a>
 	                    	</li>
+							{# TODO: change selected keyword or move to backend #}
+							<li {% if selected == "backend" %}class="active"{% endif %}>
+								<a href="{{ path('list_status')}}">{{ 'bprs_commandline.job_menu'|trans }}</a>
+							</li>
 						{% endif %}
 						<li role="separator" class="divider"></li>
 						<li><a href="{{ path('bprs_user_logout') }}">{{'oktothek.menu_user_logout'|trans|raw }}</a><li>
