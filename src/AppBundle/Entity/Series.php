@@ -14,7 +14,7 @@ use AppBundle\Entity\EpisodePin;
 class Series extends BaseSeries
 {
     /**
-     * @ORM\OneToMany(targetEntity="Abonnement", mappedBy="user", cascade="remove")
+     * @ORM\OneToMany(targetEntity="Abonnement", mappedBy="series", cascade="remove")
      */
     private $abonnements;
 
