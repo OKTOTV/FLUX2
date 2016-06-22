@@ -48,6 +48,12 @@ class User extends BaseUser
      */
     private $comments;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Series", inversedBy="users")
+     * @ORM\JoinTable(name="users_series")
+     */
+    private $channels;
+
     public function __construct() {
         parent::__construct();
         $this->abonnements = new \Doctrine\Common\Collections\ArrayCollection();
@@ -238,7 +244,7 @@ class User extends BaseUser
     /**
      * Get notifications
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getNotifications()
     {

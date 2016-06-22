@@ -21,7 +21,9 @@ class SliderService
 
     function deleteSlide($slide)
     {
-        $this->asset_helper->deleteAsset($slide->getAsset());
+        if ($slide->getAsset()) {
+            $this->asset_helper->deleteAsset($slide->getAsset());
+        }
         $this->em->remove($slide);
         $this->em->flush();
     }

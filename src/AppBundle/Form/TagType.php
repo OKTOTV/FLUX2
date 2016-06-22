@@ -33,7 +33,7 @@ class TagType extends AbstractType
     {
         $resolver->setDefaults(array(
             'invalid_message' => 'The tag does not exist',
-            'type'  => 'text',
+            'type'  => 'hidden',
             'allow_add' => true,
             'allow_delete' => true,
             'by_reference' => false
