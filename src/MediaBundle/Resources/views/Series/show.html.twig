@@ -26,6 +26,12 @@
             {% endif %}
             <p>ID: {{ series.uniqID }}</p>
             <p>Webtitel: {{ series.webtitle }}</p>
+            <div class="list-group">
+                {% for reachme in series.reachmes %}
+                        <a href="{{ path('flux2_reachme_show', {'reachme': reachme.id })}}" class="list-group-item">{{ 'reachme_type_transchoice'|transchoice(reachme.type) }}</a>
+                {% endfor %}
+                <a href="{{ path('flux2_reachme_new', {'series_uid': series.uniqID})}}" class="list-group-item">{{ 'flux2_reachme_new'|trans|raw}}</a>
+            </div>
         </div>
     </div>
     <a class="btn btn-default" href="{{ path('oktolab_episode_new')}}">{{ 'oktolab_media.series_add_new_episode'|trans|raw }}</a>

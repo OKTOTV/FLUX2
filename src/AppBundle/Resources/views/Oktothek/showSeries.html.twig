@@ -40,15 +40,11 @@
                 <img src="{{ series.episodes[0].posterframe|path() }}" />
             </figure>
 			<div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12">
-		    <h3>{{ series.episodes[0].name }}</h3>
-		    <p class="description">{{ series.episodes[0].description }}</p>
-			<a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
-			
-			
-			
-				    
-				</div>
-		    </article>
+        		    <h3>{{ series.episodes[0].name }}</h3>
+        		    <p class="description">{{ series.episodes[0].description }}</p>
+        			<a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
+			</div>
+	    </article>
 		<!-- Ende Serienbeschreibung -->
 	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
@@ -62,14 +58,19 @@
 	<section class="container">
 	    <div class="infos">
 		    <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
-			
-		    <div class="socialnetworks">
-			    <p class="contact"><strong>Kontakt:</strong> ossa@gmx.at</p>
+
+            {% include 'MediaBundle::Reachme/reachme_stack.html.twig' with {'reachmes': series.reachmes } %}
+		    {# <div class="socialnetworks">
+                {% if series.reachmes %}
+			    <p class="contact"><strong>Kontakt:</strong> </p>
                 <ul>
+                    {% for reachme in series.reachmes %}
+                    <li><a href="{{ reachme.uri }}" target="_blank"></a></li>
+                    {% endfor %}
                     <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
                     <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
                 </ul>
-             </div>
+             </div> #}
 	    </div>
 	</section>
     {% if series.playlists is not empty %}
@@ -87,10 +88,6 @@
     {% include "BprsStyleBundle::datetimepicker.js.twig" %}
     <script type="text/javascript">
         $(document).ready( function(){
-/* <<<<<<< Updated upstream
-=======
-			
->>>>>>> Stashed changes */
             $('#appbundle_post_onlineAt_picker').datetimepicker({
                 locale: 'de',
                 // format: "DD.MM.YYYY hh:mm",

@@ -5,6 +5,9 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Oktolab\MediaBundle\Entity\Series as BaseSeries;
 use AppBundle\Entity\EpisodePin;
+use Doctrine\Common\Collections\ArrayCollection;
+use MediaBundle\Entity\Reachme;
+
 /**
  * Series
  *
@@ -27,10 +30,11 @@ class Series extends BaseSeries
 
     public function __construct() {
         parent::__construct();
-        $this->abonnements = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->episodes = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->playlists = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->abonnements = new ArrayCollection();
+        $this->episodes = new ArrayCollection();
+        $this->posts = new ArrayCollection();
+        $this->playlists = new ArrayCollection();
+        $this->reachmes = new ArrayCollection();
     }
 
     /**
@@ -53,6 +57,11 @@ class Series extends BaseSeries
      *      inverseJoinColumns={@ORM\JoinColumn(name="playlist_id", referencedColumnName="id", unique=true)})
      */
     private $playlists;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MediaBundle\Entity\Reachme", mappedBy="series")
+     */
+    private $reachmes;
 
     /**
      * Add episodes
@@ -228,5 +237,38 @@ class Series extends BaseSeries
     public function getPlaylists()
     {
         return $this->playlists;
+    }
+
+    /**
+     * Add reachmes
+     *
+     * @param \AppBundle\Entity\Reachme $reachmes
+     * @return Series
+     */
+    public function addReachme(Reachme $reachmes)
+    {
+        $this->reachmes[] = $reachmes;
+
+        return $this;
+    }
+
+    /**
+     * Remove reachmes
+     *
+     * @param \AppBundle\Entity\Reachme $reachmes
+     */
+    public function removeReachme(Reachme $reachmes)
+    {
+        $this->reachmes->removeElement($reachmes);
+    }
+
+    /**
+     * Get reachmes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReachmes()
+    {
+        return $this->reachmes;
     }
 }

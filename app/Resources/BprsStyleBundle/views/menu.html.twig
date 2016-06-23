@@ -40,6 +40,10 @@
 	                    	<li {% if selected == "backend" %}class="active"{% endif %}>
 	                        	<a href="{{ path('backend') }}">Backend</a>
 	                    	</li>
+							{# TODO: change selected keyword or move to backend #}
+							<li {% if selected == "backend" %}class="active"{% endif %}>
+								<a href="{{ path('list_status')}}">{{ 'bprs_commandline.job_menu'|trans }}</a>
+							</li>
 						{% endif %}
 						<li role="separator" class="divider"></li>
 						<li><a href="{{ path('bprs_user_logout') }}">{{'oktothek.menu_user_logout'|trans|raw }}</a><li>
