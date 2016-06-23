@@ -1,0 +1,27 @@
+#reachme
+reachme_type_transchoice:       "{0} Mail|{1} Facebook|{2} Twitter|{3} Instagram|{4} Google+"
+
+#form
+media.reachme_uri_placeholder:              URI to point to
+flux2_media.reachme_type_label:             Typ
+flux2_media.reachme_uri_label:              URI
+flux2_media.reachme_series_label:           Sendereihe
+
+#new
+flux2_media.new_reachme_header:             Neues Reachme anlegen
+flux2_media.success_create_reachme:         Reachme erfolgreich angelegt
+flux2_media.error_create_reachme:           Reachme konnte nicht angelegt werden
+flux2_media.create_reachme_button:          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Reachme anlegen
+
+#edit
+flux2_media.edit_reachme_header:            Reachme bearbeiten
+flux2_media.edit_reachme_button:            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Aktualisieren
+flux2_media.delete_reachme_button:          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Löschen
+flux2_media.success_edit_reachme:           Reachme erfolgreich aktualisiert
+flux2_media.success_delete_reachme:         Reachme erfolgreich gelöscht
+flux2_media.info_edit_reachme_unknown_button: Aktion unbekannt. Bitte nutze die vorgegebenen Buttons
+flux2_media.error_edit_reachme:             Reachme konnte nicht aktualisiert werden
+
+#show
+flux2_reachme_edit:                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Reachme bearbeiten
+flux2_reachme_new:                          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neues Reachme anlegen

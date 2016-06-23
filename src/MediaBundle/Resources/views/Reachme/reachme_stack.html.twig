@@ -1,0 +1,25 @@
+{% spaceless %}
+<div class="socialnetworks">
+    {% for reachme in reachmes %}
+        {% if constant('MediaBundle\\Entity\\Reachme::TYPE_MAIL') == reachme.type %}
+            <p class="contact"><strong>Kontakt:</strong> <a href="mailto:{{reachme.uri}}">{{reachme.uri}}</a></p>
+        {% endif %}
+    {% endfor %}
+    <ul>
+        {% for reachme in reachmes %}
+            {% if constant('MediaBundle\\Entity\\Reachme::TYPE_FB') == reachme.type %}
+                <li><a href="{{ reachme.uri }}" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>
+            {% elseif constant('MediaBundle\\Entity\\Reachme::TYPE_TWITTER') == reachme.type %}
+                <li><a href="{{ reachme.uri }}" class="icon-twitter" target="_blank"><span>Twitter</span></a></li>
+            {% elseif constant('MediaBundle\\Entity\\Reachme::TYPE_INST') == reachme.type %}
+                <li><a href="{{ reachme.uri }}" class="icon-instagram" target="_blank"><span>Instagram</span></a></li>
+            {% elseif constant('MediaBundle\\Entity\\Reachme::TYPE_GP') == reachme.type %}
+                <li><a href="{{ reachme.uri }}" class="icon-google+" target="_blank"><span>Google+</span></a></li>
+            {% elseif constant('MediaBundle\\Entity\\Reachme::TYPE_MAIL') == reachme.type %}
+            {% else %}
+                <li><a href="{{ reachme.uri }}" class="icon-other" target="_blank"><span>Other</span></a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+ </div>
+{% endspaceless %}
