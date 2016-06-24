@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\Entity\Repository;
+namespace MediaBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\Tag;

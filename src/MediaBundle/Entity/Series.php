@@ -11,7 +11,7 @@ use MediaBundle\Entity\Reachme;
  * Series
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\SeriesRepository")
+ * @ORM\Entity(repositoryClass="MediaBundle\Entity\Repository\SeriesRepository")
  */
 class Series extends BaseSeries
 {

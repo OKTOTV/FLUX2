@@ -9,7 +9,7 @@ use Oktolab\MediaBundle\Entity\Episode as BaseEpisode;
  * Episode
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\EpisodeRepository")
+ * @ORM\Entity(repositoryClass="MediaBundle\Entity\Repository\EpisodeRepository")
  */
 class Episode extends BaseEpisode
 {
