@@ -2,7 +2,7 @@
 namespace AppBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use AppBundle\Entity\Episode;
+use MediaBundle\Entity\Episode;
 
 class EpisodeRepository extends EntityRepository
 {
@@ -10,7 +10,7 @@ class EpisodeRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.series = :series_id AND e.onlineStart > :episode_date AND e.isActive = 1 ORDER BY e.onlineStart ASC'
+                'SELECT e FROM MediaBundle:Episode e WHERE e.series = :series_id AND e.onlineStart > :episode_date AND e.isActive = 1 ORDER BY e.onlineStart ASC'
             )
             ->setParameter('series_id', $episode->getSeries()->getId())
             ->setParameter('episode_date', $episode->getOnlineStart())
@@ -22,7 +22,7 @@ class EpisodeRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.isActive = 1 ORDER BY e.onlineStart DESC'
+                'SELECT e FROM MediaBundle:Episode e WHERE e.isActive = 1 ORDER BY e.onlineStart DESC'
             )
             ->setMaxResults($numberEpisodes)
             ->getResult();
@@ -42,7 +42,7 @@ class EpisodeRepository extends EntityRepository
 
         // return $this->getEntityManager()
         //     ->createQuery(
-        //         'SELECT e, COUNT(u) AS HIDDEN favoriteCount FROM AppBundle:Episode e LEFT JOIN e.users u WHERE e.isActive = 1 GROUP BY e ORDER BY favoriteCount DESC'
+        //         'SELECT e, COUNT(u) AS HIDDEN favoriteCount FROM MediaBundle:Episode LEFT JOIN e.users u WHERE e.isActive = 1 GROUP BY e ORDER BY favoriteCount DESC'
         //     )
         //     ->setMaxResults($numberEpisodes)
         //     ->getResult();

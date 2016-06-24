@@ -1,10 +1,10 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Oktolab\MediaBundle\Entity\Episode as BaseEpisode;
-use AppBundle\Entity\EpisodePin;
+
 /**
  * Episode
  *
@@ -25,12 +25,12 @@ class Episode extends BaseEpisode
     private $series;
 
     /**
-    * @ORM\ManyToMany(targetEntity="User", mappedBy="favorites")
+    * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="favorites")
     */
     private $users;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag")
      * @ORM\JoinTable(name="episode_tags",
      *      joinColumns={@ORM\JoinColumn(name="episode_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}

@@ -55,7 +55,7 @@ class Abonnement
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Series", inversedBy="abonnements")
+     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series", inversedBy="abonnements")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
      */
     private $series;
@@ -202,10 +202,10 @@ class Abonnement
     /**
      * Set series
      *
-     * @param \AppBundle\Entity\Series $series
+     * @param \MediaBundle\Entity\Series $series
      * @return Abonnement
      */
-    public function setSeries(\AppBundle\Entity\Series $series = null)
+    public function setSeries(\MediaBundle\Entity\Series $series = null)
     {
         $this->series = $series;
 
@@ -215,7 +215,7 @@ class Abonnement
     /**
      * Get series
      *
-     * @return \AppBundle\Entity\Series
+     * @return \MediaBundle\Entity\Series
      */
     public function getSeries()
     {

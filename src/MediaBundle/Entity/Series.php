@@ -1,10 +1,9 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Oktolab\MediaBundle\Entity\Series as BaseSeries;
-use AppBundle\Entity\EpisodePin;
 use Doctrine\Common\Collections\ArrayCollection;
 use MediaBundle\Entity\Reachme;
 
@@ -17,7 +16,7 @@ use MediaBundle\Entity\Reachme;
 class Series extends BaseSeries
 {
     /**
-     * @ORM\OneToMany(targetEntity="Abonnement", mappedBy="series", cascade="remove")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Abonnement", mappedBy="series", cascade="remove")
      */
     private $abonnements;
 
@@ -38,7 +37,7 @@ class Series extends BaseSeries
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity="Post")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Post")
      * @ORM\JoinTable(name="series_posts",
      *                  joinColumns={@ORM\JoinColumn(name="series_id", referencedColumnName="id")},
      *                  inverseJoinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id", unique=true)})
@@ -46,12 +45,12 @@ class Series extends BaseSeries
     private $posts;
 
     /**
-    * @ORM\ManyToMany(targetEntity="User", mappedBy="channels")
+    * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="channels")
     */
     private $users;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Playlist")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Playlist")
      * @ORM\JoinTable(name="series_playlists",
      *      joinColumns={@ORM\JoinColumn(name="series_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="playlist_id", referencedColumnName="id", unique=true)})

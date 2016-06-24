@@ -4,12 +4,11 @@ namespace MediaBundle\Controller;
 
 use Oktolab\MediaBundle\Controller\SeriesController as BaseController;
 use Symfony\Component\HttpFoundation\Request;
-// use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use AppBundle\Entity\Series;
+use MediaBundle\Entity\Series;
 use MediaBundle\Form\EpisodeType;
 
 /**
@@ -19,7 +18,7 @@ class SeriesController extends BaseController
 {
     /**
      * Finds and displays a Series entity.
-     * @ParamConverter("series", class="AppBundle:Series")
+     * @ParamConverter("series", class="MediaBundle:Series")
      * @Route("/show/{series}", name="oktolab_series_show")
      * @Method("GET")
      * @Template()
@@ -31,7 +30,7 @@ class SeriesController extends BaseController
 
     /**
      * Finds and displays a Series entity.
-     * @ParamConverter("series", class="AppBundle:Series")
+     * @ParamConverter("series", class="MediaBundle:Series")
      * @Route("/{series/paginate/{series}/{page}", name="media_episode_paginator", requirements={"page": "\d+"}, defaults={"page":1})
      * @Method("GET")
      * @Template()

@@ -125,13 +125,4 @@ class PlaylistController extends Controller
         }
         return $this->redirect($this->generateUrl('oktothek_show_user_playlist'));
     }
-
-    /**
-     * @Route("/embed/{uniqID}", name="oktothek_embed_playlist")
-     * @Template()
-     */
-    public function embedAction(Playlist $playlist)
-    {
-        return ['playlist' => $playlist];
-    }
 }

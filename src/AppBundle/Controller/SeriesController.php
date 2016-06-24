@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use AppBundle\Entity\Series;
+use MediaBundle\Entity\Series;
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
 /**
@@ -58,17 +58,17 @@ class SeriesController extends Controller
         $episodes = [];
         if ($request->getMethod() == "POST") {
             if ($request->request->get('tag') == "all") {
-                $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
+                $episodes = $em->getRepository('MediaBundle:Series')->findNewestEpisodesForSeries($series);
                 return $this->render('AppBundle::Default/EpisodeStack.html.twig', ['episodes' => $episodes]);
             } else {
                 $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $request->request->get('tag')]);
-                $episodes = $em->getRepository('AppBundle:Series')->findEpisodesWithTag($series, $tag);
+                $episodes = $em->getRepository('MediaBundle:Series')->findEpisodesWithTag($series, $tag);
                 return $this->render('AppBundle::Default/EpisodeStack.html.twig', ['episodes' => $episodes]);
             }
         } else {
-            $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
+            $episodes = $em->getRepository('MediaBundle:Series')->findNewestEpisodesForSeries($series);
         }
-        $tags = $em->getRepository('AppBundle:Series')->getSeriesTags($series);
+        $tags = $em->getRepository('MediaBundle:Series')->getSeriesTags($series);
         return ['episodes' => $episodes, 'series' => $series, 'series_tags' => $tags];
     }
 }

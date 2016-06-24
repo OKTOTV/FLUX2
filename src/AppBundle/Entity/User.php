@@ -23,7 +23,7 @@ class User extends BaseUser
     private $playlists;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Episode", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="MediaBundle\Entity\Episode", inversedBy="users")
      * @ORM\JoinTable(name="users_favorites")
      */
     private $favorites;
@@ -49,7 +49,7 @@ class User extends BaseUser
     private $comments;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Series", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="MediaBundle\Entity\Series", inversedBy="users")
      * @ORM\JoinTable(name="users_series")
      */
     private $channels;
@@ -122,10 +122,10 @@ class User extends BaseUser
     /**
      * Add favorites
      *
-     * @param \AppBundle\Entity\Episode $favorites
+     * @param \MediaBundle\Entity\Episode $favorites
      * @return User
      */
-    public function addFavorite(\AppBundle\Entity\Episode $favorites)
+    public function addFavorite(\MediaBundle\Entity\Episode $favorites)
     {
         $this->favorites[] = $favorites;
 
@@ -135,9 +135,9 @@ class User extends BaseUser
     /**
      * Remove favorites
      *
-     * @param \AppBundle\Entity\Episode $favorites
+     * @param \MediaBundle\Entity\Episode $favorites
      */
-    public function removeFavorite(\AppBundle\Entity\Episode $favorites)
+    public function removeFavorite(\MediaBundle\Entity\Episode $favorites)
     {
         $this->favorites->removeElement($favorites);
     }

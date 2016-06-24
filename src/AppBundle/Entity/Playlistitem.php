@@ -35,7 +35,7 @@ class Playlistitem
     private $playlist;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Episode")
+    * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Episode")
     * @ORM\JoinColumn(name="episode_id", referencedColumnName="id")
     */
     private $episode;
@@ -104,10 +104,10 @@ class Playlistitem
     /**
      * Set episode
      *
-     * @param \AppBundle\Entity\Episode $episode
+     * @param \MediaBundle\Entity\Episode $episode
      * @return Playlistitem
      */
-    public function setEpisode(\AppBundle\Entity\Episode $episode = null)
+    public function setEpisode(\MediaBundle\Entity\Episode $episode = null)
     {
         $this->episode = $episode;
 
@@ -117,7 +117,7 @@ class Playlistitem
     /**
      * Get episode
      *
-     * @return \AppBundle\Entity\Episode
+     * @return \MediaBundle\Entity\Episode
      */
     public function getEpisode()
     {

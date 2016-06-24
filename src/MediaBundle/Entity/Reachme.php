@@ -3,7 +3,7 @@
 namespace MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Entity\Series;
+use MediaBundle\Entity\Series;
 
 /**
  * Reachme
@@ -43,7 +43,7 @@ class Reachme
     private $uri;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Series", inversedBy="reachmes")
+     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series", inversedBy="reachmes")
      * @ORM\JoinColumn(name="reachme_id", referencedColumnName="id")
      */
     private $series;

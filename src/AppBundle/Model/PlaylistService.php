@@ -26,7 +26,7 @@ class PlaylistService
                         $NotInPlaylist = false;
                     }
                 }
-                $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $episodeID]);
+                $episode = $this->em->getRepository('MediaBundle:Episode')->findOneBy(['uniqID' => $episodeID]);
                 $playlistItem = new PlaylistItem();
                 $playlistItem->setEpisode($episode);
                 $playlist->addItem($playlistItem);
@@ -67,7 +67,7 @@ class PlaylistService
         $playlist = new Playlist();
         $playlist->setUser($user);
         $playlist->setName($name);
-        $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
+        $episode = $this->em->getRepository('MediaBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
         $playlistItem = new PlaylistItem();
         $playlistItem->setEpisode($episode);
         $playlist->addItem($playlistItem);

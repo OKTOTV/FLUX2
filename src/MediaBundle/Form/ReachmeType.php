@@ -25,7 +25,7 @@ class ReachmeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('series', 'entity', ['class' => 'AppBundle:Series', 'choice_label' => 'name'])
+            ->add('series', 'entity', ['class' => 'MediaBundle:Series', 'choice_label' => 'name'])
             ->add('type', ChoiceType::class, [
                 'choices' => [
                     Reachme::TYPE_MAIL    => $this->trans->transchoice('reachme_type_transchoice', Reachme::TYPE_MAIL),

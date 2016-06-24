@@ -3,7 +3,7 @@ namespace AppBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\Tag;
-use AppBundle\Entity\Series;
+use MediaBundle\Entity\Series;
 use Doctrine\ORM\Query\ResultSetMapping;
 
 class SeriesRepository extends EntityRepository
@@ -11,13 +11,13 @@ class SeriesRepository extends EntityRepository
     public function findEpisodesWithTag(Series $series, Tag $tag, $pagerable = false) {
         if ($pagerable) {
             return $this->getEntityManager()
-                ->createQuery('SELECT e FROM AppBundle:Episode e JOIN AppBundle:Tag t WHERE e.onlineStart > :online_start AND e.is_active = 1 AND e.series = :series_id AND t.id = :tag_id')
+                ->createQuery('SELECT e FROM MediaBundle:Episode JOIN AppBundle:Tag t WHERE e.onlineStart > :online_start AND e.is_active = 1 AND e.series = :series_id AND t.id = :tag_id')
                 ->setParameter('tag_id', $tag->getId())
                 ->setParameter('online_start', new \DateTime())
                 ->setParameter('series_id', $series->getId());
         }
         return $this->getEntityManager()
-            ->createQuery('SELECT e FROM AppBundle:Episode e JOIN e.tags t WHERE t.id = :tag_id AND e.series = :series_id ORDER BY e.onlineStart DESC')
+            ->createQuery('SELECT e FROM MediaBundle:Episode JOIN e.tags t WHERE t.id = :tag_id AND e.series = :series_id ORDER BY e.onlineStart DESC')
             ->setParameter('tag_id', $tag->getId())
             ->setParameter('series_id', $series->getId())
             ->setMaxResults(5)
@@ -44,7 +44,7 @@ class SeriesRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.series = :series_id  AND e.isActive = 1 AND (e.onlineStart > :episode_date OR e.onlineStart IS NULL) ORDER BY e.onlineStart DESC'
+                'SELECT e FROM MediaBundle:Episode e WHERE e.series = :series_id  AND e.isActive = 1 AND (e.onlineStart > :episode_date OR e.onlineStart IS NULL) ORDER BY e.onlineStart DESC'
             )
             ->setParameter('series_id', $series->getId())
             ->setParameter('episode_date', new \DateTime())

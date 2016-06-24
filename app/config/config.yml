@@ -75,7 +75,7 @@ doctrine:
         auto_mapping: true
         resolve_target_entities:
             Bprs\AssetBundle\Entity\AssetInterface: AppBundle\Entity\Asset
-            Oktolab\MediaBundle\Entity\EpisodeInterface: AppBundle\Entity\Episode
+            Oktolab\MediaBundle\Entity\EpisodeInterface: MediaBundle\Entity\Episode
         # mappings:
         #     sluggable:
         #         type: annotation
@@ -100,8 +100,8 @@ bprs_user:
 
 oktolab_media:
     encoding_filesystem: cache
-    episode_class: "AppBundle\Entity\Episode"
-    series_class: "AppBundle\Entity\Series"
+    episode_class: "MediaBundle\Entity\Episode"
+    series_class: "MediaBundle\Entity\Series"
     asset_class: "AppBundle\Entity\Asset"
     encoding_filesystem: cache
     keep_original: false

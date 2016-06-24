@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Slide;
-use AppBundle\Entity\Episode;
+use MediaBundle\Entity\Episode;
 use AppBundle\Entity\Post;
 use AppBundle\Form\Backend\SlideType;
 

@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% set body_class = "head-white-color" %}
-{% block body %}
+{% block body_main %}
     <div class="page-header">
         <h1>{{ playlist.name }}</h1>
         {% if app.user == playlist.user %}
@@ -18,6 +18,9 @@
     <div class="row">
         <div class="col-md-9">
             <figure id="player"></figure>
+            <p>{{ playlist.description }}</p>
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button>
+            {% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
         </div>
         <div class="col-md-3">
             <div class="list-group">
@@ -27,27 +30,17 @@
             </div>
         </div>
     </div>
-    <p>{{ playlist.description }}</p>
 {% endblock %}
 
 {% block javascripts %}
 {{ parent() }}
-<script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
+{{ playlist(playlist)|raw }}
 <script>
     $(document).ready(function(){
         $('.playme').click(function(e){
             e.preventDefault();
-            playerInstance.playlistItem($(this).data('list'));
+            jwplayer('player').playlistItem($(this).data('list'));
         })
-
-        var playerInstance = jwplayer("player");
-        playerInstance.setup({
-            listbar: {
-                position: "right",
-                size: 234
-            },
-            playlist: "{{ url('oktothek_show_playlist', {'uniqID': playlist.uniqID, '_format': 'json'})}}"
-        });
     });
-</script>
+</script> #}
 {% endblock %}

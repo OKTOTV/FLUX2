@@ -1,8 +1,8 @@
-AppBundle\Entity\Episode:
+MediaBundle\Entity\Episode:
     exclusion_policy: ALL
     access_type: public_method
     properties:
         series:
             expose: true
-            type: AppBundle\Entity\Series
+            type: MediaBundle\Entity\Series
             max_depth: 2
