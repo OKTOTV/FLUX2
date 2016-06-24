@@ -428,15 +428,16 @@ header .icon.icon-login {
 
 
 /****************************  Color, Effects Content ****************************/
-body, .btn-default, .episode .misc a, a:hover, select.form-control, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3  {
+body, .btn-default, .episode .misc a, a:hover, select.form-control.ghost, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3  {
 	color:#ffffff;
 }
-.form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default, .timetable .btn {
+.form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default, .timetable .btn, .bootstrap-datetimepicker-widget {
 	color:#000000;
 }
-a, a.more  { /* Türkis */
+/* Türkis */
+/*a, a.more  { 
 	color:#13fffd;
-}
+}*/
 .pin figcaption p a, .pin figcaption a p, .news p, .comments .author, .academy .preview p, .academy .pin .preview-content a { /* Hellgrau */
 	color:#dcdcdc;
 }
@@ -453,7 +454,7 @@ a, a.more  { /* Türkis */
 .form-control::-webkit-input-placeholder {
   color: #818181;
 }
-.btn, .pin-icon .choosen, .episode .series a /*Gelb*/ {
+.btn, .pin-icon .choosen, .episode .series a, a, a.more /*Gelb*/ {
 	color: #fcce14;
 }
 
@@ -496,12 +497,13 @@ button .btn-default.but-full.active, .oktothek article a.btn-default.but-full, .
 	border-bottom:dotted 1px #5a6769;
 }
 /* Spacelayout */
-.btn-default, .btn-default.but-full:hover, .btn-primary { /* Gelb */
+.btn-default, .btn-default.but-full:hover, .btn-primary, .pull-right .icon { /* Gelb */
 	border: solid 2px #fcce14;
 }
-.pull-right .icon { /* Türkis */
+/* Türkis */
+/*.pull-right .icon { 
 border: solid 2px #13fffd;
-}
+}*/
 .programm .schedule .panel-default {
 	border-top:none;
 	border-left:none;
@@ -1759,9 +1761,6 @@ figure.pin img, .programm .schedule img {
 }
 .academy .newsletter .input-group {
 	margin:0 auto;
-}
-.academy-content .content-opacity {
-	display:table-row;
 }
 .academy-content .content-opacity div {
 	display:table-cell;
