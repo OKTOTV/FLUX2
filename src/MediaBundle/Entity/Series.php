@@ -34,6 +34,7 @@ class Series extends BaseSeries
         $this->posts = new ArrayCollection();
         $this->playlists = new ArrayCollection();
         $this->reachmes = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     /**
@@ -45,7 +46,7 @@ class Series extends BaseSeries
     private $posts;
 
     /**
-    * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="channels")
+    * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="channels", fetch="EAGER")
     */
     private $users;
 
@@ -148,7 +149,7 @@ class Series extends BaseSeries
     public function addUser(\AppBundle\Entity\User $users)
     {
         $this->users[] = $users;
-
+        $users->addChannel($this);
         return $this;
     }
 
@@ -160,6 +161,7 @@ class Series extends BaseSeries
     public function removeUser(\AppBundle\Entity\User $users)
     {
         $this->users->removeElement($users);
+        $users->removeChannel($this);
     }
 
     /**

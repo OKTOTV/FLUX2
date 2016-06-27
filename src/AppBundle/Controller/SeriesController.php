@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use MediaBundle\Entity\Series;
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
@@ -70,5 +71,28 @@ class SeriesController extends Controller
         }
         $tags = $em->getRepository('MediaBundle:Series')->getSeriesTags($series);
         return ['episodes' => $episodes, 'series' => $series, 'series_tags' => $tags];
+    }
+
+    /**
+     * @Route("/my_channels", name="oktothek_my_channels")
+     * @Method({"GET"})
+     * @Template()
+     * @Security("has_role('ROLE_OKTOLAB_PRODUCER')")
+     */
+    public function userChannelsAction()
+    {
+        $series = $this->getUser()->getChannels();
+        return ['series' => $series];
+    }
+
+    /**
+     * @Route("/channel/{uniqID}", name="oktothek_channel")
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function producerAction(Series $series)
+    {
+        $this->denyAccessUnlessGranted('view_channel', $series);
+        return ['series' => $series];
     }
 }

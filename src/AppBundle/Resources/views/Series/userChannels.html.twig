@@ -1,0 +1,22 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ 'oktothek_series_my_channels_header'|trans }}</h1>
+    </div>
+    {% if series is empty %}
+        <p>{{ 'oktothek_series_my_channels_empty'|trans }}</p>
+    {% else %}
+        <div class="list-group">
+
+
+            {% for channel in series %}
+                <a href="{{ path('oktothek_channel', {'uniqID': channel.uniqID}) }}" class="list-group-item">{{ channel.name }}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': 'producer'} %}
+{% endblock %}
+
+{% block body_main %}
+
+<div class="page-header">
+    <h1>{{ series.name }}</h1>
+</div>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Allgemein</a></li>
+  <li role="presentation"><a href="#">Playlisten</a></li>
+  <li role="presentation"><a href="#">Episoden</a></li>
+</ul>
+<p>{{ 'oktothek.series_producer_text'|trans }}</p>
+
+<div class="row">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-4">
+        <img src="{{ series.posterframe|thumb(720,1280)}}" class="img img-responsive" />
+        <ul class="list-group">
+            <li href="" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_description'|trans }}</h4>
+                <p class="list-group-item-text">{{ series.description }}</p>
+            </li>
+            <li href="" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_last_updated'|trans }}</h4>
+                <p class="list-group-item-text">{{ series.updatedAt|date('d.m.Y') }}</p>
+            </li>
+            <li href="" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_abonnements'|trans }}</h4>
+                <p class="list-group-item-text">{{ series.abonnements|length }}</p>
+            </li>
+            <li href="" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_reachmes'|trans }}</h4>
+                <p class="list-group-item-text">
+                    <ul>
+                        {% for reachme in series.reachmes %}
+                        <li>{{ 'reachme_type_transchoice'|transchoice(reachme.type) }} - {{ reachme.uri }}</li>
+                        {% endfor %}
+                    </ul>
+                </p>
+            </li>
+            <li href="" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_episodes'|trans }}</h4>
+                <p class="list-group-item-text">{{ series.episodes|length }}</p>
+            </li>
+            <li href="" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_playlists'|trans }}</h4>
+                <p class="list-group-item-text">{{ series.playlists|length }}</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

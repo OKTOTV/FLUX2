@@ -36,6 +36,11 @@
 							<a href="{{ path('user_favorites') }}">{{ 'oktothek.menu_user_favorites'|trans|raw }}</a>
 						</li>
 						<li role="separator" class="divider"></li>
+						{% if is_granted('ROLE_OKTOLAB_PRODUCER') %}
+							<li {% if selected == "producer" %}class="active"{% endif %}>
+								<a href="{{ path('oktothek_my_channels')}}">{{ 'oktothek.menu_my_channels'|trans }}</a>
+							</li>
+						{% endif %}
 						{% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_OKTOLAB_ADMIN') or is_granted('ROLE_ADMIN') %}
 	                    	<li {% if selected == "backend" %}class="active"{% endif %}>
 	                        	<a href="{{ path('backend') }}">Backend</a>

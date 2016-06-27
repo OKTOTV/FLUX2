@@ -30,6 +30,12 @@ services:
         tags:
             - { name: form.type, alias: tag }
 
+    mediabundle_user:
+        class: MediaBundle\Form\UserType
+        arguments: [ @oktothek_user.repository ]
+        tags:
+            - { name: form.type, alias: mediabundle_user }
+
     user_service:
         class: AppBundle\Model\UserService
         arguments: [ @doctrine.orm.entity_manager]
@@ -59,6 +65,12 @@ services:
         factory_method: getRepository
         arguments:  [ "AppBundle\Entity\Tag" ]
 
+    oktothek_user.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:  [ "AppBundle\Entity\\User" ]
+
     oktothek_search:
         class: AppBundle\Model\SearchService
         arguments: [ @fos_elastica.finder.app.episode, @fos_elastica.finder.app.series, @fos_elastica.finder.app.playlist ]
@@ -77,6 +89,12 @@ services:
         tags:
             - { name: security.voter }
         # small performance boost
+        public: false
+
+    oktothek_series_post_voter:
+        class:  AppBundle\Security\SeriesPostVoter
+        tags:
+            - { name: security.voter }
         public: false
 
 # TWIG Extension

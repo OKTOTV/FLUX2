@@ -63,6 +63,11 @@ class User extends BaseUser
         $this->uniqID = uniqID();
     }
 
+    public function __toString()
+    {
+        return $this->getUsername();
+    }
+
     /**
      * Add playlists
      *
@@ -249,5 +254,38 @@ class User extends BaseUser
     public function getNotifications()
     {
         return $this->notifications;
+    }
+
+    /**
+     * Add channels
+     *
+     * @param \MediaBundle\Entity\Series $channels
+     * @return User
+     */
+    public function addChannel(\MediaBundle\Entity\Series $channels)
+    {
+        $this->channels[] = $channels;
+
+        return $this;
+    }
+
+    /**
+     * Remove channels
+     *
+     * @param \MediaBundle\Entity\Series $channels
+     */
+    public function removeChannel(\MediaBundle\Entity\Series $channels)
+    {
+        $this->channels->removeElement($channels);
+    }
+
+    /**
+     * Get channels
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChannels()
+    {
+        return $this->channels;
     }
 }
