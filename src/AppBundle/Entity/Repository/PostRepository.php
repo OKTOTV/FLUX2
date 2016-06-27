@@ -35,4 +35,16 @@ class PostRepository extends EntityRepository
     {
         return $this->getEntityManager()->createQuery('Select p From AppBundle:Post p');
     }
+
+    public function findPostsForSeries($series)
+    {
+        return $this->findPostsForSeriesQuery($series)->getResult();
+    }
+
+    public function findPostsForSeriesQuery($series)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM AppBundle:Post p JOIN Series s WHERE s.id = :id')
+            ->setParameter('id', $series->getId());
+    }
 }

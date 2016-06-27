@@ -25,6 +25,7 @@ class SeriesController extends Controller
      */
     public function blogSeriesAction(Request $request, Series $series)
     {
+        $this->denyAccessUnlessGranted('edit_channel', $series);
         $post = new Post();
         $form = $this->createForm(new PostType(), $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
         $form->add('submit', 'submit', ['label' => 'oktothek.post_create_button', 'attr' => ['class' => 'btn btn-primary']]);
@@ -45,7 +46,7 @@ class SeriesController extends Controller
             }
         }
 
-        return ['form' => $form->createView()];
+        return ['form' => $form->createView(), 'series' => $series];
     }
 
     /**
