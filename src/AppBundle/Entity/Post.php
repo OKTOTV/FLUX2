@@ -88,7 +88,7 @@ class Post
     private $uniqID;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\ManyToMany(targetEntity="Tag", fetch="EAGER")
      * @ORM\JoinTable(name="post_tags",
      *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
@@ -97,7 +97,7 @@ class Post
     private $tags;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Asset")
+     * @ORM\ManyToMany(targetEntity="Asset", fetch="EAGER")
      * @ORM\JoinTable(name="post_asset",
      *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=true)}
@@ -443,7 +443,7 @@ class Post
     /**
      * Get series
      *
-     * @return \MediaBundle\Entity\Series 
+     * @return \MediaBundle\Entity\Series
      */
     public function getSeries()
     {

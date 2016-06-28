@@ -21,12 +21,11 @@ class DefaultController extends Controller
         $best_episodes = $em->getRepository('MediaBundle:Episode')->findTopEpisodes(8);
         $newest_episodes = $em->getRepository('MediaBundle:Episode')->findNewestEpisodes(8);
         $newest_playlists = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists(8);
-
-        return array(
-            'best_episodes' => $best_episodes,
-            'newest_episodes' => $newest_episodes,
+        return [
+            'best_episodes'    => $best_episodes,
+            'newest_episodes'  => $newest_episodes,
             'newest_playlists' => $newest_playlists
-        );
+        ];
     }
 
     /**

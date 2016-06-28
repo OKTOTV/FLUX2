@@ -105,7 +105,7 @@ class Series extends BaseSeries
     public function addPost(\AppBundle\Entity\Post $posts)
     {
         $this->posts[] = $posts;
-
+        $posts->setSeries($this);
         return $this;
     }
 

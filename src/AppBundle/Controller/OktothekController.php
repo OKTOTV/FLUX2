@@ -58,7 +58,8 @@ class OktothekController extends Controller
      */
     public function showSeriesAction(Series $series)
     {
-        return array('series' => $series);
+        $posts = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $series);
+        return ['series' => $series, 'teasers' => $posts];
     }
 
 }

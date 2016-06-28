@@ -48,7 +48,6 @@
 		<!-- Ende Serienbeschreibung -->
 	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
-    {# TODO: hide posting form if user not in voter #}
     <section class="blog">
 	    <div id="anchor_blog"></div>
 	    <div class="container">

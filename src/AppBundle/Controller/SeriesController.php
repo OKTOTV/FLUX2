@@ -12,6 +12,8 @@ use MediaBundle\Entity\Series;
 use MediaBundle\Entity\Episode;
 use AppBundle\Entity\Post;
 use AppBundle\Form\Series\PostType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 /**
  * Series controller.
  *
@@ -22,7 +24,7 @@ class SeriesController extends Controller
     /**
      * @Route("/series/{uniqID}/blog", name="oktothek_series_blog_post")
      * @Method({"GET", "POST"})
-     * @Template
+     * @Template()
      */
     public function blogSeriesAction(Request $request, Series $series)
     {
@@ -30,7 +32,7 @@ class SeriesController extends Controller
         $post = new Post();
         $post->setIsActive(true);
         $form = $this->createForm(new PostType(), $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
-        $form->add('submit', 'submit', ['label' => 'oktothek.post_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.post_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -45,6 +47,46 @@ class SeriesController extends Controller
                 return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $series->getUniqID()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_post');
+            }
+        }
+
+        return ['form' => $form->createView(), 'series' => $series];
+    }
+
+    /**
+     * @Route("/series/{uniqID}/edit/{slug}", name="oktothek_series_edit_blog_post")
+     * @Method({"GET", "POST"})
+     * @Template()
+     */
+    public function editBlogSeriesAction(Request $request, Series $series, Post $post)
+    {
+        $this->denyAccessUnlessGranted('edit_channel', $series);
+        $form = $this->createForm(new PostType(), $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.post_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.post_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if ($form->get('submit')->isClicked()) { // update
+                    $series->addPost($post);
+                    $em->persist($post);
+                    $em->persist($series);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_update_post');
+
+                    return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $series->getUniqID()]));
+                } elseif ($form->get('delete')->isClicked()) { // delete
+                    $this->get('oktothek_post_service')->deletePost($post);
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_post');
+                    return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
+                } else {
+                    $this->get('session')->getFlashBag()->add('info', 'oktothek.success_unknown_post');
+                    return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
+                }
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_update_post');
             }
         }
 
