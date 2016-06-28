@@ -38,10 +38,7 @@ class Series extends BaseSeries
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Post")
-     * @ORM\JoinTable(name="series_posts",
-     *                  joinColumns={@ORM\JoinColumn(name="series_id", referencedColumnName="id")},
-     *                  inverseJoinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id", unique=true)})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Post", mappedBy="series")
      */
     private $posts;
 

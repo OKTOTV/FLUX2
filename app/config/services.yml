@@ -67,7 +67,7 @@ services:
     oktothek_user.repository:
         class: Doctrine\ORM\EntityRepository
         factory: [ "@doctrine.orm.entity_manager", getRepository ]
-        arguments:  [ "AppBundle\Entity\\User" ]
+        arguments:  [ AppBundle\Entity\User ]
 
     oktothek_search:
         class: AppBundle\Model\SearchService

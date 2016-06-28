@@ -136,4 +136,18 @@ class SeriesController extends Controller
         $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeriesQuery($series), $page, 3);
         return ['playlists' => $playlists, 'series' => $series];
     }
+
+    /**
+     * @Route("/channel/{uniqID}/blogposts/{page}", name="oktothek_channel_blogposts", defaults={"page": 1}, requirements={"page": "\d+"})
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function producerBlogpostsAction(Series $series, $page)
+    {
+        $this->denyAccessUnlessGranted('view_channel', $series);
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series), $page, 3);
+        return ['posts' => $posts, 'series' => $series];
+    }
 }

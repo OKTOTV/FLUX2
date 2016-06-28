@@ -105,6 +105,12 @@ class Post
      */
     private $assets;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series", inversedBy="posts")
+     * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
+     */
+    private $series;
+
     public function __construct() {
         $this->uniqID = uniqid();
         $this->pinned = false;
@@ -419,5 +425,28 @@ class Post
     public function getTeaser()
     {
         return $this->teaser;
+    }
+
+    /**
+     * Set series
+     *
+     * @param \MediaBundle\Entity\Series $series
+     * @return Post
+     */
+    public function setSeries(\MediaBundle\Entity\Series $series = null)
+    {
+        $this->series = $series;
+
+        return $this;
+    }
+
+    /**
+     * Get series
+     *
+     * @return \MediaBundle\Entity\Series 
+     */
+    public function getSeries()
+    {
+        return $this->series;
     }
 }
