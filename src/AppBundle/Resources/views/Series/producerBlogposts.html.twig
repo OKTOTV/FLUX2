@@ -21,5 +21,5 @@
 <div class="navigation">
     {{ knp_pagination_render(posts) }}
 </div>
-<a href="" class="btn btn-default">{{'oktothek.series_producer_new_blogpost'|trans|raw }}</a>
+<a href="{{ path('oktothek_series_blog_post', {'uniqID': series.uniqID}) }}" class="btn btn-default">{{'oktothek.series_producer_new_blogpost'|trans|raw }}</a>
 {% endblock %}

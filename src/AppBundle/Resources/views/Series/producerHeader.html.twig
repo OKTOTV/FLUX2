@@ -1,8 +1,8 @@
-<div class="">
+<div>
     <h1>{{ series.name }}</h1>
     <p>
         <a href="" class="btn btn-default">{{'oktothek.series_producer_new_playlist'|trans|raw }}</a>
-        <a href="" class="btn btn-default">{{'oktothek.series_producer_new_blogpost'|trans|raw }}</a>
+        <a href="{{ path('oktothek_series_blog_post', {'uniqID': series.uniqID}) }}" class="btn btn-default">{{'oktothek.series_producer_new_blogpost'|trans|raw }}</a>
     </p>
 </div>
 

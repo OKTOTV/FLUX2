@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use MediaBundle\Entity\Series;
 use MediaBundle\Entity\Episode;
 use AppBundle\Entity\Post;
-use AppBundle\Form\PostType;
+use AppBundle\Form\Series\PostType;
 /**
  * Series controller.
  *
@@ -28,6 +28,7 @@ class SeriesController extends Controller
     {
         $this->denyAccessUnlessGranted('edit_channel', $series);
         $post = new Post();
+        $post->setIsActive(true);
         $form = $this->createForm(new PostType(), $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
         $form->add('submit', 'submit', ['label' => 'oktothek.post_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
