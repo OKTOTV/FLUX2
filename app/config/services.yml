@@ -10,11 +10,11 @@ parameters:
 services:
     oktothek_post_service:
         class: AppBundle\Model\PostService
-        arguments: [ @doctrine.orm.entity_manager, @bprs.asset_helper]
+        arguments: [ "@doctrine.orm.entity_manager", "@bprs.asset_helper"]
 
     oktothek_playlist_service:
         class:  AppBundle\Model\PlaylistService
-        arguments: [ @doctrine.orm.entity_manager ]
+        arguments: [ "@doctrine.orm.entity_manager" ]
 
 
     gedmo.listener.sluggable:
@@ -26,33 +26,33 @@ services:
 
     oktothek_tag.type:
         class: AppBundle\Form\TagType
-        arguments: [ @oktothek_tag.repository ]
+        arguments: [ "@oktothek_tag.repository" ]
         tags:
             - { name: form.type, alias: tag }
 
     mediabundle_user:
         class: MediaBundle\Form\UserType
-        arguments: [ @oktothek_user.repository ]
+        arguments: [ "@oktothek_user.repository" ]
         tags:
             - { name: form.type, alias: mediabundle_user }
 
     user_service:
         class: AppBundle\Model\UserService
-        arguments: [ @doctrine.orm.entity_manager]
+        arguments: [ "@doctrine.orm.entity_manager"]
 
     oktothek_notification_service:
         class: AppBundle\Model\NotificationService
-        arguments: [ @doctrine.orm.entity_manager, @bprs_user.mailer, @translator, %livestream_template%, %new_post_template%, %new_episode_template% ]
+        arguments: [ "@doctrine.orm.entity_manager", "@bprs_user.mailer", "@translator", %livestream_template%, %new_post_template%, %new_episode_template% ]
 
     oktothek_notification_listener:
         class: AppBundle\Event\NotificationListener
-        arguments: [ @logger, @oktothek_notification_service ]
+        arguments: [ "@logger", "@oktothek_notification_service" ]
         tags:
             - { name: kernel.event_listener, event: oktolab_media.encoded_episode, method: createNewEpisodeNotifications }
 
     oktothek_coursepackage:
         class: AppBundle\Model\CoursepackageService
-        arguments: [ @form.factory, @oktothek_academy ]
+        arguments: [ "@form.factory", "@oktothek_academy" ]
 
     oktothek_tv:
         class: AppBundle\Model\TvService
@@ -61,27 +61,25 @@ services:
     # Asset repository
     oktothek_tag.repository:
         class: Doctrine\ORM\EntityRepository
-        factory_service: doctrine.orm.entity_manager
-        factory_method: getRepository
+        factory: [ "@doctrine.orm.entity_manager", getRepository ]
         arguments:  [ "AppBundle\Entity\Tag" ]
 
     oktothek_user.repository:
         class: Doctrine\ORM\EntityRepository
-        factory_service: doctrine.orm.entity_manager
-        factory_method: getRepository
+        factory: [ "@doctrine.orm.entity_manager", getRepository ]
         arguments:  [ "AppBundle\Entity\\User" ]
 
     oktothek_search:
         class: AppBundle\Model\SearchService
-        arguments: [ @fos_elastica.finder.app.episode, @fos_elastica.finder.app.series, @fos_elastica.finder.app.playlist ]
+        arguments: [ "@fos_elastica.finder.app.episode", "@fos_elastica.finder.app.series", "@fos_elastica.finder.app.playlist" ]
 
     oktothek_academy:
         class: AppBundle\Model\AcademyService
-        arguments: [ @bprs_sofort, @doctrine.orm.entity_manager, @router]
+        arguments: [ "@bprs_sofort", "@doctrine.orm.entity_manager", "@router"]
 
     oktothek_slide:
         class: AppBundle\Model\SliderService
-        arguments: [ @bprs.asset_helper, @doctrine.orm.entity_manager, @router]
+        arguments: [ "@bprs.asset_helper", "@doctrine.orm.entity_manager"," @router"]
 
 # voter
     oktothek_subscription_voter:

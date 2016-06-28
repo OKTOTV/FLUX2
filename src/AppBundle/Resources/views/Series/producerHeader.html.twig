@@ -1,0 +1,21 @@
+<div class="">
+    <h1>{{ series.name }}</h1>
+    <p>
+        <a href="" class="btn btn-default">{{'oktothek.series_producer_new_playlist'|trans|raw }}</a>
+        <a href="" class="btn btn-default">{{'oktothek.series_producer_new_blogpost'|trans|raw }}</a>
+    </p>
+</div>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" {% if active == "producer_info" %} class="active"{% endif %}>
+      <a href="{{ path('oktothek_channel', {'uniqID': series.uniqID}) }}">Allgemein</a>
+  </li>
+  <li role="presentation"{% if active == "producer_blog" %} class="active"{% endif %}>
+      <a href="{{ path('oktothek_series_blog_post', {'uniqID': series.uniqID}) }}">Blog</a>
+  </li>
+  <li role="presentation"{% if active == "producer_playlists" %} class="active"{% endif %}>
+      <a href="{{ path('oktothek_channel_playlists', {'uniqID': series.uniqID}) }}">Playlisten</a></li>
+  <li role="presentation"{% if active == "producer_episodes" %} class="active"{% endif %}>
+      <a href="{{ path('oktothek_channel_episodes', {'uniqID': series.uniqID}) }}">Episoden</a>
+  </li>
+</ul>

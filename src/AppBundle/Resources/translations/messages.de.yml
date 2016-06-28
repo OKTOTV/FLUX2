@@ -381,8 +381,8 @@ oktothek.error_create_slide:                Fehler beim anlegen des Slides
 
 ## edit
 oktothek.backend_slider_edit_header:        Slide bearbeiten
-oktothek.slide_update_button:               <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
-oktothek.slide_delete_button:               <span class="glyphicon glyphicon-trash"></span> Löschen
+oktothek.slide_update_button:               <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Aktualisieren
+oktothek.slide_delete_button:               <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Löschen
 
 oktothek.success_delete_slide:              Slide erfolgreich gelöscht
 oktothek.success_update_slide:              Slide erfolgreich aktualisiert
@@ -393,10 +393,10 @@ oktothek_backend_slide_from_episode:        Slide generieren
 # news
 ## index
 oktothek.backend_news_header:               Posts
-oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus"></span> Neuen Post verfassen
+oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neuen Post verfassen
 
 ## edit
-oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edit"></span> Beitrag bearbeiten
+oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Beitrag bearbeiten
 oktothek_backend_slide_from_news:           Slide generieren
 
 # default (oktothek)
@@ -418,3 +418,16 @@ oktothek.series_producer_playlists:         Verfügbare Playlisten
 
 ## producer blog
 oktothek.series_producer_blog_text:         Hier kannst du für deine Sendereihe bloggen! Poste news und updates zu Episoden, Dinge hinter den Kulissen und vieles mehr!
+oktothek.series_producer_new_blogpost:      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Blogeintrag anlegen
+## producer episodes
+oktothek.series_producer_episode_text:      Hier hast du Übersicht zu all deinen Episoden dieser Sendereihe. Statistiken, runterladen und Episodenstatus sind hier jederzeit für dich einsehbar.
+
+## producer episode
+oktothek.series_producer_episode_favorites: Favoriten
+oktothek.series_producer_episode_tags:      Tags
+oktothek.series_producer_episode_files:     Dateien
+oktothek.series_producer_episode_download:  <span class="glyphicon glyphicon-download" aria-hidden="true"></span> %file%
+
+## producer playlists
+oktothek.series_producer_playlists_text:    Hier findest du alle Playlisten zu dieser Sendereihe. Du kannst Playlisten anlegen, bearbeiten und löschen. Aktive Playlisten erscheinen auf deinem Kanal.
+oktothek.series_producer_new_playlist:      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Playliste anlegen

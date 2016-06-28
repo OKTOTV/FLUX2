@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Playlist
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\PlaylistRepository")
+ * @ORM\Entity(repositoryClass="MediaBundle\Entity\Repository\PlaylistRepository")
  * @JMS\ExclusionPolicy("all")
  * @ORM\HasLifecycleCallbacks()
  * JMS\AccessType("public_method")
@@ -79,6 +79,12 @@ class Playlist
     * @ORM\OneToMany(targetEntity="Playlistitem", mappedBy="playlist")
     */
     private $items;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series", inversedBy="playlists")
+     * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
+     */
+    private $series;
 
     /**
      * Get id
@@ -268,5 +274,38 @@ class Playlist
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * Add series
+     *
+     * @param \MediaBundle\Entity\Series $series
+     * @return Playlist
+     */
+    public function addSeries(\MediaBundle\Entity\Series $series)
+    {
+        $this->series[] = $series;
+
+        return $this;
+    }
+
+    /**
+     * Remove series
+     *
+     * @param \MediaBundle\Entity\Series $series
+     */
+    public function removeSeries(\MediaBundle\Entity\Series $series)
+    {
+        $this->series->removeElement($series);
+    }
+
+    /**
+     * Get series
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSeries()
+    {
+        return $this->series;
     }
 }

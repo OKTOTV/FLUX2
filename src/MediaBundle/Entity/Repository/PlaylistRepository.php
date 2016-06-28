@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity\Repository;
+namespace MediaBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -20,5 +20,14 @@ class PlaylistRepository extends EntityRepository
             )
             ->setMaxResults($numberPlaylists)
             ->getResult();
+    }
+
+    public function findPlaylistsForSeriesQuery($series)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p FROM AppBundle:Playlist p WHERE p.series = :series'
+            )
+            ->setParameter('series', $series->getId());
     }
 }

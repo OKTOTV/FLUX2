@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use MediaBundle\Entity\Series;
+use MediaBundle\Entity\Episode;
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
 /**
@@ -95,5 +96,44 @@ class SeriesController extends Controller
     {
         $this->denyAccessUnlessGranted('view_channel', $series);
         return ['series' => $series];
+    }
+
+    /**
+     * @Route("/channel/{uniqID}/episodes/{page}", name="oktothek_channel_episodes", defaults={"page": 1}, requirements={"page": "\d+"})
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function producerEpisodesAction(Series $series, $page)
+    {
+        $this->denyAccessUnlessGranted('view_channel', $series);
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $episodes = $paginator->paginate($em->getRepository('MediaBundle:Episode')->findEpisodesForSeriesQuery($series), $page, 3);
+        return ['episodes' => $episodes, 'series' => $series];
+    }
+
+    /**
+     * @Route("/channel/episode/{uniqID}", name="oktothek_channel_episode")
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function producerEpisodeAction(Episode $episode)
+    {
+        $this->denyAccessUnlessGranted('view_channel', $episode->getSeries());
+        return ['episode' => $episode];
+    }
+
+    /**
+     * @Route("/channel/{uniqID}/playlists/{page}", name="oktothek_channel_playlists", defaults={"page": 1}, requirements={"page": "\d+"})
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function producerPlaylistsAction(Series $series, $page)
+    {
+        $this->denyAccessUnlessGranted('view_channel', $series);
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeriesQuery($series), $page, 3);
+        return ['playlists' => $playlists, 'series' => $series];
     }
 }

@@ -51,10 +51,7 @@ class Series extends BaseSeries
     private $users;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Playlist")
-     * @ORM\JoinTable(name="series_playlists",
-     *      joinColumns={@ORM\JoinColumn(name="series_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="playlist_id", referencedColumnName="id", unique=true)})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Playlist", mappedBy="series")
      */
     private $playlists;
 

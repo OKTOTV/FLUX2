@@ -47,5 +47,19 @@ class EpisodeRepository extends EntityRepository
         //     ->setMaxResults($numberEpisodes)
         //     ->getResult();
     }
+
+    public function fineEpisodedForSeries($series)
+    {
+        return $this->findEpisodesForSeriesQuery($series)->getResult();
+    }
+
+    public function findEpisodesForSeriesQuery($series)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT e FROM MediaBundle:Episode e WHERE e.series = :series'
+            )
+            ->setParameter('series', $series->getId());
+    }
 }
 ?>

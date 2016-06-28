@@ -6,16 +6,7 @@
 
 {% block body_main %}
 
-<div class="page-header">
-    <h1>{{ series.name }}</h1>
-</div>
-
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="{{ path('oktothek_channel', {'uniqID': series.uniqID})}}">Allgemein</a></li>
-  <li role="presentation"><a href="#">Playlisten</a></li>
-  <li role="presentation"><a href="#">Episoden</a></li>
-  <li role="presentation" class="active"><a href="{{ path('oktothek_series_blog_post', {'uniqID': series.uniqID}) }}">Blog</a></li>
-</ul>
+{% include 'AppBundle::Series/producerHeader.html.twig' with {'active': 'producer_blog', 'series': series} %}
 <p>{{ 'oktothek.series_producer_blog_text'|trans }}</p>
 
 {{ form_start(form)}}
