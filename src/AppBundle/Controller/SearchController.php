@@ -28,7 +28,7 @@ class SearchController extends Controller
         $form = $this->createFormBuilder($data)
             ->setAction($this->generateUrl('oktothek_search'))
             ->add('search', TextType::class, ['attr' => ['placeholder' => 'oktothek.searchfield_placeholder']])
-            ->add('submit', SubmitType::class, ['label' => " "])
+            ->add('submit', SubmitType::class, ['label' => "oktothek.searchfiled_submit"])
             ->getForm();
 
         if ($request->getMethod() == "POST") {

@@ -18,6 +18,7 @@ oktothek.menu_user_notifications:       <span class="glyphicon glyphicon-bookmar
 oktothek.menu_user_notifications_empty: <span class="glyphicon glyphicon-bookmark"></span>
 oktothek.menu_user_no_notifications:    Derzeit keine Benachrichtigungen
 oktothek.menu_user_notification_choice: "{1} %series% hat eine neue Episode veröffentlicht |{2} %series% hat einen neuen Post veröffentlicht |{3} %series% sendet Live"
+oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"></span>
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Neue Videos
