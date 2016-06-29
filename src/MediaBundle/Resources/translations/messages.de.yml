@@ -1,4 +1,4 @@
-#reachme
+## reachme
 reachme_type_transchoice:       "{0} Mail|{1} Facebook|{2} Twitter|{3} Instagram|{4} Google+"
 
 #form
@@ -25,3 +25,13 @@ flux2_media.error_edit_reachme:             Reachme konnte nicht aktualisiert we
 #show
 flux2_reachme_edit:                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Reachme bearbeiten
 flux2_reachme_new:                          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neues Reachme anlegen
+
+
+## User
+# show
+oktothek.series_add_user:                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Benutzer hinzufügen oder entfernen
+
+# edit
+flux2_media.edit_series_user_header:        Benutzer der Sendereihe %series% bearbeiten
+flux2.series_edit_user_button:              <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Benutzer speichern
+flux2.series_edit_user_success:             Benutzer wurden erfolgreich aktualisiert

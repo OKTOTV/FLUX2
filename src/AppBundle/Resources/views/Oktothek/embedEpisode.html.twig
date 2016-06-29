@@ -3,20 +3,6 @@
 <head>
     <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
     {{ player(episode)|raw }}
-{#
-    <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
-    {% if episode.video is not empty %}
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var playerInstance = jwplayer("player");
-                playerInstance.setup({
-                    file: "{{ episode.video|path }}",
-                    image: "{{ episode.posterframe|path }}"
-                });
-            });
-        </script>
-    {% endif %}
-#}
 <title>{{ episode.name|default(name|default(''))}}</title>
 </head>
 <body>

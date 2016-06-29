@@ -30,7 +30,7 @@ class UserService {
             // $user->removeAbonnement($user_abonnement);
             // $series->removeAbonnement($user_abonnement);
         } else {
-            $series = $this->em->getRepository('AppBundle:Series')->findOneBy(['uniqID' => $uniqID]);
+            $series = $this->em->getRepository('MediaBundle:Series')->findOneBy(['uniqID' => $uniqID]);
             $user_abonnement = new Abonnement();
             $user_abonnement->setUser($user);
             $user_abonnement->setSeries($series);
@@ -43,7 +43,7 @@ class UserService {
 
     public function updateFavorite($user, $uniqID)
     {
-        $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
+        $episode = $this->em->getRepository('MediaBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
         $is_favorite = false;
         foreach ($user->getFavorites() as $favorite) {
             if ($favorite->getUniqID() == $uniqID) {

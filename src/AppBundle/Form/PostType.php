@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use AppBundle\Form\TagType;
 
 class PostType extends AbstractType
 {
@@ -30,7 +31,7 @@ class PostType extends AbstractType
                     //'attr' => ['placeholder' => 'oktothek.post_onlineAt_placeholder']
                 ])
             ->add('assets', 'assets', ['label' => 'oktothek.post_assets_label'])
-            ->add('tags', 'tag')
+            ->add('tags', TagType::class)
         ;
     }
 
@@ -47,7 +48,7 @@ class PostType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'appbundle_post';
     }

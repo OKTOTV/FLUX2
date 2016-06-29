@@ -428,15 +428,16 @@ header .icon.icon-login {
 
 
 /****************************  Color, Effects Content ****************************/
-body, .btn-default, .episode .misc a, a:hover, select.form-control, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3  {
+body, .btn-default, .episode .misc a, a:hover, select.form-control.ghost, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3  {
 	color:#ffffff;
 }
-.form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default, .timetable .btn {
+.form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default, .timetable .btn, .bootstrap-datetimepicker-widget {
 	color:#000000;
 }
-a, a.more  { /* Türkis */
+/* Türkis */
+/*a, a.more  { 
 	color:#13fffd;
-}
+}*/
 .pin figcaption p a, .pin figcaption a p, .news p, .comments .author, .academy .preview p, .academy .pin .preview-content a { /* Hellgrau */
 	color:#dcdcdc;
 }
@@ -453,7 +454,7 @@ a, a.more  { /* Türkis */
 .form-control::-webkit-input-placeholder {
   color: #818181;
 }
-.btn, .pin-icon .choosen, .episode .series a /*Gelb*/ {
+.btn, .pin-icon .choosen, .episode .series a, a, a.more /*Gelb*/ {
 	color: #fcce14;
 }
 
@@ -496,12 +497,13 @@ button .btn-default.but-full.active, .oktothek article a.btn-default.but-full, .
 	border-bottom:dotted 1px #5a6769;
 }
 /* Spacelayout */
-.btn-default, .btn-default.but-full:hover, .btn-primary { /* Gelb */
+.btn-default, .btn-default.but-full:hover, .btn-primary, .pull-right .icon { /* Gelb */
 	border: solid 2px #fcce14;
 }
-.pull-right .icon { /* Türkis */
+/* Türkis */
+/*.pull-right .icon { 
 border: solid 2px #13fffd;
-}
+}*/
 .programm .schedule .panel-default {
 	border-top:none;
 	border-left:none;
@@ -699,12 +701,16 @@ section, .participart article  {
 	background-repeat:no-repeat;
 	background-position:top left;
 }
-section:last-child, section.fs-image-content {
+section:last-child {
 	background-image:none;
 }
-.more-clips select {
-	width:auto;
+
+@media (min-width: 768px) {
+    section.fs-image-content {
+	    background-image:none;
+    }
 }
+
 .footer .socialnetworks a, .collapseShare .socialnetworks li a, .series .infos .socialnetworks li a {
 	-webkit-border-radius:20px;
 	-moz-border-radius:20px;
@@ -714,7 +720,7 @@ section:last-child, section.fs-image-content {
 
 .bg-opacity {
     opacity: 0.7;       /* modern browser */
-    -moz-opacity: 0.6;  /* older Mozilla browser */
+    -moz-opacity: 0.7;  /* older Mozilla browser */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE8 in Standard Compliant Mode */
 }
 
@@ -775,49 +781,6 @@ footer .networks {
 }
 
 
-/*.pin {
-    border-style: dashed;
-    border-color: gray;
-    border-width: 2px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    padding: 0;
-}
-
-.clip-pin > h1 {
-    color: white;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.clip-pin > p {
-    color: white;
-    padding: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0;
-}
-
-.clip-pin {
-    background-color: #707070;
-}
-
-body {
-    background-color: black;
-    padding-top: 0px;
-}
-*/
-
-/*
-.navbar-inverse .navbar-nav > li > a:hover {
-    background-color: #707070;
-}
-
-.active {
-    text-decoration: underline;
-}*/
-
 /****************************  Weitere Formatierungen ****************************/
 
 html, body {
@@ -832,10 +795,6 @@ html, body {
 }
 h1 {
 	margin-top:0;
-}
-section.bg-fullscreen h2 {
-	margin-top:0;
-	padding-top:20px;
 }
 .tagpage h1 {
 	margin-top:20px;
@@ -912,7 +871,9 @@ header.page-header .navbar {
 	right:8px;
 	top:15px;
 }
-
+.more-clips select {
+	width:auto;
+}
 select#episode-tag {
    -webkit-appearance: none;
    -moz-appearance:    none;
@@ -1022,9 +983,6 @@ header .dropdown-menu li a {
 header .navbar-fixed-top .navbar-toggle {
 	margin-right:0;
 }
-#button_down span {
-	display:none;
-}
 .bg-bleur {
 	position:fixed;
 	z-index:0;
@@ -1044,10 +1002,10 @@ header .icon.icon-login {
 	width:12px;
 	height:14px;
 }
-/* Slider */
-.carousel-caption h3, .series h1 {
-	margin: 4px 0 20px 0;
+header + .container-fluid {
+	margin-top:-90px;
 }
+
 @media (min-width: 768px) {
 
 	header .navbar .container-fluid {
@@ -1123,95 +1081,11 @@ header .icon.icon-login {
 		width:526px;
 		margin:0 auto;
 	}
-	#button_down {
-		cursor:pointer;
-	}
-	#button_down span {
-		position:absolute;
-		display:inline-block;
-		vertical-align:middle;
-		line-height:50px;
-		width:30px;
-		height:45px;
-		margin-left:50px;
-	}
-	.participant-arrow-down {
-		height:45px;
-	}
-	#button_down span.glyphicon {
-		top:auto;
+	header + .container-fluid {
+		margin-top:0;
 	}
 }
 
-#slider, .fs-image-content {
-	margin-top:-90px;
-}
-header + .container-fluid {
-	margin-top:-90px;
-}
-.fullscreen-images header + .container-fluid {
-	margin-top:0px;
-}
-
-/* Slider und Fullscreen Images */
-.carousel-inner {
-	overflow:auto;
-	height:auto;
-}
-.carousel .item, .carousel-inner > .item > a > img, .carousel-inner > .item > img, .fs-image-content figure, .fs-image-content figure div {
-    height: 100%;
-}
-.carousel-inner > .item > a > img, .carousel-inner > .item > img {
-	min-width: 100%;
-	width:auto;
-}
-.fs-image-content figure, .fs-image-content figure div {
-	width: 100%;
-}
-.carousel-caption {
-  z-index: 10;
-}
-.carousel-inner > .item > a > img, .carousel-inner > .item > img {
-	max-width:none;
-}
-.carousel-caption, .fs-image-ident .description-wrapper {
-	bottom:100px;
-	width:650px;
-	margin: 0 0 0 -325px;;
-	text-align:left;
-	padding-bottom:0;
-	left:50%;
-	right:0;
-	position:absolute;
-}
-/*.carousel .active {
-	display:none;
-}*/
-.preloader {
-	width:100%;
-	height:100%;
-	position:absolute;
-	z-index:100;
-	top:0px;
-	bottom:70px;
-	left:0px;
-	right:0px;
-}
-
-/* Fullscreen Images*/
-section.fs-image-content {
-	margin-bottom:0;
-}
-/*.fs-image-ident div.description-wrapper {
-	bottom:80px;
-	overflow:hidden;
-}*/
-.fs-image-ident {
-	height:auto;
-}
-/*.fs-image-content figure img {
-	display:none;
-}*/
 
 /* Content allgemein */
 .container-fluid {
@@ -1220,10 +1094,6 @@ section.fs-image-content {
 section {
 	margin-bottom:60px;
 	padding-bottom:40px;
-}
-section.fs-image-content {
-	margin-bottom:0;
-	padding-bottom:0;
 }
 section.container, .container-fluid header, .oktothek {
 	position:relative;
@@ -1274,11 +1144,9 @@ article.pin {
 .preview-content {
 	display:none;
 }
-a.pull-right {
-	/*line-height:38px;
-	vertical-align:center;
-	display:inline-block;
-	display:block;*/
+.news a.pull-right {
+	margin-top:30px;
+	margin-right:15px;
 }
 .pull-right .icon {
 	width:38px;
@@ -1482,9 +1350,6 @@ figure.pin img, .programm .schedule img {
 }
 
 /* Serien */
-.fs-image-content, .fs-image-ident, .content-opacity {
-	position:relative;
-}
 .series .play-episode, .container-bg-opacity {
 	position:absolute;
 }
@@ -1503,11 +1368,7 @@ figure.pin img, .programm .schedule img {
 .pin .bg-opacity {
 	margin-right:0px;
 }
-.content-opacity {
-	padding:15px;
-	margin-right:15px;
-	z-index:1;
-}
+
 .series .description-wrapper a.more {
 	cursor:pointer;
 }
@@ -1523,6 +1384,9 @@ figure.pin img, .programm .schedule img {
 .series .series-description .misc {
 	margin-top:40px;
 }*/
+.series h1 {
+	margin: 0;
+}
 .series .episode-description h3 {
 	margin-top:0;
 }
@@ -1760,16 +1624,6 @@ figure.pin img, .programm .schedule img {
 .academy .newsletter .input-group {
 	margin:0 auto;
 }
-.academy-content .content-opacity {
-	display:table-row;
-}
-.academy-content .content-opacity div {
-	display:table-cell;
-	vertical-align:top;
-}
-.academy-content .content-opacity div:first-child {
-	padding-left:15px;
-}
 .academy-content .misc {
 	width:180px;
 	padding-top:70px;
@@ -1893,12 +1747,7 @@ figure.pin img, .programm .schedule img {
     }
 }
 @media (min-width: 768px) {
-	#slider, .fs-image-content {
-	    margin-top:-140px;
-    }
-	header + .container-fluid {
-		margin-top:0;
-	}
+	
 	/*.fs-image-content .description-wrapper {
 	    position:absolute;
     }
@@ -1913,12 +1762,7 @@ figure.pin img, .programm .schedule img {
 	.series .series-description aside {
         width:250px;
     }*/
-	.fs-image-ident {
-		overflow:hidden;
-	}
-	.carousel-inner {
-		overflow:hidden;
-	}
+	
 }
 @media (min-width: 992px) {
 	/*.fs-image-ident div.description-wrapper {

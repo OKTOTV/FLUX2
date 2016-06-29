@@ -18,12 +18,12 @@ class User extends BaseUser
     const ROLE_ADMIN = "ROLE_OKTOLAB_ADMIN";
 
     /**
-    * @ORM\OneToMany(targetEntity="Playlist", mappedBy="user")
+    * @ORM\OneToMany(targetEntity="MediaBundle\Entity\Playlist", mappedBy="user")
     */
     private $playlists;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Episode", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="MediaBundle\Entity\Episode", inversedBy="users")
      * @ORM\JoinTable(name="users_favorites")
      */
     private $favorites;
@@ -49,7 +49,7 @@ class User extends BaseUser
     private $comments;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Series", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="MediaBundle\Entity\Series", inversedBy="users")
      * @ORM\JoinTable(name="users_series")
      */
     private $channels;
@@ -63,13 +63,18 @@ class User extends BaseUser
         $this->uniqID = uniqID();
     }
 
+    public function __toString()
+    {
+        return $this->getUsername();
+    }
+
     /**
      * Add playlists
      *
-     * @param \AppBundle\Entity\Playlist $playlists
+     * @param \MediaBundle\Entity\Playlist $playlists
      * @return User
      */
-    public function addPlaylist(\AppBundle\Entity\Playlist $playlists)
+    public function addPlaylist(\MediaBundle\Entity\Playlist $playlists)
     {
         $this->playlists[] = $playlists;
 
@@ -79,9 +84,9 @@ class User extends BaseUser
     /**
      * Remove playlists
      *
-     * @param \AppBundle\Entity\Playlist $playlists
+     * @param \MediaBundle\Entity\Playlist $playlists
      */
-    public function removePlaylist(\AppBundle\Entity\Playlist $playlists)
+    public function removePlaylist(\MediaBundle\Entity\Playlist $playlists)
     {
         $this->playlists->removeElement($playlists);
     }
@@ -122,10 +127,10 @@ class User extends BaseUser
     /**
      * Add favorites
      *
-     * @param \AppBundle\Entity\Episode $favorites
+     * @param \MediaBundle\Entity\Episode $favorites
      * @return User
      */
-    public function addFavorite(\AppBundle\Entity\Episode $favorites)
+    public function addFavorite(\MediaBundle\Entity\Episode $favorites)
     {
         $this->favorites[] = $favorites;
 
@@ -135,9 +140,9 @@ class User extends BaseUser
     /**
      * Remove favorites
      *
-     * @param \AppBundle\Entity\Episode $favorites
+     * @param \MediaBundle\Entity\Episode $favorites
      */
-    public function removeFavorite(\AppBundle\Entity\Episode $favorites)
+    public function removeFavorite(\MediaBundle\Entity\Episode $favorites)
     {
         $this->favorites->removeElement($favorites);
     }
@@ -249,5 +254,38 @@ class User extends BaseUser
     public function getNotifications()
     {
         return $this->notifications;
+    }
+
+    /**
+     * Add channels
+     *
+     * @param \MediaBundle\Entity\Series $channels
+     * @return User
+     */
+    public function addChannel(\MediaBundle\Entity\Series $channels)
+    {
+        $this->channels[] = $channels;
+
+        return $this;
+    }
+
+    /**
+     * Remove channels
+     *
+     * @param \MediaBundle\Entity\Series $channels
+     */
+    public function removeChannel(\MediaBundle\Entity\Series $channels)
+    {
+        $this->channels->removeElement($channels);
+    }
+
+    /**
+     * Get channels
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChannels()
+    {
+        return $this->channels;
     }
 }

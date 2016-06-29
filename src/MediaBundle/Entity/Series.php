@@ -1,10 +1,9 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Oktolab\MediaBundle\Entity\Series as BaseSeries;
-use AppBundle\Entity\EpisodePin;
 use Doctrine\Common\Collections\ArrayCollection;
 use MediaBundle\Entity\Reachme;
 
@@ -12,12 +11,12 @@ use MediaBundle\Entity\Reachme;
  * Series
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\SeriesRepository")
+ * @ORM\Entity(repositoryClass="MediaBundle\Entity\Repository\SeriesRepository")
  */
 class Series extends BaseSeries
 {
     /**
-     * @ORM\OneToMany(targetEntity="Abonnement", mappedBy="series", cascade="remove")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Abonnement", mappedBy="series", cascade="remove")
      */
     private $abonnements;
 
@@ -35,26 +34,21 @@ class Series extends BaseSeries
         $this->posts = new ArrayCollection();
         $this->playlists = new ArrayCollection();
         $this->reachmes = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     /**
-     * @ORM\ManyToMany(targetEntity="Post")
-     * @ORM\JoinTable(name="series_posts",
-     *                  joinColumns={@ORM\JoinColumn(name="series_id", referencedColumnName="id")},
-     *                  inverseJoinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id", unique=true)})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Post", mappedBy="series")
      */
     private $posts;
 
     /**
-    * @ORM\ManyToMany(targetEntity="User", mappedBy="channels")
+    * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="channels", fetch="EAGER")
     */
     private $users;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Playlist")
-     * @ORM\JoinTable(name="series_playlists",
-     *      joinColumns={@ORM\JoinColumn(name="series_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="playlist_id", referencedColumnName="id", unique=true)})
+     * @ORM\OneToMany(targetEntity="MediaBundle\Entity\Playlist", mappedBy="series")
      */
     private $playlists;
 
@@ -111,7 +105,7 @@ class Series extends BaseSeries
     public function addPost(\AppBundle\Entity\Post $posts)
     {
         $this->posts[] = $posts;
-
+        $posts->setSeries($this);
         return $this;
     }
 
@@ -149,7 +143,7 @@ class Series extends BaseSeries
     public function addUser(\AppBundle\Entity\User $users)
     {
         $this->users[] = $users;
-
+        $users->addChannel($this);
         return $this;
     }
 
@@ -161,6 +155,7 @@ class Series extends BaseSeries
     public function removeUser(\AppBundle\Entity\User $users)
     {
         $this->users->removeElement($users);
+        $users->removeChannel($this);
     }
 
     /**
@@ -209,10 +204,10 @@ class Series extends BaseSeries
     /**
      * Add playlists
      *
-     * @param \AppBundle\Entity\Playlist $playlists
+     * @param \MediaBundle\Entity\Playlist $playlists
      * @return Series
      */
-    public function addPlaylist(\AppBundle\Entity\Playlist $playlists)
+    public function addPlaylist(\MediaBundle\Entity\Playlist $playlists)
     {
         $this->playlists[] = $playlists;
 
@@ -222,9 +217,9 @@ class Series extends BaseSeries
     /**
      * Remove playlists
      *
-     * @param \AppBundle\Entity\Playlist $playlists
+     * @param \MediaBundle\Entity\Playlist $playlists
      */
-    public function removePlaylist(\AppBundle\Entity\Playlist $playlists)
+    public function removePlaylist(\MediaBundle\Entity\Playlist $playlists)
     {
         $this->playlists->removeElement($playlists);
     }

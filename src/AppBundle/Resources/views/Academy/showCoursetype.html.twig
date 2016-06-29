@@ -11,21 +11,19 @@
     <section class="academy-content fs-image-content">
         <div class="academy-ident fs-image-ident">
             <figure class="academy-image fs-image"><div style="background-image:url({{ coursetype.image|link }});"></div></figure>
-			<div class="current-course container description-wrapper">
+			<figcaption class="current-course description-wrapper">
 			    <div class="container-bg-opacity">
 			        <div class="bg-opacity"></div>
 				</div>
 			    <div class="content-opacity">
-				    <div>
-					    <h2>{{ coursetype.title }}</h2>
-					    <p class="description">{{ coursetype.description }}</p>
-					</div>
-					<div class="misc">
-					   {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}<br>
-					   Dauer {{ coursetype.courses[0].dates|hours~'h' }}
-					</div>
+					<h1>{{ coursetype.title }}</h1>
+				    <p class="facts">Dauer {{ coursetype.courses[0].dates|hours~'h' }}, Kosten {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
+					<p class="description">{{ coursetype.description }}</p>
 				</div>
-			</div>
+			</figcaption>
+		</div>
+		<div class="fs-image-misc-mobile">
+		    <p>Dauer {{ coursetype.courses[0].dates|hours~'h' }}, Kosten {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
 		</div>
     </section>
     <section class="container academy-description">

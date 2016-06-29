@@ -88,7 +88,7 @@ class Post
     private $uniqID;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\ManyToMany(targetEntity="Tag", fetch="EAGER")
      * @ORM\JoinTable(name="post_tags",
      *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
@@ -97,13 +97,19 @@ class Post
     private $tags;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Asset")
+     * @ORM\ManyToMany(targetEntity="Asset", fetch="EAGER")
      * @ORM\JoinTable(name="post_asset",
      *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=true)}
      *      )
      */
     private $assets;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series", inversedBy="posts")
+     * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
+     */
+    private $series;
 
     public function __construct() {
         $this->uniqID = uniqid();
@@ -419,5 +425,28 @@ class Post
     public function getTeaser()
     {
         return $this->teaser;
+    }
+
+    /**
+     * Set series
+     *
+     * @param \MediaBundle\Entity\Series $series
+     * @return Post
+     */
+    public function setSeries(\MediaBundle\Entity\Series $series = null)
+    {
+        $this->series = $series;
+
+        return $this;
+    }
+
+    /**
+     * Get series
+     *
+     * @return \MediaBundle\Entity\Series
+     */
+    public function getSeries()
+    {
+        return $this->series;
     }
 }

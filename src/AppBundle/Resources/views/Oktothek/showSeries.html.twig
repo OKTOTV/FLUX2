@@ -12,13 +12,13 @@
             <figure class="episode-posterframe fs-image">
                 <div style="background-image:url({{ series.posterframe|path() }});"></div>
             </figure>
-			<figcaption class="current-episode container description-wrapper">
+			<figcaption class="current-episode description-wrapper">
 			    <div class="container-bg-opacity">
 			        <div class="bg-opacity"></div>
 				</div>
 			    <div class="content-opacity">
 					<h1>{{ series.name }}</h1>
-					<p>Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
+					<p class="facts">Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
 					<p class="description">
 					    {{ series.description }}</p>
 					<p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
@@ -27,6 +27,10 @@
                     </p>
 				</div>
 			</figcaption>
+		</div>
+		<div class="fs-image-misc-mobile">
+		    <p class="misc"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button></p>
+		    <p>Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
 		</div>
     </section>
 	<section class="container episode-description">
@@ -48,7 +52,6 @@
 		<!-- Ende Serienbeschreibung -->
 	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
-    {# TODO: hide posting form if user not in voter #}
     <section class="blog">
 	    <div id="anchor_blog"></div>
 	    <div class="container">
@@ -58,19 +61,7 @@
 	<section class="container">
 	    <div class="infos">
 		    <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
-
             {% include 'MediaBundle::Reachme/reachme_stack.html.twig' with {'reachmes': series.reachmes } %}
-		    {# <div class="socialnetworks">
-                {% if series.reachmes %}
-			    <p class="contact"><strong>Kontakt:</strong> </p>
-                <ul>
-                    {% for reachme in series.reachmes %}
-                    <li><a href="{{ reachme.uri }}" target="_blank"></a></li>
-                    {% endfor %}
-                    <li><a href="#" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
-                    <li><a href="#" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                </ul>
-             </div> #}
 	    </div>
 	</section>
     {% if series.playlists is not empty %}
@@ -84,77 +75,7 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
-    {% include "BprsStyleBundle::datetimepicker.js.twig" %}
-    <script type="text/javascript">
-        $(document).ready( function(){
-            $('#appbundle_post_onlineAt_picker').datetimepicker({
-                locale: 'de',
-                // format: "DD.MM.YYYY hh:mm",
-                useCurrent: true,
-                calendarWeeks: true,
-                allowInputToggle: true,
-                showTodayButton: true
-            });
-
-            $(".character500").characterCounter({
-                counterCssClass: 'help-block',
-                limit: 400
-            });
-
-            // tags
-            var addInput = function(list, text) {
-                var tag = "<span class='label label-default remove'>"+text+"</span>";
-                tag = $(tag);
-                prototype = list.attr('data-prototype');
-                var length = list.find(':input').length;
-                prototype = prototype.replace(/__name__/g, length);
-                prototype = $(prototype);
-                prototype.attr({value: text, type: 'hidden'});
-                tag.append(prototype);
-                list.append(tag);
-            };
-
-            var tags = new Bloodhound({
-                datumTokenizer: Bloodhound.tokenizers.whitespace,
-                queryTokenizer: Bloodhound.tokenizers.whitespace,
-                prefetch:   $('.tag-input').attr('data-url')
-            });
-
-            $('.tag-input').typeahead(null, {
-                name: 'tags',
-                source: tags
-            }).bind('typeahead:select', function(ev, suggestion) {
-                // console.log('Selection: ' + suggestion);
-                var list = $(this).parents('.form-group').children('.tags');
-                addInput(list, suggestion);
-            });
-
-            $('.tag-input').keydown(function(e){
-                if(e.keyCode == 13) {
-                    e.preventDefault();
-                    var list = $(this).parents('.form-group').children('.tags');
-                    var text = $(this).val();
-                    $.ajax({
-                        url: $(this).attr('data-url'),
-                        data: {
-                            'action': "add",
-                            'text':   text,
-                        },
-                        type: 'POST',
-                        success: function(data) {
-                            addInput(list, text);
-                            $(this).val('');
-                        }
-                    });
-                }
-            });
-            // end tags
-        });
-        $(document).on('click', '.remove', function(e){
-            $(this).remove();
-        });
-
+    <script text="type/javascript">
         $(document).on('change', '#episode-tag', function(){
             var optionSelected = $("option:selected", this);
             console.log(optionSelected);
@@ -170,13 +91,4 @@
             })
         })
     </script>
-    {% include "BprsAssetBundle::singleUpload.js.twig" %}
-    <script src="{{ asset('bundles/bprsstyle/js/charactercounter.js')}}"></script>
-{% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
-    <link href="{{ asset('bundles/bprsstyle/css/datetimepicker.min.css') }}" rel="stylesheet" />
-    {% include "BprsAssetBundle::singleUpload.css.twig" %}
-
 {% endblock %}

@@ -27,7 +27,7 @@ class PlaylistUserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Playlist'
+            'data_class' => 'MediaBundle\Entity\Playlist'
         ));
     }
 

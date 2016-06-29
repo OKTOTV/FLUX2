@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use AppBundle\Form\DataTransformer\TagTransformer;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class TagType extends AbstractType
 {
@@ -33,7 +34,7 @@ class TagType extends AbstractType
     {
         $resolver->setDefaults(array(
             'invalid_message' => 'The tag does not exist',
-            'type'  => 'hidden',
+            'type'  => HiddenType::class,
             'allow_add' => true,
             'allow_delete' => true,
             'by_reference' => false
@@ -48,7 +49,7 @@ class TagType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'tag';
     }

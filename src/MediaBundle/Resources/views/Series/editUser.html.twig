@@ -1,0 +1,122 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
+{% endblock %}
+
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ 'flux2_media.edit_series_user_header'|trans({'%series%': series.name}) }}</h1>
+    </div>
+
+{{ form_start(form)}}
+    {% include "MediaBundle::Series/widget.html.twig" with {'widget': form.users} %}
+{{ form_end(form)}}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready( function(){
+            var addInput = function(list, text) {
+                var tag = '<div class="remove list-group-item">'+text+'</div>';
+                tag = $(tag);
+                prototype = list.attr('data-prototype');
+                var length = list.find(':input').length;
+                prototype = prototype.replace(/__name__/g, length);
+                prototype = $(prototype);
+                prototype.attr({value: text, type: 'hidden'});
+                tag.append(prototype);
+                list.append(tag);
+            };
+
+            var tags = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                prefetch:   $('.tag-input').attr('data-url')
+            });
+
+            $('.tag-input').typeahead(null, {
+                name: 'tags',
+                source: tags
+            }).bind('typeahead:select', function(ev, suggestion) {
+                // console.log('Selection: ' + suggestion);
+                var list = $(this).parents('.form-group').children('.tags');
+                addInput(list, suggestion);
+                $(this).val('asdf');
+            });
+            $('.tag-input').keydown(function(e){
+                if(e.keyCode == 13) {
+                    e.preventDefault();
+                    var list = $(this).parents('.form-group').children('.tags');
+                    var text = $(this).val();
+                    addInput(list, text);
+                    $(this).val('');
+                }
+            });
+            // end tags
+        });
+
+        $(document).on('click', '.remove', function(e){
+            $(this).remove();
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+    .twitter-typeahead .tt-query,
+.twitter-typeahead .tt-hint {
+	margin-bottom: 0;
+}
+.tt-hint {
+	display: block;
+	width: 100%;
+	height: 38px;
+	padding: 8px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #999;
+	vertical-align: middle;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.tt-dropdown-menu {
+	min-width: 160px;
+	margin-top: 2px;
+	padding: 5px 0;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	background-clip: padding-box;
+
+}
+.tt-suggestion {
+	display: block;
+	padding: 3px 20px;
+    background-color: white;
+    color: black;
+}
+.tt-suggestion.tt-is-under-cursor {
+	color: #fff;
+	background-color: #428bca;
+}
+.tt-suggestion.tt-is-under-cursor a {
+	color: #fff;
+}
+.tt-suggestion p {
+	margin: 0;
+}
+
+    </style>
+{% endblock %}

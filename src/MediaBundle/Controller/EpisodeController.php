@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use AppBundle\Entity\Episode;
+use MediaBundle\Entity\Episode;
 use MediaBundle\Form\EpisodeType;
 use MediaBundle\Form\PublishEpisodeType;
 use AppBundle\Entity\Notification;
@@ -23,7 +23,7 @@ class EpisodeController extends BaseController
     /**
      * Displays a form to edit an existing Episode entity.
      * @Route("/{episode}/edit", name="oktolab_episode_edit")
-     * @ParamConverter("episode", class="AppBundle:Episode")
+     * @ParamConverter("episode", class="MediaBundle:Episode")
      * @Method({"GET", "POST"})
      * @Template()
      */

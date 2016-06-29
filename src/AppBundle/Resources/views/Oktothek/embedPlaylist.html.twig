@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
+    {{ playlist(playlist)|raw }}
+<title>{{ episode.name|default(name|default(''))}}</title>
+</head>
+<body>
+<figure id="player">
+</figure>

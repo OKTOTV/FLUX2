@@ -49,6 +49,11 @@ class Tag
      */
     private $rank;
 
+    public function __toString()
+    {
+        return $this->text;
+    }
+
     /**
      * Get id
      *

@@ -3,12 +3,14 @@
 {% block title %}
     {{ name|default('OKTO')~' | '~'oktothek.playlist_show'|trans({'%playlist%': playlist.name}) }}
 {% endblock %}
-{% block nav_head%}
+{% block nav_head %}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "head-white-color" %}
+
+{% set body_class = "playlists head-white-color" %}
 {% block body %}
+<section class="container">
     <div class="page-header">
         <h1>{{ playlist.name }}</h1>
         {% if app.user == playlist.user %}
@@ -18,6 +20,9 @@
     <div class="row">
         <div class="col-md-9">
             <figure id="player"></figure>
+            <p>{{ playlist.description }}</p>
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button>
+            {% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
         </div>
         <div class="col-md-3">
             <div class="list-group">
@@ -28,26 +33,32 @@
         </div>
     </div>
     <p>{{ playlist.description }}</p>
+</section>
+<section class="container">
+{% for playlistItem in playlist.items %}
+<article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ playlistItem.episode.description }}">
+    <figure class="episode-pin pin">
+	    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID}) }}" title="... ansehen"><img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
+        <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ playlistItem.episode.users|length }}</div>
+		<figcaption>
+		    <h3><a href="{{ path('oktothek_show_series', {'uniqID': playlistItem.episode.series.uniqID}) }}" title="... ansehen">{{ playlistItem.episode.series.name|default('') }}</a></h3>
+			<p><a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID}) }}" title="... ansehen">{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</a></p>
+		</figcaption>
+    </figure>
+</article>
+{% endfor %}
+</section>
 {% endblock %}
 
 {% block javascripts %}
 {{ parent() }}
-<script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
+{{ playlist(playlist)|raw }}
 <script>
     $(document).ready(function(){
         $('.playme').click(function(e){
             e.preventDefault();
-            playerInstance.playlistItem($(this).data('list'));
+            jwplayer('player').playlistItem($(this).data('list'));
         })
-
-        var playerInstance = jwplayer("player");
-        playerInstance.setup({
-            listbar: {
-                position: "right",
-                size: 234
-            },
-            playlist: "{{ url('oktothek_show_playlist', {'uniqID': playlist.uniqID, '_format': 'json'})}}"
-        });
     });
 </script>
 {% endblock %}

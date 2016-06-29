@@ -64,7 +64,7 @@
                         </ul>
 					    <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button>
 				   </div>
-				   <form><input type="text" value="" class="form-control" id="sharingurl"></form>
+				   <form><input type="text" value="{{ url('oktothek_show_news', {'slug': post.slug})}}" class="form-control"></form>
 			   </div>
 		   </div>
        </div>

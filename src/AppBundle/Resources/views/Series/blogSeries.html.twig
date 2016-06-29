@@ -1,3 +1,14 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% block body_main %}
+
+{% include 'AppBundle::Series/producerHeader.html.twig' with {'active': 'producer_blog', 'series': series} %}
+<p>{{ 'oktothek.series_producer_blog_text'|trans }}</p>
+
 {{ form_start(form)}}
    {{ form_row(form.name)}}
    {{ form_row(form.description)}}
@@ -5,3 +16,89 @@
    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.assets, 'adapter': 'gallery', 'type': 'multiple'} %}
    {% include "AppBundle::Tag/widget.html.twig" with {'widget': form.tags} %}
 {{ form_end(form)}}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
+{% include "BprsStyleBundle::datetimepicker.js.twig" %}
+<script type="text/javascript">
+    $(document).ready( function(){
+        $('#appbundle_post_onlineAt_picker').datetimepicker({
+            locale: 'de',
+            // format: "DD.MM.YYYY hh:mm",
+            useCurrent: true,
+            calendarWeeks: true,
+            allowInputToggle: true,
+            showTodayButton: true
+        });
+
+        $(".character500").characterCounter({
+            counterCssClass: 'help-block',
+            limit: 400
+        });
+
+        // tags
+        var addInput = function(list, text) {
+            var tag = "<span class='label label-default remove'>"+text+"</span>";
+            tag = $(tag);
+            prototype = list.attr('data-prototype');
+            var length = list.find(':input').length;
+            prototype = prototype.replace(/__name__/g, length);
+            prototype = $(prototype);
+            prototype.attr({value: text, type: 'hidden'});
+            tag.append(prototype);
+            list.append(tag);
+        };
+
+        var tags = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.whitespace,
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            prefetch:   $('.tag-input').attr('data-url')
+        });
+
+        $('.tag-input').typeahead(null, {
+            name: 'tags',
+            source: tags
+        }).bind('typeahead:select', function(ev, suggestion) {
+            // console.log('Selection: ' + suggestion);
+            var list = $(this).parents('.form-group').children('.tags');
+            addInput(list, suggestion);
+        });
+
+        $('.tag-input').keydown(function(e){
+            if(e.keyCode == 13) {
+                e.preventDefault();
+                var list = $(this).parents('.form-group').children('.tags');
+                var text = $(this).val();
+                $.ajax({
+                    url: $(this).attr('data-url'),
+                    data: {
+                        'action': "add",
+                        'text':   text,
+                    },
+                    type: 'POST',
+                    success: function(data) {
+                        addInput(list, text);
+                        $(this).val('');
+                    }
+                });
+            }
+        });
+        // end tags
+    });
+    $(document).on('click', '.remove', function(e){
+        $(this).remove();
+    });
+</script>
+{% include "BprsAssetBundle::singleUpload.js.twig" %}
+<script src="{{ asset('bundles/bprsstyle/js/charactercounter.js')}}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link href="{{ asset('bundles/bprsstyle/css/datetimepicker.min.css') }}" rel="stylesheet" />
+{% include "BprsAssetBundle::singleUpload.css.twig" %}
+
+{% endblock %}
