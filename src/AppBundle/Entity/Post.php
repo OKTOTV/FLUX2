@@ -25,7 +25,7 @@ class Post
     private $id;
 
     /**
-     * @ORM\Column(length=32, unique=true)
+     * @ORM\Column(length=32, type="string", unique=true)
      * @Gedmo\Slug(fields={"name"}, updatable=false, separator="_")
      */
     private $slug;
