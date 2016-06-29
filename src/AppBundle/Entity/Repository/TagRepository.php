@@ -8,7 +8,7 @@ class TagRepository extends EntityRepository
 {
     public function findEpisodesWithTag(Tag $tag, $number = 5) {
         return $this->getEntityManager()
-            ->createQuery('SELECT e FROM MediaBundle:Episode JOIN e.tags t WHERE t.id = :tag_id')
+            ->createQuery('SELECT e FROM MediaBundle:Episode e JOIN e.tags t WHERE t.id = :tag_id')
             ->setParameter('tag_id', $tag->getId())
             ->setMaxResults($number)
             ->getResult();
