@@ -34,6 +34,20 @@
     </div>
     <p>{{ playlist.description }}</p>
 </section>
+<section class="container">
+{% for playlistItem in playlist.items %}
+<article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ playlistItem.episode.description }}">
+    <figure class="episode-pin pin">
+	    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID}) }}" title="... ansehen"><img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
+        <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ playlistItem.episode.users|length }}</div>
+		<figcaption>
+		    <h3><a href="{{ path('oktothek_show_series', {'uniqID': playlistItem.episode.series.uniqID}) }}" title="... ansehen">{{ playlistItem.episode.series.name|default('') }}</a></h3>
+			<p><a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID}) }}" title="... ansehen">{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</a></p>
+		</figcaption>
+    </figure>
+</article>
+{% endfor %}
+</section>
 {% endblock %}
 
 {% block javascripts %}

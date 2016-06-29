@@ -12,13 +12,13 @@
             <figure class="episode-posterframe fs-image">
                 <div style="background-image:url({{ series.posterframe|path() }});"></div>
             </figure>
-			<figcaption class="current-episode container description-wrapper">
+			<figcaption class="current-episode description-wrapper">
 			    <div class="container-bg-opacity">
 			        <div class="bg-opacity"></div>
 				</div>
 			    <div class="content-opacity">
 					<h1>{{ series.name }}</h1>
-					<p>Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
+					<p class="facts">Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
 					<p class="description">
 					    {{ series.description }}</p>
 					<p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
@@ -27,6 +27,10 @@
                     </p>
 				</div>
 			</figcaption>
+		</div>
+		<div class="fs-image-misc-mobile">
+		    <p class="misc"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button></p>
+		    <p>Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
 		</div>
     </section>
 	<section class="container episode-description">

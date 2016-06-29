@@ -3,7 +3,16 @@ $(document).ready(function(){
 	
 	/* Headerbackground */
 	var headerScrollheight = $(window).height()/2;
-	var headerHeight = 180;
+	var headerHeight;
+	var Winwidth = $( window ).width();
+	function Sizes() {
+		if (Winwidth >= 768) {
+	        headerHeight = 180;
+	    } else {
+		    headerHeight = 50;
+	    }
+	}
+	Sizes();
 
 	function addHeaderBG() {
 	 // if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
@@ -43,22 +52,6 @@ $(document).ready(function(){
 	 $(document).scroll(function(){
 	     addHeaderBG();
 	 });
-
-
-
-
-	//Anchor Oktothek und Serie:
-	$('#button_down').click(function() {
-		if ($('body').hasClass('oktothek')) {
-		    var offset = $('#oktothek').offset();
-		} else if ($('body').hasClass('series')) {
-			var offset = $('section.series-description').offset();
-		}  else if ($('body').hasClass('academy')) {
-			var offset = $('section.academy-description').offset();
-		}
-		$("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
-		$( this ).find('span').css('display','none');
-	});
 
 	//Sharing Tabs:
 
@@ -284,73 +277,7 @@ $(document).ready(function(){
 		}
 	}
 	
-	/* Serien und Akademie */
-	console.log('ich reagieren!!!');
-	if ($('section').hasClass('fs-image-content')) {
-		
-		var descriptionString = $('figcaption .description').text();
-		console.log(descriptionString);
-		$('figcaption .description').html(descriptionString.substr(0,200) + '...');
-		var layer = false;
-	}
-	$('figcaption.description-wrapper a.more').click(function(){
-		console.log($('.fs-image-ident .description-wrapper').width() > '650');
-		
-		if (layer === false) {
-			origHeight = $('.fs-image-ident .description-wrapper').css('height');
-		    $('.fs-image-ident .description-wrapper').animate(
-		    {
-                bottom: '0px',
-                left: '0px',
-			    marginLeft:'0px',
-			    marginRight:'0px',
-			    width: '100%',
-			    height: '100%',
-			    paddingLeft:'0px',
-			    paddingRight:'0px'
-            }, 'fast');
-		    $('.bg-opacity').animate(
-		    {
-			    marginRight:'0px'
-            }, 'fast');
-		    $(this).parents('.content-opacity').animate(
-		    {
-			    marginTop: headerHeight + 20,
-			    paddingLeft:'60px',
-			    paddingRight:'60px'
-		    }, 'fast', function() {
-			    $('figcaption .description').html(descriptionString);
-			});
-			$(this).text('zurück');
-			layer = true;
-		} else {
-		    $('.fs-image-ident .description-wrapper').animate(
-		    {
-                bottom: '100px',
-                left: '50%',
-			    marginLeft:'-325px',
-			    marginRight:'0px',
-			    width: '650px',
-			    height: origHeight,
-			    paddingLeft:'15px',
-			    paddingRight:'15px'
-            }, 'fast');
-		    $('.bg-opacity').animate(
-		    {
-			    marginRight:'15px'
-            }, 'fast');
-		    $(this).parents('.content-opacity').animate(
-		    {
-			    marginTop: '0px',
-			    paddingLeft:'15px',
-			    paddingRight:'15px'
-		    }, 'fast', function() {
-			    $('figcaption .description').html(descriptionString.substr(0,200) + '...');
-			    });
-				$(this).text('weiterlesen');
-			    layer = false;
-		}
-	});
+	
 	
 	/*bottom: 100px;
     left: 50%;
