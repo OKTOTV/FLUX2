@@ -9,8 +9,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use AppBundle\Entity\Playlist;
-use AppBundle\Entity\PlaylistItem;
+use MediaBundle\Entity\Playlist;
+use MediaBundle\Entity\PlaylistItem;
 use AppBundle\Form\PlaylistType;
 use AppBundle\Form\PlaylistUserType;
 
@@ -39,7 +39,7 @@ class PlaylistController extends Controller
 
     /**
      * @Route("/show/{uniqID}/{page}.{_format}", name="oktothek_show_playlist", requirements={"page": "\d+"}, defaults={"page": 1, "_format": "html"})
-     * @ ParamConverter("playlist", class="AppBundle:Playlist", options={"mapping": {"playlist": "uniqID"}})
+     * @ ParamConverter("playlist", class="MediaBundle:Playlist", options={"mapping": {"playlist": "uniqID"}})
      * @Template()
      */
     public function showAction(Playlist $playlist, $page)
@@ -47,7 +47,7 @@ class PlaylistController extends Controller
         return ['playlist' => $playlist];
 
         $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT i FROM AppBundle:Playlistitems i JOIN i.episode WHERE i.playlist = :playlist";
+        $dql = "SELECT i FROM MediaBundle:Playlistitems i JOIN i.episode WHERE i.playlist = :playlist";
         $query = $em->createQuery($dql);
         $query->setParameter('playlist', $playlist->getId());
         $paginator = $this->get('knp_paginator');
@@ -96,7 +96,7 @@ class PlaylistController extends Controller
     public function indexAction($page)
     {
         $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT p FROM AppBundle:Playlist p";
+        $dql = "SELECT p FROM MediaBundle:Playlist p";
         $query = $em->createQuery($dql);
         $paginator = $this->get('knp_paginator');
         $playlists = $paginator->paginate($query, $page, 10);

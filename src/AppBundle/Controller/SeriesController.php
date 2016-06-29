@@ -176,7 +176,7 @@ class SeriesController extends Controller
         $this->denyAccessUnlessGranted('view_channel', $series);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeriesQuery($series), $page, 3);
+        $playlists = $paginator->paginate($em->getRepository('MediaBundle:Playlist')->findPlaylistsForSeriesQuery($series), $page, 3);
         return ['playlists' => $playlists, 'series' => $series];
     }
 

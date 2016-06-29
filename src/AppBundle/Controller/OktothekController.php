@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use MediaBundle\Entity\Episode;
 use MediaBundle\Entity\Series;
-use AppBundle\Entity\Playlist;
+use MediaBundle\Entity\Playlist;
 
 /**
  * Episode controller.

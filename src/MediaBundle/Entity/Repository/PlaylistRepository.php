@@ -16,7 +16,7 @@ class PlaylistRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT p FROM AppBundle:Playlist p WHERE SIZE(p.items) != 0 ORDER BY p.createdAt ASC'
+                'SELECT p FROM MediaBundle:Playlist p WHERE SIZE(p.items) != 0 ORDER BY p.createdAt ASC'
             )
             ->setMaxResults($numberPlaylists)
             ->getResult();
@@ -26,7 +26,7 @@ class PlaylistRepository extends EntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT p FROM AppBundle:Playlist p WHERE p.series = :series'
+                'SELECT p FROM MediaBundle:Playlist p WHERE p.series = :series'
             )
             ->setParameter('series', $series->getId());
     }

@@ -78,6 +78,7 @@ doctrine:
         resolve_target_entities:
             Bprs\AssetBundle\Entity\AssetInterface: AppBundle\Entity\Asset
             Oktolab\MediaBundle\Entity\EpisodeInterface: MediaBundle\Entity\Episode
+            Oktolab\MediaBundle\Entity\PlaylistInterface: MediaBundle\Entity\Playlist
         # mappings:
         #     sluggable:
         #         type: annotation

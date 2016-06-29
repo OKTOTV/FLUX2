@@ -48,7 +48,7 @@ class Series extends BaseSeries
     private $users;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Playlist", mappedBy="series")
+     * @ORM\OneToMany(targetEntity="MediaBundle\Entity\Playlist", mappedBy="series")
      */
     private $playlists;
 
@@ -204,10 +204,10 @@ class Series extends BaseSeries
     /**
      * Add playlists
      *
-     * @param \AppBundle\Entity\Playlist $playlists
+     * @param \MediaBundle\Entity\Playlist $playlists
      * @return Series
      */
-    public function addPlaylist(\AppBundle\Entity\Playlist $playlists)
+    public function addPlaylist(\MediaBundle\Entity\Playlist $playlists)
     {
         $this->playlists[] = $playlists;
 
@@ -217,9 +217,9 @@ class Series extends BaseSeries
     /**
      * Remove playlists
      *
-     * @param \AppBundle\Entity\Playlist $playlists
+     * @param \MediaBundle\Entity\Playlist $playlists
      */
-    public function removePlaylist(\AppBundle\Entity\Playlist $playlists)
+    public function removePlaylist(\MediaBundle\Entity\Playlist $playlists)
     {
         $this->playlists->removeElement($playlists);
     }

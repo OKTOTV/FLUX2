@@ -48,7 +48,7 @@ class TagRepository extends EntityRepository
 
     public function findPlaylistWithTag(Tag $tag) {
         return $this->getEntityManager()
-            ->createQuery('SELECT p FROM AppBundle:Playlist p JOIN p.items i JOIN i.episode e JOIN e.tags t WHERE t.id = :tag_id GROUP BY t.id')
+            ->createQuery('SELECT p FROM MediaBundle:Playlist p JOIN p.items i JOIN i.episode e JOIN e.tags t WHERE t.id = :tag_id GROUP BY t.id')
             ->setParameter('tag_id', $tag->getId())
             ->setMaxResults(5)
             ->getResult();

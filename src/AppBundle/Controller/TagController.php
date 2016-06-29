@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use MediaBundle\Entity\Episode;
 use MediaBundle\Entity\Series;
-use AppBundle\Entity\Playlist;
+use MediaBundle\Entity\Playlist;
 use AppBundle\Entity\Post;
 use AppBundle\Entity\News;
 use AppBundle\Entity\Tag;

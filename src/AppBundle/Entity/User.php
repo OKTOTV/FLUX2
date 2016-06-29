@@ -18,7 +18,7 @@ class User extends BaseUser
     const ROLE_ADMIN = "ROLE_OKTOLAB_ADMIN";
 
     /**
-    * @ORM\OneToMany(targetEntity="Playlist", mappedBy="user")
+    * @ORM\OneToMany(targetEntity="MediaBundle\Entity\Playlist", mappedBy="user")
     */
     private $playlists;
 
@@ -71,10 +71,10 @@ class User extends BaseUser
     /**
      * Add playlists
      *
-     * @param \AppBundle\Entity\Playlist $playlists
+     * @param \MediaBundle\Entity\Playlist $playlists
      * @return User
      */
-    public function addPlaylist(\AppBundle\Entity\Playlist $playlists)
+    public function addPlaylist(\MediaBundle\Entity\Playlist $playlists)
     {
         $this->playlists[] = $playlists;
 
@@ -84,9 +84,9 @@ class User extends BaseUser
     /**
      * Remove playlists
      *
-     * @param \AppBundle\Entity\Playlist $playlists
+     * @param \MediaBundle\Entity\Playlist $playlists
      */
-    public function removePlaylist(\AppBundle\Entity\Playlist $playlists)
+    public function removePlaylist(\MediaBundle\Entity\Playlist $playlists)
     {
         $this->playlists->removeElement($playlists);
     }

@@ -2,8 +2,8 @@
 
 namespace AppBundle\Model;
 
-use AppBundle\Entity\Playlist;
-use AppBundle\Entity\Playlistitem;
+use MediaBundle\Entity\Playlist;
+use MediaBundle\Entity\Playlistitem;
 
 class PlaylistService
 {
