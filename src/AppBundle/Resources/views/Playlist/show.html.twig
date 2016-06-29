@@ -3,7 +3,7 @@
 {% block title %}
     {{ name|default('OKTO')~' | '~'oktothek.playlist_show'|trans({'%playlist%': playlist.name}) }}
 {% endblock %}
-{% block nav_head%}
+{% block nav_head %}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
@@ -42,5 +42,5 @@
             jwplayer('player').playlistItem($(this).data('list'));
         })
     });
-</script> #}
+</script>
 {% endblock %}
