@@ -284,9 +284,12 @@ $(document).ready(function(){
 		}
 	}
 	
-	/* Serien */
-	if ($('body').hasClass('series')) {
+	/* Serien und Akademie */
+	console.log('ich reagieren!!!');
+	if ($('section').hasClass('fs-image-content')) {
+		
 		var descriptionString = $('figcaption .description').text();
+		console.log(descriptionString);
 		$('figcaption .description').html(descriptionString.substr(0,200) + '...');
 		var layer = false;
 	}

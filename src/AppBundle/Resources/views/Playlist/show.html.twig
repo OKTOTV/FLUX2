@@ -7,8 +7,10 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "head-white-color" %}
-{% block body_main %}
+
+{% set body_class = "playlists head-white-color" %}
+{% block body %}
+<section class="container">
     <div class="page-header">
         <h1>{{ playlist.name }}</h1>
         {% if app.user == playlist.user %}
@@ -30,6 +32,8 @@
             </div>
         </div>
     </div>
+    <p>{{ playlist.description }}</p>
+</section>
 {% endblock %}
 
 {% block javascripts %}
