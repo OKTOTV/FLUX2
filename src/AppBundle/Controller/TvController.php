@@ -33,7 +33,7 @@ class TvController extends Controller
     {
         $start = new \Datetime($date);
         $start->setTime(8, 0);
-        $end = clone $start;
+        $end = new \Datetime($date);
         $end->modify('+1 day');
         $end->setTime(8, 0);
 
