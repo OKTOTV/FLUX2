@@ -26,6 +26,12 @@ class Playlist extends BasePlaylist implements PlaylistInterface
     private $items;
 
     /**
+     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series", inversedBy="playlists")
+     * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
+     */
+    private $series;
+
+    /**
      * Set user
      *
      * @param \AppBundle\Entity\User $user
@@ -79,6 +85,39 @@ class Playlist extends BasePlaylist implements PlaylistInterface
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * Add series
+     *
+     * @param \MediaBundle\Entity\Series $series
+     * @return Playlist
+     */
+    public function addSeries(\MediaBundle\Entity\Series $series)
+    {
+        $this->series[] = $series;
+
+        return $this;
+    }
+
+    /**
+     * Remove series
+     *
+     * @param \MediaBundle\Entity\Series $series
+     */
+    public function removeSeries(\MediaBundle\Entity\Series $series)
+    {
+        $this->series->removeElement($series);
+    }
+
+    /**
+     * Get series
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSeries()
+    {
+        return $this->series;
     }
 }
  ?>
