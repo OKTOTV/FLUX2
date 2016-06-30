@@ -14,44 +14,71 @@ class TagRepository extends EntityRepository
             ->getResult();
     }
 
-    public function findSeriesWithTag(Tag $tag) {
+    public function findSeriesWithTag(Tag $tag, $number = 5) {
         return $this->getEntityManager()
             ->createQuery('SELECT s FROM MediaBundle:Series s JOIN s.episodes e JOIN e.tags t WHERE t.id = :tag_id GROUP BY t.id')
             ->setParameter('tag_id', $tag->getId())
-            ->setMaxResults(5)
+            ->setMaxResults($number)
             ->getResult();
     }
 
-    public function findPostsWithTag(Tag $tag) {
+    public function findPostsWithTag(Tag $tag, $number = 5) {
         return $this->getEntityManager()
             ->createQuery('SELECT p FROM AppBundle:Post p JOIN p.tags t WHERE t.id = :tag_id')
             ->setParameter('tag_id', $tag->getId())
-            ->setMaxResults(5)
+            ->setMaxResults($number)
             ->getResult();
     }
 
-    public function findNewsWithTag(Tag $tag) {
-        return $this->getEntityManager()
-            ->createQuery('SELECT n FROM AppBundle:News n JOIN n.tags t WHERE t.id = :tag_id')
-            ->setParameter('tag_id', $tag->getId())
-            ->setMaxResults(5)
-            ->getResult();
-    }
-
-    public function findPagesWithTag(Tag $tag) {
+    public function findPagesWithTag(Tag $tag, $number = 5) {
         return $this->getEntityManager()
             ->createQuery('SELECT p FROM AppBundle:Page p JOIN p.tags t WHERE t.id = :tag_id')
             ->setParameter('tag_id', $tag->getId())
-            ->setMaxResults(5)
+            ->setMaxResults($number)
             ->getResult();
     }
 
-    public function findPlaylistWithTag(Tag $tag) {
+    public function findPlaylistWithTag(Tag $tag, $number = 5) {
         return $this->getEntityManager()
             ->createQuery('SELECT p FROM MediaBundle:Playlist p JOIN p.items i JOIN i.episode e JOIN e.tags t WHERE t.id = :tag_id GROUP BY t.id')
             ->setParameter('tag_id', $tag->getId())
-            ->setMaxResults(5)
+            ->setMaxResults($number)
             ->getResult();
+    }
+
+    public function findEpisodesWithTagQuery(Tag $tag)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT e FROM MediaBundle:Episode e JOIN e.tags t WHERE t.id = :tag_id')
+            ->setParameter('tag_id', $tag->getId());
+    }
+
+    public function findSeriesWithTagQuery(Tag $tag)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT s FROM MediaBundle:Series s JOIN s.tags t WHERE t.id = :tag_id')
+            ->setParameter('tag_id', $tag->getId());
+    }
+
+    public function findPostsWithTagQuery(Tag $tag)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM AppBundle:Post p JOIN p.tags t WHERE t.id = :tag_id')
+            ->setParameter('tag_id', $tag->getId());
+    }
+
+    public function findPagesWithTagQuery(Tag $tag)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM AppBundle:Page p JOIN p.tags t WHERE t.id = :tag_id')
+            ->setParameter('tag_id', $tag->getId());
+    }
+
+    public function findPlaylistsWithTagQuery(Tag $tag)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM MediaBundle:Playlist p JOIN p.items i JOIN i.episode e JOIN e.tags t WHERE t.id = :tag_id GROUP BY t.id')
+            ->setParameter('tag_id', $tag->getId());
     }
 
     public function findPopularTags($number = 10)
