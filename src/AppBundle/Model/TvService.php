@@ -26,13 +26,14 @@ class TvService
         );
         if ($response->getStatusCode() == 200) {
             return json_decode($response->getBody());
-            $shows = json_decode($response->getBody());
-
-            $uniqIDs = [];
-            foreach ($shows as $show) {
-                $uniqIDs[] = $show->id;
-            }
-            $episodes = $this->episode_repository->findEpisodesByUniqID($uniqIDs);
+            // @TODO: test check for episodes and set uniqIDs to shows
+            // $shows = json_decode($response->getBody());
+            //
+            // $uniqIDs = [];
+            // foreach ($shows as $show) {
+            //     $uniqIDs[] = $show->id;
+            // }
+            // $episodes = $this->episode_repository->findEpisodesByUniqID($uniqIDs);
 
         } else {
             return [];
@@ -44,11 +45,11 @@ class TvService
         $now = new \Datetime();
         $current = false;
         if (!$shows) {
-            $shows = $this->getShows($now, new \Datetime('+1 day'));
+            $shows = $this->getShows(new \Datetime('-3 hours'), new \Datetime('+3 hours'));
         }
 
         foreach ($shows as $show) {
-            if ($show->airdate <= $now) {
+            if (new \Datetime($show->airdate) <= $now) {
                 $current = $show;
             } else {
                 break;

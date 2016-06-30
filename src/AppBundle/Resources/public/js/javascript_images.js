@@ -129,152 +129,248 @@ $(document).ready(function(){
 	});
 	
 	/* Serien und Akademie */
-	function DescriptionText() {
-		if (Winwidth >= 768) {
-	        lengthText = 200;
-	    } else {
-		    lengthText = 100;
+	function Textproperties() {
+		if (Winwidth >= 768 && Winheight >600) {
+	        ShortString = descriptionString.substr(0,200) + '...';
+			LinkString = 'weiterlesen';
+		} else if (Winwidth >= 768 && Winheight > 450) {
+			ShortString = descriptionString.substr(0,100) + '...';
+			LinkString = 'weiterlesen';
+		} else if (Winwidth >= 768 && Winheight <= 450) {
+			ShortString = "";
+			LinkString = 'Inhalt lesen';
+		} else if (Winwidth >= 400) {
+			ShortString = descriptionString.substr(0,100) + '...';
+			LinkString = 'weiterlesen';
+	    } else if (Winwidth < 400) {
+		    ShortString = "";
+			LinkString = 'Inhalt lesen';
 	    }
-		ShortString = $('figcaption .description').html(descriptionString.substr(0,lengthText) + '...');
-		return ShortString;
+			
+		_Textproperties = new Array(ShortString, LinkString);
+		return _Textproperties;
+	}
+	
+	function Animate_Wrapper() {
+		if (layer == false) {    //Fenster wird geöffnet
+			if (Winwidth >= 768 && Winheight >600) {
+				_top = '0px';
+				_height = '100%';
+				_paddingTop = '20px';
+				_position = 'absolute';
+			} else if (Winwidth >= 768 && Winheight <= 600) {
+				_top = '0px';
+				_height = '100%';
+				_paddingTop = '0px';
+				_position = 'fixed';
+			} else {
+				_top = '50px';
+				_height = Winheight + 20;
+				_paddingTop = '0px';
+				_position = 'fixed';
+			}
+			_bottom = '0px';
+			_left = '0px';
+			_width = '100%';
+			_marginLeft = '0px';
+			_paddingLeft = '0px';
+			_paddingRight = '0px';
+		} else {    //Fenster wird geschlossen
+		    if (Winwidth >= 768 && Winheight > 600) {
+				origTop = $('.fs-image-ident figure').height() - origHeight - 100;
+				_bottom = '100px';
+				_left = '50%';
+				_width = '650px';
+				_marginLeft = '-325px';
+				_paddingLeft = '0px';
+				_paddingRight = '0px';
+				_position = 'absolute';
+			} else if (Winwidth >= 768 && Winheight < 600) {
+				origTop = $('.fs-image-ident figure').height() - origHeight - 30;
+				_bottom = '30px';
+				_left = '50%';
+				_width = '650px';
+				_marginLeft = '-325px';
+				_paddingLeft = '0px';
+				_paddingRight = '0px';
+				_position = 'absolute';
+		    } else if (Winwidth > 400) {
+				origTop = $('.fs-image-ident figure').height() - origHeight - 30;
+				_bottom = '30px';
+				_left = '5%';
+				_width = '90%';
+				_marginLeft = '0px';
+				_paddingLeft = '15px';
+				_paddingRight = '15px';
+				_position = 'absolute';
+		    } else if (Winwidth <= 400) {
+				origTop = $('.fs-image-ident figure').height() - origHeight - 20;
+				_bottom = '20px';
+				_left = '5%';
+				_width = '90%';
+				_marginLeft = '0px';
+				_paddingLeft = '15px';
+				_paddingRight = '15px';
+				_position = 'absolute';
+		    }
+			_height = origHeight + 'px';
+			_paddingTop = '0px';
+			_top = origTop + 'px';
+		}
+		
+		$('.fs-image-ident .description-wrapper')
+		    .animate(
+		    {
+                top : _top,
+			    bottom : _bottom,
+                left : _left,
+			    width : _width,
+			    height : _height,
+			    marginLeft : _marginLeft,
+			    paddingLeft : _paddingLeft,
+			    paddingRight :_paddingRight,
+			    paddingTop :_paddingTop
+            }, speed)
+		    .css('position',_position);
+	}
+	function Animate_Content() {
+		if (layer == false) {
+			if (Winwidth >= 768 && Winheight > 600) {
+			    _marginTop = (headerHeight + 20) + 'px';
+			    _paddingLeft = '60px';
+			    _paddingRight = '60px';
+				_paddingTop = '15px';
+				_String = descriptionString;
+			} else if (Winwidth >= 768 && Winheight <= 600) {
+				_marginTop = (headerHeight) + 'px';
+			    _paddingLeft = '60px';
+			    _paddingRight = '60px';
+				_paddingTop = '0px';
+				_String = descriptionString;
+			} else {
+				_marginTop = '20px';
+			    _paddingLeft = '60px';
+			    _paddingRight = '60px';
+				_paddingTop = '15px';
+				_String = descriptionString;
+			}
+		} else {
+	        _marginTop = '0px';
+			_paddingLeft = '15px';
+			_paddingRight = '15px';
+			_paddingTop = '15px';
+			_String = Descriptiontext[0];
+		}
+		
+		$('.fs-image-ident .content-opacity').animate(
+		{
+		    marginTop : _marginTop,
+			paddingLeft : _paddingLeft,
+			paddingRight : _paddingRight,
+			paddingTop : _paddingTop
+		}, speed, function() {
+			$('figcaption .description').html(_String);
+	    });
 	}
 	
 	if ($('section').hasClass('fs-image-content')) {
 		var descriptionString = $('figcaption .description').text();
-		DescriptionText();
+		Descriptiontext = Textproperties();
+		$('figcaption .description').html(Descriptiontext[0]);
+		$('figcaption.description-wrapper a.more').text(Descriptiontext[1]);
 		var layer = false;
 		var resize = false;
+		var origHeight;
 		var origHeightSafe = null;
+		var speed = 'fast';
 	}
 	
 	$('figcaption.description-wrapper a.more').click(function(){
 		
 		if (layer === false) {    //Fenster wird geöffnet
 			origHeight = $('.fs-image-ident .description-wrapper').height() + 10;
-			if (Winwidth >= 768) {
-				$('.fs-image-ident .description-wrapper').animate(
-		        {
-                    top: '0px',
-					bottom: '0px',
-                    left: '0px',
-					width: '100%',
-			        height: '100%',
-			        marginLeft:'0px',
-			        paddingLeft:'0px',
-			        paddingRight:'0px',
-					paddingTop:'20px'
-                }, 'fast')
-				.css('position','absolute')
-				.css('overflow','visible');
+			Animate_Wrapper();
+			
+			if (Winwidth >= 768 && Winheight >600) {
 				$('.bg-opacity').animate(
 		        {
 			        marginRight:'0px'
-                }, 'fast');
-		        $(this).parents('.content-opacity').animate(
+                }, speed);
+				//Scrollbalken
+				$('body').css('overflow','auto');
+				if ($('.fs-image-ident .description-wrapper').hasClass('details'))
+				    $('.fs-image-ident .description-wrapper').removeClass('details');
+			} else if (Winwidth >= 768 && Winheight < 600) {
+				$('.bg-opacity').animate(
 		        {
-			        marginTop: (headerHeight + 20) + 'px',
-			        paddingLeft:'60px',
-			        paddingRight:'60px'
-		        }, 'fast', function() {
-			        $('figcaption .description').html(descriptionString);
-			    });
+			        marginRight:'0px',
+					opacity:'1.0'
+                }, speed);
+				//Scrollbalken
+				$('body').css('overflow','hidden');
+				if (!$('.fs-image-ident .description-wrapper').hasClass('details'))
+				    $('.fs-image-ident .description-wrapper').addClass('details');
 			} else {
-				$('.fs-image-ident .description-wrapper')
-				    .animate(
-		            {
-					    top: '50px',
-                        bottom: '0px',
-                        left: '0px',
-					    width: '100%',
-			            height: Winheight + 20,
-			            marginLeft:'0px',
-			            paddingLeft:'0px',
-			            paddingRight:'0px',
-					    paddingTop:'0px'
-                    }, 'fast')
-				    .css('position','fixed')
-					.css('overflow','auto');
 				$('.fs-image-misc-mobile').css('display','none');
 				$('.bg-opacity').animate(
 		        {
 			        marginRight:'0px',
 					opacity:'1.0'
-                }, 'fast');
-				$(this).parents('.content-opacity').animate(
-		        {
-			        marginTop: '20px',
-			        paddingLeft:'60px',
-			        paddingRight:'60px'
-		        }, 'fast', function() {
-			        $('figcaption .description').html(descriptionString);
-			    });
+                }, speed);
+				//Scrollbalken
+				$('body').css('overflow','hidden');
+				if (!$('.fs-image-ident .description-wrapper').hasClass('details'))
+				    $('.fs-image-ident .description-wrapper').addClass('details');
 			}
+			
+			Animate_Content();
+			$('.fs-image-content .facts').css('display','block');
+			$('.fs-image-content figcaption .misc').css('display','block');
+			$('.fs-image-misc-mobile').css('display','none');
 			$(this).text('zurück');
 			layer = true;
 		} else {    //Fenster wird geschlossen
 		    if (resize == true) {
-					if (origHeightSafe === null) {
-					    origHeightSafe = origHeight;
-						if (Winwidth >= 768) {
-				            origHeight = 300;
-					    } else {
-						    origHeight = 125;
-					    }
+				if (origHeightSafe === null) {
+					origHeightSafe = origHeight;
+				    if (Winwidth >= 768) {
+				        origHeight = 300;
 					} else {
-						origHeight = origHeightSafe;
-						origHeightSafe = null;
+						origHeight = 150;
 					}
-					
-				}
-				resize = false;
-			if (Winwidth >= 768) {
-				origTop = $('.fs-image-ident figure').height() - origHeight - 100;
-		        $('.fs-image-ident .description-wrapper').animate(
-		        {
-					top: origTop + 'px',
-                    bottom: '100px',
-                    left: '50%',
-					width: '650px',
-			        height: origHeight + 'px',
-			        marginLeft:'-325px',
-			        paddingLeft:'15px',
-			        paddingRight:'15px',
-					paddingTop:'0px'
-                }, 'fast')
-				.css('position','absolute')
-				.css('overflow','visible');
+			    } else {
+					origHeight = origHeightSafe;
+					origHeightSafe = null;
+				}		
+			}
+			resize = false;
+			
+			Descriptiontext = Textproperties();
+			
+			Animate_Wrapper();
+			
+			if (Winwidth < 768) {
+				$('.fs-image-content .facts').css('display','none');
+			    $('.fs-image-content figcaption .misc').css('display','none');
+			    $('.fs-image-misc-mobile').css('display','block');
 			} else {
-				origTop = $('.fs-image-ident figure').height() - origHeight - 30;
-			    $('.fs-image-ident .description-wrapper').animate(
-		        {
-					top: origTop + 'px',
-					bottom: '30px',
-			        left: '5%',
-					width: '90%',
-			        height: origHeight + 'px',
-			        marginLeft:'0px',
-			        paddingLeft:'15px',
-			        paddingRight:'15px',
-					paddingTop:'0px'
-                }, 'fast')
-				.css('position','absolute')
-				.css('overflow','visible');
-				$('.fs-image-misc-mobile').css('display','none');
+				$('.fs-image-content .facts').css('display','block');
+			    $('.fs-image-content figcaption .misc').css('display','block');
+			    $('.fs-image-misc-mobile').css('display','none');
 			}
 		    $('.bg-opacity').animate(
 		    {
 			    marginRight:'15px',
 				opacity:'0.7'
-            }, 'fast');
-		    $(this).parents('.content-opacity').animate(
-		    {
-			    marginTop: '0px',
-			    paddingLeft:'15px',
-			    paddingRight:'15px'
-		    }, 'fast', function() {
-			        DescriptionText();
-			});
-			$(this).text('weiterlesen');
+            }, speed);
+			
+			Animate_Content();
+			$('figcaption.description-wrapper a.more').text(Descriptiontext[1]);
+			
+			//Scrollbalken
+			$('body').css('overflow','auto');
+			if ($('.fs-image-ident .description-wrapper').hasClass('details'))
+				    $('.fs-image-ident .description-wrapper').removeClass('details');
 			layer = false;
 		}
 		
@@ -284,31 +380,57 @@ $(document).ready(function(){
 		Sizes();
   		var winwidth = $( window ).width();
 		var winheight = $( window ).height();
-		if (layer === false) {
-			DescriptionText();
+		//console.log('Breite:' + winwidth + 'Höhe' + winheight);
+		if (layer === false) {    //Fenster ist geschlossen 
+			Descriptiontext = Textproperties();
+		    $('figcaption .description').html(Descriptiontext[0]);
+			$('figcaption.description-wrapper a.more').text(Descriptiontext[1]);
+			
 			$('.fs-image-ident .description-wrapper')
 			    .css('top','auto')
 				.css('height','auto')
 				.css('padding-left','15px')
 				.css('padding-right','15px');
-		    if (Winwidth >= 768) {
+		    if (Winwidth >= 768 && Winheight >600) {
 		        $('.fs-image-ident .description-wrapper')
 					.css('bottom','100px')
 					.css('left','50%')
 				    .css('width','650px')
 				    .css('margin-left','-325px');
-		    } else {
+				$('.fs-image-content .facts').css('display','block');
+			    $('.fs-image-content figcaption .misc').css('display','block');
+			    $('.fs-image-misc-mobile').css('display','none');
+			} else if (Winwidth >= 768 && Winheight < 600) {
+		        $('.fs-image-ident .description-wrapper')
+					.css('bottom','30px')
+					.css('left','50%')
+				    .css('width','650px')
+				    .css('margin-left','-325px');
+				$('.fs-image-content .facts').css('display','block');
+			    $('.fs-image-content figcaption .misc').css('display','block');
+			    $('.fs-image-misc-mobile').css('display','none');
+		    } else if (Winwidth > 400) {
 			    $('.fs-image-ident .description-wrapper')
 					.css('bottom','30px')
 					.css('left','5%')
 				    .css('width','90%')
-				    .css('margin-left','0px')
-				    .css('display','block');
-		    }
-		} else {
+				    .css('margin-left','0px');
+				$('.fs-image-content .facts').css('display','none');
+			    $('.fs-image-content figcaption .misc').css('display','none');
+			    $('.fs-image-misc-mobile').css('display','block');
+		    } else if (Winwidth <= 400) {
+				$('.fs-image-ident .description-wrapper')
+					.css('bottom','20px')
+					.css('left','5%')
+				    .css('width','90%')
+				    .css('margin-left','0px');
+				$('.fs-image-content .facts').css('display','none');
+			    $('.fs-image-content figcaption .misc').css('display','none');
+			    $('.fs-image-misc-mobile').css('display','block');
+			}
+		} else {    //Fenster ist geöffnet
 			resize = true;
 			$('.fs-image-ident .description-wrapper')
-			    .css('top','0px')
 				.css('bottom','0px')
 				.css('left','0px')
 			    .css('width','100%')
@@ -316,15 +438,43 @@ $(document).ready(function(){
 			    .css('margin-left','0px')
 				.css('padding-left','0px')
 				.css('padding-right','0px');
-			if (Winwidth >= 768) {
-				$('.fs-image-ident .description-wrapper').css('padding-top','10px');
+				
+			$('.fs-image-ident .content-opacity').css('margin-top', (headerHeight + 20) + 'px');
+			$('.fs-image-content .facts').css('display','block');
+			$('.fs-image-content figcaption .misc').css('display','block');
+			$('.fs-image-misc-mobile').css('display','none');
+			
+			if (Winwidth >= 768 && Winheight > 600) {
+				$('.fs-image-ident .description-wrapper')
+				    .css('padding-top','10px')
+					.css('top','0px')
+					.css('position','absolute');
 				$('.fs-image-ident .bg-opacity').css('opacity','0.7');
-				$('.fs-image-ident .content-opacity').css('margin-top','200px');
-			} else {
-				$('.fs-image-ident .description-wrapper').css('padding-top','0px')
+				//Scrollbalken
+				$('body').css('overflow','auto');
+				if ($('.fs-image-ident .description-wrapper').hasClass('details'))
+				    $('.fs-image-ident .description-wrapper').removeClass('details');
+			} else if (Winwidth >= 768 && Winheight < 600) {
+				$('.fs-image-ident .description-wrapper')
+				    .css('padding-top','10px')
+					.css('top','0px')
+					.css('position','fixed');
 				$('.fs-image-ident .bg-opacity').css('opacity','1.0');
-				$('.fs-image-ident .content-opacity').css('margin-top','20px');
-				$('.fs-image-misc-mobile').css('display','none');
+				//Scrollbalken
+				$('body').css('overflow','hidden');
+				if (!$('.fs-image-ident .description-wrapper').hasClass('details'))
+				    $('.fs-image-ident .description-wrapper').addClass('details');
+			} else {
+				$('.fs-image-ident .description-wrapper')
+				    .css('padding-top','0px')
+					.css('top','0px')
+					.css('position','fixed');
+				$('.fs-image-ident .bg-opacity').css('opacity','1.0');
+				$('.fs-image-ident .content-opacity').css('padding-top','15px');
+				//Scrollbalken
+				$('body').css('overflow','hidden');
+				if (!$('.fs-image-ident .description-wrapper').hasClass('details'))
+				    $('.fs-image-ident .description-wrapper').addClass('details');
 			}
 		}
 		//console.log(winheight);

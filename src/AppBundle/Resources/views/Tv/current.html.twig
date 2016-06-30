@@ -2,6 +2,6 @@
     <header>
       <p class="current-episode">Derzeit auf Okto</p>
       <h2 class="name">{{ current.name|default(current.series_name)}}</h1>
-      <p class="description">{{ current.description }}</p>
+      <p class="description">{{ current.airdate|date('Y-m-d H:i')}}{{ current.description }}</p>
     </header>
 </section>
