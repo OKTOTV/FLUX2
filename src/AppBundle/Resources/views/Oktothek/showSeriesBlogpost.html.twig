@@ -1,0 +1,20 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "series head-white-color head-transparent-bg fullscreen-images" %}
+{% block body_main %}
+
+<div class="page-header">
+    <h1>{{ series.name}}</h1>
+    <p>
+        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID }) }}" class="btn btn-default">Zurück zur Sendereihe</a>
+    </p>
+</div>
+
+{% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': 1 } %}
+{{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
+
+{% endblock %}

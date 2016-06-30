@@ -1,10 +1,10 @@
 {% if posts|length > 0%}
-    <h2>{{ 'oktolab_series_blog_header'|trans }}</h2>
 	<div class="row">
     <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9 news-pin">
 {% endif %}
 {% for post in posts %}
     <article>{% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}</article>
+    {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
 {% endfor %}
 {% if posts|length > 0%}
     </div>
@@ -14,9 +14,12 @@
                 {% for teaser in teasers %}
                     <li>
                         <time pubdate="pubdate">{{ teaser.updatedAt|date('d.m.Y')}}</time>
-                        <p><a href="{{ path('oktothek_show_news', {'slug': teaser.slug})}}">{{ teaser.name }}</a></p>
+                        <p><a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a></p>
                     </li>
                 {% endfor %}
+                <li>
+                    <p><a href="{{ path('oktothek_show_series_blog', {'uniqID': series.uniqID})}}">Zum Blog</a></p>
+                </li>
 		    </ul>
 		</div>
 	</aside>

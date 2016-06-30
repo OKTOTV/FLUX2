@@ -128,6 +128,71 @@ class TagController extends Controller
     }
 
     /**
+     * @Route("/{slug}/episodes/{page}", name="oktothek_tag_episode_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
+     * @Template("AppBundle::Tag/Pager/episodeTagPager.html.twig")
+     */
+    public function episodeTagPagerAction($slug, $page)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
+        $paginator = $this->get('knp_paginator');
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findEpisodesWithTagQuery($tag), $page, 5);
+        return ['tag' => $tag, 'episodes' => $episodes];
+    }
+
+    /**
+     * @Route("/{slug}/series/{page}", name="oktothek_tag_series_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
+     * @Template("AppBundle::Tag/Pager/episodeTagPager.html.twig")
+     */
+    public function seriesTagPagerAction($slug, $page)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
+        $paginator = $this->get('knp_paginator');
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findSeriesWithTagQuery($tag), $page, 5);
+        return ['tag' => $tag, 'series' => $episodes];
+    }
+
+    /**
+     * @Route("/{slug}/posts/{page}", name="oktothek_tag_posts_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
+     * @Template("AppBundle::Tag/Pager/postsTagPager.html.twig")
+     */
+    public function postsTagPagerAction($slug, $page)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
+        $paginator = $this->get('knp_paginator');
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findPostsWithTagQuery($tag), $page, 5);
+        return ['tag' => $tag, 'posts' => $episodes];
+    }
+
+    /**
+     * @Route("/{slug}/pages/{page}", name="oktothek_tag_pages_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
+     * @Template("AppBundle::Tag/Pager/pagesTagPager.html.twig")
+     */
+    public function pagesTagPagerAction($slug, $page)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
+        $paginator = $this->get('knp_paginator');
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findPagesWithTagQuery($tag), $page, 5);
+        return ['tag' => $tag, 'pages' => $episodes];
+    }
+
+    /**
+     * @Route("/{slug}/playlists/{page}", name="oktothek_tag_playlists_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
+     * @Template("AppBundle::Tag/Pager/playlistsTagPager.html.twig")
+     */
+    public function playlistsTagPagerAction($slug, $page)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
+        $paginator = $this->get('knp_paginator');
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findPlaylistsWithTagQuery($tag), $page, 5);
+        return ['tag' => $tag, 'playlists' => $episodes];
+    }
+
+    /**
      * @Route("/{tag}/episodes")
      * @ParamConverter("tag", class="AppBundle:Tag", options={"mapping": {"tag": "slug"}})
      * @Template()

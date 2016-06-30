@@ -1,0 +1,52 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title%}{{ name|default('OKTO')~' | '~tag.text }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "tagpage head-white-color head-transparent-bg fullscreen-background" %}
+{% block body %}
+<div id="top"></div>
+<div class="container-fluid">
+    <div class="bg-bleur"></div>
+    <header class="container">
+        <h1>{{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
+        <p class="misc">
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+        </p>
+            <!-- Start Collapse Share-->
+            <div class="collapse" id="collapseShare">
+                <div>
+                    <h3>Teilen</h3>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="div_share_sn">
+                            <div>
+                            <ul class="socialnetworks">
+                                <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                                <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                                <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                                <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                                <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                                <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button>
+                        </div>
+                        <form><input type="text" value="" class="form-control" id="sharingurl"></form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Collapse Share-->
+    </header>
+</div>
+<div class="navigation">
+    {{ knp_pagination_render(episodes) }}
+</div>
+
+{% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with {'playlists': playlists} %}
+
+<div class="navigation">
+    {{ knp_pagination_render(episodes) }}
+</div>
+{% endblock %}

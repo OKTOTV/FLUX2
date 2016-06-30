@@ -51,24 +51,25 @@
 	    </article>
 		<!-- Ende Serienbeschreibung -->
 	</section>
-    {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': series.uniqID })) }}
+    {{ render(controller("AppBundle:Series:episodesWithTagsAjax", { 'uniqID': series.uniqID })) }}
     <section class="blog">
 	    <div id="anchor_blog"></div>
 	    <div class="container">
-            {% include 'AppBundle::Default/Series/blog.html.twig' with {'posts': series.posts, 'uniqID': series.uniqID } %}
+            <h2>{{ 'oktothek_series_blog_header'|trans }}</h2>
+            {% include 'AppBundle::Default/Series/blog.html.twig' with { 'posts': [series.posts[0]], 'uniqID': series.uniqID } %}
 	    </div>
 	</section>
 	<section class="container">
 	    <div class="infos">
 		    <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
-            {% include 'MediaBundle::Reachme/reachme_stack.html.twig' with {'reachmes': series.reachmes } %}
+            {% include 'MediaBundle::Reachme/reachme_stack.html.twig' with { 'reachmes': series.reachmes } %}
 	    </div>
 	</section>
     {% if series.playlists is not empty %}
         <section class="container series-playlists">
     	    <div id="anchor_playlists"></div>
     	    <h2>Playlisten</h2>
-            {% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with {'playlists': series.playlists} %}
+            {% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with { 'playlists': series.playlists } %}
     	</section>
     {% endif %}
 {% endblock %}

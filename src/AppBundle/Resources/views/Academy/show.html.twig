@@ -38,16 +38,16 @@
                 <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pin" data-placement="right" title="#" id="course{{coursetype.id}}">
                     <figure class="academy-pin pin">
                         <div class="image-container">
-						    <img src="{{ coursetype.image|link }}" class="img-responsive"/>
+						    <img src="{{ coursetype.image|thumb(135,240) }}" class="img-responsive"/>
 						    <div class="preview-button">
 							    <div class="preview-content">
 								    <div class="bg-opacity"> </div>
 								    <a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}">Schnellansicht</a>
-							       
+
 							       </div>
 							   <div class="preview-icon"><a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}"><div class="pin-icon"><span> </span></div></a></div>
 							</div>
-							
+
 						</div>
         			    <figcaption>
     					    <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
@@ -56,7 +56,7 @@
     						</a>
         			    </figcaption>
                     </figure>
-					
+
 					<!-- Schnellansicht Details Start -->
 				<div class="collapse preview" data-placement="right" title="#" id="collapseDetail{{coursetype.id}}">
 				    <div class="collapse-header"> </div>
@@ -90,7 +90,7 @@
     			</div>
 				<!-- Schnellansicht Details Ende -->
 				</article>
-				
+
             {% endfor %}
 		</div>
     </section>
