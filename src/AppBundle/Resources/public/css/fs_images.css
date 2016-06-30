@@ -15,7 +15,7 @@
 	bottom:50px;
 }
 .fs-image-ident .description-wrapper {
-	bottom:30px;
+	bottom:20px;
 }
 .carousel-indicators {
 	bottom:0;
@@ -59,8 +59,8 @@ section.fs-image-content, section.fs-image-content {
 	margin-bottom:0;
 }
 .carousel figcaption p, .fs-image-content figcaption p {
-    margin:4px 0 0 0;
-}
+	    margin:2px 0 10px 0;
+    }
 #slider, .fs-image-content {
 	margin-top:-90px;
 }
@@ -85,16 +85,30 @@ section.bg-fullscreen h2 {
 .carousel-inner {
 	overflow:hidden;
 }
+.fs-image-ident .description-wrapper.details {
+	overflow:auto;
+	background-color:#000;
+}
 .content-opacity {
 	z-index:1;
 }
 .carousel-caption, .fs-image-ident .description-wrapper {
     z-index: 10;
 }
+.fs-image-ident .facts {
+	text-align:center;
+}
 .preloader {
 	z-index:100;
 }
-.carousel-caption, .fs-image-ident .description-wrapper {
+.fs-image-ident .description-wrapper .more {
+	text-align:center;
+	padding-top:20px;
+}
+.fs-image-ident .description-wrapper a.pull-right {
+	float:none !important;
+}
+.carousel-caption {
 	text-align:left;
 }
 /*.academy-content .content-opacity div {
@@ -109,7 +123,37 @@ section.bg-fullscreen h2 {
 	text-align:center;
 	padding:20px 0 40px 0;
 }
-@media (min-width: 768px) {
+.fs-image-content figcaption h1 {
+	margin-bottom:20px;
+}
+@media (min-width: 401px) {
+	.fs-image-ident .description-wrapper a.pull-right {
+	    float:right !important;
+    }
+	.fs-image-ident .description-wrapper .more {
+		text-align:left;
+	    padding-top:0px;
+    }
+	.fs-image-ident .description-wrapper {
+	    bottom:30px;
+    }
+}
+@media (min-width: 768px) and (min-height: 501px) {
+	.fs-image-ident .facts {
+	    text-align:left;
+	}
+}
+@media (min-width: 768px) and (max-height: 600px) {
+	.carousel-caption, .fs-image-ident .description-wrapper {
+	    bottom:30px;
+	    width:650px;
+	    margin: 0 0 0 -325px;
+		padding-top:20px;
+	    left:50%;
+	    right:0;
+	}
+}
+@media (min-width: 768px) and (min-height: 601px) {
 	.carousel-caption, .fs-image-ident .description-wrapper {
 	    bottom:100px;
 	    width:650px;
@@ -118,12 +162,13 @@ section.bg-fullscreen h2 {
 	    left:50%;
 	    right:0;
 	}
+}
+@media (min-width: 768px) {
+	
 	.carousel-caption h3, .series h1 {
 	    margin: 4px 0 20px 0;
     }
-	.carousel figcaption p, .fs-image-content figcaption p {
-	    margin:2px 0 10px 0;
-    }
+	
 	.carousel-indicators {
 	    bottom:10px;
     }
