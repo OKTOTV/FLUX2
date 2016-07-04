@@ -22,7 +22,8 @@ class TvController extends Controller
     public function tvAction()
     {
         $current = $this->get('oktothek_tv')->getCurrent();
-        return ['current' => $current];
+        $date = new \DateTime();
+        return ['current' => $current, 'url' => $this->generateUrl('oktothek_tv_program_for_date', ['date' => $date->format('d-m-Y')])];
     }
 
     /**
