@@ -1,1 +1,22 @@
-{% include 'AppBundle::Default/Series/SeriesStack.html.twig' with {'seriess': seriess} %}
+<div class="row">
+{% for series in seriess %}
+    {% if loop.first %}
+	<article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first" title="{{ series.description }}">
+        <figure class="series-pin pin">
+	        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }} ansehen">
+	            <img src="{{ series.posterframe|thumb(309,550) }}" class="img-responsive"/>
+		        <figcaption>
+                    <h3>{{ series.name }}</h3>
+		        </figcaption>
+            </a>
+	    </figure>
+    </article>
+	<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin">
+	{% else %}
+    {% include "AppBundle:Default/Series:SeriesThumb.html.twig" %}
+	{% endif %}
+	{% if loop.last %}
+    </div>
+    {% endif %}
+{% endfor %}
+</div>

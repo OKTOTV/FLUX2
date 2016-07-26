@@ -1,1 +1,26 @@
-{% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with {'playlists': playlists} %}
+<div class="row">
+{% for playlist in playlists|slice(0,5) %}
+  {% if loop.first %}
+    <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first" data-toggle="tooltip" title="{{ playlist.description }}">
+        <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="... ansehen">
+            <figure class="playlist-pin pin">
+                {% if playlist.items is not empty %}
+                <img src="{{ playlist.items[0].episode.posterframe|thumb(309,550) }}" class="img-responsive"/>
+                {% else %}
+                {# TODO: placeholder #}
+                {% endif %}
+                <figcaption>
+                    <h3>{{ playlist.name }}</h3>
+		        </figcaption>
+            </figure>
+        </a>
+    </article>
+	<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin">
+{% else %}
+{% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
+{% endif %}
+    {% if loop.last %}
+    </div>
+  {% endif %}
+{% endfor %}
+</div>

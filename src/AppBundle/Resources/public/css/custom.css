@@ -472,10 +472,10 @@ header .icon.icon-login {
 
 
 /****************************  Color, Effects Content ****************************/
-body, .btn-default, .episode .misc a, a:hover, select.form-control.ghost, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3  {
+body, .btn-default, a.btn-default:hover, a.btn-default:active, a.btn-default:active:focus, .episode .misc a, a:hover, select.form-control.ghost, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, .pin a figcaption h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3  {
 	color:#ffffff;
 }
-.form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default, .timetable .btn, .bootstrap-datetimepicker-widget {
+.form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default, .timetable .btn, .bootstrap-datetimepicker-widget, header .collapseShare .form-control {
 	color:#000000;
 }
 /* Türkis */
@@ -502,30 +502,30 @@ body, .btn-default, .episode .misc a, a:hover, select.form-control.ghost, .oktot
 	color: #fcce14;
 }
 
-body, .list-group-item, .bg-opacity, select, .oktothek article a.btn-default:hover, .tagpage section.container, .preloader {
+body, .list-group-item, .bg-opacity, select, .oktothek article a.btn-default:hover, .tagpage .content-bg, .preloader {
 	background-color:#000000;
 }
-.table-striped > tbody > tr:nth-of-type(2n+1), .tagpage .container-fluid header input.form-control, .newsarchiv aside .box, .programm .schedule header.page-header {
+.table-striped > tbody > tr:nth-of-type(2n+1), .newsarchiv aside .box, .programm .schedule header.page-header {
 	background-color:#757575;
 }
-button .btn-default.active, .oktothek article a.btn-default, .collapseShare .btn-default, .timetable .btn {
+button .btn-default.active, .oktothek article a.btn-default, .collapseShare .btn-default, .timetable .btn, header .collapseShare .form-control {
 	background-color:#ffffff;
 }
 .oktothek .news article, .collapseShare, .collapsePlaylist, .collapseCoursedetails, .series .news-pin, .series .news-form, .series .blog aside .aside-inner, .academy .courses .collapse-content { /* Dunkelgrau */
 	background-color:#112022;
 }
-.play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel, .btn-default, .btn-primary, #episode-tag {
+.play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel, .btn-default, .btn-primary, #episode-tag, .tagpage .collapseShare {
 	background-color:transparent;
 }
 /* Spacelayout */
-button .btn-default.but-full.active, .oktothek article a.btn-default.but-full, .input-group-addon { /* Gelb */
+button .btn-default.but-full.active, a.btn-default:hover, a.btn-default:focus, a.btn-default:active, a.btn-default:active:focus, .oktothek article a.btn-default.but-full, .input-group-addon { /* Gelb */
 	background-color:#fcce14;
 }
 
 .tags li a {
 	border: solid 1px #cccccc;
 }
-.play-episode.btn-default, .tagpage .container-fluid header input.form-control {
+.play-episode.btn-default {
 	border: solid 1px #ffffff;
 }
 .newsarchiv article {
@@ -541,7 +541,7 @@ button .btn-default.but-full.active, .oktothek article a.btn-default.but-full, .
 	border-bottom:dotted 1px #5a6769;
 }
 /* Spacelayout */
-.btn-default, .btn-default.but-full:hover, .btn-primary, .pull-right .icon { /* Gelb */
+.btn-default, a.btn-default:hover, a.btn-default:focus, a.btn-default:active, a.btn-default:active:focus, .btn-default.but-full:hover, .btn-primary, .pull-right .icon { /* Gelb */
 	border: solid 2px #fcce14;
 }
 /* Türkis */
@@ -553,8 +553,15 @@ border: solid 2px #13fffd;
 	border-left:none;
 	border-right:none;
 }
-.form-control, .newsarchiv article:first-child, .programm header .navbar-default, header.page-header, .input-group-addon, .btn-default.btn-top, .btn-default.pin-icon, .timetable .btn  {
+.form-control, .newsarchiv article:first-child, .programm header .navbar-default, header.page-header, .input-group-addon, .btn-default.btn-top, .btn-default.pin-icon, .timetable .btn, .playlists li.list-group-item  {
 	border:none;
+}
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid #000000;
 }
 .tags li a {
 	-moz-border-radius:4px;
@@ -567,7 +574,7 @@ border: solid 2px #13fffd;
 	border-radius:0px;
 }
 /* Spacelayout */
-.btn, .pull-right .icon {
+.btn, .pull-right .icon, header .misc .btn {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -706,7 +713,7 @@ section, .participart article  {
     -o-background-size: cover;
     background-size: cover;
 }
-.oktothek .btn.login {
+.oktothek a.btn.login {
 	background-image:url(../images/icon_login.svg);
 	background-repeat:no-repeat;
 	background-position:90px center;
@@ -714,6 +721,9 @@ section, .participart article  {
     -moz-background-size: 50% 50%;
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
+}
+.oktothek a.btn.login:hover, .oktothek a.btn.login:focus, .oktothek a.btn.login:active {
+	background-image:url(../images/icon_login_hover.svg);
 }
 .avatar1, .avatar2, .avatar3, .avatar4 {
 	background-repeat:no-repeat;
@@ -745,6 +755,11 @@ section, .participart article  {
 	background-repeat:no-repeat;
 	background-position:top left;
 }
+.tagpage .collapse-header div {
+	background-image:url(../images/speachbubble_trans.svg);
+	background-repeat:no-repeat;
+	background-position:top left;
+}
 section:last-child {
 	background-image:none;
 }
@@ -765,7 +780,12 @@ section:last-child {
 .bg-opacity {
     opacity: 0.7;       /* modern browser */
     -moz-opacity: 0.7;  /* older Mozilla browser */
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE8 in Standard Compliant Mode */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
+}
+.tagpage .bg-opacity {
+    opacity: 0.5;       /* modern browser */
+    -moz-opacity: 0.5;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE8 in Standard Compliant Mode */
 }
 
 .bg-bleur {
@@ -1240,7 +1260,7 @@ article.pin {
 	margin-bottom:20px;
 	width:100%;
 }
-.col-md-3.pin, .col-lg-3.pin, .col-sm-6.pin, .col-xs-6.pin {
+.col-md-3.pin, .col-lg-3.pin, .col-sm-6.pin, .col-xs-6.pin, .col-md-6.pin, .col-lg-6.pin {
 	padding-left:5px;
 	padding-right:5px;
 }
@@ -1330,6 +1350,9 @@ article.pin {
 }
 .oktothek .btn.login {
 	width:150px;
+}
+.oktothek .newest-playlists .aligncenter {
+	margin-bottom:40px;
 }
 .episode article, .more-clips article {
 	margin-top:40px;
@@ -1473,6 +1496,9 @@ figure.pin img, .programm .schedule img {
 .collapsePlaylist li span {
 	padding-left:10px;
 }
+.tagpage .triangle {
+  margin:0 auto;
+}
 
 /* Serien */
 .series .play-episode, .container-bg-opacity {
@@ -1581,6 +1607,10 @@ figure.pin img, .programm .schedule img {
 }
 
 /* Tags */
+.tagpage .content-bg {
+	position:relative;
+	padding-top:40px;
+}
 .tagpage .container-fluid header {
 	margin-bottom:40px;
 	margin-top:40px;
@@ -1588,6 +1618,8 @@ figure.pin img, .programm .schedule img {
 .tagpage section {
 	margin-bottom:0px;
 	padding-bottom:80px;
+	padding-top:40px;
+	clear:both;
 }
 .tagpage section.inc-pins {
 	padding-bottom:65px;
@@ -1595,15 +1627,11 @@ figure.pin img, .programm .schedule img {
 .tagpage article.pin {
 	position:relative;
 }
-.tagpage figcaption {
-	position:absolute;
-	bottom:0;
-	padding-left:5px;
-}
-.tagpage section .row  {
+.tagpage .content-bg .row  {
 	padding-bottom:15px;
+	margin:0;
 }
-.tagpage article.pin {
+/*.tagpage article.pin {
 	padding-right:0;
 }
 .tagpage article.first-pin {
@@ -1614,17 +1642,38 @@ figure.pin img, .programm .schedule img {
 }
 .tagpage .small-pins article:last-child {
 	padding-left:8px;
-}
+}*/
 .tagpage header {
 	text-align:center;
 }
-.tagpage h1, .tagpage .misc {
+/*.tagpage h1, .tagpage .misc {
 	display:inline-block;
-}
+}*/
 .tagpage .misc {
 	line-height:36px;
 	vertical-align:middle;
-	margin-left: 40px;
+}
+.tagpage .collapseShare {
+	text-align:center;
+	width:1170px;
+	margin:0 auto;
+}
+.tagpage .collapseShare .collapse-content {
+	padding:20px;
+	position:relative;
+}
+.tagpage .bg-opacity {
+	margin:-20px 15px 0 -20px;
+}
+.tagpage .collapse-header div {
+	height:30px;
+	width:54px;
+	margin:0 auto;
+}
+
+/* Playlists */
+.playlists li.list-group-item {
+	clear:both;
 }
 
 /* News */
@@ -1899,6 +1948,9 @@ figure.pin img, .programm .schedule img {
 	article.pin {
 		width:25%;
 	}
+	.tagpage article.pin.first {
+		width:50%;
+	}
 	.news article.pin {
 		width:100%;
 	}
@@ -2069,13 +2121,4 @@ body .panel, .bootstrap .datetimepicker .widget a {
 	background-color:#757575;
 	padding:20px;
 	color:#ffffff;
-}
-
-.tagpage .first-pin figure.pin img {
-	width:540px;
-	height:auto;
-}
-.tagpage figure.pin img {
-	width:255px;
-	height:auto;
 }

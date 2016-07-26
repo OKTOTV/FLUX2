@@ -18,35 +18,39 @@
         {% endif %}
     </div>
     <div class="row">
-        <div class="col-md-9">
+        <div>
             <figure id="player"></figure>
             <p>{{ playlist.description }}</p>
             <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button>
             {% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
         </div>
-        <div class="col-md-3">
+        <!--<div class="col-md-3">
             <div class="list-group">
                 {% for playlistItem in playlist.items %}
                     <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="list-group-item playme" data-list="{{loop.index0}}">{{ playlistItem.episode.name }}</a>
                 {% endfor %}
             </div>
-        </div>
+        </div>-->
     </div>
     <p>{{ playlist.description }}</p>
 </section>
 <section class="container">
+    <ul class="list-group">
 {% for playlistItem in playlist.items %}
-<article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ playlistItem.episode.description }}">
-    <figure class="episode-pin pin">
-	    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID}) }}" title="... ansehen"><img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
-        <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ playlistItem.episode.users|length }}</div>
-		<figcaption>
-		    <h3><a href="{{ path('oktothek_show_series', {'uniqID': playlistItem.episode.series.uniqID}) }}" title="... ansehen">{{ playlistItem.episode.series.name|default('') }}</a></h3>
+        <li class="list-group-item">
+<article title="{{ playlistItem.episode.description }}">
+    <figure class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+	    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}"><img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
+		</figure>
+		<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+        <!--<div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ playlistItem.episode.users|length }}</div>-->
+		    <h3><a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}">{{ playlistItem.episode.name }}</a></h3>
 			<p><a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID}) }}" title="... ansehen">{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</a></p>
-		</figcaption>
-    </figure>
+        </div>
 </article>
+        </li>
 {% endfor %}
+    </ul>
 </section>
 {% endblock %}
 
