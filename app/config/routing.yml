@@ -1,3 +1,8 @@
+bprs_analytics:
+    resource: "@BprsAnalyticsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 bprs_sofort:
     resource: "@BprsSOFORTBundle/Controller/"
     type:     annotation

@@ -57,4 +57,34 @@ class EpisodeController extends BaseController
 
         return ['form' => $form->createView()];
     }
+
+    public function newAction(Request $request)
+    {
+        $form = $this->createForm(new EpisodeType(), $episode);
+        $form->add('submit', 'submit', ['label' => 'oktolab_media.create_episode_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            $em = $this->getDoctrine()->getManager();
+            if ($form->isValid()) { //form is valid, save or preview
+                if ($form->get('submit')->isClicked()) { //save me
+                    $em->persist($episode);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktolab_media.success_edit_episode');
+                    return $this->redirect($this->generateUrl('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]));
+                } elseif ($form->get('delete')->isClicked()) {
+                    $em->remove($episode);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktolab_media.success_delete_episode');
+                    return $this->redirect($this->generateUrl('backend'));
+                } else { //???
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.info_edit_episode_unknown_button');
+                    return $this->redirect($this->generateUrl('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]));
+                }
+            }
+            $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_episode');
+        }
+
+        return ['form' => $form->createView()];
+    }
 }
