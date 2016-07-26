@@ -247,7 +247,7 @@ fos_elastica:
                 episode:
                     persistence:
                         driver: orm
-                        model: AppBundle\Entity\Episode
+                        model: MediaBundle\Entity\Episode
                         provider: ~
                         listener:
                             immediate: ~
@@ -255,7 +255,7 @@ fos_elastica:
                 series:
                     persistence:
                         driver: orm
-                        model:  AppBundle\Entity\Series
+                        model:  MediaBundle\Entity\Series
                         provider: ~
                         listener:
                             immediate: ~
@@ -263,7 +263,7 @@ fos_elastica:
                 playlist:
                     persistence:
                         driver: orm
-                        model:  AppBundle\Entity\Playlist
+                        model:  MediaBundle\Entity\Playlist
                         provider: ~
                         listener:
                             immediate: ~
