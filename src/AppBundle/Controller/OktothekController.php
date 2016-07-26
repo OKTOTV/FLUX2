@@ -24,8 +24,9 @@ class OktothekController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function showEpisodeAction(Episode $episode)
+    public function showEpisodeAction(Request $request, Episode $episode)
     {
+        $this->get('bprs_analytics')->trackInfo($request, ['uniqID' => $episode->getUniqID()]);
         $episodes = $this->getDoctrine()->getRepository('MediaBundle:Episode')->findNewerEpisodes($episode, 3);
         return array('episode' => $episode, 'related' => $episodes);
     }

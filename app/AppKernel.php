@@ -33,6 +33,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
             new Bprs\SOFORT\Bundle\BprsSOFORTBundle(),
+            new Bprs\AnalyticsBundle\BprsAnalyticsBundle(),
+            new Bprs\LogbookBundle\BprsLogbookBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

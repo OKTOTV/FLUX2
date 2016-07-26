@@ -4,21 +4,27 @@
 <p class="misc">
     <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseTagShare" aria-expanded="false" aria-controls="collapseTagShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
 </p>
-<div class="collapse" id="collapseTagShare">
-    <div>
-        <h3>Teilen</h3>
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="div_share_sn">
-                <div>
+<div class="collapse collapseShare" id="collapseTagShare" aria-label="Teilen">
+    <div class="collapse-header"><div></div></div>
+    <div class="collapse-content">
+	    <div class="container-bg-opacity">
+			        <div class="bg-opacity"></div>
+				</div>
+		<div class="content-opacity">
+        <div class="row">
+		    <form class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><input type="text" value="{{ url }}" class="form-control" id="sharingurl"></form>
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 share-buttons">
+               
                 <ul class="socialnetworks">
                     <li><a href="https://wwww.facebook.com/sharer/sharer.php?u={{ url|url_encode }}" class="icon-facebook" target="_blank" title="{{ 'oktothek_share_fb'|trans }}"><span>Facebook</span></a></li>
                     <li><a href="https://twitter.com/intent/tweet?url={{ url|url_encode }}" class="icon-twitter" target="_blank" title="{{ 'oktothek_share_twitter'|trans }}"><span>Twitter</span></a></li>
                     <li><a href="https://plus.google.com/share?url={{ url|url_encode }}" class="icon-googleplus" target="_blank" title="{{ 'oktothek_share_google+'|trans }}"><span>Google Plus</span></a></li>
                     <li><a href="mailto:?body={{ url|url_encode }}" class="icon-mail" title="{{ 'oktothek_share_mail'|trans }}">Mail</a></li>
                 </ul>
-            </div>
-            <form><input type="text" value="{{ url }}" class="form-control" id="sharingurl"></form>
+            
+            
         </div>
         </div>
+		</div>
     </div>
 </div>

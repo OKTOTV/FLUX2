@@ -11,7 +11,7 @@
 
 <div class="row">
     <div class="col-md-8">
-        {# TODO: StatisticsBundle #}
+        <div id="analytics"></div>
     </div>
     <div class="col-md-4">
         <div id="player"></div>
@@ -53,4 +53,19 @@
 {% block javascripts %}
     {{ parent() }}
     {{ player(episode)|raw }}
+    <script>
+        $(document).ready(function(){
+            // analytics
+            $.ajax({
+                url: "{{ path('bprs_analytics_for_values') }}",
+                data: {
+                    'values': {'uniqID': {{ episode.uniqID }}}
+                },
+                type: 'POST',
+                success: function(data) {
+                    $('#analytics').append(data);
+                }
+            });
+        });
+    </script>
 {% endblock %}

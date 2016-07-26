@@ -15,7 +15,7 @@
         <header>
           <p class="current-episode">Derzeit auf Okto</p>
           <h2 class="name">{{ current.name|default(current.series_name)}}</h1>
-          <p class="description">{{ current.airdate|date('Y-m-d H:i')}}{{ current.description }}</p>
+          <p class="description">{{ current.description }}</p>
         </header>
         {% endif %}
     </section>
@@ -28,6 +28,9 @@
     <script src="http://content.jwplatform.com/libraries/qecJHTsP.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            if (!event.state) {
+                history.pushState({'url': "{{ url}}" });
+            }
             var playerInstance = jwplayer("player");
             playerInstance.setup({
                 file: "http://d2jk87psbjrjdz.cloudfront.net/livehttporigin/okto/playlist.m3u8",
@@ -56,7 +59,16 @@
 
         $(document).on('click', '.loadme', function(e) {
             e.preventDefault();
-            updateProgram($(this).attr('href'));
+            var url = $(this).attr('href');
+            history.pushState({'url': url}, "TV");
+            console.log('pushed url: '+url);
+            updateProgram(url);
         })
+
+        window.onpopstate = function(event) {
+            if (event.state) {
+                updateProgram(event.state.url);
+            }
+        }
     </script>
 {% endblock %}

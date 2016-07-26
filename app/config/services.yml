@@ -75,7 +75,7 @@ services:
 
     oktothek_slide:
         class: AppBundle\Model\SliderService
-        arguments: [ "@bprs.asset_helper", "@doctrine.orm.entity_manager"," @router"]
+        arguments: [ "@bprs.asset_helper", "@doctrine.orm.entity_manager", "@router"]
 
 # voter
     oktothek_subscription_voter:
