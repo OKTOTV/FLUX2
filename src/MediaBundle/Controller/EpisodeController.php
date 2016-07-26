@@ -58,8 +58,12 @@ class EpisodeController extends BaseController
         return ['form' => $form->createView()];
     }
 
+    /**
+     * @Template()
+     */
     public function newAction(Request $request)
     {
+        $episode = new Episode();
         $form = $this->createForm(new EpisodeType(), $episode);
         $form->add('submit', 'submit', ['label' => 'oktolab_media.create_episode_button', 'attr' => ['class' => 'btn btn-primary']]);
 

@@ -53,4 +53,9 @@ class TagType extends AbstractType
     {
         return 'tag';
     }
+
+    public function getName()
+    {
+        return 'tag';
+    }
 }
