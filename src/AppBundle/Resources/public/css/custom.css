@@ -511,7 +511,7 @@ body, .list-group-item, .bg-opacity, select, .oktothek article a.btn-default:hov
 button .btn-default.active, .oktothek article a.btn-default, .collapseShare .btn-default, .timetable .btn, header .collapseShare .form-control {
 	background-color:#ffffff;
 }
-.oktothek .news article, .collapseShare, .collapsePlaylist, .collapseCoursedetails, .series .news-pin, .series .news-form, .series .blog aside .aside-inner, .academy .courses .collapse-content { /* Dunkelgrau */
+.oktothek .news article, .collapseShare, .collapsePlaylist, .collapseCoursedetails, .series .news-pin, .series .news-form, .series .blog aside .aside-inner, .academy .courses .collapse-content, .tagpage article.pin figure, .tagpage article.first { /* Dunkelgrau */
 	background-color:#112022;
 }
 .play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel, .btn-default, .btn-primary, #episode-tag, .tagpage .collapseShare {
@@ -1678,6 +1678,35 @@ figure.pin img, .programm .schedule img {
 	width:54px;
 	margin:0 auto;
 }
+.tagpage .inc-pins .row {
+	display:table-row;
+}
+.tagpage article.first, .tagpage .inc-pins div.pin {
+	float: none;
+	display:table-cell;
+	vertical-align:top;
+}
+.tagpage article.first {
+	margin-right:5px;
+	margin-left:5px;
+	padding-right:0px;
+	padding-left:0px;
+}
+.tagpage .inc-pins div.pin {
+	padding-left:5px;
+}
+.tagpage .inc-pins article.pin {
+	padding-bottom:10px;
+}
+.tagpage .inc-pins article.pin:nth-child(3), .tagpage .inc-pins article.pin:nth-child(4) {
+	padding-bottom:0px;
+}
+.tagpage .inc-pins article figcaption p {
+	margin-bottom:0;
+}
+.tagpage .inc-pins article figcaption {
+	padding:0 5px 10px 5px;
+}
 
 /* Playlists */
 .playlists li.list-group-item {
@@ -1956,8 +1985,11 @@ figure.pin img, .programm .schedule img {
 	article.pin {
 		width:25%;
 	}
-	.tagpage article.pin.first {
+	.tagpage article.pin {
 		width:50%;
+	}
+	.tagpage article.pin.first {
+		width:calc(50% - 5px);
 	}
 	.news article.pin {
 		width:100%;
