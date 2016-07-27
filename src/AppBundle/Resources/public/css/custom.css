@@ -287,10 +287,10 @@ header .brandimage {
 	background-position:center left;
 }
 .navbar-inverse .navbar-nav > .active > a {
-		background-image:url(../images/menu-border-short.png);
-	    background-repeat:no-repeat;
-	    background-position:left top;
-	}
+	background-image:url(../images/menu-border-short.png);
+	background-repeat:no-repeat;
+	background-position:left top;
+}
 header .icon.icon-upload {
 	background-image:url(../images/icon_rocket.svg);
 	background-repeat:no-repeat;
@@ -302,8 +302,8 @@ header .icon.icon-login {
 	background-position:center center;
 }
 .navbar-inverse .navbar-nav.navbar-right > li > a:hover, .navbar-inverse .navbar-nav.navbar-right > .active > a, .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-		background-image:none;
-	}
+	background-image:none;
+}
 #button_down {
 	/*background-image:url(../images/pfeil_down.png);
 	background-repeat:no-repeat;
@@ -783,9 +783,9 @@ section:last-child {
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
 }
 .tagpage .bg-opacity {
-    opacity: 0.5;       /* modern browser */
-    -moz-opacity: 0.5;  /* older Mozilla browser */
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE8 in Standard Compliant Mode */
+    opacity: 0.6;       /* modern browser */
+    -moz-opacity: 0.6;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE8 in Standard Compliant Mode */
 }
 
 .bg-bleur {
@@ -795,6 +795,11 @@ section:last-child {
 	-ms-filter: blur(50px);
 	filter: blur(50px);
 }
+/*.tagpage .content-bg {
+	-webkit-box-shadow: 2px 2px 4px #444444;
+	-moz-box-shadow: 2px 2px 4px #444444;
+	box-shadow: 2px 2px 4px #444444;
+}*/
 
 
 /****************************  Color, Effects Footer ****************************/
@@ -806,7 +811,7 @@ section:last-child {
 	color:#fcce14;
 }
 
-#anchor-menu .panel-default > .panel-heading {
+#anchor-menu .panel-default > .panel-heading, .footer {
 	background-color:#000000;
 }
 .footer .nav > li > a:active, .footer .nav > li > a:hover, .btn.btn-top:hover {
@@ -1607,15 +1612,18 @@ figure.pin img, .programm .schedule img {
 }
 
 /* Tags */
-.tagpage .content-bg {
+.tagpage .container.content-bg {
 	position:relative;
 	padding-top:40px;
+	margin-bottom:80px;
+	padding-left:25px;
+	padding-right:25px;
 }
 .tagpage .container-fluid header {
 	margin-bottom:40px;
 	margin-top:40px;
 }
-.tagpage section {
+.tagpage .content-bg section {
 	margin-bottom:0px;
 	padding-bottom:80px;
 	padding-top:40px;
@@ -1655,7 +1663,7 @@ figure.pin img, .programm .schedule img {
 }
 .tagpage .collapseShare {
 	text-align:center;
-	width:1170px;
+	width:770px;
 	margin:0 auto;
 }
 .tagpage .collapseShare .collapse-content {
@@ -1976,6 +1984,7 @@ figure.pin img, .programm .schedule img {
 .footer {
 	height:350px;
 	width:100%;
+	position:relative;
 }
 .footer .container {
 	margin:0 auto;
@@ -2027,6 +2036,7 @@ figure.pin img, .programm .schedule img {
 }
 footer .networks {
 	height:220px;
+	position:relative;
 }
 #anchor-menu {
 	position:fixed;
