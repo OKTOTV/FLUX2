@@ -17,20 +17,26 @@
 		<div class="container content-bg">
 		    <section class="inc-pins">
                 <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
-                {{ render(controller('AppBundle:Tag:episodeTag', {'tag': tag.slug})) }}
+				<div class="pins-wrapper">
+                  {{ render(controller('AppBundle:Tag:episodeTag', {'tag': tag.slug})) }}
+				</div>
                 <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans }} <span class="icon">+</span></a>
             </section>
 		    <section class="inc-pins">
 		        <div id="anchor_series"></div>
 		        <h2>Serien</h2>
-                {{ render(controller('AppBundle:Tag:seriesTag', {'tag': tag.slug})) }}
+				<div class="pins-wrapper">
+                  {{ render(controller('AppBundle:Tag:seriesTag', {'tag': tag.slug})) }}
+				</div>
                 <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans }} <span class="icon">+</span></a>
 		    </section>
 		    <section class="inc-pins">
 		        <div id="anchor_playlists"></div>
 		        <h2>Playlisten</h2>
-                {{ render(controller('AppBundle:Tag:playlistTag', {'tag': tag.slug})) }}
-                <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans }} <span class="icon">+</span></a>
+				<div class="pins-wrapper">
+                  {{ render(controller('AppBundle:Tag:playlistTag', {'tag': tag.slug})) }}
+                </div>
+				<a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans }} <span class="icon">+</span></a>
 		    </section>
 		<section>
 		    <div id="anchor_posts"></div>

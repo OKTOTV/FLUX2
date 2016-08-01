@@ -52,13 +52,15 @@
 		<!-- Ende Serienbeschreibung -->
 	</section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", { 'uniqID': series.uniqID })) }}
-    <section class="blog">
-	    <div id="anchor_blog"></div>
-	    <div class="container">
-            <h2>{{ 'oktothek_series_blog_header'|trans }}</h2>
-            {% include 'AppBundle::Default/Series/blog.html.twig' with { 'posts': [series.posts[0]], 'uniqID': series.uniqID } %}
-	    </div>
-	</section>
+    {% if series.posts is not empty %}
+        <section class="blog">
+	        <div id="anchor_blog"></div>
+	        <div class="container">
+                <h2>{{ 'oktothek_series_blog_header'|trans }}</h2>
+                {% include 'AppBundle::Default/Series/blog.html.twig' with { 'posts': [series.posts[0]], 'uniqID': series.uniqID } %}
+            </div>
+	    </section>
+    {% endif %}
 	<section class="container">
 	    <div class="infos">
 		    <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
