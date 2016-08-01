@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -49,5 +51,27 @@ class SearchController extends Controller
             }
         }
         return ['searchform' => $form->createView()];
+    }
+
+    /**
+     * @Route("/episodes/{query}", name="oktothek_search_episodes")
+     * @Method({"GET"})
+     */
+    public function searchEpisodeAction($query)
+    {
+        $episodes = $this->get('oktothek_search')->searchEpisodes($query);
+        $assetHelper = $this->get('bprs.asset_helper');
+        // die(print_r($episodes));
+        $data = [];
+        foreach($episodes as $episode) {
+            $data[] = [
+                'uniqID' => $episode->getUniqID(),
+                'name' => $episode->getName(),
+                'thumb' => $assetHelper->getThumbnail($episode->getPosterframe(), 135, 240),
+                'desc' => $episode->getDescription()
+            ];
+        }
+        
+        return new JsonResponse($data);
     }
 }

@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class PlaylistUserType extends AbstractType
 {
@@ -17,7 +19,13 @@ class PlaylistUserType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'oktothek.playlist_name_label'])
-            ->add('description', TextType::class, ['label' => 'oktothek.playlist_description_label'])
+            ->add('description', TextareaType::class, ['label' => 'oktothek.playlist_description_label'])
+            ->add('items', CollectionType::class, [
+                'entry_type' => PlaylistItemType::class,
+                'allow_add'  => true,
+                'allow_delete' => true,
+                'by_reference' => false
+            ])
         ;
     }
 

@@ -28,7 +28,31 @@ class OktothekController extends Controller
     {
         $this->get('bprs_analytics')->trackInfo($request, ['uniqID' => $episode->getUniqID()]);
         $episodes = $this->getDoctrine()->getRepository('MediaBundle:Episode')->findNewerEpisodes($episode, 3);
-        return array('episode' => $episode, 'related' => $episodes);
+        $next = $this->getDoctrine()->getRepository('MediaBundle:Episode')->findNextEpisode($episode);
+        return ['episode' => $episode, 'related' => $episodes, 'next' => $next];
+    }
+
+    /**
+     * @Route("/episode/{uniqID}/related.{_format}", name="oktothek_show_similar_episode", defaults={"_format": "json"})
+     * @Method("GET")
+     * @Template()
+     */
+    public function showRelatedEpisodesAction(Request $request, Episode $episode)
+    {
+        $next = $this->getDoctrine()->getRepository('MediaBundle:Episode')->findNextEpisode($episode);
+        $previous = $this->getDoctrine()->getRepository('MediaBundle:Episode')->findPreviousEpisode($episode);
+        $related = $this->get('oktothek_search')->searchRelatedEpisodes($episode, 5);
+        $results = [];
+        $results['episodes'] = $related;
+        if ($next) {
+            $results['next'] = $next;
+        }
+
+        if ($previous) {
+            $results['prev'] = $previous;
+        }
+        // TODO: add tags to elasticsearch as textfield and find episodes with similar tags.
+        return $results;
     }
 
     /**
