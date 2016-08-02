@@ -1,0 +1,25 @@
+{% spaceless %}
+[
+    {% if next is defined %}
+        {
+            "image": "{{ next.posterframe(true)|thumb(720,1280)}}",
+            "title": "NEXT: {{ next.name }}",
+            "link": "{{ url('oktothek_show_episode', {'uniqID': next.uniqID}) }}"
+        }{% if episodes is not empty %},{% endif %}
+    {% endif %}
+    {% if prev is defined %}
+        {
+            "image": "{{ prev.posterframe(true)|thumb(720,1280)}}",
+            "title": "PREV: {{ prev.name }}",
+            "link": "{{ url('oktothek_show_episode', {'uniqID': prev.uniqID}) }}"
+        }{% if episodes is not empty %},{% endif %}
+    {% endif %}
+    {% for episode in episodes %}
+        {
+            "image": "{{ episode.posterframe(true)|thumb(720,1280)}}",
+            "title": "{{ episode.name }}",
+            "link": "{{ url('oktothek_show_episode', {'uniqID': episode.uniqID}) }}"
+        }{% if not loop.last %},{% endif %}
+    {% endfor %}
+]
+{% endspaceless%}

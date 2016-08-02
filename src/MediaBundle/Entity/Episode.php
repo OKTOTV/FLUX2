@@ -3,6 +3,7 @@
 namespace MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as JMS;
 use Oktolab\MediaBundle\Entity\Episode as BaseEpisode;
 
 /**
@@ -30,6 +31,9 @@ class Episode extends BaseEpisode
     private $users;
 
     /**
+     *
+     * @JMS\Expose
+     * @JMS\Type("array<string>")
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag")
      * @ORM\JoinTable(name="episode_tags",
      *      joinColumns={@ORM\JoinColumn(name="episode_id", referencedColumnName="id")},

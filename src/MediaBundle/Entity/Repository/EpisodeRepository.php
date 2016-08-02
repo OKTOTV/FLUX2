@@ -48,7 +48,7 @@ class EpisodeRepository extends EntityRepository
         //     ->getResult();
     }
 
-    public function fineEpisodedForSeries($series)
+    public function findEpisodesForSeries($series)
     {
         return $this->findEpisodesForSeriesQuery($series)->getResult();
     }
@@ -60,6 +60,44 @@ class EpisodeRepository extends EntityRepository
                 'SELECT e FROM MediaBundle:Episode e WHERE e.series = :series'
             )
             ->setParameter('series', $series->getId());
+    }
+
+    public function findNextEpisode($episode, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT e FROM MediaBundle:Episode e
+                WHERE e.firstranAt > :episode_ran
+                AND e.series = :series
+                AND e.isActive = true'
+            )
+            ->setParameter('episode_ran', $episode->getFirstranAt())
+            ->setParameter('series', $episode->getSeries())
+            ->setMaxResults(1);
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getOneOrNullResult();
+    }
+
+    public function findPreviousEpisode($episode, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT e FROM MediaBundle:Episode e
+                WHERE e.firstranAt < :episode_ran
+                AND e.series = :series
+                AND e.isActive = true'
+            )
+            ->setParameter('episode_ran', $episode->getFirstranAt())
+            ->setParameter('series', $episode->getSeries())
+            ->setMaxResults(1);
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getOneOrNullResult();
     }
 }
 ?>

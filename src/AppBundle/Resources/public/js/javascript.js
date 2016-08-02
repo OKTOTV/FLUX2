@@ -120,7 +120,11 @@ $(document).ready(function(){
 
 	$('.series #ButtonShare').click(function() {
 		var offsetShare = $('.episode-description').offset();
-		console.log(offsetShare);
+		$("html, body").animate({scrollTop : offsetShare.top - headerHeight + "px"}, Ts_duration);
+	});
+	
+	$('.playlists #ButtonShare').click(function() {
+		var offsetShare = $('.playlist_container').offset();
 		$("html, body").animate({scrollTop : offsetShare.top - headerHeight + "px"}, Ts_duration);
 	});
 	
@@ -340,16 +344,11 @@ $(document).ready(function(){
 		}
 	}
 	
+	/* Playlists */
 	
-	
-	/*bottom: 100px;
-    left: 50%;
-    margin: 0 0 0 -325px;
-    padding-bottom: 0;
-    position: absolute;
-    right: 0;
-    text-align: left;
-    width: 650px;*/
-
+	$('#StartPlaylist').click(function(e){
+		e.preventDefault();
+        jwplayer('player').playlistItem($('.playme').eq(0).data('list'));
+	});
 
 });

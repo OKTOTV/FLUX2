@@ -3,12 +3,172 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
+{% macro playlistitem_macro(prototype) %}
+<div class="row">
+    <div class="col-md-3 col-xs-3">
+        <img src="__thumb__" class="img img-responsive" />
+    </div>
+    <div class="col-md-8 col-xs-7">
+        <h4>__header__</h4>
+        <p>__desc__</p>
+    </div>
+    <div class="col-md-1 col-xs-2">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-danger remove">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+        </div>
+        <div class="list-group">
+            <a href="#" class="list-group-item moveup">
+                <span class="glyphicon glyphicon-chevron-up"></span>
+            </a>
+            <a href="#" class="list-group-item movedown">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </a>
+        </div>
+    </div>
+    <div class="hidden">
+        {{ form_widget(prototype)}}
+    </div>
+</div>
+{% endmacro %}
+
 {% set body_class = "head-white-color" %}
 {% block body_main %}
     <div class="page-header">
         <h1>{{ 'oktothek.playlist_edit_header'|trans }}</h1>
     </div>
     {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        <div class="form-group">
+            <label for="episode_search">{{ 'oktothek.playlist_search_label'|trans }}</label>
+            <input type="text" class="form-control" id="episode_search" data-prototype="{{ _self.playlistitem_macro(form.items.vars.prototype)|e('html_attr') }}"/>
+        </div>
+
+        {{ form_label(form.items) }}
+        <div id="playlist_items">
+            {% for item in form.items %}
+            <div class="row">
+                <div class="col-md-3 col-xs-3">
+                    <img src="{{ item.vars.value.episode.posterframe(true)|thumb(135,240)}}" class="img img-responsive" />
+                </div>
+                <div class="col-md-8 col-xs-7">
+                    <h4>{{ item.vars.value.episode.name }}</h4>
+                    <p>
+                        {{ item.vars.value.episode.description }}
+                    </p>
+                </div>
+                <div class="col-md-1 col-xs-2">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-danger remove">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item moveup">
+                            <span class="glyphicon glyphicon-chevron-up"></span>
+                        </a>
+                        <a href="#" class="list-group-item movedown">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden">
+                    {{ form_row(item)}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% do form.items.setRendered %}
     {{ form_end(form) }}
 
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on("click", '.moveup', function() {
+                var row = $(this).parents('.row');
+                if (row.prev().length) {
+                    row.slideUp(function() {
+                        row.insertBefore(row.prev()).slideDown(function() {
+                            updateSortNumber();
+                        });
+                    });
+                }
+            });
+
+            $(document).on("click", ".movedown", function() {
+                var row = $(this).parents('.row');
+                if (row.next().length) {
+                    row.slideUp(function() {
+                        row.insertAfter(row.next()).slideDown(function() {
+                            updateSortNumber();
+                        });
+                    });
+                }
+            });
+
+            $(document).on("click", '.remove', function() {
+                var row = $(this).parents('.row');
+                row.hide('slow', function() {
+                    row.remove();
+                });
+            })
+
+
+            function updateSortNumber() {
+                $('#playlist_items .row :input[type="number"]').each(function(i, row) {
+                    // console.log(row);
+                    $(row).val(i);
+                    // $(row).find(':input[type="number"]').val(i);
+                });
+            }
+
+            function addInput(suggestion) {
+                var input = $('#episode_search');
+                input.typeahead('val', "");
+                var form = input.data('prototype');
+                number = $('#playlist_items > .row').length + 1;
+                form = form.replace(/__name__/g, number);
+                form = form.replace(/__thumb__/g, suggestion.thumb);
+                form = form.replace(/__header__/g, suggestion.name);
+                form = form.replace(/__desc__/g, suggestion.desc);
+                form = $(form);
+                form.find(':input[type="text"]').val(suggestion.uniqID);
+                form.find(':input[type="number"]').val(number);
+                $('#playlist_items').append(form);
+                // TODO: use the prototype "replacing", add the div around and append to #playlist_items
+            }
+
+            var episodes = new Bloodhound({
+              datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+              queryTokenizer: Bloodhound.tokenizers.whitespace,
+              remote: {
+                url: '{{ url('oktothek_search_episodes', {'query': "QUERY"}) }}',
+                wildcard: 'QUERY'
+              }
+            });
+
+            $('#episode_search').typeahead(null, {
+                name: 'episodes',
+                source: episodes,
+                templates: {
+                    empty: [
+                        '<div class="empty-message">',
+                        'nichts zu finden!',
+                        '</div>'
+                    ].join('\n'),
+                    suggestion: function(data) {
+                        return '<div class="row"><div class="col-md-3"><img src="'+data.thumb+'" /></div><div class="col-md-9"><p>'+data.name+'</p></div></div>';
+                    }
+                }
+            }).bind('typeahead:select', function(ev, suggestion) {
+                console.log(suggestion);
+                addInput(suggestion);
+            });
+        });
+    </script>
 {% endblock %}

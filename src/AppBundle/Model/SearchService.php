@@ -2,6 +2,8 @@
 
 namespace AppBundle\Model;
 
+use MediaBundle\Entity\Episode;
+
 class SearchService
 {
     private $episodeFinder;
@@ -70,7 +72,7 @@ class SearchService
 
         $boolQuery->addShould($desc_query);
 
-        if ($includeInactive) {
+        if (!$includeInactive) {
             $activeQuery = new \Elastica\Query\Term();
             $activeQuery->setTerm('is_active', true);
             $boolQuery->addMust($activeQuery);
@@ -81,6 +83,31 @@ class SearchService
     public function searchPlaylists($searchphrase)
     {
         return $this->playlistFinder->find($searchphrase);
+    }
+
+    public function searchRelatedEpisodes(Episode $episode, $numberResults = 2)
+    {
+        $tagtext = implode(" ", $episode->getTags()->toArray());
+        // return $this->episodeFinder->find($tagtext, $numberResults);
+
+        $boolQuery = new \Elastica\Query\BoolQuery();
+
+        $desc_query = new \Elastica\Query\Match();
+        $desc_query->setFieldQuery('tags', $tagtext);
+        $desc_query->setFieldFuzziness('tags', 0.7);
+        $desc_query->setFieldMinimumShouldMatch('tags', '40%');
+
+        $boolQuery->addShould($desc_query);
+
+        $activeQuery = new \Elastica\Query\Term();
+        $activeQuery->setTerm('is_active', true);
+        $boolQuery->addMust($activeQuery);
+
+        $excludeEpisodeQuery = new \Elastica\Query\Term();
+        $excludeEpisodeQuery->setTerm('id', $episode->getId());
+        $boolQuery->addMustNot($excludeEpisodeQuery);
+
+        return $this->episodeFinder->find($boolQuery);
     }
 }
 

@@ -10,19 +10,25 @@
 
 {% set body_class = "playlists head-white-color" %}
 {% block body %}
-<section class="container">
-    <div class="page-header">
-        <h1>{{ playlist.name }}</h1>
-        {% if app.user == playlist.user %}
-        <a href="{{ path('oktothek_edit_playlist', {'uniqID': playlist.uniqID}) }}" class="btn btn-default">Bearbeiten</a>
-        {% endif %}
-    </div>
+<section class="container player_container">
+    <header class="description-wrapper">
+        <div class="container-bg-opacity">
+            <div class="bg-opacity"></div>
+        </div>
+        <div class="content-opacity">
+		    <span class="icon-close pull-right" aria-hidden="true" style="display: block;">×</span>
+            <h1>{{ playlist.name }}</h1>
+			<p>Erstellt von {{ playlist.user }}</p>
+            {% if app.user == playlist.user %}
+            <a href="{{ path('oktothek_edit_playlist', {'uniqID': playlist.uniqID}) }}" class="btn btn-default">Bearbeiten</a>
+            {% endif %}
+			<p class="description">{{ playlist.description }}</p>
+            <p class="misc"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> Playliste starten</button> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button></p>
+        </div>
+	</header>
     <div class="row">
         <div>
             <figure id="player"></figure>
-            <p>{{ playlist.description }}</p>
-            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button>
-            {% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
         </div>
         <!--<div class="col-md-3">
             <div class="list-group">
@@ -32,9 +38,9 @@
             </div>
         </div>-->
     </div>
-    <p>{{ playlist.description }}</p>
 </section>
-<section class="container">
+<section class="container playlist_container">
+	{% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
     <ul class="list-group">
 {% for playlistItem in playlist.items %}
         <li class="list-group-item">

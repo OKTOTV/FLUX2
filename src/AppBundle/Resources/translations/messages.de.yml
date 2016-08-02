@@ -143,8 +143,13 @@ oktothek.tag_index_header:              Tags
 oktothek_tag_pages_header:              Seiten
 oktothek_tag_header:                    "# %title%"
 oktothek_tag_episode_header:            Episoden
+oktothek_tag_series_header:             Sendereihen
+oktothek_tag_playlists_header:          Playlisten
+oktothek_tag_posts_header:              Posts
+oktothek_tag_pages_header:              Seiten
 oktothek_tag_placeholder:               Katzen, YOLO and more
 oktothek.tag_new_button:                <span class="glyphicon glyphicon-plus"></span> Neuen Tag anlegen
+oktothek_tag_more_results:              Mehr Anzeigen <span class="icon">+</span>
 ## academy
 oktothek_academy_header:                Akademie
 oktothek_academy_misc_info:             %price%€ / %price_reduced%€

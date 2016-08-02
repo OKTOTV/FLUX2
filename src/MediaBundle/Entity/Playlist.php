@@ -21,7 +21,8 @@ class Playlist extends BasePlaylist implements PlaylistInterface
     private $user;
 
     /**
-    * @ORM\OneToMany(targetEntity="Oktolab\MediaBundle\Entity\Playlistitem", mappedBy="playlist")
+    * @ORM\OneToMany(targetEntity="Oktolab\MediaBundle\Entity\Playlistitem", mappedBy="playlist", cascade={"persist", "remove"})
+    * @ORM\OrderBy({"sortnumber" = "ASC"})
     */
     private $items;
 
@@ -72,9 +73,11 @@ class Playlist extends BasePlaylist implements PlaylistInterface
      *
      * @param \AppBundle\Entity\Playlistitem $items
      */
-    public function removeItem($items)
+    public function removeItem($item)
     {
-        $this->items->removeElement($items);
+        $this->items->removeElement($item);
+        $item->setPlaylist(null);
+        return $this;
     }
 
     /**

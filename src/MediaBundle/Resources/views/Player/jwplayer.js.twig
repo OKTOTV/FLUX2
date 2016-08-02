@@ -4,7 +4,11 @@
         var playerInstance = jwplayer("{{ player_id }}");
         playerInstance.setup({
             logo:   {{ origin(episode)|raw }},
-            playlist: "{{ url('oktolab_media_player_for_episode', {'uniqID': episode.uniqID, 'player_type': 'jwplayer', '_format': 'json'})}}"
+            playlist: "{{ url('oktolab_media_player_for_episode', {'uniqID': episode.uniqID, 'player_type': 'jwplayer', '_format': 'json'})}}",
+            related: {
+                    file: "{{ url('oktothek_show_similar_episode', {'uniqID': episode.uniqID}) }}",
+                    onclick: "link"
+            }
         }).on('play', function(event){
             if (event.oldstate == "buffering") { {# fire statistics #}
                 $.ajax({

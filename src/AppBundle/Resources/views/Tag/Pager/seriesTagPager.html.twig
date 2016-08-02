@@ -41,12 +41,12 @@
     </header>
 </div>
 <div class="navigation">
-    {{ knp_pagination_render(playlists) }}
+    {{ knp_pagination_render(seriess) }}
 </div>
 
-{% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with {'playlists': playlists} %}
+{% include "AppBundle::Tag/seriesTag.html.twig" with {'seriess': seriess }%}
 
 <div class="navigation">
-    {{ knp_pagination_render(playlists) }}
+    {{ knp_pagination_render(seriess) }}
 </div>
 {% endblock %}

@@ -22,7 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class SeriesController extends Controller
 {
     /**
-     * @Route("/series/{uniqID}/blog", name="oktothek_series_blog_post")
+     * @Route("/channel/{uniqID}/blog", name="oktothek_series_blog_post")
      * @Method({"GET", "POST"})
      * @Template()
      */
@@ -54,7 +54,7 @@ class SeriesController extends Controller
     }
 
     /**
-     * @Route("/series/{uniqID}/edit/{slug}", name="oktothek_series_edit_blog_post")
+     * @Route("/channel/{uniqID}/edit/{slug}", name="oktothek_series_edit_blog_post")
      * @Method({"GET", "POST"})
      * @Template()
      */
@@ -91,6 +91,12 @@ class SeriesController extends Controller
         }
 
         return ['form' => $form->createView(), 'series' => $series];
+    }
+
+    public function producerNewPlaylistAction(Request $request, Series $series)
+    {
+        $this->denyAccessUnlessGranted('edit_channel', $series);
+        
     }
 
     /**
