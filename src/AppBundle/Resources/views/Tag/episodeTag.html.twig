@@ -1,23 +1,37 @@
 <div class="row">
 {% for episode in episodes %}
     {% if loop.first %}
-    <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first" title="{{ episode.description }}">
+        <article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin first-pin" title="{{ episode.description }}">
+        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">
         <figure class="episode-pin pin">
-            <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.series.name|default('') }} ansehen"><img src="{{ episode.posterframe|thumb(309,550) }}" class="img-responsive"/></a>
-		    <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
-		    <figcaption>
-                <h3><a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name|default('') }} ansehen">{{ episode.series.name|default('') }}</a></h3>
-                <p><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.series.name|default('') }} ansehen">{{ episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': episode.onlineStart|date('d.m.Y')})) }}</a></p>
-			</figcaption>
+            <img src="{{ episode.posterframe|path() }}" class="img-responsive"/>
+            <figcaption>
+                <h3>{{ episode.series.name }}</h3>
+                <p>{{ episode.name }}</p>
+                <p><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</p>
+            </figcaption>
         </figure>
-    </article>
-	<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin">
-	{% else %}
-	{% include "AppBundle:Default:EpisodeThumb.html.twig" %}
-	{% endif %}
-	{% if loop.last %}
-    </div>
+        </a>
+        </article>
+        <div class="col-md-6 col-lg-6 col-sm-8 col-xs-12 small-pins">
+            <div class="row">
+    {% else %}
+        <article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin" title="{{ episode.description }}">
+            <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">
+            <figure class="episode-pin pin">
+                <img src="{{ episode.posterframe|path() }}" class="img-responsive"/>
+                <figcaption>
+                    <h3>{{ episode.series.name }}</h3>
+                    <p>{{ episode.name }}</p>
+                    <p><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</p>
+                </figcaption>
+            </figure>
+            </a>
+        </article>
+    {% endif %}
+    {% if loop.last %}
+            </div>
+        </div>
     {% endif %}
 {% endfor %}
 </div>
-

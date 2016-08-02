@@ -1,12 +1,12 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
 {% block title%}{{ name|default('OKTO')~' | '~tag.text }}{% endblock %}
-{% block nav_head%}
+{%- block nav_head -%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
-{% endblock %}
+{%- endblock -%}
 
 {% set body_class = "tagpage head-white-color head-transparent-bg fullscreen-background" %}
-{% block body %}
+{%- block body -%}
 	<div id="top"></div>
     <div class="container-fluid">
 	    <div class="bg-bleur"></div>
@@ -15,51 +15,55 @@
 			{% include "AppBundle::Tag/shareTag.html.twig" with {'tag': tag} %}
 	    </header>
 		<div class="container content-bg">
-		    <section class="inc-pins">
-                <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
-				<div class="pins-wrapper">
-                  {{ render(controller('AppBundle:Tag:episodeTag', {'tag': tag.slug})) }}
-				</div>
-                <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans }} <span class="icon">+</span></a>
-            </section>
-		    <section class="inc-pins">
-		        <div id="anchor_series"></div>
-		        <h2>Serien</h2>
-				<div class="pins-wrapper">
-                  {{ render(controller('AppBundle:Tag:seriesTag', {'tag': tag.slug})) }}
-				</div>
-                <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans }} <span class="icon">+</span></a>
-		    </section>
-		    <section class="inc-pins">
-		        <div id="anchor_playlists"></div>
-		        <h2>Playlisten</h2>
-				<div class="pins-wrapper">
-                  {{ render(controller('AppBundle:Tag:playlistTag', {'tag': tag.slug})) }}
-                </div>
-				<a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans }} <span class="icon">+</span></a>
-		    </section>
-		<section>
-		    <div id="anchor_posts"></div>
-		    <h2>Posts</h2>
-            {{ render(controller('AppBundle:Tag:postsTag', {'tag': tag.slug})) }}
-            <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans }} <span class="icon">+</span></a>
-		</section>
-		<section>
-		    <div id="anchor_pages"></div>
-		    <h2>Seiten</h2>
-            {{ render(controller('AppBundle:Tag:pagesTag', {'tag': tag.slug})) }}
-            <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans }} <span class="icon">+</span></a>
-        </section>
+            {% if episodes is not empty %}
+    		    <section class="inc-pins">
+                    <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
+                    {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': episodes} %}
+                    <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                </section>
+            {% endif %}
+            {% if seriess is not empty %}
+    		    <section class="inc-pins">
+    		        <div id="anchor_series"></div>
+    		        <h2>{{ 'oktothek_tag_series_header'|trans }}</h2>
+                    {% include "AppBundle::Tag/seriesTag.html.twig" with {'seriess': seriess} %}
+                    <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+    		    </section>
+            {% endif %}
+            {% if playlists is not empty %}
+    		    <section class="inc-pins">
+    		        <div id="anchor_playlists"></div>
+    		        <h2>{{ 'oktothek_tag_playlists_header'|trans }}</h2>
+                    {% include "AppBundle::Tag/playlistTag.html.twig" with {'playlists': playlists} %}
+                    <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+    		    </section>
+            {% endif %}
+            {% if posts is not empty %}
+        		<section>
+        		    <div id="anchor_posts"></div>
+        		    <h2>{{ 'oktothek_tag_posts_header'|trans }}</h2>
+                    {% include "AppBundle::Tag/postsTag.html.twig" with {'posts': posts} %}
+                    <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+        		</section>
+            {% endif %}
+            {% if pages is not empty %}
+        		<section>
+        		    <div id="anchor_pages"></div>
+        		    <h2>{{ 'oktothek_tag_pages_header'|trans }}</h2>
+                    {% include "AppBundle::Tag/pagesTag.html.twig" with {'pages': pages} %}
+                    <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                </section>
+        {% endif %}
 		</div>
     </div>
-{% endblock %}
+{%- endblock -%}
 
 {% block stylesheets %}
     {{ parent() }}
     <style type="text/css">
         .bg-bleur {
-            {% if background_episode is not empty %}
-                background-image:url( {{ background_episode.posterframe|path() }});
+            {% if episodes is not empty %}
+                background-image:url( {{ episodes[0].posterframe(true)|thumb(720,1280) }});
             {% endif %}
         }
     </style>
