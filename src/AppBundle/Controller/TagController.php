@@ -31,34 +31,6 @@ class TagController extends Controller
     }
 
     /**
-     * @Route("/new", name="oktothek_tag_new")
-     * @Method({"GET", "POST"})
-     * @Template()
-     */
-    public function newAction(Request $request)
-    {
-        $tag = new Tag();
-        $form = $this->createForm(new TagType(), $tag);
-        $form->add('submit', 'submit', ['label' => 'oktothek.tag_create_button', 'attr' => ['class' => 'btn btn-primary']]);
-
-        if ($request->getMethod() == "POST") { //sends form
-            $form->handleRequest($request);
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($tag);
-                $em->flush();
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_tag');
-
-                return $this->redirect($this->generateUrl('oktothek_tag_index'));
-            } else {
-                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_tag');
-            }
-        }
-
-        return ['form' => $form->createView()];
-    }
-
-    /**
      * @Route("/ajax", name="oktothek_tag_ajax")
      * @Method({"GET", "POST"})
      */
@@ -94,17 +66,6 @@ class TagController extends Controller
             }
         }
         return $this->redirect('oktothek_tag_index');
-    }
-
-    /**
-     * @Route("/", name="oktothek_tag_index")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $tags = $em->getRepository('AppBundle:Tag')->findAll();
-        return ['tags' => $tags];
     }
 
     /**

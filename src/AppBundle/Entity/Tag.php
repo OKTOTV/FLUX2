@@ -49,6 +49,17 @@ class Tag
      */
     private $rank;
 
+    /**
+     * @ORM\Column(name="highlight", type="boolean", options={"default" = 0})
+     */
+    private $highlight;
+
+    public function __construct()
+    {
+        $this->updatedAt = new \Datetime();
+        $this->highlight = false;
+    }
+
     public function __toString()
     {
         return $this->text;
@@ -133,5 +144,51 @@ class Tag
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set rank
+     *
+     * @param integer $rank
+     * @return Tag
+     */
+    public function setRank($rank)
+    {
+        $this->rank = $rank;
+
+        return $this;
+    }
+
+    /**
+     * Get rank
+     *
+     * @return integer
+     */
+    public function getRank()
+    {
+        return $this->rank;
+    }
+
+    /**
+     * Set highlight
+     *
+     * @param boolean $highlight
+     * @return Tag
+     */
+    public function setHighlight($highlight)
+    {
+        $this->highlight = $highlight;
+
+        return $this;
+    }
+
+    /**
+     * Get highlight
+     *
+     * @return boolean
+     */
+    public function getHighlight()
+    {
+        return $this->highlight;
     }
 }

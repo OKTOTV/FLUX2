@@ -51,9 +51,4 @@ class PlaylistItemType extends AbstractType
     {
         return 'appbundle_playlist_item';
     }
-    //
-    // public function getParent()
-    // {
-    //     return FormType::class;
-    // }
 }
