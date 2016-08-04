@@ -26,6 +26,12 @@ services:
         tags:
             - { name: form.type, alias: tag }
 
+    oktothek_tag_collection.type:
+        class: AppBundle\Form\TagCollectionType
+        arguments: [ "@oktothek_tag.repository" ]
+        tags:
+            - { name: form.type, alias: tag }
+
     mediabundle_user:
         class: MediaBundle\Form\UserType
         arguments: [ "@oktothek_user.repository" ]
@@ -67,7 +73,7 @@ services:
 
     oktothek_search:
         class: AppBundle\Model\SearchService
-        arguments: [ "@fos_elastica.finder.app.episode", "@fos_elastica.finder.app.series", "@fos_elastica.finder.app.playlist" ]
+        arguments: [ "@fos_elastica.finder.app.episode", "@fos_elastica.finder.app.series", "@fos_elastica.finder.app.playlist", "@fos_elastica.finder.app.tag" ]
 
     oktothek_academy:
         class: AppBundle\Model\AcademyService

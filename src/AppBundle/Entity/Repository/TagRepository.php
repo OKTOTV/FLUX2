@@ -71,4 +71,15 @@ class TagRepository extends EntityRepository
         }
         return $query->setMaxResults($number)->getResult();
     }
+
+    public function findHighlightedTags($query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery('SELECT t FROM AppBundle:Tag t WHERE t.highlight = 1 ORDER BY t.rank DESC');
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getResult();
+    }
 }

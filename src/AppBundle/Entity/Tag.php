@@ -36,7 +36,6 @@ class Tag
      */
     private $slug;
 
-
     /**
      * @var \DateTime
      *

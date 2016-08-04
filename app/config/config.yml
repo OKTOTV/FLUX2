@@ -270,6 +270,14 @@ fos_elastica:
                         listener:
                             immediate: ~
                         finder: ~
+                tag:
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Tag
+                        provider: ~
+                        listener:
+                            immediate: ~
+                        finder: ~
 
 bprs_sofort:
     customer_id:    %customer_id%

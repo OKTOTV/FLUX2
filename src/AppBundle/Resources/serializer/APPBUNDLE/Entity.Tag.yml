@@ -1,0 +1,12 @@
+AppBundle\Entity\Tag:
+    exclusion_policy: ALL
+    access_type: public_method
+    properties:
+        text:
+            expose: true
+        slug:
+            expose: true
+        rank:
+            expose: true
+        highlight:
+            expose: true

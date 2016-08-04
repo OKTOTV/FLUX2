@@ -27,7 +27,9 @@ class TagCollection
 
     public function setTags($tags)
     {
-        $this->tags = $tags;
+        foreach($tags as $tag) {
+            $this->addTag($tag);
+        }
         return $this;
     }
 

@@ -13,6 +13,7 @@ use AppBundle\Entity\Tag;
 use AppBundle\Entity\TagCollection;
 use AppBundle\Form\TagType;
 use AppBundle\Form\TagCollectionType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * Tag controller.
@@ -42,7 +43,7 @@ class TagController extends Controller
     public function popularTagsAction()
     {
         $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Tag');
-        $tags = $repo->findPopularTags();
+        $tags = $repo->findHighlightedTags();
 
         return ['tags' => $tags];
     }
@@ -56,7 +57,7 @@ class TagController extends Controller
     {
         $tag = new Tag();
         $form = $this->createForm(new TagType(), $tag);
-        $form->add('submit', 'submit', ['label' => 'oktothek.tag_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.tag_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -84,20 +85,20 @@ class TagController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $tagCollection = new TagCollection();
-        $tagCollection->setTags($em->getRepository('AppBundle:Tag')->findPopularTags());
-        $form = $this->createForm(new TagCollectionType(), $tagCollection);
-        $form->add('submit', 'submit', ['label' => 'oktothek.tag_popular_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $tagCollection->setTags($em->getRepository('AppBundle:Tag')->findHighlightedTags());
+        $form = $this->createForm(TagCollectionType::class, $tagCollection);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.tag_popular_update_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $old_tags = $em->getRepository('AppBundle:Tag')->getPopularTags();
-                foreach ($old_tags as $tags) {
+                $old_tags = $em->getRepository('AppBundle:Tag')->findHighlightedTags();
+                foreach ($old_tags as $tag) {
                     $tag->setHighlight(false);
                     $em->persist($tag);
                 }
-                $tags = $form->getData('tags');
-                foreach ($tags as $tag) {
+                $tagCollection = $form->getData();
+                foreach ($tagCollection->getTags() as $tag) {
                     $tag->setHighlight(true);
                     $em->persist($tag);
                 }

@@ -71,7 +71,22 @@ class SearchController extends Controller
                 'desc' => $episode->getDescription()
             ];
         }
-        
+
+        return new JsonResponse($data);
+    }
+
+    /**
+     * @Route("/tags/{query}", name="oktothek_search_tags")
+     * @Method({"GET"})
+     */
+    public function searchTagAction($query)
+    {
+        $tags = $this->get('oktothek_search')->searchTags($query);
+        $data = [];
+        foreach ($tags as $tag) {
+            $data[] = ['name' => $tag->getText(), 'slug' => $tag->getSlug(), 'rank' => $tag->getRank()];
+        }
+
         return new JsonResponse($data);
     }
 }

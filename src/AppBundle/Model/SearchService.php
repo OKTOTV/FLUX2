@@ -9,12 +9,14 @@ class SearchService
     private $episodeFinder;
     private $seriesFinder;
     private $playlistFinder;
+    private $tagFinder;
 
-    public function __construct($episodeFinder, $seriesFinder, $playlistFinder)
+    public function __construct($episodeFinder, $seriesFinder, $playlistFinder, $tagFinder)
     {
         $this->episodeFinder = $episodeFinder;
         $this->seriesFinder = $seriesFinder;
         $this->playlistFinder = $playlistFinder;
+        $this->tagFinder = $tagFinder;
     }
 
     /**
@@ -108,6 +110,11 @@ class SearchService
         $boolQuery->addMustNot($excludeEpisodeQuery);
 
         return $this->episodeFinder->find($boolQuery);
+    }
+
+    public function searchTags($searchphrase)
+    {
+        return $this->tagFinder->find($searchphrase);
     }
 }
 
