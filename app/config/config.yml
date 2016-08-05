@@ -144,13 +144,7 @@ oktolab_media:
 
 jms_serializer:
     metadata:
-            directories:
-                OKTOLAB:
-                    namespace_prefix: Oktolab\MediaBundle
-                    path: "@OktolabMediaBundle/Resources/serializer/OKTOLAB"
-                APPBUNDLE:
-                    namespace_prefix: "AppBundle"
-                    path: "@AppBundle/Resources/serializer/APPBUNDLE"
+        auto_detection: true
 
 bprs_command_line:
     php_path: %php_path%
@@ -243,10 +237,34 @@ fos_elastica:
     serializer: ~
     clients:
         default: { host: localhost, port: 9200 }
+        # logger: true
     indexes:
         app:
+            client: default
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            my_analyzer:
+                                type: custom
+                                tokenizer: standard
+                                filter   : [my_ngram]
+                            episode_analyzer:
+                                type: custom
+                                tokenizer: lowercase
+                                filter   : [snowball, my_ngram]
+                        filter:
+                            my_ngram:
+                                type: nGram
+                                min_gram: 3
+                                max_gram: 5
             types:
                 episode:
+                    serializer:
+                        groups: [search]
+                    mappings:
+                        name:        { analyzer: episode_analyzer }
+                        description: { analyzer: episode_analyzer }
                     persistence:
                         driver: orm
                         model: MediaBundle\Entity\Episode
@@ -255,6 +273,11 @@ fos_elastica:
                             immediate: ~
                         finder: ~
                 series:
+                    serializer:
+                        groups: [search]
+                    mappings:
+                        name:        { analyzer: episode_analyzer }
+                        description: { analyzer: episode_analyzer }
                     persistence:
                         driver: orm
                         model:  MediaBundle\Entity\Series
@@ -271,6 +294,8 @@ fos_elastica:
                             immediate: ~
                         finder: ~
                 tag:
+                    mappings:
+                        slug: { boost: 8, analyzer: my_analyzer }
                     persistence:
                         driver: orm
                         model: AppBundle\Entity\Tag

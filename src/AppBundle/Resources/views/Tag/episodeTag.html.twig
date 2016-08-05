@@ -4,7 +4,7 @@
         <article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin first-pin" title="{{ episode.description }}">
         <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">
         <figure class="episode-pin pin">
-            <img src="{{ episode.posterframe|path() }}" class="img-responsive"/>
+            <img src="{{ episode.posterframe(true)|path() }}" class="img-responsive"/>
             <figcaption>
                 <h3>{{ episode.series.name }}</h3>
                 <p>{{ episode.name }}</p>
@@ -19,7 +19,7 @@
         <article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin" title="{{ episode.description }}">
             <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">
             <figure class="episode-pin pin">
-                <img src="{{ episode.posterframe|path() }}" class="img-responsive"/>
+                <img src="{{ episode.posterframe(true)|path() }}" class="img-responsive"/>
                 <figcaption>
                     <h3>{{ episode.series.name }}</h3>
                     <p>{{ episode.name }}</p>
