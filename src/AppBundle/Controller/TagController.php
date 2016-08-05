@@ -75,7 +75,11 @@ class TagController extends Controller
      */
     public function tagAction(Tag $slug)
     {
-        $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Tag');
+        $em = $this->getDoctrine()->getManager();
+        $slug->setRank($slug->getRank()+1);
+        $em->persist($slug);
+        $em->flush();
+        $repo = $em->getRepository('AppBundle:Tag');
         return [
             'tag' => $slug,
             'episodes'  => $repo->findEpisodesWithTag($slug),
