@@ -61,17 +61,32 @@ class SearchController extends Controller
     {
         $episodes = $this->get('oktothek_search')->searchEpisodes($query);
         $assetHelper = $this->get('bprs.asset_helper');
-        // die(print_r($episodes));
+
         $data = [];
         foreach($episodes as $episode) {
             $data[] = [
                 'uniqID' => $episode->getUniqID(),
                 'name' => $episode->getName(),
-                'thumb' => $assetHelper->getThumbnail($episode->getPosterframe(), 135, 240),
+                'thumb' => $assetHelper->getThumbnail($episode->getPosterframe(true), 135, 240),
                 'desc' => $episode->getDescription()
             ];
         }
-        
+
+        return new JsonResponse($data);
+    }
+
+    /**
+     * @Route("/tags/{query}", name="oktothek_search_tags")
+     * @Method({"GET"})
+     */
+    public function searchTagAction($query)
+    {
+        $tags = $this->get('oktothek_search')->searchTags($query);
+        $data = [];
+        foreach ($tags as $tag) {
+            $data[] = ['name' => $tag->getText(), 'slug' => $tag->getSlug(), 'rank' => $tag->getRank()];
+        }
+
         return new JsonResponse($data);
     }
 }

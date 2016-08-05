@@ -4,9 +4,10 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use AppBundle\Form\DataTransformer\TagTransformer;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class TagType extends AbstractType
 {
@@ -30,28 +31,20 @@ class TagType extends AbstractType
     /**
      * @param OptionsResolverInterface $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'invalid_message' => 'The tag does not exist',
             'type'  => HiddenType::class,
             'allow_add' => true,
             'allow_delete' => true,
             'by_reference' => false
-        ));
+        ]);
     }
 
     public function getParent()
     {
-        return 'collection';
-    }
-
-    /**
-     * @return string
-     */
-    public function getBlockPrefix()
-    {
-        return 'tag';
+        return CollectionType::class;
     }
 
     public function getName()

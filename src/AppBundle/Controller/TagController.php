@@ -26,36 +26,8 @@ class TagController extends Controller
     public function menuTagsAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $tags = $em->getRepository('AppBundle:Tag')->findPopularTags();
+        $tags = $em->getRepository('AppBundle:Tag')->findMenuTags();
         return ['tags' => $tags];
-    }
-
-    /**
-     * @Route("/new", name="oktothek_tag_new")
-     * @Method({"GET", "POST"})
-     * @Template()
-     */
-    public function newAction(Request $request)
-    {
-        $tag = new Tag();
-        $form = $this->createForm(new TagType(), $tag);
-        $form->add('submit', 'submit', ['label' => 'oktothek.tag_create_button', 'attr' => ['class' => 'btn btn-primary']]);
-
-        if ($request->getMethod() == "POST") { //sends form
-            $form->handleRequest($request);
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($tag);
-                $em->flush();
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_tag');
-
-                return $this->redirect($this->generateUrl('oktothek_tag_index'));
-            } else {
-                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_tag');
-            }
-        }
-
-        return ['form' => $form->createView()];
     }
 
     /**
@@ -97,24 +69,17 @@ class TagController extends Controller
     }
 
     /**
-     * @Route("/", name="oktothek_tag_index")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $tags = $em->getRepository('AppBundle:Tag')->findAll();
-        return ['tags' => $tags];
-    }
-
-    /**
      * @Route("/{slug}", name="oktothek_tag_show")
      * @ParamConverter("slug", class="AppBundle:Tag", options={"mapping": {"slug": "slug"}})
      * @Template()
      */
     public function tagAction(Tag $slug)
     {
-        $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Tag');
+        $em = $this->getDoctrine()->getManager();
+        $slug->setRank($slug->getRank()+1);
+        $em->persist($slug);
+        $em->flush();
+        $repo = $em->getRepository('AppBundle:Tag');
         return [
             'tag' => $slug,
             'episodes'  => $repo->findEpisodesWithTag($slug),

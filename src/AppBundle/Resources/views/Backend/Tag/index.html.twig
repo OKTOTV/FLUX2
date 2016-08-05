@@ -1,0 +1,28 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "head-white-color" %}
+{% block body_main %}
+    {% include "AppBundle::Backend/Tag/header.html.twig" with {'active': 'all_tags'} %}
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li {% if tags.isSorted('t.rank') %}class="active"{% endif %}>{{ knp_pagination_sortable(tags, 'Rank', 't.rank') }}</li>
+        <li {% if tags.isSorted('t.slug') %}class="active"{% endif %}>{{ knp_pagination_sortable(tags, 'Text', 't.slug') }}</li>
+      </ul>
+    </div>
+    <section>
+        {{ knp_pagination_render(tags) }}
+        <ul class="list-group">
+            {% for tag in tags %}
+                <li class="list-group-item"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug}) }}">{{ tag.text }}</a></li>
+            {% endfor %}
+        </ul>
+        {{ knp_pagination_render(tags) }}
+    </section>
+{% endblock %}

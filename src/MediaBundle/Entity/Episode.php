@@ -8,7 +8,8 @@ use Oktolab\MediaBundle\Entity\Episode as BaseEpisode;
 
 /**
  * Episode
- *
+ * @JMS\AccessType("public_method")
+ * @JMS\ExclusionPolicy("all")
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="MediaBundle\Entity\Repository\EpisodeRepository")
  */
@@ -31,9 +32,9 @@ class Episode extends BaseEpisode
     private $users;
 
     /**
-     *
      * @JMS\Expose
      * @JMS\Type("array<string>")
+     * @JMS\Groups({"search"})
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag")
      * @ORM\JoinTable(name="episode_tags",
      *      joinColumns={@ORM\JoinColumn(name="episode_id", referencedColumnName="id")},

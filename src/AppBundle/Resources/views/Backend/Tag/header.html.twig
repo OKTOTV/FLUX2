@@ -1,0 +1,15 @@
+<div>
+    <h1>{{ 'oktothek.tag_index_header'|trans }}</h1>
+    <p>
+        <a href="{{ path('oktothek_tag_new')}}" class="btn btn-default">{{ 'oktothek.tag_new_button'|trans|raw }}</a>
+        <a href="{{ path('oktothek_tag_edit_popular') }}" class="btn btn-default">{{ 'oktothek.tag_edit_popular_button'|trans|raw}}</a>
+    </p>
+</div>
+<ul class="nav nav-tabs">
+    <li role="presentation"{% if active == "all_tags" %} class="active"{% endif %}>
+        <a href="{{ path('oktothek_tag_index') }}">{{ 'oktothek.tag_all_tag_tab'|trans }}</a>
+    </li>
+    <li role="presentation" {% if active == "popular_tags" %} class="active"{% endif %}>
+      <a href="{{ path('oktothek_tag_popular') }}">{{ 'oktothek.tag_popular_tag_tab'|trans }}</a>
+    </li>
+</ul>

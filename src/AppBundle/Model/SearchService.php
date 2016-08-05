@@ -9,12 +9,14 @@ class SearchService
     private $episodeFinder;
     private $seriesFinder;
     private $playlistFinder;
+    private $tagFinder;
 
-    public function __construct($episodeFinder, $seriesFinder, $playlistFinder)
+    public function __construct($episodeFinder, $seriesFinder, $playlistFinder, $tagFinder)
     {
         $this->episodeFinder = $episodeFinder;
         $this->seriesFinder = $seriesFinder;
         $this->playlistFinder = $playlistFinder;
+        $this->tagFinder = $tagFinder;
     }
 
     /**
@@ -29,15 +31,11 @@ class SearchService
 
         $query = new \Elastica\Query\Match();
         $query->setFieldQuery('name', $searchphrase);
-        $query->setFieldFuzziness('name', 0.7);
-        $query->setFieldMinimumShouldMatch('name', '40%');
 
         $boolQuery->addShould($query);
 
         $desc_query = new \Elastica\Query\Match();
         $desc_query->setFieldQuery('description', $searchphrase);
-        $desc_query->setFieldFuzziness('description', 0.7);
-        $desc_query->setFieldMinimumShouldMatch('description', '40%');
 
         $boolQuery->addShould($desc_query);
 
@@ -108,6 +106,14 @@ class SearchService
         $boolQuery->addMustNot($excludeEpisodeQuery);
 
         return $this->episodeFinder->find($boolQuery);
+    }
+
+    public function searchTags($searchphrase)
+    {
+        $fieldQuery = new \Elastica\Query\Match();
+        $fieldQuery->setFieldQuery('slug', $searchphrase);
+        $fieldQuery->setFieldParam('slug', 'analyzer', 'my_analyzer');
+        return $this->tagFinder->find($fieldQuery);
     }
 }
 

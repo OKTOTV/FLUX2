@@ -5,6 +5,8 @@ namespace MediaBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use AppBundle\Form\TagType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class EpisodeType extends AbstractType
 {
@@ -15,7 +17,7 @@ class EpisodeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text',
+            ->add('name', TextType::class,
                 ['label' => 'oktolab_media.name_label']
             )
 
@@ -54,7 +56,7 @@ class EpisodeType extends AbstractType
                 ]
             )
 
-            ->add('uniqID', 'text',
+            ->add('uniqID', TextType::class,
                 ['label' => 'oktolab_media.uniqID_label']
             )
 
@@ -66,7 +68,7 @@ class EpisodeType extends AbstractType
 
             ->add('series', 'entity', ['class' => 'MediaBundle:Series', 'choice_label' => 'name'])
 
-            ->add('tags', 'tag')
+            ->add('tags', TagType::class)
         ;
     }
 

@@ -61,11 +61,39 @@ class TagRepository extends EntityRepository
         return $query->setMaxResults($number)->getResult();
     }
 
-    public function findPopularTags($number = 10)
+    public function findMenuTags($number_highlights = 5, $overall = 5)
     {
-        return $this->getEntityManager()
-            ->createQuery('SELECT t FROM AppBundle:Tag t ORDER BY t.rank DESC')
-            ->setMaxResults($number)
-            ->getResult();
+        $tags = $this->findHighlightedTags();
+        $number_ranked = $overall - count($tags);
+        if ($number_ranked) {
+            $ranked = $this->getEntityManager()
+                ->createQuery('SELECT t FROM AppBundle:Tag t WHERE t.highlight = 0 ORDER BY t.rank DESC')
+                ->setMaxResults($number_ranked)
+                ->getResult();
+            $tags = array_merge($tags, $ranked);
+        }
+        return $tags;
+    }
+
+    public function findPopularTags($number = 10, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery('SELECT t FROM AppBundle:Tag t ORDER BY t.rank DESC');
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($number)->getResult();
+    }
+
+    public function findHighlightedTags($query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery('SELECT t FROM AppBundle:Tag t WHERE t.highlight = 1 ORDER BY t.rank DESC');
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getResult();
     }
 }
