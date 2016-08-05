@@ -269,8 +269,7 @@ fos_elastica:
                         driver: orm
                         model: MediaBundle\Entity\Episode
                         provider: ~
-                        listener:
-                            immediate: ~
+                        listener: ~
                         finder: ~
                 series:
                     serializer:
@@ -282,16 +281,14 @@ fos_elastica:
                         driver: orm
                         model:  MediaBundle\Entity\Series
                         provider: ~
-                        listener:
-                            immediate: ~
+                        listener: ~
                         finder: ~
                 playlist:
                     persistence:
                         driver: orm
                         model:  MediaBundle\Entity\Playlist
                         provider: ~
-                        listener:
-                            immediate: ~
+                        listener: ~
                         finder: ~
                 tag:
                     mappings:
@@ -300,8 +297,7 @@ fos_elastica:
                         driver: orm
                         model: AppBundle\Entity\Tag
                         provider: ~
-                        listener:
-                            immediate: ~
+                        listener: ~
                         finder: ~
 
 bprs_sofort:
