@@ -26,7 +26,7 @@ class TagController extends Controller
     public function menuTagsAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $tags = $em->getRepository('AppBundle:Tag')->findPopularTags();
+        $tags = $em->getRepository('AppBundle:Tag')->findMenuTags();
         return ['tags' => $tags];
     }
 
