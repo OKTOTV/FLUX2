@@ -120,13 +120,31 @@ $(document).ready(function(){
 		if ($('body').hasClass('oktothek')) {
 		    var offset = $('#oktothek').offset();
 		} else if ($('body').hasClass('series')) {
-			var offset = $('section.series-description').offset();
+			var offset = $('section.episode-description').offset();
 		}  else if ($('body').hasClass('academy')) {
 			var offset = $('section.academy-description').offset();
 		}
-		$("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
-		$( this ).find('span').css('display','none');
+		if (offset) {
+		    $("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
+		    $( this ).find('span').css('display','none');
+		}
 	});
+	
+	function showButtonDown() {
+	      if($(document).scrollTop() <= headerScrollheight) {
+			  //Downbutton erscheinen lassen
+			  $('.fullscreen-images #button_down span').css('display','inline');
+	      } else if ($(document).scrollTop() > headerScrollheight) {
+			  //Downbutton ausblenden
+			  $('.fullscreen-images #button_down span').css('display','none');
+		   }
+	 }
+
+	 showButtonDown();
+
+	 $(document).scroll(function(){
+	     showButtonDown();
+	 });
 	
 	/* Serien und Akademie */
 	function Textproperties() {
