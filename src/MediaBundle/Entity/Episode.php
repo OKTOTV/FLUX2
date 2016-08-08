@@ -22,6 +22,10 @@ class Episode extends BaseEpisode
     private $media;
 
     /**
+    * @JMS\Expose
+    * @JMS\Type("string")
+    * @JMS\Groups({"search"})
+    * @JMS\Accessor(getter="getSeriesName")
     * @ORM\ManyToOne(targetEntity="Series", inversedBy="episodes", cascade={"persist"})
     */
     private $series;
@@ -73,6 +77,14 @@ class Episode extends BaseEpisode
     public function getSeries()
     {
         return $this->series;
+    }
+
+    public function getSeriesName()
+    {
+        if ($this->series) {
+            return $this->series->getName();
+        }
+        return "";
     }
 
     /**
