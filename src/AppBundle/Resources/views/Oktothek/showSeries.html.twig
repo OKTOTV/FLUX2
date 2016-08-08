@@ -78,6 +78,7 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/app/js/javascript_images.js') }}"></script>
     <script text="type/javascript">
         $(document).on('change', '#episode-tag', function(){
             var optionSelected = $("option:selected", this);
