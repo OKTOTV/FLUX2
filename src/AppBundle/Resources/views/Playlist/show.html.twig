@@ -13,7 +13,7 @@
 <section class="container">
     <div id="button_down"><span class="icon playlists-arrow-down" style="display: inline;"> </span></div>
     <div class="player-container row">
-	    <div>
+        <div>
             <figure id="player"></figure>
         </div>
         <header class="description-wrapper">
@@ -21,21 +21,21 @@
                 <div class="bg-opacity"></div>
             </div>
             <div class="content-opacity">
-		        <button class="btn transparent pull-right"><span class="icon-close" aria-hidden="true" style="display: block;">×</span></button>
+                <button class="btn transparent pull-right"><span class="icon-close" aria-hidden="true" style="display: block;">×</span></button>
                 <h1>{{ playlist.name }}</h1>
-			    <p>Erstellt von {{ playlist.user }}</p>
+                <p>Erstellt von {{ playlist.user }}</p>
                 {% if app.user == playlist.user %}
                 <a href="{{ path('oktothek_edit_playlist', {'uniqID': playlist.uniqID}) }}" class="btn btn-default">Bearbeiten</a>
                 {% endif %}
-			    <p class="description">{{ playlist.description }}</p>
+                <p class="description">{{ playlist.description }}</p>
                 <p class="misc"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> Playliste starten</button> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button></p>
             </div>
-	    </header>
-		<div class="playlist-minimized">
-		    <button class="btn btn-default circle"><span>i</span></button>
-		</div>
-		
-	</div>
+        </header>
+        <div class="playlist-minimized">
+            <button class="btn btn-default circle"><span>i</span></button>
+        </div>
+
+    </div>
     <div class="description-container row">
         <!--<div class="col-md-3">
             <div class="list-group">
@@ -56,19 +56,19 @@
     </div>
 </section>
 <section class="container playlist_container">
-	{% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
+    {% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
     <ul class="list-group">
         {% for playlistItem in playlist.items %}
         <li class="list-group-item clearfix">
             <article title="{{ playlistItem.episode.description }}" class="pin">
                 <figure class="col-md-2 col-lg-2 col-sm-2 col-xs-2 pin">
-	                <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}"><img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
-		        </figure>
-		        <figcaption class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+                    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}"><img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
+                </figure>
+                <figcaption class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
                     <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}">
-		                <h3>{{ playlistItem.episode.name }}</h3>
-			            <p>{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</p>
-			        </a>
+                        <h3>{{ playlistItem.episode.name }}</h3>
+                        <p>{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</p>
+                    </a>
                 </figcaption>
             </article>
         </li>

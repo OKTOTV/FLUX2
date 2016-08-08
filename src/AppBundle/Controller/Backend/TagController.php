@@ -31,7 +31,7 @@ class TagController extends Controller
     {
         $paginator = $this->get('knp_paginator');
         $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Tag');
-        $tags = $paginator->paginate($repo->findPopularTags(0, true), $page, 10);
+        $tags = $paginator->paginate($repo->findAll(), $page, 10);
         return ['tags' => $tags];
     }
 

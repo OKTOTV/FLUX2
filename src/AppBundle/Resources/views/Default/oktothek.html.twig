@@ -8,37 +8,37 @@
 {% block body %}
 
     {# top slider, search and channels #}
-	<div id="top"></div>
+    <div id="top"></div>
     <div id="slider">
         {% render(controller('AppBundle:Slide:slider', {'number': 5})) %}
     </div>
     {# top slider, search and channels END #}
     {# rest of the page #}
     <div id="oktothek">
-		<section class="participart bg-fullscreen">
-		    <div id="anchor_participart"></div>
-		    <h2 id="button_down">Mitmachen <span class="icon participant-arrow-down"> </span></h2>
-		    <article class="container">
-		        <p class="aligncenter subheadline">Du produzierst Videos, Beiträge, Dokumentationen? Wir würden sie gerne zeigen.</p>
-				<div class="aligncenter button_container"><a href="#" class="btn btn-default but-full" title="Mitmachen">ICH MACH MIT!</a></div>
-				<ul class="participart-list">
-				  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_ideas.svg')}}" width="100px" height="100px"></figure><figcaption>Ideen umsetzen</figcaption></a></li>
-				  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_oktonaut.svg')}}" width="100px" height="100px"></figure><figcaption>Was Oktonauten wissen müssen</figcaption></a></li>
-				  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_camera.svg')}}" width="100px" height="100px"></figure><figcaption>Equipment Know How</figcaption></a></li>
-				  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_upload.svg')}}" width="100px" height="100px"></figure><figcaption>Produktion uploaden</figcaption></a></li>
-				</ul>
-		    </article>
-		</section>
+        <section class="participart bg-fullscreen">
+            <div id="anchor_participart"></div>
+            <h2 id="button_down">Mitmachen <span class="icon participant-arrow-down"> </span></h2>
+            <article class="container">
+                <p class="aligncenter subheadline">Du produzierst Videos, Beiträge, Dokumentationen? Wir würden sie gerne zeigen.</p>
+                <div class="aligncenter button_container"><a href="#" class="btn btn-default but-full" title="Mitmachen">ICH MACH MIT!</a></div>
+                <ul class="participart-list">
+                  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_ideas.svg')}}" width="100px" height="100px"></figure><figcaption>Ideen umsetzen</figcaption></a></li>
+                  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_oktonaut.svg')}}" width="100px" height="100px"></figure><figcaption>Was Oktonauten wissen müssen</figcaption></a></li>
+                  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_camera.svg')}}" width="100px" height="100px"></figure><figcaption>Equipment Know How</figcaption></a></li>
+                  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_upload.svg')}}" width="100px" height="100px"></figure><figcaption>Produktion uploaden</figcaption></a></li>
+                </ul>
+            </article>
+        </section>
         {# render newest episodes #}
         <section class="newest-videos container">
-		    <div id="anchor_newest_videos"></div>
+            <div id="anchor_newest_videos"></div>
             <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes} %}
         </section>
 
         {# render favorites #}
-		<section class="favorite-videos container">
-		    <div id="anchor_favorite_videos"></div>
+        <section class="favorite-videos container">
+            <div id="anchor_favorite_videos"></div>
             <h2>Beliebteste Videos</h2>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes} %}
             {# <a href="#" class="pull-right more" title="Weitere beliebteste Videos anzeigen">Mehr Videos anzeigen <span class="icon">+</span></a> #}
@@ -46,7 +46,7 @@
 
         {# render newest playlists #}
         <section class="newest-playlists container">
-		    <div id="anchor_playlists"></div>
+            <div id="anchor_playlists"></div>
             <h2>{{ 'oktothek.newest_playlists'|trans }}</h2>
             {% if is_granted('ROLE_OKTOLAB_USER') %}
                 <p class="subheadline">{{ 'oktothek_default_newest_playlists_text'|trans }}</p>
@@ -60,13 +60,18 @@
         {# render news pins #}
         {{ render(controller('AppBundle:News:pinnedNews')) }}
     </div>
-	<!-- Start Anchor Menu -->
-	<!-- End Anchor Menu -->
+    <!-- Start Anchor Menu -->
+    <!-- End Anchor Menu -->
     {# rest of the page END #}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-	<script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
-	<script src="{{ asset('bundles/app/js/javascript_images.js')}}"></script>
+    <script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{ asset('bundles/app/js/javascript_images.js')}}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/fs_images.css') }}" rel="stylesheet" />
 {% endblock %}
