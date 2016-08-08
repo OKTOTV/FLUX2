@@ -256,16 +256,16 @@ fos_elastica:
                         filter:
                             my_ngram:
                                 type: nGram
-                                min_gram: 5
-                                max_gram: 8
+                                min_gram: 3
+                                max_gram: 20
             types:
                 episode:
                     serializer:
                         groups: [search]
                     mappings:
-                        name:        { boost: 8, index_analyzer: episode_analyzer }
-                        description: { index_analyzer: episode_analyzer }
-                        series:      { boost: 3, index_analyzer: episode_analyzer }
+                        name:        { boost: 8, analyzer: episode_analyzer }
+                        description: { analyzer: episode_analyzer }
+                        series:      { boost: 3, analyzer: episode_analyzer }
                     persistence:
                         driver: orm
                         model: MediaBundle\Entity\Episode

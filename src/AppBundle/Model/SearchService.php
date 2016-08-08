@@ -28,21 +28,14 @@ class SearchService
     public function searchEpisodes($searchphrase, $includeInactive = false)
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
+        $multiquery = new \Elastica\Query\MultiMatch();
+        $multiquery->setFields(['name', 'description', 'series']);
+        $multiquery->setQuery($searchphrase);
+        $multiquery->setType(\Elastica\Query\MultiMatch::TYPE_MOST_FIELDS);
 
-        $query = new \Elastica\Query\Match();
-        $query->setFieldQuery('name', $searchphrase);
+        $boolQuery->addMust($multiquery);
 
-        $boolQuery->addShould($query);
-
-        $desc_query = new \Elastica\Query\Match();
-        $desc_query->setFieldQuery('description', $searchphrase);
-
-        $boolQuery->addShould($desc_query);
-
-        $series_title_query = new \Elastica\Query\Match();
-        $series_title_query->setFieldQuery('series', $searchphrase);
-
-        if ($includeInactive) {
+        if (!$includeInactive) {
             $activeQuery = new \Elastica\Query\Term();
             $activeQuery->setTerm('is_active', true);
             $boolQuery->addMust($activeQuery);
@@ -89,16 +82,13 @@ class SearchService
     public function searchRelatedEpisodes(Episode $episode, $numberResults = 2)
     {
         $tagtext = implode(" ", $episode->getTags()->toArray());
-        // return $this->episodeFinder->find($tagtext, $numberResults);
 
         $boolQuery = new \Elastica\Query\BoolQuery();
-
-        $desc_query = new \Elastica\Query\Match();
-        $desc_query->setFieldQuery('tags', $tagtext);
-        $desc_query->setFieldFuzziness('tags', 0.7);
-        $desc_query->setFieldMinimumShouldMatch('tags', '40%');
-
-        $boolQuery->addShould($desc_query);
+        $multiquery = new \Elastica\Query\MultiMatch();
+        $multiquery->setFields(['name', 'description', 'series']);
+        $multiquery->setQuery($tagtext);
+        $multiquery->setType(\Elastica\Query\MultiMatch::TYPE_MOST_FIELDS);
+        $boolQuery->addMust($multiquery);
 
         $activeQuery = new \Elastica\Query\Term();
         $activeQuery->setTerm('is_active', true);
