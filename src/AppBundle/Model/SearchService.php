@@ -25,7 +25,7 @@ class SearchService
      * @param $includeInactive if inactive episodes should be included
      * @return array of episodes
      */
-    public function searchEpisodes($searchphrase, $includeInactive = false)
+    public function searchEpisodes($searchphrase, $includeInactive = false, $results = 5)
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
         $multiquery = new \Elastica\Query\MultiMatch();
@@ -40,7 +40,7 @@ class SearchService
             $activeQuery->setTerm('is_active', true);
             $boolQuery->addMust($activeQuery);
         }
-        return $this->episodeFinder->find($boolQuery);
+        return $this->episodeFinder->find($boolQuery, $results);
     }
 
     /**
@@ -49,7 +49,7 @@ class SearchService
      * @param $includeInactive if inactive episodes should be included
      * @return array of series
      */
-    public function searchSeries($searchphrase, $includeInactive = false)
+    public function searchSeries($searchphrase, $includeInactive = false, $results = 5)
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
 
@@ -71,15 +71,15 @@ class SearchService
             $activeQuery->setTerm('is_active', true);
             $boolQuery->addMust($activeQuery);
         }
-        return $this->seriesFinder->find($boolQuery);
+        return $this->seriesFinder->find($boolQuery, $results);
     }
 
-    public function searchPlaylists($searchphrase)
+    public function searchPlaylists($searchphrase, $results = 5)
     {
-        return $this->playlistFinder->find($searchphrase);
+        return $this->playlistFinder->find($searchphrase, $results);
     }
 
-    public function searchRelatedEpisodes(Episode $episode, $numberResults = 2)
+    public function searchRelatedEpisodes(Episode $episode, $numberResults = 5)
     {
         $tagtext = implode(" ", $episode->getTags()->toArray());
 
@@ -98,7 +98,7 @@ class SearchService
         $excludeEpisodeQuery->setTerm('id', $episode->getId());
         $boolQuery->addMustNot($excludeEpisodeQuery);
 
-        return $this->episodeFinder->find($boolQuery);
+        return $this->episodeFinder->find($boolQuery, $numberResults);
     }
 
     public function searchTags($searchphrase)
