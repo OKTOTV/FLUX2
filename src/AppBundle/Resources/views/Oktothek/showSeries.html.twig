@@ -12,72 +12,73 @@
             <figure class="episode-posterframe fs-image">
                 <div style="background-image:url({{ series.posterframe|path() }});"></div>
             </figure>
-			<figcaption class="current-episode description-wrapper">
-			    <div class="container-bg-opacity">
-			        <div class="bg-opacity"></div>
-				</div>
-			    <div class="content-opacity">
-					<h1>{{ series.name }}</h1>
-					<p class="facts">Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
-					<p class="description">
-					    {{ series.description }}</p>
-					<p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
-					<p class="misc">
+            <figcaption class="current-episode description-wrapper">
+                <div class="container-bg-opacity">
+                    <div class="bg-opacity"></div>
+                </div>
+                <div class="content-opacity">
+                    <h1>{{ series.name }}</h1>
+                    <p class="facts">Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
+                    <p class="description">
+                        {{ series.description }}</p>
+                    <p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
+                    <p class="misc">
                 <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button>
                     </p>
-				</div>
-			</figcaption>
-		</div>
-		<div class="fs-image-misc-mobile">
-		    <p class="misc"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button></p>
-		    <p>Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
-		</div>
+                </div>
+            </figcaption>
+        </div>
+        <div class="fs-image-misc-mobile">
+            <p class="misc"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button> <button type="button" class="btn btn-default" title="... abbonieren">Abbonieren</button></p>
+            <p>Eine Serie von Osama Saadalah, Regie Osama Saadalah</p>
+        </div>
     </section>
-	<section class="container episode-description">
-	    <!-- Start Collapse Share-->
+    <section class="container episode-description">
+        <!-- Start Collapse Share-->
         {% include 'AppBundle:Oktothek:snippetSeriesShare.html.twig' with {'series': series} %}
-		<!-- End Modal Window Share-->
-		<!-- Start Aktuelle Episode -->
-		<header><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
-		<article>
-		    <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
+        <!-- End Modal Window Share-->
+        <!-- Start Aktuelle Episode -->
+        <header><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
+        <article>
+            <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
                 <img src="{{ series.episodes[0].posterframe|path() }}" />
             </figure>
-			<div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        		    <h3>{{ series.episodes[0].name }}</h3>
-        		    <p class="description">{{ series.episodes[0].description }}</p>
-        			<a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
-			</div>
-	    </article>
-		<!-- Ende Serienbeschreibung -->
-	</section>
+            <div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <h3>{{ series.episodes[0].name }}</h3>
+                    <p class="description">{{ series.episodes[0].description }}</p>
+                    <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
+            </div>
+        </article>
+        <!-- Ende Serienbeschreibung -->
+    </section>
     {{ render(controller("AppBundle:Series:episodesWithTagsAjax", { 'uniqID': series.uniqID })) }}
     {% if series.posts is not empty %}
         <section class="blog">
-	        <div id="anchor_blog"></div>
-	        <div class="container">
+            <div id="anchor_blog"></div>
+            <div class="container">
                 <h2>{{ 'oktothek_series_blog_header'|trans }}</h2>
                 {% include 'AppBundle::Default/Series/blog.html.twig' with { 'posts': [series.posts[0]], 'uniqID': series.uniqID } %}
             </div>
-	    </section>
+        </section>
     {% endif %}
-	<section class="container">
-	    <div class="infos">
-		    <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
+    <section class="container">
+        <div class="infos">
+            <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
             {% include 'MediaBundle::Reachme/reachme_stack.html.twig' with { 'reachmes': series.reachmes } %}
-	    </div>
-	</section>
+        </div>
+    </section>
     {% if series.playlists is not empty %}
         <section class="container series-playlists">
-    	    <div id="anchor_playlists"></div>
-    	    <h2>Playlisten</h2>
+            <div id="anchor_playlists"></div>
+            <h2>Playlisten</h2>
             {% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with { 'playlists': series.playlists } %}
-    	</section>
+        </section>
     {% endif %}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
     <script src="{{ asset('bundles/app/js/javascript_images.js') }}"></script>
     <script text="type/javascript">
         $(document).on('change', '#episode-tag', function(){
@@ -95,4 +96,9 @@
             })
         })
     </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/fs_images.css') }}" rel="stylesheet" />
 {% endblock %}

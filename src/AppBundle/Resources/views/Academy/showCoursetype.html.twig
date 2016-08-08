@@ -11,43 +11,49 @@
     <section class="academy-content fs-image-content">
         <div class="academy-ident fs-image-ident">
             <figure class="academy-image fs-image"><div style="background-image:url({{ coursetype.image|link }});"></div></figure>
-			<figcaption class="current-course description-wrapper">
-			    <div class="container-bg-opacity">
-			        <div class="bg-opacity"></div>
-				</div>
-			    <div class="content-opacity">
-					<h1>{{ coursetype.title }}</h1>
-				    <p class="facts">Dauer {{ coursetype.courses[0].dates|hours~'h' }}, Kosten {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
-					<p class="description">{{ coursetype.description }}</p>
-				</div>
-			</figcaption>
-		</div>
-		<div class="fs-image-misc-mobile">
-		    <p>Dauer {{ coursetype.courses[0].dates|hours~'h' }}, Kosten {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
-		</div>
+            <figcaption class="current-course description-wrapper">
+                <div class="container-bg-opacity">
+                    <div class="bg-opacity"></div>
+                </div>
+                <div class="content-opacity">
+                    <h1>{{ coursetype.title }}</h1>
+                    <p class="facts">Dauer {{ coursetype.courses[0].dates|hours~'h' }}, Kosten {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
+                    <p class="description">{{ coursetype.description }}</p>
+                </div>
+            </figcaption>
+        </div>
+        <div class="fs-image-misc-mobile">
+            <p>Dauer {{ coursetype.courses[0].dates|hours~'h' }}, Kosten {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
+        </div>
     </section>
     <section class="container academy-description">
         <header class="page-header">
             <h1 id="button_down">Details zu {{ coursetype.title }} <span class="glyphicon glyphicon-chevron-down"> </span></h1>
-	    </header>
+        </header>
         <h2>Termine</h2>
-		<ul class="timetable">
+        <ul class="timetable">
         {% for course in coursetype.courses if course.isActive %}
-		    <li>
-			    <p>
+            <li>
+                <p>
                     {% for date in course.dates %}
                         <span>{{ date.courseStart|date('d.m.Y') }}</span> {{ date.courseStart|date('H:i') }} - {{ date.courseEnd|date('H:i') }}<br>
                     {% endfor %}
-			    </p>
-				<p class="booking">
+                </p>
+                <p class="booking">
                     <a href="{{ path('oktothek_academy_book_course', {'course': course.id})}}" class="btn btn-default">{{'oktothek_academy_book_course'|trans }}</a>
-			    </p>
-			</li>
+                </p>
+            </li>
         {% endfor %}
-		</ul>
+        </ul>
     </section>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
     <script src="{{ asset('bundles/app/js/javascript_images.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/fs_images.css') }}" rel="stylesheet" />
 {% endblock %}
