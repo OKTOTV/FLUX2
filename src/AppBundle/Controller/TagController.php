@@ -26,7 +26,7 @@ class TagController extends Controller
     public function menuTagsAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $tags = $em->getRepository('AppBundle:Tag')->findMenuTags();
+        $tags = $em->getRepository('AppBundle:Tag')->findHighlightedTags();
         return ['tags' => $tags];
     }
 
@@ -76,9 +76,6 @@ class TagController extends Controller
     public function tagAction(Tag $slug)
     {
         $em = $this->getDoctrine()->getManager();
-        $slug->setRank($slug->getRank()+1);
-        $em->persist($slug);
-        $em->flush();
         $repo = $em->getRepository('AppBundle:Tag');
         return [
             'tag' => $slug,

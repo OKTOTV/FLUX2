@@ -39,6 +39,9 @@ class SearchService
 
         $boolQuery->addShould($desc_query);
 
+        $series_title_query = new \Elastica\Query\Match();
+        $series_title_query->setFieldQuery('series', $searchphrase);
+
         if ($includeInactive) {
             $activeQuery = new \Elastica\Query\Term();
             $activeQuery->setTerm('is_active', true);
