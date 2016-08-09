@@ -155,9 +155,10 @@ oktothek_tag_more_results:              Mehr Anzeigen <span class="icon">+</span
 # popular tag
 oktothek.success_update_popular_tags:  Hervorgehobene Schlagworte erfolgreich aktualisiert
 oktothek.error_update_popular_tags:    Hervorgehobene Schlagworte konnten nicht aktualisert werden
-oktothek.tag_popular_tag_tab:          Hervorgehobene Schlagworte
-oktothek.tag_all_tag_tab:              Alle Schlagworte
-oktothek.tag_edit_popular_button:      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Hervorgehobene Schlagworte bearbeiten
+oktothek.tag_popular_tag_tab:          Menü Tags
+oktothek.tag_all_tag_tab:              Alle Tags
+oktothek.tag_filter_all_button:        Filter <span class="caret"></span>
+oktothek.tag_edit_popular_button:      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Menü Tags bearbeiten
 
 ## academy
 oktothek_academy_header:                Akademie

@@ -9,7 +9,7 @@
     {% include "AppBundle::Backend/Tag/header.html.twig" with {'active': 'all_tags'} %}
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter <span class="caret"></span>
+        {{ 'oktothek.tag_filter_all_button'|trans|raw }}
       </button>
       <ul class="dropdown-menu">
         <li {% if tags.isSorted('t.rank') %}class="active"{% endif %}>{{ knp_pagination_sortable(tags, 'Rank', 't.rank') }}</li>
