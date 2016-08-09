@@ -44,7 +44,7 @@ class SearchController extends Controller
 
                 return $this->render('AppBundle::Search/results.html.twig', [
                     'episodes' => $episodes,
-                    'series' => $series,
+                    'seriess' => $series,
                     'playlists' => $playlists,
                     'searchphrase' => $data['search']
                 ]);

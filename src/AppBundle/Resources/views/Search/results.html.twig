@@ -1,35 +1,46 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
 {% block title%}{{ name|default('OKTO')~' | '~searchphrase }}{% endblock %}
-{% block nav_head%}
+{%- block nav_head -%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
-{% endblock %}
+{%- endblock -%}
 
 {% set body_class = "tagpage head-white-color head-transparent-bg fullscreen-background" %}
-{% block body %}
-{% if episodes is not empty %}
-    <style type="text/css">
-	    .bg-bleur {
-	        background-image:url( {{ episodes[0].posterframe|path() }});
-        }
-	</style>
-    {% endif %}
+{%- block body -%}
     <div id="top"></div>
         <div class="container-fluid">
         <div class="bg-bleur"></div>
-        <header class="container">
-            <h1>{{ 'oktothek_results_header'|trans }}</h1>
+        <header>
+            <h1>{{ 'oktothek_results_header'|trans({'%searchphrase%': searchphrase}) }}</h1>
         </header>
-            {% include 'AppBundle::Tag/episodeTag.html.twig' with {'episodes': episodes} %}
-        <section class="container inc-pins">
-            <div id="anchor_series"></div>
-            <h2>Serien</h2>
-            {% include 'AppBundle::Tag/seriesTag.html.twig' with {'seriess': series} %}
-        </section>
-        <section class="container inc-pins">
-            <div id="anchor_playlists"></div>
-            <h2>Playlisten</h2>
-            {% include 'AppBundle::Tag/playlistTag.html.twig' with {'playlists': playlists} %}
-        </section>
+        <div class="container content-bg">
+        {% if episodes is not empty %}
+            <section class="inc-pins">
+                <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
+                {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': episodes} %}
+            </section>
+        {% endif %}
+        {% if seriess is not empty %}
+            <section class="inc-pins">
+                <h2>{{ 'oktothek_tag_series_header'|trans }}</h2>
+                {% include "AppBundle::Tag/seriesTag.html.twig" with {'seriess': seriess} %}
+            </section>
+        {% endif %}
+        {% if playlists is not empty %}
+            <section class="inc-pins">
+                <h2>{{ 'oktothek_tag_playlists_header'|trans }}</h2>
+                {% include "AppBundle::Tag/playlistTag.html.twig" with {'playlists': playlists} %}
+            </section>
+        {% endif %}
     </div>
+{%- endblock -%}
+{% block stylesheets %}
+    {{ parent() }}
+    {% if episodes is not empty %}
+        <style type="text/css">
+            .bg-bleur {
+                background-image:url( {{ episodes[0].posterframe(true)|path(720,1280) }});
+            }
+        </style>
+    {% endif %}
 {% endblock %}

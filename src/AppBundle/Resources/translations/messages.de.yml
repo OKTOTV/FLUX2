@@ -38,7 +38,7 @@ oktothek.success_create_account:        Account wurde angelegt. Schau in dein Po
 oktothek.login_register:                Neuen Account anlegen
 
 ## search and results
-oktothek_results_header:                Ergebnisse
+oktothek_results_header:                Suchergebnisse für "%searchphrase%"
 oktothek.searchfield_placeholder:       Suche Videos, Leute und Infos
 ## news post
 ## form labels
