@@ -76,6 +76,7 @@ oktothek.success_create_post:           Post erfolgreich angelegt
 ## page
 ### index page
 oktothek.backend_page_header:           Seiten
+oktothek_backend_page_new:              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neue Seite
 
 ### new page
 oktothek.page_create_header:            Neue Seite anlegen
@@ -88,7 +89,7 @@ oktothek.page_preview_button:           Vorschau <span class="glyphicon glyphico
 
 oktothek.success_create_page:           Seite erfolgreich angelegt
 oktothek.success_delete_page:           Seite erfolgreich gelöscht
-oktothek.page_create_new_button:        <span class="glyphicon glyphicon-plus"></span> Neue Seite anlegen
+oktothek.page_create_new_button:        <span class="glyphicon glyphicon-plus"></span> Seite anlegen
 oktothek.page_edit_button:              <span class="glyphicon glyphicon-edit"></span> Seite bearbeiten
 oktothek.page_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern
 oktothek.page_delete_button:            <span class="glyphicon glyphicon-trash"></span> Seite löschen
@@ -377,7 +378,7 @@ oktothek.slide_type_choice:                 "{0} Episode|{1} News"
 ## index
 oktothek.backend_index_slider:              News & Slides
 oktothek.backend_slider_header:             Slider
-oktothek_backend_slide_new:                 <span class="glyphicon glyphicon-plus"></span> Neues Slide hinzufügen
+oktothek_backend_slide_new:                 <span class="glyphicon glyphicon-plus"></span> Neues Slide
 oktothek_backend_slide_index:               Zurück zum Index
 ## new
 oktothek.backend_slider_new_header:         Neues Slide
@@ -408,7 +409,7 @@ oktothek_backend_slide_from_episode:        Slide generieren
 # news
 ## index
 oktothek.backend_news_header:               Posts
-oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neuen Post verfassen
+oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neuer Post
 
 ## edit
 oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Beitrag bearbeiten

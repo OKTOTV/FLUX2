@@ -5,20 +5,25 @@
 {% endblock %}
 {% block body_main %}
 
+<div>
+    <h1>{{ 'oktothek.backend_index_slider'|trans}}</h1>
+    <p>
+        <div class="btn-group" role="group">
+            <a href="{{ path('oktothek_backend_slide_new') }}" class="btn btn-default">{{'oktothek_backend_slide_new'|trans|raw }}</a>
+            <a href="{{ path('oktothek_backend_news_new') }}" class="btn btn-default">{{'oktothek_backend_news_new'|trans|raw }}</a>
+            <a href="{{ path('oktothek_page_new') }}" class="btn btn-default">{{ 'oktothek_backend_page_new'|trans|raw }}</a>
+        </div>
+    </p>
+</div>
 <ul class="nav nav-tabs">
   <li role="presentation"><a href="{{ path('oktothek_backend_slide_index')}}">{{ 'oktothek.backend_slider_header'|trans}}</a></li>
   <li role="presentation"><a href="{{ path('oktothek_backend_news_index')}}">{{ 'oktothek.backend_news_header'|trans }}</a></li>
   <li role="presentation" class="active"><a href="{{ path('oktothek_backend_page_index') }}">{{ 'oktothek.backend_page_header'|trans }}</a></li>
 </ul>
-<div class="page-header">
-    <h1>{{ 'oktothek.backend_page_header'|trans }}</h1>
-    <a href="{{ path('oktothek_page_new') }}" class="btn btn-default">{{ 'oktothek.page_create_new_button'|trans|raw }}</a>
+<div class="navigation">
+    {{ knp_pagination_render(pages) }}
 </div>
-
 <div class="list-group">
-    <div class="navigation">
-        {{ knp_pagination_render(pages) }}
-    </div>
     {% for page in pages %}
         <a href="{{ path('oktothek_page_edit', {'page': page.id})}}" class="list-group-item">{{ page.title }}</a>
     {% endfor %}
