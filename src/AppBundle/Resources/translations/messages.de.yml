@@ -270,10 +270,11 @@ oktothek_academy_money_open:            Barzahlung (offen)
 oktothek_academy_money_closed:          Barzahlung (bezahlt)
 
 oktothek.backend_academy_package_header: Kurspakete
+oktothek.backend_academy_course_header:  Kurstypen
 oktothek_backend_academy_new_coursepackage: <span class="glyphicon glyphicon-plus"></span> Neues Kurspaket anlegen
 
 oktothek_backend_academy_new_coursetype: <span class="glyphicon glyphicon-plus"></span> Neuen Kurstyp anlegen
-oktothek.backend_academy_header:        Kurstypen
+oktothek.backend_academy_header:        Akademie
 oktothek_backend_new_course:            <span class="glyphicon glyphicon-plus"></span> Neuen Kurs hinzufügen
 oktothek.backend_new_course_header:     Neuer Kurs
 oktothek_backend_course_add_new_date:   <span class="glyphicon glyphicon-plus"></span> Kurstermin hinzufügen

@@ -16,7 +16,7 @@
     {% for date in form.vars.value.dates %}
 
     {% endfor %}
-        <button id="add-date" class="btn btn-default">{{'oktothek_backend_course_add_new_date'|trans }}</button>
+        <button id="add-date" class="btn btn-default">{{'oktothek_backend_course_add_new_date'|trans|raw }}</button>
     </div>
     {% do form.dates.setRendered %}
 

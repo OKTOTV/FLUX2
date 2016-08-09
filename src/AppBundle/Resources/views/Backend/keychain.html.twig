@@ -1,20 +1,19 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
-{% block nav_head%}
-    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
-{% endblock %}
-{% block body %}
+{%- block nav_head -%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': 'user_menu'} %}
+{%- endblock -%}
+{%- block body_main -%}
 <div class="page-header">
-    <h1>{{ 'flux2.backend_header'}}</h1>
+    <h1>{{ 'oktothek.backend_header'|trans }}</h1>
 </div>
 
 <ul class="nav nav-tabs">
-  <li role="presentation"><a href="#">Sendereihen</a></li>
-  <li role="presentation" class="active"><a href="#">Schlüsselkasten</a></li>
+  <li role="presentation" class="active"><a href="#">{{ 'oktothek.backend_index_api_keychains'|trans }}</a></li>
 </ul>
 
 <div class="list-group">
     <a href="{{ path('oktolab_media_list_keychains') }}" role="list-group-item" class="list-group-item">{{ 'oktolab_media.keychain'|trans }}</a>
     <a href="#" role="list-group-item disabled" class="list-group-item">{{ 'bprs_user.keychain'|trans }}</a>
 </div>
-{% endblock %}
+{%- endblock -%}
