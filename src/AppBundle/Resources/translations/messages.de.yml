@@ -38,7 +38,7 @@ oktothek.success_create_account:        Account wurde angelegt. Schau in dein Po
 oktothek.login_register:                Neuen Account anlegen
 
 ## search and results
-oktothek_results_header:                Ergebnisse
+oktothek_results_header:                Suchergebnisse für "%searchphrase%"
 oktothek.searchfield_placeholder:       Suche Videos, Leute und Infos
 ## news post
 ## form labels
@@ -76,6 +76,7 @@ oktothek.success_create_post:           Post erfolgreich angelegt
 ## page
 ### index page
 oktothek.backend_page_header:           Seiten
+oktothek_backend_page_new:              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neue Seite
 
 ### new page
 oktothek.page_create_header:            Neue Seite anlegen
@@ -88,7 +89,7 @@ oktothek.page_preview_button:           Vorschau <span class="glyphicon glyphico
 
 oktothek.success_create_page:           Seite erfolgreich angelegt
 oktothek.success_delete_page:           Seite erfolgreich gelöscht
-oktothek.page_create_new_button:        <span class="glyphicon glyphicon-plus"></span> Neue Seite anlegen
+oktothek.page_create_new_button:        <span class="glyphicon glyphicon-plus"></span> Seite anlegen
 oktothek.page_edit_button:              <span class="glyphicon glyphicon-edit"></span> Seite bearbeiten
 oktothek.page_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern
 oktothek.page_delete_button:            <span class="glyphicon glyphicon-trash"></span> Seite löschen
@@ -154,9 +155,10 @@ oktothek_tag_more_results:              Mehr Anzeigen <span class="icon">+</span
 # popular tag
 oktothek.success_update_popular_tags:  Hervorgehobene Schlagworte erfolgreich aktualisiert
 oktothek.error_update_popular_tags:    Hervorgehobene Schlagworte konnten nicht aktualisert werden
-oktothek.tag_popular_tag_tab:          Hervorgehobene Schlagworte
-oktothek.tag_all_tag_tab:              Alle Schlagworte
-oktothek.tag_edit_popular_button:      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Hervorgehobene Schlagworte bearbeiten
+oktothek.tag_popular_tag_tab:          Menü Tags
+oktothek.tag_all_tag_tab:              Alle Tags
+oktothek.tag_filter_all_button:        Filter <span class="caret"></span>
+oktothek.tag_edit_popular_button:      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Menü Tags bearbeiten
 
 ## academy
 oktothek_academy_header:                Akademie
@@ -270,10 +272,11 @@ oktothek_academy_money_open:            Barzahlung (offen)
 oktothek_academy_money_closed:          Barzahlung (bezahlt)
 
 oktothek.backend_academy_package_header: Kurspakete
+oktothek.backend_academy_course_header:  Kurstypen
 oktothek_backend_academy_new_coursepackage: <span class="glyphicon glyphicon-plus"></span> Neues Kurspaket anlegen
 
 oktothek_backend_academy_new_coursetype: <span class="glyphicon glyphicon-plus"></span> Neuen Kurstyp anlegen
-oktothek.backend_academy_header:        Kurstypen
+oktothek.backend_academy_header:        Akademie
 oktothek_backend_new_course:            <span class="glyphicon glyphicon-plus"></span> Neuen Kurs hinzufügen
 oktothek.backend_new_course_header:     Neuer Kurs
 oktothek_backend_course_add_new_date:   <span class="glyphicon glyphicon-plus"></span> Kurstermin hinzufügen
@@ -376,7 +379,7 @@ oktothek.slide_type_choice:                 "{0} Episode|{1} News"
 ## index
 oktothek.backend_index_slider:              News & Slides
 oktothek.backend_slider_header:             Slider
-oktothek_backend_slide_new:                 <span class="glyphicon glyphicon-plus"></span> Neues Slide hinzufügen
+oktothek_backend_slide_new:                 <span class="glyphicon glyphicon-plus"></span> Neues Slide
 oktothek_backend_slide_index:               Zurück zum Index
 ## new
 oktothek.backend_slider_new_header:         Neues Slide
@@ -407,7 +410,7 @@ oktothek_backend_slide_from_episode:        Slide generieren
 # news
 ## index
 oktothek.backend_news_header:               Posts
-oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neuen Post verfassen
+oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neuer Post
 
 ## edit
 oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Beitrag bearbeiten

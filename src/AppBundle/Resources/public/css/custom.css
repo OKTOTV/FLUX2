@@ -182,8 +182,17 @@ header .form-control::-webkit-input-placeholder {
 header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
 	color: #333333;
 }
-.carousel-caption .type, header .navbar-inverse .navbar-toggle:hover, header .navbar-inverse .navbar-toggle:focus, header button.search-button:focus span.close-searchfield, header button.search-button:hover span.icon-close, header #search-container #form_submit.btn:hover, header #search-container #form_submit.btn:focus, header #search-container #form_submit.btn:active/*, header .navbar-inverse .navbar-nav.mainmenu > li.active > a, header .navbar-inverse .navbar-nav.mainmenu > li:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li:active > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:active > a*/ { /* Gelb */
+.carousel-caption .type, header .navbar-inverse .navbar-toggle:hover, header .navbar-inverse .navbar-toggle:focus, header button.search-button:focus span.close-searchfield, header button.search-button:hover span.icon-close, header #search-container #form_submit.btn:hover, header #search-container #form_submit.btn:focus, header #search-container #form_submit.btn:active, .color1 a, .active .color1.pin figcaption a h3, .color1.pin figcaption a p/*, header .navbar-inverse .navbar-nav.mainmenu > li.active > a, header .navbar-inverse .navbar-nav.mainmenu > li:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li:active > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:active > a*/ { /* Gelb */
 	color: #fcce14;
+}
+.color2 a, .active .color2.pin figcaption a h3, .active .color2.pin figcaption a p { /* Pink */
+	color: #d1418f;
+}
+.color3 a, .active .color3.pin figcaption a h3, .active .color3.pin figcaption a p { /* Grün */
+	color: #91e31c;
+}
+.color4 a, .active .color4.pin figcaption a h3, .active .color4.pin figcaption a p { /* Blau */
+	color: #13fffd;
 }
 /*#search-container #form_submit.btn {
 	color:#000000;
@@ -472,7 +481,7 @@ header .icon.icon-login {
 
 
 /****************************  Color, Effects Content ****************************/
-body, .btn-default, a.btn-default:hover, a.btn-default:active, a.btn-default:active:focus, .episode .misc a, a:hover, select.form-control.ghost, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, .pin a figcaption h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3  {
+body, .btn-default, .btn-default:hover, .btn-default:active, .btn-default:active:focus, .episode .misc a, a:hover, select.form-control.ghost, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, .pin a figcaption h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3  {
 	color:#ffffff;
 }
 .form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default, .timetable .btn, .bootstrap-datetimepicker-widget, header .collapseShare .form-control {
@@ -519,7 +528,7 @@ button .btn-default.active, .oktothek article a.btn-default, .collapseShare .btn
 	background-color:transparent;
 }
 /* Spacelayout */
-button .btn-default.but-full.active, a.btn-default:hover, a.btn-default:focus, a.btn-default:active, a.btn-default:active:focus, .oktothek article a.btn-default.but-full, .input-group-addon { /* Gelb */
+button .btn-default.but-full.active, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default:active:focus, .oktothek article a.btn-default.but-full, .input-group-addon { /* Gelb */
 	background-color:#fcce14;
 }
 
@@ -545,7 +554,7 @@ button .btn-default.but-full.active, a.btn-default:hover, a.btn-default:focus, a
 	border:dotted 1px #5a6769;
 }
 /* Spacelayout */
-.btn-default, a.btn-default:hover, a.btn-default:focus, a.btn-default:active, a.btn-default:active:focus, .btn-default.but-full:hover, .btn-primary, .pull-right .icon { /* Gelb */
+.btn-default, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default:active:focus, .btn-default.but-full:hover, .btn-primary, .pull-right .icon { /* Gelb */
 	border: solid 2px #fcce14;
 }
 /* Türkis */
@@ -678,7 +687,7 @@ section, .participart article  {
 .footer .icon-youtube, .collapseShare .icon-youtube, .series .infos .icon-youtube {
 	background-image:url(../images/icon_youtube.svg);
 }
-.pin .pin-icon {
+.pin .pin-icon, .playlists .mini-player {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/bg_favourite.svg);
@@ -769,13 +778,25 @@ section, .participart article  {
 	background-repeat:no-repeat;
 	background-position:top left;
 }
-section:last-child {
+section:last-child, section.playlist_container {
 	background-image:none;
 }
 .playlists .playlists-arrow-down {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/icon_playlist_arrow.svg);
+}
+.playlists .edit {
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/icon_edit.svg);
+	-webkit-background-size: 50% 50%;
+    -moz-background-size: 50% 50%;
+    -o-background-size: 50% 50%;
+	background-size: 50% 50%;
+}
+.playlists .edit:hover {
+	background-image:url(../images/icon_edit_hover.svg);
 }
 
 @media (min-width: 768px) {
@@ -1776,11 +1797,23 @@ figure.pin img, .programm .schedule img {
 	vertical-align:middle;
 	top:-3px;
 }
-.playlists .playlist-minimized {
+.playlists .playlist-buttons {
 	position:absolute;
-	top:0;
 	right: -50px;
+	top:0;
+}
+.playlists .description-container h2 {
+	margin-bottom:4px;
+}
+.playlists .playlist-minimized, .playlists edit {
+	
+}
+.playlists .playlist-minimized {
+	
 	display:none;
+}
+.playlists edit {
+	
 }
 .playlists .jw-display-icon-container {
 	display:none;
@@ -1823,6 +1856,34 @@ figure.pin img, .programm .schedule img {
 }
 #button_down span.glyphicon {
 	top:auto;
+}
+.playlists .content-opacity {
+	padding:15px;
+	position:relative;
+	margin-right:15px;
+}
+.playlists .content-opacity {
+	z-index:1;
+}
+.playlists .playlist-buttons div {
+	margin-bottom:5px;
+}
+.playlists figure.pin .mini-player {
+	width:35px;
+	height:35px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-17px 0 0 -17px;
+	z-index:2;
+	text-align:center;
+	line-height:35px;
+	vertical-align:middle;
+	padding-left:1px;
+	display:none;
+}
+.playlists .active figure.pin .mini-player, .playlists figure.pin:hover .mini-player {
+	display:block;
 }
 @media (min-width: 768px) and (max-height: 600px) {
 	.playlists header.description-wrapper {

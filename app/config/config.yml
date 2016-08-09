@@ -255,7 +255,7 @@ fos_elastica:
                                 filter   : [snowball, my_ngram]
                         filter:
                             my_ngram:
-                                type: nGram
+                                type: edgeNGram
                                 min_gram: 3
                                 max_gram: 20
             types:

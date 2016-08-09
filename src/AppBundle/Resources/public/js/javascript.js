@@ -20,6 +20,12 @@ $(document).ready(function(){
 	}
 	Sizes();
 	
+	//Zufallsgenerator
+	function randomNumber(arr) {
+		var rand = Math.floor((Math.random() * arr.length) + 1); 
+		return rand;
+	}
+	
 	//Menü
 
 	function addHeaderBG() {
@@ -337,16 +343,11 @@ $(document).ready(function(){
 		});
 	}
 	
-	function randomNumber() {
-		var rand = Math.floor((Math.random() * avatar.length) + 1); 
-		return rand;
-	}
-	
 	if ($('section').hasClass('comments') || $('section').hasClass('blog')) {
 		var avatar = new Array('avatar1', 'avatar2', 'avatar3', 'avatar4');
 		for (i=0; i<$('.avatar-container').length; i++)
 		{
-			rand = randomNumber();
+			rand = randomNumber(avatar)-1;
 			$('.avatar-container').eq(i).find('div').addClass(avatar[rand]);
 		}
 	}
@@ -379,4 +380,15 @@ $(document).ready(function(){
         closePlaylistDescr('min');
 		scrollToAnchor($('.playlists .player-container'));
     })
+	
+	//Ändert die Farbe des aktiven Playlistitems
+	if ($('section').hasClass('playlist_container')) {
+		var playbutton = new Array('color1', 'color2', 'color3', 'color4');
+		for (i=0; i<$('.list-group-item').length; i++)
+		{
+			rand = randomNumber(playbutton)-1;
+			$('.list-group-item').eq(i).find('article').addClass(playbutton[rand]);
+		}
+	}
+	
 });
