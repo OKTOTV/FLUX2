@@ -50,14 +50,17 @@
         <div id="playlist_items">
             {% for item in form.items %}
             <div class="row">
-                <div class="col-md-3 col-xs-3">
+                <div class="col-md-2 col-xs-2">
                     <img src="{{ item.vars.value.episode.posterframe(true)|thumb(135,240)}}" class="img img-responsive" />
                 </div>
-                <div class="col-md-8 col-xs-7">
-                    <h4>{{ item.vars.value.episode.name }}</h4>
-                    <p>
-                        {{ item.vars.value.episode.description }}
-                    </p>
+                <div class="col-md-9 col-xs-8">
+                    <a href="{{ path('oktothek_show_episode', {'uniqID': item.vars.value.episode.uniqID})}}">
+					    <h3>{{ item.vars.value.episode.series.name|default('') }}</h3>
+                        <p>
+                            <!-- {{ item.vars.value.episode.description }}<br> -->
+						    {{ item.vars.value.episode.name }}
+                        </p>
+					    </a>
                 </div>
                 <div class="col-md-1 col-xs-2">
                     <div class="list-group">
@@ -171,4 +174,8 @@
             });
         });
     </script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/playlists.css') }}" rel="stylesheet" />
 {% endblock %}
