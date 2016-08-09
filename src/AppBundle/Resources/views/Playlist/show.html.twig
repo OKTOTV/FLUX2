@@ -24,17 +24,20 @@
                 <button class="btn transparent pull-right"><span class="icon-close" aria-hidden="true" style="display: block;">×</span></button>
                 <h1>{{ playlist.name }}</h1>
                 <p>Erstellt von {{ playlist.user }}</p>
-                {% if app.user == playlist.user %}
-                <a href="{{ path('oktothek_edit_playlist', {'uniqID': playlist.uniqID}) }}" class="btn btn-default">Bearbeiten</a>
-                {% endif %}
                 <p class="description">{{ playlist.description }}</p>
                 <p class="misc"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> Playliste starten</button> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button></p>
             </div>
         </header>
-        <div class="playlist-minimized">
-            <button class="btn btn-default circle"><span>i</span></button>
+		<div class="playlist-buttons">
+            <div class="playlist-minimized">
+                <button class="btn btn-default circle"><span>i</span></button>
+            </div>
+		    {% if app.user == playlist.user %}
+		    <div>
+                <a href="{{ path('oktothek_edit_playlist', {'uniqID': playlist.uniqID}) }}" class="btn btn-default circle edit"> </a>
+	        </div>
+            {% endif %}
         </div>
-
     </div>
     <div class="description-container row">
         <!--<div class="col-md-3">
@@ -45,13 +48,11 @@
             </div>
         </div>-->
 		<article>
-		    <p class="series">
-                <a href="#" title="">Serienname</a>
-            </p>
-		    <h2 class="name">Titel</h2>
+		    <p class="series"><a href="#" title=""></a></p>
+		    <h2 class="name"></h2>
 			<time pubdate="pubdate">online seit <span class="date"></span></time>
-		    <p class="description">Beschreibung</p>
-			<p><a href="#">Folgendetails</a></p>
+		    <p class="description"></p>
+			<p><a href="#" class="episodelink">Folgendetails</a></p>
 		</article>
     </div>
 </section>
@@ -62,12 +63,14 @@
         <li class="list-group-item clearfix">
             <article title="{{ playlistItem.episode.description }}" class="pin">
                 <figure class="col-md-2 col-lg-2 col-sm-2 col-xs-2 pin">
-                    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}"><img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
+				    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}">
+					<div class="mini-player"><span class="glyphicon glyphicon-play"> </span></div>
+                    <img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
                 </figure>
                 <figcaption class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
                     <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}">
-                        <h3>{{ playlistItem.episode.name }}</h3>
-                        <p>{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</p>
+                        <h3 data-link="{{ path('oktothek_show_series', {'uniqID': playlistItem.episode.series.uniqID}) }}">{{ playlistItem.episode.series.name|default('') }}</h3>
+                        <p data-date="{{ playlistItem.episode.onlineStart|date('d.m.Y')}}">{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</p>
                     </a>
                 </figcaption>
             </article>
@@ -82,10 +85,39 @@
 {{ playlist(playlist)|raw }}
 <script>
     $(document).ready(function(){
+        function change_Pin_Statusicon(status) {
+            activeItem = jwplayer().getPlaylistIndex();
+			activeNode = $("a.playme[data-list='" + activeItem + "']").parents('li').find('.mini-player');
+			if (status == 'play') {
+			    $(activeNode).find('span').removeClass('glyphicon-play');
+		        $(activeNode).find('span').addClass('glyphicon-pause');
+			} else {
+			    $(activeNode).find('span').removeClass('glyphicon-pause');
+		        $(activeNode).find('span').addClass('glyphicon-play');
+			}
+		}
         $('.playme').click(function(e){
             e.preventDefault();
             jwplayer('player').playlistItem($(this).data('list'));
         })
+		jwplayer().on('playlistItem', function() {
+		    activeItem = jwplayer().getPlaylistIndex();
+			activeNode = $("a.playme[data-list='" + activeItem + "']").parents('li');
+			//Node active kennzeichnen
+			$("a.playme").parents('li').removeClass('active');
+		    $(activeNode).addClass('active');
+			//Beschreibung ausgeben
+			$('.description-container article').replaceWith('<article><p class="series"><a href="' + $(activeNode).find('figcaption h3').attr('data-link') + '" title="' + $(activeNode).find('figcaption h3').text() + '">' + $(activeNode).find('figcaption h3').text() + '</a></p><h2>' + $(activeNode).find('figcaption p').text() + '</h2><time pubdate="pubdate">online seit <span class="date">' + $(activeNode).find('figcaption p').attr('data-date') + '</span></time><p class="description">' + $(activeNode).find('article').attr('title') + '</p><p><a href="' + $(activeNode).find('figcaption a.playme').attr('href') + '" class="episodelink">Folgendetails</a></p><article>');
+		});
+	    jwplayer().on('play', function(){
+		    allNodes = $('a.playme').parents('li').find('.mini-player');
+		    $(allNodes).find('span').removeClass('glyphicon-pause');
+			$(allNodes).find('span').addClass('glyphicon-play');
+		    change_Pin_Statusicon('play');
+        });
+		jwplayer().on('pause', function(){
+            change_Pin_Statusicon('stop');
+		});
 		$('#button_down').click(function() {
 			var offsetEl = $('section.playlist_container').offset();
 		    $("html, body").animate({scrollTop : (offsetEl.top - $('header .navbar').height()) + "px"}, "slow");
