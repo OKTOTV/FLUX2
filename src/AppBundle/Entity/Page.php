@@ -59,7 +59,7 @@ class Page
     private $isActive;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\ManyToMany(targetEntity="Okto\MediaBundle\Entity\TagInterface")
      * @ORM\JoinTable(name="page_tags",
      *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}

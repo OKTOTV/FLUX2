@@ -8,8 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use MediaBundle\Entity\Series;
-use MediaBundle\Entity\Episode;
+use AppBundle\Entity\Series;
+use AppBundle\Entity\Episode;
 use AppBundle\Entity\Post;
 use AppBundle\Form\Series\PostType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -96,7 +96,7 @@ class SeriesController extends Controller
     public function producerNewPlaylistAction(Request $request, Series $series)
     {
         $this->denyAccessUnlessGranted('edit_channel', $series);
-        
+
     }
 
     /**
@@ -110,17 +110,17 @@ class SeriesController extends Controller
         $episodes = [];
         if ($request->getMethod() == "POST") {
             if ($request->request->get('tag') == "all") {
-                $episodes = $em->getRepository('MediaBundle:Series')->findNewestEpisodesForSeries($series);
+                $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
                 return $this->render('AppBundle::Default/EpisodeStack.html.twig', ['episodes' => $episodes]);
             } else {
                 $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $request->request->get('tag')]);
-                $episodes = $em->getRepository('MediaBundle:Series')->findEpisodesWithTag($series, $tag);
+                $episodes = $em->getRepository('AppBundle:Series')->findEpisodesWithTag($series, $tag);
                 return $this->render('AppBundle::Default/EpisodeStack.html.twig', ['episodes' => $episodes]);
             }
         } else {
-            $episodes = $em->getRepository('MediaBundle:Series')->findNewestEpisodesForSeries($series);
+            $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
         }
-        $tags = $em->getRepository('MediaBundle:Series')->getSeriesTags($series);
+        $tags = $em->getRepository('AppBundle:Series')->getSeriesTags($series);
         return ['episodes' => $episodes, 'series' => $series, 'series_tags' => $tags];
     }
 
@@ -157,7 +157,7 @@ class SeriesController extends Controller
         $this->denyAccessUnlessGranted('view_channel', $series);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $episodes = $paginator->paginate($em->getRepository('MediaBundle:Episode')->findEpisodesForSeriesQuery($series), $page, 3);
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Episode')->findEpisodesForSeriesQuery($series), $page, 3);
         return ['episodes' => $episodes, 'series' => $series];
     }
 
@@ -182,7 +182,7 @@ class SeriesController extends Controller
         $this->denyAccessUnlessGranted('view_channel', $series);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $playlists = $paginator->paginate($em->getRepository('MediaBundle:Playlist')->findPlaylistsForSeriesQuery($series), $page, 3);
+        $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeriesQuery($series), $page, 3);
         return ['playlists' => $playlists, 'series' => $series];
     }
 

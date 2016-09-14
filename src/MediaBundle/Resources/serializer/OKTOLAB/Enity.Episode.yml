@@ -1,8 +1,0 @@
-MediaBundle\Entity\Episode:
-    exclusion_policy: ALL
-    access_type: public_method
-    properties:
-        series:
-            expose: true
-            type: MediaBundle\Entity\Series
-            max_depth: 2

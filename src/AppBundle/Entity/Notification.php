@@ -43,7 +43,7 @@ class Notification
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Series")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
      */
     private $series;

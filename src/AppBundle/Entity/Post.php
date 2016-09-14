@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\Series;
 
 /**
  * Post
@@ -88,7 +89,7 @@ class Post
     private $uniqID;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag", fetch="EAGER")
+     * @ORM\ManyToMany(targetEntity="Okto\MediaBundle\Entity\TagInterface", fetch="EAGER")
      * @ORM\JoinTable(name="post_tags",
      *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
@@ -106,7 +107,7 @@ class Post
     private $assets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Series", inversedBy="posts")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
      */
     private $series;
@@ -433,7 +434,7 @@ class Post
      * @param \MediaBundle\Entity\Series $series
      * @return Post
      */
-    public function setSeries(\MediaBundle\Entity\Series $series = null)
+    public function setSeries(Series $series = null)
     {
         $this->series = $series;
 

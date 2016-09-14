@@ -43,7 +43,7 @@ class UserService {
 
     public function updateFavorite($user, $uniqID)
     {
-        $episode = $this->em->getRepository('MediaBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
+        $episode = $this->em->getRepository('OktoMediaBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
         $is_favorite = false;
         foreach ($user->getFavorites() as $favorite) {
             if ($favorite->getUniqID() == $uniqID) {

@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Series;
+use AppBundle\Entity\User;
 
 /**
  * Abonnement
@@ -55,7 +57,7 @@ class Abonnement
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series", inversedBy="abonnements")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Series", inversedBy="abonnements")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
      */
     private $series;
@@ -182,7 +184,7 @@ class Abonnement
      * @param \AppBundle\Entity\User $user
      * @return Abonnement
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -205,7 +207,7 @@ class Abonnement
      * @param \MediaBundle\Entity\Series $series
      * @return Abonnement
      */
-    public function setSeries(\MediaBundle\Entity\Series $series = null)
+    public function setSeries(Series $series = null)
     {
         $this->series = $series;
 

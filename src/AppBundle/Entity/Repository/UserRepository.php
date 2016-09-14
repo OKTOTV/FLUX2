@@ -21,7 +21,7 @@ class UserRepository extends BaseRepository
     public function findFavoritesQuery($user)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT f FROM MediaBundle:Episode f JOIN f.users u JOIN f.series s WHERE u.id = :user_id')
+            ->createQuery('SELECT f FROM OktoMediaBundle:Episode f JOIN f.users u JOIN f.series s WHERE u.id = :user_id')
             ->setParameter('user_id', $user->getId());
     }
 

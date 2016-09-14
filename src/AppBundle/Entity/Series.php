@@ -1,0 +1,96 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Okto\MediaBundle\Entity\Series as OktoSeries;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation as JMS;
+
+/**
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\SeriesRepository")
+ */
+class Series extends OktoSeries
+{
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Abonnement", mappedBy="series", cascade="remove")
+     */
+    private $abonnements;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Post", mappedBy="series")
+     */
+    protected $posts;
+
+    /**
+     * Add abonnements
+     *
+     * @param \AppBundle\Entity\Abonnements $abonnements
+     * @return Series
+     */
+    public function addAbonnement(\AppBundle\Entity\Abonnement $abonnements)
+    {
+        $this->abonnements[] = $abonnements;
+
+        return $this;
+    }
+
+    /**
+     * Remove abonnements
+     *
+     * @param \AppBundle\Entity\Abonnements $abonnements
+     */
+    public function removeAbonnement(\AppBundle\Entity\Abonnement $abonnements)
+    {
+        $this->abonnements->removeElement($abonnements);
+    }
+
+    /**
+     * Get abonnements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAbonnements()
+    {
+        return $this->abonnements;
+    }
+
+    /**
+     * Add posts
+     *
+     * @param \AppBundle\Entity\Post $posts
+     * @return Series
+     */
+    public function addPost(\AppBundle\Entity\Post $posts)
+    {
+        $this->posts[] = $posts;
+        $posts->setSeries($this);
+        return $this;
+    }
+
+    /**
+     * Remove posts
+     *
+     * @param \AppBundle\Entity\Post $posts
+     */
+    public function removePost(\AppBundle\Entity\Post $posts)
+    {
+        $this->posts->removeElement($posts);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    public function setPosts($posts)
+    {
+        $this->posts = $posts;
+    }
+}
