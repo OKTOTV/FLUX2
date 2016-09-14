@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Okto\MediaBundle\Entity\Episode as OktoEpisode;
 use JMS\Serializer\Annotation as JMS;
 use Doctrine\ORM\Mapping as ORM;
-use AppBundle\Entity\Tag;
+use Okto\MediaBundle\Entity\Tag;
 use AppBundle\Entity\User;
 
 /**

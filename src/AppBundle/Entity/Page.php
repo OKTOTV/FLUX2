@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Okto\MediaBundle\Entity\Tag;
 
 /**
  * Page
@@ -207,7 +208,7 @@ class Page
      * @param \AppBundle\Entity\Tag $tags
      * @return Page
      */
-    public function addTag(\AppBundle\Entity\Tag $tags)
+    public function addTag(Tag $tags)
     {
         $this->tags[] = $tags;
 
@@ -219,7 +220,7 @@ class Page
      *
      * @param \AppBundle\Entity\Tag $tags
      */
-    public function removeTag(\AppBundle\Entity\Tag $tags)
+    public function removeTag(Tag $tags)
     {
         $this->tags->removeElement($tags);
     }

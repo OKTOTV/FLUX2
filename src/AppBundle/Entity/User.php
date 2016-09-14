@@ -30,7 +30,7 @@ class User extends BaseUser
     private $playlists;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Okto\MediaBundle\Entity\Episode", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Episode", inversedBy="users")
      * @ORM\JoinTable(name="users_favorites")
      */
     private $favorites;
