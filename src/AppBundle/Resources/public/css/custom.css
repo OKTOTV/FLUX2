@@ -52,7 +52,7 @@ body, h1, .carousel-caption h3, h2, .pin figcaption p, .collapseShare .helptext,
 	font-weight: normal;
 	font-style: normal;
 }
-header .navbar .nav > li > a, header .navbar .nav.navbar-right > li > a, #dropdownMenuTags, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .comments h2, .comments .comment-answer, #episode-tag, .infos h3, .blog aside p a, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .timetable .btn, .academy .price, .playlists .btn.circle  {
+header .navbar .nav > li > a, header .navbar .nav.navbar-right > li > a, #dropdownMenuTags, .oktothek .participart figcaption, .pin figcaption h3, .news h3, .footer h3, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .comments h2, .comments .comment-answer, #episode-tag, .infos h3, .blog aside p a, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .timetable .btn, .academy .price, .playlists .btn.circle, .edit-playlists form label  {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -73,7 +73,7 @@ h1, h2, .h2 {
 .carousel-caption h3, .pull-right .icon, .series h1, .playlists #StartPlaylist.btn span.glyphicon, .playlists .btn.circle {
 	font-size:24px;
 }
-header .navbar-toggle.search-button span, header .navbar-toggle.menu-button span.icon-close, .subheadline, .participart .button_container .btn, .news p, figcaption .description, .academy .preview p {
+header .navbar-toggle.search-button span, header .navbar-toggle.menu-button span.icon-close, .subheadline, .participart .button_container .btn, .news p, figcaption .description, .academy .preview p, #favorite .glyphicon {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -100,22 +100,23 @@ h3, .h3, header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu
 .form-control::-webkit-input-placeholder, .pin-icon {
         font-size:14px;
 }
-.programm p.current-episode, header .nav, .pin figcaption p, .btn, .pin .pin-icon .glyphicon, .news .tag, .footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .collapseShare .helptext, .comments .author, .comments .comment-answer, #episode-tag, .infos h3, .blog time, .academy .pin .preview-content a, .preview p.misc, a.more {
+.programm p.current-episode, header .nav, .pin figcaption p, .btn, .pin .pin-icon .glyphicon, .news .tag, .footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .collapseShare .helptext, .comments .author, .comments .comment-answer, #episode-tag, .infos h3, .blog time, .academy .pin .preview-content a, .preview p.misc, a.more, #playlist_items a p {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
 /* Spacelayout */
-.oktothek .participart-list figcaption {
+.oktothek .participart-list figcaption, .edit-playlists form label {
 	font-size:11px;
+	letter-spacing:0.50px;
 }
 .pin .pin-icon {
 	font-size:10px;
 }
-.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.more, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .playlists .series a {
+.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.more, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .playlists .series a, .edit-playlists form label {
 	text-transform:uppercase;
 }
 
-.btn.btn-top, #episode-tag option, #slider h3, header .navbar-nav.themes a, .playlists .btn.circle {
+.btn.btn-top, #episode-tag option, #slider h3, header .navbar-nav.themes a, .playlists .btn.circle, header .navbar-nav .dropdown-menu > li a {
 	text-transform:none;
 }
 .newsarchiv .label, label, .carousel-caption h3, .series h1 {
@@ -162,10 +163,22 @@ header .nav {
 
 /* Basic Color */
 /* Menu*/
-#dropdownMenuTags.btn-default, header .navbar-inverse .navbar-nav.mainmenu > .active > a, header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, header .mainmenu li:hover a, header .mainmenu li:hover a:hover, .navbar-inverse .navbar-nav > li > a, header .collapse.in a, .navbar-inverse .navbar-nav > li > a, .blog p, .btn.transparent:hover, .btn.transparent:focus {
+#dropdownMenuTags.btn-default,  
+header .collapse.in a, 
+header .navbar-inverse .navbar-nav > li > a, 
+header .navbar-inverse .navbar-nav > li:hover > a,
+header .navbar-inverse .navbar-nav > .active > a, 
+header .navbar-inverse .navbar-nav > .active > a:hover, 
+header .navbar-inverse .navbar-nav > .active > a:focus,
+header .navbar-inverse .navbar-nav .dropdown-menu > li > a,
+header .navbar-inverse .navbar-nav .open .dropdown-menu > li > a
+{
     color: #ffffff;
 }
-header input.form-control, header #search-container #form_submit.btn, header button.search-button span.icon-close {
+
+header input.form-control, 
+header #search-container #form_submit.btn, 
+header button.search-button span.icon-close {
 	color: #818181;
 }
 /* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -179,20 +192,30 @@ header .form-control:-ms-input-placeholder {
 header .form-control::-webkit-input-placeholder {
   color: #818181;
 }
-header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > .active > a:focus, header .navbar-inverse .navbar-nav > a:focus, header .navbar-inverse .navbar-nav > a:hover, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+/* {
 	color: #333333;
-}
-.carousel-caption .type, header .navbar-inverse .navbar-toggle:hover, header .navbar-inverse .navbar-toggle:focus, header button.search-button:focus span.close-searchfield, header button.search-button:hover span.icon-close, header #search-container #form_submit.btn:hover, header #search-container #form_submit.btn:focus, header #search-container #form_submit.btn:active, .color1 a, .active .color1.pin figcaption a h3, .color1.pin figcaption a p/*, header .navbar-inverse .navbar-nav.mainmenu > li.active > a, header .navbar-inverse .navbar-nav.mainmenu > li:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li:active > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:active > a*/ { /* Gelb */
+}*/
+header button.search-button:focus span.close-searchfield, 
+header button.search-button:hover span.icon-close, 
+header #search-container #form_submit.btn:hover, 
+header #search-container #form_submit.btn:focus, 
+header #search-container #form_submit.btn:active, 
+header .navbar-inverse .navbar-toggle:hover, 
+header .navbar-inverse .navbar-toggle:focus, 
+header .navbar-nav .dropdown-menu > li > a:hover, 
+header .navbar-nav .dropdown-menu > li > a:active, 
+header .navbar-nav .dropdown-menu > li.active > a, 
+header .navbar-nav .dropdown-menu > li.active > a:focus, 
+header .navbar-nav .dropdown-menu > li.active > a:hover, 
+header .mainmenu li:hover a:hover, 
+header .navbar-inverse .navbar-nav > .active > a:hover, 
+header .navbar-inverse .navbar-nav > .active > a:focus, 
+header .navbar-inverse .navbar-nav > a:focus, 
+header .navbar-inverse .navbar-nav > a:hover, 
+header .navbar-inverse .navbar-nav > li > a:hover, 
+header .navbar-inverse .navbar-nav > li > a:focus,
+.carousel-caption .type/*, header .navbar-inverse .navbar-nav.mainmenu > li.active > a, header .navbar-inverse .navbar-nav.mainmenu > li:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li:active > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:active > a*/ { /* Gelb */
 	color: #fcce14;
-}
-.color2 a, .active .color2.pin figcaption a h3, .active .color2.pin figcaption a p { /* Pink */
-	color: #d1418f;
-}
-.color3 a, .active .color3.pin figcaption a h3, .active .color3.pin figcaption a p { /* Grün */
-	color: #91e31c;
-}
-.color4 a, .active .color4.pin figcaption a h3, .active .color4.pin figcaption a p { /* Blau */
-	color: #13fffd;
 }
 /*#search-container #form_submit.btn {
 	color:#000000;
@@ -202,32 +225,77 @@ header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar
 /* Backgroundcolor */
 
 /* Header */
-.fullscreen-images .navbar-inverse, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .footer, header form button[type="submit"], header input.form-control, header #dropdownMenuTags.btn-default, header #dropdownMenuTags.btn-default:hover, header #dropdownMenuTags.btn-default:focus, header #dropdownMenuTags.btn-default:active, header #dropdownMenuTags.btn-default.active, .open > header #dropdownMenuTags.dropdown-toggle.btn-default, header .navbar-inverse .navbar-toggle:focus, header .navbar-inverse .navbar-toggle:hover, .btn.transparent {
+.fullscreen-images .navbar-inverse, 
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus, 
+header form button[type="submit"], 
+header input.form-control, 
+header #dropdownMenuTags.btn-default, 
+header #dropdownMenuTags.btn-default:hover, 
+header #dropdownMenuTags.btn-default:focus, 
+header #dropdownMenuTags.btn-default:active, 
+header #dropdownMenuTags.btn-default.active, 
+.open > header #dropdownMenuTags.dropdown-toggle.btn-default, 
+header .navbar-inverse .navbar-toggle:focus, 
+header .navbar-inverse .navbar-toggle:hover, 
+header .navbar-nav .dropdown-menu, 
+header .navbar-nav .dropdown-menu li:first-child, 
+header .navbar-inverse .navbar-nav > .open > a, 
+header .navbar-inverse .navbar-nav > .open > a:focus, 
+header .navbar-inverse .navbar-nav > .open > a:hover, 
+header .dropdown-menu > .active > a, 
+header .dropdown-menu > .active > a:focus, 
+header .dropdown-menu > .active > a:hover,
+.btn.transparent {
     background-color: transparent;
 }
-header .navbar-collapse, header .navbar-fixed-top, header .navbar-content, header .navbar-inverse button.navbar-toggle.collapsed.search-button, header .navbar-inverse button.navbar-toggle.collapsed.search-button:hover, header .navbar-inverse button.navbar-toggle.collapsed.search-button:focus {
+header .navbar-collapse, 
+header .navbar-fixed-top, 
+header .navbar-content, 
+header .navbar-inverse button.navbar-toggle.collapsed.search-button, 
+header .navbar-inverse button.navbar-toggle.collapsed.search-button:hover, 
+header .navbar-inverse button.navbar-toggle.collapsed.search-button:focus {
 	background-color:#000000;
 }
-header .searchfield, .navbar-inverse, header .navbar-inverse .navbar-toggle .icon-bar, header .navbar-inverse button.navbar-toggle.search-button, header .navbar-inverse button.navbar-toggle.search-button:focus, header .navbar-inverse button.navbar-toggle.search-button:hover {
+header .searchfield, 
+.navbar-inverse, 
+header .navbar-inverse .navbar-toggle .icon-bar, 
+header .navbar-inverse button.navbar-toggle.search-button, 
+header .navbar-inverse button.navbar-toggle.search-button:focus, 
+header .navbar-inverse button.navbar-toggle.search-button:hover {
 	background-color:#ffffff;
 }
-header .navbar-inverse .navbar-toggle:hover .icon-bar, header .navbar-inverse .navbar-toggle:focus .icon-bar {
+header .navbar-inverse .navbar-toggle:hover .icon-bar, 
+header .navbar-inverse .navbar-toggle:focus .icon-bar {
 	background-color:#fcce14;
+}
+header .navbar-nav .dropdown-menu li.divider {
+	background-color: #212b2c;
 }
 
 /* Border */
 
 /* Header */
-.navbar-inverse, header input.form-control, header input.form-control:focus, .navbar-inverse .navbar-form, header .navbar-inverse .navbar-toggle, header .navbar-inverse .navbar-collapse, header .navbar-inverse .navbar-form {
+.navbar-inverse, 
+header input.form-control, 
+header input.form-control:focus, 
+header .navbar-inverse .navbar-form, 
+header .navbar-inverse .navbar-toggle, 
+header .navbar-inverse .navbar-collapse, 
+header .navbar-inverse .navbar-form {
     border-color: transparent;
 }
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
 	border-bottom:none
 }
 header #dropdownMenuTags.btn-default {
 	border:solid 2px #ffffff;
 }
-header .navbar-collapse .navbar-nav.themes, header #mainmenu-container {
+header .navbar-collapse .navbar-nav.themes, 
+header #mainmenu-container {
 	border-top:solid 1px #112022;
 }
 header #mainmenu-container {
@@ -239,16 +307,26 @@ header .navbar-inverse button.navbar-toggle.search-button {
 header .navbar-inverse button.navbar-toggle.collapsed.search-button {
 	border-left:none;
 }
-header #dropdownMenuTags.btn-default, header .dropdown-menu, header .navbar-form input.form-control {
+header #dropdownMenuTags.btn-default, 
+header .dropdown-menu, 
+header .navbar-form input.form-control {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
+}
+header .dropdown-menu {
+	border:none;
 }
 
 /* Effects */
 
 /* Header */
-header input.form-control:focus, header .navbar-collapse, .navbar-form, header .btn.active, header .btn:active {
+header input.form-control:focus, 
+header .navbar-collapse, 
+header .navbar-form, 
+header .btn.active, 
+header .btn:active, 
+header .dropdown-menu {
     -webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
@@ -282,7 +360,8 @@ header #search-container.navbar-collapse.collapsing {
 	background-image:url(../images/logo_okto_white_90.png);
 	background-repeat:no-repeat;
 }*/
-header form button[type="submit"], header form button[type="submit"].btn:active {
+header form button[type="submit"], 
+header form button[type="submit"].btn:active {
 	background-image:url(../images/icon_search.png);
 	background-repeat:no-repeat;
 	background-position:center center;
@@ -310,7 +389,10 @@ header .icon.icon-login {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-.navbar-inverse .navbar-nav.navbar-right > li > a:hover, .navbar-inverse .navbar-nav.navbar-right > .active > a, .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+header .navbar-inverse .navbar-nav.navbar-right > li > a:hover, 
+header .navbar-inverse .navbar-nav.navbar-right > .active > a, 
+header .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, 
+header .navbar-inverse .navbar-nav > .active > a:focus {
 	background-image:none;
 }
 #button_down {
@@ -318,23 +400,48 @@ header .icon.icon-login {
 	background-repeat:no-repeat;
 	background-position:center center;*/
 }
-.page-bg { /*Wäre am besten wenn Klasse an HTML angehängt wäre*/
-/*
 
-	background-attachment:fixed;*/
+header .dropdown-menu div.triangle {
+	width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid #112022;
+	position:relative;
+	left:150px;
 }
 
 
 @media (min-width: 768px) {
 	/* Color */
-	.navbar-inverse .navbar-nav > li > a, header .collapse.in a, header .navbar-inverse .navbar-nav > .active > a, header .navbar-inverse .navbar-nav > .active > a:hover, header .navbar-inverse .navbar-nav > 	.active > a:focus, .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+	header .collapse.in a, 
+	header .navbar-inverse .navbar-nav .dropdown > li > a, 
+	header .collapse.in .dropdown a, 
+	/*header .mainmenu li:hover a:hover, */
+	header .navbar-inverse .navbar-nav > .active > a, 
+	header .navbar-inverse .navbar-nav > .active > a:hover, 
+	header .navbar-inverse .navbar-nav > .active > a:focus,
+	header .navbar-inverse .navbar-nav > a:focus, 
+	header .navbar-inverse .navbar-nav > a:hover, 
+	header .navbar-inverse .navbar-nav > li > a, 
+	header .navbar-inverse .navbar-nav > li > a:hover, 
+	header .navbar-inverse .navbar-nav > li > a:focus {
 		color: #ffffff;
 	}
-	.navbar-inverse .navbar-nav .dropdown > li > a, header .collapse.in .dropdown a {
-		color: #000000;
+	header .navbar-nav .dropdown-menu > li, 
+	header .navbar-nav .dropdown-menu > li > a:hover, 
+	header .navbar-nav .dropdown-menu > li > a:active {
+		background-color: #112022;
 	}
 	/* Backgroundcolor */
-	header .navbar-collapse, header .mainmenu li.active, header .mainmenu li:hover, header .mainmenu li:active, header .mainmenu li.active:hover, header .mainmenu li.active:active, header .navbar-fixed-top, header .navbar-content {
+	header .navbar-collapse, 
+	header .mainmenu li.active, 
+	header .mainmenu li:hover, 
+	header .mainmenu li:active, 
+	header .mainmenu li.active:hover, 
+	header .mainmenu li.active:active, 
+	header .navbar-fixed-top, 
+	header .navbar-content {
 		background-color:transparent;
 	}
 	header .brandimage {
@@ -355,11 +462,16 @@ header .icon.icon-login {
 	header .navbar-collapse .navbar-nav.themes/*, .navbar-inverse .navbar-nav.navbar-right > li > a:hover, .navbar-inverse .navbar-nav.navbar-right > .active > a, .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus*/ {
 		background-image:none;
 	}
-	.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
+	header .navbar-inverse .navbar-nav > li > a:hover, 
+	header .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
 		border-top:solid #ffffff 1px;
 	}
 	/* Border */
-	.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a,  .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover, header #mainmenu-container, .navbar-inverse .navbar-nav.navbar-right > li > a:hover {
+	header .navbar-inverse .navbar-nav > .active > a, 
+	header .navbar-inverse .navbar-nav > .active > a:focus, 
+	header .navbar-inverse .navbar-nav > .active > a:hover, 
+	header .navbar-inverse .navbar-nav.navbar-right > li > a:hover,
+	header #mainmenu-container {
 		border-top:none;
 	}
 	header #mainmenu-container {
@@ -390,7 +502,6 @@ header .icon.icon-login {
 .head-black-bg .navbar-fixed-top,
 .head-white-color header .searchfield, .head-white-color header #dropdownMenuTags.btn-default,
 .head-black-color header .searchfield, .head-black-color header #dropdownMenuTags.btn-default
-
  {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
@@ -403,7 +514,13 @@ header .icon.icon-login {
 .head-white-color svg path {
 	fill: white;
 }
-.head-white-color header input.form-control, .head-white-color #dropdownMenuTags.btn-default, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .head-white-color header .mainmenu li:hover a, .head-white-color header .mainmenu li:hover a:hover {
+.head-white-color header input.form-control, 
+.head-white-color #dropdownMenuTags.btn-default, 
+.head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, 
+.head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, 
+.head-white-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, 
+.head-white-color header .mainmenu li:hover a, 
+.head-white-color header .mainmenu li:hover a:hover {
     color: white;
 }
 .head-white-color header input.form-control {
@@ -412,21 +529,35 @@ header .icon.icon-login {
 @media (min-width: 768px) {
 	/* Color */
 	/* Menu */
-	.head-white-color .navbar-inverse .navbar-nav > li > a, .head-white-color header .collapse.in a, .head-white-color header .navbar-inverse .navbar-nav > .active > a, .head-white-color header .navbar-inverse .navbar-nav > .active > a:hover, .head-white-color header .navbar-inverse .navbar-nav > 	.active > a:focus, .head-white-color .navbar-inverse .navbar-nav > li > a:hover, .head-white-color .navbar-inverse .navbar-nav > li > a:focus {
+	.head-white-color .navbar-inverse .navbar-nav > li > a, 
+	.head-white-color header .collapse.in a, 
+	.head-white-color header .navbar-inverse .navbar-nav > .active > a, 
+	.head-white-color header .navbar-inverse .navbar-nav > .active > a:hover, 
+	.head-white-color header .navbar-inverse .navbar-nav > 	.active > a:focus, 
+	.head-white-color .navbar-inverse .navbar-nav > li > a:hover, 
+	.head-white-color .navbar-inverse .navbar-nav > li > a:focus {
 		color: #ffffff;
 	}
-	.head-white-color .navbar-inverse .navbar-nav .dropdown > li > a, .head-white-color header  .collapse.in .dropdown a {
+	.head-white-color .navbar-inverse .navbar-nav .dropdown > li > a, 
+	.head-white-color header  .collapse.in .dropdown a {
 		color: #000000;
 	}
-	.head-white-color .navbar-inverse .navbar-nav > li > a:hover, .head-white-color navbar-inverse .navbar-nav > .active > a, .head-white-color .navbar-inverse .navbar-nav > .active > a:hover, .head-white-color .navbar-inverse .navbar-nav > .active > a:focus {
+	.head-white-color .navbar-inverse .navbar-nav > li > a:hover, 
+	.head-white-color navbar-inverse .navbar-nav > .active > a, 
+	.head-white-color .navbar-inverse .navbar-nav > .active > a:hover, 
+	.head-white-color .navbar-inverse .navbar-nav > .active > a:focus {
 		background-image:url(../images/menu-border.png);
 	    background-repeat:repeat-x;
 	    background-position:left top;
 	}
-	.head-white-color .navbar-inverse .navbar-nav.navbar-right > li > a:hover, .head-white-color .navbar-inverse .navbar-nav.navbar-right > .active > a, .head-white-color .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, .head-white-color .navbar-inverse .navbar-nav > .active > a:focus {
+	.head-white-color .navbar-inverse .navbar-nav.navbar-right > li > a:hover, 
+	.head-white-color .navbar-inverse .navbar-nav.navbar-right > .active > a, 
+	.head-white-color .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, 
+	.head-white-color .navbar-inverse .navbar-nav > .active > a:focus {
 		background-image:none;
 	}
-	.head-white-color header .searchfield, .head-white-color header #dropdownMenuTags.btn-default {
+	.head-white-color header .searchfield, 
+	.head-white-color header #dropdownMenuTags.btn-default {
 		border-color: #ffffff;
 	}
 }
@@ -435,7 +566,13 @@ header .icon.icon-login {
 .head-black-color svg path {
 	fill: black;
 }
-.head-black-color header input.form-control, .head-black-color #dropdownMenuTags.btn-default, .head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, .head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, .head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, .head-black-color header .mainmenu li:hover a, .head-black-color header .mainmenu li:hover a:hover {
+.head-black-color header input.form-control,
+.head-black-color #dropdownMenuTags.btn-default, 
+.head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a, 
+.head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:hover, 
+.head-black-color header .navbar-inverse .navbar-nav.mainmenu > .active > a:focus, 
+.head-black-color header .mainmenu li:hover a, 
+.head-black-color header .mainmenu li:hover a:hover {
 	color: black;
 }
 .head-black-color header .searchfield {
@@ -447,10 +584,18 @@ header .icon.icon-login {
 @media (min-width: 768px) {
 	/* Color */
 	/* Menu */
-	.head-black-color .navbar-inverse .navbar-nav > li > a, .head-black-color header .collapse.in a, .head-black-color header .navbar-inverse .navbar-nav > .active > a, .head-black-color header .navbar-inverse .navbar-nav > .active > a:hover, .head-black-color header .navbar-inverse .navbar-nav > .active > a:focus, .head-black-color .navbar-inverse .navbar-nav > li > a:hover, .head-black-color .navbar-inverse .navbar-nav > li > a:focus {
+	.head-black-color .navbar-inverse .navbar-nav > li > a, 
+	.head-black-color header .collapse.in a, 
+	.head-black-color header .navbar-inverse .navbar-nav > .active > a, 
+	.head-black-color header .navbar-inverse .navbar-nav > .active > a:hover, 
+	.head-black-color header .navbar-inverse .navbar-nav > .active > a:focus, 
+	.head-black-color .navbar-inverse .navbar-nav > li > a:hover, 
+	.head-black-color .navbar-inverse .navbar-nav > li > a:focus {
 		color: black;
 	}
-	.head-black-color .navbar-inverse .navbar-nav > .active > a, .head-black-color .navbar-inverse .navbar-nav > .active > a:hover, .head-black-color .navbar-inverse .navbar-nav > .active > a:focus {
+	.head-black-color .navbar-inverse .navbar-nav > .active > a, 
+	.head-black-color .navbar-inverse .navbar-nav > .active > a:hover, 
+	.head-black-color .navbar-inverse .navbar-nav > .active > a:focus {
 		border-bottom:solid 2px #000000;
 	}
 }
@@ -469,7 +614,9 @@ header .icon.icon-login {
 }
 
 /* Body  Weiße Schrift */
-.body-white-color, .body-white-color a, .body-white-color a.pull-right {
+.body-white-color, 
+.body-white-color a, 
+.body-white-color a.pull-right {
 	color:white;
 }
 
@@ -481,20 +628,66 @@ header .icon.icon-login {
 
 
 /****************************  Color, Effects Content ****************************/
-body, .btn-default, .btn-default:hover, .btn-default:active, .btn-default:active:focus, .episode .misc a, a:hover, select.form-control.ghost, .oktothek article a.btn-default:hover, a.play-episode.btn-default:hover, .news h3 a, .pin h3 a, .pin figcaption a h3, .pin a figcaption h3, a .pin-icon, .oktothek .participart-list a, .btn.pin-icon, #episode-tag option, .blog aside p a, .blog a h3, .btn-default:focus, .btn-default:active:hover, .btn-default.active:hover, .btn-default.focus:active, .btn-default.active.focus  {
+body,
+.btn-default, 
+.btn-default:hover, 
+.btn-default:active, 
+.btn-default:active:focus, 
+.episode .misc a, 
+a:hover, 
+select.form-control.ghost, 
+.oktothek article a.btn-default:hover, 
+a.play-episode.btn-default:hover, 
+.news h3 a, 
+.pin h3 a, 
+.pin figcaption a h3, 
+.pin a figcaption h3, 
+a .pin-icon, 
+.oktothek .participart-list a, 
+.btn.pin-icon, 
+#episode-tag option, 
+.blog aside p a, 
+.blog a h3, 
+.btn-default:focus, 
+.btn-default:active:hover, 
+.btn-default.active:hover, 
+.btn-default.focus:active, 
+.btn-default.active.focus, 
+a.list-group-item-danger, 
+button.list-group-item-danger, 
+#playlist_items a h3, 
+.blog p,
+.btn.transparent:hover, 
+.btn.transparent:focus {
 	color:#ffffff;
 }
-.form-control, .oktothek article a.btn-default, .modal, button .btn-default.active, .input-group-addon, .collapseShare .btn-default, .timetable .btn, .bootstrap-datetimepicker-widget, header .collapseShare .form-control {
+.form-control, 
+.oktothek article a.btn-default, 
+.modal, button .btn-default.active, 
+.input-group-addon, 
+.collapseShare .btn-default, 
+.timetable .btn, 
+.bootstrap-datetimepicker-widget, 
+header .collapseShare .form-control {
 	color:#000000;
 }
 /* Türkis */
 /*a, a.more  { 
 	color:#13fffd;
 }*/
-.pin figcaption p a, .pin figcaption a p, .news p, .comments .author, .academy .preview p, .academy .pin .preview-content a { /* Hellgrau */
+.pin figcaption p a, 
+.pin figcaption a p, 
+.pin a figcaption p, 
+.news p, 
+.comments .author, 
+.academy .preview p, 
+.academy .pin .preview-content a, 
+#playlist_items a p { /* Hellgrau */
 	color:#dcdcdc;
 }
-.news a.tag, .comments .comment-answer a, .blog time { /*Helltürkis*/
+.news a.tag, 
+.comments .comment-answer a, 
+.blog time { /*Helltürkis*/
 	color:#c0fefd;
 }
 /* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -507,29 +700,111 @@ body, .btn-default, .btn-default:hover, .btn-default:active, .btn-default:active
 .form-control::-webkit-input-placeholder {
   color: #818181;
 }
-.btn, .pin-icon .choosen, .episode .series a, a, a.more /*Gelb*/ {
+.color1 a, 
+.active .color1.pin figcaption a h3, 
+.color1.pin figcaption a p, 
+.btn, 
+.pin-icon .choosen, 
+.episode .series a, 
+a, 
+a.more /*Gelb*/ {
 	color: #fcce14;
 }
+a.list-group-item-danger:focus, 
+button.list-group-item-danger:focus, 
+a.list-group-item-danger:hover, 
+button.list-group-item-danger:hover
+.color2 a, 
+.active .color2.pin figcaption a h3, 
+.active .color2.pin figcaption a p { /* Pink */
+	color: #d1418f;
+}
+.color3 a, 
+.active .color3.pin figcaption a h3, 
+.active .color3.pin figcaption a p { /* Grün */
+	color: #91e31c;
+}
+.color4 a, 
+.active .color4.pin figcaption a h3, 
+.active .color4.pin figcaption a p { /* Blau */
+	color: #13fffd;
+}
 
-body, .bg-opacity, select, .oktothek article a.btn-default:hover, .tagpage .content-bg, .preloader {
+body, 
+.bg-opacity, 
+select, 
+.oktothek article a.btn-default:hover, 
+.tagpage .content-bg, .preloader {
 	background-color:#000000;
 }
-.table-striped > tbody > tr:nth-of-type(2n+1), .newsarchiv aside .box, .programm .schedule header.page-header {
+.table-striped > tbody > tr:nth-of-type(2n+1), 
+.newsarchiv aside .box, 
+.programm .schedule header.page-header {
 	background-color:#757575;
 }
-button .btn-default.active, .oktothek article a.btn-default, .collapseShare .btn-default, .timetable .btn, header .collapseShare .form-control {
+button .btn-default.active, 
+.oktothek article a.btn-default, 
+.collapseShare .btn-default, 
+.timetable .btn, 
+header .collapseShare .form-control, 
+a.list-group-item-danger:focus, 
+button.list-group-item-danger:focus, 
+a.list-group-item-danger:hover, 
+button.list-group-item-danger:hover, 
+.list-group-item.moveup, 
+.list-group-item.movedown {
 	background-color:#ffffff;
 }
-.oktothek .news article, .playlists .playlist_container .list-group-item, .collapseShare, .collapsePlaylist, .collapseCoursedetails, .series .news-pin, .series .news-form, .series .blog aside .aside-inner, .academy .courses .collapse-content, .tagpage .inc-pins article.pin figure, .tagpage .inc-pins article.pin.first, #playlist_items .row
+.oktothek .news article, 
+.playlists .playlist_container .list-group-item, 
+.collapseShare, .collapsePlaylist, 
+.collapseCoursedetails, 
+.series .news-pin, 
+.series .news-form, 
+.series .blog aside .aside-inner, 
+.academy .courses .collapse-content, 
+.tagpage .inc-pins article.pin figure, 
+.tagpage .inc-pins article.pin.first, 
+#playlist_items .row
 /*, .tagpage article.first*/ { /* Dunkelgrau */
 	background-color:#112022;
 }
-.play-episode.btn-default, .tagpage header .btn-default, .newsarchiv .label-default, .programm header .navbar-default, .programm .schedule .panel-default > .panel-heading, .programm .schedule .panel, .btn-default, .btn-primary, #episode-tag, .tagpage .collapseShare, .list-group-item {
+.play-episode.btn-default, 
+.tagpage header .btn-default, 
+.newsarchiv .label-default, 
+.programm header .navbar-default, 
+.programm .schedule .panel-default > .panel-heading, 
+.programm .schedule .panel, 
+.btn-default, 
+.btn-primary, 
+#episode-tag, 
+.tagpage .collapseShare, 
+.list-group-item, 
+#favorite.btn-default:hover, 
+#favorite.btn-default:focus, 
+#favorite.btn-default:active:focus, 
+#favorite.btn-default:active:hover {
 	background-color:transparent;
 }
 /* Spacelayout */
-button .btn-default.but-full.active, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default:active:focus, .btn-default:active:hover, .btn-default.active:focus, .btn-default.active:hover, .btn-default.focus:active, .btn-default.active.focus, .oktothek article a.btn-default.but-full, .input-group-addon { /* Gelb */
+button .btn-default.but-full.active, 
+.btn-default:hover, 
+.btn-default:focus, 
+.btn-default:active, 
+.btn-default:active:focus, 
+.btn-default:active:hover, 
+.btn-default.active:focus, 
+.btn-default.active:hover, 
+.btn-default.focus:active, 
+.btn-default.active.focus, 
+.oktothek article a.btn-default.but-full, 
+.input-group-addon { /* Gelb */
 	background-color:#fcce14;
+}
+a.list-group-item-danger, 
+button.list-group-item-danger, 
+.btn-danger { /* Pink */
+	background-color:#d1418f;
 }
 
 .tags li a {
@@ -544,7 +819,8 @@ button .btn-default.but-full.active, .btn-default:hover, .btn-default:focus, .bt
 .academy .timetable li:first-child p {
 	border-top:dotted 1px #5a6769;
 }
-.collapseShare .btn-default, .container-episode-tag {
+.collapseShare .btn-default, 
+.container-episode-tag {
 	border:solid 2px #ffffff;
 }
 .academy .timetable li p {
@@ -554,7 +830,21 @@ button .btn-default.but-full.active, .btn-default:hover, .btn-default:focus, .bt
 	border:dotted 1px #5a6769;
 }
 /* Spacelayout */
-.btn-default, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default:active:focus, .btn-default.but-full:hover, .btn-primary, .pull-right .icon, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default:active:focus, .btn-default:active:hover, .btn-default.active:focus, .btn-default.active:hover, .btn-default.focus:active, .btn-default.active.focus { /* Gelb */
+.btn-primary, 
+.pull-right .icon, 
+.btn-default, 
+.btn-default:hover, 
+.btn-default:focus, 
+.btn-default:hover, 
+.btn-default:focus, 
+.btn-default:active,
+.btn-default:active:focus, 
+.btn-default:active:hover, 
+.btn-default.active:focus, 
+.btn-default.active:hover, 
+.btn-default.focus:active, 
+.btn-default.active.focus,
+.btn-default.but-full:hover { /* Gelb */
 	border: solid 2px #fcce14;
 }
 /* Türkis */
@@ -566,7 +856,16 @@ border: solid 2px #13fffd;
 	border-left:none;
 	border-right:none;
 }
-.form-control, .newsarchiv article:first-child, .programm header .navbar-default, header.page-header, .input-group-addon, .btn-default.btn-top, .btn-default.pin-icon, .timetable .btn, .list-group-item  {
+.form-control, 
+.newsarchiv article:first-child, 
+.programm header .navbar-default, 
+header.page-header, 
+.input-group-addon, 
+.btn-default.btn-top, 
+.btn-default.pin-icon, 
+.timetable .btn, 
+.list-group-item, 
+#favorite.btn-default {
 	border:none;
 }
 .triangle {
@@ -574,20 +873,34 @@ border: solid 2px #13fffd;
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-bottom: 20px solid #000000;
+  border-bottom: 20px solid #112022;
 }
 .tags li a {
 	-moz-border-radius:4px;
 	-khtml-border-radius:4px;
 	border-radius: 4px;
 }
-.form-control, .navbar, .more-clips select, .play-episode.btn-default, .newsarchiv .label, .schedule .panel-heading, .programm .schedule .panel-default, .input-group-addon, header .navbar-toggle, header .btn, .playlists .list-group-item:first-child, .list-group-item:last-child, .list-group-item:first-child {
+.form-control, 
+.navbar, 
+.more-clips select, 
+.play-episode.btn-default, 
+.newsarchiv .label, 
+.schedule .panel-heading, 
+.programm .schedule .panel-default, 
+.input-group-addon, 
+header .navbar-toggle, 
+header .btn, 
+.playlists .list-group-item:first-child, 
+.list-group-item:last-child, 
+.list-group-item:first-child {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
 }
 /* Spacelayout */
-.btn, .pull-right .icon, header .misc .btn {
+.btn, 
+.pull-right .icon, 
+header .misc .btn {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -597,7 +910,8 @@ border: solid 2px #13fffd;
 	-khtml-border-radius:20px;
 	border-radius: 20px;
 }
-.participart .button_container .btn, #StartPlaylist.btn {
+.participart .button_container .btn, 
+#StartPlaylist.btn {
 	-moz-border-radius:25px;
 	-khtml-border-radius:25px;
 	border-radius: 25px;
@@ -647,47 +961,62 @@ section, .participart article  {
     -o-background-size: 40% 40%;
 	background-size: 40% 40%;
 }
-.footer .socialnetworks li a, .collapseShare .socialnetworks li a, .newsarchiv aside .socialnetworks li a, .series .infos li a {
+.footer .socialnetworks li a, 
+.collapseShare .socialnetworks li a, 
+.newsarchiv aside .socialnetworks li a, 
+.series .infos li a {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
 .newsarchiv aside .icon-facebook {
 	background-image:url(../images/icon_facebook.png);
 }
-.footer .icon-facebook, .collapseShare .icon-facebook, .series .infos .icon-facebook {
+.footer .icon-facebook, 
+.collapseShare .icon-facebook, 
+.series .infos .icon-facebook {
 	background-image:url(../images/icon_facebook.svg);
 }
 .newsarchiv aside .icon-twitter {
 	background-image:url(../images/icon_twitter.png);
 }
-.footer .icon-twitter, .collapseShare .icon-twitter, .series .infos .icon-twitter {
+.footer .icon-twitter, 
+.collapseShare .icon-twitter, 
+.series .infos .icon-twitter {
 	background-image:url(../images/icon_twitter.svg);
 }
 .newsarchiv aside .icon-googleplus {
 	background-image:url(../images/icon_googleplus.png);
 }
-.footer .icon-googleplus, .collapseShare .icon-googleplus, .series .infos .icon-googleplus {
+.footer .icon-googleplus, 
+.collapseShare .icon-googleplus, 
+.series .infos .icon-googleplus {
 	background-image:url(../images/icon_googleplus.svg);
 }
 .newsarchiv aside .icon-instagramm {
 	background-image:url(../images/icon_instagramm.png);
 }
-.footer .icon-instagramm, .collapseShare .icon-instagramm, .series .infos .icon-instagramm {
+.footer .icon-instagramm, 
+.collapseShare .icon-instagramm, 
+.series .infos .icon-instagramm {
 	background-image:url(../images/icon_instagramm.svg);
 }
 .newsarchiv aside .icon-pinterest {
 	background-image:url(../images/icon_pinterest.png);
 }
-.collapseShare .icon-pinterest, .series .infos .icon-pinterest {
+.collapseShare .icon-pinterest, 
+.series .infos .icon-pinterest {
 	background-image:url(../images/icon_pinterest.svg);
 }
 .newsarchiv aside .icon-youtube {
 	background-image:url(../images/icon_youtube.png);
 }
-.footer .icon-youtube, .collapseShare .icon-youtube, .series .infos .icon-youtube {
+.footer .icon-youtube, 
+.collapseShare .icon-youtube, 
+.series .infos .icon-youtube {
 	background-image:url(../images/icon_youtube.svg);
 }
-.pin .pin-icon, .playlists .mini-player {
+.pin .pin-icon, 
+.playlists .mini-player {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/bg_favourite.svg);
@@ -740,10 +1069,15 @@ section, .participart article  {
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
-.oktothek a.btn.login:hover, .oktothek a.btn.login:focus, .oktothek a.btn.login:active {
+.oktothek a.btn.login:hover, 
+.oktothek a.btn.login:focus, 
+.oktothek a.btn.login:active {
 	background-image:url(../images/icon_login_hover.svg);
 }
-.avatar1, .avatar2, .avatar3, .avatar4 {
+.avatar1, 
+.avatar2, 
+.avatar3, 
+.avatar4 {
 	background-repeat:no-repeat;
 	background-position:center center;
 	-webkit-background-size: 80% 80%;
@@ -778,7 +1112,8 @@ section, .participart article  {
 	background-repeat:no-repeat;
 	background-position:top left;
 }
-section:last-child, section.playlist_container {
+section:last-child, 
+section.playlist_container {
 	background-image:none;
 }
 .playlists .playlists-arrow-down {
@@ -805,7 +1140,9 @@ section:last-child, section.playlist_container {
     }
 }
 
-.footer .socialnetworks a, .collapseShare .socialnetworks li a, .series .infos .socialnetworks li a {
+.footer .socialnetworks a, 
+.collapseShare .socialnetworks li a, 
+.series .infos .socialnetworks li a {
 	-webkit-border-radius:20px;
 	-moz-border-radius:20px;
 	border-radius:20px;
@@ -850,7 +1187,11 @@ section:last-child, section.playlist_container {
 
 /****************************  Color, Effects Footer ****************************/
 
-.footer .nav > li > a, .footer .nav > li > a:active, .footer .nav > li > a:hover, #anchor-menu .panel-default > .panel-heading, .btn.btn-top:hover {
+.footer .nav > li > a, 
+.footer .nav > li > a:active, 
+.footer .nav > li > a:hover, 
+#anchor-menu .panel-default > .panel-heading, 
+.btn.btn-top:hover {
 	color:#ffffff;
 }
 .btn.btn-top {
@@ -860,7 +1201,9 @@ section:last-child, section.playlist_container {
 #anchor-menu .panel-default > .panel-heading, .footer {
 	background-color:#000000;
 }
-.footer .nav > li > a:active, .footer .nav > li > a:hover, .btn.btn-top:hover {
+.footer .nav > li > a:active, 
+.footer .nav > li > a:hover, 
+.btn.btn-top:hover, .footer {
 	background-color:transparent;
 }
 footer .networks {
@@ -878,15 +1221,18 @@ footer .networks {
 	background-image:none;
 }
 
-#anchor-menu.panel-group .panel, .btn-top {
+#anchor-menu.panel-group .panel, 
+.btn-top {
     -webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
 }
-#anchor-menu.panel-group .panel, .btn-top {
+#anchor-menu.panel-group .panel, 
+.btn-top {
 	border-bottom:none;
 }
-#anchor-menu .panel > .list-group .list-group-item, #anchor-menu .panel > .panel-collapse > .list-group .list-group-item {
+#anchor-menu .panel > .list-group .list-group-item, 
+#anchor-menu .panel > .panel-collapse > .list-group .list-group-item {
 	border-width:0;
 }
 
@@ -1089,6 +1435,9 @@ header .navbar-fixed-top #mainmenu-container {
 	margin-top:0px;
 	height:auto;
 }
+header .dropdown-menu .divider {
+	margin:0;
+}
 header #mainmenu-container.navbar-collapse h3 {
 	margin:40px 0 20px 25px;
 }
@@ -1149,11 +1498,20 @@ header .navbar-form input.form-control {
 	display:inline;
 }
 header .dropdown-menu {
-	padding:0;
+	padding:10px;
+	width:200px;
 }
 header .dropdown-menu li a {
-	padding:2px 12px;
+	padding:14px 12px;
 }
+.navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
+    padding: 6px 15px;
+}
+header .dropdown-menu li:first-child {
+	display:none;
+}
+
+
 header .navbar-fixed-top .navbar-toggle {
 	margin-right:0;
 }
@@ -1167,6 +1525,12 @@ header .navbar-fixed-top .navbar-toggle {
 header .icon, header .navbar-nav li a {
 	line-height:25px;
 	vertical-align:middle;
+}
+header .navbar-nav .dropdown-menu li a {
+	line-height:20px;
+}
+header .navbar-nav .dropdown-menu > li > a {
+    white-space:normal;
 }
 header .icon.icon-upload {
 	width:20px;
@@ -1230,6 +1594,12 @@ header + .container-fluid {
 		margin-left:-253px;
 		margin-top:0px;
     }
+	header .dropdown-menu {
+		padding:0;
+	}
+	.navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
+    	padding: 5px 15px 5px 25px;
+	}
 	header ul.mainmenu, header ul.navbar-right {
 	    width:auto;
 	}
@@ -1262,6 +1632,12 @@ header + .container-fluid {
 	header .search-tagnav-container .dropdown {
 		/*display:block;*/
 		margin-left:386px;
+	}
+	header .dropdown-menu li {
+		padding-left:0;
+	}
+	header .dropdown-menu li:first-child {
+		display:block;
 	}
 	header .navbar .navbar-form {
 	    padding:0;
@@ -1422,6 +1798,12 @@ article.pin {
 }
 .episode .misc a, .episode .misc span.views {
 	margin-right:10px;
+}
+.episode #favorite {
+	margin-right:20px;
+}
+.episode .collapse h3 {
+	margin-top:0;
 }
 figure.pin img, .programm .schedule img {
 	width:100%;

@@ -122,9 +122,40 @@
 	    right:0;
 	}
 }
-#playlist_items .row {
-	margin-bottom:1px;
+/* Edit Playlists */
+.edit-playlists #playlist_items {
+	margin-bottom:40px;
 }
-#playlist_items .list-group-item {
+.edit-playlists #playlist_items .row {
+	margin-bottom:1px;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+.edit-playlists #playlist_items .list-group-item {
 	padding:4px;
+	margin-left:4px;
+}
+.edit-playlists #playlist_items .list-group {
+	float:right;
+	margin-bottom:0;
+}
+.edit-playlists #playlist_items .list-group-item {
+	display:inline;
+}
+.edit-playlists #playlist_items .col-md-1 {
+	padding-left:0;
+	text-align:right;
+}
+.edit-playlists #playlist_items h3 {
+	margin:0;
+}
+.edit-playlists #playlist_items p {
+	margin-top:2px;
+}
+.edit-playlists #playlist_items a.list-group-item span {
+	vertical-align:middle;
+	text-align:center;
+	top:0;
+}
+.edit-playlists form label {
 }

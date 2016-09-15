@@ -12,10 +12,11 @@ $(document).ready(function(){
             $(activeNode).find('span').addClass('glyphicon-play');
         }
     }
-    $('.playme').click(function(e){
-        e.preventDefault();
-        jwplayer('player').playlistItem($(this).data('list'));
-    })
+	function scrollToAnchor(el) {
+		 var offset = $(el).offset();
+		 var Ts_duration = 300;
+		 $("html, body").animate({scrollTop : offset.top - headerHeight + "px"}, Ts_duration);
+	 }
 	//Ruft Statusänderung Playlisticons auf und füllt Beschreibungstext in .description-container
     jwplayer().on('playlistItem', function() {
         activeItem = jwplayer().getPlaylistIndex();
@@ -83,9 +84,28 @@ $(document).ready(function(){
     $('.playlists .playlist-minimized').click(function() {
         closePlaylistDescr('max');
     });
-    $('.playme').click(function(){
-        closePlaylistDescr('min');
-        scrollToAnchor($('.playlists .player-container'));
+	
+	function changePlaylistItem(el) {
+		jwplayer('player').playlistItem(el);
+		scrollToAnchor($('.playlists .player-container'));
+	}
+	$('.playme').click(function(e){
+        e.preventDefault();
+		if (jwplayer().getState() == 'playing') {
+			if (jwplayer().getPlaylistIndex() == $(this).data('list'))
+				jwplayer().pause();
+			else
+				changePlaylistItem($(this).data('list'));
+		} else if (jwplayer().getState() == 'paused') {
+			if (jwplayer().getPlaylistIndex() == $(this).data('list')) {
+				jwplayer().play();
+				scrollToAnchor($('.playlists .player-container'));
+			} else
+				changePlaylistItem($(this).data('list'));
+		} else {
+        	changePlaylistItem($(this).data('list'));
+		}
+		closePlaylistDescr('min');
     })
 	
     //Ändert die Farbe des aktiven Playlistitems
