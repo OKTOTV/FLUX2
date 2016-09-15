@@ -23,6 +23,7 @@
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "oktolab/media-bundle": "dev-master",
+        "okto/media-bundle": "dev-master",
         "bprs/style-bundle": "^1.1",
         "bprs/user-bundle": "^2.0",
         "bprs/asset-bundle": "^2.0",
