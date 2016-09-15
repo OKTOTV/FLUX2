@@ -275,7 +275,7 @@ fos_elastica:
                         series:      { boost: 3, analyzer: episode_analyzer }
                     persistence:
                         driver: orm
-                        model: MediaBundle\Entity\Episode
+                        model: AppBundle\Entity\Episode
                         provider: ~
                         listener: ~
                         finder: ~
@@ -287,14 +287,14 @@ fos_elastica:
                         description: { index_analyzer: episode_analyzer }
                     persistence:
                         driver: orm
-                        model:  MediaBundle\Entity\Series
+                        model:  AppBundle\Entity\Series
                         provider: ~
                         listener: ~
                         finder: ~
                 playlist:
                     persistence:
                         driver: orm
-                        model:  MediaBundle\Entity\Playlist
+                        model:  AppBundle\Entity\Playlist
                         provider: ~
                         listener: ~
                         finder: ~
@@ -303,7 +303,7 @@ fos_elastica:
                         slug: { boost: 8, analyzer: my_analyzer }
                     persistence:
                         driver: orm
-                        model: AppBundle\Entity\Tag
+                        model: Okto\MediaBundle\Entity\Tag
                         provider: ~
                         listener: ~
                         finder: ~
