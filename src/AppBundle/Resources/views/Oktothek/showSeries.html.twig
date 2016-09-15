@@ -64,7 +64,7 @@
     <section class="container">
         <div class="infos">
             <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
-            {% include 'MediaBundle::Reachme/reachme_stack.html.twig' with { 'reachmes': series.reachmes } %}
+            {% include 'OktoMediaBundle::Reachme/reachme_stack.html.twig' with { 'reachmes': series.reachmes } %}
         </div>
     </section>
     {% if series.playlists is not empty %}
