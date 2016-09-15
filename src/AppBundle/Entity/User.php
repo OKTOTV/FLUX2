@@ -78,7 +78,7 @@ class User extends BaseUser
     /**
      * Add playlists
      *
-     * @param \MediaBundle\Entity\Playlist $playlists
+     * @param \AppBundle\Entity\Playlist $playlists
      * @return User
      */
     public function addPlaylist(Playlist $playlists)
@@ -91,7 +91,7 @@ class User extends BaseUser
     /**
      * Remove playlists
      *
-     * @param \MediaBundle\Entity\Playlist $playlists
+     * @param \AppBundle\Entity\Playlist $playlists
      */
     public function removePlaylist(Playlist $playlists)
     {
