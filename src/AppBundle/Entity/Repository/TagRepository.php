@@ -31,7 +31,7 @@ class TagRepository extends EntityRepository
     public function findHighlightedTags($number = 6, $query_only = false)
     {
         $query = $this->getEntityManager()
-            ->createQuery('SELECT t FROM AppBundle:Tag t WHERE t.highlight = 1 ORDER BY t.rank ASC');
+            ->createQuery('SELECT t FROM OktoMediaBundle:Tag t WHERE t.highlight = 1 ORDER BY t.rank ASC');
 
         if ($query_only) {
             return $query;

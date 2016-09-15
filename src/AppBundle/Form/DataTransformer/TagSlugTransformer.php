@@ -3,7 +3,7 @@ namespace AppBundle\Form\DataTransformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
-use AppBundle\Entity\Tag;
+use Okto\MediaBundle\Entity\Tag;
 
 class TagSlugTransformer implements DataTransformerInterface
 {
