@@ -21,6 +21,16 @@ class Tag extends OktoTag {
     private $highlight;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Post", mappedBy="tags")
+     */
+    private $posts;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Page", mappedBy="tags")
+     */
+    private $pages;
+
+    /**
      * Set rank
      *
      * @param integer $rank
@@ -64,5 +74,52 @@ class Tag extends OktoTag {
     public function getHighlight()
     {
         return $this->highlight;
+    }
+
+    public function getPosts()
+    {
+        return $this->posts;
+
+    }
+
+    public function addPost($post)
+    {
+        $this->posts[] = $post;
+        return $this;
+    }
+
+    public function removePost($post)
+    {
+        $this->posts->removeElement($post);
+        return $this;
+    }
+
+    public function setPosts($posts)
+    {
+        $this->posts = $posts;
+        return $this;
+    }
+
+    public function getPages()
+    {
+        return $this->pages;
+    }
+
+    public function addPage($page)
+    {
+        $this->pages[] = $page;
+        return $this;
+    }
+
+    public function removePage($page)
+    {
+        $this->pages->removeElement($page);
+        return $this;
+    }
+
+    public function setPages($pages)
+    {
+        $this->pages = $pages;
+        return $this;
     }
 }

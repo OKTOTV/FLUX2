@@ -10,7 +10,7 @@ services:
 
     oktothek_playlist_service:
         class:  AppBundle\Model\PlaylistService
-        arguments: [ "@doctrine.orm.entity_manager" ]
+        arguments: [ "@doctrine.orm.entity_manager", "@oktolab_media" ]
 
 
     gedmo.listener.sluggable:
