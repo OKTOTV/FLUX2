@@ -77,11 +77,11 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         resolve_target_entities:
-            Bprs\AssetBundle\Entity\AssetInterface: AppBundle\Entity\Asset
-            Oktolab\MediaBundle\Entity\EpisodeInterface: AppBundle\Entity\Episode
-            Oktolab\MediaBundle\Entity\PlaylistInterface: AppBundle\Entity\Playlist
-            Oktolab\MediaBundle\Entity\SeriesInterface:   AppBundle\Entity\Series
-            Okto\MediaBundle\Entity\TagInterface:         Okto\MediaBundle\Entity\Tag
+            Bprs\AssetBundle\Entity\AssetInterface:         AppBundle\Entity\Asset
+            Oktolab\MediaBundle\Entity\EpisodeInterface:    AppBundle\Entity\Episode
+            Oktolab\MediaBundle\Entity\PlaylistInterface:   AppBundle\Entity\Playlist
+            Oktolab\MediaBundle\Entity\SeriesInterface:     AppBundle\Entity\Series
+            Okto\MediaBundle\Entity\TagInterface:           AppBundle\Entity\Tag
         # mappings:
         #     sluggable:
         #         type: annotation

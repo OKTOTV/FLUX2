@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Okto\MediaBundle\Entity\Tag;
+use AppBundle\Entity\Tag;
 
 /**
  * Tag controller.
@@ -25,7 +25,7 @@ class TagController extends Controller
     public function menuTagsAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $tags = $em->getRepository('OktoMediaBundle:Tag')->findHighlightedTags();
+        $tags = $em->getRepository('AppBundle:Tag')->findHighlightedTags();
         return ['tags' => $tags];
     }
 
@@ -75,7 +75,7 @@ class TagController extends Controller
     public function tagAction(Tag $slug)
     {
         $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('OktoMediaBundle:Tag');
+        $repo = $em->getRepository('AppBundle:Tag');
         return [
             'tag' => $slug,
             'episodes'  => $repo->findEpisodesWithTag($slug),
@@ -93,7 +93,7 @@ class TagController extends Controller
     public function episodeTagPagerAction($slug, $page)
     {
         $em = $this->getDoctrine()->getManager();
-        $tag = $em->getRepository('OktoMediaBundle:Tag')->findOneBy(['slug' => $slug]);
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
         $paginator = $this->get('knp_paginator');
         $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findEpisodesWithTag($tag, 0, true), $page, 5);
         return ['tag' => $tag, 'episodes' => $episodes];
@@ -106,7 +106,7 @@ class TagController extends Controller
     public function seriesTagPagerAction($slug, $page)
     {
         $em = $this->getDoctrine()->getManager();
-        $tag = $em->getRepository('OktoMediaBundle:Tag')->findOneBy(['slug' => $slug]);
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
         $paginator = $this->get('knp_paginator');
         $seriess = $paginator->paginate($em->getRepository('AppBundle:Tag')->findSeriesWithTag($tag, 0, true), $page, 5);
         return ['tag' => $tag, 'seriess' => $seriess];
@@ -119,7 +119,7 @@ class TagController extends Controller
     public function postsTagPagerAction($slug, $page)
     {
         $em = $this->getDoctrine()->getManager();
-        $tag = $em->getRepository('OktoMediaBundle:Tag')->findOneBy(['slug' => $slug]);
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
         $paginator = $this->get('knp_paginator');
         $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findPostsWithTag($tag, 0, true), $page, 5);
         return ['tag' => $tag, 'posts' => $episodes];
@@ -132,7 +132,7 @@ class TagController extends Controller
     public function pagesTagPagerAction($slug, $page)
     {
         $em = $this->getDoctrine()->getManager();
-        $tag = $em->getRepository('OktoMediaBundle:Tag')->findOneBy(['slug' => $slug]);
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
         $paginator = $this->get('knp_paginator');
         $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findPagesWithTag($tag, 0, true), $page, 5);
         return ['tag' => $tag, 'pages' => $episodes];
@@ -145,7 +145,7 @@ class TagController extends Controller
     public function playlistsTagPagerAction($slug, $page)
     {
         $em = $this->getDoctrine()->getManager();
-        $tag = $em->getRepository('OktoMediaBundle:Tag')->findOneBy(['slug' => $slug]);
+        $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
         $paginator = $this->get('knp_paginator');
         $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findPlaylistsWithTag($tag, 0, true), $page, 5);
         return ['tag' => $tag, 'playlists' => $episodes];

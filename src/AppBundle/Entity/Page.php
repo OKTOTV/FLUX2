@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Okto\MediaBundle\Entity\Tag;
+use AppBundle\Entity\Tag;
 
 /**
  * Page

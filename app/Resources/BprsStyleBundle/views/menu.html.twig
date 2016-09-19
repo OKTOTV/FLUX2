@@ -1,81 +1,81 @@
 {# Here is an example Menu. You'll want to overwrite this in app/Resources/BprsStyleBundle/views/menu.html.twig #}
 {% block menu %}
-	<div class="collapse navbar-collapse" role="navigation" id="mainmenu-container">
-		<ul class="nav navbar-nav mainmenu">
-        	<li {% if selected == "oktothek" %}class="active"{% endif %}>
-            	<a href="{{ path('homepage') }}">{{ 'oktothek.menu_oktothek'|trans }}</a>
-        	</li>
-        	<li {% if selected == "tv" %}class="active"{% endif %}>
-            	<a href="{{ path('tv') }}">{{ 'oktothek.menu_tv'|trans }}</a>
-       	 	</li>
-        	<li {% if selected == "participate" %}class="active"{% endif %}>
-            	<a href="{{ path('participate') }}">{{ 'oktothek.menu_participate'|trans }}</a>
-        	</li>
-        	<li {% if selected == "academy" %}class="active"{% endif %}>
-            	<a href="{{ path('oktothek_academy') }}">{{ 'oktothek.menu_academy'|trans }}</a>
-        	</li>
-    	</ul>
+    <div class="collapse navbar-collapse" role="navigation" id="mainmenu-container">
+        <ul class="nav navbar-nav mainmenu">
+            <li {% if selected == "oktothek" %}class="active"{% endif %}>
+                <a href="{{ path('homepage') }}">{{ 'oktothek.menu_oktothek'|trans }}</a>
+            </li>
+            <li {% if selected == "tv" %}class="active"{% endif %}>
+                <a href="{{ path('tv') }}">{{ 'oktothek.menu_tv'|trans }}</a>
+                </li>
+            <li {% if selected == "participate" %}class="active"{% endif %}>
+                <a href="{{ path('participate') }}">{{ 'oktothek.menu_participate'|trans }}</a>
+            </li>
+            <li {% if selected == "academy" %}class="active"{% endif %}>
+                <a href="{{ path('oktothek_academy') }}">{{ 'oktothek.menu_academy'|trans }}</a>
+            </li>
+        </ul>
         {# example for an login area #}
         <ul class="nav navbar-nav navbar-right">
-        	<li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank"><span class="icon icon-upload"></span> <span class="link">HOCHLADEN</span></a></li>
-			{% if is_granted('ROLE_OKTOLAB_USER') or is_granted('ROLE_OKTOLAB_PRODUCER') %}
-				<li {% if dropdown == "user_menu" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon icon-login"></span> <span class="link">{{ app.user.username }}</span></a>
-					<ul class="dropdown-menu" role="menu">
-					    <li><div class="triangle"></div></li>
-						<li {% if selected == "playlists" %}class="active"{% endif %}>
-							<a href="{{ path('user_playlists') }}">{{ 'oktothek.menu_user_playlists'|trans|raw }}</a>
-						</li>
-						<li {% if selected == "channels" %}class="active"{% endif %}>
-							<a href="{{ path('user_channels') }}">{{ 'oktothek.menu_user_channels'|trans|raw }}</a>
-						</li>
-						<li {% if selected == "favorites" %}class="active"{% endif %}>
-							<a href="{{ path('user_favorites') }}">{{ 'oktothek.menu_user_favorites'|trans|raw }}</a>
-						</li>
-						<li role="separator" class="divider"></li>
-						{% if is_granted('ROLE_OKTOLAB_PRODUCER') %}
-							<li {% if selected == "producer" %}class="active"{% endif %}>
-								<a href="{{ path('oktothek_my_channels')}}">{{ 'oktothek.menu_my_channels'|trans }}</a>
-							</li>
-						{% endif %}
-						{% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_OKTOLAB_ADMIN') or is_granted('ROLE_ADMIN') %}
-	                    	<li {% if selected == "oktothek_backend" %}class="active"{% endif %}>
-	                        	<a href="{{ path('backend') }}">Backend</a>
-	                    	</li>
-							{# TODO: change selected keyword or move to backend #}
-							<li {% if selected == "jobs" %}class="active"{% endif %}>
-								<a href="{{ path('list_status')}}">{{ 'bprs_commandline.job_menu'|trans }}</a>
-							</li>
-						{% endif %}
-						<li role="separator" class="divider"></li>
-						<li><a href="{{ path('bprs_user_logout') }}">{{'oktothek.menu_user_logout'|trans|raw }}</a><li>
-					</ul>
-				</li>
-				{% if is_granted('ROLE_OKTOLAB_USER') %}
-					<li>
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							{% if app.user.notifications is not empty %}{{ 'oktothek.menu_user_notifications'|trans|raw }}
-							{% else %}{{ 'oktothek.menu_user_notifications_empty'|trans|raw }}{% endif %}
-						</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><div class="triangle"></div></li>
-							{% for notification in app.user.notifications %}
-								<li><a href="{{ path('user_notification', {'notification': notification.id })}}">{{ 'oktothek.menu_user_notification_choice'|transchoice(notification.type, {'%series%': notification.series})}}</a></li>
-							{% endfor %}
-							{% if app.user.notifications is empty %}
-								<li><a href="#">{{ 'oktothek.menu_user_no_notifications'|trans}}</a></li>
-							{% endif %}
-						</ul>
-					</li>
-				{% endif %}
-        	{% else %}
-            	<li {% if selected == "login" %}class="active"{% endif %}><a href="{{ path('bprs_user_login') }}"><span class="icon icon-login"></span> <span class="link">{{ 'bprs_user.button.login'|trans }}</span></a></li>
-        	{% endif %}
-        	</ul>
-			<ul class="nav navbar-nav visible-xs-block themes">
+            <li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank"><span class="icon icon-upload"></span> <span class="link">HOCHLADEN</span></a></li>
+            {% if is_granted('ROLE_OKTOLAB_USER') or is_granted('ROLE_OKTOLAB_PRODUCER') %}
+                <li {% if dropdown == "user_menu" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon icon-login"></span> <span class="link">{{ app.user.username }}</span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><div class="triangle"></div></li>
+                        <li {% if selected == "playlists" %}class="active"{% endif %}>
+                            <a href="{{ path('user_playlists') }}">{{ 'oktothek.menu_user_playlists'|trans|raw }}</a>
+                        </li>
+                        <li {% if selected == "channels" %}class="active"{% endif %}>
+                            <a href="{{ path('user_channels') }}">{{ 'oktothek.menu_user_channels'|trans|raw }}</a>
+                        </li>
+                        <li {% if selected == "favorites" %}class="active"{% endif %}>
+                            <a href="{{ path('user_favorites') }}">{{ 'oktothek.menu_user_favorites'|trans|raw }}</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        {% if is_granted('ROLE_OKTOLAB_PRODUCER') %}
+                            <li {% if selected == "producer" %}class="active"{% endif %}>
+                                <a href="{{ path('oktothek_my_channels')}}">{{ 'oktothek.menu_my_channels'|trans }}</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_OKTOLAB_ADMIN') or is_granted('ROLE_ADMIN') %}
+                            <li {% if selected == "oktothek_backend" %}class="active"{% endif %}>
+                                <a href="{{ path('backend') }}">Backend</a>
+                            </li>
+                            {# TODO: change selected keyword or move to backend #}
+                            <li {% if selected == "jobs" %}class="active"{% endif %}>
+                                <a href="{{ path('list_status')}}">{{ 'bprs_commandline.job_menu'|trans }}</a>
+                            </li>
+                        {% endif %}
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ path('bprs_user_logout') }}">{{'oktothek.menu_user_logout'|trans|raw }}</a><li>
+                    </ul>
+                </li>
+                {% if is_granted('ROLE_OKTOLAB_USER') %}
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            {% if app.user.notifications is not empty %}{{ 'oktothek.menu_user_notifications'|trans|raw }}
+                            {% else %}{{ 'oktothek.menu_user_notifications_empty'|trans|raw }}{% endif %}
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><div class="triangle"></div></li>
+                            {% for notification in app.user.notifications %}
+                                <li><a href="{{ path('user_notification', {'notification': notification.id })}}">{{ 'oktothek.menu_user_notification_choice'|transchoice(notification.type, {'%series%': notification.series})}}</a></li>
+                            {% endfor %}
+                            {% if app.user.notifications is empty %}
+                                <li><a href="#">{{ 'oktothek.menu_user_no_notifications'|trans}}</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                {% endif %}
+            {% else %}
+                <li {% if selected == "login" %}class="active"{% endif %}><a href="{{ path('bprs_user_login') }}"><span class="icon icon-login"></span> <span class="link">{{ 'bprs_user.button.login'|trans }}</span></a></li>
+            {% endif %}
+            </ul>
+            <ul class="nav navbar-nav visible-xs-block themes">
                 <li><h3 class="tag">Beliebteste Themen</h3></li>
-		        {{ render(controller('AppBundle:Tag:menuTags')) }}
-	        </ul>
-		</div>
+                {{ render(controller('AppBundle:Tag:menuTags')) }}
+            </ul>
+        </div>
         {{ render(controller('AppBundle:Search:search'))}}
 {% endblock %}

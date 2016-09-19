@@ -11,7 +11,7 @@ class SeriesRepository extends BaseSeriesRepository
     public function findEpisodesWithTag(Series $series, Tag $tag, $pagerable = false) {
         if ($pagerable) {
             return $this->getEntityManager()
-                ->createQuery('SELECT e FROM AppBundle:Episode e JOIN OktoMediaBundle:Tag t WHERE e.onlineStart > :online_start AND e.is_active = 1 AND e.series = :series_id AND t.id = :tag_id')
+                ->createQuery('SELECT e FROM AppBundle:Episode e JOIN AppBundle:Tag t WHERE e.onlineStart > :online_start AND e.is_active = 1 AND e.series = :series_id AND t.id = :tag_id')
                 ->setParameter('tag_id', $tag->getId())
                 ->setParameter('online_start', new \DateTime())
                 ->setParameter('series_id', $series->getId());
@@ -27,7 +27,7 @@ class SeriesRepository extends BaseSeriesRepository
     public function getSeriesTags(Series $series)
     {
         $rsm = new ResultSetMapping();
-        $rsm->addEntityResult('OktoMediaBundle:Tag', 't');
+        $rsm->addEntityResult('AppBundle:Tag', 't');
         $rsm->addFieldResult('t', 'id', 'id');
         $rsm->addFieldResult('t', 'slug', 'slug');
         $rsm->addFieldResult('t', 'text', 'text');
