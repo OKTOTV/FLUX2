@@ -24,6 +24,11 @@ class Series extends OktoSeries
     protected $posts;
 
     /**
+    * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="channels", fetch="EAGER")
+    */
+    protected $users;
+
+    /**
      * Add abonnements
      *
      * @param \AppBundle\Entity\Abonnements $abonnements
@@ -92,5 +97,39 @@ class Series extends OktoSeries
     public function setPosts($posts)
     {
         $this->posts = $posts;
+    }
+
+    /**
+     * Add users
+     *
+     * @param \AppBundle\Entity\User $users
+     * @return Series
+     */
+    public function addUser(\AppBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+        $users->addChannel($this);
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \AppBundle\Entity\User $users
+     */
+    public function removeUser(\AppBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+        $users->removeChannel($this);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }
