@@ -1902,7 +1902,6 @@ figure.pin img, .programm .schedule img {
 }
 .collapseShare div {
     vertical-align:middle;
-	line-height:35px;
 }
 .collapseShare .socialnetworks a {
     display: inline-block;
@@ -2039,9 +2038,9 @@ figure.pin img, .programm .schedule img {
 .collapseShare .socialnetworks a span, .series .infos .socialnetworks a span, #collapseShare h3 {
     margin-left: -9990px;
 }
-.collapseShare h3 {
+/*.collapseShare h3 {
 	display:inline;
-}
+}*/
 
 /* Tags */
 .tagpage .container.content-bg {
