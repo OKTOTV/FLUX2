@@ -52,5 +52,3 @@ security:
     access_control:
         - { path: /backend, roles: ROLE_USER }
         - { path: /backend/admin, roles: ROLE_ADMIN}
-        # require BPRS_APPLINK for /api*
-        #- { path: ^/api, roles: ROLE_BPRS_APPLINK }
