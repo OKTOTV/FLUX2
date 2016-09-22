@@ -682,7 +682,8 @@ header .collapseShare .form-control {
 .comments .author, 
 .academy .preview p, 
 .academy .pin .preview-content a, 
-#playlist_items a p { /* Hellgrau */
+#playlist_items a p,
+.container.tags a { /* Hellgrau */
 	color:#dcdcdc;
 }
 .news a.tag, 
@@ -765,7 +766,8 @@ button.list-group-item-danger:hover,
 .academy .courses .collapse-content, 
 .tagpage .inc-pins article.pin figure, 
 .tagpage .inc-pins article.pin.first, 
-#playlist_items .row
+#playlist_items .row,
+.container.tags ul
 /*, .tagpage article.first*/ { /* Dunkelgrau */
 	background-color:#112022;
 }
@@ -807,9 +809,6 @@ button.list-group-item-danger,
 	background-color:#d1418f;
 }
 
-.tags li a {
-	border: solid 1px #cccccc;
-}
 .play-episode.btn-default {
 	border: solid 1px #ffffff;
 }
@@ -874,11 +873,6 @@ header.page-header,
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
   border-bottom: 20px solid #112022;
-}
-.tags li a {
-	-moz-border-radius:4px;
-	-khtml-border-radius:4px;
-	border-radius: 4px;
 }
 .form-control, 
 .navbar, 
@@ -1812,16 +1806,22 @@ figure.pin img, .programm .schedule img {
 	height:auto;
 	margin:0 auto;
 }
-.tags li {
+.container.tags ul {
+	padding:20px 0;
+}
+.container.tags li {
 	display:inline;
 	padding-right:5px;
 }
-.tags li a {
+.container.tags li a {
 	display:inline-block;
 	white-space: nowrap;
 	padding:6px 12px;
 	vertical-align:middle;
 	text-align:center;
+}
+.container.tags li a::before {
+	 content: "#";
 }
 .news h3 {
 	margin-top:0;
@@ -1847,6 +1847,9 @@ figure.pin img, .programm .schedule img {
 .comments {
 	padding-top:40px;
 	padding-bottom:40px;
+}
+.comments textarea {
+	margin-bottom:20px;
 }
 .answer-text {
 	padding-left:40px;
