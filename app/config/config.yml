@@ -166,20 +166,7 @@ bprs_asset:
     worker_queue: %worker_queue%
     thumb_filesystem: posterframe
     404:        "http://localhost/FLUX2/web/bundles/bprsasset/img/404.png"
-    adapters:
-        posterframe:
-            url:  "http://localhost/FLUX2/web/uploads/posterframes"
-            path: "/usr/local/var/www/htdocs/FLUX2/web/uploads/posterframes"
-            remote: false
-        video:
-            url:  "http://localhost/FLUX2/web/uploads/videos"
-            path: "/usr/local/var/www/htdocs/FLUX2/web/uploads/videos"
-        cache:
-            url: "/tmp"
-            path: "/tmp"
-        gallery:
-            url: "http://localhost/FLUX2/web/uploads/gallery"
-            path: "/usr/local/var/www/htdocs/FLUX2/web/uploads/gallery"
+    adapters: "%bprs_asset_adapters%"
 
 oneup_flysystem:
     adapters:
