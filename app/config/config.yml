@@ -145,6 +145,9 @@ oktolab_media:
         position: "top-right"
         logo: "bundles/media/img/logo.png"
 
+okto_media:
+    tag_class: "AppBundle\Entity\Tag"
+
 jms_serializer:
     metadata:
         auto_detection: true

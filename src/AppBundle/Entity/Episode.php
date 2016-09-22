@@ -17,6 +17,13 @@ class Episode extends OktoEpisode {
     */
     private $users;
 
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Add users
      *
