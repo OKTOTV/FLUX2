@@ -29,7 +29,7 @@
             <p>Erstausstrahlung am: {{ episode.firstranAt|date("d.m.Y H:i") }}</p>
             <p>
                 {% if episode.series is not empty %}
-                    Sendereihe: <a href="{{ path('oktolab_series_show', {'series': episode.series.id})}}">{{ episode.series.name|default('Keiner Sendereihe zugewiesen') }}</a>
+                    Sendereihe: <a href="{{ path('oktolab_series_show', {'series': episode.series.uniqID})}}">{{ episode.series.name|default('Keiner Sendereihe zugewiesen') }}</a>
                 {% else %}
                     Keiner Sendereihe zugewiesen
                 {% endif %}
