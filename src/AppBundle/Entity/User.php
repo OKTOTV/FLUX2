@@ -4,6 +4,13 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Bprs\UserBundle\Entity\User as BaseUser;
+use AppBundle\Entity\Series;
+use AppBundle\Entity\Playlist;
+use AppBundle\Entity\Episode;
+use AppBundle\Entity\Comment;
+use AppBundle\Entity\Abonnement;
+use AppBundle\Entity\Notification;
+
 /**
  * IntakeUser
  * @ORM\Table()
@@ -18,12 +25,12 @@ class User extends BaseUser
     const ROLE_ADMIN = "ROLE_OKTOLAB_ADMIN";
 
     /**
-    * @ORM\OneToMany(targetEntity="MediaBundle\Entity\Playlist", mappedBy="user")
+    * @ORM\OneToMany(targetEntity="AppBundle\Entity\Playlist", mappedBy="user")
     */
     private $playlists;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MediaBundle\Entity\Episode", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Episode", inversedBy="users")
      * @ORM\JoinTable(name="users_favorites")
      */
     private $favorites;
@@ -49,7 +56,7 @@ class User extends BaseUser
     private $comments;
 
     /**
-     * @ORM\ManyToMany(targetEntity="MediaBundle\Entity\Series", inversedBy="users")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Series", inversedBy="users")
      * @ORM\JoinTable(name="users_series")
      */
     private $channels;
@@ -71,10 +78,10 @@ class User extends BaseUser
     /**
      * Add playlists
      *
-     * @param \MediaBundle\Entity\Playlist $playlists
+     * @param \AppBundle\Entity\Playlist $playlists
      * @return User
      */
-    public function addPlaylist(\MediaBundle\Entity\Playlist $playlists)
+    public function addPlaylist(Playlist $playlists)
     {
         $this->playlists[] = $playlists;
 
@@ -84,9 +91,9 @@ class User extends BaseUser
     /**
      * Remove playlists
      *
-     * @param \MediaBundle\Entity\Playlist $playlists
+     * @param \AppBundle\Entity\Playlist $playlists
      */
-    public function removePlaylist(\MediaBundle\Entity\Playlist $playlists)
+    public function removePlaylist(Playlist $playlists)
     {
         $this->playlists->removeElement($playlists);
     }
@@ -130,7 +137,7 @@ class User extends BaseUser
      * @param \MediaBundle\Entity\Episode $favorites
      * @return User
      */
-    public function addFavorite(\MediaBundle\Entity\Episode $favorites)
+    public function addFavorite(Episode $favorites)
     {
         $this->favorites[] = $favorites;
 
@@ -142,7 +149,7 @@ class User extends BaseUser
      *
      * @param \MediaBundle\Entity\Episode $favorites
      */
-    public function removeFavorite(\MediaBundle\Entity\Episode $favorites)
+    public function removeFavorite(Episode $favorites)
     {
         $this->favorites->removeElement($favorites);
     }
@@ -163,7 +170,7 @@ class User extends BaseUser
      * @param \AppBundle\Entity\Comment $comments
      * @return User
      */
-    public function addComment(\AppBundle\Entity\Comment $comments)
+    public function addComment(Comment $comments)
     {
         $this->comments[] = $comments;
 
@@ -175,7 +182,7 @@ class User extends BaseUser
      *
      * @param \AppBundle\Entity\Comment $comments
      */
-    public function removeComment(\AppBundle\Entity\Comment $comments)
+    public function removeComment(Comment $comments)
     {
         $this->comments->removeElement($comments);
     }
@@ -196,7 +203,7 @@ class User extends BaseUser
      * @param \AppBundle\Entity\Abonnements $abonnements
      * @return User
      */
-    public function addAbonnement(\AppBundle\Entity\Abonnement $abonnements)
+    public function addAbonnement(Abonnement $abonnements)
     {
         $this->abonnements[] = $abonnements;
 
@@ -208,7 +215,7 @@ class User extends BaseUser
      *
      * @param \AppBundle\Entity\Abonnements $abonnements
      */
-    public function removeAbonnement(\AppBundle\Entity\Abonnement $abonnements)
+    public function removeAbonnement(Abonnement $abonnements)
     {
         $this->abonnements->removeElement($abonnements);
     }
@@ -229,7 +236,7 @@ class User extends BaseUser
      * @param \AppBundle\Entity\Notification $notifications
      * @return User
      */
-    public function addNotification(\AppBundle\Entity\Notification $notifications)
+    public function addNotification(Notification $notifications)
     {
         $this->notifications[] = $notifications;
 
@@ -241,7 +248,7 @@ class User extends BaseUser
      *
      * @param \AppBundle\Entity\Notification $notifications
      */
-    public function removeNotification(\AppBundle\Entity\Notification $notifications)
+    public function removeNotification(Notification $notifications)
     {
         $this->notifications->removeElement($notifications);
     }
@@ -262,7 +269,7 @@ class User extends BaseUser
      * @param \MediaBundle\Entity\Series $channels
      * @return User
      */
-    public function addChannel(\MediaBundle\Entity\Series $channels)
+    public function addChannel(Series $channels)
     {
         $this->channels[] = $channels;
 
@@ -274,7 +281,7 @@ class User extends BaseUser
      *
      * @param \MediaBundle\Entity\Series $channels
      */
-    public function removeChannel(\MediaBundle\Entity\Series $channels)
+    public function removeChannel(Series $channels)
     {
         $this->channels->removeElement($channels);
     }

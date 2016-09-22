@@ -1,0 +1,21 @@
+<script src="{{ player_url|raw }}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var playerInstance = jwplayer("{{ player_id }}");
+        playerInstance.setup({
+            {# logo:   {{ origin(episode)|raw }}, #}
+            playlist: "{{ url('oktolab_media_player_for_episode', {'uniqID': episode.uniqID, 'player_type': 'jwplayer', '_format': 'json'})|raw}}",
+            related: {
+                    file: "{{ url('oktothek_show_similar_episode', {'uniqID': episode.uniqID})|raw }}",
+                    onclick: "link"
+            }
+        }).on('play', function(event){
+            if (event.oldstate == "buffering") { {# fire statistics #}
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'values': {'uniqID': "{{ episode.uniqID }}", 'event': 'start'}}
+                });
+            }
+        });
+    });
+</script>

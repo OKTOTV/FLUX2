@@ -18,9 +18,9 @@ class DefaultController extends Controller
     public function oktothekAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $best_episodes = $em->getRepository('MediaBundle:Episode')->findTopEpisodes(8);
-        $newest_episodes = $em->getRepository('MediaBundle:Episode')->findNewestEpisodes(8);
-        $newest_playlists = $em->getRepository('MediaBundle:Playlist')->findNewestPlaylists(8);
+        $best_episodes = $em->getRepository('AppBundle:Episode')->findTopEpisodes(8);
+        $newest_episodes = $em->getRepository('AppBundle:Episode')->findNewestEpisodes(8);
+        $newest_playlists = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists(8);
         return [
             'best_episodes'    => $best_episodes,
             'newest_episodes'  => $newest_episodes,
@@ -44,7 +44,7 @@ class DefaultController extends Controller
     public function sliderAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $episodePins = $em->getRepository('MediaBundle:EpisodePin')->findBy(array(), array('onlineAt' => 'ASC'), 5, 0);
+        $episodePins = $em->getRepository('AppBundle:EpisodePin')->findBy(array(), array('onlineAt' => 'ASC'), 5, 0);
 
         return array('slides' => $episodePins);
     }

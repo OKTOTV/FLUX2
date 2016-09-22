@@ -12,7 +12,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "episode head-white-color" %}
+{% set body_class = "episode" %}
 {% block body %}
     <div id="top"></div>
     <div class="container-fluid">
@@ -22,7 +22,7 @@
                     <img src="{{ episode.posterframe|path }}" class="img-responsive" />
                 {% endif %}
             </figure>
-			<article>
+            <article>
                 <p class="series">
                     <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="Mehr über {{ episode.series.name }} erfahren">{{ episode.series.name }}</a>
                 </p>
@@ -66,9 +66,9 @@
         <!-- Ende Kommentare -->
 		<section class="container tags">
 		    <h2>{{ 'oktothek.episode_tag_header'|trans }}</h2>
-		    <ul>
+		    <ul class="row">
                 {% for tag in episode.tags %}
-                    <li><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
+                    <li class="col-md-1"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
                 {% endfor %}
 			</ul>
 		</section>
@@ -84,7 +84,7 @@
     {{ parent() }}
     {{ player(episode)|raw }}
     <script type="text/javascript">
-        $(document).ready(function(){        
+        $(document).ready(function(){
             // add/remove from favorites
             $('#favorite').click(function(e){
                 e.preventDefault();

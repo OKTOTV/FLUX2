@@ -2,7 +2,7 @@
 
 namespace AppBundle\Model;
 
-use MediaBundle\Entity\Episode;
+use AppBundle\Entity\Episode;
 
 class SearchService
 {

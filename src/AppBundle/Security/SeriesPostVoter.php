@@ -2,7 +2,7 @@
 
 namespace AppBundle\Security;
 
-use MediaBundle\Entity\Series;
+use AppBundle\Entity\Series;
 use AppBundle\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;

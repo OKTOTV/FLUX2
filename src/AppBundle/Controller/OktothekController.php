@@ -7,9 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use MediaBundle\Entity\Episode;
-use MediaBundle\Entity\Series;
-use MediaBundle\Entity\Playlist;
+use AppBundle\Entity\Episode;
+use AppBundle\Entity\Series;
+use AppBundle\Entity\Playlist;
 
 /**
  * Episode controller.
@@ -27,8 +27,8 @@ class OktothekController extends Controller
     public function showEpisodeAction(Request $request, Episode $episode)
     {
         $this->get('bprs_analytics')->trackInfo($request, ['uniqID' => $episode->getUniqID()]);
-        $episodes = $this->getDoctrine()->getRepository('MediaBundle:Episode')->findNewerEpisodes($episode, 3);
-        $next = $this->getDoctrine()->getRepository('MediaBundle:Episode')->findNextEpisode($episode);
+        $episodes = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNewerEpisodes($episode, 3);
+        $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
         return ['episode' => $episode, 'related' => $episodes, 'next' => $next];
     }
 
@@ -39,8 +39,8 @@ class OktothekController extends Controller
      */
     public function showRelatedEpisodesAction(Request $request, Episode $episode)
     {
-        $next = $this->getDoctrine()->getRepository('MediaBundle:Episode')->findNextEpisode($episode);
-        $previous = $this->getDoctrine()->getRepository('MediaBundle:Episode')->findPreviousEpisode($episode);
+        $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
+        $previous = $this->getDoctrine()->getRepository('AppBundle:Episode')->findPreviousEpisode($episode);
         $related = $this->get('oktothek_search')->searchRelatedEpisodes($episode, 5);
         $results = [];
         $results['episodes'] = $related;

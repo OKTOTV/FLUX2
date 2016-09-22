@@ -1,4 +1,0 @@
-oktolab_media:
-    resource: "@OktolabMediaBundle/Controller/"
-    type:     annotation
-    prefix:   /

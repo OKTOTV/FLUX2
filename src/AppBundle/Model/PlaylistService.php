@@ -2,15 +2,17 @@
 
 namespace AppBundle\Model;
 
-use MediaBundle\Entity\Playlist;
-use MediaBundle\Entity\Playlistitem;
+use AppBundle\Entity\Playlist;
+use Oktolab\MediaBundle\Entity\Playlistitem;
 
 class PlaylistService
 {
     private $em;
+    private $media_service;
 
-    public function __construct($em) {
+    public function __construct($em, $media_service) {
         $this->em = $em;
+        $this->media_service = $media_service;
     }
 
     /**
@@ -26,7 +28,7 @@ class PlaylistService
                         $NotInPlaylist = false;
                     }
                 }
-                $episode = $this->em->getRepository('MediaBundle:Episode')->findOneBy(['uniqID' => $episodeID]);
+                $episode = $this->media_service->getEpisode($episodeID);
                 $playlistItem = new PlaylistItem();
                 $playlistItem->setEpisode($episode);
                 $playlist->addItem($playlistItem);
@@ -60,14 +62,14 @@ class PlaylistService
     }
 
     /**
-     * creates a new playlist for user and adds episode 
+     * creates a new playlist for user and adds episode
      */
     public function newPlaylist($name, $user, $uniqID)
     {
         $playlist = new Playlist();
         $playlist->setUser($user);
         $playlist->setName($name);
-        $episode = $this->em->getRepository('MediaBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
+        $episode = $this->em->getRepository('OktoMediaBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
         $playlistItem = new PlaylistItem();
         $playlistItem->setEpisode($episode);
         $playlist->addItem($playlistItem);

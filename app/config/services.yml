@@ -10,7 +10,7 @@ services:
 
     oktothek_playlist_service:
         class:  AppBundle\Model\PlaylistService
-        arguments: [ "@doctrine.orm.entity_manager" ]
+        arguments: [ "@doctrine.orm.entity_manager", "@oktolab_media" ]
 
 
     gedmo.listener.sluggable:
@@ -19,18 +19,6 @@ services:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
             - [ setAnnotationReader, [ "@annotation_reader" ] ]
-
-    oktothek_tag.type:
-        class: AppBundle\Form\TagType
-        arguments: [ "@oktothek_tag.repository" ]
-        tags:
-            - { name: form.type, alias: tag }
-
-    oktothek_tag_collection.type:
-        class: AppBundle\Form\TagCollectionType
-        arguments: [ "@oktothek_tag.repository" ]
-        tags:
-            - { name: form.type, alias: tag }
 
     mediabundle_user:
         class: MediaBundle\Form\UserType
@@ -61,11 +49,6 @@ services:
         arguments: [ %program_url% ]
 
     # Asset repository
-    oktothek_tag.repository:
-        class: Doctrine\ORM\EntityRepository
-        factory: [ "@doctrine.orm.entity_manager", getRepository ]
-        arguments:  [ "AppBundle\Entity\Tag" ]
-
     oktothek_user.repository:
         class: Doctrine\ORM\EntityRepository
         factory: [ "@doctrine.orm.entity_manager", getRepository ]

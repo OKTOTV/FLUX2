@@ -5,6 +5,10 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Okto\MediaBundle\Form\TagType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class PageType extends AbstractType
 {
@@ -15,10 +19,10 @@ class PageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'text', ['label' => 'oktothek.page_title_label'])
-            ->add('text', 'textarea', ['label' => 'oktothek.page_text_label', 'attr' => ['rows' => 35]])
-            ->add('tags', 'tag')
-            ->add('isActive', 'checkbox', ['label' => 'oktothek.page_isActive_label'])
+            ->add('title', TextType::class, ['label' => 'oktothek.page_title_label'])
+            ->add('text', TextareaType::class, ['label' => 'oktothek.page_text_label', 'attr' => ['rows' => 35]])
+            ->add('tags', TagType::class)
+            ->add('isActive', CheckboxType::class, ['label' => 'oktothek.page_isActive_label'])
             ;
     }
 
@@ -32,10 +36,7 @@ class PageType extends AbstractType
         ));
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'appbundle_page';
     }

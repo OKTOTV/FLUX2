@@ -9,6 +9,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Page;
 use AppBundle\Form\PageType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 /**
  * News controller.
  *
@@ -36,9 +38,9 @@ class PageController extends Controller
     public function newAction(Request $request)
     {
         $page = new Page();
-        $form = $this->createForm(new PageType(), $page);
-        $form->add('submit', 'submit', ['label' => 'oktothek.page_create_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $form->add('preview', 'submit', ['label' => 'oktothek.page_preview_button']);
+        $form = $this->createForm(PageType::class, $page);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.page_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('preview', SubmitType::class, ['label' => 'oktothek.page_preview_button']);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -65,10 +67,10 @@ class PageController extends Controller
      */
     public function editAction(Request $request, Page $page)
     {
-        $form = $this->createForm(new PageType(), $page);
-        $form->add('submit', 'submit', ['label' => 'oktothek.page_update_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $form->add('delete', 'submit', ['label' => 'oktothek.page_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
-        $form->add('preview', 'submit', ['label' => 'oktothek.page_preview_button']);
+        $form = $this->createForm(PageType::class, $page);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.page_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.page_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('preview', SubmitType::class, ['label' => 'oktothek.page_preview_button']);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);

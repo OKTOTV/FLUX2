@@ -44,3 +44,7 @@ check.php
 
 app/data.db3
 *.rdb
+
+.DS_Store
+
+.DS_Store

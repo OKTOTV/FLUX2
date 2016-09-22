@@ -3,6 +3,19 @@
 var headerScrollheight;
 var headerHeight;
 var Winwidth;
+
+//Zufallsgenerator
+function randomNumber(arr) {
+    var rand = Math.floor((Math.random() * arr.length) + 1); 
+    return rand;
+}
+function Sizes() {
+    if (Winwidth >= 768) {
+        headerHeight = 180;
+    } else {
+        headerHeight = 50;
+    }
+}
 	
 $(document).ready(function(){
 	
@@ -11,21 +24,8 @@ $(document).ready(function(){
 	headerHeight;
 	Winwidth = $( window ).width();
 	
-	function Sizes() {
-		if (Winwidth >= 768) {
-	        headerHeight = 180;
-	    } else {
-		    headerHeight = 50;
-	    }
-	}
 	Sizes();
-	
-	//Zufallsgenerator
-	function randomNumber(arr) {
-		var rand = Math.floor((Math.random() * arr.length) + 1); 
-		return rand;
-	}
-	
+
 	//Menü
 
 	function addHeaderBG() {
@@ -352,43 +352,6 @@ $(document).ready(function(){
 		}
 	}
 	
-	/* Playlists */
-	function closePlaylistDescr(status) {
-		if (status == 'min') {
-		    $('.playlists header.description-wrapper').css('display','none');
-		    $('.playlists .playlist-minimized').css('display','block');
-		    $('.playlists .jw-display-icon-container').css('display','table');
-		} else {
-			$('.playlists header.description-wrapper').css('display','block');
-		    $('.playlists .playlist-minimized').css('display','none');
-		    $('.playlists .jw-display-icon-container').css('display','none');
-		}
-	}
 	
-	$('#StartPlaylist').click(function(e){
-		e.preventDefault();
-        jwplayer('player').playlistItem($('.playme').eq(0).data('list'));
-		closePlaylistDescr('min');
-	});
-	$('.playlists header .btn.transparent').click(function() {
-		closePlaylistDescr('min');
-	});
-    $('.playlists .playlist-minimized').click(function() {
-		closePlaylistDescr('max');
-	});
-    $('.playme').click(function(){
-        closePlaylistDescr('min');
-		scrollToAnchor($('.playlists .player-container'));
-    })
-	
-	//Ändert die Farbe des aktiven Playlistitems
-	if ($('section').hasClass('playlist_container')) {
-		var playbutton = new Array('color1', 'color2', 'color3', 'color4');
-		for (i=0; i<$('.list-group-item').length; i++)
-		{
-			rand = randomNumber(playbutton)-1;
-			$('.list-group-item').eq(i).find('article').addClass(playbutton[rand]);
-		}
-	}
 	
 });

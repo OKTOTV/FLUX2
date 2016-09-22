@@ -14,17 +14,10 @@
     </div>
     <div class="col-md-1 col-xs-2">
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-danger remove">
-                <span class="glyphicon glyphicon-remove"></span>
-            </a>
+            <a href="#" class="list-group-item list-group-item-danger remove"><span class="glyphicon glyphicon-remove"></span></a>
         </div>
         <div class="list-group">
-            <a href="#" class="list-group-item moveup">
-                <span class="glyphicon glyphicon-chevron-up"></span>
-            </a>
-            <a href="#" class="list-group-item movedown">
-                <span class="glyphicon glyphicon-chevron-down"></span>
-            </a>
+            <a href="#" class="list-group-item moveup"><span class="glyphicon glyphicon-chevron-up"></span></a><a href="#" class="list-group-item movedown"><span class="glyphicon glyphicon-chevron-down"></span></a>
         </div>
     </div>
     <div class="hidden">
@@ -33,7 +26,7 @@
 </div>
 {% endmacro %}
 
-{% set body_class = "head-white-color" %}
+{% set body_class = "edit-playlists" %}
 {% block body_main %}
     <div class="page-header">
         <h1>{{ 'oktothek.playlist_edit_header'|trans }}</h1>
@@ -50,28 +43,24 @@
         <div id="playlist_items">
             {% for item in form.items %}
             <div class="row">
-                <div class="col-md-3 col-xs-3">
+                <div class="col-md-2 col-xs-2">
                     <img src="{{ item.vars.value.episode.posterframe(true)|thumb(135,240)}}" class="img img-responsive" />
                 </div>
-                <div class="col-md-8 col-xs-7">
-                    <h4>{{ item.vars.value.episode.name }}</h4>
-                    <p>
-                        {{ item.vars.value.episode.description }}
-                    </p>
+                <div class="col-md-9 col-xs-8">
+                    <a href="{{ path('oktothek_show_episode', {'uniqID': item.vars.value.episode.uniqID})}}">
+					    <h3>{{ item.vars.value.episode.series.name|default('') }}</h3>
+                        <p>
+                            <!-- {{ item.vars.value.episode.description }}<br> -->
+						    {{ item.vars.value.episode.name }}
+                        </p>
+					    </a>
                 </div>
                 <div class="col-md-1 col-xs-2">
                     <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-danger remove">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </a>
+                        <a href="#" class="list-group-item list-group-item-danger remove"><span class="glyphicon glyphicon-remove"></span></a>
                     </div>
                     <div class="list-group">
-                        <a href="#" class="list-group-item moveup">
-                            <span class="glyphicon glyphicon-chevron-up"></span>
-                        </a>
-                        <a href="#" class="list-group-item movedown">
-                            <span class="glyphicon glyphicon-chevron-down"></span>
-                        </a>
+                        <a href="#" class="list-group-item moveup"><span class="glyphicon glyphicon-chevron-up"></span></a><a href="#" class="list-group-item movedown"><span class="glyphicon glyphicon-chevron-down"></span></a>
                     </div>
                 </div>
                 <div class="hidden">
@@ -171,4 +160,8 @@
             });
         });
     </script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/playlists.css') }}" rel="stylesheet" />
 {% endblock %}

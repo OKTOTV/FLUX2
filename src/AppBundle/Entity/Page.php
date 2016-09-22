@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use AppBundle\Entity\Tag;
 
 /**
  * Page
@@ -59,11 +60,8 @@ class Page
     private $isActive;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag")
-     * @ORM\JoinTable(name="page_tags",
-     *      joinColumns={@ORM\JoinColumn(name="page_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
-     *      )
+     * @ORM\ManyToMany(targetEntity="Okto\MediaBundle\Entity\TagInterface", inversedBy="pages", cascade={"persist"}, fetch="EAGER")
+     * @ORM\JoinTable(name="page_tag")
      */
     private $tags;
 
@@ -204,12 +202,13 @@ class Page
     /**
      * Add tags
      *
-     * @param \AppBundle\Entity\Tag $tags
-     * @return Page
+     * @param \AppBundle\Entity\Tag $tag
+     * @return Post
      */
-    public function addTag(\AppBundle\Entity\Tag $tags)
+    public function addTag($tag)
     {
-        $this->tags[] = $tags;
+        $this->tags[] = $tag;
+        $tag->addPage($this);
 
         return $this;
     }
@@ -219,9 +218,10 @@ class Page
      *
      * @param \AppBundle\Entity\Tag $tags
      */
-    public function removeTag(\AppBundle\Entity\Tag $tags)
+    public function removeTag($tag)
     {
-        $this->tags->removeElement($tags);
+        $this->tags->removeElement($tag);
+        $tag->removePage($this);
     }
 
     /**
@@ -237,6 +237,5 @@ class Page
     public function setTags($tags)
     {
         $this->tags = $tags;
-        return $this;
     }
 }

@@ -40,7 +40,7 @@ class PlaylistItemType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Oktolab\MediaBundle\Entity\Playlistitem'
+            'data_class' => 'Okto\MediaBundle\Entity\Playlistitem'
         ));
     }
 

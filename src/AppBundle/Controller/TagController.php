@@ -10,7 +10,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use AppBundle\Entity\Tag;
-use AppBundle\Form\TagType;
 
 /**
  * Tag controller.
@@ -79,11 +78,8 @@ class TagController extends Controller
         $repo = $em->getRepository('AppBundle:Tag');
         return [
             'tag' => $slug,
-            'episodes'  => $repo->findEpisodesWithTag($slug),
             'seriess'    => $repo->findSeriesWithTag($slug),
-            'playlists' => $repo->findPlaylistsWithTag($slug),
-            'posts'     => $repo->findPostsWithTag($slug),
-            'pages'     => $repo->findPagesWithTag($slug)
+            'playlists' => $repo->findPlaylistsWithTag($slug)
         ];
     }
 

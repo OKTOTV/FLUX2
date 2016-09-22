@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\Series;
 
 /**
  * Post
@@ -88,11 +89,8 @@ class Post
     private $uniqID;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tag", fetch="EAGER")
-     * @ORM\JoinTable(name="post_tags",
-     *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
-     *      )
+     * @ORM\ManyToMany(targetEntity="Okto\MediaBundle\Entity\TagInterface", inversedBy="posts", cascade={"persist"})
+     * @ORM\JoinTable(name="post_tag")
      */
     private $tags;
 
@@ -106,7 +104,7 @@ class Post
     private $assets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="MediaBundle\Entity\Series", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Series", inversedBy="posts")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
      */
     private $series;
@@ -323,12 +321,13 @@ class Post
     /**
      * Add tags
      *
-     * @param \AppBundle\Entity\Tag $tags
+     * @param \AppBundle\Entity\Tag $tag
      * @return Post
      */
-    public function addTag($tags)
+    public function addTag($tag)
     {
-        $this->tags[] = $tags;
+        $this->tags[] = $tag;
+        $tag->addPost($this);
 
         return $this;
     }
@@ -338,9 +337,10 @@ class Post
      *
      * @param \AppBundle\Entity\Tag $tags
      */
-    public function removeTag($tags)
+    public function removeTag($tag)
     {
-        $this->tags->removeElement($tags);
+        $this->tags->removeElement($tag);
+        $tag->removePost($this);
     }
 
     /**
@@ -433,7 +433,7 @@ class Post
      * @param \MediaBundle\Entity\Series $series
      * @return Post
      */
-    public function setSeries(\MediaBundle\Entity\Series $series = null)
+    public function setSeries(Series $series = null)
     {
         $this->series = $series;
 

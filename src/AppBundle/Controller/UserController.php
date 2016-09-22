@@ -63,7 +63,7 @@ class UserController extends Controller
         if ($uniqID && $type) {
             // TODO: create service
             $em = $this->getDoctrine()->getManager();
-            $episode = $em->getRepository('MediaBundle:Episode')->findOneBy(array('uniqID' => $uniqID));
+            $episode = $em->getRepository('AppBundle:Episode')->findOneBy(array('uniqID' => $uniqID));
             $user = $this->get('security.token_storage')->getToken()->getUser();
             $user->addFavorite($episode);
             $em->persist($user);
@@ -85,7 +85,7 @@ class UserController extends Controller
         if ($uniqID && $type) {
             // TODO: create service
             $em = $this->getDoctrine()->getManager();
-            $episode = $em->getRepository('MediaBundle:Episode')->findOneBy(array('uniqID' => $uniqID));
+            $episode = $em->getRepository('AppBundle:Episode')->findOneBy(array('uniqID' => $uniqID));
             $user = $this->get('security.token_storage')->getToken()->getUser();
             $user->removeFavorite($episode);
             $em->persist($user);

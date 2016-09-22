@@ -4,7 +4,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "series head-white-color head-transparent-bg fullscreen-images" %}
+{% set body_class = "series fullscreen-images" %}
 {% block body %}
     <div id="top"></div>
     <section class="series-content fs-image-content">
@@ -64,7 +64,7 @@
     <section class="container">
         <div class="infos">
             <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
-            {% include 'MediaBundle::Reachme/reachme_stack.html.twig' with { 'reachmes': series.reachmes } %}
+            {% include 'OktoMediaBundle::Reachme/reachme_stack.html.twig' with { 'reachmes': series.reachmes } %}
         </div>
     </section>
     {% if series.playlists is not empty %}
