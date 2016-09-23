@@ -9,9 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use Okto\MediaBundle\Entity\Tag;
-use Okto\MediaBundle\Entity\TagCollection;
-use AppBundle\Form\TagType;
+use AppBundle\Entity\Tag;
+use AppBundle\Entity\TagCollection;
+use AppBundle\Form\Backend\TagType;
 use AppBundle\Form\TagCollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
@@ -56,7 +56,7 @@ class TagController extends Controller
     public function newAction(Request $request)
     {
         $tag = new Tag();
-        $form = $this->createForm(new TagType(), $tag);
+        $form = $this->createForm(TagType::class, $tag);
         $form->add('submit', SubmitType::class, ['label' => 'oktothek.tag_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form

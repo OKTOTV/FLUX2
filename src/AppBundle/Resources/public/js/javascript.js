@@ -143,27 +143,9 @@ $(document).ready(function(){
 		scrollToAnchor($('.playlist_container'));
 	});
 	
-	$('#ButtonPlaylist').click(function() {
+	$('.misc button[data-toggle="collapse"]').click(function() {
 	    $('article .collapse').collapse('hide');
-		$('#collapsePlaylistArea .collapse').collapse();
 	});
-
-	$('#collapseShareArea .sharingnav button').click(function (e) {
-        //e.preventDefault();
-		$('#collapseShareArea .tab-content div').removeClass('active');
-		$('#collapseShareArea .sharingnav button').removeClass('active');
-		switch($(this).attr('id')) {
-            case "share_sn":
-                $('#collapseShareArea #div_share_sn').addClass('active');
-                break;
-            case "share_embed":
-                $('#collapseShareArea #div_share_embed').addClass('active');
-                break;
-            default:
-                $('#collapseShareArea #div_share_sn').addClass('active');
-        }
-		$(this).addClass('active');
-    })
 
 	/*Share Url*/
 	$('#sharingurl').val(window.location.href);

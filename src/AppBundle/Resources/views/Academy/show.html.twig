@@ -115,3 +115,7 @@
 	</section>
 	<!-- Ende Newsletter -->
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/collapse-windows.css') }}" rel="stylesheet" />
+{% endblock %}

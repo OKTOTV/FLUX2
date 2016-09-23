@@ -66,6 +66,11 @@ services:
         class: AppBundle\Model\SliderService
         arguments: [ "@bprs.asset_helper", "@doctrine.orm.entity_manager", "@router"]
 
+    oktothek.tag_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory:  [ "@doctrine.orm.entity_manager", getRepository ]
+        arguments:  [ AppBundle\Entity\Tag ]
+
 # voter
     oktothek_subscription_voter:
         class: AppBundle\Security\SubscriptionVoter
@@ -98,3 +103,9 @@ services:
         arguments: [ "@oktothek.episode_repository" ]
         tags:
             - { name: form.type, alias: appbundle_playlist_item }
+
+    oktothek.tag_collection_type:
+        class: AppBundle\Form\TagCollectionType
+        arguments:  [ "@oktothek.tag_repository" ]
+        tags:
+            - { name: form.type, alias: appbundle_tag_collection }

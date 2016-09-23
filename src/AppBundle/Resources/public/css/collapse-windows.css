@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/* CSS Document */
+.collapsePlaylist ul, .collapsePlaylist li {
+	list-style:none;
+}
+.tagpage .collapseShare .collapse-content, .preview .collapse-header {
+	position:relative;
+}.collapseShare .socialnetworks, .collapseShare .helptext, .collapseShare .helptext, .collapseShare .socialnetworks li {
+	display:inline;
+}
+.collapseShare .socialnetworks li a, .collapseShare .socialnetworks a  {
+	display:inline-block;
+}
+.collapsePlaylist ul {
+	display:table;
+}
+.collapsePlaylist li {
+	display:table-row;
+}
+.collapsePlaylist li button, .collapsePlaylist li span {
+	display:table-cell;
+}
+.collapsePlaylist ul, .collapsePlaylist li, .collapseShare .socialnetworks, .collapseShare .helptext {
+	margin-left:0;
+}
+/* Überschriften für Barrierefreundlichkeit */
+.collapseShare .socialnetworks a span, #collapseShare h3 {
+    margin-left: -9990px;
+}
+.episode .collapseShare h3, .episode .collapsePlaylist h3 {
+	margin-top:0;
+}
+#div_share_sn form, .collapsePlaylist form {
+	margin-top:20px;
+}
+.collapsePlaylist ul {
+	margin-top:40px;
+}
+.collapseShare .btn-group, .academy section .collapse-content {
+	margin-bottom:40px;
+}
+.collapseShare div, .preview .collapse-header {
+	margin:0;
+}
+.tagpage .collapseShare, .tagpage .collapse-header div {
+	margin:0 auto;
+}
+.collapsePlaylist ul, .collapsePlaylist li, .collapseShare .socialnetworks {
+	padding-left:0;
+}
+.collapseShare .helptext {
+	padding-left:15px;
+}
+.collapsePlaylist li span {
+	padding-left:10px;
+}
+.academy section .collapse-content {
+	padding-bottom:20px;
+}
+.episode .collapseShare > div, .collapsePlaylist > div, .tagpage #collapseTagShare .content-opacity {
+	padding:20px;
+}
+.collapseShare div, .tagpage .collapseShare, .preview .collapse-header {
+	padding:0;
+}
+.collapseShare .socialnetworks li a, .collapseShare .socialnetworks a  {
+	outline:0;
+}
+.collapseShare .socialnetworks li a, .collapseShare .socialnetworks a, .collapseShare .share-buttons  {
+	text-align:left;
+}
+.tagpage .collapseShare {
+	text-align:center;
+}
+.collapseShare div {
+    vertical-align:middle;
+}
+.collapseShare .socialnetworks li a  {
+	height:40px;
+	width:40px;
+}
+/* Sharing und Playlistfenster*/
+#collapseShare input.form-control, .collapsePlaylist input.form-control {
+	width:600px;
+}
+.collapsePlaylist .input-group-btn {
+	width:auto;
+}
+.collapseShare .socialnetworks a {
+    height: 30px;
+    width: 30px;
+}
+.collapsePlaylist li button {
+	width:100px;
+}
+.tagpage .collapseShare {
+	width:770px;
+}
+.tagpage .collapse-header div {
+	height:30px;
+	width:54px;
+}
+.academy section .collapse {
+	width: 100%;
+	clear:left;
+}
+.preview .collapse-header {
+	width:54px;
+	height:30px;
+	left:0;
+}
+@media (min-width: 580px) {
+	.academy section .collapse {
+	    width: 100%;
+		padding-bottom:60px;
+    }
+}
+@media (min-width: 992px) {
+	.academy .courses .collapse-content .row div:last-child {
+	    padding-left:0px;
+    }
+}
