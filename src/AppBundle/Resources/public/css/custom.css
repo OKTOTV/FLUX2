@@ -543,7 +543,7 @@ header .dropdown-menu div.triangle {
 		color: #000000;
 	}
 	.head-white-color .navbar-inverse .navbar-nav > li > a:hover, 
-	.head-white-color navbar-inverse .navbar-nav > .active > a, 
+	.head-white-color .navbar-inverse .navbar-nav > .active > a, 
 	.head-white-color .navbar-inverse .navbar-nav > .active > a:hover, 
 	.head-white-color .navbar-inverse .navbar-nav > .active > a:focus {
 		background-image:url(../images/menu-border.png);
@@ -1879,7 +1879,7 @@ figure.pin img, .programm .schedule img {
 /* Sharing und Playlistfenster*/
 .collapseShare, .collapsePlaylist, .collapseCoursedetails {
 	margin:40px 0;
-	padding:20px;
+	/*padding:20px;*/
 }
 #collapseShare input.form-control, .collapsePlaylist input.form-control {
 	width:600px;
@@ -1889,6 +1889,9 @@ figure.pin img, .programm .schedule img {
 }
 .collapseShare .btn-group {
 	margin-bottom:40px;
+}
+#collapseTagShare .content-opacity {
+	/*padding:20px;*/
 }
 .collapseShare .socialnetworks, .collapseShare .helptext {
     margin-left:0;
@@ -1905,6 +1908,8 @@ figure.pin img, .programm .schedule img {
 }
 .collapseShare div {
     vertical-align:middle;
+	padding:0;
+	margin:0;
 }
 .collapseShare .socialnetworks a {
     display: inline-block;
@@ -1942,6 +1947,8 @@ figure.pin img, .programm .schedule img {
 /* Serien */
 .series .play-episode, .container-bg-opacity {
 	position:absolute;
+	left:0;
+	top:0;
 }
 /*.fs-image-content .description-wrapper {
 	position:static;
@@ -1952,8 +1959,9 @@ figure.pin img, .programm .schedule img {
 	height:100%;
 }
 .bg-opacity {
-	margin-right:15px;
+	/*margin-right:15px;*/
 	height:100%;
+	width:100%;
 }
 .pin .bg-opacity {
 	margin-right:0px;
@@ -2099,18 +2107,22 @@ figure.pin img, .programm .schedule img {
 	text-align:center;
 	width:770px;
 	margin:0 auto;
+	padding:0;
 }
 .tagpage .collapseShare .collapse-content {
-	padding:20px;
+	/*padding:20px;*/
 	position:relative;
 }
 .tagpage .bg-opacity {
-	margin:-20px 15px 0 -20px;
+	/*margin:-20px 15px 0 -20px;*/
 }
 .tagpage .collapse-header div {
 	height:30px;
 	width:54px;
 	margin:0 auto;
+}
+.tagpage #collapseTagShare .content-opacity {
+	padding:20px;
 }
 .tagpage .inc-pins .pins-wrapper {
 	display:table;
