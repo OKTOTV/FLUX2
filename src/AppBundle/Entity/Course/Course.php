@@ -44,7 +44,7 @@ class Course
     private $attendees;
 
     /**
-     * @Assert\GreaterThan(value=1, message="oktothek.backend_course_attendees_greater_than")
+     * @Assert\GreaterThan(value=0, message="oktothek.backend_course_attendees_greater_than")
      * @ORM\Column(type="smallint", name="max_attendees")
      */
     private $max_attendees;
