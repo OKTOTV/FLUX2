@@ -289,11 +289,13 @@ fos_elastica:
                         listener: ~
                         finder: ~
                 tag:
+                    serializer:
+                        groups: [okto]
                     mappings:
                         slug: { boost: 8, analyzer: my_analyzer }
                     persistence:
                         driver: orm
-                        model: Okto\MediaBundle\Entity\Tag
+                        model: AppBundle\Entity\Tag
                         provider: ~
                         listener: ~
                         finder: ~

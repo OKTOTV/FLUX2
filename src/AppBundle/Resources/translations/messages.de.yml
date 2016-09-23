@@ -159,6 +159,8 @@ oktothek.tag_popular_tag_tab:          Menü Tags
 oktothek.tag_all_tag_tab:              Alle Tags
 oktothek.tag_filter_all_button:        Filter <span class="caret"></span>
 oktothek.tag_edit_popular_button:      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Menü Tags bearbeiten
+oktothek.tag_popular_update_button:    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Änderungen speichern
+oktothek.tag_search_label:             Bestehende Tags durchsuchen
 
 ## academy
 oktothek_academy_header:                Akademie

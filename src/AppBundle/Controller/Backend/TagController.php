@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Okto\MediaBundle\Entity\Tag;
-use Okto\MediaBundle\Entity\TagCollection;
+use AppBundle\Entity\TagCollection;
 use AppBundle\Form\TagType;
 use AppBundle\Form\TagCollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
