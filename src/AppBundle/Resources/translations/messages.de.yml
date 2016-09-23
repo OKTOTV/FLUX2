@@ -152,6 +152,13 @@ oktothek_tag_placeholder:               Katzen, YOLO and more
 oktothek.tag_new_button:                <span class="glyphicon glyphicon-plus"></span> Neuen Tag anlegen
 oktothek_tag_more_results:              Mehr Anzeigen <span class="icon">+</span>
 
+# backend new tag
+oktothek.tag_text_label:               Tagtext
+oktothek.tag_highlight_label:          Im Menü sichtbar
+oktothek.tag_create_button:            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Tag anlegen
+oktothek.success_create_tag:           Tag erfolgreich angelegt
+oktothek.error_create_tag:             Tag konnte nicht angelegt werden
+
 # popular tag
 oktothek.success_update_popular_tags:  Hervorgehobene Schlagworte erfolgreich aktualisiert
 oktothek.error_update_popular_tags:    Hervorgehobene Schlagworte konnten nicht aktualisert werden

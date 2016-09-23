@@ -30,6 +30,12 @@ class Tag extends OktoTag {
      */
     private $pages;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->highlight = false;
+    }
+
     /**
      * Set rank
      *
