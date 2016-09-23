@@ -458,3 +458,8 @@ oktothek.series_producer_episode_download:  <span class="glyphicon glyphicon-dow
 ## producer playlists
 oktothek.series_producer_playlists_text:    Hier findest du alle Playlisten zu dieser Sendereihe. Du kannst Playlisten anlegen, bearbeiten und löschen. Aktive Playlisten erscheinen auf deinem Kanal.
 oktothek.series_producer_new_playlist:      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Playliste anlegen
+
+# newsletter
+oktothek.newsletter_header:                 Newsletter
+oktothek.newsletter_mail_placeholder:       Jetzt für den Newsletter anmelden
+oktothek.newsletter_subscribe_submit:       Abonnieren

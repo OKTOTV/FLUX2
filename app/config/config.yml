@@ -35,6 +35,8 @@ twig:
         version:      "Alpha"
         junksize:     "%bprs_asset.junksize%"
         intake_url:   "http://intake.okto.tv"
+        oktothek_default_newsletter: "%mailchimp_default_newsletter%"
+        oktothek_academy_newsletter: "%mailchimp_academy_newsletter%"
     charset:    "UTF-8"
     form_themes:
         - 'BprsStyleBundle:Form:fields.html.twig'

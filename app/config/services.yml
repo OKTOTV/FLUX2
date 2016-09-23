@@ -2,6 +2,7 @@ parameters:
     livestream_template:    "Mail/livestream.html.twig"
     new_post_template:      "Mail/new_post.html.twig"
     new_episode_template:   "Mail/new_episode.html.twig"
+    newsletter.api_key:            "%mailchimp_api_key%"
 
 services:
     oktothek_post_service:
@@ -109,3 +110,8 @@ services:
         arguments:  [ "@oktothek.tag_repository" ]
         tags:
             - { name: form.type, alias: appbundle_tag_collection }
+
+# newsletter
+    oktothek_newsletter:
+        class:  AppBundle\Model\NewsletterService
+        arguments:  [ "%newsletter.api_key%" ]
