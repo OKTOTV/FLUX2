@@ -5,7 +5,8 @@
 }
 .tagpage .collapseShare .collapse-content, .preview .collapse-header {
 	position:relative;
-}.collapseShare .socialnetworks, .collapseShare .helptext, .collapseShare .helptext, .collapseShare .socialnetworks li {
+}
+.collapseShare .socialnetworks, .collapseShare .helptext, .collapseShare .helptext, .collapseShare .socialnetworks li {
 	display:inline;
 }
 .collapseShare .socialnetworks li a, .collapseShare .socialnetworks a  {
@@ -27,7 +28,7 @@
 .collapseShare .socialnetworks a span, #collapseShare h3 {
     margin-left: -9990px;
 }
-.episode .collapseShare h3, .episode .collapsePlaylist h3 {
+.episode .collapseWindow > div > h3:first-child {
 	margin-top:0;
 }
 #div_share_sn form, .collapsePlaylist form {
@@ -57,29 +58,31 @@
 .academy section .collapse-content {
 	padding-bottom:20px;
 }
-.episode .collapseShare > div, .collapsePlaylist > div, .tagpage #collapseTagShare .content-opacity {
+.episode .collapseWindow > div.collapse-content, .tagpage #collapseTagShare .content-opacity {
 	padding:20px;
 }
 .collapseShare div, .tagpage .collapseShare, .preview .collapse-header {
 	padding:0;
 }
-.collapseShare .socialnetworks li a, .collapseShare .socialnetworks a  {
+.collapseShare a  {
 	outline:0;
 }
-.collapseShare .socialnetworks li a, .collapseShare .socialnetworks a, .collapseShare .share-buttons  {
+.collapseShare .socialnetworks a, .collapseShare .share-buttons  {
 	text-align:left;
 }
 .tagpage .collapseShare {
 	text-align:center;
 }
-.collapseShare div {
+.collapseShare div, .collapseShare a, .collapseShare .helptext {
     vertical-align:middle;
 }
 .collapseShare .socialnetworks li a  {
 	height:40px;
 	width:40px;
 }
-/* Sharing und Playlistfenster*/
+.collapseShare .helptext {
+	line-height:35px;
+}
 #collapseShare input.form-control, .collapsePlaylist input.form-control {
 	width:600px;
 }
@@ -93,6 +96,9 @@
 .collapsePlaylist li button {
 	width:100px;
 }
+.collapseShare form.col-md-7 {
+	padding-left:0px;
+}
 .tagpage .collapseShare {
 	width:770px;
 }
@@ -104,7 +110,7 @@
 	width: 100%;
 	clear:left;
 }
-.preview .collapse-header {
+.academy .preview .collapse-header {
 	width:54px;
 	height:30px;
 	left:0;

@@ -57,9 +57,13 @@
         </div>
     </div>
 {%- endblock -%}
-
+{% block javascripts %}
+    {{ parent() }}
+	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
+	<link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
     <style type="text/css">
         .bg-bleur {
             {% if tag.episodes is not empty %}
