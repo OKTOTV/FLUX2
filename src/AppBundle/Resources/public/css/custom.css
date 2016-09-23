@@ -758,7 +758,7 @@ button.list-group-item-danger:hover,
 }
 .oktothek .news article, 
 .playlists .playlist_container .list-group-item, 
-.collapseShare, .collapsePlaylist, 
+.collapseShare > div, .collapsePlaylist > div, 
 .collapseCoursedetails, 
 .series .news-pin, 
 .series .news-form, 
@@ -1241,10 +1241,10 @@ footer .networks {
 html, body {
 	height:100%;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .infos ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul {
+.series .infos ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul {
 	list-style:none;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .series .infos ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul {
+.series .infos ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul {
 	margin-left:0;
 	padding-left:0;
 }
@@ -1261,7 +1261,7 @@ h2 {
 	margin-bottom:50px;
 	margin-top:10px;
 }
-.footer .socialnetworks a, .collapseShare .socialnetworks li a, .series .infos .socialnetworks li a  {
+.footer .socialnetworks a, .series .infos .socialnetworks li a  {
 	display:inline-block;
 	text-align:left;
 	height:40px;
@@ -1793,11 +1793,11 @@ article.pin {
 .episode .misc a, .episode .misc span.views {
 	margin-right:10px;
 }
+.episode .misc {
+	padding-bottom:20px;
+}
 .episode #favorite {
 	margin-right:20px;
-}
-.episode .collapse h3 {
-	margin-top:0;
 }
 figure.pin img, .programm .schedule img {
 	width:100%;
@@ -1876,70 +1876,6 @@ figure.pin img, .programm .schedule img {
 	height:50px;
 }
 
-/* Sharing und Playlistfenster*/
-.collapseShare, .collapsePlaylist, .collapseCoursedetails {
-	margin:40px 0;
-	/*padding:20px;*/
-}
-#collapseShare input.form-control, .collapsePlaylist input.form-control {
-	width:600px;
-}
-.collapsePlaylist .input-group-btn {
-	width:auto;
-}
-.collapseShare .btn-group {
-	margin-bottom:40px;
-}
-#collapseTagShare .content-opacity {
-	/*padding:20px;*/
-}
-.collapseShare .socialnetworks, .collapseShare .helptext {
-    margin-left:0;
-	padding-left:0;
-	display:inline;
-}
-.collapseShare .helptext {
-    margin-left:0;
-	padding-left:15px;
-	display:inline;
-}
-.collapseShare .socialnetworks li {
-    display: inline;
-}
-.collapseShare div {
-    vertical-align:middle;
-	padding:0;
-	margin:0;
-}
-.collapseShare .socialnetworks a {
-    display: inline-block;
-    height: 30px;
-    outline: 0 none;
-    text-align: left;
-    width: 30px;
-}
-.collapseShare .share-buttons {
-	text-align:left;
-}
-#div_share_sn form, .collapsePlaylist form {
-	margin-top:20px;
-}
-.collapsePlaylist ul {
-	display:table;
-	margin-top:40px;
-}
-.collapsePlaylist li {
-	display:table-row;
-}
-.collapsePlaylist li button, .collapsePlaylist li span {
-	display:table-cell;
-}
-.collapsePlaylist li button {
-	width:100px;
-}
-.collapsePlaylist li span {
-	padding-left:10px;
-}
 .tagpage .triangle {
   margin:0 auto;
 }
@@ -2046,12 +1982,9 @@ figure.pin img, .programm .schedule img {
 }
 
 /* Überschriften für Barrierefreundlichkeit */
-.collapseShare .socialnetworks a span, .series .infos .socialnetworks a span, #collapseShare h3 {
+.series .infos .socialnetworks a span {
     margin-left: -9990px;
 }
-/*.collapseShare h3 {
-	display:inline;
-}*/
 
 /* Tags */
 .tagpage .container.content-bg {
@@ -2062,7 +1995,7 @@ figure.pin img, .programm .schedule img {
 	padding-right:25px;
 }
 .tagpage .container-fluid header {
-	margin-bottom:40px;
+	padding-bottom:40px;
 	margin-top:40px;
 }
 .tagpage .content-bg section {
@@ -2102,27 +2035,6 @@ figure.pin img, .programm .schedule img {
 .tagpage .misc {
 	line-height:36px;
 	vertical-align:middle;
-}
-.tagpage .collapseShare {
-	text-align:center;
-	width:770px;
-	margin:0 auto;
-	padding:0;
-}
-.tagpage .collapseShare .collapse-content {
-	/*padding:20px;*/
-	position:relative;
-}
-.tagpage .bg-opacity {
-	/*margin:-20px 15px 0 -20px;*/
-}
-.tagpage .collapse-header div {
-	height:30px;
-	width:54px;
-	margin:0 auto;
-}
-.tagpage #collapseTagShare .content-opacity {
-	padding:20px;
 }
 .tagpage .inc-pins .pins-wrapper {
 	display:table;
@@ -2325,14 +2237,6 @@ figure.pin img, .programm .schedule img {
 	display:inline-block;
 	width:120px;
 }
-.academy section .collapse {
-	width: 100%;
-	clear:left;
-}
-.academy section .collapse-content {
-	padding-bottom:20px;
-	margin-bottom:40px;
-}
 .academy .pin figure div.image-container {
 	position:relative;
 }
@@ -2385,14 +2289,6 @@ figure.pin img, .programm .schedule img {
 .preview p.misc {
 	margin-top: 20px;
 }
-.preview .collapse-header {
-	width:54px;
-	height:30px;
-	padding:0;
-	margin:0;
-	position:relative;
-	left:0;
-}
 
 
 @media (min-width: 580px) {
@@ -2415,10 +2311,6 @@ figure.pin img, .programm .schedule img {
 		margin-bottom:0px;
 		padding-bottom:30px;
 	}
-	.academy section .collapse {
-	    width: 100%;
-		padding-bottom:60px;
-    }
 }
 @media (min-width: 768px) {
 	
@@ -2460,9 +2352,6 @@ figure.pin img, .programm .schedule img {
 	/*.academy .collapse {
 	    width: 970px;
 	}*/
-    .academy .courses .collapse-content .row div:last-child {
-	    padding-left:0px;
-    }
 
 }
 @media (min-width: 1200px) {
