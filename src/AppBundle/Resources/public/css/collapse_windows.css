@@ -58,7 +58,10 @@
 .academy section .collapse-content {
 	padding-bottom:20px;
 }
-.episode .collapseWindow > div.collapse-content, .tagpage #collapseTagShare .content-opacity {
+/*.series #collapseShareArea {
+	padding-bottom:40px;
+}*/
+.collapseWindow > div.collapse-content, .tagpage #collapseTagShare .content-opacity {
 	padding:20px;
 }
 .collapseShare div, .tagpage .collapseShare, .preview .collapse-header {
@@ -70,11 +73,16 @@
 .collapseShare .socialnetworks a, .collapseShare .share-buttons  {
 	text-align:left;
 }
-.tagpage .collapseShare {
+.tagpage .collapseShare  {
 	text-align:center;
 }
 .collapseShare div, .collapseShare a, .collapseShare .helptext {
     vertical-align:middle;
+}
+.series .collapseWindow .collapse-header .triangle, .academy .collapseWindow .collapse-header .triangle {
+    position:relative;
+    left:50%;
+    margin-left:-7.5px;
 }
 .collapseShare .socialnetworks li a  {
 	height:40px;
@@ -118,7 +126,6 @@
 @media (min-width: 580px) {
 	.academy section .collapse {
 	    width: 100%;
-		padding-bottom:60px;
     }
 }
 @media (min-width: 992px) {
