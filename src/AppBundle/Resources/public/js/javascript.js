@@ -16,6 +16,11 @@ function Sizes() {
         headerHeight = 50;
     }
 }
+function scrollToAnchor(el) {
+		 var offset = $(el).offset();
+		 var Ts_duration = 300;
+		 $("html, body").animate({scrollTop : offset.top - headerHeight + "px"}, Ts_duration);
+	 }
 	
 $(document).ready(function(){
 	
@@ -94,12 +99,6 @@ $(document).ready(function(){
 			 $(el).find(icon).css('display','block');
 		     $(el).find('span.icon-close').css('display','none');
 		 }
-	 }
-	 
-	 function scrollToAnchor(el) {
-		 var offset = $(el).offset();
-		 var Ts_duration = 300;
-		 $("html, body").animate({scrollTop : offset.top - headerHeight + "px"}, Ts_duration);
 	 }
 	 
 	 $('header button.search-button').click(function() {

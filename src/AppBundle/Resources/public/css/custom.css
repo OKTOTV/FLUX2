@@ -1798,6 +1798,9 @@ article.pin {
 .episode #favorite {
 	margin-right:20px;
 }
+.episode article {
+    position:relative;
+}
 figure.pin img, .programm .schedule img {
 	width:100%;
 	max-width:100%;

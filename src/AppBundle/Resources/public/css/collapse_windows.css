@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 .collapsePlaylist ul, .collapsePlaylist li {
-	list-style:none;
+    list-style:none;
 }
 .tagpage .collapseShare .collapse-content, .preview .collapse-header {
 	position:relative;

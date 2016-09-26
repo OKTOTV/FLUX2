@@ -1,5 +1,6 @@
 // JavaScript Document
 
+$(document).ready(function(){
 	//Sharing Tabs:
 
 	$('.series #ButtonShare').click(function() {
@@ -17,26 +18,19 @@
 	/*Share Url*/
 	$('#sharingurl').val(window.location.href);
 	
+    /*Sprechblasenpfeil unter Button verschieben*/
 	function posBubbletop() {
 		for (i=0; i<$('.collapseWindow').length; i++) {
 		    var id = $('.collapseWindow').eq(i).attr('id');
-			var pos = $('button[data-target="#' + id + '"]').offset();
-			console.log(pos);
+            var el = $('button[data-target="#' + id + '"]');
+			var pos = el.position();
+			if (pos)
+                $('.collapseWindow').eq(i).find('.collapse-header .triangle').css('margin-left', pos.left + el.width()/2 - $('.collapseWindow').eq(i).find('.collapse-header .triangle').width()/4 + 'px');
 		}
 	}
 	if ($('body').hasClass('episode')) {
-		//posBubbletop();
+		posBubbletop();
 	}
-	/*$('button[data-toggle="collapse"]').click(function() {
-		console.log('hier');
-		console.log($(this).attr('data-target'));
-		//console.log($('.collapseWindow').attr('id', $(this).attr('data-target')));
-	});*/
-	$('button').click(function() {
-		console.log('hier');
-		console.log($(this).attr('data-target'));
-		//console.log($('.collapseWindow').attr('id', $(this).attr('data-target')));
-	});
 
 //Academy
 	
@@ -126,3 +120,4 @@
 			$(this).parents('.preview-content').css('display','none');
 		});
 	}
+});
