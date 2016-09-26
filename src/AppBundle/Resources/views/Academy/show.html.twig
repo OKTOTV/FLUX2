@@ -102,16 +102,7 @@
 	<!-- Anfang Newsletter -->
 	<section class="newsletter">
 	    <h2>Informiert bleiben</h2>
-        <form>
-		    <label for="academy_newsletter">Mit dem Academynewsletter bleiben Sie informiert...</label>
-		    <div class="input-group">
-                <input type="text" class="form-control" placeholder="Email" id="academy_newsletter">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Los!</button>
-                    </span>
-            </div>
-			<!-- /input-group -->
-		</form>
+        {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_academy_newsletter }))}}
 	</section>
 	<!-- Ende Newsletter -->
 {% endblock %}
