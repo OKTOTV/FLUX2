@@ -69,7 +69,7 @@ class PlaylistService
         $playlist = new Playlist();
         $playlist->setUser($user);
         $playlist->setName($name);
-        $episode = $this->em->getRepository('OktoMediaBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
+        $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
         $playlistItem = new PlaylistItem();
         $playlistItem->setEpisode($episode);
         $playlist->addItem($playlistItem);
