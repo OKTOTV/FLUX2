@@ -50,3 +50,6 @@ parameters:
         cache:
             url: "/tmp"
             path: "/tmp"
+    mailchimp_api_key: "your_secret_key"
+    mailchimp_default_newsletter: "???"
+    mailchimp_academy_newsletter: "???"

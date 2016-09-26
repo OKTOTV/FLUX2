@@ -10,7 +10,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use AppBundle\Entity\Playlist;
-use AppBundle\Entity\PlaylistItem;
 use AppBundle\Form\PlaylistType;
 use AppBundle\Form\PlaylistUserType;
 
@@ -63,8 +62,8 @@ class PlaylistController extends Controller
     {
         //TODO: voter
         $form = $this->createForm(new PlaylistUserType(), $playlist);
-        $form->add('delete', 'submit', ['label' => 'oktothek.playlist_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
         $form->add('submit', 'submit', ['label' => 'oktothek.playlist_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('delete', 'submit', ['label' => 'oktothek.playlist_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);

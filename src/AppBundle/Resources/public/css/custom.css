@@ -668,7 +668,8 @@ button.list-group-item-danger,
 .collapseShare .btn-default, 
 .timetable .btn, 
 .bootstrap-datetimepicker-widget, 
-header .collapseShare .form-control {
+header .collapseShare .form-control,
+header .collapseShare a.btn {
 	color:#000000;
 }
 /* Türkis */
@@ -753,17 +754,17 @@ button.list-group-item-danger:focus,
 a.list-group-item-danger:hover, 
 button.list-group-item-danger:hover, 
 .list-group-item.moveup, 
-.list-group-item.movedown {
+.list-group-item.movedown,
+header .collapseShare a.btn {
 	background-color:#ffffff;
 }
 .oktothek .news article, 
 .playlists .playlist_container .list-group-item, 
-.collapseShare > div, .collapsePlaylist > div, 
-.collapseCoursedetails, 
+.collapseWindow > div.collapse-content, 
+/*.collapseCoursedetails, */
 .series .news-pin, 
 .series .news-form, 
 .series .blog aside .aside-inner, 
-.academy .courses .collapse-content, 
 .tagpage .inc-pins article.pin figure, 
 .tagpage .inc-pins article.pin.first, 
 #playlist_items .row,
@@ -894,7 +895,8 @@ header .btn,
 /* Spacelayout */
 .btn, 
 .pull-right .icon, 
-header .misc .btn {
+header .misc .btn,
+header .collapseShare .btn {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -1288,7 +1290,7 @@ figcaption h3 {
 figcaption p {
 	margin:2px 0 10px 0;
 }
-.oktothek h2, .episode h2, .series h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form, .subheadline, figcaption h1, figcaption .misc, .playlists h1, .playlists .misc {
+.oktothek h2, .episode h2, .series h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .academy .newsletter form, .subheadline, figcaption h1, figcaption .misc, .playlists h1, .playlists .misc, .academy figcaption .misc {
 	text-align:center;
 }
 .series .current-episode h2, .comments h2, figcaption .subheadline {
@@ -1799,6 +1801,9 @@ article.pin {
 .episode #favorite {
 	margin-right:20px;
 }
+.episode article {
+    position:relative;
+}
 figure.pin img, .programm .schedule img {
 	width:100%;
 	max-width:100%;
@@ -1949,7 +1954,7 @@ figure.pin img, .programm .schedule img {
     text-align: left;
     width: 30px;
 }
-.series figcaption .misc {
+.series figcaption .misc, .academy figcaption .misc {
 	margin-top:15px;
 	clear:right;
 }
@@ -2210,10 +2215,10 @@ figure.pin img, .programm .schedule img {
 .academy .newsletter .input-group {
 	margin:0 auto;
 }
-.academy-content .misc {
+/*.academy-content .misc {
 	width:180px;
 	padding-top:70px;
-}
+}*/
 .academy .timetable {
 	width:100%;
 	display:table;

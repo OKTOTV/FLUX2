@@ -33,6 +33,12 @@ class Playlist extends BasePlaylist implements PlaylistInterface
      */
     private $series;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->items = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Set user
      *

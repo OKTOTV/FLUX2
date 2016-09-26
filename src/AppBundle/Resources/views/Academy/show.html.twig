@@ -55,7 +55,7 @@
                     </figure>
 
 					<!-- Schnellansicht Details Start -->
-				<div class="collapse preview" data-placement="right" title="#" id="collapseDetail{{coursetype.id}}">
+				<div class="collapse preview collapseWindow" data-placement="right" title="#" id="collapseDetail{{coursetype.id}}">
 				    <div class="collapse-header"> </div>
 				    <div class="col-md-12 collapse-content">
     		            <div class="row">
@@ -102,20 +102,15 @@
 	<!-- Anfang Newsletter -->
 	<section class="newsletter">
 	    <h2>Informiert bleiben</h2>
-        <form>
-		    <label for="academy_newsletter">Mit dem Academynewsletter bleiben Sie informiert...</label>
-		    <div class="input-group">
-                <input type="text" class="form-control" placeholder="Email" id="academy_newsletter">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Los!</button>
-                    </span>
-            </div>
-			<!-- /input-group -->
-		</form>
+        {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_academy_newsletter }))}}
 	</section>
 	<!-- Ende Newsletter -->
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('bundles/app/css/collapse-windows.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
 {% endblock %}

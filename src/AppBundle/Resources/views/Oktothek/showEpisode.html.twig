@@ -49,39 +49,42 @@
                     {% endif %}
                     <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button>
                 </p>
-				<!-- Start Collapse Share-->
+                <!-- Start Collapse Share-->
                     {% include 'AppBundle:Oktothek:snippetEpisodeShare.html.twig' with {'episode': episode} %}
-				<!-- End Modal Window Share-->
-				<!-- Start Modal Window Playlist-->
+                <!-- End Modal Window Share-->
+                <!-- Start Modal Window Playlist-->
                     {% include 'AppBundle:Oktothek:snippetPlaylist.html.twig' %}
-				<!-- End Modal Window Playlist-->
-			</article>
+                <!-- End Modal Window Playlist-->
+            </article>
         </section>
-		<!-- Kommentare -->
-		<section class="comments body-white-color comment-pager">
-		    <div class="container">
+        <!-- Kommentare -->
+        <section class="comments body-white-color comment-pager">
+            <div class="container">
                 {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
-		    </div>
-		</section>
+            </div>
+        </section>
         <!-- Ende Kommentare -->
-		<section class="container tags">
-		    <h2>{{ 'oktothek.episode_tag_header'|trans }}</h2>
-		    <ul class="row">
-                {% for tag in episode.tags %}
-                    <li class="col-md-1"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
-                {% endfor %}
-			</ul>
-		</section>
+        {% if episode.tags is not empty %}
+            <section class="container tags">
+                <h2>{{ 'oktothek.episode_tag_header'|trans }}</h2>
+                <ul class="row">
+                    {% for tag in episode.tags %}
+                        <li class="col-md-1"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
 
         <!-- Weitere Episoden der Serie Start -->
-		<div id="anchor_series"></div>
-		{{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': episode.series.uniqID})) }}
+        <div id="anchor_series"></div>
+        {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': episode.series.uniqID})) }}
         <!-- Weitere Episoden der Serie Ende -->
-	</div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
     {{ player(episode)|raw }}
     <script type="text/javascript">
         $(document).ready(function(){
@@ -212,5 +215,5 @@
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('bundles/app/css/collapse-windows.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
 {% endblock %}

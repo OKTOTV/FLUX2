@@ -14,17 +14,12 @@
                     <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
                 </ul>
             </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
-		        <h3>Newsletter</h3>
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Email" aria-describedby="einfaches-addon2">
-                    <span class="input-group-addon" id="submit_newsletter">Anmelden</span>
-                </div>
-            </div>
+            {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_default_newsletter }))}}
         </div>
     </section>
 	<div class="container row">
 		<nav class="col-md-6 col-sm-12 col-xs-12">
+            <h3>{{ 'oktothek.newsletter_header'|trans }}</h3>
             {{ render(controller('AppBundle:Page:footer', {'slug': page.slug|default(app.request.get('_route'))})) }}
         </nav>
         <section class="partner col-md-6 col-sm-12 col-xs-12">

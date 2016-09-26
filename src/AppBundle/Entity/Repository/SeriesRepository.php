@@ -26,26 +26,17 @@ class SeriesRepository extends BaseSeriesRepository
 
     public function getSeriesTags(Series $series)
     {
-        $rsm = new ResultSetMapping();
-        $rsm->addEntityResult('AppBundle:Tag', 't');
-        $rsm->addFieldResult('t', 'id', 'id');
-        $rsm->addFieldResult('t', 'slug', 'slug');
-        $rsm->addFieldResult('t', 'text', 'text');
-        $rsm->addFieldResult('t', 'rank', 'rank');
-
         return $this->getEntityManager()
-            ->createNativeQuery(
-                'SELECT t.id, t.slug, t.text ,t.rank FROM tag t
-                JOIN episode_tags et ON t.id = et.tag_id
-                JOIN episode e ON et.episode_id = e.id
-                WHERE e.series_id = ?
-                AND e.is_active = ?
-                AND (e.online_start < ? OR e.online_start IS NULL)
-                GROUP BY t.id
-                ORDER BY t.rank DESC', $rsm)
-            ->setParameter(1, $series->getId())
-            ->setParameter(2, true)
-            ->setParameter(3, new \DateTime())
+            ->createQuery(
+                'SELECT t from AppBundle:Tag t
+                JOIN t.episodes e
+                JOIN e.series s
+                WHERE s.id = :series_id
+                AND e.isActive = true
+                AND (e.onlineStart < :start OR e.onlineStart IS NULL)'
+            )
+            ->setParameter('series_id', $series->getId())
+            ->setParameter('start', new \DateTime())
             ->getResult();
     }
 

@@ -181,10 +181,15 @@ section.bg-fullscreen h2 {
 	#button_down {
 		cursor:pointer;
 	}
+    h2#button_down {
+        vertical-align:bottom;
+        margin-top:20px;
+        margin-bottom:40px;
+	}
 	#button_down span {
 		position:absolute;
 		display:inline-block;
-		vertical-align:middle;
+		vertical-align:bottom;
 		line-height:50px;
 		width:30px;
 		height:45px;
