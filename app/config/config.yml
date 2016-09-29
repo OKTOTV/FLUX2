@@ -105,6 +105,15 @@ bprs_user:
         commandline_host: %bprs_user.host%
         adress:           %bprs_user.mailadress%
         name:             %bprs_user.name%
+    permissions:
+        - ROLE_ADMIN
+        - ROLE_BPRS_USER_BACKEND
+        - ROLE_BPRS_APPLINK_BACKEND
+        - ROLE_BPRS_COMMANDLINE_BACKEND
+        - ROLE_OKTOLAB_USER
+        - ROLE_USER
+    user_defaults:
+        - ROLE_USER
 
 oktolab_media:
     encoding_filesystem: cache
