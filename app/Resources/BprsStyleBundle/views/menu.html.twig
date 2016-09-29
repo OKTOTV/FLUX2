@@ -35,16 +35,27 @@
                         <li role="separator" class="divider"></li>
                         {% if is_granted('ROLE_OKTOLAB_PRODUCER') %}
                             <li {% if selected == "producer" %}class="active"{% endif %}>
-                                <a href="{{ path('oktothek_my_channels')}}">{{ 'oktothek.menu_my_channels'|trans }}</a>
+                                <a href="{{ path('oktothek_my_channels')}}">{{ 'oktothek.menu_my_channels'|trans|raw }}</a>
                             </li>
                         {% endif %}
-                        {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_OKTOLAB_ADMIN') or is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_ADMIN') %}
                             <li {% if selected == "oktothek_backend" %}class="active"{% endif %}>
-                                <a href="{{ path('backend') }}">Backend</a>
+                                <a href="{{ path('backend') }}">{{ 'oktothek.menu_backend'|trans|raw }}</a>
                             </li>
-                            {# TODO: change selected keyword or move to backend #}
+                        {% endif %}
+                        {% if is_granted('ROLE_BPRS_COMMANDLINE_BACKEND') %}
                             <li {% if selected == "jobs" %}class="active"{% endif %}>
-                                <a href="{{ path('list_status')}}">{{ 'bprs_commandline.job_menu'|trans }}</a>
+                                <a href="{{ path('list_status')}}">{{ 'bprs_commandline.job_menu'|trans|raw }}</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_BPRS_USER_BACKEND') %}
+                            <li {% if selected == "bprs_applink"%}class="active"{% endif %}>
+                                <a href="{{ path('bprs_user_backend_users') }}">{{ 'bprs_user.menu'|trans|raw }}</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted('ROLE_BPRS_APPLINK_BACKEND') %}
+                            <li {% if selected == "bprs_applink"%}class="active"{% endif %}>
+                                <a href="{{ path('bprs_applink_keychains') }}">{{ 'bprs_applink.menu'|trans|raw}}</a>
                             </li>
                         {% endif %}
                         <li role="separator" class="divider"></li>

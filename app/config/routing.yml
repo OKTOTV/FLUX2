@@ -38,9 +38,8 @@ bprs_asset:
     type: bprs_asset
 
 bprs_applink:
-    resource: "@BprsAppLinkBundle/Controller/"
-    type:     annotation
-    prefix:   /
+    resource: .
+    type: bprs_applink
 
 bprs_commandline:
     resource: .

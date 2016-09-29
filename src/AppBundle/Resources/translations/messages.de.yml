@@ -9,10 +9,11 @@ oktothek.menu_oktothek:                 Oktothek
 oktothek.menu_tv:                       TV
 oktothek.menu_participate:              Mitmachen
 oktothek.menu_academy:                  Akademie
-oktothek.menu_user_playlists:           Playlisten
-oktothek.menu_user_channels:            Channels
-oktothek.menu_user_favorites:           Favoriten
-oktothek.menu_my_channels:              Meine Sendereihen
+oktothek.menu_backend:                  <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend
+oktothek.menu_user_playlists:           <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Playlisten
+oktothek.menu_user_channels:            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Channels
+oktothek.menu_user_favorites:           <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoriten
+oktothek.menu_my_channels:              <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Meine Sendereihen
 oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> Abmelden
 oktothek.menu_user_notifications:       <span class="glyphicon glyphicon-bookmark" style="color:red"></span>
 oktothek.menu_user_notifications_empty: <span class="glyphicon glyphicon-bookmark"></span>

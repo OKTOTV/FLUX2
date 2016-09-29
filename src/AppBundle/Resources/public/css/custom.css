@@ -73,7 +73,7 @@ h1, h2, .h2 {
 .carousel-caption h3, .pull-right .icon, .series h1, .playlists #StartPlaylist.btn span.glyphicon, .playlists .btn.circle {
 	font-size:24px;
 }
-header .navbar-toggle.search-button span, header .navbar-toggle.menu-button span.icon-close, .subheadline, .participart .button_container .btn, .news p, figcaption .description, .academy .preview p, #favorite .glyphicon {
+header .navbar-toggle.search-button span, header .navbar-toggle.menu-button span.icon-close, .subheadline, .participart .button_container .btn, .news p, figcaption .description, .academy .preview p, #favorite .glyphicon, .container.tags a {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
