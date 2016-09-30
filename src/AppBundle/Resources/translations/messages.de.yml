@@ -18,7 +18,9 @@ oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" ar
 oktothek.menu_user_notifications:       <span class="glyphicon glyphicon-bookmark" style="color:red"></span>
 oktothek.menu_user_notifications_empty: <span class="glyphicon glyphicon-bookmark"></span>
 oktothek.menu_user_no_notifications:    Derzeit keine Benachrichtigungen
-oktothek.menu_user_notification_choice: "{1} %series% hat eine neue Episode veröffentlicht |{2} %series% hat einen neuen Post veröffentlicht |{3} %series% sendet Live"
+oktothek.notification_message_episode:  "%series% hat eine neue Episode veröffentlicht"
+oktothek.notification_message_post:     "%series% hat einen neuen Beitrag veröffentlicht"
+oktothek.notification_livestream:       "%series% ist jetzt Live"
 oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"></span>
 ## oktothek index
 oktothek.participate_header:            Mitmachen
@@ -362,8 +364,15 @@ oktothek_abonnement_send_mails_label:       Benachrichtigungen auch als Email se
 oktothek.user_update_abonnement_button:     Einstellungen aktualisieren
 user_edit_subscription:                     Benachrichtigungseinstellungen
 
+## notifications
+oktothek_mail_notification_new_episode_subject:     Neue Episode
+
+
 oktothek_user_subscribe:                    Abonnieren
 oktothek_user_unsubscribe:                  Abo beenden
+
+oktothek.success_edit_abonnement:           Benachrichtigungseinstellungen aktualisiert
+oktothek.error_edit_post:                   Benachrichtigungseinstellungen konnten nicht übernommen werden
 
 ## playlists
 oktothek.user_playlist_header:              Meine Playlisten

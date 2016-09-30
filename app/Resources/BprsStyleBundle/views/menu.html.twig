@@ -71,7 +71,25 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><div class="triangle"></div></li>
                             {% for notification in app.user.notifications %}
-                                <li><a href="{{ path('user_notification', {'notification': notification.id })}}">{{ 'oktothek.menu_user_notification_choice'|transchoice(notification.type, {'%series%': notification.series})}}</a></li>
+                                {% if notification.type == constant('AppBundle\\Entity\\Notification::NEW_EPISODE') %}
+                                    <li>
+                                        <a href="{{ path('user_notification', {'notification': notification.id })}}">
+                                            {{ 'oktothek.notification_message_episode'|trans({'%series%': notification.episode.series|default(notification.series)})|raw }}
+                                        </a>
+                                    </li>
+                                {% elseif notification.type == constant('AppBundle\\Entity\\Notification::NEW_POST')%}
+                                    <li>
+                                        <a href="{{ path('user_notification', {'notification': notification.id })}}">
+                                            {{ 'oktothek.notification_message_post'|trans({'%series%': notification.series|default(notification.episode.series)})|raw }}
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{{ path('user_notification', {'notification': notification.id })}}">
+                                            {{ 'oktothek.notification_message_livestream'|trans({'%series%': notification.series|default(notification.episode.series)})|raw }}
+                                        </a>
+                                    </li>
+                                {% endif %}
                             {% endfor %}
                             {% if app.user.notifications is empty %}
                                 <li><a href="#">{{ 'oktothek.menu_user_no_notifications'|trans}}</a></li>

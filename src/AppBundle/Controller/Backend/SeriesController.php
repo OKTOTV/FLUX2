@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use MediaBundle\Entity\Series;
+use AppBundle\Entity\Series;
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
 /**

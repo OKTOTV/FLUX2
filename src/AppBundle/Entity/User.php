@@ -236,10 +236,10 @@ class User extends BaseUser
      * @param \AppBundle\Entity\Notification $notifications
      * @return User
      */
-    public function addNotification(Notification $notifications)
+    public function addNotification(Notification $notification)
     {
-        $this->notifications[] = $notifications;
-
+        $this->notifications[] = $notification;
+        $notification->setUser($this);
         return $this;
     }
 
