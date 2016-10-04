@@ -13,6 +13,8 @@ use AppBundle\Entity\Episode;
 use AppBundle\Entity\Post;
 use AppBundle\Form\Series\PostType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints\IsTrue;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 /**
  * Series controller.
@@ -198,5 +200,35 @@ class SeriesController extends Controller
         $paginator = $this->get('knp_paginator');
         $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series), $page, 3);
         return ['posts' => $posts, 'series' => $series];
+    }
+
+    /**
+     * @Route("/channel/{uniqID}/now_live", name="oktothek_channel_now_live")
+     * @Template()
+     */
+    public function producerNowLiveAction(Request $request, Series $series)
+    {
+        $this->denyAccessUnlessGranted('view_channel', $series);
+        $defaultData = ['confirm' => false];
+        $form = $this->createFormBuilder($defaultData)
+            ->add('confirm', CheckboxType::class,
+                [
+                    'label' => 'oktothek_channel_live_confirm_label',
+                    'constraints' => [new IsTrue()]
+                ]
+            )
+            ->add('submit', SubmitType::class, ['label' => 'oktothek.notificate_live_button', 'attr' => ['class' => 'btn btn-primary']])
+            ->getForm();
+
+        if ($request->getMethod() == "POST") {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $this->get('oktothek_notification_service')->createLivestreamNotifications($series);
+                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_notificate_livestream');
+                return $this->redirect($this->generateUrl('oktothek_channel', ['uniqID' => $series->getUniqID()]));
+            }
+            $this->get('session')->getFlashBag()->add('error', 'oktothek.error_notificate_livestream');
+        }
+        return ['form' => $form->createView(), 'series' => $series];
     }
 }

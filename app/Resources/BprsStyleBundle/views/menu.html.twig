@@ -86,7 +86,7 @@
                                 {% else %}
                                     <li>
                                         <a href="{{ path('user_notification', {'notification': notification.id })}}">
-                                            {{ 'oktothek.notification_message_livestream'|trans({'%series%': notification.series|default(notification.episode.series)})|raw }}
+                                            {{ 'oktothek.notification_message_livestream'|trans({'%series%': notification.series})|raw }}
                                         </a>
                                     </li>
                                 {% endif %}

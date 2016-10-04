@@ -1,0 +1,4 @@
+<h1>Hi {{ notification.user}}!</h1>
+<p>
+    <a href="{{ url('oktothek_show_series', {'uniqID': notification.series.uniqID})}}">{{ notification.series }}</a> ist Live on Air! <a href="{{ url('tv') }}">Schau doch mal rein!</a>
+</p>

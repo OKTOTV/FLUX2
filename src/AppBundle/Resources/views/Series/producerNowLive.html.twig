@@ -1,0 +1,15 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
+{% endblock %}
+
+{% block body_main %}
+
+{% include 'AppBundle::Series/producerHeader.html.twig' with {'active': '', 'series': series} %}
+<p>{{ 'oktothek.series_producer_episode_text'|trans }}</p>
+
+
+{{ form(form) }}
+
+{% endblock %}

@@ -74,14 +74,14 @@ class NotificationService
     {
         $notifications = [];
         $mails = [];
-        foreach ($post->getSeries()->getAbonnements() as $abonnement) {
+        foreach ($series->getAbonnements() as $abonnement) {
             if ($abonnement->getNewPost()) {
                 $notification = new Notification();
                 $notification->setUser($abonnement->getUser());
-                $notification->setPost($post);
+                $notification->setSeries($series);
                 $notification->setType(Notification::LIVESTREAM);
                 $notifications[] = $notification;
-                if ($abonnement->send_mails()) {
+                if ($abonnement->getSendMails()) {
                     $mails[] = $notification;
                 }
             }
