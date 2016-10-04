@@ -141,7 +141,7 @@ oktothek.comment_reply_button:          Antwort senden
 oktothek.comment_create_button:         Kommentar senden
 oktothek.comment_placeholder_text:      Dein Kommentar...
 oktothek.comment_create_success:        Dein Kommentar wurde erfolgreich gepostet
-
+oktothek.comment_create_error:          Dein Kommentar konnte nicht gepostet werden
 
 ## tag
 oktothek.tag_index_header:              Tags
@@ -366,7 +366,7 @@ user_edit_subscription:                     Benachrichtigungseinstellungen
 
 ## notifications
 oktothek_mail_notification_new_episode_subject:     Neue Episode
-
+oktothek_mail_notification_new_post_subject:        Neuer Blogeintrag
 
 oktothek_user_subscribe:                    Abonnieren
 oktothek_user_unsubscribe:                  Abo beenden

@@ -1,6 +1,6 @@
 parameters:
     livestream_template:    "Mail/livestream.html.twig"
-    new_post_template:      "Mail/new_post.html.twig"
+    new_post_template:      "AppBundle::Mail/new_post.html.twig"
     new_episode_template:   "AppBundle::Mail/new_episode.html.twig"
     newsletter.api_key:            "%mailchimp_api_key%"
 

@@ -80,7 +80,7 @@
                                 {% elseif notification.type == constant('AppBundle\\Entity\\Notification::NEW_POST')%}
                                     <li>
                                         <a href="{{ path('user_notification', {'notification': notification.id })}}">
-                                            {{ 'oktothek.notification_message_post'|trans({'%series%': notification.series|default(notification.episode.series)})|raw }}
+                                            {{ 'oktothek.notification_message_post'|trans({'%series%': notification.post.series|default(notification.series)})|raw }}
                                         </a>
                                     </li>
                                 {% else %}

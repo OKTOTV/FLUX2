@@ -5,7 +5,7 @@ namespace AppBundle\Form\Series;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use AppBundle\Form\TagType;
+use Okto\MediaBundle\Form\TagType;
 
 class PostType extends AbstractType
 {

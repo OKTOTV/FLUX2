@@ -40,7 +40,8 @@ class Post
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
+     * @Assert\Length(max=550)
      * @ORM\Column(name="description", type="string", length=600)
      */
     private $description;
@@ -78,7 +79,7 @@ class Post
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="online_at", type="datetime")
      */
     private $onlineAt;
@@ -114,6 +115,7 @@ class Post
         $this->pinned = false;
         $this->assets = new \Doctrine\Common\Collections\ArrayCollection();
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->onlineAt = new \Datetime();
     }
 
     /**

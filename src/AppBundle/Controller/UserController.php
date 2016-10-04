@@ -164,7 +164,7 @@ class UserController extends Controller
         $em->flush();
         switch ($notification->getType()) {
             case Notification::NEW_POST:
-                return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $notification->getSeries()->getUniqID()]));
+                return $this->redirect($this->generateUrl('oktothek_show_series_blogpost', ['uniqID' => $notification->getPost()->getSeries()->getUniqID(), 'slug' => $notification->getPost()->getSlug()]));
                 break;
             case Notification::NEW_EPISODE:
                 return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $notification->getEpisode()->getUniqID()]));

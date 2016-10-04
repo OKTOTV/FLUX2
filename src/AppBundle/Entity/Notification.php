@@ -55,6 +55,12 @@ class Notification
     private $episode;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Post")
+     * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
+     */
+    private $post;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="notifications", cascade={"persist"})
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
@@ -183,5 +189,28 @@ class Notification
     public function getEpisode()
     {
         return $this->episode;
+    }
+
+    /**
+     * Set post
+     *
+     * @param string $post
+     * @return Notification
+     */
+    public function setPost($post)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get post
+     *
+     * @return string
+     */
+    public function getPost()
+    {
+        return $this->post;
     }
 }

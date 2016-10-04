@@ -50,22 +50,24 @@ class NotificationService
 
     public function createNewPostNotifications(Post $post)
     {
-        $notifications = [];
-        $mails = [];
-        foreach ($post->getSeries()->getAbonnements() as $abonnement) {
-            if ($abonnement->getNewPost()) {
-                $notification = new Notification();
-                $notification->setUser($abonnement->getUser());
-                $notification->setPost($post);
-                $notification->setType(Notification::NEW_POST);
-                $notifications[] = $notification;
-                if ($abonnement->send_mails()) {
-                    $mails[] = $notification;
+        if ($post->getOnlineAt() <= new \Datetime()) {
+            $notifications = [];
+            $mails = [];
+            foreach ($post->getSeries()->getAbonnements() as $abonnement) {
+                if ($abonnement->getNewPost()) {
+                    $notification = new Notification();
+                    $notification->setUser($abonnement->getUser());
+                    $notification->setPost($post);
+                    $notification->setType(Notification::NEW_POST);
+                    $notifications[] = $notification;
+                    if ($abonnement->getSendMails()) {
+                        $mails[] = $notification;
+                    }
                 }
             }
+            $this->sendMails(Notification::NEW_POST, $mails);
+            $this->saveNotifications($notifications);
         }
-        $this->sendMails(Notification::NEW_POST, $mails);
-        $this->saveNotifications($notifications);
     }
 
     public function createLivestreamNotifications(Series $series)
