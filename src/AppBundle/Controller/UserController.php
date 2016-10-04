@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Abonnement;
 use AppBundle\Form\AbonnementType;
 use AppBundle\Entity\Notification;
@@ -105,8 +106,8 @@ class UserController extends Controller
     {
         $uniqID = $request->request->get('uniqID');
         if ($uniqID) {
-            $this->get('user_service')->updateFavorite($this->getUser(), $uniqID);
-            return new Response('', Response::HTTP_OK);
+            $count = $this->get('user_service')->updateFavorite($this->getUser(), $uniqID);
+            return new JsonResponse(['favorites' => $count], Response::HTTP_OK);
         }
         return new Response('', Response::HTTP_BAD_REQUEST);
     }

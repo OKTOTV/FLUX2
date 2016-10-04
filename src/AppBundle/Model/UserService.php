@@ -39,7 +39,6 @@ class UserService {
         $this->em->flush();
     }
 
-    // TODO: user->removeFavorite($episode);
     public function updateFavorite($user, $uniqID)
     {
         $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $uniqID]);
@@ -60,5 +59,7 @@ class UserService {
         $this->em->persist($episode);
         $this->em->persist($user);
         $this->em->flush();
+
+        return count($episode->getUsers());
     }
 }
