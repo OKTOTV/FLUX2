@@ -454,6 +454,12 @@ oktothek.series_producer_reachmes:          Soziale Medien und Kontaktmöglichke
 oktothek.series_producer_episodes:          Verfügbare Episoden
 oktothek.series_producer_playlists:         Verfügbare Playlisten
 
+# producer live
+oktothek.series_producer_live_text:         Du bist Live on Air? Lass es deine Fans wissen!
+oktothek_channel_live_confirm_label:        Bestätigen
+oktothek.notificate_live_button:            Benachrichtigung Senden
+oktothek.error_notificate_livestream:       Benachrichtigung konnte nicht gesendet werden
+
 ## producer blog
 oktothek.series_producer_blog_text:         Hier kannst du für deine Sendereihe bloggen! Poste news und updates zu Episoden, Dinge hinter den Kulissen und vieles mehr!
 oktothek.series_producer_new_blogpost:      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Blogeintrag anlegen

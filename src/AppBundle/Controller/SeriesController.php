@@ -214,7 +214,7 @@ class SeriesController extends Controller
             ->add('confirm', CheckboxType::class,
                 [
                     'label' => 'oktothek_channel_live_confirm_label',
-                    'constraints' => [new IsTrue()]
+                    'constraints' => [new IsTrue(['message' => 'oktothek.error_checkbox_notice'])]
                 ]
             )
             ->add('submit', SubmitType::class, ['label' => 'oktothek.notificate_live_button', 'attr' => ['class' => 'btn btn-primary']])

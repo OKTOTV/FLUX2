@@ -15,7 +15,7 @@
       </button>
       <ul class="dropdown-menu" aria-labelledby="filter_menu">
         <li {% if favorites.isSorted('f.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(favorites, 'oktothek.favorite_index_filter_name'|trans, 'f.name') }}</li>
-        <li {% if favorites.isSorted('f.firstRanAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(favorites, 'oktothek.favorite_index_filter_firstranAt'|trans, 'f.firstranAt') }}</li>
+        <li {% if favorites.isSorted('f.firstranAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(favorites, 'oktothek.favorite_index_filter_firstranAt'|trans, 'f.firstranAt') }}</li>
         <li {% if favorites.isSorted('s.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(favorites, 'oktothek.favorite_index_filter_series'|trans, 's.name') }}</li>
       </ul>
     </div>
