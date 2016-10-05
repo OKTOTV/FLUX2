@@ -11,7 +11,14 @@
 
 {{ form_start(form)}}
    {{ form_row(form.name)}}
-   {{ form_row(form.description)}}
+   <div class="row">
+       <div class="col-md-8">
+           {{ form_row(form.description)}}
+       </div>
+       <div class="col-md-4">
+           {% include "AppBundle::Default/markdown_helper.html.twig" %}
+       </div>
+   </div>
    {% include "BprsStyleBundle::datetimepicker.html.twig" with {'widget': form.onlineAt} %}
    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.assets, 'adapter': 'gallery', 'type': 'multiple'} %}
    {% include "AppBundle::Tag/widget.html.twig" with {'widget': form.tags} %}
@@ -27,16 +34,16 @@
     $(document).ready( function(){
         $('#appbundle_post_onlineAt_picker').datetimepicker({
             locale: 'de',
-            // format: "DD.MM.YYYY hh:mm",
+            date: moment($('#appbundle_post_onlineAt_picker').children(':input').val()),
             useCurrent: true,
             calendarWeeks: true,
             allowInputToggle: true,
             showTodayButton: true
         });
 
-        $(".character500").characterCounter({
+        $("#appbundle_post_description").characterCounter({
             counterCssClass: 'help-block',
-            limit: 400
+            limit: 550
         });
 
         // tags

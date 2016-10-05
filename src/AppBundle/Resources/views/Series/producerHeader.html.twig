@@ -18,4 +18,7 @@
   <li role="presentation"{% if active == "producer_episodes" %} class="active"{% endif %}>
       <a href="{{ path('oktothek_channel_episodes', {'uniqID': series.uniqID}) }}">Episoden</a>
   </li>
+  <li role="presentation"{% if active == "producer_live" %} class="active"{% endif %}>
+      <a href="{{ path('oktothek_channel_now_live', {'uniqID': series.uniqID}) }}">Live</a>
+  </li>
 </ul>

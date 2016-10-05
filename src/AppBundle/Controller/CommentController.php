@@ -41,6 +41,7 @@ class CommentController extends Controller
                 return $this->redirect($request->headers->get('referer'));
             }
             $this->get('session')->getFlashBag()->add('error', 'oktothek.comment_create_error');
+            return $this->redirect($request->headers->get('referer'));
         }
         return ['commentForm' => $commentForm->createView()];
     }

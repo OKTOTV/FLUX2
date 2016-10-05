@@ -35,7 +35,7 @@
                     {% if app.user is empty %}
 
                     {% else %}
-                        <button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-favorites="{{ episode.users|length }}" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> {{ episode.users|length}}</button>
+                        <button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> {{ episode.users|length}}</button>
                         {% set in_abo = false %}
                         {% for abonnement in app.user.abonnements if abonnement.series.uniqID == episode.series.uniqID %}
                             {% set in_abo = true %}
@@ -96,17 +96,17 @@
                     data:   {'uniqID': '{{ episode.uniqID}}'},
                     type: 'POST',
                     success: function(data) {
+                        console.log(data);
                         var button = $('#favorite');
-                        var favorites = button.attr('data-favorites');
                         if (button.attr('data-fav') == '1') {
-                            console.log('now unfav');
+                            // console.log('now unfav');
                             button.attr('data-fav', '0');
-                            var text = "<span class='glyphicon glyphicon-heart-empty'></span> "+ favorites;
+                            var text = "<span class='glyphicon glyphicon-heart-empty'></span> "+ data.favorites;
                             button.html(text);
                         } else {
-                            console.log('now fav');
+                            // console.log('now fav');
                             button.attr('data-fav', '1');
-                            var text = "<span class='glyphicon glyphicon-heart'></span> "+ (parseInt(favorites)+1);
+                            var text = "<span class='glyphicon glyphicon-heart'></span> "+ data.favorites;
                             button.html(text);
                         }
                     }

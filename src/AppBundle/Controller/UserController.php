@@ -2,16 +2,19 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Abonnement;
 use AppBundle\Form\AbonnementType;
 use AppBundle\Entity\Notification;
 /**
  * @Route("/user")
+ * @Security("has_role('ROLE_OKTOLAB_USER')")
  */
 class UserController extends Controller
 {
@@ -103,8 +106,8 @@ class UserController extends Controller
     {
         $uniqID = $request->request->get('uniqID');
         if ($uniqID) {
-            $this->get('user_service')->updateFavorite($this->getUser(), $uniqID);
-            return new Response('', Response::HTTP_OK);
+            $count = $this->get('user_service')->updateFavorite($this->getUser(), $uniqID);
+            return new JsonResponse(['favorites' => $count], Response::HTTP_OK);
         }
         return new Response('', Response::HTTP_BAD_REQUEST);
     }
@@ -137,7 +140,7 @@ class UserController extends Controller
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($post);
+                $em->persist($abonnement);
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_abonnement');
 
@@ -161,11 +164,10 @@ class UserController extends Controller
         $em->flush();
         switch ($notification->getType()) {
             case Notification::NEW_POST:
-                return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $notification->getSeries()->getUniqID()]));
+                return $this->redirect($this->generateUrl('oktothek_show_series_blogpost', ['uniqID' => $notification->getPost()->getSeries()->getUniqID(), 'slug' => $notification->getPost()->getSlug()]));
                 break;
             case Notification::NEW_EPISODE:
-                //TODO: return redirect to newest series episode (maybe playlist?)
-                return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $notification->getSeries()->getUniqID()]));
+                return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $notification->getEpisode()->getUniqID()]));
                 break;
             case Notification::LIVESTREAM:
                 return $this->redirect($this->generateUrl('tv'));

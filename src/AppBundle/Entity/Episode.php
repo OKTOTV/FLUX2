@@ -17,7 +17,6 @@ class Episode extends OktoEpisode {
     */
     private $users;
 
-
     public function __construct()
     {
         parent::__construct();

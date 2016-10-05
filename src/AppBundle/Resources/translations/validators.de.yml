@@ -19,3 +19,6 @@ oktothek.backend_coursedate_start_notblank:             Du musst einen Kursbegin
 oktothek.backend_coursedate_end_notblank:               Du musst ein Kursende angeben
 
 # Attendee
+
+# producer
+oktothek.error_checkbox_notice:             Du musst erst Bestätigen!

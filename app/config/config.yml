@@ -114,7 +114,7 @@ bprs_user:
         - ROLE_OKTOLAB_PRODUCER
         - ROLE_USER
     user_defaults:
-        - ROLE_USER
+        - ROLE_OKTOLAB_USER
 
 oktolab_media:
     encoding_filesystem: cache

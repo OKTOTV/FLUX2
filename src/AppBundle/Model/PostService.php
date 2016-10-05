@@ -24,4 +24,9 @@ class PostService
         }
         $this->em->flush();
     }
+
+    public function getPost($slug)
+    {
+        return $this->em->getRepository('AppBundle:Post')->findOneBy(['slug' => $slug]);
+    }
 }
