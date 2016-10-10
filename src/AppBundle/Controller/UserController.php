@@ -56,50 +56,6 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/addFavorite", name="backend_add_favourite")
-     * @deprecated use updateFavorite
-     */
-    public function addFavoriteAction(Request $request)
-    {
-        $uniqID = $request->request->get('uniqID');
-        $type = $request->request->get('type');
-        if ($uniqID && $type) {
-            // TODO: create service
-            $em = $this->getDoctrine()->getManager();
-            $episode = $em->getRepository('AppBundle:Episode')->findOneBy(array('uniqID' => $uniqID));
-            $user = $this->get('security.token_storage')->getToken()->getUser();
-            $user->addFavorite($episode);
-            $em->persist($user);
-            $em->flush();
-
-            return new Response('', Response::HTTP_OK);
-        }
-        return new Response('', Response::HTTP_BAD_REQUEST);
-    }
-
-    /**
-     * @Route("/removeFavorite", name="backend_remove_favourite")
-     * @deprecated use updateFavorite
-     */
-    public function removeFavoriteAction(Request $request)
-    {
-        $uniqID = $request->request->get('uniqID');
-        $type = $request->request->get('type');
-        if ($uniqID && $type) {
-            // TODO: create service
-            $em = $this->getDoctrine()->getManager();
-            $episode = $em->getRepository('AppBundle:Episode')->findOneBy(array('uniqID' => $uniqID));
-            $user = $this->get('security.token_storage')->getToken()->getUser();
-            $user->removeFavorite($episode);
-            $em->persist($user);
-            $em->flush();
-
-            return new Response('', Response::HTTP_SUCCESS);
-        }
-        return new Response('', Response::HTTP_BAD_REQUEST);
-    }
-
-    /**
      * @Route("/updateFavorite", name="user_update_favorite")
      */
     public function updateFavoriteAciton(Request $request)
@@ -164,10 +120,25 @@ class UserController extends Controller
         $em->flush();
         switch ($notification->getType()) {
             case Notification::NEW_POST:
-                return $this->redirect($this->generateUrl('oktothek_show_series_blogpost', ['uniqID' => $notification->getPost()->getSeries()->getUniqID(), 'slug' => $notification->getPost()->getSlug()]));
+                return $this->redirect(
+                    $this->generateUrl(
+                        'oktothek_show_series_blogpost',
+                        [
+                            'uniqID' => $notification->getPost()->getSeries()->getUniqID(),
+                            'slug' => $notification->getPost()->getSlug()
+                        ]
+                    )
+                );
                 break;
             case Notification::NEW_EPISODE:
-                return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $notification->getEpisode()->getUniqID()]));
+                return $this->redirect(
+                    $this->generateUrl(
+                        'oktothek_show_episode',
+                        [
+                            'uniqID' => $notification->getEpisode()->getUniqID()
+                        ]
+                    )
+                );
                 break;
             case Notification::LIVESTREAM:
                 return $this->redirect($this->generateUrl('tv'));

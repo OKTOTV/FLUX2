@@ -20,7 +20,7 @@ class BackendController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return array();
+        return [];
     }
 
     /**
@@ -29,6 +29,6 @@ class BackendController extends Controller
      */
     public function keychainAction(Request $request)
     {
-        return array();
+        return [];
     }
 }

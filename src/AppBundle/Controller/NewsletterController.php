@@ -50,4 +50,8 @@ class NewsletterController extends Controller {
         return ['form' => $form->createView()];
     }
 
+
+    /**
+     * TODO: confirm subscription action would be nice
+     */
 }
