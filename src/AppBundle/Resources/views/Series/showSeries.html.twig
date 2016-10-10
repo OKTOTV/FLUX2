@@ -61,12 +61,14 @@
             </div>
         </section>
     {% endif %}
-    <section class="container">
-        <div class="infos">
-            <h3>Mehr Infos über {{ series.name }} gibt es hier!</h3>
-            {% include 'OktoMediaBundle::Reachme/reachme_stack.html.twig' with { 'reachmes': series.reachmes } %}
-        </div>
-    </section>
+    {% if series.reachmes is not empty %}
+        <section class="container">
+            <div class="infos">
+                <h3>{{ 'oktothek.series_reachmes_header'|trans({'%series%': series.name})}}</h3>
+                {% include 'reachmeStack.html.twig' with { 'reachmes': series.reachmes } %}
+            </div>
+        </section>
+    {% endif %}
     {% if series.playlists is not empty %}
         <section class="container series-playlists">
             <div id="anchor_playlists"></div>

@@ -11,7 +11,7 @@ class SeriesRepository extends BaseSeriesRepository
     public function findEpisodesWithTag(Series $series, Tag $tag, $pagerable = false) {
         if ($pagerable) {
             return $this->getEntityManager()
-                ->createQuery('SELECT e FROM AppBundle:Episode e JOIN AppBundle:Tag t WHERE e.onlineStart > :online_start AND e.is_active = 1 AND e.series = :series_id AND t.id = :tag_id')
+                ->createQuery('SELECT e FROM AppBundle:Episode e JOIN AppBundle:Tag t WHERE e.onlineStart < :online_start AND e.is_active = 1 AND e.series = :series_id AND t.id = :tag_id')
                 ->setParameter('tag_id', $tag->getId())
                 ->setParameter('online_start', new \DateTime())
                 ->setParameter('series_id', $series->getId());
@@ -40,15 +40,33 @@ class SeriesRepository extends BaseSeriesRepository
             ->getResult();
     }
 
-    public function findNewestEpisodesForSeries(Series $series, $numberEpisodes = 5)
+    public function findNewestEpisodesForSeries(Series $series, $numberEpisodes = 8)
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.series = :series_id  AND e.isActive = 1 AND (e.onlineStart > :episode_date OR e.onlineStart IS NULL) ORDER BY e.onlineStart DESC'
+                'SELECT e FROM AppBundle:Episode e WHERE e.series = :series_id  AND e.isActive = 1 AND (e.onlineStart < :now OR e.onlineStart IS NULL) ORDER BY e.onlineStart DESC'
             )
             ->setParameter('series_id', $series->getId())
-            ->setParameter('episode_date', new \DateTime())
+            ->setParameter('now', new \DateTime())
             ->setMaxResults($numberEpisodes)
             ->getResult();
+    }
+
+    public function findActiveEpisodes(Series $series, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                "SELECT e FROM AppBundle:Episode e
+                WHERE e.series = :series_id
+                AND e.onlineStart < :online_start
+                AND e.isActive = 1"
+            )->setParameter('series_id', $series->getId())
+            ->setParameter('online_start', new \DateTime());
+
+        if ($query_only) {
+            return $query;
+        }
+
+        return $query->getResult();
     }
 }

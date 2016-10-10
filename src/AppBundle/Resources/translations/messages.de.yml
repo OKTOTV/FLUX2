@@ -203,7 +203,11 @@ oktothek.backend_tag:                   Tags
 ## series
 oktothek_series_blog_header:            Blog
 oktothek_series_episodes_all:           Alle Folgen
-
+oktothek_series_episodes_title:         Alle Episoden von %series%
+oktothek.series_episodes_filter:        <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
+oktothek.series_episodes_name_filter:   Name
+oktothek.series_episodes_onlineStart_filter: Datum
+oktothek.series_reachmes_header:        Mehr Infos über %series% gibt es hier!
 # my channels and backend
 oktothek_series_my_channels_header:     Meine Sendereihen
 oktothek_series_my_channels_empty:      Du bist derzeit keinen Sendereihen in der Oktothek zugewiesen!

@@ -51,7 +51,6 @@ class OktothekController extends Controller
         if ($previous) {
             $results['prev'] = $previous;
         }
-        // TODO: add tags to elasticsearch as textfield and find episodes with similar tags.
         return $results;
     }
 
@@ -74,44 +73,5 @@ class OktothekController extends Controller
     {
         return ['playlist' => $playlist];
     }
-
-
-    /**
-     * @Route("/series/{uniqID}", name="oktothek_show_series")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showSeriesAction(Series $series)
-    {
-        $posts = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $series);
-        return ['series' => $series, 'teasers' => $posts];
-    }
-
-    /**
-     * @Route("/series/{uniqID}/blog.{_format}", name="oktothek_show_series_blog", defaults={"_format": "html", "page": "1"}, requirements={"page": "\d+"})
-     * @Method("GET")
-     * @Template()
-     */
-    public function showSeriesBlogAction(Series $series, $page)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $paginator = $this->get('knp_paginator');
-        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series), $page, 5);
-        $teaser = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $series);
-        return ['series' => $series, 'posts' => $posts, 'teasers' => $teaser];
-    }
-
-    /**
-     * @Route("/series/{uniqID}/blogpost/{slug}.{_format}", name="oktothek_show_series_blogpost", defaults={"_format": "html"})
-     * @Method("GET")
-     * @Template()
-     */
-    public function showSeriesBlogpostAction($uniqID, $slug)
-    {
-        $series = $this->get('oktolab_media')->getSeries($uniqID);
-        $post = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findOneBy(['slug' => $slug]);
-        return ['series' => $series, 'post' => $post];
-    }
-
 }
 ?>
