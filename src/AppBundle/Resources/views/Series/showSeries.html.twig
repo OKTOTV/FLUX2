@@ -65,7 +65,7 @@
         <section class="container">
             <div class="infos">
                 <h3>{{ 'oktothek.series_reachmes_header'|trans({'%series%': series.name})}}</h3>
-                {% include 'reachmeStack.html.twig' with { 'reachmes': series.reachmes } %}
+                {% include 'AppBundle::Series/reachmeStack.html.twig' with { 'reachmes': series.reachmes } %}
             </div>
         </section>
     {% endif %}
