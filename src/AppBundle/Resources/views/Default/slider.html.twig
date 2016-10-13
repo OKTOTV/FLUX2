@@ -1,4 +1,3 @@
-<div class="preloader"></div>
 <div id="carousel" class="carousel slide">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -14,14 +13,14 @@
             <a href="{{ slide.link }}">
                 <img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%">
                 <figcaption class="carousel-caption">
-				    <div class="container-bg-opacity">
-			            <div class="bg-opacity"></div>
-				    </div>
-				    <div class="content-opacity">
-					    <p class="type">{{ 'oktothek.slide_type_choice'|transchoice(slide.slidetype) }}</p>
+                    <div class="container-bg-opacity">
+                        <div class="bg-opacity"></div>
+                    </div>
+                    <div class="content-opacity">
+                        <p class="type">{{ 'oktothek.slide_type_choice'|transchoice(slide.slidetype) }}</p>
                         <h3>{{ slide.name }}</h3>
-			            <p class="slide-content subheadline">{{ slide.description }}</p>
-				    </div>
+                        <p class="slide-content subheadline">{{ slide.description }}</p>
+                    </div>
                 </figcaption>
             </a>
         </figure>
