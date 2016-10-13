@@ -7,16 +7,18 @@
         {% endif %}
     {% endfor %}
 </div>
-{% if episodes|length > 2 %}
-<div class="row collapse" id="{{ collapse_id }}more_new_Episode">
-   {% for episode in episodes|slice(5,4) %}
-        {% if episode.isActive %}
-            {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+{% if episodes|length > 4 %}
+    <div class="row collapse" id="{{ collapse_id }}more_results">
+       {% for episode in episodes|slice(5,3) %}
+            {% if episode.isActive %}
+                {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+            {% endif %}
+        {% endfor %}
+        {% if episodes|length > 7 %} {# there are more results. show link to paginator #}
+            <a href="{{ pager_url|default('#') }}">{{ pager_link_text|default('oktothek_more_results')|trans|raw }}</a>
         {% endif %}
-    {% endfor %}
-</div>
-{# Link deaktivieren wenn Episode < 5 #}
-<a href="#{{collapse_id}}more_new_Episode" class="pull-right more" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title') }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}more_new_Episode">
-    {{ collapse_link|default('oktothek.newest_videos_show_more'|trans)|raw}}
-</a>
+    </div>
+    <a href="{{ collapse_link|default('#') }}" data-collapseid="#{{collapse_id}}more_results" class="pull-right more" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title') }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}more_results">
+        {{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw}}
+    </a>
 {% endif %}

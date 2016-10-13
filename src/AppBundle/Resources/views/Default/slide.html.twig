@@ -1,8 +1,0 @@
-<figure class="item {% if loop.index0 == 0 %}active{% endif %}">
-    <a href="{{ path('oktothek_show_episode', {'uniqID': slide.uniqID}) }}">
-        <img src="{{ slide.posterframe|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%">
-        <figcaption class="carousel-caption">
-            {{ slide.name }}
-        </figcaption>
-    </a>
-</figure>

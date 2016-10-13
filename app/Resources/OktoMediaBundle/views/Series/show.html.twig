@@ -6,7 +6,7 @@
 
 {% block body_main -%}
     <div class="page-header">
-        <h1>{{ series.name }}</h1>
+        <h1>{{ series }}</h1>
         <a href="{{ path('oktolab_series_edit', { 'series': series.id }) }}" class="btn btn-default">{{ 'oktolab_media.series_edit_button'|trans|raw }}</a>
     </div>
     <div class="row">
@@ -41,7 +41,7 @@
                 {% for user in series.users %}
                 <a href="" class="list-group-item">{{ user.username }} ({{ user.email }})</a>
                 {% endfor %}
-                <a href="{{ path('oktolab_series_edit_user', {'series': series.id}) }}" class="list-group-item">{{ 'oktothek.series_add_user'|trans|raw }}</a>
+                <a href="{{ path('oktolab_series_edit_user', {'series': series.uniqID}) }}" class="list-group-item">{{ 'oktothek.series_add_user'|trans|raw }}</a>
             </div>
         </div>
     </div>

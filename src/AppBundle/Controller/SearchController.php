@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
  * Search controller.
@@ -29,7 +30,12 @@ class SearchController extends Controller
         $data = ['search' => ''];
         $form = $this->createFormBuilder($data)
             ->setAction($this->generateUrl('oktothek_search'))
-            ->add('search', TextType::class, ['attr' => ['placeholder' => 'oktothek.searchfield_placeholder']])
+            ->add('search', TextType::class,
+                [
+                    'constraints' => [new NotBlank(['message' => 'oktothek.search_empty_notice'])],
+                    'attr' => ['placeholder' => 'oktothek.searchfield_placeholder']
+                ]
+            )
             ->add('submit', SubmitType::class, ['label' => "oktothek.searchfiled_submit"])
             ->getForm();
 
@@ -48,6 +54,8 @@ class SearchController extends Controller
                     'playlists' => $playlists,
                     'searchphrase' => $data['search']
                 ]);
+            } else {
+                return $this->redirect($this->generateUrl('homepage'));
             }
         }
         return ['searchform' => $form->createView()];

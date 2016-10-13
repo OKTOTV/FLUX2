@@ -38,15 +38,15 @@ class DefaultController extends Controller
     }
 
     /**
-    * @Route("/slider", name="slider")
+    * @Route("/slider/{number}.{_format}", name="slider", requirements={"number": "\d+", "_format": "html|json"}, defaults={"number": 5, "_format": "html"})
     * @Template()
     */
-    public function sliderAction()
+    public function sliderAction($number = 5)
     {
         $em = $this->getDoctrine()->getManager();
-        $episodePins = $em->getRepository('AppBundle:EpisodePin')->findBy(array(), array('onlineAt' => 'ASC'), 5, 0);
+        $slides = $em->getRepository('AppBundle:Slide')->findNewestSlides($number);
 
-        return array('slides' => $episodePins);
+        return ['slides' => $slides];
     }
 
     /**

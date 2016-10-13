@@ -6,7 +6,7 @@
 
 {% block body_main %}
 
-{% include 'AppBundle::Series/producerHeader.html.twig' with {'active': 'producer_blog', 'series': series} %}
+{% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_blog', 'series': series} %}
 <p>{{ 'oktothek.series_producer_blog_text'|trans }}</p>
 
 {{ form_start(form)}}

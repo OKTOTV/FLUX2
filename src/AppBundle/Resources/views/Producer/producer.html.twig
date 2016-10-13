@@ -6,11 +6,12 @@
 
 {% block body_main %}
 
-{% include 'AppBundle::Series/producerHeader.html.twig' with {'active': 'producer_info', 'series': series} %}
+{% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_info', 'series': series} %}
 <p>{{ 'oktothek.series_producer_text'|trans }}</p>
 
 <div class="row">
     <div class="col-md-8">
+        <canvas id="analytics-latest-episode" width="400" height="200" style="backgroundColor:white"></canvas>
     </div>
     <div class="col-md-4">
         <img src="{{ series.posterframe|thumb(720,1280)}}" class="img img-responsive" />

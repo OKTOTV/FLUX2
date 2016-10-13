@@ -66,9 +66,14 @@ class Logstate
     private $clientIp;
 
     /**
-     * @ORM\OneToMany(targetEntity="Info", mappedBy="logstate")
+     * @ORM\Column(name="identifier", type="string", length=32, nullable=true)
      */
-    private $values;
+    private $identifier;
+
+    /**
+     * @ORM\Column(name="value", type="string", length=32, nullable=true)
+     */
+    private $value;
 
     public function __construct()
     {
@@ -205,36 +210,25 @@ class Logstate
         return $this->clientIp;
     }
 
-    /**
-     * Add values
-     *
-     * @param \Bprs\AnalyticsBundle\Entity\Info $values
-     * @return Logstate
-     */
-    public function addValue(\Bprs\AnalyticsBundle\Entity\Info $values)
+    public function getIdentifier()
     {
-        $this->values[] = $values;
-        $values->setLogstate($this);
+        return $this->identifier;
+    }
+
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
         return $this;
     }
 
-    /**
-     * Remove values
-     *
-     * @param \Bprs\AnalyticsBundle\Entity\Info $values
-     */
-    public function removeValue(\Bprs\AnalyticsBundle\Entity\Info $values)
+    public function getValue()
     {
-        $this->values->removeElement($values);
+        return $this->value;
     }
 
-    /**
-     * Get values
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getValues()
+    public function setValue($value)
     {
-        return $this->values;
+        $this->value = $value;
+        return $this;
     }
 }

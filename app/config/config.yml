@@ -159,6 +159,7 @@ oktolab_media:
 
 okto_media:
     tag_class: "AppBundle\Entity\Tag"
+    user_class: %bprs_user.class%
 
 jms_serializer:
     metadata:
@@ -177,7 +178,7 @@ bprs_asset:
     filesystem_map: oneup_flysystem.mount_manager
     worker_queue: %worker_queue%
     thumb_filesystem: posterframe
-    404:        "http://localhost/FLUX2/web/bundles/bprsasset/img/404.png"
+    404:      "http://localhost/FLUX2/web/bundles/app/images/placeholder/Logo2.png"
     adapters: "%bprs_asset_adapters%"
 
 oneup_flysystem:

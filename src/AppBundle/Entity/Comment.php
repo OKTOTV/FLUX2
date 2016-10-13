@@ -25,6 +25,7 @@ class Comment
 
     /**
      * @Assert\NotBlank()
+     * @Assert\Length(max="500")
      * @ORM\Column(name="text", type="text")
      */
     private $text;

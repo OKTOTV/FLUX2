@@ -2,17 +2,31 @@
   <!-- Indicators -->
   <ol class="carousel-indicators">
       {% for slide in slides %}
-        <li data-target="#carousel-example-generic" data-slide-to="{{ loop.index0 }}" {% if loop.index0 == 0 %}class="active"{% endif %}></li>
+        <li data-target="#carousel" data-slide-to="{{ loop.index0 }}" {% if loop.index0 == 0 %}class="active"{% endif %}></li>
       {% endfor %}
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     {% for slide in slides %}
-        {% include "AppBundle:Default:slide.html.twig" %}
+        <figure class="item {% if loop.index0 == 0 %}active{% endif %}">
+            <a href="{{ slide.link }}">
+                <img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%">
+                <figcaption class="carousel-caption">
+                    <div class="container-bg-opacity">
+                        <div class="bg-opacity"></div>
+                    </div>
+                    <div class="content-opacity">
+                        <p class="type">{{ 'oktothek.slide_type_choice'|transchoice(slide.slidetype) }}</p>
+                        <h3>{{ slide.name }}</h3>
+                        <p class="slide-content subheadline">{{ slide.description }}</p>
+                    </div>
+                </figcaption>
+            </a>
+        </figure>
     {% endfor %}
   </div>
-
+{#
   <!-- Controls -->
   <!-- <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -21,6 +35,5 @@
   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
-</a> -->
+</a> --> #}
 </div>
-<div class="preloader"></div>

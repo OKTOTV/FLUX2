@@ -7,7 +7,134 @@
 
 {% set body_class = "participate" %}
 {% block body %}
-<div class="container">
+<div class="container planet_container">
     <div id="top"></div>
+    <section id="univers">
+        <div id="planets">
+	        <figure class="cloud9-item color1">
+                <img src="{{ asset('bundles/app/images/heinrich.svg') }}" alt="Alt" width="300" height="200">
+                <figcaption>
+                    <div class="title-container"><a href="#">PraktikantInnen</a></div><div class="bg-opacity"></div>
+                </figcaption>
+                <nav class="subnav-item1 nav sub-left">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                 </nav>
+                 <nav class="subnav-item1 nav sub-right">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                 </nav>
+            </figure>
+	        <figure class="cloud9-item color2">
+                <img src="{{ asset('bundles/app/images/planet1.svg') }}" alt="Alt" width="250" height="250">
+                <figcaption>
+                    <div class="title-container"><a href="#">Okto360</a></div><div class="bg-opacity"></div>
+                </figcaption>
+                <nav class="subnav-item2 nav sub-left">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                </nav>
+                <nav class="subnav-item2 nav sub-right">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                </nav>
+            </figure>
+	        <figure class="cloud9-item color3">
+                <img src="{{ asset('bundles/app/images/satelit.svg') }}" alt="Alt" width="250" height="250">
+                <figcaption>
+                    <div class="title-container"><a href="#">Kontakt</a></div><div class="bg-opacity"></div>
+                </figcaption>
+                <nav class="subnav-item3 nav sub-left">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                </nav>
+                <nav class="subnav-item3 nav sub-right">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                </nav>
+            </figure>
+            <figure class="cloud9-item color1">
+                <img src="{{ asset('bundles/app/images/planet2.svg') }}" alt="Alt" width="250" height="250">
+                <figcaption>
+                    <div class="title-container"><a href="#">Lernen</a></div><div class="bg-opacity"></div>
+                </figcaption>
+                <nav class="subnav-item4 nav sub-left">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                </nav>
+                <nav class="subnav-item4 nav sub-right">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                </nav>
+            </figure>
+	        <figure class="cloud9-item color4">
+                <img src="{{ asset('bundles/app/images/planet3.svg') }}" alt="Alt" width="250" height="250">
+                <figcaption>
+                    <div class="title-container"><a href="#">ProduzentInnen</a></div><div class="bg-opacity"></div>
+                </figcaption>
+                <nav class="subnav-item5 nav sub-left">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                </nav>
+                <nav class="subnav-item5 nav sub-right">
+                    <ul>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                        <li><div class="dot"><hr></div><a href="#">Link</a></li>
+                    </ul>
+                </nav>
+            </figure>
+	    </div>
+    </section>
 </div>
+<video autoplay loop id="participate_video" poster="{{ asset('bundles/app/images/sternenhimmel.jpg') }}">
+        <source src="{{ asset('bundles/app/videos/sternenhimmel.mp4') }}" type="video/mp4">
+        <!--<source src="{{ asset('bundles/app/videos/sternenhimmel.ogg') }}" type="video/ogg">-->
+    </video>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+	<script src="{{ asset('bundles/app/js/jquery.cloud9carousel.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/javascript_participate.js') }}"></script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/participate.css') }}" rel="stylesheet" />
 {% endblock %}

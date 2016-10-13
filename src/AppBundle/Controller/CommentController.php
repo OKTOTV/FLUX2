@@ -19,6 +19,7 @@ use AppBundle\Entity\Comment;
 class CommentController extends Controller
 {
     /**
+     * @Security("has_role('ROLE_OKTOLAB_USER')")
      * @Route("/new/{uniqID}", name="oktothek_comment")
      * @Template()
      */
@@ -29,7 +30,6 @@ class CommentController extends Controller
         $commentForm->add('submit', 'submit', ['label' => 'oktothek.comment_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") {
-            $this->denyAccessUnlessGranted('ROLE_USER', null, 'Unable to access this page!');
             $commentForm->handleRequest($request);
             if ($commentForm->isValid()) {
                 $comment->setUser($this->get('security.context')->getToken()->getUser());
@@ -47,7 +47,7 @@ class CommentController extends Controller
     }
 
     /**
-     * @Security("has_role('ROLE_USER')")
+     * @Security("has_role('ROLE_OKTOLAB_USER')")
      * @Route("/answer/{comment}", name="oktothek_answer_comment")
      * @Template()
      */
