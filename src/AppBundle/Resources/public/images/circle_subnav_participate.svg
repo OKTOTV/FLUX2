@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-width: 0.75px;
+        stroke-dasharray: 0.001 1.5;
+      }
+    </style>
+  </defs>
+  <circle id="PunkteUmrandung_Kopie_3" data-name="PunkteUmrandung Kopie 3" class="cls-1" cx="34.5" cy="34.5" r="33.5"/>
+</svg>

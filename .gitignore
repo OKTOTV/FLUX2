@@ -48,3 +48,9 @@ app/data.db3
 .DS_Store
 
 .DS_Store
+
+src/AppBundle/.DS_Store
+
+.DS_Store
+
+src/.DS_Store
