@@ -43,6 +43,7 @@ oktothek.login_register:                Neuen Account anlegen
 ## search and results
 oktothek_results_header:                Suchergebnisse für "%searchphrase%"
 oktothek.searchfield_placeholder:       Suche Videos, Leute und Infos
+
 ## news post
 ## form labels
 oktothek.post_name_label:               Titel
@@ -475,6 +476,16 @@ oktothek.series_producer_episode_favorites: Favoriten
 oktothek.series_producer_episode_tags:      Tags
 oktothek.series_producer_episode_files:     Dateien
 oktothek.series_producer_episode_download:  <span class="glyphicon glyphicon-download" aria-hidden="true"></span> %file%
+
+oktothek.series_producer_analytic_2weeks_header: Die letzten 14 Tage
+oktothek.series_producer_analytic_48hours_header: Die letzten 48 Stunden
+oktothek.series_producer_analytic_click:    "{20} 20%| {60} 60%"
+oktothek.series_producer_anlaytic_border:   "{20} rgba(252,206,20,0.6)|{60} rgba(100,200,200,0.6)"
+oktothek.series_producer_analytic_20:       %20 Bindung
+oktothek.series_producer_analytic_20:       %40 Bindung
+oktothek.series_producer_analytic_20:       %60 Bindung
+oktothek.series_producer_analytic_20:       %80 Bindung
+oktothek.series_producer_analytic_end:       %100 Bindung
 
 ## producer playlists
 oktothek.series_producer_playlists_text:    Hier findest du alle Playlisten zu dieser Sendereihe. Du kannst Playlisten anlegen, bearbeiten und löschen. Aktive Playlisten erscheinen auf deinem Kanal.

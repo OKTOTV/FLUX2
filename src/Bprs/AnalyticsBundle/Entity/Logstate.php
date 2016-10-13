@@ -66,9 +66,14 @@ class Logstate
     private $clientIp;
 
     /**
-     * @ORM\OneToMany(targetEntity="Info", mappedBy="logstate")
+     * @ORM\Column(name="identifier", type="string", length=32, nullable=true)
      */
-    private $values;
+    private $identifier;
+
+    /**
+     * @ORM\Column(name="value", type="string", length=32, nullable=true)
+     */
+    private $value;
 
     public function __construct()
     {
@@ -236,5 +241,27 @@ class Logstate
     public function getValues()
     {
         return $this->values;
+    }
+
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
+
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
+        return $this;
+    }
+
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    public function setValue($value)
+    {
+        $this->value = $value;
+        return $this;
     }
 }

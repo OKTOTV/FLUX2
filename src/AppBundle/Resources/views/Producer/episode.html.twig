@@ -6,12 +6,15 @@
 
 {% block body_main %}
 
-{% include 'AppBundle::Series/producerHeader.html.twig' with {'active': 'producer_episodes', 'series': episode.series} %}
+{% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_episodes', 'series': episode.series} %}
 <p>{{ 'oktothek.series_producer_episode_text'|trans }}</p>
 
 <div class="row">
     <div class="col-md-8">
-        <div id="analytics"></div>
+        <h2>{{ 'oktothek.series_producer_analytic_48hours_header'|trans }}</h2>
+        <canvas id="analytics-48" width="400" height="200" style="backgroundColor:white"></canvas>
+        <h2>{{ 'oktothek.series_producer_analytic_2weeks_header'|trans }}</h2>
+        <canvas id="analytics" width="400" height="200" style="backgroundColor:white"></canvas>
     </div>
     <div class="col-md-4">
         <div id="player"></div>
@@ -27,9 +30,9 @@
             <li class="list-group-item">
                 <h4 class="list-group-item-header">{{ 'oktothek.series_producer_episode_tags'|trans }}</h4>
                 <p class="list-group-item-text">
-                    <ul>
+                    <ul class="list-group">
                         {% for tag in episode.tags %}
-                            <li>{{ tag }}</li>
+                            <li class="list-group-item">{{ tag }}</li>
                         {% endfor %}
                     </ul>
                 </p>
@@ -52,18 +55,87 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/bprsanalytics/js/chart.min.js')}}"></script>
     {{ player(episode)|raw }}
     <script>
         $(document).ready(function(){
-            // analytics
-            $.ajax({
-                url: "{{ path('bprs_analytics_for_values') }}",
+
+            Chart.defaults.global.defaultFontColor = '#FFF';
+
+            var ctx2 = $("#analytics-48");
+            var myChart48 = new Chart(ctx2, {
+                type: 'line',
                 data: {
-                    'values': {'uniqID': {{ episode.uniqID }}}
+                    labels: [{% for date, datapoints in clicks48['20'] %}"{{ date|date('d.m.Y H:i') }}"{% if not loop.last %},{% endif %}{% endfor %}],
+                    datasets: [{% for key, click48 in clicks48 %}{
+                        label: '{{ 'oktothek.series_producer_analytic_click'|transchoice(key) }}',
+                        data: [{% for datapoints in click48 %}"{{ datapoints|length }}"{% if not loop.last %},{% endif %}{% endfor %}],
+                        fill: true,
+                        lineTension: 0.1,
+                        backgroundColor: "{{'oktothek.series_producer_anlaytic_border'|transchoice(key)}}",
+                        borderColor: "{{'oktothek.series_producer_anlaytic_border'|transchoice(key)}}",//"rgba(75,192,192,1)",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(75,192,192,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10
+                    }{% if not loop.last %},{% endif %}{% endfor %}]
                 },
-                type: 'POST',
-                success: function(data) {
-                    $('#analytics').append(data);
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+
+            var ctx = $("#analytics");
+            var myChart = new Chart(ctx, {
+                type: 'line',
+
+                data: {
+                    labels: [{% for date, datapoints in clicks2weeks['20'] %}"{{ date|date('d.m.Y') }}"{% if not loop.last %},{% endif %}{% endfor %}],
+                    datasets: [{% for key, clicks2week in clicks2weeks %}{
+                        label: '{{ 'oktothek.series_producer_analytic_click'|transchoice(key) }}',
+                        data: [{% for date, datapoints in clicks2week %}"{{ datapoints|length }}"{% if not loop.last %},{% endif %}{% endfor %}],//[12, 19, 3, 5, 2, 3],
+                        fill: true,
+                        lineTension: 0.1,
+                        backgroundColor: "{{'oktothek.series_producer_anlaytic_border'|transchoice(key)}}",
+                        borderColor: "{{'oktothek.series_producer_anlaytic_border'|transchoice(key)}}",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(75,192,192,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10
+                    }{% if not loop.last %},{% endif %}{% endfor %}]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
                 }
             });
         });

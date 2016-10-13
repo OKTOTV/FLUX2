@@ -141,7 +141,10 @@ class ProducerController extends Controller
     public function episodeAction(Episode $episode)
     {
         $this->denyAccessUnlessGranted('view_channel', $episode->getSeries());
-        return ['episode' => $episode];
+        $analytics = $this->get('oktothek_producer_analytics');
+        $clicks2weeks = $analytics->getAnalyticsForEpisode($episode);
+        $clicks48 = $analytics->getAnalyticsForEpisode($episode, '+1 hour', '-2 days');
+        return ['episode' => $episode, 'clicks2weeks' => $clicks2weeks, 'clicks48' => $clicks48];
     }
 
     public function producerNewPlaylistAction(Request $request, Series $series)

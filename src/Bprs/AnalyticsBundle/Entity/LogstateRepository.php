@@ -12,17 +12,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class LogstateRepository extends EntityRepository
 {
-    public function getNumberOfRefreshes($client_ip, $url, $from = false, $to = false)
+    public function getNumberOfRefreshes($client_ip, $url, $from = '-5 minutes', $to = 'now')
     {
-        if (!$from) {
-            $from = new \Datetime('-5 minutes');
-        }
+        $from = new \Datetime($from);
+        $to = new \Datetime($to);
 
-        if (!$to) {
-            $to = new \Datetime();
-        }
         return $this->getEntityManager()
-            ->createQuery('SELECT COUNT(l) FROM BprsAnalyticsBundle:Logstate l WHERE l.url = :url AND (l.timestamp >= :start_time AND l.timestamp <= :end_time)  AND l.clientIp = :client_ip')
+            ->createQuery(
+                'SELECT COUNT(l) FROM BprsAnalyticsBundle:Logstate l
+                WHERE l.url = :url
+                AND (l.timestamp >= :start_time AND l.timestamp <= :end_time)
+                AND l.clientIp = :client_ip'
+            )
             ->setParameter('url', $url)
             ->setParameter('start_time', $from)
             ->setParameter('end_time', $to)
@@ -30,100 +31,29 @@ class LogstateRepository extends EntityRepository
             ->getSingleScalarResult();
     }
 
-    /**
-     * returns Logstates for given key => value Infos
-     */
-    public function getLogstatesForValues(array $values)
+    public function getLogstatesInTime(array $values, $from = '-1 day', $to = 'now')
     {
-        $where = "";
-        $first = true;
-        foreach ($values as $key => $value) {
-            if ($first) {
-                $where = sprintf("v.%s = :%s", $key, $value);
-                $first = false;
-            } else {
-                $where = sprintf("%s AND v.%s = :%s", $where, $key, $value);
-            }
-        }
 
-        $query = $this->getEntityManager()
-            ->createQuery('SELECT l FROM BprsAnalyticsBundle:Logstate l JOIN l.values v WHERE '.$where);
+        $from = new \Datetime($from);
+        $to = new \Datetime($to);
 
-        foreach ($values as $key => $value) {
-            $query->setParameter($key, $value);
-        }
-
-        return $query->getResult();
-    }
-
-    /**
-     * returns Logstates in timerange for given logstate key => values. (similar to findBy())
-     */
-    public function getLogstatesInTimeForValues(array $values, $from = false, $to = false)
-    {
-        if (!$from) {
-            $from = new \Datetime('-1 day');
-        }
-
-        if (!$to) {
-            $to = new \Datetime();
-        }
-
-        $where = "";
-        $first = true;
-        foreach ($values as $key => $value) {
-            if ($first) {
-                $where = sprintf("v.key = :%s_key AND v.value = :%s_value", $key, $key);
-                $first = false;
-            } else {
-                $where = sprintf("%s AND v.%s = :%s", $where, $key, $key);
-            }
-        }
-        // die(var_dump($where));
-        $query = $this->getEntityManager()
-            ->createQuery('SELECT l FROM BprsAnalyticsBundle:Logstate l LEFT JOIN l.values v WHERE (l.timestamp >= :start_time AND l.timestamp <= :end_time) AND '.$where.' ORDER BY l.timestamp ASC')
-            ->setParameter('start_time', $from)
-            ->setParameter('end_time', $to);
+        $queryBuilder = $this->getEntityManager()->createQueryBuilder();
+        $queryBuilder->select('l')
+            ->from('BprsAnalyticsBundle:Logstate', 'l')
+            ->where($queryBuilder->expr()->andX(
+                $queryBuilder->expr()->gte('l.timestamp', ':start_time'),
+                $queryBuilder->expr()->lte('l.timestamp', ':end_time')
+                )
+            );
+        $queryBuilder->setParameter('start_time', $from);
+        $queryBuilder->setParameter('end_time', $to);
+        $queryBuilder->orderBy('l.timestamp', 'ASC');
 
         foreach ($values as $key => $value) {
-            $query->setParameter($key.'_key', $key);
-            $query->setParameter($key.'_value', $value);
+            $queryBuilder->andWhere($queryBuilder->expr()->eq('l.'.$key, ':'.$key));
+            $queryBuilder->setParameter($key, $value);
         }
 
-        return $query->getResult();
-    }
-
-    public function getLogstatesInTimeWithoutValues(array $values, $from = false, $to = false)
-    {
-        if (!$from) {
-            $from = new \Datetime('-1 day');
-        }
-
-        if (!$to) {
-            $to = new \Datetime();
-        }
-
-        $where = "";
-        $first = true;
-        foreach ($values as $key => $value) {
-            if ($first) {
-                $where = sprintf("v.%s = :%s", $key, $value);
-                $first = false;
-            } else {
-                $where = sprintf("%s AND v.%s = :%s", $where, $key, $value);
-            }
-        }
-
-        $query = $this->getEntityManager()
-            ->createQuery('SELECT l FROM BprsAnalyticsBundle:Logstate l WHERE (l.timestamp >= :start_time AND l.timestamp <= :end_time) AND SIZE(l.values) = 0')
-            ->setParameter('start_time', $from)
-            ->setParameter('ent_time', $to);
-
-        foreach ($values as $key => $value) {
-            $query->setParameter($key, $value);
-        }
-
-        return $query->getResult();
-
+        return $queryBuilder->getQuery()->getResult();
     }
 }

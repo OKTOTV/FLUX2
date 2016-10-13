@@ -13,7 +13,37 @@
             if (event.oldstate == "buffering") { {# fire statistics #}
                 $.ajax({
                     url: "{{ url('bprs_analytics_write_log')}}",
-                    data: {'values': {'uniqID': "{{ episode.uniqID }}", 'event': 'start'}}
+                    data: {'identifier': "{{ episode.uniqID }}", 'value': 'start'}
+                });
+            }
+        }).on('complete', function(event) {
+            $.ajax({
+                url: "{{ url('bprs_analytics_write_log')}}",
+                data: {'identifier': "{{ episode.uniqID}}", 'value': 'end'}
+            });
+        }).on('time', function(event) {
+            var percentage = Math.floor(event.position*100 / event.duration);
+
+            if ( percentage == 20 ) {
+                console.log('reached 20%');
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': "{{ episode.uniqID}}", 'value': percentage+'%'}
+                });
+            } else if ( percentage == 40 ) {
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': "{{ episode.uniqID}}", 'value': percentage+'%'}
+                });
+            } else if (percentage == 60 ) {
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': "{{ episode.uniqID}}", 'value': percentage+'%'}
+                });
+            } else if ( percentage == 80 ) {
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': "{{ episode.uniqID}}", 'value': percentage+'%'}
                 });
             }
         });

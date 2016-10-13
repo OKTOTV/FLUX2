@@ -159,6 +159,7 @@ oktolab_media:
 
 okto_media:
     tag_class: "AppBundle\Entity\Tag"
+    user_class: %bprs_user.class%
 
 jms_serializer:
     metadata:

@@ -112,3 +112,8 @@ services:
     oktothek_newsletter:
         class:  AppBundle\Model\NewsletterService
         arguments:  [ "%newsletter.api_key%" ]
+
+# producer
+    oktothek_producer_analytics:
+        class:  AppBundle\Model\ProducerService
+        arguments:  [ "@bprs_analytics"]
