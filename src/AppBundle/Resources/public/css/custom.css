@@ -57,7 +57,7 @@ header .navbar .nav > li > a, header .navbar .nav.navbar-right > li > a, #dropdo
 	font-weight: normal;
 	font-style: normal;
 }
-.carousel-caption .slide-content, .subheadline, .participart .button_container .btn, .btn.btn-top, figcaption .description {
+.carousel-caption .slide-content, .subheadline, .participart .button_container .btn, .btn.btn-top, figcaption .description, #planets .cloud9-item figcaption {
 	font-family: HelveticaNeueLTStd-Lt, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -72,6 +72,10 @@ h1, h2, .h2 {
 }
 .carousel-caption h3, .pull-right .icon, .series h1, .playlists #StartPlaylist.btn span.glyphicon, .playlists .btn.circle {
 	font-size:24px;
+}
+#planets .cloud9-item figcaption {
+    font-size:18px;
+    letter-spacing:1.2px;
 }
 header .navbar-toggle.search-button span, header .navbar-toggle.menu-button span.icon-close, .subheadline, .participart .button_container .btn, .news p, figcaption .description, .academy .preview p, #favorite .glyphicon, .container.tags a {
 		font-size:16px;
@@ -105,14 +109,14 @@ h3, .h3, header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu
 	letter-spacing:0.25px;
 }
 /* Spacelayout */
-.oktothek .participart-list figcaption, .edit-playlists form label {
+.oktothek .participart-list figcaption, .edit-playlists form label, .participate #planets nav a {
 	font-size:11px;
 	letter-spacing:0.50px;
 }
 .pin .pin-icon {
 	font-size:10px;
 }
-.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.more, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .playlists .series a, .edit-playlists form label {
+.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.more, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .playlists .series a, .edit-playlists form label, #planets .cloud9-item figcaption, .participate #planets nav a {
 	text-transform:uppercase;
 }
 
@@ -658,7 +662,8 @@ button.list-group-item-danger,
 #playlist_items a h3, 
 .blog p,
 .btn.transparent:hover, 
-.btn.transparent:focus {
+.btn.transparent:focus,
+.participate #planets nav a {
 	color:#ffffff;
 }
 .form-control, 
@@ -715,7 +720,7 @@ a.more /*Gelb*/ {
 a.list-group-item-danger:focus, 
 button.list-group-item-danger:focus, 
 a.list-group-item-danger:hover, 
-button.list-group-item-danger:hover
+button.list-group-item-danger:hover,
 .color2 a, 
 .active .color2.pin figcaption a h3, 
 .active .color2.pin figcaption a p { /* Pink */
@@ -801,13 +806,19 @@ button .btn-default.but-full.active,
 .btn-default.focus:active, 
 .btn-default.active.focus, 
 .oktothek article a.btn-default.but-full, 
-.input-group-addon { /* Gelb */
+.input-group-addon, #planets .color1 .bg-opacity { /* Gelb */
 	background-color:#fcce14;
 }
 a.list-group-item-danger, 
 button.list-group-item-danger, 
-.btn-danger { /* Pink */
+.btn-danger, #planets .color2 .bg-opacity { /* Pink */
 	background-color:#d1418f;
+}
+#planets .color3 .bg-opacity { /* Grün */
+	background-color: #91e31c;
+}
+#planets .color4 .bg-opacity { /* Blau */
+	background-color: #13fffd;
 }
 
 .play-episode.btn-default {
@@ -1024,12 +1035,35 @@ section, .participart article  {
 }
 .oktothek .participart {
 	background-image:url(../images/space.jpg);
+}
+/*body.participate {
+    background-image:url(../images/sternenhimmel.jpg);
+    background-attachment:fixed;
+}*/
+.oktothek .participart/*, body.participate*/ {
 	background-repeat:no-repeat;
 	background-position:center center;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+body.participate video#participate_video {
+    position: fixed; right: 0; bottom: 0;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto; z-index: -100;
+}
+body.participate, body.participate video#participate_video {
+    background-image:url(../images/sternenhimmel.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+body.participate {
+    background-repeat:no-repeat;
+    background-attachment:fixed;
 }
 .oktothek .participart .button_container {
 	background-image:url(../images/planet_mitmachen.svg);
@@ -1040,6 +1074,16 @@ section, .participart article  {
 	background-image:url(../images/participart_circle.svg);
 	background-repeat:no-repeat;
 	background-position:center center;
+}
+.participate #planets nav.sub-left li div.dot, .participate #planets nav.sub-right li div.dot {
+	background-image:url(../images/circle_subnav_participate.svg);
+	background-repeat:no-repeat;
+}
+.participate #planets nav.sub-left li div.dot {
+	background-position:left center;
+}
+.participate #planets nav.sub-right li div.dot {
+	background-position:right center;
 }
 .avatar-container {
 	background-image:url(../images/avatar_circle.svg);
@@ -1129,6 +1173,9 @@ section.playlist_container {
 .playlists .edit:hover {
 	background-image:url(../images/icon_edit_hover.svg);
 }
+.participate #planets hr {
+    background-image:none;
+}
 
 @media (min-width: 768px) {
     section.fs-image-content, section.player-container {
@@ -1165,6 +1212,11 @@ section.playlist_container {
     opacity: 0.6;       /* modern browser */
     -moz-opacity: 0.6;  /* older Mozilla browser */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE8 in Standard Compliant Mode */
+}
+#planets .bg-opacity {
+    opacity: 0.1;       /* modern browser */
+    -moz-opacity: 0.1;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=1)"; /* IE8 in Standard Compliant Mode */
 }
 
 .bg-bleur {
@@ -2124,6 +2176,8 @@ figure.pin img, .programm .schedule img {
 	width:30px;
 	outline:0;
 }
+    
+    
 
 /* TV */
 .programm {
