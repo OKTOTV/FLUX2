@@ -210,39 +210,6 @@ class Logstate
         return $this->clientIp;
     }
 
-    /**
-     * Add values
-     *
-     * @param \Bprs\AnalyticsBundle\Entity\Info $values
-     * @return Logstate
-     */
-    public function addValue(\Bprs\AnalyticsBundle\Entity\Info $values)
-    {
-        $this->values[] = $values;
-        $values->setLogstate($this);
-        return $this;
-    }
-
-    /**
-     * Remove values
-     *
-     * @param \Bprs\AnalyticsBundle\Entity\Info $values
-     */
-    public function removeValue(\Bprs\AnalyticsBundle\Entity\Info $values)
-    {
-        $this->values->removeElement($values);
-    }
-
-    /**
-     * Get values
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getValues()
-    {
-        return $this->values;
-    }
-
     public function getIdentifier()
     {
         return $this->identifier;
