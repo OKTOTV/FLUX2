@@ -137,7 +137,7 @@ oktothek.success_publish_episode:       Episode veröffentlichen
 
 ## comment
 oktothek.comment_author:                %name% am <time>%date%</time>
-oktothek.comment_reply_choice:          '{0} Keine Antworten |{1} Eine Antwort |]1,Inf[ %count% Antworten'
+oktothek.comment_reply_choice:          '{0} Antworten |{1} Eine Antwort |]1,Inf[ %count% Antworten'
 oktothek.comment_reply_button:          Antwort senden
 oktothek.comment_create_button:         Kommentar senden
 oktothek.comment_placeholder_text:      Dein Kommentar...
