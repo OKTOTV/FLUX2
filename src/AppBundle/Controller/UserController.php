@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Abonnement;
 use AppBundle\Form\AbonnementType;
 use AppBundle\Entity\Notification;
+use AppBundle\Entity\User;
+
 /**
  * @Route("/user")
  * @Security("has_role('ROLE_OKTOLAB_USER')")
@@ -144,5 +146,14 @@ class UserController extends Controller
                 return $this->redirect($this->generateUrl('tv'));
                 break;
         }
+    }
+
+    /**
+     * @Route("/show/{username}", name="oktothek_show_user")
+     * @Template()
+     */
+    public function showAction(User $user)
+    {
+        return ['user' => $user];
     }
 }

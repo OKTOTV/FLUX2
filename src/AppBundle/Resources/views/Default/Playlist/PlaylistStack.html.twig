@@ -1,14 +1,20 @@
 <div class="row">
-{% for playlist in playlists|slice(0,4) %}
-    {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
-{% endfor %}
-</div>
-{% if playlists|length > 4 %}
-<div class="row collapse">
-    {% for playlist in playlists|slice(5,4) %}
+    {% for playlist in playlists|slice(0,4) %}
         {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
     {% endfor %}
 </div>
-<a href="#" class="pull-right more" title="" data-toggle="collapse" aria-controls="">{{ 'oktothek.newest_playlists_show_more'|trans|raw }}</a>
-{# <a href="#" class="pull-right more" title="Weitere Playlisten anzeigen">{{ 'oktothek.newest_playlists_show_more'|trans}} <span class="icon">+</span></a> #}
+{% if playlists|length > 4 %}
+    <div class="row collapse">
+        {% for playlist in playlists|slice(4,3) %}
+            {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
+        {% endfor %}
+        {% if playlists|length > 7 %}
+            <a href="{{ pager_url|default(path('oktothek_playlist_index')) }}">
+                {{ pager_link_test|default('oktothek.newest_playlists_show_more'|trans|raw)}}
+            </a>
+        {% endif %}
+    </div>
+    <a href="{{ collapse_link|default(pager_url|default(path('oktothek_playlist_index'))) }}" class="pull-right more" title="" data-toggle="collapse" aria-controls="">
+        {{ 'oktothek.newest_playlists_show_more'|trans|raw }}
+    </a>
 {% endif %}

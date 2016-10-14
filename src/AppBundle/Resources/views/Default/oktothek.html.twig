@@ -10,7 +10,7 @@
     {# top slider, search and channels #}
     <div id="top"></div>
     <div id="slider">
-        {% render(controller('AppBundle:Default:slider', {'number': 5})) %}
+        {{ render(controller('AppBundle:Default:slider', {'number': 5})) }}
     </div>
     {# top slider, search and channels END #}
     {# rest of the page #}
@@ -33,14 +33,14 @@
         <section class="newest-videos container">
             <div id="anchor_newest_videos"></div>
             <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
-            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes} %}
+            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes, 'pager_url': path('oktothek_newest_episodes')} %}
         </section>
 
         {# render favorites #}
         <section class="favorite-videos container">
             <div id="anchor_favorite_videos"></div>
             <h2>Beliebteste Videos</h2>
-            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes} %}
+            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes, 'pager_url': path('oktothek_best_episodes')} %}
             {# <a href="#" class="pull-right more" title="Weitere beliebteste Videos anzeigen">Mehr Videos anzeigen <span class="icon">+</span></a> #}
         </section>
 

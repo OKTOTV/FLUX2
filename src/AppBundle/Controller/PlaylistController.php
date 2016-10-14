@@ -89,16 +89,18 @@ class PlaylistController extends Controller
     }
 
     /**
-     * @Route("/{page}", name="oktothek_playlist_index", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Route("/", name="oktothek_playlist_index", requirements={"page": "\d+"}, defaults={"page": 1})
      * @Template()
      */
-    public function indexAction($page)
+    public function indexAction(Request $request)
     {
+        $page = $request->query->get('page', 1);
+        $results = $request->query->get('results', 10);
+        $results = ($results > 20) ? 20 : $results;
         $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT p FROM MediaBundle:Playlist p";
-        $query = $em->createQuery($dql);
+        $query = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists(0, true);
         $paginator = $this->get('knp_paginator');
-        $playlists = $paginator->paginate($query, $page, 10);
+        $playlists = $paginator->paginate($query, $page, $results);
 
         return ['pagination' => $playlists];
     }

@@ -12,22 +12,33 @@ use Doctrine\ORM\EntityRepository;
  */
 class PlaylistRepository extends EntityRepository
 {
-    public function findNewestPlaylists($numberPlaylists)
+    public function findNewestPlaylists($numberPlaylists = 8, $query_only = false)
     {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT p FROM AppBundle:Playlist p WHERE SIZE(p.items) != 0 ORDER BY p.createdAt ASC'
-            )
-            ->setMaxResults($numberPlaylists)
-            ->getResult();
+        $query = $this->getEntityManager()->createQuery(
+                "SELECT p FROM AppBundle:Playlist p
+                WHERE SIZE(p.items) != 0
+                ORDER BY p.createdAt DESC"
+            );
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($numberPlaylists)->getResult();
     }
 
-    public function findPlaylistsForSeriesQuery($series)
+    public function findPlaylistsForSeriesQuery($series, $query_only = false)
     {
-        return $this->getEntityManager()
+        $query = $this->getEntityManager()
             ->createQuery(
-                'SELECT p FROM AppBundle:Playlist p WHERE p.series = :series'
+                "SELECT p FROM AppBundle:Playlist p
+                WHERE p.series = :series
+                ORDER BY p.createdAt DESC"
             )
             ->setParameter('series', $series->getId());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getResult();
     }
 }

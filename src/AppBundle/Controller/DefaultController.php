@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\User;
 use AppBundle\Form\RegisterType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DefaultController extends Controller
 {
@@ -18,9 +19,10 @@ class DefaultController extends Controller
     public function oktothekAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $best_episodes = $em->getRepository('AppBundle:Episode')->findTopEpisodes(8);
-        $newest_episodes = $em->getRepository('AppBundle:Episode')->findNewestEpisodes(8);
-        $newest_playlists = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists(8);
+        $episode_repo = $em->getRepository('AppBundle:Episode');
+        $best_episodes = $episode_repo->findBestEpisodes();
+        $newest_episodes = $episode_repo->findNewestEpisodes();
+        $newest_playlists = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists();
         return [
             'best_episodes'    => $best_episodes,
             'newest_episodes'  => $newest_episodes,
@@ -30,7 +32,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/participate", name="participate")
-     * @Template
+     * @Template()
      */
     public function participateAction()
     {
@@ -38,7 +40,12 @@ class DefaultController extends Controller
     }
 
     /**
-    * @Route("/slider/{number}.{_format}", name="slider", requirements={"number": "\d+", "_format": "html|json"}, defaults={"number": 5, "_format": "html"})
+    * @Route(
+    *    "/slider/{number}.{_format}",
+    *    name="slider",
+    *    requirements={"number": "\d+", "_format": "html|json"},
+    *    defaults={"number": 5, "_format": "html"}
+    * )
     * @Template()
     */
     public function sliderAction($number = 5)
@@ -57,17 +64,22 @@ class DefaultController extends Controller
     {
         $user = new User();
         $form = $this->createForm(new RegisterType(), $user);
-        $form->add('submit', 'submit', ['label' => 'oktothek.register_user_button', 'attr' => ['class' => 'btn btn-default']]);
+        $form->add('submit', SubmitType::class, [
+            'label' => 'oktothek.register_user_button',
+            'attr' => ['class' => 'btn btn-default']
+        ]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $this->get('bprs_user.user')->createUser($user, User::ROLE_USER);
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_account');
+                $this->get('session')->getFlashBag()
+                    ->add('success', 'oktothek.success_create_account');
 
                 return $this->redirect($this->generateUrl('homepage'));
             } else {
-                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_account');
+                $this->get('session')->getFlashBag()
+                    ->add('error', 'oktothek.error_create_account');
             }
         }
 
