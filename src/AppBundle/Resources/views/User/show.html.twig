@@ -12,12 +12,23 @@
     <h1>{{ user.username }}</h1>
 </div>
 
-<div class="row">
-    <h2>Playlisten</h2>
-</div>
-
-<div class="row">
-    <h2>Favoriten</h2>
-</div>
+{% if playlists is not empty %}
+    <div class="container">
+        <h2>Playlisten</h2>
+        {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': playlists, 'pager_url': path('oktothek_user_playlists', {'username': user.username})} %}
+    </div>
+{% endif %}
+{% if favorites is not empty %}
+    <div class="container">
+        <h2>Favoriten</h2>
+        {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': favorites, 'pager_url': path('oktothek_user_favorites', {'username': user.username})} %}
+    </div>
+{% endif %}
+{% if channels is not empty %}
+    <div class="container">
+        <h2>Abonnements</h2>
+        {% include 'AppBundle:User:channelStack.html.twig' with {'seriess': channels, 'pager_url': path('oktothek_user_channels', {'username': user.username})} %}
+    </div>
+{% endif %}
 
 {% endblock %}

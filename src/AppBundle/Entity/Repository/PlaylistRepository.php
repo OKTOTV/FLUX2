@@ -26,7 +26,7 @@ class PlaylistRepository extends EntityRepository
         return $query->setMaxResults($numberPlaylists)->getResult();
     }
 
-    public function findPlaylistsForSeriesQuery($series, $query_only = false)
+    public function findPlaylistsForSeries($series, $query_only = false)
     {
         $query = $this->getEntityManager()
             ->createQuery(
@@ -40,5 +40,21 @@ class PlaylistRepository extends EntityRepository
             return $query;
         }
         return $query->getResult();
+    }
+
+    public function findPlaylistsForUser($user, $number = 8, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                "SELECT p FROM AppBundle:Playlist p
+                WHERE p.user = :user
+                ORDER BY p.createdAT DESC"
+            )
+            ->setParameter('user', $user->getId());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($number)->getResult();
     }
 }

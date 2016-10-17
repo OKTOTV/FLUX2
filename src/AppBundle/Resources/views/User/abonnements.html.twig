@@ -22,7 +22,12 @@
     <div class="navigation">
         {{ knp_pagination_render(channels) }}
     </div>
-        {% include 'AppBundle:User:channelStack.html.twig' with {'channels': channels} %}
+    <div class="row">
+    {% for channel in channels %}
+        <h3>{{ channel }}</h3>
+            <a href="{{ path('user_update_abonnement', {'abonnement': channel.id})}}" class="btn btn-default">{{ 'user_edit_subscription'|trans }}</a>
+        {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': channel.series.episodes|slice(0,3)} %}
+    {% endfor %}
     </div>
     <div class="navigation">
         {{ knp_pagination_render(channels) }}

@@ -13,41 +13,57 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends BaseRepository
 {
-    public function findFavorites($user)
+    public function findFavorites($user, $number = 10, $query_only = false)
     {
-        return $this->findFavoritesQuery($user)->getResult();
+        $query = $this->getEntityManager()->createQuery(
+                "SELECT f FROM AppBundle:Episode f
+                JOIN f.users u
+                JOIN f.series s
+                WHERE u.id = :user
+                AND f.isActive = 1
+                ORDER BY f.onlineStart DESC"
+            )
+            ->setParameter('user', $user->getId());
+
+        if ($query_only) {
+            return $query;
+        }
+
+        return $query->setMaxResults($number)->getResult();
     }
 
-    public function findFavoritesQuery($user)
+    public function findPlaylists($user, $number = 10, $query_only = false)
     {
-        return $this->getEntityManager()
-            ->createQuery('SELECT f FROM AppBundle:Episode f JOIN f.users u JOIN f.series s WHERE u.id = :user_id')
+        $query = $this->getEntityManager()->createQuery(
+                "SELECT p FROM AppBundle:Playlist p
+                JOIN p.user u
+                WHERE u.id = :user_id
+                ORDER BY p.createdAt DESC"
+            )
             ->setParameter('user_id', $user->getId());
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($number)->getResult();
     }
 
-    public function findPlaylists($user)
+    public function findAbonnements($user, $number = 10, $query_only = false)
     {
-        return $this->findPlaylistsQuery($user);
-    }
-
-    public function findPlaylistsQuery($user)
-    {
-        return $this->getEntityManager()
-            ->createQuery('SELECT p FROM AppBundle:Playlist p JOIN p.user u WHERE u.id = :user_id')
+        $query = $this->getEntityManager()->createQuery(
+                "SELECT a FROM AppBundle:Abonnement a
+                WHERE a.user = :user_id
+                ORDER BY a.createdAt DESC"
+            )
             ->setParameter('user_id', $user->getId());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($number)->getResult();
     }
 
-    public function findAbonnements($user)
-    {
-        return $this->findChannelsQuery($user)->getResult();
-    }
 
-    public function findAbonnementsQuery($user)
-    {
-        return $this->getEntityManager()
-            ->createQuery('SELECT a FROM AppBundle:Abonnement a WHERE a.user = :user_id')
-            ->setParameter('user_id', $user->getId());
-    }
+// TODO: check abonnementService and simplify this
 
     public function findAboUsersWithNotificationForNewEpisodes($series, $withEmail = false)
     {

@@ -21,46 +21,77 @@ use AppBundle\Entity\User;
 class UserController extends Controller
 {
     /**
-     * @Route("/playlists/{page}", name="user_playlists", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Route("/{username}/playlists", name="oktothek_user_playlists")
      * @Template()
      */
-    public function playlistsAction($page)
+     public function playlistsAction(Request $request, User $user)
+     {
+         $page = $request->query->get('page', 1);
+         $results = $request->query->get('results', 10);
+         $results = ($results > 20) ? 20 : $results;
+         $em = $this->getDoctrine()->getManager();
+         $query = $em->getRepository('AppBundle:User')->findPlaylists($user, 0, true);
+         $paginator = $this->get('knp_paginator');
+         $playlists = $paginator->paginate($query, $page, $results);
+
+         return ['playlists' => $playlists, 'user' => $user];
+     }
+
+     /**
+      * @Route("/{username}/favorites", name="oktothek_user_favorites")
+      * @Template()
+      */
+     public function favoritesAction(Request $request, User $user)
+     {
+         $page = $request->query->get('page', 1);
+         $results = $request->query->get('results', 10);
+         $results = ($results > 20) ? 20 : $results;
+         $em = $this->getDoctrine()->getManager();
+         $query = $em->getRepository('AppBundle:User')->findFavorites($user, 0, true);
+         $paginator = $this->get('knp_paginator');
+         $favorites = $paginator->paginate($query, $page, $results);
+
+         return ['favorites' => $favorites, 'user' => $user];
+     }
+
+    /**
+     * @Route("/{username}/channels", name="oktothek_user_channels")
+     * @Template()
+     */
+    public function channelsAction(Request $request, User $user)
     {
+        $page = $request->query->get('page', 1);
+        $results = $request->query->get('results', 10);
+        $results = ($results > 20) ? 20 : $results;
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $playlists = $paginator->paginate($em->getRepository('AppBundle:User')->findPlaylistsQuery($this->getUser()), $page, 10);
+        $query = $em->getRepository('AppBundle:User')->findAbonnements($user, 0, true);
+        $channels = $paginator->paginate($query, $page, $results);
 
-        return ['playlists' => $playlists];
+        return ['channels' => $channels, 'user' => $user];
     }
 
     /**
-     * @Route("/favorites", name="user_favorites", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Route("/abonnements", name="oktothek_user_abonnements")
      * @Template()
      */
-    public function favoritesAction($page)
+    public function abonnementsAction(Request $request)
     {
+        $page = $request->query->get('page', 1);
+        $results = $request->query->get('results', 10);
+        $results = ($results > 20) ? 20 : $results;
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $favorites = $paginator->paginate($em->getRepository('AppBundle:User')->findFavoritesQuery($this->getUser()), $page, 10);
-        return ['favorites' => $favorites];
-    }
+        $query = $em->getRepository('AppBundle:User')->findAbonnements($this->getUser(), 0, true);
+        $channels = $paginator->paginate($query, $page, $results);
 
-    /**
-     * @Route("/channels", name="user_channels", requirements={"page": "\d+"}, defaults={"page": 1})
-     * @Template()
-     */
-    public function channelsAction($page)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $paginator = $this->get('knp_paginator');
-        $channels = $paginator->paginate($em->getRepository('AppBundle:User')->findAbonnementsQuery($this->getUser()), $page, 10);
         return ['channels' => $channels];
     }
 
     /**
      * @Route("/updateFavorite", name="user_update_favorite")
      */
-    public function updateFavoriteAciton(Request $request)
+    public function updateFavoriteAction(Request $request)
     {
         $uniqID = $request->request->get('uniqID');
         if ($uniqID) {
@@ -149,11 +180,20 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/show/{username}", name="oktothek_show_user")
+     * @Route("/{username}", name="oktothek_show_user")
      * @Template()
      */
     public function showAction(User $user)
     {
-        return ['user' => $user];
+        $em = $this->getDoctrine()->getManager();
+        $playlists = $em->getRepository('AppBundle:User')->findPlaylists($user);
+        $favorites = $em->getRepository('AppBundle:User')->findFavorites($user);
+        $channels = $em->getRepository('AppBundle:User')->findAbonnements($user);
+        return [
+            'user' => $user,
+            'playlists' => $playlists,
+            'favorites' => $favorites,
+            'channels' => $channels
+        ];
     }
 }

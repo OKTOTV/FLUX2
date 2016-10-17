@@ -89,7 +89,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * @Route("/", name="oktothek_playlist_index", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Route("/", name="oktothek_playlist_index")
      * @Template()
      */
     public function indexAction(Request $request)

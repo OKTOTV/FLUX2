@@ -2,7 +2,9 @@
     <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="... ansehen">
         <figure class="playlist-pin pin">
             {% if playlist.items is not empty %}
-                <img src="{{ playlist.items[0].episode.posterframe(true)|thumb(135,240) }}" class="img-responsive"/>
+                <img src="{{ playlist.items[0].episode.posterframe(true)|thumb(135,240) }}" class="img-responsive" />
+            {% else %}
+                <img src="{{ false|thumb(135,240)}}" class="img-responsive" />
             {% endif %}
             <figcaption>
                 <h3>{{ playlist.name }}</h3>
