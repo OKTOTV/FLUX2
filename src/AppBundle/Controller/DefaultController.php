@@ -72,7 +72,8 @@ class DefaultController extends Controller
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $this->get('bprs_user.user')->createUser($user, User::ROLE_USER);
+                $roles = $this->getParameter('bprs_user.user_defaults');
+                $this->get('bprs_user.user')->createUser($user, $roles);
                 $this->get('session')->getFlashBag()
                     ->add('success', 'oktothek.success_create_account');
 
