@@ -806,19 +806,13 @@ button .btn-default.but-full.active,
 .btn-default.focus:active, 
 .btn-default.active.focus, 
 .oktothek article a.btn-default.but-full, 
-.input-group-addon, #planets .color1 .bg-opacity { /* Gelb */
+.input-group-addon { /* Gelb */
 	background-color:#fcce14;
 }
 a.list-group-item-danger, 
 button.list-group-item-danger, 
-.btn-danger, #planets .color2 .bg-opacity { /* Pink */
+.btn-danger { /* Pink */
 	background-color:#d1418f;
-}
-#planets .color3 .bg-opacity { /* Grün */
-	background-color: #91e31c;
-}
-#planets .color4 .bg-opacity { /* Blau */
-	background-color: #13fffd;
 }
 
 .play-episode.btn-default {
