@@ -24,18 +24,18 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><div class="triangle"></div></li>
                         <li {% if selected == "playlists" %}class="active"{% endif %}>
-                            <a href="{{ path('user_playlists') }}">{{ 'oktothek.menu_user_playlists'|trans|raw }}</a>
+                            <a href="{{ path('oktothek_user_playlists', {'username': app.user.username}) }}">{{ 'oktothek.menu_user_playlists'|trans|raw }}</a>
                         </li>
                         <li {% if selected == "channels" %}class="active"{% endif %}>
-                            <a href="{{ path('user_channels') }}">{{ 'oktothek.menu_user_channels'|trans|raw }}</a>
+                            <a href="{{ path('oktothek_user_abonnements') }}">{{ 'oktothek.menu_user_channels'|trans|raw }}</a>
                         </li>
                         <li {% if selected == "favorites" %}class="active"{% endif %}>
-                            <a href="{{ path('user_favorites') }}">{{ 'oktothek.menu_user_favorites'|trans|raw }}</a>
+                            <a href="{{ path('oktothek_user_favorites', {'username': app.user.username}) }}">{{ 'oktothek.menu_user_favorites'|trans|raw }}</a>
                         </li>
                         <li role="separator" class="divider"></li>
                         {% if is_granted('ROLE_OKTOLAB_PRODUCER') %}
                             <li {% if selected == "producer" %}class="active"{% endif %}>
-                                <a href="{{ path('oktothek_my_channels')}}">{{ 'oktothek.menu_my_channels'|trans|raw }}</a>
+                                <a href="{{ path('oktothek_my_channels') }}">{{ 'oktothek.menu_my_channels'|trans|raw }}</a>
                             </li>
                         {% endif %}
                         {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_ADMIN') %}

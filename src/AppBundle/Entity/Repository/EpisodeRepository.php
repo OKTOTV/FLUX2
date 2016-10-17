@@ -6,11 +6,15 @@ use Oktolab\MediaBundle\Entity\Repository\BaseEpisodeRepository;
 
 class EpisodeRepository extends BaseEpisodeRepository
 {
-    public function findNewerEpisodes(Episode $episode, $numberEpisodes)
+    public function findNewerEpisodes(Episode $episode, $numberEpisodes = 3)
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.series = :series_id AND e.onlineStart > :episode_date AND e.isActive = 1 ORDER BY e.onlineStart ASC'
+                'SELECT e FROM AppBundle:Episode e
+                WHERE e.series = :series_id
+                AND e.onlineStart > :episode_date
+                AND e.isActive = 1
+                ORDER BY e.onlineStart ASC'
             )
             ->setParameter('series_id', $episode->getSeries()->getId())
             ->setParameter('episode_date', $episode->getOnlineStart())
@@ -18,41 +22,58 @@ class EpisodeRepository extends BaseEpisodeRepository
             ->getResult();
     }
 
-    public function findNewestEpisodes($numberEpisodes)
+    public function findNewestEpisodes($numberEpisodes = 8, $query_only = false)
     {
-        return $this->getEntityManager()
+        $query = $this->getEntityManager()
             ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.isActive = 1 ORDER BY e.onlineStart DESC'
+                'SELECT e FROM AppBundle:Episode e
+                LEFT JOIN e.posterframe p
+                LEFT JOIN e.series s
+                WHERE e.isActive = 1
+                AND e.onlineStart < :now
+                ORDER BY e.onlineStart DESC'
             )
-            ->setMaxResults($numberEpisodes)
-            ->getResult();
+            ->setParameter('now', new \DateTime());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($numberEpisodes)->getResult();
     }
 
-    public function findTopEpisodes($numberEpisodes)
+    public function findBestEpisodes($numberEpisodes= 8, $query_only = false)
     {
-        return $this->createQueryBuilder('e')
+        $query= $this->createQueryBuilder('e')
             ->addSelect('COUNT(u) AS HIDDEN personCount')
             ->leftJoin('e.users', 'u')
+            ->leftJoin('e.posterframe', 'p')
+            ->leftJoin('e.series', 's')
             ->groupBy('e')
             ->orderBy('personCount', 'DESC')
             ->where('e.isActive = 1')
-            ->getQuery()
-            ->setMaxResults($numberEpisodes)
-            ->getResult();
+            ->andWhere('e.onlineStart < :now')
+            ->setParameter('now', new \DateTime())
+            ->getQuery();
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($numberEpisodes)->getResult();
     }
 
-    public function findEpisodesForSeries($series)
+    public function findEpisodesForSeries($series, $query_only = false)
     {
-        return $this->findEpisodesForSeriesQuery($series)->getResult();
-    }
+        $query = $this->getEntityManager()->createQuery(
+                    "SELECT e, p FROM AppBundle:Episode e
+                    LEFT JOIN e.posterframe p
+                    WHERE e.series = :series"
+                )
+                ->setParameter('series', $series->getId());
 
-    public function findEpisodesForSeriesQuery($series)
-    {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.series = :series'
-            )
-            ->setParameter('series', $series->getId());
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getResult();
     }
 
     public function findNextEpisode($episode, $query_only = false)

@@ -4,6 +4,8 @@ Previous:   Vorherige
 Next:       Nächste
 
 # oktothek
+oktothek_more_results:                  "Mehr Anzeigen"
+
 ## menu
 oktothek.menu_oktothek:                 Oktothek
 oktothek.menu_tv:                       TV
@@ -30,6 +32,9 @@ oktothek.newest_playlists:              Neue Playlisten
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
 oktothek.newest_news_show_more:         Mehr News anzeigen
 oktothek.episode_stack_collapse_title:  Weitere neueste Videos anzeigen
+
+oktothek.newest_episodes_header:        Neueste Episoden
+
 ## register
 oktothek.user_name_label:               Benutzername
 oktothek.user_name_placeholder:         Username. Ist öffentlich zugänglich.
@@ -106,7 +111,7 @@ oktothek.page_edit_header:              Seite bearbeiten
 ### index
 oktothek.playlist_index_header:         Playlisten
 oktothek.playlist_index_description:    Über %count% Playlisten warten darauf, von dir entdeckt zu werden
-oktothek.playlist_index_filter:         <span class="glyphicon glyphicon-filter"></span> Sortieren <span class="caret"></span>
+oktothek.playlist_index_filter:         <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
 oktothek.playlist_index_filter_name:    Name
 oktothek.playlist_index_filter_createdAt: Erstellt
 oktothek.playlist_index_filter_updatedAt: Letzte Aktualisierung
@@ -122,6 +127,9 @@ oktothek.playlist_description_label:    Beschreibung
 oktothek.playlist_search_label:         Episodensuche
 oktothek.error_edit_playlist:           Die Playlist konnte nicht gespeichert werden. Bitte überprüfe die Formularfelder
 oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
+
+## thumb
+oktothek_playlist_thumb_creator:        Erstellt von %user%
 
 ## episode
 oktothek.episode_show_playlist_header:  Playlisten

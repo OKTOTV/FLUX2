@@ -8,8 +8,8 @@
     {% endfor %}
 </div>
 {% if episodes|length > 4 %}
-    <div class="row collapse" id="{{ collapse_id }}more_results">
-       {% for episode in episodes|slice(5,3) %}
+    <div class="row collapse" id="{{ collapse_id }}">
+       {% for episode in episodes|slice(4,3) %}
             {% if episode.isActive %}
                 {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
             {% endif %}
@@ -18,7 +18,7 @@
             <a href="{{ pager_url|default('#') }}">{{ pager_link_text|default('oktothek_more_results')|trans|raw }}</a>
         {% endif %}
     </div>
-    <a href="{{ collapse_link|default('#') }}" data-collapseid="#{{collapse_id}}more_results" class="pull-right more" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title') }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}more_results">
+    <a href="{{ collapse_link|default('#'~collapse_id) }}" data-collapseid="#{{collapse_id}}" class="pull-right more" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title') }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}">
         {{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw}}
     </a>
 {% endif %}

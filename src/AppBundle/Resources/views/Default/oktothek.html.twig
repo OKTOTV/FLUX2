@@ -10,7 +10,7 @@
     {# top slider, search and channels #}
     <div id="top"></div>
     <div id="slider">
-        {% render(controller('AppBundle:Default:slider', {'number': 5})) %}
+        {{ render(controller('AppBundle:Default:slider', {'number': 5})) }}
     </div>
     {# top slider, search and channels END #}
     {# rest of the page #}
@@ -20,7 +20,7 @@
             <h2 id="button_down">Mitmachen <span class="icon participant-arrow-down"> </span></h2>
             <article class="container">
                 <p class="aligncenter subheadline">Du produzierst Videos, Beiträge, Dokumentationen? Wir würden sie gerne zeigen.</p>
-                <div class="aligncenter button_container"><a href="#" class="btn btn-default but-full" title="Mitmachen">ICH MACH MIT!</a></div>
+                <div class="aligncenter button_container"><a href="{{ path('participate') }}" class="btn btn-default but-full" title="Mitmachen">ICH MACH MIT!</a></div>
                 <ul class="participart-list">
                   <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_ideas.svg')}}" width="100px" height="100px"></figure><figcaption>Ideen umsetzen</figcaption></a></li>
                   <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_oktonaut.svg')}}" width="100px" height="100px"></figure><figcaption>Was Oktonauten wissen müssen</figcaption></a></li>
@@ -33,15 +33,14 @@
         <section class="newest-videos container">
             <div id="anchor_newest_videos"></div>
             <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
-            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes} %}
+            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes, 'pager_url': path('oktothek_newest_episodes')} %}
         </section>
 
         {# render favorites #}
         <section class="favorite-videos container">
             <div id="anchor_favorite_videos"></div>
             <h2>Beliebteste Videos</h2>
-            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes} %}
-            {# <a href="#" class="pull-right more" title="Weitere beliebteste Videos anzeigen">Mehr Videos anzeigen <span class="icon">+</span></a> #}
+            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes, 'pager_url': path('oktothek_best_episodes')} %}
         </section>
 
         {# render newest playlists #}
@@ -55,7 +54,6 @@
                 <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default login">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
             {% endif %}
             {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': newest_playlists} %}
-            {# <a href="#" class="pull-right more" title="Weitere Playlisten anzeigen">{{ 'oktothek.newest_playlists_show_more'|trans}} <span class="icon">+</span></a> #}
         </section>
         {# render news pins #}
         {{ render(controller('AppBundle:News:pinnedNews')) }}

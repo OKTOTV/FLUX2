@@ -129,7 +129,7 @@ class ProducerController extends Controller
         $this->denyAccessUnlessGranted('view_channel', $series);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $episodes = $paginator->paginate($em->getRepository('AppBundle:Episode')->findEpisodesForSeriesQuery($series), $page, 3);
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Episode')->findEpisodesForSeries($series, true), $page, 3);
         return ['episodes' => $episodes, 'series' => $series];
     }
 
@@ -162,7 +162,7 @@ class ProducerController extends Controller
         $this->denyAccessUnlessGranted('view_channel', $series);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeriesQuery($series), $page, 3);
+        $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeries($series), $page, 3);
         return ['playlists' => $playlists, 'series' => $series];
     }
 

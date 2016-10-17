@@ -18,7 +18,7 @@
     <a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="list-group-item">
         <div class="row">
             <div class="col-md-3">
-                <img class="img img-responsive" src="{{ episode.posterframe|thumb(135,240)}}" />
+                <img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" />
             </div>
             <div class="col-md-9">
                 <h4 class="list-group-item-heading">{{ episode.name }}</h4>
