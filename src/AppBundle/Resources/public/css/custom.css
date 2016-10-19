@@ -73,10 +73,6 @@ h1, h2, .h2 {
 .carousel-caption h3, .pull-right .icon, .series h1, .playlists #StartPlaylist.btn span.glyphicon, .playlists .btn.circle {
 	font-size:24px;
 }
-#planets .cloud9-item figcaption {
-    font-size:18px;
-    letter-spacing:1.2px;
-}
 header .navbar-toggle.search-button span, header .navbar-toggle.menu-button span.icon-close, .subheadline, .participart .button_container .btn, .news p, figcaption .description, .academy .preview p, #favorite .glyphicon, .container.tags a {
 		font-size:16px;
 	}
@@ -109,14 +105,14 @@ h3, .h3, header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu
 	letter-spacing:0.25px;
 }
 /* Spacelayout */
-.oktothek .participart-list figcaption, .edit-playlists form label, .participate #planets nav a {
+.oktothek .participart-list figcaption, .edit-playlists form label {
 	font-size:11px;
 	letter-spacing:0.50px;
 }
 .pin .pin-icon {
 	font-size:10px;
 }
-.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.more, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .playlists .series a, .edit-playlists form label, #planets .cloud9-item figcaption, .participate #planets nav a {
+.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.more, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .playlists .series a, .edit-playlists form label, #planets .cloud9-item figcaption {
 	text-transform:uppercase;
 }
 
@@ -663,7 +659,7 @@ button.list-group-item-danger,
 .blog p,
 .btn.transparent:hover, 
 .btn.transparent:focus,
-.participate #planets nav a {
+.color5 a {
 	color:#ffffff;
 }
 .form-control, 
@@ -1030,34 +1026,13 @@ section, .participart article  {
 .oktothek .participart {
 	background-image:url(../images/space.jpg);
 }
-/*body.participate {
-    background-image:url(../images/sternenhimmel.jpg);
-    background-attachment:fixed;
-}*/
-.oktothek .participart/*, body.participate*/ {
+.oktothek .participart {
 	background-repeat:no-repeat;
 	background-position:center center;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-body.participate video#participate_video {
-    position: fixed; right: 0; bottom: 0;
-    min-width: 100%; min-height: 100%;
-    width: auto; height: auto; z-index: -100;
-}
-body.participate, body.participate video#participate_video {
-    background-image:url(../images/sternenhimmel.jpg);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-repeat:no-repeat;
-}
-body.participate {
-    background-repeat:no-repeat;
-    background-attachment:fixed;
 }
 .oktothek .participart .button_container {
 	background-image:url(../images/planet_mitmachen.svg);
@@ -1068,16 +1043,6 @@ body.participate {
 	background-image:url(../images/participart_circle.svg);
 	background-repeat:no-repeat;
 	background-position:center center;
-}
-.participate #planets nav.sub-left li div.dot, .participate #planets nav.sub-right li div.dot {
-	background-image:url(../images/circle_subnav_participate.svg);
-	background-repeat:no-repeat;
-}
-.participate #planets nav.sub-left li div.dot {
-	background-position:left center;
-}
-.participate #planets nav.sub-right li div.dot {
-	background-position:right center;
 }
 .avatar-container {
 	background-image:url(../images/avatar_circle.svg);
@@ -1166,9 +1131,6 @@ section.playlist_container {
 }
 .playlists .edit:hover {
 	background-image:url(../images/icon_edit_hover.svg);
-}
-.participate #planets hr {
-    background-image:none;
 }
 
 @media (min-width: 768px) {
