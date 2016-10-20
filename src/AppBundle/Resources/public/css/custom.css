@@ -67,15 +67,11 @@ h1, h2, .h2 {
 	font-size:35px;
 	letter-spacing:0.5px;
 }
-#anchor-menu .panel-title .glyphicon, .btn-top .glyphicon, .programm header h1 time {
+#anchor-menu .panel-title .glyphicon, .btn-top .glyphicon, .livestream header h1 time {
 	font-size:30px;
 }
 .carousel-caption h3, .pull-right .icon, .series h1, .playlists #StartPlaylist.btn span.glyphicon, .playlists .btn.circle {
 	font-size:24px;
-}
-#planets .cloud9-item figcaption {
-    font-size:18px;
-    letter-spacing:1.2px;
 }
 header .navbar-toggle.search-button span, header .navbar-toggle.menu-button span.icon-close, .subheadline, .participart .button_container .btn, .news p, figcaption .description, .academy .preview p, #favorite .glyphicon, .container.tags a {
 		font-size:16px;
@@ -104,19 +100,49 @@ h3, .h3, header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu
 .form-control::-webkit-input-placeholder, .pin-icon {
         font-size:14px;
 }
-.programm p.current-episode, header .nav, .pin figcaption p, .btn, .pin .pin-icon .glyphicon, .news .tag, .footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .collapseShare .helptext, .comments .author, .comments .comment-answer, #episode-tag, .infos h3, .blog time, .academy .pin .preview-content a, .preview p.misc, a.more, #playlist_items a p {
+.livestream p.current-episode, header .nav, .pin figcaption p, .btn, .pin .pin-icon .glyphicon, .news .tag, .footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .collapseShare .helptext, .comments .author, .comments .comment-answer, #episode-tag, .infos h3, .blog time, .academy .pin .preview-content a, .preview p.misc, a.more, #playlist_items a p {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
 /* Spacelayout */
-.oktothek .participart-list figcaption, .edit-playlists form label, .participate #planets nav a {
+.oktothek .participart-list figcaption, .edit-playlists form label {
 	font-size:11px;
 	letter-spacing:0.50px;
 }
 .pin .pin-icon {
 	font-size:10px;
 }
-.btn, header .navbar-nav a, header #dropdownMenuTags.btn-default, footer .nav > li > a, a.more, .episode .series a, .comments a.answerlink, #anchor-menu .panel-title, .btn-top, .carousel-caption .type, .pin figcaption h3, .news .tag, footer h3, .input-group-addon, .collapseShare h3, .collapsePlaylist h3, .collapseCoursedetails h3, .news h3, .comments h2, #episode-tag, .oktothek .participart-list figcaption, .infos h3, .blog h3, .academy .pin .preview-content a, h3, .h3, .courses h4, .playlists .series a, .edit-playlists form label, #planets .cloud9-item figcaption, .participate #planets nav a {
+.btn, 
+header .navbar-nav a, 
+header #dropdownMenuTags.btn-default, 
+footer .nav > li > a, 
+a.more, 
+.episode .series a, 
+.comments a.answerlink, 
+#anchor-menu .panel-title, 
+.btn-top, 
+.carousel-caption .type, 
+.pin figcaption h3, 
+.news .tag, 
+footer h3, 
+.input-group-addon, 
+.collapseShare h3, 
+.collapsePlaylist h3, 
+.collapseCoursedetails h3, 
+.news h3, 
+.comments h2, 
+#episode-tag, 
+.oktothek .participart-list figcaption, 
+.infos h3, 
+.blog h3, 
+.academy .pin .preview-content a, 
+h3, 
+.h3, 
+.courses h4, 
+.playlists .series a, 
+.edit-playlists form label, 
+#planets .cloud9-item figcaption,
+.livestream .current-episode {
 	text-transform:uppercase;
 }
 
@@ -663,7 +689,9 @@ button.list-group-item-danger,
 .blog p,
 .btn.transparent:hover, 
 .btn.transparent:focus,
-.participate #planets nav a {
+.color5 a,
+.livestream .description,
+.livestream .schedule li a time {
 	color:#ffffff;
 }
 .form-control, 
@@ -689,7 +717,8 @@ header .collapseShare a.btn {
 .academy .preview p, 
 .academy .pin .preview-content a, 
 #playlist_items a p,
-.container.tags a { /* Hellgrau */
+.container.tags a,
+.livestream .schedule a h4 { /* Hellgrau */
 	color:#dcdcdc;
 }
 .news a.tag, 
@@ -745,8 +774,7 @@ select,
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1), 
-.newsarchiv aside .box, 
-.programm .schedule header.page-header {
+.newsarchiv aside .box {
 	background-color:#757575;
 }
 button .btn-default.active, 
@@ -773,16 +801,17 @@ header .collapseShare a.btn {
 .tagpage .inc-pins article.pin figure, 
 .tagpage .inc-pins article.pin.first, 
 #playlist_items .row,
-.container.tags ul
+.container.tags ul, 
+.livestream header.page-header
 /*, .tagpage article.first*/ { /* Dunkelgrau */
 	background-color:#112022;
 }
 .play-episode.btn-default, 
 .tagpage header .btn-default, 
 .newsarchiv .label-default, 
-.programm header .navbar-default, 
-.programm .schedule .panel-default > .panel-heading, 
-.programm .schedule .panel, 
+.livestream header .navbar-default, 
+.livestream .schedule .panel-default > .panel-heading, 
+.livestream .schedule .panel, 
 .btn-default, 
 .btn-primary, 
 #episode-tag, 
@@ -806,19 +835,13 @@ button .btn-default.but-full.active,
 .btn-default.focus:active, 
 .btn-default.active.focus, 
 .oktothek article a.btn-default.but-full, 
-.input-group-addon, #planets .color1 .bg-opacity { /* Gelb */
+.input-group-addon { /* Gelb */
 	background-color:#fcce14;
 }
 a.list-group-item-danger, 
 button.list-group-item-danger, 
-.btn-danger, #planets .color2 .bg-opacity { /* Pink */
+.btn-danger { /* Pink */
 	background-color:#d1418f;
-}
-#planets .color3 .bg-opacity { /* Grün */
-	background-color: #91e31c;
-}
-#planets .color4 .bg-opacity { /* Blau */
-	background-color: #13fffd;
 }
 
 .play-episode.btn-default {
@@ -862,14 +885,8 @@ button.list-group-item-danger,
 /*.pull-right .icon { 
 border: solid 2px #13fffd;
 }*/
-.programm .schedule .panel-default {
-	border-top:none;
-	border-left:none;
-	border-right:none;
-}
 .form-control, 
-.newsarchiv article:first-child, 
-.programm header .navbar-default, 
+.newsarchiv article:first-child,
 header.page-header, 
 .input-group-addon, 
 .btn-default.btn-top, 
@@ -890,9 +907,7 @@ header.page-header,
 .navbar, 
 .more-clips select, 
 .play-episode.btn-default, 
-.newsarchiv .label, 
-.schedule .panel-heading, 
-.programm .schedule .panel-default, 
+.newsarchiv .label,
 .input-group-addon, 
 header .navbar-toggle, 
 header .btn, 
@@ -1036,34 +1051,13 @@ section, .participart article  {
 .oktothek .participart {
 	background-image:url(../images/space.jpg);
 }
-/*body.participate {
-    background-image:url(../images/sternenhimmel.jpg);
-    background-attachment:fixed;
-}*/
-.oktothek .participart/*, body.participate*/ {
+.oktothek .participart {
 	background-repeat:no-repeat;
 	background-position:center center;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-body.participate video#participate_video {
-    position: fixed; right: 0; bottom: 0;
-    min-width: 100%; min-height: 100%;
-    width: auto; height: auto; z-index: -100;
-}
-body.participate, body.participate video#participate_video {
-    background-image:url(../images/sternenhimmel.jpg);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-repeat:no-repeat;
-}
-body.participate {
-    background-repeat:no-repeat;
-    background-attachment:fixed;
 }
 .oktothek .participart .button_container {
 	background-image:url(../images/planet_mitmachen.svg);
@@ -1074,16 +1068,6 @@ body.participate {
 	background-image:url(../images/participart_circle.svg);
 	background-repeat:no-repeat;
 	background-position:center center;
-}
-.participate #planets nav.sub-left li div.dot, .participate #planets nav.sub-right li div.dot {
-	background-image:url(../images/circle_subnav_participate.svg);
-	background-repeat:no-repeat;
-}
-.participate #planets nav.sub-left li div.dot {
-	background-position:left center;
-}
-.participate #planets nav.sub-right li div.dot {
-	background-position:right center;
 }
 .avatar-container {
 	background-image:url(../images/avatar_circle.svg);
@@ -1172,9 +1156,6 @@ section.playlist_container {
 }
 .playlists .edit:hover {
 	background-image:url(../images/icon_edit_hover.svg);
-}
-.participate #planets hr {
-    background-image:none;
 }
 
 @media (min-width: 768px) {
@@ -1295,10 +1276,10 @@ footer .networks {
 html, body {
 	height:100%;
 }
-.series .infos ul, .footer ul, .footer li, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul {
+.series .infos ul, .footer ul, .footer li, .newsarchiv aside ul, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul {
 	list-style:none;
 }
-.series .infos ul, .tags ul, .newsarchiv aside ul, .programm .schedule ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul {
+.series .infos ul, .tags ul, .newsarchiv aside ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul {
 	margin-left:0;
 	padding-left:0;
 }
@@ -1326,7 +1307,7 @@ h2 {
 .episode time, .playlists time {
 	margin-bottom:50px;
 }
-.episode h1.name, .playlists h2.name {
+h1.name, h2.name {
 	margin-bottom:4px;
 }
 figcaption p.more {
@@ -1856,7 +1837,7 @@ article.pin {
 .episode article {
     position:relative;
 }
-figure.pin img, .programm .schedule img {
+figure.pin img {
 	width:100%;
 	max-width:100%;
 	float:none;
@@ -2141,6 +2122,7 @@ figure.pin img, .programm .schedule img {
 }
 
 
+
 /*.playlists .bg-opacity {
 	width:100%;
 }*/
@@ -2178,83 +2160,6 @@ figure.pin img, .programm .schedule img {
 }
     
     
-
-/* TV */
-.programm {
-	margin-top:40px;
-}
-.programm header.page-header #nav-programm, .programm .schedule header {
-	width:100%;
-}
-.programm header.page-header nav, .programm .schedule header {
-	display:table;
-}
-.programm header.page-header nav, .programm .schedule header {
-	margin-left:-15px;
-}
-.programm header.page-header .row, .programm .schedule #page-header-content {
-	display:table-row;
-	width:100%;
-}
-.programm .schedule header.page-header {
-	padding-bottom:0;
-}
-.programm .schedule .row {
-	margin-right:15px;
-}
-.programm .schedule header.page-header div {
-	padding:2px;
-}
-.programm header.page-header time {
-	line-height:34px;
-}
-.programm header.page-header h1, .programm .schedule header h2 {
-	display:inline;
-}
-.programm .schedule .panel-heading time {
-	display:inline-block;
-	width:10%;
-}
-.programm .schedule .panel-collapse {
-	margin-left:10%;
-	padding: 0 15px;
-}
-.programm header.page-header .navbar-nav, .programm .schedule header .page-header-content div {
-	display:table-cell;
-	text-align:center;
-	vertical-align:middle;
-	float:none;
-}
-.programm header.page-header .navbar-nav:first-child, .programm .schedule header .page-header-content div:first-child {
-	width:10%;
-	text-align:left;
-}
-.programm header.page-header .navbar-nav:last-child, .programm .schedule header .page-header-content div:last-child {
-	width:10%;
-	text-align:right;
-}
-.programm header.page-header .navbar {
-	min-height:34px;
-}
-.programm button {
-	vertical-align:middle;
-	margin:0;
-}
-.programm button.today {
-	margin-left:20px;
-}
-.programm p.current-episode {
-	margin-bottom:0;
-}
-.programm p.current-episode + h2 {
-	margin-top:0;
-}
-.programm .schedule h4 {
-	margin:0;
-}
-.programm .posterframe {
-	float:right;
-}
 
 /* Academy */
 .academy .newsletter label {
@@ -2357,7 +2262,7 @@ figure.pin img, .programm .schedule img {
 	.news article.pin {
 		width:100%;
 	}
-    figure.pin img, .programm .schedule img {
+    figure.pin img {
 	    /*width:260px;*/
 	    height:auto;
 	    margin:0;

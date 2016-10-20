@@ -6,10 +6,12 @@
 
 {% set body_class = "series fullscreen-images" %}
 {% block body %}
-{% set in_abo = false %}
-{% for abonnement in app.user.abonnements if abonnement.series.uniqID == series.uniqID %}
-    {% set in_abo = true %}
-{% endfor %}
+{% if app.user is not empty %}
+    {% set in_abo = false %}
+    {% for abonnement in app.user.abonnements if abonnement.series.uniqID == series.uniqID %}
+        {% set in_abo = true %}
+    {% endfor %}
+{% endif %}
     <div id="top"></div>
     <section class="series-content fs-image-content">
         <div class="series-ident fs-image-ident">
@@ -28,20 +30,24 @@
                     <p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
                     <p class="misc">
                     <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
-                    {% if in_abo %}
-                        <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
-                    {% else %}
-                        <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+                    {% if app.user is not empty %}
+                        {% if in_abo %}
+                            <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
+                        {% else %}
+                            <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+                        {% endif %}
                     {% endif %}
                     </p>
                 </div>
             </figcaption>
         </div>
         <div class="fs-image-misc-mobile">
-            {% if in_abo %}
-                <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
-            {% else %}
-                <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+            {% if app.user is not empty %}
+                {% if in_abo %}
+                    <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
+                {% else %}
+                    <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+                {% endif %}
             {% endif %}
             <p></p>
         </div>

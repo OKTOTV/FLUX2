@@ -1,0 +1,135 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* TV */
+.livestream .schedule .panel-default {
+	border-top:none;
+	border-left:none;
+	border-right:none;
+}
+.livestream header .navbar-default {
+	border:none;
+} 
+.livestream .schedule .panel-default, .schedule .panel-heading {
+	-webkit-border-radius:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
+}
+
+.livestream .schedule ul {
+	list-style:none;
+}
+
+.livestream .schedule h4, .livestream header.page-header h1 {
+    display:inline;
+}
+.livestream header.page-header nav, .livestream .schedule header {
+	display:table;
+}
+.livestream header.page-header .row, .livestream .schedule #page-header-content {
+	display:table-row;
+}
+.livestream header.page-header .navbar-nav, .livestream .schedule header .page-header-content div {
+	display:table-cell;
+}
+.livestream .schedule .panel-heading time {
+	display:inline-block;
+}
+.livestream #current_show time {
+	display:block;
+}
+
+.livestream header.page-header #nav-livestream, .livestream .schedule header, .livestream header.page-header .row, .livestream .schedule #page-header-content, .livestream .schedule img {
+	width:100%;
+}
+.livestream .schedule .panel-heading time, .livestream header.page-header .navbar-nav:first-child, .livestream .schedule header .page-header-content div:first-child, .livestream header.page-header .navbar-nav:last-child, .livestream .schedule header .page-header-content div:last-child {
+	width:10%;
+}
+.livestream .schedule img {
+	max-width:100%;
+}
+.livestream .schedule img {
+	height:auto;
+}
+.livestream header.page-header .navbar {
+	min-height:34px;
+}
+
+.livestream header.page-header .navbar-nav, .livestream .schedule header .page-header-content div {
+	text-align:center;
+}
+.livestream header.page-header .navbar-nav:first-child, .livestream .schedule header .page-header-content div:first-child {
+	text-align:left;
+}
+.livestream header.page-header .navbar-nav:last-child, .livestream .schedule header .page-header-content div:last-child {
+	text-align:right;
+}
+.livestream header.page-header .navbar-nav, .livestream .schedule header .page-header-content div, .livestream button {
+	vertical-align:middle;
+}
+
+.livestream button, .livestream .schedule h4 {
+	margin:0;
+}
+.livestream .schedule img {
+	margin:0 auto;
+}
+.livestream p.current-episode + h2 {
+	margin-top:0;
+}
+.livestream {
+	margin-top:40px;
+}
+.livestream .schedule .row {
+	margin-right:15px;
+}
+.livestream p.current-episode, .livestream .current-episode {
+	margin-bottom:0;
+}
+.livestream #current_show time {
+	margin-bottom:50px;
+}
+.livestream .schedule ul {
+	margin-left:0;
+}
+.livestream header.page-header nav, .livestream .schedule header {
+	margin-left:-15px;
+}
+.livestream .schedule .panel-collapse {
+	margin-left:10%;
+}
+.livestream button.today {
+	margin-left:20px;
+}
+.livestream .schedule header.page-header div {
+	padding:2px;
+}
+.livestream .schedule .panel-collapse {
+	padding: 0 15px;
+}
+.livestream .schedule header.page-header {
+	padding-bottom:0;
+}
+.livestream .description {
+    padding-bottom:20px;
+}
+.livestream .schedule ul {
+	padding-left:0;
+}
+.livestream header.page-header time {
+	line-height:34px;
+}
+.livestream header.page-header .navbar-nav, .livestream .schedule header .page-header-content div, .livestream .schedule img {
+	float:none;
+}
+.livestream .posterframe {
+	float:right;
+}
+@media (min-width: 580px) {
+    .livestream .schedule img {
+	    /*width:260px;*/
+	    height:auto;
+	    margin:0;
+		float:none;
+    }
+}
