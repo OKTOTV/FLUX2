@@ -53,3 +53,17 @@ parameters:
     mailchimp_api_key: "your_secret_key"
     mailchimp_default_newsletter: "???"
     mailchimp_academy_newsletter: "???"
+    oktothek_aws_key:    "your_IAM_key"
+    oktothek_aws_secret: "your_IAM_secret"
+    posterframe:
+        local:
+            directory: %kernel.root_dir%/../web/uploads/posterframes
+        video:
+            local:
+                directory: %kernel.root_dir%/../web/uploads/videos
+        cache:
+            local:
+                directory: /tmp
+        gallery:
+            local:
+                directory: %kernel.root_dir%/../web/uploads/gallery

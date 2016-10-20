@@ -1,6 +1,5 @@
 {
     "minimum-stability": "dev",
-    "prefer-stable" : true,
     "name": "rs/flux2",
     "license": "proprietary",
     "type": "project",
@@ -31,7 +30,8 @@
         "knplabs/knp-markdown-bundle": "^1.4@dev",
         "gedmo/doctrine-extensions": "^2.4@dev",
         "friendsofsymfony/elastica-bundle": "^3.1",
-        "sofort/sofortlib-php": "^3.0"
+        "sofort/sofortlib-php": "^3.0",
+        "league/flysystem-aws-s3-v3": "^1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

@@ -182,19 +182,22 @@ bprs_asset:
     adapters: "%bprs_asset_adapters%"
 
 oneup_flysystem:
-    adapters:
-        posterframe:
-            local:
-                directory: %kernel.root_dir%/../web/uploads/posterframes
-        video:
-            local:
-                directory: %kernel.root_dir%/../web/uploads/videos
-        cache:
-            local:
-                directory: /tmp
-        gallery:
-            local:
-                directory: %kernel.root_dir%/../web/uploads/gallery
+    adapters: "%oneup_flysystem_adapters%"
+        # posterframe:
+        #     local:
+        #         directory: %kernel.root_dir%/../web/uploads/posterframes
+        #
+        # video:
+        #     awss3v3:
+        #         client: oktothek.s3_client
+        #         bucket: flux2-okto-tv
+        #         prefix: uploads
+        # cache:
+        #     local:
+        #         directory: /tmp
+        # gallery:
+        #     local:
+        #         directory: %kernel.root_dir%/../web/uploads/gallery
 
     filesystems:
         posterframe:

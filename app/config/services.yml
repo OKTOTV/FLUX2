@@ -117,3 +117,13 @@ services:
     oktothek_producer_analytics:
         class:  AppBundle\Model\ProducerService
         arguments:  [ "@bprs_analytics"]
+
+    oktothek.s3_client:
+        class: Aws\S3\S3Client
+        arguments:
+            -
+                version: 'latest' # or 'latest'
+                region: "eu-central-1" # 'eu-central-1' for example
+                credentials:
+                    key: %oktothek_aws_key%
+                    secret: %oktothek_aws_secret% 
