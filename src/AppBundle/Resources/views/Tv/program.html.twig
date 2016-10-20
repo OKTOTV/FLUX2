@@ -3,13 +3,13 @@
   <nav class="navbar navbar-default" id="nav-programm">
     <div class="row">
         <div class="nav navbar-nav">
-            <a class="btn btn-default loadme" id="yesterday" href="{{ path('oktothek_tv_program_for_date', {'date': date|date_modify('-1 day')|date('d-m-Y')}) }}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="btn btn-default loadme" id="yesterday" href="{{ path('oktothek_tv_program_for_date', {'date': date|date_modify('-1 day')|date('d-m-Y')}) }}"><span class="glyphicon glyphicon-chevron-left icon"></span> {{date|date_modify('-1 day')|date('l')}}</a>
         </div>
         <div class="nav navbar-nav">
-            <h1><time datetime="{{ date|date('d.m.Y H:i') }}">{{ date|date('d.m.Y') }}</time><a href="{{ url('oktothek_tv_program_for_date') }}" class="btn btn-default today loadme">Heute</a></h1>
+            <h1><time datetime="{{ date|date('d.m.Y H:i') }}">{{ date|date('l, d.m') }}</time><!--<a href="{{ url('oktothek_tv_program_for_date') }}" class="btn btn-default today loadme">Heute</a>--></h1>
         </div>
         <div class="nav navbar-nav">
-            <a class="btn btn-default loadme" id="tomorrow" href="{{ url('oktothek_tv_program_for_date', {'date': date|date_modify('+1 day')|date('d-m-Y')}) }}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a class="btn btn-default loadme" id="tomorrow" href="{{ url('oktothek_tv_program_for_date', {'date': date|date_modify('+1 day')|date('d-m-Y')}) }}">{{date|date_modify('+1 day')|date('l')}} <span class="glyphicon glyphicon-chevron-right icon"></span></a>
         </div>
     </div>
   </nav>
