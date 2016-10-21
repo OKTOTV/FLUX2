@@ -58,6 +58,11 @@
                                 <a href="{{ path('bprs_applink_keychains') }}">{{ 'bprs_applink.menu'|trans|raw}}</a>
                             </li>
                         {% endif %}
+                        {% if is_granted('ROLE_BPRS_ASSET_READ')%}
+                            <li {% if selected == "bprs_asset" %}class="active"{% endif %}>
+                                <a href="{{ path('bprs_asset_list') }}">{{ 'bprs_asset.menu'|trans|raw }}</a>
+                            </li>
+                        {% endif %}
                         <li role="separator" class="divider"></li>
                         <li><a href="{{ path('bprs_user_logout') }}">{{'oktothek.menu_user_logout'|trans|raw }}</a><li>
                     </ul>

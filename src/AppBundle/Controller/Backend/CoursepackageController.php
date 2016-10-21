@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Course\Coursepackage;
 use AppBundle\Entity\Course\CoursepackageSelect;
+use AppBundle\Form\Course\CoursepackageType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * @Route("/backend/coursepackage")
@@ -37,8 +39,8 @@ class CoursepackageController extends Controller
         $em = $this->getDoctrine()->getManager();
         $coursetypes = $em->getRepository('AppBundle:Course\Coursetype')->findAll();
 
-        $form = $this->createForm(new CoursepackageType(), $coursepackage, ['coursetypes' => $coursetypes]);
-        $form->add('submit', 'submit', ['label' => 'oktothek.coursepackage_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form = $this->createForm(CoursepackageType::class, $coursepackage, ['coursetypes' => $coursetypes]);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.coursepackage_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -66,9 +68,9 @@ class CoursepackageController extends Controller
         $em = $this->getDoctrine()->getManager();
         $coursetypes = $em->getRepository('AppBundle:Course\Coursetype')->findAll();
 
-        $form = $this->createForm(new CoursepackageType(), $coursepackage, ['coursetypes' => $coursetypes]);
-        $form->add('delete', 'submit', ['label' => 'oktothek.coursepackage_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
-        $form->add('submit', 'submit', ['label' => 'oktothek.coursepackage_edit_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form = $this->createForm(CoursepackageType::class, $coursepackage, ['coursetypes' => $coursetypes]);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.coursepackage_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.coursepackage_edit_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);

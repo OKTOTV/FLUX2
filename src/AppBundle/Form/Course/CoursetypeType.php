@@ -4,11 +4,13 @@ namespace AppBundle\Form\Course;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Bprs\AssetBundle\Form\Type\AssetType;
+use Bprs\AssetBundle\Form\Type\AssetCollectionType;
 
 class CoursetypeType extends AbstractType
 {
@@ -25,19 +27,19 @@ class CoursetypeType extends AbstractType
             ->add('price_reduced', MoneyType::class, ['label' => 'oktothek.backend_coursetype_priceReduced_label'])
             ->add('highlight',CheckboxType::class, ['label' => 'oktothek.backend_coursetype_highlight_label'])
             ->add('is_active', CheckboxType::class, ['label' => 'oktothek.backend_coursetype_isActive_label'])
-            ->add('image', 'asset', ['label' => 'oktothek.backend_coursetype_image_label'])
-            ->add('assets', 'assets', ['label' => 'oktothek.backend_coursetype_assets_label'])
+            ->add('image', AssetType::class, ['label' => 'oktothek.backend_coursetype_image_label'])
+            ->add('assets', AssetCollectionType::class, ['label' => 'oktothek.backend_coursetype_assets_label'])
         ;
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\Course\Coursetype'
-        ));
+        ]);
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'appbundle_coursetype';
     }

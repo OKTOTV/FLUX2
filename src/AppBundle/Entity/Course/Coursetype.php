@@ -66,7 +66,7 @@ class Coursetype
     private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Coursepackage", mappedBy="courses")
+     * @ORM\ManyToMany(targetEntity="Coursepackage", mappedBy="coursetypes")
      */
     private $coursepackages;
 
