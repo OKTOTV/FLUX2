@@ -128,9 +128,11 @@ oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash">
 oktothek.playlist_update_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
 oktothek.playlist_name_label:           Titel
 oktothek.playlist_description_label:    Beschreibung
+oktothek.playlist_items_label:          Clips
 oktothek.playlist_search_label:         Episodensuche
 oktothek.error_edit_playlist:           Die Playlist konnte nicht gespeichert werden. Bitte überprüfe die Formularfelder
 oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
+oktothek.success_delete_playlist:       Wiedergabeliste erfolgreich gelöscht
 
 ## thumb
 oktothek_playlist_thumb_creator:        Erstellt von %user%

@@ -12,6 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use AppBundle\Entity\Playlist;
 use AppBundle\Form\PlaylistType;
 use AppBundle\Form\PlaylistUserType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * Playlist controller.
@@ -61,9 +62,9 @@ class PlaylistController extends Controller
     public function editAction(Request $request, Playlist $playlist)
     {
         //TODO: voter
-        $form = $this->createForm(new PlaylistUserType(), $playlist);
-        $form->add('submit', 'submit', ['label' => 'oktothek.playlist_update_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $form->add('delete', 'submit', ['label' => 'oktothek.playlist_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form = $this->createForm(PlaylistUserType::class, $playlist);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.playlist_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.playlist_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -74,11 +75,11 @@ class PlaylistController extends Controller
                     $em->flush();
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_playlist');
                     return $this->redirect($this->generateUrl('oktothek_show_playlist', ['uniqID'=> $playlist->getUniqID()]));
-                } else { // delete post
+                } else { // delete playlist
                     $em->remove($playlist);
                     $em->flush();
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_playlist');
-                    return $this->redirect($this->generateUrl('user_playlists'));
+                    return $this->redirect($this->generateUrl('oktothek_user_playlists', ['username' => $this->getUser()->getUsername()]));
                 }
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_playlist');
