@@ -19,19 +19,25 @@ $(document).ready(function(){
         }
     } );
     
+    function coloredFigure(el) {
+        var index = $('#planets figure').index(el);
+        var source = el.find('img').attr('src');
+        var source_array = source.split('/');
+        source_array[source_array.length - 1] = img_array_act[index];
+        new_source = "";
+        for (var i=0; i<source_array.length; i++) {
+            new_source += source_array[i];
+            if (i != source_array.length - 1) new_source += "/";
+        }
+        return source_array;
+    }
    
     $('#planets figure').click(function(){
-            var index = $('#planets figure').index(this);
+            
             $('#planets').find('nav.active').removeClass('active');
             $(this).find('nav').addClass('active');
-            var source = $(this).find('img').attr('src');
-            var source_array = source.split('/');
-            source_array[source_array.length - 1] = img_array_act[index];
-            new_source = "";
-            for (var i=0; i<source_array.length; i++) {
-                new_source += source_array[i];
-                if (i != source_array.length - 1) new_source += "/";
-            }
+            source_array = coloredFigure($(this));
+
             $(this).find('img').attr('src',new_source);
     });
 
