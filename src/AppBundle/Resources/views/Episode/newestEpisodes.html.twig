@@ -2,7 +2,7 @@
 
 {% block title %}{{ name|default('OKTO')~' | '~ 'oktothek.newest_episodes_header'|trans }}{% endblock %}
 {% block nav_head%}
-    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'favorites', 'dropdown': 'user_menu'} %}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
 {% set body_class = "head-white-color" %}
