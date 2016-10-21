@@ -198,6 +198,8 @@ oktothek_academy_book_course:           Kurs buchen
 
 ## tv
 oktothek_tv_title:                      TV
+oktothek_tv_weekdays_choice:            "{1} Montag |{2} Dienstag |{3} Mittwoch|{4} Donnerstag|{5} Freitag|{6} Samstag|{7} Sonntag"
+oktothek_tv_weedays_format:             "%day%, %date%"
 
 ## participate
 oktothek_participate_title:             Mitmachen
