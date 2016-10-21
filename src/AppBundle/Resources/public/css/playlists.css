@@ -68,7 +68,8 @@
 }
 .playlists #button_down {
 	bottom:50px;
-	left:calc(50% + 300px);
+    left:50%;
+    margin-left:-48px;
 }
 .playlists #button_down span {
 	display:inline-block;
@@ -76,7 +77,6 @@
 	line-height:50px;
 	width:96px;
 	height:45px;
-	margin-left:50px;
 }
 .playlists .playlists-arrow-down {
 	height:45px;
@@ -158,4 +158,42 @@
 	top:0;
 }
 .edit-playlists form label {
+    display:block;
+}
+.edit-playlists form fieldset {
+	margin-bottom:60px;
+	padding-bottom:40px;
+}
+.edit-playlists form .form-group.search > div {
+    width:315px;
+    margin:0 -15px 0 auto;
+}
+.edit-playlists form .form-group.search .twitter-typeahead {
+    /*width:315px;*/
+}
+.edit-playlists form .form-group.search input {
+    width:265px;
+}
+.edit-playlists .form-group.search .icon-search {
+    width:50px;
+    height:35px;
+    display:inline-block;
+    float:left;
+}
+.edit-playlists .form-group.search .icon-search span {
+    display:inline-block;
+    width:100%;
+    height:100%;
+    line-height:35px;
+    vertical-align:center;
+    text-align:center;
+}
+.edit-playlists .tt-menu {
+    margin-left:-50px;
+    width:315px;
+    padding:15px 10px 15px 60px;
+}
+.edit-playlists .tt-menu img {
+    width:190px;
+    height:auto;
 }
