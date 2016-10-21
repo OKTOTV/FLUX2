@@ -26,15 +26,19 @@ oktothek.notification_livestream:       "%series% ist jetzt Live"
 oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"></span>
 ## oktothek index
 oktothek.participate_header:            Mitmachen
-oktothek.newest_videos:                 Neue Videos
+oktothek.newest_videos:                 Brandneu in der Oktothek
+oktothek.newest_videos_sub:             Hier kannst du dir die aktuellesten Videos unserer OktonautInnen ansehen.
 oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class="icon">+</span>
+oktothek.best_videos:                   Beliebteste Clips
+oktothek.best_videos_sub:               Die meistgefragten Videos der Okto Community findest du hier.
+
 oktothek.newest_playlists:              Neue Playlisten
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
 oktothek.newest_news_show_more:         Mehr News anzeigen
 oktothek.episode_stack_collapse_title:  Weitere neueste Videos anzeigen
 
-oktothek.newest_episodes_header:        Neueste Episoden
-
+oktothek.newest_episodes_header:        Neueste Clips
+oktothek.best_episodes_header:          Beliebteste Clips
 ## register
 oktothek.user_name_label:               Benutzername
 oktothek.user_name_placeholder:         Username. Ist öffentlich zugänglich.
@@ -56,7 +60,7 @@ oktothek.post_description_label:        Text
 oktothek.post_isActive_label:           Ist Aktiv
 oktothek.post_onlineAt_label:           Online Ab
 oktothek.post_assets_label:             Anhänge
-oktothek_news_pinned_header:            Okto informiert
+oktothek_news_pinned_header:            Neuigkeiten aus dem Oktoversum
 oktothek_post_edit_button:              Post bearbeiten
 oktothek.post_teaser_label:             Teasertext
 oktothek.post_pinned_label:             An Startseite Pinnen
@@ -120,13 +124,16 @@ oktothek.playlist_show:                 Playlist %playlist%
 
 ### edit
 oktothek.playlist_edit_header:          Wiedergabeliste bearbeiten
-oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Wiedergabeliste löschen
+oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Playliste löschen
 oktothek.playlist_update_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
 oktothek.playlist_name_label:           Titel
 oktothek.playlist_description_label:    Beschreibung
+oktothek.playlist_items_label:          Clips
 oktothek.playlist_search_label:         Episodensuche
 oktothek.error_edit_playlist:           Die Playlist konnte nicht gespeichert werden. Bitte überprüfe die Formularfelder
 oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
+oktothek.success_delete_playlist:       Wiedergabeliste erfolgreich gelöscht
+oktothek.playlist_delete_info:          Nicht zufrieden mit der Playliste? Hier kannst Du sie wieder löschen.
 
 ## thumb
 oktothek_playlist_thumb_creator:        Erstellt von %user%
@@ -505,3 +512,6 @@ oktothek.series_producer_new_playlist:      <span class="glyphicon glyphicon-plu
 oktothek.newsletter_header:                 Newsletter
 oktothek.newsletter_mail_placeholder:       Email
 oktothek.newsletter_subscribe_submit:       Anmelden
+
+# participate
+oktothek.participate_5_steps:               Die fünf Schritte zur Sendung

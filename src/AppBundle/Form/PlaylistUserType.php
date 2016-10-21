@@ -24,7 +24,8 @@ class PlaylistUserType extends AbstractType
                 'entry_type' => PlaylistItemType::class,
                 'allow_add'  => true,
                 'allow_delete' => true,
-                'by_reference' => false
+                'by_reference' => false,
+                'label' => 'oktothek.playlist_items_label'
             ])
         ;
     }
