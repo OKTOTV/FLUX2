@@ -15,6 +15,7 @@ use AppBundle\Form\Course\CoursetypeType;
 use AppBundle\Form\Course\CourseType as CourseFormType;
 use AppBundle\Form\Course\CoursedateType;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
 /**
@@ -41,8 +42,8 @@ class CourseController extends Controller
     public function newCoursetypeAction(Request $request)
     {
         $coursetype = new Coursetype();
-        $form = $this->createForm(new CoursetypeType(), $coursetype);
-        $form->add('submit', 'submit', ['label' => 'oktothek.coursetype_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form = $this->createForm(CoursetypeType::class, $coursetype);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.coursetype_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);

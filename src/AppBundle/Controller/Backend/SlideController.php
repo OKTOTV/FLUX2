@@ -11,6 +11,7 @@ use AppBundle\Entity\Slide;
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\Post;
 use AppBundle\Form\Backend\SlideType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * @Route("/backend/slider")
@@ -37,8 +38,8 @@ class SlideController extends Controller
     public function newAction(Request $request)
     {
         $slide = new Slide();
-        $form = $this->createForm(new SlideType(), $slide);
-        $form->add('submit', 'submit', ['label' => 'oktothek.slide_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form = $this->createForm(SlideType::class, $slide);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.slide_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -65,9 +66,9 @@ class SlideController extends Controller
     {
         $slide = $this->getDoctrine()->getManager()->getRepository('AppBundle:Slide')->findSlide($slide);
 
-        $form = $this->createForm(new SlideType(), $slide);
-        $form->add('submit', 'submit', ['label' => 'oktothek.slide_update_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $form->add('delete', 'submit', ['label' => 'oktothek.slide_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form = $this->createForm(SlideType::class, $slide);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.slide_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.slide_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -99,8 +100,8 @@ class SlideController extends Controller
     public function slideFromEpisode(Request $request, Episode $episode)
     {
         $slide = $this->get('oktothek_slide')->createSlideFromEpisode($episode);
-        $form = $this->createForm(new SlideType(), $slide);
-        $form->add('submit', 'submit', ['label' => 'oktothek.slide_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form = $this->createForm(SlideType::class, $slide);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.slide_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -126,8 +127,8 @@ class SlideController extends Controller
     public function slideFromNews(Request $request, Post $post)
     {
         $slide = $this->get('oktothek_slide')->createSlideFromNews($post);
-        $form = $this->createForm(new SlideType(), $slide);
-        $form->add('submit', 'submit', ['label' => 'oktothek.slide_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form = $this->createForm(SlideType::class, $slide);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.slide_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);

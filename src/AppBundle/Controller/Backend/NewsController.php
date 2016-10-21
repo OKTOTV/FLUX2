@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * @Route("/backend/news")
@@ -36,9 +37,9 @@ class NewsController extends Controller
     public function newAction(Request $request)
     {
         $post = new Post();
-        $form = $this->createForm(new PostType(), $post);
-        $form->add('submit', 'submit', ['label' => 'oktothek.post_create_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $form->add('preview', 'submit', ['label' => 'oktothek.page_preview_button']);
+        $form = $this->createForm(PostType::class, $post);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.post_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('preview', SubmitType::class, ['label' => 'oktothek.page_preview_button']);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -67,10 +68,10 @@ class NewsController extends Controller
      */
     public function editAction(Request $request, Post $post)
     {
-        $form = $this->createForm(new PostType(), $post);
-        $form->add('delete', 'submit', ['label' => 'oktothek.post_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
-        $form->add('submit', 'submit', ['label' => 'oktothek.post_update_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $form->add('preview', 'submit', ['label' => 'oktothek.page_preview_button']);
+        $form = $this->createForm(PostType::class(), $post);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.post_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.post_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('preview', SubmitType::class, ['label' => 'oktothek.page_preview_button']);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
