@@ -26,7 +26,8 @@ oktothek.notification_livestream:       "%series% ist jetzt Live"
 oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"></span>
 ## oktothek index
 oktothek.participate_header:            Mitmachen
-oktothek.newest_videos:                 Neue Videos
+oktothek.newest_videos:                 Brandneu in der Oktothek
+oktothek.newest_videos_sub:             Hier kannst du dir die aktuellesten Videos unserer OktonautInnen ansehen.
 oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class="icon">+</span>
 oktothek.newest_playlists:              Neue Playlisten
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>

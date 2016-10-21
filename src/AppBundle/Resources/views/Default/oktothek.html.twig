@@ -34,6 +34,7 @@
         <section class="newest-videos container">
             <div id="anchor_newest_videos"></div>
             <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
+            <p class="subheadline">{{ 'oktothek.newest_videos_sub'|trans}}</p>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes, 'pager_url': path('oktothek_newest_episodes')} %}
         </section>
 
