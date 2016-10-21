@@ -124,7 +124,7 @@ oktothek.playlist_show:                 Playlist %playlist%
 
 ### edit
 oktothek.playlist_edit_header:          Wiedergabeliste bearbeiten
-oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Wiedergabeliste löschen
+oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Playliste löschen
 oktothek.playlist_update_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
 oktothek.playlist_name_label:           Titel
 oktothek.playlist_description_label:    Beschreibung
@@ -133,6 +133,7 @@ oktothek.playlist_search_label:         Episodensuche
 oktothek.error_edit_playlist:           Die Playlist konnte nicht gespeichert werden. Bitte überprüfe die Formularfelder
 oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
 oktothek.success_delete_playlist:       Wiedergabeliste erfolgreich gelöscht
+oktothek.playlist_delete_info:          Nicht zufrieden mit der Playliste? Hier kannst Du sie wieder löschen.
 
 ## thumb
 oktothek_playlist_thumb_creator:        Erstellt von %user%

@@ -52,12 +52,12 @@
                 </div>
                 <div class="col-md-9 col-xs-8">
                     <a href="{{ path('oktothek_show_episode', {'uniqID': item.vars.value.episode.uniqID})}}">
-					    <h3>{{ item.vars.value.episode.series.name|default('') }}</h3>
+                        <h3>{{ item.vars.value.episode.series.name|default('') }}</h3>
                         <p>
                             <!-- {{ item.vars.value.episode.description }}<br> -->
-						    {{ item.vars.value.episode.name }}
+                            {{ item.vars.value.episode.name }}
                         </p>
-					    </a>
+                        </a>
                 </div>
                 <div class="col-md-1 col-xs-2">
                     <div class="list-group">
@@ -74,6 +74,9 @@
             {% endfor %}
         </div>
         {% do form.items.setRendered %}
+        {{ form_row(form.submit) }}
+        <p>{{ 'oktothek.playlist_delete_info'|trans }}</p>
+        {{ form_row(form.delete, {'attr': {'class':'btn-link'}})}}
     {{ form_end(form) }}
 
 {% endblock %}
