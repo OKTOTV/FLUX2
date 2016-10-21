@@ -501,5 +501,5 @@ oktothek.series_producer_new_playlist:      <span class="glyphicon glyphicon-plu
 
 # newsletter
 oktothek.newsletter_header:                 Newsletter
-oktothek.newsletter_mail_placeholder:       Jetzt für den Newsletter anmelden
-oktothek.newsletter_subscribe_submit:       Abonnieren
+oktothek.newsletter_mail_placeholder:       Email
+oktothek.newsletter_subscribe_submit:       Anmelden
