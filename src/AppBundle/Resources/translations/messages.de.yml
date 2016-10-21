@@ -29,6 +29,9 @@ oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Brandneu in der Oktothek
 oktothek.newest_videos_sub:             Hier kannst du dir die aktuellesten Videos unserer OktonautInnen ansehen.
 oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class="icon">+</span>
+oktothek.best_videos:                   Beliebteste Clips
+oktothek.best_videos_sub:               Die meistgefragten Videos der Okto Community findest du hier.
+
 oktothek.newest_playlists:              Neue Playlisten
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
 oktothek.newest_news_show_more:         Mehr News anzeigen

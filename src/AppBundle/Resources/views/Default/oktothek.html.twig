@@ -41,7 +41,10 @@
         {# render favorites #}
         <section class="favorite-videos container">
             <div id="anchor_favorite_videos"></div>
-            <h2>Beliebteste Videos</h2>
+            <h2>{{ 'oktothek.best_videos'|trans }}</h2>
+            <p class="subheadline">
+                {{ 'oktothek.best_videos_sub'|trans}}
+            </p>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes, 'pager_url': path('oktothek_best_episodes')} %}
         </section>
 
