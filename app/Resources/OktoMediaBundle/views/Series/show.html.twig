@@ -7,7 +7,7 @@
 {% block body_main -%}
     <div class="page-header">
         <h1>{{ series }}</h1>
-        <a href="{{ path('oktolab_series_edit', { 'series': series.id }) }}" class="btn btn-default">{{ 'oktolab_media.series_edit_button'|trans|raw }}</a>
+        <a href="{{ path('oktolab_series_edit', { 'series': series.uniqID }) }}" class="btn btn-default">{{ 'oktolab_media.series_edit_button'|trans|raw }}</a>
     </div>
     <div class="row">
         <div class="col-md-8">

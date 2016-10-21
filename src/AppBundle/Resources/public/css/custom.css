@@ -393,13 +393,14 @@ header #search-container.navbar-collapse.collapsing {
 /*.navbar-brand object .brandimage {
 	background-image:url(../images/logo_okto_white_90.png);
 	background-repeat:no-repeat;
-}*/
+}
 header form button[type="submit"], 
-header form button[type="submit"].btn:active {
+header form button[type="submit"].btn:active,
+.edit-playlists .form-group.search .icon-search span {
 	background-image:url(../images/icon_search.png);
 	background-repeat:no-repeat;
-	background-position:center center;
-}
+    background-position:center center;
+}*/
 header .navbar-fixed-top {
 	background-image:none;
 }
@@ -721,6 +722,11 @@ header .collapseShare a.btn {
 .academy .preview p, 
 .academy .pin .preview-content a, 
 #playlist_items a p,
+#playlist_items .color1 a p,
+#playlist_items .color2 a p,
+#playlist_items .color3 a p,
+#playlist_items .color4 a p,
+#playlist_items .color5 a p,
 .container.tags a,
 .livestream .schedule a h4 { /* Hellgrau */
 	color:#dcdcdc;
@@ -739,6 +745,10 @@ header .collapseShare a.btn {
 }
 .form-control::-webkit-input-placeholder {
   color: #818181;
+}
+
+.edit-playlists .form-group.search .icon-search span {
+    color: #818181;
 }
 .color1 a, 
 .active .color1.pin figcaption a h3, 
@@ -793,7 +803,8 @@ a.list-group-item-danger:hover,
 button.list-group-item-danger:hover, 
 .list-group-item.moveup, 
 .list-group-item.movedown,
-header .collapseShare a.btn {
+header .collapseShare a.btn,
+.edit-playlists .form-group.search .icon-search {
 	background-color:#ffffff;
 }
 .oktothek .news article, 
@@ -807,7 +818,8 @@ header .collapseShare a.btn {
 .tagpage .inc-pins article.pin.first, 
 #playlist_items .row,
 .container.tags ul, 
-.livestream .schedule .panel-default { /* Dunkelgrau */
+.livestream .schedule .panel-default,
+.edit-playlists .tt-menu { /* Dunkelgrau */
 	background-color:#112022;
 }
 /* Spacelayout */
@@ -967,7 +979,7 @@ hr {
 	background-position:left center;
 	background-image:url(../images/hr_bg.png);
 }
-section, .participart article  {
+section, .participart article, .edit-playlists form fieldset  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border.png);
@@ -1145,7 +1157,8 @@ section, .participart article  {
 	background-position:top left;
 }
 section:last-child, 
-section.playlist_container {
+section.playlist_container,
+.edit-playlists form fieldset:last-child {
 	background-image:none;
 }
 .playlists .playlists-arrow-down {
@@ -2040,7 +2053,7 @@ figure.pin img {
 	padding-left:25px;
 	padding-right:25px;
 }
-.tagpage .container-fluid header {
+.tagpage .container-fluid header, header.page-header {
 	padding-bottom:40px;
 	margin-top:40px;
 }
@@ -2072,7 +2085,7 @@ figure.pin img {
 .tagpage .small-pins article:last-child {
 	padding-left:8px;
 }*/
-.tagpage header {
+.tagpage header, header.page-header {
 	text-align:center;
 }
 /*.tagpage h1, .tagpage .misc {
