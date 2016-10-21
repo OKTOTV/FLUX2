@@ -1,6 +1,8 @@
 {{ form_start(form) }}
     <div class="input-group">
         {{ form_widget(form.email) }}
-        {{ form_row(form.submit, {'attr': {'class': 'input-group-addon'}}) }}
+        <span class="input-group-btn">
+            {{ form_row(form.submit, {'attr': {'class': 'input-group-addon'}}) }}
+        </span>
     </div>
 {{ form_end(form) }}
