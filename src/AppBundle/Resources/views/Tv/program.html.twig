@@ -20,7 +20,7 @@
               <li class="panel panel-default row">
                   <div class="panel-heading" role="tab" id="item{{ loop.index0 }}">
                       <a role="button" data-toggle="collapse" data-parent="#schedule-content-evening" href="#collapse{{ loop.index0 }}" aria-expanded="true" aria-controls"collapse{{ loop.index0 }}">
-                      <time datetime="{{ show.airdate|date('Y-m-d H:i') }}">{{ show.airdate|date('H:i') }}</time><h4>{{ show.series_name }}</h4></a>
+                      <time datetime="{{ show.airdate|date('Y-m-d H:i') }}">{{ show.airdate|date('H:i') }}</time><h4>{% if show.name %}{{ show.series_name }} - {{ show.name }}{% else %}{{ show.series_name }}{% endif %}</h4></a>
                   </div>
                   <div id="collapse{{ loop.index0 }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="item4">
                       <div class="description">{{ show.description }}</div>
