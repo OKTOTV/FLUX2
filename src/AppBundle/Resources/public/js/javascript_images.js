@@ -446,7 +446,7 @@ $(document).ready(function(){
 			    $('.fs-image-content figcaption .misc').css('display','none');
 			    $('.fs-image-misc-mobile').css('display','block');
 			}
-		} else {    //Fenster ist geöffnet
+		} else if (layer === true) {    //Fenster ist geöffnet
 			resize = true;
 			$('.fs-image-ident .description-wrapper')
 				.css('bottom','0px')

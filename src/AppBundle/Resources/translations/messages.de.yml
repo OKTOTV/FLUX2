@@ -198,6 +198,8 @@ oktothek_academy_book_course:           Kurs buchen
 
 ## tv
 oktothek_tv_title:                      TV
+oktothek_tv_weekdays_choice:            "{1} Montag |{2} Dienstag |{3} Mittwoch|{4} Donnerstag|{5} Freitag|{6} Samstag|{7} Sonntag"
+oktothek_tv_weedays_format:             "%day%, %date%"
 
 ## participate
 oktothek_participate_title:             Mitmachen
@@ -451,7 +453,7 @@ oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edi
 oktothek_backend_slide_from_news:           Slide generieren
 
 # default (oktothek)
-oktothek_default_login_teaser:              Melde Dich an um eine neue Playlist zu erstellen!
+oktothek_default_login_teaser:              Melde Dich an um eine neue Playlist zu erstellen und werde Teil der Okto Community!
 oktothek_default_login_teaser_link:         ANMELDEN
 oktothek_default_newest_playlists_text:     Hier ist der heiße Scheiß!
 
@@ -501,5 +503,5 @@ oktothek.series_producer_new_playlist:      <span class="glyphicon glyphicon-plu
 
 # newsletter
 oktothek.newsletter_header:                 Newsletter
-oktothek.newsletter_mail_placeholder:       Jetzt für den Newsletter anmelden
-oktothek.newsletter_subscribe_submit:       Abonnieren
+oktothek.newsletter_mail_placeholder:       Email
+oktothek.newsletter_subscribe_submit:       Anmelden

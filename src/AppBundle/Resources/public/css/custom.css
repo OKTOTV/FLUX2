@@ -63,11 +63,11 @@ header .navbar .nav > li > a, header .navbar .nav.navbar-right > li > a, #dropdo
 	font-style: normal;
 }
 
-h1, h2, .h2 {
+h1, h2, .h2, .livestream header h1 time {
 	font-size:35px;
 	letter-spacing:0.5px;
 }
-#anchor-menu .panel-title .glyphicon, .btn-top .glyphicon, .livestream header h1 time {
+#anchor-menu .panel-title .glyphicon, .btn-top .glyphicon, .livestream .schedule li time {
 	font-size:30px;
 }
 .carousel-caption h3, .pull-right .icon, .series h1, .playlists #StartPlaylist.btn span.glyphicon, .playlists .btn.circle {
@@ -87,7 +87,7 @@ header .form-control:-ms-input-placeholder {
 header .form-control::-webkit-input-placeholder {
         font-size:12px;
 }
-h3, .h3, header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3, .news h3, .pin-icon .glyphicon, .comments h2, .carousel-caption .type, #episode-tag option, .blog aside p a, .blog h3, .academy .pin .pin-icon .glyphicon, .courses h4, .academy .preview .timetable p, a.more, header .navbar-nav.themes a {
+h3, .h3, header .collapse.in h3, article figcaption h3, .footer h3, #anchor-menu .panel-title, .newsarchiv h2, .newsarchiv h3, .newsarchiv .label, .pin figcaption h3, .news h3, .pin-icon .glyphicon, .comments h2, .carousel-caption .type, #episode-tag option, .blog aside p a, .blog h3, .academy .pin .pin-icon .glyphicon, .courses h4, .academy .preview .timetable p, a.more, header .navbar-nav.themes a, .livestream .schedule li h4, .livestream .navbar-nav a.btn span {
 	font-size:14px;
 	letter-spacing:0.25px;
 }
@@ -142,21 +142,25 @@ h3,
 .playlists .series a, 
 .edit-playlists form label, 
 #planets .cloud9-item figcaption,
-.livestream .current-episode {
+.livestream .current-episode,
+.livestream .schedule li h4 {
 	text-transform:uppercase;
 }
 
 .btn.btn-top, #episode-tag option, #slider h3, header .navbar-nav.themes a, .playlists .btn.circle, header .navbar-nav .dropdown-menu > li a {
 	text-transform:none;
 }
-.newsarchiv .label, label, .carousel-caption h3, .series h1 {
+.newsarchiv .label, label, .carousel-caption h3, .series h1, .livestream .schedule li time {
 	font-weight:400;
 }
 header .nav {
 	letter-spacing: 0.75px;
 }
-.academy .pin .preview-content a {
+.academy .pin .preview-content a, .livestream .panel-heading a {
 	text-decoration:none;
+}
+a, a:hover, a:active, a:focus {
+    outline:none;
 }
 
 
@@ -743,7 +747,8 @@ header .collapseShare a.btn {
 .pin-icon .choosen, 
 .episode .series a, 
 a, 
-a.more /*Gelb*/ {
+a.more,
+.livestream .schedule li a:hover h4 /*Gelb*/ {
 	color: #fcce14;
 }
 a.list-group-item-danger:focus, 
@@ -802,26 +807,8 @@ header .collapseShare a.btn {
 .tagpage .inc-pins article.pin.first, 
 #playlist_items .row,
 .container.tags ul, 
-.livestream header.page-header
-/*, .tagpage article.first*/ { /* Dunkelgrau */
+.livestream .schedule .panel-default { /* Dunkelgrau */
 	background-color:#112022;
-}
-.play-episode.btn-default, 
-.tagpage header .btn-default, 
-.newsarchiv .label-default, 
-.livestream header .navbar-default, 
-.livestream .schedule .panel-default > .panel-heading, 
-.livestream .schedule .panel, 
-.btn-default, 
-.btn-primary, 
-#episode-tag, 
-.tagpage .collapseShare, 
-.list-group-item, 
-#favorite.btn-default:hover, 
-#favorite.btn-default:focus, 
-#favorite.btn-default:active:focus, 
-#favorite.btn-default:active:hover {
-	background-color:transparent;
 }
 /* Spacelayout */
 button .btn-default.but-full.active, 
@@ -843,6 +830,23 @@ button.list-group-item-danger,
 .btn-danger { /* Pink */
 	background-color:#d1418f;
 }
+.btn-default, 
+.btn-primary,
+.play-episode.btn-default, 
+.tagpage header .btn-default, 
+.newsarchiv .label-default, 
+.livestream header .navbar-default, 
+.livestream .schedule .panel-default > .panel-heading, 
+.livestream .navbar-nav .btn-default:hover,
+#episode-tag, 
+.tagpage .collapseShare, 
+.list-group-item, 
+#favorite.btn-default:hover, 
+#favorite.btn-default:focus, 
+#favorite.btn-default:active:focus, 
+#favorite.btn-default:active:hover {
+	background-color:transparent;
+}
 
 .play-episode.btn-default {
 	border: solid 1px #ffffff;
@@ -854,7 +858,8 @@ button.list-group-item-danger,
 	border-top:dotted 1px #5a6769;
 }
 .collapseShare .btn-default, 
-.container-episode-tag {
+.container-episode-tag,
+.livestream #nav-programm a:hover .icon {
 	border:solid 2px #ffffff;
 }
 .academy .timetable li p {
@@ -878,7 +883,8 @@ button.list-group-item-danger,
 .btn-default.active:hover, 
 .btn-default.focus:active, 
 .btn-default.active.focus,
-.btn-default.but-full:hover { /* Gelb */
+.btn-default.but-full:hover,
+.livestream #nav-programm .icon { /* Gelb */
 	border: solid 2px #fcce14;
 }
 /* Türkis */
@@ -893,7 +899,8 @@ header.page-header,
 .btn-default.pin-icon, 
 .timetable .btn, 
 .list-group-item, 
-#favorite.btn-default {
+#favorite.btn-default,
+.livestream #nav-programm a.btn {
 	border:none;
 }
 .triangle {
@@ -922,7 +929,8 @@ header .btn,
 .btn, 
 .pull-right .icon, 
 header .misc .btn,
-header .collapseShare .btn {
+header .collapseShare .btn,
+.livestream #nav-programm .icon {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -2338,7 +2346,7 @@ figure.pin img {
 	margin:0 auto;
 }
 .footer .partner {
-	text-align:right;
+	text-align:center;
 }
 .footer section {
 	padding-top:120px;
