@@ -4,6 +4,16 @@
 <meta property="og:title" content="{{ episode.name }}" />
 <meta property="og:description" content="{{ episode.description }}" />
 <meta property="og:image" content="{{ episode.posterframe|path() }}" />
+
+{% set fb_media = null %}
+{% for media in episode.media %}
+    {% if media.quality == "facebook" %}
+        {% set fb_media = media %}
+    {% endif %}
+{% endfor %}
+<meta property="og:video" content="{{ fb_media.asset|link }}" />
+<meta property="og:video:secure_url" content="{{ fb_media.asset|link }}"  />
+<meta property="og:video:type" content="video/mp4" />
 {% endblock %}
 
 {% block title %}{{ name|default('OKTO')~' | '~ episode.name }}{% endblock %}
