@@ -2389,9 +2389,22 @@ figure.pin img {
 .footer .networks div.col-md-6, .footer .networks div.col-md-6:first-child {
 	text-align:center;
 }
+.footer form fieldset {
+    display:table;
+}
+.footer form .input-group {
+    display:table-cell;
+}
 .footer .input-group {
 	width:200px;
 	margin:0 auto;
+}
+.footer .input-group .form-control {
+    width:200px;
+}
+.footer .input-group-addon {
+    width:100px;
+    height:35px;
 }
 .footer .socialnetworks li {
 	display:inline;

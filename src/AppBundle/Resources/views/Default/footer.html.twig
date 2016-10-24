@@ -20,7 +20,6 @@
     </section>
 	<div class="container row">
 		<nav class="col-md-12 col-sm-12 col-xs-12">
-           
             {{ render(controller('AppBundle:Page:footer', {'slug': page.slug|default(app.request.get('_route'))})) }}
         </nav>
         <section class="partner col-md-12 col-sm-12 col-xs-12">
