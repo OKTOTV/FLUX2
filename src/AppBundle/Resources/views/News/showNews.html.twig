@@ -5,7 +5,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'news', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "news head-white-color" %}
+{% set body_class = "news" %}
 {% block body %}
     <div class="container">
         {% include 'AppBundle::News/post.html.twig' %}

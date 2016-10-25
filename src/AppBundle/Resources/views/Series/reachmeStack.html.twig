@@ -1,11 +1,11 @@
 {% spaceless %}
-<div class="socialnetworks">
+<div>
     {% for reachme in reachmes %}
         {% if constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_MAIL') == reachme.type %}
             <p class="contact"><strong>Kontakt:</strong> <a href="mailto:{{reachme.uri}}">{{reachme.uri}}</a></p>
         {% endif %}
     {% endfor %}
-    <ul>
+    <ul class="socialnetworks">
         {% for reachme in reachmes %}
             {% if constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_FB') == reachme.type %}
                 <li><a href="{{ reachme.uri }}" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>

@@ -6,11 +6,8 @@
 .tagpage .collapseShare .collapse-content, .preview .collapse-header {
 	position:relative;
 }
-.collapseShare .socialnetworks, .collapseShare .helptext, .collapseShare .helptext, .collapseShare .socialnetworks li {
+.collapseShare .helptext, .collapseShare .helptext, .collapseShare .socialnetworks {
 	display:inline;
-}
-.collapseShare .socialnetworks li a, .collapseShare .socialnetworks a  {
-	display:inline-block;
 }
 .collapsePlaylist ul {
 	display:table;
@@ -21,12 +18,8 @@
 .collapsePlaylist li button, .collapsePlaylist li span {
 	display:table-cell;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .collapseShare .socialnetworks, .collapseShare .helptext {
+.collapsePlaylist ul, .collapsePlaylist li, .collapseShare .helptext {
 	margin-left:0;
-}
-/* Überschriften für Barrierefreundlichkeit */
-.collapseShare .socialnetworks a span, #collapseShare h3 {
-    margin-left: -9990px;
 }
 .episode .collapseWindow > div > h3:first-child {
 	margin-top:0;
@@ -50,7 +43,10 @@
 .tagpage .collapseShare, .tagpage .collapse-header div {
 	margin:0 auto;
 }
-.collapsePlaylist ul, .collapsePlaylist li, .collapseShare .socialnetworks {
+#collapseShare h3 { /* Überschrift Barrierefreiheit */
+    margin-left: -9990px;
+}
+.collapsePlaylist ul, .collapsePlaylist li {
 	padding-left:0;
 }
 .collapseShare .helptext {
@@ -62,9 +58,6 @@
 .academy section .collapse-content {
 	padding-bottom:20px;
 }
-/*.series #collapseShareArea {
-	padding-bottom:40px;
-}*/
 .collapseWindow > div.collapse-content, .tagpage #collapseTagShare .content-opacity {
 	padding:20px;
 }
@@ -74,7 +67,7 @@
 .collapseShare a  {
 	outline:0;
 }
-.collapseShare .socialnetworks a, .collapseShare .share-buttons  {
+.collapseShare .share-buttons  {
 	text-align:left;
 }
 .tagpage .collapseShare  {
@@ -88,10 +81,6 @@
     left:50%;
     margin-left:-7.5px;
 }
-.collapseShare .socialnetworks li a  {
-	height:40px;
-	width:40px;
-}
 .collapseShare .helptext {
 	line-height:35px;
 }
@@ -100,10 +89,6 @@
 }
 .collapsePlaylist .input-group-btn {
 	width:auto;
-}
-.collapseShare .socialnetworks a {
-    height: 30px;
-    width: 30px;
 }
 .collapsePlaylist li button.btn {
 	width:30px;
