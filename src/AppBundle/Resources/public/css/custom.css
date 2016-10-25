@@ -236,7 +236,8 @@ h3,
 .edit-playlists form label, 
 #planets .cloud9-item figcaption,
 .livestream .current-episode,
-.livestream .schedule li h4 {
+.livestream .schedule li h4,
+.oktothek .more figure.episode-pin {
 	text-transform:uppercase;
 }
 
@@ -258,7 +259,8 @@ header .nav {
 	letter-spacing: 0.75px;
 }
 .academy .pin .preview-content a, 
-.livestream .panel-heading a {
+.livestream .panel-heading a,
+.collapsePlaylist li a:hover {
 	text-decoration:none;
 }
 a, 
@@ -807,7 +809,10 @@ button.list-group-item-danger,
 .color5 a,
 .livestream .description,
 .livestream .schedule li a time,
-.btn-default.dropdown-toggle {
+.btn-default.dropdown-toggle,
+.collapsePlaylist li button.btn-default,
+.collapsePlaylist li button.btn-default.active,
+.collapsePlaylist li button.btn-default:active {
 	color:#ffffff;
 }
 .form-control, 
@@ -818,7 +823,8 @@ button.list-group-item-danger,
 .timetable .btn, 
 .bootstrap-datetimepicker-widget, 
 header .collapseShare .form-control,
-header .collapseShare a.btn {
+header .collapseShare a.btn,
+.oktothek .more figure.episode-pin a {
 	color:#000000;
 }
 /* Türkis */
@@ -930,8 +936,7 @@ header .collapseShare a.btn,
 #playlist_items .row,
 .container.tags ul, 
 .livestream .schedule .panel-default,
-.edit-playlists .tt-menu,
-.oktothek .pin.more { /* Dunkelgrau */
+.edit-playlists .tt-menu { /* Dunkelgrau */
 	background-color:#112022;
 }
 /* Spacelayout */
@@ -946,7 +951,8 @@ button .btn-default.but-full.active,
 .btn-default.focus:active, 
 .btn-default.active.focus, 
 .oktothek article a.btn-default.but-full, 
-.input-group-addon { /* Gelb */
+.input-group-addon,
+.oktothek .more figure.episode-pin a { /* Gelb */
 	background-color:#fcce14;
 }
 a.list-group-item-danger, 
@@ -968,7 +974,11 @@ button.list-group-item-danger,
 #favorite.btn-default:hover, 
 #favorite.btn-default:focus, 
 #favorite.btn-default:active:focus, 
-#favorite.btn-default:active:hover {
+#favorite.btn-default:active:hover,
+.collapsePlaylist li button.btn-default.active,
+.collapsePlaylist li button.btn-default:active,
+.collapsePlaylist li button.btn-default:hover,
+.collapsePlaylist li button.btn-default:focus {
 	background-color:transparent;
 }
 
@@ -984,7 +994,12 @@ button.list-group-item-danger,
 .collapseShare .btn-default, 
 .container-episode-tag,
 .livestream #nav-programm a:hover .icon,
-.btn-default.dropdown-toggle {
+.btn-default.dropdown-toggle,
+.collapsePlaylist li button,
+.collapsePlaylist li button.btn-default.active,
+.collapsePlaylist li button.btn-default:active,
+.collapsePlaylist li button.btn-default:hover,
+.collapsePlaylist li button.btn-default:focus {
 	border:solid 2px #ffffff;
 }
 .academy .timetable li p {
@@ -1009,7 +1024,8 @@ button.list-group-item-danger,
 .btn-default.focus:active, 
 .btn-default.active.focus,
 .btn-default.but-full:hover,
-.livestream #nav-programm .icon { /* Gelb */
+.livestream #nav-programm .icon,
+.oktothek .more figure.episode-pin a { /* Gelb */
 	border: solid 2px #fcce14;
 }
 /* Türkis */
@@ -1046,7 +1062,8 @@ header .btn,
 .playlists .list-group-item:first-child, 
 .list-group-item:last-child, 
 .list-group-item:first-child,
-.btn-default.dropdown-toggle {
+.btn-default.dropdown-toggle,
+.collapsePlaylist li button {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -1056,7 +1073,8 @@ header .btn,
 .pull-right .icon, 
 header .misc .btn,
 header .collapseShare .btn,
-.livestream #nav-programm .icon {
+.livestream #nav-programm .icon,
+.oktothek .more figure.episode-pin a {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -1232,6 +1250,10 @@ section, .participart article, .edit-playlists form fieldset  {
 .oktothek a.btn.login:active {
 	background-image:url(../images/icon_login_hover.svg);
 }
+.oktothek .more figure.episode-pin {
+    background-image:url(../images/img_8_1.png);
+	background-repeat:no-repeat;
+}
 .avatar1, 
 .avatar2, 
 .avatar3, 
@@ -1386,7 +1408,8 @@ footer .networks {
 }
 
 #anchor-menu.panel-group .panel, 
-.btn-top {
+.btn-top,
+.input-group-btn button.btn {
     -webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -1477,6 +1500,9 @@ header.page-header .navbar {
 .btn {
 	height:36px;
 	padding:8px 16px;
+}
+.input-group-btn .btn {
+    height:35px;
 }
 .btn.circle {
 	height:40px;
@@ -1949,13 +1975,17 @@ article.pin {
 .oktothek .newest-playlists .aligncenter, .oktothek section.container .subheadline {
 	margin-bottom:40px;
 }
-.oktothek .less {
-    display:none;
-}
-.oktothek .pin.more {
+.oktothek .more figure.episode-pin {
     height:158px;
+    text-align:center;
+    padding-top:80px;
+    vertical-align:center;
 }
-
+.oktothek .more figure.episode-pin a {
+    display:inline-block;
+    padding:12px 12px;
+    line-height:12px;
+}
 .episode article, .more-clips article, .playlists .description-container article {
 	margin-top:40px;
 }

@@ -213,18 +213,4 @@ $(document).ready(function(){
 			$('.avatar-container').eq(i).find('div').addClass(avatar[rand]);
 		}
 	}
-    
-    
-    /* Mehr Einträge */
-    $('.collapse').on('show.bs.collapse', function () {
-        $(this).parent().find('a.more').css('display','none');
-        $(this).parent().find('a.less').css('display','inline');
-    });
-    $('.collapse').on('hide.bs.collapse', function () {
-        $(this).parent().find('a.less').css('display','none');
-        $(this).parent().find('a.more').css('display','inline');
-    })
-	
-	
-	
 });

@@ -11,8 +11,8 @@
         {% set fb_media = media %}
     {% endif %}
 {% endfor %}
-<meta property="og:video" content="{{ fb_media.asset|link }}" />
-<meta property="og:video:secure_url" content="{{ fb_media.asset|link }}"  />
+<meta property="og:video" content="{#{ fb_media.asset|link }#}" />
+<meta property="og:video:secure_url" content="{#{ fb_media.asset|link }#}"  />
 <meta property="og:video:type" content="video/mp4" />
 {% endblock %}
 
@@ -98,6 +98,7 @@
     {{ player(episode)|raw }}
     <script type="text/javascript">
         $(document).ready(function(){
+        
             // add/remove from favorites
             $('#favorite').click(function(e){
                 e.preventDefault();
@@ -159,7 +160,7 @@
                     type: 'POST',
                     success: function(data) {
                         playlist.removeClass('active');
-                        playlist.text('+');
+                        playlist.html('');
                     }
                 });
             } else {
@@ -173,7 +174,7 @@
                     type: 'POST',
                     success: function(data) {
                         playlist.addClass('active');
-                        playlist.text('-');
+                        playlist.html('<span class="glyphicon glyphicon-ok"> </span>');
                     }
                 });
             }

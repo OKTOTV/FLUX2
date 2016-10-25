@@ -31,6 +31,21 @@ $(document).ready(function(){
 	if ($('body').hasClass('episode')) {
 		posBubbletop();
 	}
+    
+ // Show more Entries
+if ($('body').hasClass('oktothek')) {
+    $('a.more').click(function(e){
+        e.preventDefault();
+        $('.collapse').on('show.bs.collapse', function () {
+         $(this).parent().find('a.more').css('display','none');
+         $(this).parent().find('a.less').css('display','inline');
+        });
+    });
+    $('.row.collapse').on('hide.bs.collapse', function () {
+        $(this).parent().find('a.less').css('display','none');
+        $(this).parent().find('a.more').css('display','inline');
+    })
+ }
 
 //Academy
 	

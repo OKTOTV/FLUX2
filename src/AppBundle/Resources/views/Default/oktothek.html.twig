@@ -72,9 +72,11 @@
     {{ parent() }}
     <script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
     <script src="{{ asset('bundles/app/js/javascript_images.js')}}"></script>
+    <script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('bundles/app/css/fs_images.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
 {% endblock %}

@@ -10,6 +10,31 @@
         </select>
 	</div>
     <div id="episode-tag-stack">
-        {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': episodes, 'collapse_link': path('oktothek_show_series_episodes', {'uniqID': series.uniqID})} %}
+        {#% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': episodes, 'collapse_link': path('oktothek_show_series_episodes', {'uniqID': series.uniqID})} %#}
+        
+        {# ab hier reinkopiert aus EpisodeStack #}
+        <div class="row">
+    {% for episode in episodes|slice(0,4) %}
+        {% if episode.isActive %}
+            {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+        {% endif %}
+    {% endfor %}
+</div>
+{% if episodes|length > 4 %}
+    <div class="row">
+       {% for episode in episodes|slice(4,4) %}
+            {% if episode.isActive %}
+                {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+{% endif %}
+
+        <a href="{{ pager_url|default('#') }}" class="pull-right more">{#{ pager_link_text|default('oktothek_more_results')|trans|raw }#}Noch mehr Videos!</a>
+
+
+{# bis hier reinkopiert aus EpisodeStack #}
+
     </div>
 </section>
