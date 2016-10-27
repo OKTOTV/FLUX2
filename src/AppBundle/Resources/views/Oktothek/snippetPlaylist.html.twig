@@ -3,10 +3,10 @@
         <div class="triangle"></div>
     </div>
     <div class="collapse-content">
-        <h3>{{ 'oktothek.episode_show_playlist_header'|trans }}</h3>
+        <h3>Zu {{ 'oktothek.episode_show_playlist_header'|trans }} hinzufügen</h3>
 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_OKTOLAB_USER') %}
     {% if app.user.playlists|length > 0%}
-            <ul class="list-group playlists">
+            <ul class="list-group playlists row">
             {% for playlist in app.user.playlists %}
                 {% set isInPlaylist = "" %}
                 {% for playlistitem in playlist.items %}
@@ -15,18 +15,19 @@
                     {% endif %}
                 {% endfor %}
                 {% if isInPlaylist %}
-                        <li><button type="button" class="playlist btn btn-default active" data-uniqID="{{ playlist.uniqID }}">-</button><span><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
+                        <li><button type="button" class="playlist btn btn-default active" data-uniqID="{{ playlist.uniqID }}"><span class="glyphicon glyphicon-ok"> </span></button><span><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
                 {% else %}
-                        <li><button type="button" class="playlist btn btn-default" data-uniqID="{{ playlist.uniqID }}">+</button><span><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
+                        <li><button type="button" class="playlist btn btn-default" data-uniqID="{{ playlist.uniqID }}"> </button><span><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID })}}">{{ playlist.name }}</a></span></li>
                 {% endif %}
             {% endfor %}
             </ul>
     {% else %}
             <p>{{ 'oktothek.episode_show_playlist_no_playlists'|trans }}</p>
     {% endif %}
+        <h3>Neue Playlist erstellen</h3>
         <form>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Neue Playlist erstellen" data-prototype='<li><button type="button" class="playlist btn btn-default active">-</button><span>__name__</span></li>'>
+                <input type="text" class="form-control" placeholder="Playlistname" data-prototype='<li><button type="button" class="playlist btn btn-default active"><span class="glyphicon glyphicon-ok"> </span></button><span>__name__</span></li>'>
                 <span class="input-group-btn"><button class="playlist-new btn btn-default" type="button">Erstellen</button></span>
             </div>
         </form>

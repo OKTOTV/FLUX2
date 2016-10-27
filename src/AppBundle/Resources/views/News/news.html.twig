@@ -4,7 +4,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'news', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "newsarchiv head-white-color" %}
+{% set body_class = "newsarchiv" %}
 {% block body %}
 <div id="top"></div>
 <div class="container">
@@ -12,12 +12,12 @@
         <div class="navigation">
             {{ knp_pagination_render(posts) }}
         </div>
-        <div class="col-xs-9">
+        <div class="col-md-8 news-container">
             {% for post in posts %}
             {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
             {% endfor %}
         </div>
-        <aside class="col-xs-3">
+        <aside class="col-md-4">
             <div class="box">
                 <h3>{{ 'oktothek.newsletter_header'|trans }}</h3>
                 {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_default_newsletter }))}}
@@ -28,13 +28,19 @@
                 <ul class="socialnetworks">
                     <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
                     <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
-                    <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
-                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                    <li><a href="https://www.instagram.com/oktotv/" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
                     <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
                 </ul>
             </div>
         </aside>
     </div>
 </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+	<link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
 {% endblock %}

@@ -15,10 +15,17 @@
             {% endif %}
         {% endfor %}
         {% if episodes|length > 7 %} {# there are more results. show link to paginator #}
-            <a href="{{ pager_url|default('#') }}">{{ pager_link_text|default('oktothek_more_results')|trans|raw }}</a>
+            <article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin more">
+                <figure class="episode-pin pin">
+            <a href="{{ pager_url|default('#') }}">{#{ pager_link_text|default('oktothek_more_results')|trans|raw }#}Noch mehr Videos!</a>
+                </figure>
+            </article>
         {% endif %}
     </div>
     <a href="{{ collapse_link|default('#'~collapse_id) }}" data-collapseid="#{{collapse_id}}" class="pull-right more" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title') }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}">
         {{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw}}
+    </a>
+    <a href="{{ collapse_link|default('#'~collapse_id) }}" data-collapseid="#{{collapse_id}}" class="pull-right less" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title') }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}">
+        Weniger Videos anzeigen <span class="icon">-</span>
     </a>
 {% endif %}

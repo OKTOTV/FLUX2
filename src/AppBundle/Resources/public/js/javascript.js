@@ -213,7 +213,4 @@ $(document).ready(function(){
 			$('.avatar-container').eq(i).find('div').addClass(avatar[rand]);
 		}
 	}
-	
-	
-	
 });
