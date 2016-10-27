@@ -68,7 +68,7 @@ class NewsController extends Controller
      */
     public function editAction(Request $request, Post $post)
     {
-        $form = $this->createForm(PostType::class(), $post);
+        $form = $this->createForm(PostType::class, $post);
         $form->add('delete', SubmitType::class, ['label' => 'oktothek.post_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
         $form->add('submit', SubmitType::class, ['label' => 'oktothek.post_update_button', 'attr' => ['class' => 'btn btn-primary']]);
         $form->add('preview', SubmitType::class, ['label' => 'oktothek.page_preview_button']);
