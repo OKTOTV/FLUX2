@@ -13,8 +13,8 @@
     {{ form_row(form.description) }}
     {{ form_row(form.price)}}
     {{ form_row(form.price_reduced)}}
-    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.image, 'adapter': 'posterframe', 'type': 'single'} %}
-    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.assets, 'adapter': 'posterframe', 'type': 'multiple'} %}
+    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.image, 'adapter': 'posterframe', 'type': 'single', 'asset': coursetype.image} %}
+    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.assets, 'adapter': 'posterframe', 'type': 'multiple', 'assets': coursetype.assets} %}
 {{ form_end(form) }}
 {% endblock %}
 

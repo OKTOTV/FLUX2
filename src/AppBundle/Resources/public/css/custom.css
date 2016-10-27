@@ -1038,7 +1038,8 @@ header.page-header,
 .timetable .btn, 
 .list-group-item, 
 #favorite.btn-default,
-.livestream #nav-programm a.btn {
+.livestream #nav-programm a.btn,
+.dropdown-menu {
 	border:none;
 }
 .triangle {
@@ -1060,7 +1061,8 @@ header .btn,
 .list-group-item:last-child, 
 .list-group-item:first-child,
 .btn-default.dropdown-toggle,
-.collapsePlaylist li button {
+.collapsePlaylist li button,
+.dropdown-menu {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -1251,7 +1253,7 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-.preview .collapse-header {
+.preview .collapse-header  {
 	background-image:url(../images/speachbubble.svg);
 	background-repeat:no-repeat;
 	background-position:top left;
@@ -1345,10 +1347,14 @@ section.playlist_container,
 .footer .nav > li > a:active, 
 .footer .nav > li > a:hover, 
 #anchor-menu .panel-default > .panel-heading, 
-.btn.btn-top:hover {
+.btn.btn-top:hover,
+.footer .dropdown-menu > li > a {
 	color:#ffffff;
 }
-.btn.btn-top {
+.btn.btn-top,
+.footer .nav .open > a, 
+.footer .nav .open > a:focus,
+.footer .nav .open > a:hover {
 	color:#fcce14;
 }
 
@@ -1357,10 +1363,14 @@ section.playlist_container,
 }
 .footer .nav > li > a:active, 
 .footer .nav > li > a:hover, 
-.btn.btn-top:hover, .footer {
+.btn.btn-top:hover, 
+.footer,
+.footer .nav .open > a, 
+.footer .nav .open > a:focus, 
+.footer .nav .open > a:hover {
 	background-color:transparent;
 }
-footer .networks {
+footer .networks, .footer .dropdown-menu {
 	background-color:#112022;
 }
 
@@ -1422,6 +1432,14 @@ h2 {
 	margin-bottom:50px;
 	margin-top:10px;
 }
+.dropdown-menu {
+    background-clip: padding-box;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    top: 100%;
+    z-index: 1000;
+    line-height:20px;
+    margin-top:20px;
+}
 
 /* Newsletter */
 .newsletter form fieldset {
@@ -1450,6 +1468,9 @@ body.newsarchiv .newsletter .input-group .form-control {
 body.newsarchiv .newsletter .input-group-addon {
     width:auto;
     padding:6px 10px;
+}
+body.newsarchiv article:nth-child(2n+0) figure {
+    float:right;
 }
 
 /* Socialnetworkbuttons */
@@ -1890,7 +1911,7 @@ section.container, .container-fluid header, .oktothek, .playlists div.player-con
 	margin-top:20px;
 }*/
 article.pin:nth-child(2n+1) {
-	    clear:none;
+	clear:none;
 }
 article.pin {
 	margin-bottom:20px;
