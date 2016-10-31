@@ -84,12 +84,6 @@ doctrine:
             Oktolab\MediaBundle\Entity\PlaylistInterface:   AppBundle\Entity\Playlist
             Oktolab\MediaBundle\Entity\SeriesInterface:     AppBundle\Entity\Series
             Okto\MediaBundle\Entity\TagInterface:           AppBundle\Entity\Tag
-        # mappings:
-        #     sluggable:
-        #         type: annotation
-        #         alias: Gedmo
-        #         prefix: Gedmo\Sluggable\Entity
-        #         dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Sluggable/Entity"
 
 # Swiftmailer Configuration
 swiftmailer:
