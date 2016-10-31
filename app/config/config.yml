@@ -84,12 +84,6 @@ doctrine:
             Oktolab\MediaBundle\Entity\PlaylistInterface:   AppBundle\Entity\Playlist
             Oktolab\MediaBundle\Entity\SeriesInterface:     AppBundle\Entity\Series
             Okto\MediaBundle\Entity\TagInterface:           AppBundle\Entity\Tag
-        # mappings:
-        #     sluggable:
-        #         type: annotation
-        #         alias: Gedmo
-        #         prefix: Gedmo\Sluggable\Entity
-        #         dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Sluggable/Entity"
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -127,6 +121,11 @@ oktolab_media:
     keep_original: false
     serializing_schema: 'okto'
     resolutions:
+        360p:
+            name: 360p
+            sortNumber: 0
+            video_width: 480
+            video_height: 360
         720p:
             name: 720p
             sortNumber: 1
@@ -142,11 +141,6 @@ oktolab_media:
             sortNumber: 3
             video_width: 3840
             video_height: 2160
-        360p:
-            name: 360p
-            sortNumber: 0
-            video_width: 480
-            video_height: 360
         facebook:
             name: facebook
             sortNumber: -1

@@ -18,7 +18,7 @@
         </div>
     </div>
     {% include "BprsStyleBundle::datetimepicker.html.twig" with {'widget': form.onlineAt} %}
-    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.assets, 'adapter': 'gallery', 'type': 'multiple'} %}
+    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.assets, 'adapter': 'gallery', 'type': 'multiple', 'assets': form.vars.value.assets} %}
     {% include "AppBundle::Tag/widget.html.twig" with {'widget': form.tags} %}
  {{ form_end(form)}}
 {% endblock %}

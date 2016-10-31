@@ -60,7 +60,7 @@ class Coursetype
     private $highlight;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Asset",fetch="EAGER")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Asset",fetch="EAGER", cascade={"remove"})
      * @ORM\JoinColumn(name="image", referencedColumnName="id")
      */
     private $image;
@@ -73,7 +73,7 @@ class Coursetype
     /**
      * downloadable documents for this course
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Asset")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Asset", cascade={"remove"})
      * @ORM\JoinTable(name="coursetype_asset",
      *      joinColumns={@ORM\JoinColumn(name="coursetype_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=true)}
@@ -89,7 +89,7 @@ class Coursetype
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity="Course", mappedBy="coursetype")
+     * @ORM\OneToMany(targetEntity="Course", mappedBy="coursetype", cascade={"remove"})
      */
     private $courses;
 

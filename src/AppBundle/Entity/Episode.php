@@ -17,6 +17,11 @@ class Episode extends OktoEpisode {
     */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Oktolab\MediaBundle\Entity\Playlistitem", mappedBy="episode", cascade={"remove"})
+     */
+    private $playlistitems;
+
     public function __construct()
     {
         parent::__construct();
