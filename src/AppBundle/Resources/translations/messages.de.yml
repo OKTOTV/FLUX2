@@ -512,6 +512,7 @@ oktothek.series_producer_new_playlist:      <span class="glyphicon glyphicon-plu
 oktothek.newsletter_header:                 Newsletter
 oktothek.newsletter_mail_placeholder:       Email
 oktothek.newsletter_subscribe_submit:       Anmelden
+oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
 
 # participate
 oktothek.participate_5_steps:               Die fünf Schritte zur Sendung

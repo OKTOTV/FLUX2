@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-8 news-container">
             {% for post in posts %}
-            {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
+                {% include 'AppBundle:News:_newsRow.html.twig' with {'post': post, 'newsloop': loop.index } %}
             {% endfor %}
         </div>
         <aside class="col-md-4">

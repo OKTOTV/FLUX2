@@ -1,0 +1,24 @@
+<article class="row">
+    <figure class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    {% if post.assets is empty %} {# no assets#}
+    {% else %} {# one photo or video #}
+        {% if post.assets[0]|isImage %}
+            <a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">
+                <img src="{{ post.assets[0]|path() }}" class="img img-responsive" />
+            </a>
+        {% endif %}
+    {% endif %}
+    </figure>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <p>
+        {% for tag in post.tags %}
+            <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default"> {{ tag.text }}</span></a>
+        {% endfor %}
+    </p>
+    <header class="page-header">
+        <h3><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
+    </header>
+    {{ post.teaser|nl2br }}
+    </div>
+    {% include "AppBundle:News:_shareCollapse.html.twig" %}
+</article>

@@ -42,37 +42,11 @@
     {% endif %}
     </figure>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <p>{% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default">#{{ tag.text }}</span></a> {% endfor %}</p>
-    <header class="page-header">
-        <h3><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
-    </header>
-    {{ post.description|markdown() }}
+        <p>{% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default"> {{ tag.text }}</span></a> {% endfor %}</p>
+        <header class="page-header">
+            <h3><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
+        </header>
+        {{ post.description|markdown() }}
     </div>
-	<p class="misc">
-        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
-    </p>
-	<!-- Start Collapse Share-->
-	<div class="collapse collapseShare collapseWindow" id="collape-{{ newsloop|default('1') }}">
-        <div class="collapse-header">
-            <div class="triangle"></div>
-	    </div>
-        <div class="collapse-content">
-            <h3>Teilen</h3>
-			<div class="row">
-                <form class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><input type="text" value="{{ url('oktothek_show_news', {'slug': post.slug})}}" class="form-control"></form>
-			    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 share-buttons">
-					<ul class="socialnetworks">
-                        <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
-                        <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                        <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
-                        <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
-                        <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
-                        <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
-                    </ul>
-					<button type="button" class="btn btn-default" data-toggle="tab">Email</button>
-			   </div>
-		   </div>
-       </div>
-    </div>
-    <!-- End Collapse Share-->
+    {% include "AppBundle:News:_shareCollapse.html.twig" %}
 </article>
