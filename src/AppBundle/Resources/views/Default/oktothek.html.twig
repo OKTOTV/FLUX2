@@ -52,6 +52,8 @@
         <section class="newest-playlists container">
             <div id="anchor_playlists"></div>
             <h2>{{ 'oktothek.newest_playlists'|trans }}</h2>
+            {% if is_granted('ROLE_OKTOLAB_USER') %}
+            {% else %}
                 <p class="subheadline">{{ 'oktothek_default_login_teaser'|trans }}</p>
                 <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default login">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
             {% endif %}
