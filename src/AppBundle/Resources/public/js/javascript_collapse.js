@@ -34,11 +34,11 @@ $(document).ready(function(){
     
  // Show more Entries
 if ($('body').hasClass('oktothek')) {
-    $('a.more').click(function(e){
+    $('a.more[data-toggle="collapse"]').click(function(e){
         e.preventDefault();
         $('.collapse').on('show.bs.collapse', function () {
-         $(this).parent().find('a.more').css('display','none');
-         $(this).parent().find('a.less').css('display','inline');
+            $(this).parent().find('a.more').css('display','none');
+            $(this).parent().find('a.less').css('display','inline');
         });
     });
     $('.row.collapse').on('hide.bs.collapse', function () {

@@ -28,7 +28,8 @@ oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Brandneu in der Oktothek
 oktothek.newest_videos_sub:             Hier kannst du dir die aktuellesten Videos unserer OktonautInnen ansehen.
-oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class="icon">+</span>
+oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class='icon'>+</span>
+oktothek.newest_videos_show_less:       Weniger Videos anzeigen <span class='icon'>-</span>
 oktothek.best_videos:                   Beliebteste Clips
 oktothek.best_videos_sub:               Die meistgefragten Videos der Okto Community findest du hier.
 
@@ -144,7 +145,7 @@ oktothek.episode_show_playlist_login_register: Du kannst Playlisten nur mit eine
 oktothek.episode_show_playlist_login_register_link: Account
 oktothek.episode_show_playlist_no_playlists: Noch keine Playlisten angelegt
 oktothek.episode_show_update_playlists: Änderungen übernehmen
-oktothek.episode_comment_header:        '{0} Noch keine Kommentare vorhanden |{1} Ein Kommentar |]1,Inf[ <span class="comments-counter">%count%</span> Kommentare'
+oktothek.episode_comment_header:        '{0} Gib als Erster ein Kommentar ab |{1} Ein Kommentar |]1,Inf[ <span class="comments-counter">%count%</span> Kommentare'
 oktothek.more_from_this_series:         Mehr aus dieser Sendereihe
 oktothek.episode_tag_header:            Tags
 oktothek_share_email:                   Email
@@ -348,17 +349,23 @@ oktothek.success_delete_coursetype:      Kurstyp erfolgreich gelöscht
 
 markdown_markup_head:                   <kbd>*Ich*</kbd>,<kbd>**bin**</kbd>,<kbd>***anders***</kbd>
 markdown_linebreak_head:                <kbd>Leertaste x2</kbd>
+markdown_paragraph_head:                <kbd>Enter x2</kbd>
 markdown_list_head:                     <kbd>* Ungeordnete Liste</kbd>
 markdown_ordered_list_head:             <kbd>1. Numerierte Liste</kbd>
 markdown_headline_head:                 <kbd># Überschriften</kbd>
 markdown_blockquote_head:               <kbd>> Blockquote</kbd>
 markdown_hyperlink_head:                <kbd>[]() Hyperlinks</kbd>
+markdown_hyperlink_blank_head:          <a href="url" target="_blank">linktext</a>
 markdown_images_head:                   <kbd>![]() Images</kbd>
 markdown_markup_info: |
     *Ich*, **bin**, ***anders***
 markdown_linebreak_info: |
     Benutze am Ende einer Zeile<kbd>Leertaste x2</kbd><br />
     Um einen Umbruch zu erzeugen
+markdown_paragraph_info: |
+    Drücke zwei mal Enter um einen neuen
+
+    Absatz zu erzeugen
 markdown_list_info: |
     * Mit Stern <kbd>*</kbd>
     * Kann man eine
@@ -371,6 +378,8 @@ markdown_headline_info: |
     Mit <kbd>#</kbd> lassen sich Überschriften erzeugen. Mehrere <kbd>###</kbd> erzeugen eine Überschrift kleinerer Ordnung (h3)
 markdown_blockquote_info: |
     > Mit <kbd>></kbd> Lassen sich prima quotes erzeugen
+markdown_hyperlink_blank_info:
+    Du brauchst mehr Kontrolle über Links? Machs mit HTML!
 markdown_hyperlink_info: |
     <kbd>[</kbd>Ich bin ein Linktext<kbd>](</kbd>www.ich-bin-die-url.at <kbd>"</kbd>Mousehover<kbd>")</kbd>
 markdown_images_info: |
@@ -463,6 +472,16 @@ oktothek_backend_slide_from_news:           Slide generieren
 oktothek_default_login_teaser:              Melde Dich an um eine neue Playlist zu erstellen und werde Teil der Okto Community!
 oktothek_default_login_teaser_link:         ANMELDEN
 oktothek_default_newest_playlists_text:     Hier ist der heiße Scheiß!
+
+oktothek_share_header:                      Teilen
+oktothek_share_email:                       Email
+oktothek_share_fb:                          Facebook
+oktothek_share_tw:                          Twitter
+oktothek_share_gp:                          Google Plus
+oktothek_share_inst:                        Instagram
+oktothek_share_pint:                        Pinterest
+oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420 x 315px eingebettet."
+oktothek_share_embed:                       Einbetten
 
 # oktothek episode thumb
 oktothek_episode_thumb_default_title:       Episode vom %date%

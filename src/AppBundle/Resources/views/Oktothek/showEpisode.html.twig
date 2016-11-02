@@ -62,10 +62,10 @@
                     <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen">Teilen</button>
                 </p>
                 <!-- Start Collapse Share-->
-                    {% include 'AppBundle:Oktothek:snippetEpisodeShare.html.twig' with {'episode': episode} %}
+                {% include 'AppBundle:Oktothek:snippetEpisodeShare.html.twig' with {'episode': episode} %}
                 <!-- End Modal Window Share-->
                 <!-- Start Modal Window Playlist-->
-                    {% include 'AppBundle:Oktothek:snippetPlaylist.html.twig' %}
+                {% include 'AppBundle:Oktothek:snippetPlaylist.html.twig' %}
                 <!-- End Modal Window Playlist-->
             </article>
         </section>

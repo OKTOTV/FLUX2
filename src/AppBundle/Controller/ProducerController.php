@@ -57,7 +57,7 @@ class ProducerController extends Controller
         $this->denyAccessUnlessGranted('edit_channel', $series);
         $post = new Post();
         $post->setIsActive(true);
-        $form = $this->createForm(new PostType(), $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
+        $form = $this->createForm(PostType::class, $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
         $form->add('submit', SubmitType::class, ['label' => 'oktothek.post_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
@@ -87,7 +87,7 @@ class ProducerController extends Controller
     public function editBlogAction(Request $request, Series $series, Post $post)
     {
         $this->denyAccessUnlessGranted('edit_channel', $series);
-        $form = $this->createForm(new PostType(), $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
+        $form = $this->createForm(PostType::class, $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
         $form->add('delete', SubmitType::class, ['label' => 'oktothek.post_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
         $form->add('submit', SubmitType::class, ['label' => 'oktothek.post_update_button', 'attr' => ['class' => 'btn btn-primary']]);
 

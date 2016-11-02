@@ -12,7 +12,7 @@
         <div class="bg-bleur"></div>
         <header>
             <h1>{{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
-            {% include "AppBundle::Tag/shareTag.html.twig" with {'tag': tag} %}
+            {% include "AppBundle:Default:_share.html.twig" with {'show_button': true, 'site_media': tag.episodes[0].posterframe(true)|thumb(720,1280) } %}
         </header>
         <div class="container content-bg">
             {% if tag.episodes is not empty %}
