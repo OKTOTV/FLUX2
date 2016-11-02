@@ -59,6 +59,7 @@
         {% endfor %}
         </ul>
     </section>
+    {{ coursetype.description|markdown }}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

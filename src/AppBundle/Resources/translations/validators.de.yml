@@ -3,7 +3,7 @@ oktothek.backend_coursetype_price_cheaper_than_reduced: Vollpreis ist günstiger
 oktothek.backend_coursetype_title_notblank:             Du musst einen Titel angeben
 oktothek.backend_coursetype_title_maxLength:            Der Titel muss kürzer sein
 oktothek.backend_coursetype_description_notblank:       Du musst eine Beschreibung angeben
-oktothek.backend_coursetype_description_maxLength:      Die Beschreibung ist zu lang
+oktothek.backend_coursetype_teaser_maxLength:           Der Teasertext ist zu lang
 oktothek.backend_coursetype_price_notblank:             Du musst einen Preis angeben. Für gratis Kurse gib 0 an
 oktothek.backend_coursetype_price_greaterthan:          Der Preis darf mindestens 0 betragen
 oktothek.backend_coursetype_price_reduced_notblank:     Der reduzierte Preis darf nicht leer sein

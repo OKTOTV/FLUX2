@@ -32,9 +32,15 @@ class Coursetype
     private $title;
 
     /**
-     * @Assert\Length(max=400, maxMessage="oktothek.backend_coursetype_description_maxLength")
+     * @var string
+     * @Assert\Length(max=230, maxMessage="oktothek.backend_coursetype_teaser_maxLength")
+     * @ORM\Column(name="teaser", type="string", length=230)
+     */
+    private $teaser;
+
+    /**
      * @Assert\NotBlank(message="oktothek.backend_coursetype_description_notblank")
-     * @ORM\Column(name="description", type="string", length=400)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
@@ -442,5 +448,28 @@ class Coursetype
     public function getCoursepackages()
     {
         return $this->coursepackages;
+    }
+
+    /**
+     * Set teaser
+     *
+     * @param string $teaser
+     * @return Post
+     */
+    public function setTeaser($teaser)
+    {
+        $this->teaser = $teaser;
+
+        return $this;
+    }
+
+    /**
+     * Get teaser
+     *
+     * @return string
+     */
+    public function getTeaser()
+    {
+        return $this->teaser;
     }
 }
