@@ -28,8 +28,8 @@ oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Brandneu in der Oktothek
 oktothek.newest_videos_sub:             Hier kannst du dir die aktuellesten Videos unserer OktonautInnen ansehen.
-oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class="icon">+</span>
-oktothek.newest_videos_show_less:       Weniger Videos anzeigen <span class="icon">-</span>
+oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class='icon'>+</span>
+oktothek.newest_videos_show_less:       Weniger Videos anzeigen <span class='icon'>-</span>
 oktothek.best_videos:                   Beliebteste Clips
 oktothek.best_videos_sub:               Die meistgefragten Videos der Okto Community findest du hier.
 
@@ -349,17 +349,23 @@ oktothek.success_delete_coursetype:      Kurstyp erfolgreich gelöscht
 
 markdown_markup_head:                   <kbd>*Ich*</kbd>,<kbd>**bin**</kbd>,<kbd>***anders***</kbd>
 markdown_linebreak_head:                <kbd>Leertaste x2</kbd>
+markdown_paragraph_head:                <kbd>Enter x2</kbd>
 markdown_list_head:                     <kbd>* Ungeordnete Liste</kbd>
 markdown_ordered_list_head:             <kbd>1. Numerierte Liste</kbd>
 markdown_headline_head:                 <kbd># Überschriften</kbd>
 markdown_blockquote_head:               <kbd>> Blockquote</kbd>
 markdown_hyperlink_head:                <kbd>[]() Hyperlinks</kbd>
+markdown_hyperlink_blank_head:          <a href="url" target="_blank">linktext</a>
 markdown_images_head:                   <kbd>![]() Images</kbd>
 markdown_markup_info: |
     *Ich*, **bin**, ***anders***
 markdown_linebreak_info: |
     Benutze am Ende einer Zeile<kbd>Leertaste x2</kbd><br />
     Um einen Umbruch zu erzeugen
+markdown_paragraph_info: |
+    Drücke zwei mal Enter um einen neuen
+
+    Absatz zu erzeugen
 markdown_list_info: |
     * Mit Stern <kbd>*</kbd>
     * Kann man eine
@@ -372,6 +378,8 @@ markdown_headline_info: |
     Mit <kbd>#</kbd> lassen sich Überschriften erzeugen. Mehrere <kbd>###</kbd> erzeugen eine Überschrift kleinerer Ordnung (h3)
 markdown_blockquote_info: |
     > Mit <kbd>></kbd> Lassen sich prima quotes erzeugen
+markdown_hyperlink_blank_info:
+    Du brauchst mehr Kontrolle über Links? Machs mit HTML!
 markdown_hyperlink_info: |
     <kbd>[</kbd>Ich bin ein Linktext<kbd>](</kbd>www.ich-bin-die-url.at <kbd>"</kbd>Mousehover<kbd>")</kbd>
 markdown_images_info: |
