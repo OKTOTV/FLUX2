@@ -99,6 +99,11 @@ class Series extends OktoSeries
         $this->posts = $posts;
     }
 
+    public function setUsers($users)
+    {
+        $this->users = $users;
+    }
+
     /**
      * Add users
      *
