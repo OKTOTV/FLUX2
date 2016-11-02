@@ -47,6 +47,9 @@
             <h3><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
         </header>
         {{ post.description|markdown() }}
+        <p class="misc">
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+        </p>
     </div>
     {% include "AppBundle:News:_shareCollapse.html.twig" %}
 </article>

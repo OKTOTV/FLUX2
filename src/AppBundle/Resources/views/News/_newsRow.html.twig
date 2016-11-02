@@ -10,15 +10,20 @@
     {% endif %}
     </figure>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <p>
-        {% for tag in post.tags %}
-            <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default"> {{ tag.text }}</span></a>
-        {% endfor %}
-    </p>
-    <header class="page-header">
-        <h3><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
-    </header>
-    {{ post.teaser|nl2br }}
+        <p>
+            {% for tag in post.tags %}
+                <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default"> {{ tag.text }}</span></a>
+            {% endfor %}
+        </p>
+        <header class="page-header">
+            <h3><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
+        </header>
+        <p>
+            {{ post.teaser|nl2br }}
+        </p>
+        <p class="misc">
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+        </p>
     </div>
     {% include "AppBundle:News:_shareCollapse.html.twig" %}
 </article>
