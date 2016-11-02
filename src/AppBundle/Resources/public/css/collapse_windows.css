@@ -76,7 +76,7 @@
 .collapseShare div, .collapseShare a, .collapseShare .helptext {
     vertical-align:middle;
 }
-.series .collapseWindow .collapse-header .triangle, .academy .collapseWindow .collapse-header .triangle {
+.series .collapseWindow .collapse-header .triangle, .academy .collapseWindow .collapse-header .triangle, .newsarchiv .collapseWindow .collapse-header .triangle, .news .collapseWindow .collapse-header .triangle {
     position:relative;
     left:50%;
     margin-left:-7.5px;
@@ -122,6 +122,9 @@
 	width:54px;
 	height:30px;
 	left:0;
+}
+.news .collapse-header {
+    padding-top:20px;
 }
 @media (min-width: 580px) {
 	.academy section .collapse {
