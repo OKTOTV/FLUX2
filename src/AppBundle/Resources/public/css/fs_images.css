@@ -70,7 +70,11 @@ section.fs-image-content, section.fs-image-content {
 section.fs-image-content, .carousel-caption, .fs-image-ident .description-wrapper {
 	padding-bottom:0;
 }
-section.bg-fullscreen h2 {
+
+section.fs-image-content + section header.page-header  {
+	margin-top:0;
+}
+section.bg-fullscreen h2, section.fs-image-content + section header.page-header  {
 	padding-top:20px;
 }
 .carousel-caption, .fs-image-ident .description-wrapper {

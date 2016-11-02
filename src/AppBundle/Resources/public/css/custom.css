@@ -300,7 +300,7 @@ select:focus:active {
         font-size:16px;
     }
 	.carousel-caption h3, 
-    .series h1, 
+    .fs-image-content h1, 
     .playlists h1 {
 		font-size:45px;
 		letter-spacing: 1px;
