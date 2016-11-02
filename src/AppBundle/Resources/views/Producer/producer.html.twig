@@ -4,9 +4,11 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
 {% endblock %}
 
+{% set body_class = "producer" %}
 {% block body_main %}
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_info', 'series': series} %}
+<section>
 <p>{{ 'oktothek.series_producer_text'|trans }}</p>
 
 <div class="row">
@@ -49,5 +51,5 @@
         </ul>
     </div>
 </div>
-
+</section>
 {% endblock %}

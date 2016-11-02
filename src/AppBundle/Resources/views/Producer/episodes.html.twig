@@ -3,10 +3,11 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
 {% endblock %}
-
+{% set body_class = "producer" %}
 {% block body_main %}
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_episodes', 'series': series} %}
+<section>
 <p>{{ 'oktothek.series_producer_episode_text'|trans }}</p>
 
 
@@ -31,5 +32,5 @@
 <div class="navigation">
     {{ knp_pagination_render(episodes) }}
 </div>
-
+</section>
 {% endblock %}

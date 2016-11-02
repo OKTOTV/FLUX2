@@ -865,7 +865,12 @@ button.list-group-item-danger,
 .collapsePlaylist li button.btn-default,
 .collapsePlaylist li button.btn-default.active,
 .collapsePlaylist li button.btn-default:active,
-.news .post-content p {
+.news .post-content p,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
 	color:#ffffff;
 }
 .form-control, 
@@ -993,7 +998,13 @@ header .collapseShare a.btn,
 .container.tags ul, 
 .livestream .schedule .panel-default,
 .edit-playlists .tt-menu,
-.newsarchiv aside .box { /* Dunkelgrau */
+.newsarchiv aside .box,
+body.producer section,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover { /* Dunkelgrau */
 	background-color:#112022;
 }
 /* Spacelayout */
@@ -1095,7 +1106,14 @@ header.page-header,
 .timetable .btn, 
 .list-group-item, 
 #favorite.btn-default,
-.livestream #nav-programm a.btn {
+.livestream #nav-programm a.btn,
+.nav-tabs,
+.nav-tabs > li > a,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:focus, 
+.nav-tabs > li.active > a:hover {
 	border:none;
 }
 .triangle {
@@ -2488,6 +2506,14 @@ figure.pin img {
 }
 .preview p.misc {
 	margin-top: 20px;
+}
+
+/* Produzenten */
+body.producer .nav-tabs {
+    margin-top:40px;
+}
+body.producer section {
+    padding:15px;
 }
 
 

@@ -3,10 +3,11 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
-
+{% set body_class = "producer" %}
 {% block body_main %}
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_blog', 'series': series} %}
+<section>
 <p>{{ 'oktothek.series_producer_blog_text'|trans }}</p>
 
 {{ form_start(form)}}
@@ -23,7 +24,7 @@
    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.assets, 'adapter': 'gallery', 'type': 'multiple'} %}
    {% include "AppBundle::Tag/widget.html.twig" with {'widget': form.tags} %}
 {{ form_end(form)}}
-
+</section>
 {% endblock %}
 
 {% block javascripts %}
