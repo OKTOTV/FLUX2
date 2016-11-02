@@ -5,48 +5,42 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "tagpage head-white-color head-transparent-bg fullscreen-background" %}
+{% set body_class = "clip_overview" %}
 {% block body %}
 <div id="top"></div>
 <div class="container-fluid">
     <div class="bg-bleur"></div>
     <header class="container">
         <h1>{{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
-        <p class="misc">
-            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShare" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
-        </p>
-            <!-- Start Collapse Share-->
-            <div class="collapse" id="collapseShare">
-                <div>
-                    <h3>Teilen</h3>
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="div_share_sn">
-                            <div>
-                            <ul class="socialnetworks">
-                                <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
-                                <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                                <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
-                                <li><a href="#" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
-                                <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
-                                <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-toggle="tab" id="share_email">Email</button>
-                        </div>
-                        <form><input type="text" value="" class="form-control" id="sharingurl"></form>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Collapse Share-->
+        {% include "AppBundle:Default:_share.html.twig" with {'show_button': true} %}
     </header>
 </div>
-<div class="navigation">
-    {{ knp_pagination_render(episodes) }}
+<section class="container">
+<div class="row">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            {{ 'oktothek.user_favorites_filter'|trans|raw }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="filter_menu">
+            <li {% if episodes.isSorted('e.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_name'|trans, 'e.name') }}</li>
+            <li {% if episodes.isSorted('e.firstranAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_firstranAt'|trans, 'e.firstranAt') }}</li>
+        </ul>
+    </div>
 </div>
-
-{% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': episodes }%}
-
-<div class="navigation">
-    {{ knp_pagination_render(episodes) }}
+<div class="row">
+    <div class="navigation">
+        {{ knp_pagination_render(episodes) }}
+    </div>
 </div>
+<div class="row">
+{% for episode in episodes %}
+    {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+{% endfor %}
+</div>
+<div class="row">
+    <div class="navigation">
+        {{ knp_pagination_render(episodes) }}
+    </div>
+</div>
+</section>
 {% endblock %}

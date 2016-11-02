@@ -1,8 +1,8 @@
 {# used in Tag view #}
 <article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin" title="{{ episode.description }}">
-    <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">
+    <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">
     <figure class="episode-pin pin">
-        <img src="{{ episode.posterframe(true)|path() }}" class="img-responsive"/>
+        <img src="{{ episode.posterframe(true)|thumb(158,282) }}" class="img-responsive"/>
         <figcaption>
             <h3>{{ episode.series.name }}</h3>
             <p>{{ episode.name }}</p>
