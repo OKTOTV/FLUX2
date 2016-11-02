@@ -37,13 +37,15 @@ if ($('body').hasClass('oktothek')) {
     $('a.more[data-toggle="collapse"]').click(function(e){
         e.preventDefault();
         $('.collapse').on('show.bs.collapse', function () {
-            $(this).parent().find('a.more').css('display','none');
-            $(this).parent().find('a.less').css('display','inline');
+            var newText = $(this).parent().find('a.more').attr('data-lesstrans');
+            $(this).parent().find('a.more').empty();
+            $(this).parent().find('a.more').append(newText);
         });
     });
     $('.row.collapse').on('hide.bs.collapse', function () {
-        $(this).parent().find('a.less').css('display','none');
-        $(this).parent().find('a.more').css('display','inline');
+            var newText = $(this).parent().find('a.more').attr('data-moretrans');
+            $(this).parent().find('a.more').empty();
+            $(this).parent().find('a.more').append(newText);
     })
  }
 
