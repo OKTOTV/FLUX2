@@ -2531,6 +2531,12 @@ figure.pin img {
 	article.pin {
 		width:25%;
 	}
+    article.pin:nth-child(2n+1) {
+	    clear:none;
+    }
+    body.tagpage article.pin:nth-child(2n+1) {
+	    clear:left;
+    }
 	.tagpage article.pin {
 		width:50%;
 	}
