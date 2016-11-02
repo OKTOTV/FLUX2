@@ -262,6 +262,7 @@ oktothek_academy_coursepackage_select_choice: "{1} Jänner|{2} Februar|{3} März
 
 # Coursetype
 oktothek.backend_coursetype_title_label: Titel
+oktothek.backend_coursetype_teaser_label: Teasertext
 oktothek.backend_coursetype_description_label: Beschreibung
 oktothek.backend_coursetype_price_label:    Vollpreis
 oktothek.backend_coursetype_priceReduced_label: Ermäßigter Preis
@@ -276,6 +277,7 @@ oktothek_backend_courstype_isActive_choice: "{0} Nein|{1} Ja"
 # Course
 oktothek.error_create_course:           Der Kurs konnte nicht angelegt werden
 oktothek.success_create_course:         Kurs erfolgreich angelegt
+oktothek.success_delete_course:         Kurs erfolgreich gelöscht
 oktothek.backend_course_trainer_label:  Trainer
 oktothek.backend_course_coursetype_label: Kurstyp
 oktothek.backend_course_trainer_maxAttendees_label: Teilnehmeranzahl

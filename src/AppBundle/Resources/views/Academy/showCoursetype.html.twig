@@ -40,6 +40,9 @@
         <header class="page-header">
             <h1 id="button_down">Details zu {{ coursetype.title }} <span class="glyphicon glyphicon-chevron-down"> </span></h1>
         </header>
+        <section>
+        <p class="description">{{ coursetype.description }}</p>
+        </section>
         <h2>Termine</h2>
         <ul class="timetable">
         {% for course in coursetype.courses if course.isActive %}
@@ -56,6 +59,7 @@
         {% endfor %}
         </ul>
     </section>
+    {{ coursetype.description|markdown }}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

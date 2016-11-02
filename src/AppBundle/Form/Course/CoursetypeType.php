@@ -22,7 +22,8 @@ class CoursetypeType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['label' => 'oktothek.backend_coursetype_title_label'])
-            ->add('description', TextareaType::class, ['label' => 'oktothek.backend_coursetype_description_label'])
+            ->add('teaser', TextareaType::class, ['label' => 'oktothek.backend_coursetype_teaser_label', 'attr' => ['class' => 'character230']])
+            ->add('description', TextareaType::class, ['label' => 'oktothek.backend_coursetype_description_label', 'attr' => ['rows' => 32]])
             ->add('price', MoneyType::class, ['label' => 'oktothek.backend_coursetype_price_label'])
             ->add('price_reduced', MoneyType::class, ['label' => 'oktothek.backend_coursetype_priceReduced_label'])
             ->add('highlight',CheckboxType::class, ['label' => 'oktothek.backend_coursetype_highlight_label'])

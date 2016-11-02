@@ -10,7 +10,15 @@
 {{ form_start(form) }}
     {{ form_errors(form)}}
     {{ form_row(form.title) }}
-    {{ form_row(form.description) }}
+    {{ form_row(form.teaser) }}
+    <div class="row">
+        <div class="col-md-8">
+            {{ form_row(form.description) }}
+        </div>
+        <div class="col-md-4">
+            {% include "AppBundle::Default/markdown_helper.html.twig" %}
+        </div>
+    </div>
     {{ form_row(form.price)}}
     {{ form_row(form.price_reduced)}}
     {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.image, 'adapter': 'posterframe', 'type': 'single', 'asset': coursetype.image} %}
@@ -22,6 +30,14 @@
 {{ parent() }}
 {% include "BprsAssetBundle::singleUpload.js.twig" %}
 <script src="{{ asset('bundles/bprsstyle/js/charactercounter.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".character230").characterCounter({
+            counterCssClass: 'help-block',
+            limit: 230
+        });
+    });
+</script>
 {% endblock %}
 
 {% block stylesheets %}

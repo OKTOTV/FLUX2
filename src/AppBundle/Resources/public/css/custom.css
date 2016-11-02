@@ -2126,6 +2126,9 @@ article.pin {
     padding:12px 12px;
     line-height:12px;
 }
+body.clip_overview button#filter_menu span.glyphicon-sort-by-alphabet {
+    display:none;
+}
 .episode article, .more-clips article, .playlists .description-container article {
 	margin-top:40px;
 }
