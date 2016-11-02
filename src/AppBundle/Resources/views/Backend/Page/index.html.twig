@@ -20,6 +20,7 @@
   <li role="presentation"><a href="{{ path('oktothek_backend_news_index')}}">{{ 'oktothek.backend_news_header'|trans }}</a></li>
   <li role="presentation" class="active"><a href="{{ path('oktothek_backend_page_index') }}">{{ 'oktothek.backend_page_header'|trans }}</a></li>
 </ul>
+<section class="tabs-content">
 <div class="navigation">
     {{ knp_pagination_render(pages) }}
 </div>
@@ -28,5 +29,5 @@
         <a href="{{ path('oktothek_page_edit', {'page': page.id})}}" class="list-group-item">{{ page.title }}</a>
     {% endfor %}
 </div>
-
+</section>
 {% endblock %}

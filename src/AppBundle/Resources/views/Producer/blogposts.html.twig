@@ -7,14 +7,14 @@
 {% block body_main %}
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_blog', 'series': series} %}
-<section>
-<p>{{ 'oktothek.series_producer_blog_text'|trans }}</p>
+<section class="tabs-content newsarchiv">
+<p class="subheadline">{{ 'oktothek.series_producer_blog_text'|trans }}</p>
 
 
 <div class="navigation">
     {{ knp_pagination_render(posts) }}
 </div>
-<div class="list-group">
+<div class="list-group news-container">
     {% for post in posts %}
         {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
     {% endfor %}

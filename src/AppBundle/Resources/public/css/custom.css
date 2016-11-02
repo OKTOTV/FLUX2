@@ -58,6 +58,8 @@ h2,
 	font-weight: normal;
 	font-style: normal;
 }
+bold,
+strong,
 header .navbar .nav > li > a, 
 header .navbar .nav.navbar-right > li > a, 
 #dropdownMenuTags, 
@@ -192,7 +194,8 @@ header .nav,
 a.more, 
 a.less, 
 #playlist_items a p,
-.newsarchiv .misc a {
+.newsarchiv .misc a,
+body.producer ul.list-group .pin a p {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -870,7 +873,12 @@ button.list-group-item-danger,
 .nav-tabs > li > a:hover,
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:focus,
-.nav-tabs > li.active > a:hover {
+.nav-tabs > li.active > a:hover,
+body.producer li.list-group-item strong,
+body.producer li.list-group-item.description,
+body.producer ul.list-group .pin a h3,
+.tabs-content .pagination > li > a, 
+.tabs-content .pagination > li > span {
 	color:#ffffff;
 }
 .form-control, 
@@ -882,7 +890,11 @@ button.list-group-item-danger,
 .bootstrap-datetimepicker-widget, 
 header .collapseShare .form-control,
 header .collapseShare a.btn,
-.oktothek .more figure.episode-pin a {
+.oktothek .more figure.episode-pin a,
+.tabs-content .pagination > li.active > a, 
+.tabs-content .pagination > li.active > span,
+.tabs-content .pagination > li > a:hover,
+.tabs-content .pagination > li > a:focus {
 	color:#000000;
 }
 /* Türkis */
@@ -903,7 +915,10 @@ header .collapseShare a.btn,
 #playlist_items .color4 a p,
 #playlist_items .color5 a p,
 .container.tags a,
-.livestream .schedule a h4 { /* Hellgrau */
+.livestream .schedule a h4,
+body.producer li.list-group-item,
+body.producer ul.list-group .pin a p,
+.pagination li.disabled span { /* Hellgrau */
 	color:#dcdcdc;
 }
 .news a.tag, 
@@ -930,7 +945,7 @@ a.list-group-item,
 button.list-group-item,
 .color1 a, 
 .active .color1.pin figcaption a h3, 
-.color1.pin figcaption a p, 
+.active .color1.pin figcaption a p, 
 .btn, 
 .pin-icon .choosen, 
 .episode .series a, 
@@ -963,7 +978,16 @@ body,
 .bg-opacity, 
 select, 
 .oktothek article a.btn-default:hover, 
-.tagpage .content-bg, .preloader {
+.tagpage .content-bg, 
+.preloader,
+.tabs-content .pagination > .disabled > a, 
+.tabs-content .pagination > .disabled > a:focus, 
+.tabs-content .pagination > .disabled > a:hover, 
+.tabs-content .pagination > .disabled > span, 
+.tabs-content .pagination > .disabled > span:focus, 
+.tabs-content .pagination > .disabled > span:hover,
+.tabs-content .pagination > li > a, 
+.tabs-content .pagination > li > span {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
@@ -982,7 +1006,11 @@ button.list-group-item-danger:hover,
 .list-group-item.movedown,
 header .collapseShare a.btn,
 .edit-playlists .form-group.search .icon-search,
-.bootstrap-datetimepicker-widget.dropdown-menu {
+.bootstrap-datetimepicker-widget.dropdown-menu,
+.tabs-content .pagination > li.active > a, 
+.tabs-content .pagination > li.active > span,
+.tabs-content .pagination > li > a:hover,
+.tabs-content .pagination > li > a:focus  {
 	background-color:#ffffff;
 }
 .oktothek .news article, 
@@ -999,12 +1027,12 @@ header .collapseShare a.btn,
 .livestream .schedule .panel-default,
 .edit-playlists .tt-menu,
 .newsarchiv aside .box,
-body.producer section,
 .nav-tabs > li > a:focus,
 .nav-tabs > li > a:hover,
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:focus,
-.nav-tabs > li.active > a:hover { /* Dunkelgrau */
+.nav-tabs > li.active > a:hover,
+section.tabs-content { /* Dunkelgrau */
 	background-color:#112022;
 }
 /* Spacelayout */
@@ -1046,7 +1074,9 @@ button.list-group-item-danger,
 .collapsePlaylist li button.btn-default.active,
 .collapsePlaylist li button.btn-default:active,
 .collapsePlaylist li button.btn-default:hover,
-.collapsePlaylist li button.btn-default:focus {
+.collapsePlaylist li button.btn-default:focus,
+.producer a.list-group-item:focus,
+.producer a.list-group-item:hover {
 	background-color:transparent;
 }
 
@@ -1093,6 +1123,23 @@ button.list-group-item-danger,
 .oktothek .more figure.episode-pin a { /* Gelb */
 	border: solid 2px #fcce14;
 }
+.tabs-content .pagination > li > a, 
+.tabs-content .pagination > li > a:hover,
+.tabs-content .pagination > li > a:focus,  
+.tabs-content .pagination > li > span,
+.tabs-content .pagination > li.active > a, 
+.tabs-content .pagination > li.active > span,
+.tabs-content .pagination > li.active > a:hover, 
+.tabs-content .pagination > li.active > a:focus,
+.tabs-content .pagination > li.disabled > a,
+.tabs-content .pagination > li.disabled > a:hover,
+.tabs-content .pagination > li.disabled > a:focus, 
+.tabs-content .pagination > li.disabled > span { /* Dunkelgrau */
+    border-top: none;
+    border-right: solid 2px #112022;
+    border-bottom: none;
+    border-left: solid 2px #112022;
+}
 /* Türkis */
 /*.pull-right .icon { 
 border: solid 2px #13fffd;
@@ -1135,7 +1182,8 @@ header .btn,
 .list-group-item:last-child, 
 .list-group-item:first-child,
 .btn-default.dropdown-toggle,
-.collapsePlaylist li button {
+.collapsePlaylist li button,
+.pagination {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -1183,7 +1231,7 @@ hr {
 	background-position:left center;
 	background-image:url(../images/hr_bg.png);
 }
-section, .participart article, .edit-playlists form fieldset, .newsarchiv article  {
+section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border.png);
@@ -1485,10 +1533,10 @@ footer .networks {
 html, body {
 	height:100%;
 }
-.series .infos ul, .footer ul, .footer li, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul {
+.series .infos ul, .footer ul, .footer li, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul, body.producer ul.list-group  {
 	list-style:none;
 }
-.series .infos ul, .tags ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul {
+.series .infos ul, .tags ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul, body.producer ul.list-group {
 	margin-left:0;
 	padding-left:0;
 }
@@ -2144,7 +2192,7 @@ article.pin {
     padding:12px 12px;
     line-height:12px;
 }
-body.clip_overview button#filter_menu span.glyphicon-sort-by-alphabet {
+button.dropdown-toggle .glyphicon-sort-by-alphabet {
     display:none;
 }
 .episode article, .more-clips article, .playlists .description-container article {
@@ -2512,8 +2560,34 @@ figure.pin img {
 body.producer .nav-tabs {
     margin-top:40px;
 }
-body.producer section {
+section.tabs-content {
     padding:15px;
+}
+body.producer .subheadline {
+    margin:40px 0;
+}
+body.producer aside ul.list-group {
+    margin-top:20px;
+}
+body.producer aside .description {
+    padding-bottom:20px;
+}
+body.producer aside .description + li {
+    padding-top:20px;
+}
+body.producer aside li {
+    padding-top:0px;
+    padding-bottom:4px;
+}
+body.producer aside ul.socialnetworks li, body.producer aside ul.socialnetworks li a {
+    display:block;
+}
+body.producer aside ul.socialnetworks li a {
+    float:left;
+}
+body.producer aside ul.socialnetworks li div {
+    margin-left:50px;
+    padding-top:10px;
 }
 
 

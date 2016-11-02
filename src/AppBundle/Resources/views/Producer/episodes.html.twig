@@ -7,28 +7,28 @@
 {% block body_main %}
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_episodes', 'series': series} %}
-<section>
-<p>{{ 'oktothek.series_producer_episode_text'|trans }}</p>
+<section class="tabs-content">
+<p class="subheadline">{{ 'oktothek.series_producer_episode_text'|trans }}</p>
 
 
 <div class="navigation">
     {{ knp_pagination_render(episodes) }}
 </div>
-<div class="list-group">
+<ul class="list-group">
     {% for episode in episodes %}
-    <a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="list-group-item">
-        <div class="row">
-            <div class="col-md-3">
+    <li class="row pin">
+        <a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="list-group-item">
+            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 pin">
                 <img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" />
             </div>
-            <div class="col-md-9">
-                <h4 class="list-group-item-heading">{{ episode.name }}</h4>
+            <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+                <h3 class="list-group-item-heading">{{ episode.name }}</h3>
                 <p class="list-group-item-text">{{ episode.description }}</p>
             </div>
-        </div>
-    </a>
+        </a>
+    </li>
     {% endfor %}
-</div>
+</ul>
 <div class="navigation">
     {{ knp_pagination_render(episodes) }}
 </div>

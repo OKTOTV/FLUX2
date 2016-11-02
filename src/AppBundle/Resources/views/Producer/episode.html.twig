@@ -7,8 +7,8 @@
 {% block body_main %}
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_episodes', 'series': episode.series} %}
-<section>
-<p>{{ 'oktothek.series_producer_episode_text'|trans }}</p>
+<section class="tabs-content">
+<p class="subheadline">{{ 'oktothek.series_producer_episode_text'|trans }}</p>
 
 <div class="row">
     <div class="col-md-8">
