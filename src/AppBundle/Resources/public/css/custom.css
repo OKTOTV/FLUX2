@@ -1020,8 +1020,7 @@ header .collapseShare a.btn,
 .series .news-pin, 
 .series .news-form, 
 .series .blog aside .aside-inner, 
-.tagpage .inc-pins article.pin figure, 
-.tagpage .inc-pins article.pin.first, 
+.tagpage .inc-pins article.pin figure,
 #playlist_items .row,
 .container.tags ul, 
 .livestream .schedule .panel-default,
@@ -1032,7 +1031,9 @@ header .collapseShare a.btn,
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover,
-section.tabs-content { /* Dunkelgrau */
+section.tabs-content,
+.tagpage article.first-pin,
+.tagpage article.empty .icon-player { /* Dunkelgrau */
 	background-color:#112022;
 }
 /* Spacelayout */
@@ -1076,7 +1077,8 @@ button.list-group-item-danger,
 .collapsePlaylist li button.btn-default:hover,
 .collapsePlaylist li button.btn-default:focus,
 .producer a.list-group-item:focus,
-.producer a.list-group-item:hover {
+.producer a.list-group-item:hover,
+.tagpage .inc-pins article.pin.empty figure {
 	background-color:transparent;
 }
 
@@ -1100,8 +1102,8 @@ button.list-group-item-danger,
 .academy .timetable li p {
 	border-bottom:dotted 1px #5a6769;
 }
-.pin.empty figure {
-	border:dotted 1px #5a6769;
+.pin.empty figure .icon-player {
+	border: solid 1px #253a3d;
 }
 /* Spacelayout */
 .btn-primary, 
@@ -1205,7 +1207,8 @@ header .collapseShare .btn,
 	border-radius: 20px;
 }
 .participart .button_container .btn, 
-#StartPlaylist.btn {
+#StartPlaylist.btn,
+.tagpage .empty .icon-player {
 	-moz-border-radius:25px;
 	-khtml-border-radius:25px;
 	border-radius: 25px;
@@ -1672,13 +1675,16 @@ select#episode-tag::-ms-expand { /* for IE 11 */
 .newsletter form .input-group {
     display:table-cell;
 }
+body.academy section.newsletter form .input-group {
+    display:block;
+}
 .newsletter .input-group .form-control, body.newsarchiv .footer .newsletter .input-group .form-control {
     width:200px;
 }
 body.newsarchiv .newsletter .input-group {
     width:100%;
 }
-.newsletter .input-group, body.newsarchiv .footer .newsletter .input-group {
+.newsletter .input-group, body.newsarchiv .footer .newsletter .input-group, body.academy section.newsletter .input-group {
 	margin:0 auto;
     width:300px;
 }
@@ -1693,17 +1699,14 @@ body.newsarchiv .newsletter .input-group-addon {
     width:auto;
     padding:6px 10px;
 }
-body.academy .newsletter form {
+body.academy .newsletter fieldset {
     text-align:center;
 }
 body.academy .newsletter label {
 	display:block;
 }
-body.academy .newsletter .input-group, body.academy .newsletter .input-group-btn {
+body.academy .newsletter .input-group-btn {
 	width:auto;
-}
-body.academy .newsletter .form-control {
-	width:300px;
 }
 body.academy .newsletter .input-group {
 	margin:0 auto;
@@ -2392,11 +2395,32 @@ figure.pin img {
 	padding-top:40px;
 	clear:both;
 }
-.tagpage section.inc-pins {
-	padding-bottom:65px;
+.tagpage section.inc-pins > div {
+    display:table;
+    padding-bottom:65px;
+    position:relative;
 }
-.tagpage article.pin {
-	position:relative;
+.tagpage article.first-pin, .tagpage .row .small-pins {
+    display:table-cell;
+    vertical-align:top;
+    height:100%;
+}
+.tagpage article.empty .icon-player {
+    width:50px;
+    height:50px;
+    margin:0 auto;
+}
+.tagpage .row > .col-lg-6 {
+    float:none;
+}
+.tagpage .row .small-pins > div {
+    width:100%;
+}
+.tagpage figure.episode-pin {
+    position:relative;
+}
+.tagpage section.inc-pins .row {
+    display:table-row;
 }
 .tagpage .content-bg .row  {
 	padding-bottom:15px;
@@ -2436,7 +2460,7 @@ figure.pin img {
 	display:table-cell;
 	vertical-align:top;
 }
-.tagpage article.first {
+.tagpage article.first-pin {
 	margin-right:5px;
 	margin-left:5px;
 	padding-right:0px;
@@ -2468,9 +2492,9 @@ figure.pin img {
 	width:100%;
     min-height:180px;
 }
-.tagpage .pin.empty:nth-child(3), .tagpage .pin.empty:nth-child(4) {
+/*.tagpage .pin.empty:nth-child(3), .tagpage .pin.empty:nth-child(4) {
 	margin-top:10px;
-}
+}*/
 
     
     

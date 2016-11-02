@@ -3,12 +3,16 @@
 $(document).ready(function(){
 	//Sharing Tabs:
 
-	$('.series #ButtonShare').click(function() {
+	$('.series .fs-image-ident #ButtonShare').click(function() {
 		scrollToAnchor($('.episode-description'));
 	});
 	
 	$('.playlists #ButtonShare').click(function() {
 		scrollToAnchor($('.playlist_container'));
+	});
+    
+    $('.academy .fs-image-ident #ButtonShare').click(function() {
+		scrollToAnchor($('.academy-description'));
 	});
 	
 	$('.misc button[data-toggle="collapse"]').click(function() {
