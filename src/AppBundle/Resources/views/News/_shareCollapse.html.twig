@@ -19,7 +19,7 @@
                     <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
                     <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
                 </ul>
-                <button type="button" class="btn btn-default" data-toggle="tab">Email</button>
+                <a href="mailto:?to=&subject={{ post.name }}&body={{ url('oktothek_show_news', {'slug': post.slug}) }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
            </div>
        </div>
    </div>
