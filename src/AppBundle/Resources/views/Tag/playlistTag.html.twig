@@ -1,26 +1,26 @@
 <div class="row">
-{% for playlist in playlists|slice(0,5) %}
-  {% if loop.first %}
-    <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first" data-toggle="tooltip" title="{{ playlist.description }}">
-        <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="... ansehen">
-            <figure class="playlist-pin pin">
-                {% if playlist.items is not empty %}
-                <img src="{{ playlist.items[0].episode.posterframe|thumb(309,550) }}" class="img-responsive"/>
-                {% else %}
-                {# TODO: placeholder #}
-                {% endif %}
-                <figcaption>
-                    <h3>{{ playlist.name }}</h3>
-		        </figcaption>
-            </figure>
-        </a>
-    </article>
-	<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin">
-{% else %}
-{% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
-{% endif %}
-    {% if loop.last %}
+    {% for playlist in playlists|slice(0,5) %}
+        {% if loop.first %}
+            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first" data-toggle="tooltip" title="{{ playlist.description }}">
+                <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}">
+                    <figure class="playlist-pin pin">
+                        {% if playlist.items is not empty %}
+                            <img src="{{ playlist.items[0].episode.posterframe|thumb(309,550) }}" class="img-responsive"/>
+                        {% endif %}
+                        <figcaption>
+                            <h3>{{ playlist.name }}</h3>
+                        </figcaption>
+                    </figure>
+                </a>
+            </article>
+            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin">
+        {% else %}
+            {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
+        {% endif %}
+    {% endfor %}
+    {% set numberOfPlaylists = 5 - playlists|slice(0,5)|length %}
+    {% for i in 1..numberOfPlaylists %}
+        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"></article>
+    {% endfor %}
     </div>
-  {% endif %}
-{% endfor %}
 </div>
