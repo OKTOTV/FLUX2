@@ -19,7 +19,11 @@
                 <section class="inc-pins">
                     <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
                     {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': tag.episodes} %}
-                    <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                    {% if tag.episodes|length >= 5 %}
+                        <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more">
+                            {{ 'oktothek_tag_more_results'|trans|raw }}
+                        </a>
+                    {% endif %}
                 </section>
             {% endif %}
             {% if seriess is not empty %}
@@ -27,7 +31,11 @@
                     <div id="anchor_series"></div>
                     <h2>{{ 'oktothek_tag_series_header'|trans }}</h2>
                     {% include "AppBundle::Tag/seriesTag.html.twig" with {'seriess': seriess} %}
-                    <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                    {% if seriess|length >= 5 %}
+                        <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="pull-right more">
+                            {{ 'oktothek_tag_more_results'|trans|raw }}
+                        </a>
+                    {% endif %}
                 </section>
             {% endif %}
             {% if playlists is not empty %}
@@ -35,7 +43,11 @@
                     <div id="anchor_playlists"></div>
                     <h2>{{ 'oktothek_tag_playlists_header'|trans }}</h2>
                     {% include "AppBundle::Tag/playlistTag.html.twig" with {'playlists': playlists} %}
-                    <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                    {% if seriess|length >= 5 %}
+                        <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more">
+                            {{ 'oktothek_tag_more_results'|trans|raw }}
+                        </a>
+                    {% endif %}
                 </section>
             {% endif %}
             {% if tag.posts is not empty %}

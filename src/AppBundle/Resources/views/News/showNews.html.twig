@@ -8,7 +8,19 @@
 {% set body_class = "news" %}
 {% block body %}
     <div class="container">
-        {% include 'AppBundle::News/post.html.twig' %}
+        {% include 'AppBundle::News/newsDetails.html.twig' %}
+        {#% include 'AppBundle::News/post.html.twig' %#}
+        <section class="comments comment-pager">
         {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
+        </section>
 	</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/news.css') }}" rel="stylesheet" />
+	<link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
 {% endblock %}

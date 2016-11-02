@@ -4,7 +4,7 @@
 {% endif %}
 {% for post in posts %}
     <article>{% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}</article>
-    {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
+    <div class="comments comment-pager">{{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}</div>
 {% endfor %}
 {% if posts|length > 0%}
     </div>

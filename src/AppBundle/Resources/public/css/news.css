@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/* CSS Document */
+.news h3 {
+	margin-top:0;
+	margin-bottom:20px;
+}
+body.oktothek .news .col-md-3.pin, body.oktothek .news .col-lg-3.pin, body.oktothek .news .col-sm-6.pin, body.oktothek .news .col-xs-6.pin {
+	padding-left:15px;
+	padding-right:15px;
+}
+body.oktothek .news article.pin {
+	margin-bottom:2px;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+/* News */
+body.newsarchiv aside ul {
+	list-style:none;
+}
+body.newsarchiv aside ul {
+	margin-left:0;
+	padding-left:0;
+}
+body.newsarchiv aside .box h3:first-child {
+	padding-top:0;
+	margin-top:0;
+}
+body.newsarchiv article:nth-child(2n+0) figure {
+    float:right;
+}
+body.newsarchiv .page-header {
+	padding-bottom:0;
+    text-align:left;
+}
+body.newsarchiv .page-header.detail, body.news .page-header.archiv {
+    display:none;
+}
+body.newsarchiv .label {
+    display: inline;
+    padding: 0;
+    text-align: left;
+}
+body.newsarchiv aside {
+	margin-top:40px;
+}
+body.newsarchiv aside .box {
+	padding:40px 15px;
+}
+body.newsarchiv aside .box {
+    margin-bottom:2px;
+}
+.news .filter-news {
+    margin-bottom:40px;
+}
+body.newsarchiv img.img-responsive, body.news img.img-responsive {
+    width:100%;
+    height:auto;
+}
+body.newsarchiv .page-header, body.newsarchiv .page-header > h3 {
+    margin-top:0;
+}
+body.newsarchiv article {
+    padding: 40px 0;
+}
+body.newsarchiv .misc a {
+    margin-left:15px;
+}
+@media (min-width: 580px) {
+    .news article.pin {
+		width:100%;
+	}
+}
+@media (min-width: 992px) {
+    .news article.pin {
+		width:100%;
+	}
+}

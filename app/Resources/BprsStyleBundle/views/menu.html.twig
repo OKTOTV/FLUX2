@@ -22,7 +22,6 @@
                 <li {% if dropdown == "user_menu" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon icon-login"></span> <span class="link">{{ app.user.username }}</span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><div class="triangle"></div></li>
                         <li {% if selected == "playlists" %}class="active"{% endif %}>
                             <a href="{{ path('oktothek_user_playlists', {'username': app.user.username}) }}">{{ 'oktothek.menu_user_playlists'|trans|raw }}</a>
                         </li>

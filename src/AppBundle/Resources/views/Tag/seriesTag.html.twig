@@ -1,24 +1,24 @@
 <div class="row">
     {% for series in seriess %}
         {% if loop.first %}
-	        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first" title="{{ series.description }}">
+            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first" title="{{ series.description }}">
                 <figure class="series-pin pin">
-	                <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }} ansehen">
-	                    <img src="{{ series.posterframe|thumb(309,550) }}" class="img-responsive"/>
-		                <figcaption>
+                    <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }} ansehen">
+                        <img src="{{ series.posterframe|thumb(309,550) }}" class="img-responsive"/>
+                        <figcaption>
                             <h3>{{ series.name }}</h3>
-		                </figcaption>
+                        </figcaption>
                     </a>
-	            </figure>
+                </figure>
             </article>
-	        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin">
-	    {% else %}
+            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin">
+        {% else %}
             {% include "AppBundle:Default/Series:SeriesThumb.html.twig" %}
-	    {% endif %}
+        {% endif %}
     {% endfor %}
     {% set numberofseries = 4 - seriess|length %}
     {% for i in 0..numberofseries %}
-        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"></article>
+        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure></figure></article>
     {% endfor %}
-    </div>
+            </div>
 </div>

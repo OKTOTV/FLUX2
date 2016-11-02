@@ -11,9 +11,11 @@
         {% set fb_media = media %}
     {% endif %}
 {% endfor %}
-<meta property="og:video" content="{{ fb_media.asset|link }}" />
-<meta property="og:video:secure_url" content="{{ fb_media.asset|link }}"  />
-<meta property="og:video:type" content="video/mp4" />
+{% if fb_media %}
+    <meta property="og:video" content="{{ fb_media.asset|link }}" />
+    <meta property="og:video:secure_url" content="{{ fb_media.asset|link }}"  />
+    <meta property="og:video:type" content="video/mp4" />
+{% endif %}
 {% endblock %}
 
 {% block title %}{{ name|default('OKTO')~' | '~ episode.name }}{% endblock %}
@@ -68,7 +70,7 @@
             </article>
         </section>
         <!-- Kommentare -->
-        <section class="comments body-white-color comment-pager">
+        <section class="comments comment-pager">
             <div class="container">
                 {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
             </div>
@@ -98,7 +100,7 @@
     {{ player(episode)|raw }}
     <script type="text/javascript">
         $(document).ready(function(){
-        
+
             // add/remove from favorites
             $('#favorite').click(function(e){
                 e.preventDefault();

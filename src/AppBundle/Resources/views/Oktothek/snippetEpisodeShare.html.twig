@@ -1,12 +1,12 @@
 <div class="collapse collapseShare collapseWindow" id="collapseShareArea">
     <div class="collapse-header">
         <div class="triangle"></div>
-	</div>
+    </div>
     <div class="collapse-content">
         <h3>Teilen</h3>
         <div class="row">
-		    <form class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><input type="text" value="" class="form-control" id="sharingurl"></form>
-			<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 share-buttons">
+            <form class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><input type="text" value="" class="form-control" id="sharingurl"></form>
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 share-buttons">
                 <ul class="socialnetworks">
                     {% set share_url = url('oktothek_show_episode', {'uniqID': episode.uniqID}) %}
                     <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ episode.name|url_encode }}" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>
@@ -17,12 +17,12 @@
                     <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
                 </ul>
                 <a href="mailto:?to=&subject={{ episode.name }}&body={{ share_url }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
-		    </div>
+            </div>
         </div>
-		<h3>Einbetten</h3>
-		<div class="row">
+        <h3>Einbetten</h3>
+        <div class="row">
             <form class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><input type="text" value='<iframe width="420" height="315" src="{{ url('oktothek_embed_episode', {'uniqID': episode.uniqID})}}" frameborder="0" allowfullscreen></iframe>' class="form-control" id="embedurl"></form>
-			<div class="helptext">Das Video wird mit einer Größe von 420 x 315px eingebettet.</div>
+            <div class="helptext">Das Video wird mit einer Größe von 420 x 315px eingebettet.</div>
         </div>
     </div>
 </div>
