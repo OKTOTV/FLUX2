@@ -8,19 +8,35 @@ use Oktolab\MediaBundle\Entity\Repository\BaseSeriesRepository;
 
 class SeriesRepository extends BaseSeriesRepository
 {
-    public function findEpisodesWithTag(Series $series, Tag $tag, $pagerable = false) {
+    public function findEpisodesWithTag(Series $series, Tag $tag, $pagerable = false, $number = 8) {
         if ($pagerable) {
             return $this->getEntityManager()
-                ->createQuery('SELECT e FROM AppBundle:Episode e JOIN AppBundle:Tag t WHERE e.onlineStart < :online_start AND e.is_active = 1 AND e.series = :series_id AND t.id = :tag_id')
+                ->createQuery(
+                    'SELECT e FROM AppBundle:Episode e
+                    JOIN AppBundle:Tag t
+                    WHERE (e.onlineStart < :online_start OR e.onlineStart IS NULL)
+                    AND e.isActive = 1
+                    AND e.series = :series_id
+                    AND t.id = :tag_id'
+                )
                 ->setParameter('tag_id', $tag->getId())
                 ->setParameter('online_start', new \DateTime())
                 ->setParameter('series_id', $series->getId());
         }
         return $this->getEntityManager()
-            ->createQuery('SELECT e FROM AppBundle:Episode e JOIN e.tags t WHERE t.id = :tag_id AND e.series = :series_id ORDER BY e.onlineStart DESC')
+            ->createQuery(
+                'SELECT e FROM AppBundle:Episode e
+                JOIN e.tags t
+                WHERE t.id = :tag_id
+                AND e.series = :series_id
+                AND e.isActive = 1
+                AND (e.onlineStart < :online_start OR e.onlineStart IS NULL)
+                ORDER BY e.onlineStart DESC'
+            )
             ->setParameter('tag_id', $tag->getId())
+            ->setParameter('online_start', new \DateTime())
             ->setParameter('series_id', $series->getId())
-            ->setMaxResults(5)
+            ->setMaxResults($number)
             ->getResult();
     }
 
@@ -44,7 +60,11 @@ class SeriesRepository extends BaseSeriesRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT e FROM AppBundle:Episode e WHERE e.series = :series_id  AND e.isActive = 1 AND (e.onlineStart < :now OR e.onlineStart IS NULL) ORDER BY e.onlineStart DESC'
+                'SELECT e FROM AppBundle:Episode e
+                WHERE e.series = :series_id
+                AND e.isActive = 1
+                AND (e.onlineStart < :now OR e.onlineStart IS NULL)
+                ORDER BY e.onlineStart DESC'
             )
             ->setParameter('series_id', $series->getId())
             ->setParameter('now', new \DateTime())
@@ -58,7 +78,7 @@ class SeriesRepository extends BaseSeriesRepository
             ->createQuery(
                 "SELECT e FROM AppBundle:Episode e
                 WHERE e.series = :series_id
-                AND e.onlineStart < :online_start
+                AND (e.onlineStart < :online_start OR e.onlineStart IS NULL)
                 AND e.isActive = 1"
             )->setParameter('series_id', $series->getId())
             ->setParameter('online_start', new \DateTime());

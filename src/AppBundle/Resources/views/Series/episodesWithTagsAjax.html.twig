@@ -10,6 +10,7 @@
         </select>
     </div>
     <div id="episode-tag-stack">
-        {% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': episodes, 'pager_url': path('oktothek_show_series_episodes', {'uniqID': series.uniqID})} %}
+        {% include 'AppBundle::Series/episodeStackOpen.html.twig' with {'episodes': episodes, 'pager_url': path('oktothek_show_series_episodes', {'uniqID': series.uniqID})} %}
+        {#% include 'AppBundle::Default/EpisodeStack.html.twig' with {'episodes': episodes, 'pager_url': path('oktothek_show_series_episodes', {'uniqID': series.uniqID})} %#}
     </div>
-</section> 
+</section>
