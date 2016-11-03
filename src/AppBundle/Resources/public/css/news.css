@@ -29,14 +29,14 @@ body.newsarchiv aside .box h3:first-child {
 body.newsarchiv article:nth-child(2n+0) figure {
     float:right;
 }
-body.newsarchiv .page-header {
+.blog .page-header {
 	padding-bottom:0;
     text-align:left;
 }
 body.newsarchiv .page-header.detail, body.news .page-header.archiv {
     display:none;
 }
-body.newsarchiv .label {
+.post .label {
     display: inline;
     padding: 0;
     text-align: left;
@@ -53,17 +53,17 @@ body.newsarchiv aside .box {
 .news .filter-news {
     margin-bottom:40px;
 }
-body.newsarchiv img.img-responsive, body.news img.img-responsive {
+.post img.img-responsive, body.news img.img-responsive {
     width:100%;
     height:auto;
 }
-body.newsarchiv .page-header, body.newsarchiv .page-header > h3 {
+.post .page-header, .post .page-header > h3 {
     margin-top:0;
 }
-body.newsarchiv article {
+article.post {
     padding: 40px 0;
 }
-body.newsarchiv .misc a {
+.post .misc a {
     margin-left:15px;
 }
 @media (min-width: 580px) {

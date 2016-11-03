@@ -143,8 +143,8 @@ article figcaption h3,
 .footer h3, 
 #anchor-menu .panel-title, 
 .newsarchiv h2, 
-.newsarchiv h3, 
-.newsarchiv .label, 
+.post h3, 
+.post .label, 
 .pin figcaption h3, 
 .news h3, 
 .pin-icon .glyphicon, 
@@ -195,7 +195,7 @@ header .nav,
 a.more, 
 a.less, 
 #playlist_items a p,
-.newsarchiv .misc a,
+.post .misc a,
 body.producer ul.list-group .pin a p {
 	font-size:12px;
 	letter-spacing:0.25px;
@@ -243,7 +243,7 @@ h3,
 .livestream .current-episode,
 .livestream .schedule li h4,
 .oktothek .more figure.episode-pin,
-.newsarchiv .misc a {
+.post .misc a {
 	text-transform:uppercase;
 }
 
@@ -255,7 +255,7 @@ header .navbar-nav.themes a,
 .dropdown-menu > li a {
 	text-transform:none;
 }
-.newsarchiv .label, 
+.post .label, 
 label, .carousel-caption h3, 
 .series h1, 
 .livestream .schedule li time {
@@ -923,7 +923,7 @@ body.producer ul.list-group .pin a p,
 	color:#dcdcdc;
 }
 .news a.tag, 
-body.newsarchiv a.tag,
+.post a.tag,
 .comments .comment-answer a, 
 .blog time { /*Helltürkis*/
 	color:#c0fefd;
@@ -1063,7 +1063,7 @@ button.list-group-item-danger,
 .btn-primary,
 .play-episode.btn-default, 
 .tagpage header .btn-default, 
-.newsarchiv .label-default, 
+.post .label-default, 
 .livestream header .navbar-default, 
 .livestream .schedule .panel-default > .panel-heading, 
 .livestream .navbar-nav .btn-default:hover,
@@ -1189,7 +1189,7 @@ header.page-header,
 .navbar, 
 .more-clips select, 
 .play-episode.btn-default, 
-.newsarchiv .label,
+.post .label,
 .input-group-addon, 
 header .navbar-toggle, 
 header .btn, 
