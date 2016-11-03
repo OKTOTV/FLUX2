@@ -3,23 +3,28 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
 {% endblock %}
-
+{% set body_class = "producer" %}
 {% block body_main %}
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_blog', 'series': series} %}
-<p>{{ 'oktothek.series_producer_blog_text'|trans }}</p>
+<section class="tabs-content newsarchiv">
+<p class="subheadline">{{ 'oktothek.series_producer_blog_text'|trans }}</p>
 
 
 <div class="navigation">
     {{ knp_pagination_render(posts) }}
 </div>
-<div class="list-group">
-    {% for post in posts %}
-        {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
-    {% endfor %}
+<div class="list-group news-container">
+    <div class="list-group">
+        {% for post in posts %}
+            <a href="{{ path('oktothek_series_edit_blog_post', {'uniqID': series.uniqID, 'post': post.id})}}" class="list-group-item">{{ post.name }}</a>
+        {% endfor %}
+    </div>
+        {#% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %#}
 </div>
 <div class="navigation">
     {{ knp_pagination_render(posts) }}
 </div>
 <a href="{{ path('oktothek_series_blog_post', {'uniqID': series.uniqID}) }}" class="btn btn-default">{{'oktothek.series_producer_new_blogpost'|trans|raw }}</a>
+</section>
 {% endblock %}

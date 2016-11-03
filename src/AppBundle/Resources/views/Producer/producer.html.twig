@@ -4,50 +4,62 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
 {% endblock %}
 
+{% set body_class = "producer" %}
 {% block body_main %}
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_info', 'series': series} %}
-<p>{{ 'oktothek.series_producer_text'|trans }}</p>
+<section class="tabs-content">
+<p class="subheadline">{{ 'oktothek.series_producer_text'|trans }}</p>
 
 <div class="row">
     <div class="col-md-8">
         <canvas id="analytics-latest-episode" width="400" height="200" style="backgroundColor:white"></canvas>
     </div>
-    <div class="col-md-4">
+    <aside class="col-md-4">
         <img src="{{ series.posterframe|thumb(720,1280)}}" class="img img-responsive" />
         <ul class="list-group">
-            <li href="" class="list-group-item">
-                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_description'|trans }}</h4>
+            <li href="" class="list-group-item description">
+                <h3 class="list-group-item-heading">{{ 'oktothek.series_producer_description'|trans }}</h3>
                 <p class="list-group-item-text">{{ series.description }}</p>
             </li>
-            <li href="" class="list-group-item">
-                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_last_updated'|trans }}</h4>
-                <p class="list-group-item-text">{{ series.updatedAt|date('d.m.Y') }}</p>
-            </li>
-            <li href="" class="list-group-item">
-                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_abonnements'|trans }}</h4>
-                <p class="list-group-item-text">{{ series.abonnements|length }}</p>
-            </li>
-            <li href="" class="list-group-item">
-                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_reachmes'|trans }}</h4>
+            <li href="" class="list-group-item description">
+                <h3 class="list-group-item-heading">{{ 'oktothek.series_producer_reachmes'|trans }}</h3>
                 <p class="list-group-item-text">
-                    <ul>
+                    <ul class="socialnetworks">
                         {% for reachme in series.reachmes %}
-                        <li>{{ 'reachme_type_transchoice'|transchoice(reachme.type) }} - {{ reachme.uri }}</li>
+                            {% if constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_MAIL') == reachme.type %}
+                                <li><strong>Kontakt:</strong>: {{ reachme.uri }}</li>
+                            {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_FB') == reachme.type %}
+                                <li><a href="{{ reachme.uri }}" class="icon-facebook" target="_blank"><span>Facebook</span></a> <div>{{ reachme.uri }}</div></li>
+                            {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_TWITTER') == reachme.type %}
+                                <li><a href="{{ reachme.uri }}" class="icon-twitter" target="_blank"><span>Twitter</span></a> <div>{{ reachme.uri }}</div></li>
+                            {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_INST') == reachme.type %}
+                                <li><a href="{{ reachme.uri }}" class="icon-instagram" target="_blank"><span>Instagram</span></a> <div>{{ reachme.uri }}</div></li>
+                            {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_GP') == reachme.type %}
+                                <li><a href="{{ reachme.uri }}" class="icon-google+" target="_blank"><span>Google+</span></a> <div>{{ reachme.uri }}</div></li>
+                            {% else %}
+                                <li>{{ 'reachme_type_transchoice'|transchoice(reachme.type) }} - {{ reachme.uri }}</li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 </p>
             </li>
             <li href="" class="list-group-item">
-                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_episodes'|trans }}</h4>
-                <p class="list-group-item-text">{{ series.episodes|length }}</p>
+                <p class="list-group-item-text"><strong>{{ 'oktothek.series_producer_last_updated'|trans }}</strong>: {{ series.updatedAt|date('d.m.Y') }}</p>
             </li>
             <li href="" class="list-group-item">
-                <h4 class="list-group-item-heading">{{ 'oktothek.series_producer_playlists'|trans }}</h4>
-                <p class="list-group-item-text">{{ series.playlists|length }}</p>
+                <p class="list-group-item-text"><strong class="list-group-item-heading">{{ 'oktothek.series_producer_abonnements'|trans }}</strong>: 
+                {{ series.abonnements|length }}</p>
+            </li>
+            <li href="" class="list-group-item">
+                <p class="list-group-item-text"><strong>{{ 'oktothek.series_producer_episodes'|trans }}</strong>: {{ series.episodes|length }}</p>
+            </li>
+            <li href="" class="list-group-item">
+                <p class="list-group-item-text"><strong class="list-group-item-heading">{{ 'oktothek.series_producer_playlists'|trans }}</strong>: 
+                {{ series.playlists|length }}</p>
             </li>
         </ul>
-    </div>
+    </aside>
 </div>
-
+</section>
 {% endblock %}

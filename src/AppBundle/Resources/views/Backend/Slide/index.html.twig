@@ -15,16 +15,17 @@
         </div>
     </p>
 </div>
+
 <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="{{ path('oktothek_backend_slide_index')}}">{{ 'oktothek.backend_slider_header'|trans}}</a></li>
   <li role="presentation"><a href="{{ path('oktothek_backend_news_index')}}">{{ 'oktothek.backend_news_header'|trans }}</a></li>
   <li role="presentation"><a href="{{ path('oktothek_backend_page_index') }}">{{ 'oktothek.backend_page_header'|trans }}</a></li>
 </ul>
-
+<section class="tabs-content">
 <div class="list-group">
 {% for slide in slides %}
     <a href="{{ path('oktothek_backend_slide_edit', {'slide': slide.id})}}" class="list-group-item">{{ slide.name }}</a>
 {% endfor %}
 </div>
-
+</section>
 {% endblock %}

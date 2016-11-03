@@ -8,11 +8,13 @@
 {% block body %}
 <div class="container">
     <header class="page-header">
-        <h1>{{ 'oktothe_academy_book_course_header'|trans }}</h1>
+        <h1>{{ 'oktothe_academy_book_course_header'|trans({'%coursetype%': course.coursetype.title}) }}</h1>
 	</header>
-    <p>{{ course.coursetype.title }}</p>
+    <section>
     <p>{{ course.coursetype.description }}</p>
-    <p>Termine</p>
+    </section>
+    <section>
+    <h2>Termine</h2>
     {% for date in course.dates %}
         <p>{{ date.courseStart|date('H:i d.m.Y')}} - {{ date.courseEnd|date('H:i d.m.Y')}}</p>
     {% endfor %}
@@ -25,5 +27,6 @@
     {{ form_start(form) }}
     {{ form_end(form) }}
     <img src="{{ asset('bundles/bprssofort/images/sofort_175x75.png') }}" class="img img-rounded img-responsive" />
+    </section>
 </div>
 {% endblock %}

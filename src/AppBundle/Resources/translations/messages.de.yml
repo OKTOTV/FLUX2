@@ -85,6 +85,7 @@ oktothek.create_new_post_button:        Neuen Beitrag anlegen
 oktothek.post_show_more:                Mehr dazu anzeigen
 
 oktothek.success_create_post:           Post erfolgreich angelegt
+oktothek.success_update_post:           Eintrag erfolgreich aktualisiert
  oktothek.success_delete_post  :           Post erfolgreich gelöscht
 
 ## page
@@ -126,6 +127,7 @@ oktothek.playlist_show:                 Playlist %playlist%
 ### edit
 oktothek.playlist_edit_header:          Wiedergabeliste bearbeiten
 oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Playliste löschen
+oktothek.playlist_create_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Playliste anlegen
 oktothek.playlist_update_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
 oktothek.playlist_name_label:           Titel
 oktothek.playlist_description_label:    Beschreibung
@@ -200,8 +202,8 @@ oktothek_academy_b2b_paragraph: >
     Ob B2B-KundInnen, Kindergartengruppen, Schulkinder, SeniorInnen - wir gehen mit unseren Angeboten ganz auf die individuellen Bedürfnisse unserer KundInnen
     ein: Medientrainings für Menschen, die beruflich öfter mal vor der Kamera stehen, Workshops für Schulklassen, private Kindergruppen, die einen Kindergeburtstag
     mit einem TV-Workshop verbinden wollen - all das ist bei Okto möglich!
-oktothek_academy_b2b_more:              Weitere Informationen bekommen Sie hier»
-oktothe_academy_book_course_header:     Kurs buchen
+oktothek_academy_b2b_more:              Weitere Informationen bekommen Sie hier
+oktothe_academy_book_course_header:     "%coursetype% buchen"
 oktothek_academy_book_course:           Kurs buchen
 
 ## tv
@@ -528,6 +530,7 @@ oktothek.series_producer_analytic_end:       %100 Bindung
 ## producer playlists
 oktothek.series_producer_playlists_text:    Hier findest du alle Playlisten zu dieser Sendereihe. Du kannst Playlisten anlegen, bearbeiten und löschen. Aktive Playlisten erscheinen auf deinem Kanal.
 oktothek.series_producer_new_playlist:      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Playliste anlegen
+oktothek.producer_new_playlist_header:      Playliste für Sendereihe anlegen
 
 # newsletter
 oktothek.newsletter_header:                 Newsletter

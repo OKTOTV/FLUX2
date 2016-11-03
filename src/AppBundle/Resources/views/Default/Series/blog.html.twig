@@ -3,7 +3,7 @@
     <div class="col-md-9 col-lg-9 col-sm-9 col-xs-9 news-pin">
 {% endif %}
 {% for post in posts %}
-    <article>{% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}</article>
+    {% include 'AppBundle:News:_newsRow.html.twig' with {'post': post, 'newsloop': loop.index } %}
     <div class="comments comment-pager">{{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}</div>
 {% endfor %}
 {% if posts|length > 0%}

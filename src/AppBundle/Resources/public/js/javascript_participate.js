@@ -47,11 +47,10 @@ $(document).ready(function(){
         $('#planets figure').eq(index).find('img').attr('src',new_source);
     }
    
-    $('#planets figure').click(function(){
-            
+    $('#planets figure').click(function(e) { 
             $('#planets').find('nav.active').removeClass('active');
             $(this).find('nav').addClass('active');
-            source_array = coloredFigure();            
+            source_array = coloredFigure();
     });
 
 });

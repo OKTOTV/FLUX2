@@ -103,21 +103,10 @@ class Playlist extends BasePlaylist implements PlaylistInterface
      * @param \MediaBundle\Entity\Series $series
      * @return Playlist
      */
-    public function addSeries(Series $series)
+    public function setSeries($series)
     {
-        $this->series[] = $series;
-
+        $this->series = $series;
         return $this;
-    }
-
-    /**
-     * Remove series
-     *
-     * @param \MediaBundle\Entity\Series $series
-     */
-    public function removeSeries(Series $series)
-    {
-        $this->series->removeElement($series);
     }
 
     /**

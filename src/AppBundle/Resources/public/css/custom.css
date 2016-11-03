@@ -58,6 +58,8 @@ h2,
 	font-weight: normal;
 	font-style: normal;
 }
+bold,
+strong,
 header .navbar .nav > li > a, 
 header .navbar .nav.navbar-right > li > a, 
 #dropdownMenuTags, 
@@ -192,7 +194,8 @@ header .nav,
 a.more, 
 a.less, 
 #playlist_items a p,
-.newsarchiv .misc a {
+.newsarchiv .misc a,
+body.producer ul.list-group .pin a p {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -297,7 +300,7 @@ select:focus:active {
         font-size:16px;
     }
 	.carousel-caption h3, 
-    .series h1, 
+    .fs-image-content h1, 
     .playlists h1 {
 		font-size:45px;
 		letter-spacing: 1px;
@@ -865,7 +868,17 @@ button.list-group-item-danger,
 .collapsePlaylist li button.btn-default,
 .collapsePlaylist li button.btn-default.active,
 .collapsePlaylist li button.btn-default:active,
-.news .post-content p {
+.news .post-content p,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover,
+body.producer li.list-group-item strong,
+body.producer li.list-group-item.description,
+body.producer ul.list-group .pin a h3,
+.tabs-content .pagination > li > a, 
+.tabs-content .pagination > li > span {
 	color:#ffffff;
 }
 .form-control, 
@@ -877,7 +890,11 @@ button.list-group-item-danger,
 .bootstrap-datetimepicker-widget, 
 header .collapseShare .form-control,
 header .collapseShare a.btn,
-.oktothek .more figure.episode-pin a {
+.oktothek .more figure.episode-pin a,
+.tabs-content .pagination > li.active > a, 
+.tabs-content .pagination > li.active > span,
+.tabs-content .pagination > li > a:hover,
+.tabs-content .pagination > li > a:focus {
 	color:#000000;
 }
 /* Türkis */
@@ -898,7 +915,10 @@ header .collapseShare a.btn,
 #playlist_items .color4 a p,
 #playlist_items .color5 a p,
 .container.tags a,
-.livestream .schedule a h4 { /* Hellgrau */
+.livestream .schedule a h4,
+body.producer li.list-group-item,
+body.producer ul.list-group .pin a p,
+.pagination li.disabled span { /* Hellgrau */
 	color:#dcdcdc;
 }
 .news a.tag, 
@@ -925,7 +945,7 @@ a.list-group-item,
 button.list-group-item,
 .color1 a, 
 .active .color1.pin figcaption a h3, 
-.color1.pin figcaption a p, 
+.active .color1.pin figcaption a p, 
 .btn, 
 .pin-icon .choosen, 
 .episode .series a, 
@@ -958,7 +978,16 @@ body,
 .bg-opacity, 
 select, 
 .oktothek article a.btn-default:hover, 
-.tagpage .content-bg, .preloader {
+.tagpage .content-bg, 
+.preloader,
+.tabs-content .pagination > .disabled > a, 
+.tabs-content .pagination > .disabled > a:focus, 
+.tabs-content .pagination > .disabled > a:hover, 
+.tabs-content .pagination > .disabled > span, 
+.tabs-content .pagination > .disabled > span:focus, 
+.tabs-content .pagination > .disabled > span:hover,
+.tabs-content .pagination > li > a, 
+.tabs-content .pagination > li > span {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
@@ -977,7 +1006,11 @@ button.list-group-item-danger:hover,
 .list-group-item.movedown,
 header .collapseShare a.btn,
 .edit-playlists .form-group.search .icon-search,
-.bootstrap-datetimepicker-widget.dropdown-menu {
+.bootstrap-datetimepicker-widget.dropdown-menu,
+.tabs-content .pagination > li.active > a, 
+.tabs-content .pagination > li.active > span,
+.tabs-content .pagination > li > a:hover,
+.tabs-content .pagination > li > a:focus  {
 	background-color:#ffffff;
 }
 .oktothek .news article, 
@@ -987,13 +1020,20 @@ header .collapseShare a.btn,
 .series .news-pin, 
 .series .news-form, 
 .series .blog aside .aside-inner, 
-.tagpage .inc-pins article.pin figure, 
-.tagpage .inc-pins article.pin.first, 
+.tagpage .inc-pins article.pin figure,
 #playlist_items .row,
 .container.tags ul, 
 .livestream .schedule .panel-default,
 .edit-playlists .tt-menu,
-.newsarchiv aside .box { /* Dunkelgrau */
+.newsarchiv aside .box,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover,
+section.tabs-content,
+.tagpage article.first-pin,
+.tagpage article.empty .icon-player { /* Dunkelgrau */
 	background-color:#112022;
 }
 /* Spacelayout */
@@ -1035,7 +1075,10 @@ button.list-group-item-danger,
 .collapsePlaylist li button.btn-default.active,
 .collapsePlaylist li button.btn-default:active,
 .collapsePlaylist li button.btn-default:hover,
-.collapsePlaylist li button.btn-default:focus {
+.collapsePlaylist li button.btn-default:focus,
+.producer a.list-group-item:focus,
+.producer a.list-group-item:hover,
+.tagpage .inc-pins article.pin.empty figure {
 	background-color:transparent;
 }
 
@@ -1059,8 +1102,8 @@ button.list-group-item-danger,
 .academy .timetable li p {
 	border-bottom:dotted 1px #5a6769;
 }
-.pin.empty figure {
-	border:dotted 1px #5a6769;
+.pin.empty figure .icon-player {
+	border: solid 1px #253a3d;
 }
 /* Spacelayout */
 .btn-primary, 
@@ -1082,6 +1125,23 @@ button.list-group-item-danger,
 .oktothek .more figure.episode-pin a { /* Gelb */
 	border: solid 2px #fcce14;
 }
+.tabs-content .pagination > li > a, 
+.tabs-content .pagination > li > a:hover,
+.tabs-content .pagination > li > a:focus,  
+.tabs-content .pagination > li > span,
+.tabs-content .pagination > li.active > a, 
+.tabs-content .pagination > li.active > span,
+.tabs-content .pagination > li.active > a:hover, 
+.tabs-content .pagination > li.active > a:focus,
+.tabs-content .pagination > li.disabled > a,
+.tabs-content .pagination > li.disabled > a:hover,
+.tabs-content .pagination > li.disabled > a:focus, 
+.tabs-content .pagination > li.disabled > span { /* Dunkelgrau */
+    border-top: none;
+    border-right: solid 2px #112022;
+    border-bottom: none;
+    border-left: solid 2px #112022;
+}
 /* Türkis */
 /*.pull-right .icon { 
 border: solid 2px #13fffd;
@@ -1095,7 +1155,14 @@ header.page-header,
 .timetable .btn, 
 .list-group-item, 
 #favorite.btn-default,
-.livestream #nav-programm a.btn {
+.livestream #nav-programm a.btn,
+.nav-tabs,
+.nav-tabs > li > a,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover,
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:focus, 
+.nav-tabs > li.active > a:hover {
 	border:none;
 }
 .triangle {
@@ -1117,7 +1184,8 @@ header .btn,
 .list-group-item:last-child, 
 .list-group-item:first-child,
 .btn-default.dropdown-toggle,
-.collapsePlaylist li button {
+.collapsePlaylist li button,
+.pagination {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -1139,7 +1207,8 @@ header .collapseShare .btn,
 	border-radius: 20px;
 }
 .participart .button_container .btn, 
-#StartPlaylist.btn {
+#StartPlaylist.btn,
+.tagpage .empty .icon-player {
 	-moz-border-radius:25px;
 	-khtml-border-radius:25px;
 	border-radius: 25px;
@@ -1165,7 +1234,7 @@ hr {
 	background-position:left center;
 	background-image:url(../images/hr_bg.png);
 }
-section, .participart article, .edit-playlists form fieldset, .newsarchiv article  {
+section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border.png);
@@ -1467,10 +1536,10 @@ footer .networks {
 html, body {
 	height:100%;
 }
-.series .infos ul, .footer ul, .footer li, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul {
+.series .infos ul, .footer ul, .footer li, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul, body.producer ul.list-group  {
 	list-style:none;
 }
-.series .infos ul, .tags ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul {
+.series .infos ul, .tags ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul, body.producer ul.list-group {
 	margin-left:0;
 	padding-left:0;
 }
@@ -1606,13 +1675,16 @@ select#episode-tag::-ms-expand { /* for IE 11 */
 .newsletter form .input-group {
     display:table-cell;
 }
+body.academy section.newsletter form .input-group {
+    display:block;
+}
 .newsletter .input-group .form-control, body.newsarchiv .footer .newsletter .input-group .form-control {
     width:200px;
 }
 body.newsarchiv .newsletter .input-group {
     width:100%;
 }
-.newsletter .input-group, body.newsarchiv .footer .newsletter .input-group {
+.newsletter .input-group, body.newsarchiv .footer .newsletter .input-group, body.academy section.newsletter .input-group {
 	margin:0 auto;
     width:300px;
 }
@@ -1627,17 +1699,14 @@ body.newsarchiv .newsletter .input-group-addon {
     width:auto;
     padding:6px 10px;
 }
-body.academy .newsletter form {
+body.academy .newsletter fieldset {
     text-align:center;
 }
 body.academy .newsletter label {
 	display:block;
 }
-body.academy .newsletter .input-group, body.academy .newsletter .input-group-btn {
+body.academy .newsletter .input-group-btn {
 	width:auto;
-}
-body.academy .newsletter .form-control {
-	width:300px;
 }
 body.academy .newsletter .input-group {
 	margin:0 auto;
@@ -2126,7 +2195,7 @@ article.pin {
     padding:12px 12px;
     line-height:12px;
 }
-body.clip_overview button#filter_menu span.glyphicon-sort-by-alphabet {
+button.dropdown-toggle .glyphicon-sort-by-alphabet {
     display:none;
 }
 .episode article, .more-clips article, .playlists .description-container article {
@@ -2326,11 +2395,32 @@ figure.pin img {
 	padding-top:40px;
 	clear:both;
 }
-.tagpage section.inc-pins {
-	padding-bottom:65px;
+.tagpage section.inc-pins > div {
+    display:table;
+    padding-bottom:65px;
+    position:relative;
 }
-.tagpage article.pin {
-	position:relative;
+.tagpage article.first-pin, .tagpage .row .small-pins {
+    display:table-cell;
+    vertical-align:top;
+    height:100%;
+}
+.tagpage article.empty .icon-player {
+    width:50px;
+    height:50px;
+    margin:0 auto;
+}
+.tagpage .row > .col-lg-6 {
+    float:none;
+}
+.tagpage .row .small-pins > div {
+    width:100%;
+}
+.tagpage figure.episode-pin {
+    position:relative;
+}
+.tagpage section.inc-pins .row {
+    display:table-row;
 }
 .tagpage .content-bg .row  {
 	padding-bottom:15px;
@@ -2370,7 +2460,7 @@ figure.pin img {
 	display:table-cell;
 	vertical-align:top;
 }
-.tagpage article.first {
+.tagpage article.first-pin {
 	margin-right:5px;
 	margin-left:5px;
 	padding-right:0px;
@@ -2402,9 +2492,9 @@ figure.pin img {
 	width:100%;
     min-height:180px;
 }
-.tagpage .pin.empty:nth-child(3), .tagpage .pin.empty:nth-child(4) {
+/*.tagpage .pin.empty:nth-child(3), .tagpage .pin.empty:nth-child(4) {
 	margin-top:10px;
-}
+}*/
 
     
     
@@ -2488,6 +2578,40 @@ figure.pin img {
 }
 .preview p.misc {
 	margin-top: 20px;
+}
+
+/* Produzenten */
+body.producer .nav-tabs {
+    margin-top:40px;
+}
+section.tabs-content {
+    padding:15px;
+}
+body.producer .subheadline {
+    margin:40px 0;
+}
+body.producer aside ul.list-group {
+    margin-top:20px;
+}
+body.producer aside .description {
+    padding-bottom:20px;
+}
+body.producer aside .description + li {
+    padding-top:20px;
+}
+body.producer aside li {
+    padding-top:0px;
+    padding-bottom:4px;
+}
+body.producer aside ul.socialnetworks li, body.producer aside ul.socialnetworks li a {
+    display:block;
+}
+body.producer aside ul.socialnetworks li a {
+    float:left;
+}
+body.producer aside ul.socialnetworks li div {
+    margin-left:50px;
+    padding-top:10px;
 }
 
 

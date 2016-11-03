@@ -11,7 +11,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Entity\Series;
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\Post;
+use AppBundle\Entity\Playlist;
 use AppBundle\Form\Series\PostType;
+use AppBundle\Form\PlaylistUserType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -70,7 +72,7 @@ class ProducerController extends Controller
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_post');
                 $this->get('oktothek_notification_service')->createNewPostNotifications($post);
-                return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $series->getUniqID()]));
+                return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_post');
             }
@@ -80,14 +82,14 @@ class ProducerController extends Controller
     }
 
     /**
-     * @Route("/channel/{uniqID}/edit/{slug}", name="oktothek_series_edit_blog_post")
+     * @Route("/channel/{uniqID}/edit/{post}", name="oktothek_series_edit_blog_post")
      * @Method({"GET", "POST"})
      * @Template()
      */
     public function editBlogAction(Request $request, Series $series, Post $post)
     {
         $this->denyAccessUnlessGranted('edit_channel', $series);
-        $form = $this->createForm(PostType::class, $post, ['action' => $this->generateUrl('oktothek_series_blog_post', ['uniqID' => $series->getUniqID()])]);
+        $form = $this->createForm(PostType::class, $post);
         $form->add('delete', SubmitType::class, ['label' => 'oktothek.post_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
         $form->add('submit', SubmitType::class, ['label' => 'oktothek.post_update_button', 'attr' => ['class' => 'btn btn-primary']]);
 
@@ -102,7 +104,7 @@ class ProducerController extends Controller
                     $em->flush();
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_update_post');
 
-                    return $this->redirect($this->generateUrl('oktothek_show_series', ['uniqID' => $series->getUniqID()]));
+                    return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
                 } elseif ($form->get('delete')->isClicked()) { // delete
                     $this->get('oktothek_post_service')->deletePost($post);
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_post');
@@ -162,8 +164,71 @@ class ProducerController extends Controller
         $this->denyAccessUnlessGranted('view_channel', $series);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeries($series), $page, 3);
+        $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeries($series), $page, 8);
         return ['playlists' => $playlists, 'series' => $series];
+    }
+    /**
+     * @Route("/channel/{uniqID}/playlist/new", name="oktothek_channel_playlist_new")
+     * @Template()
+     */
+    public function newPlaylistAction(Request $request, Series $series)
+    {
+        $this->denyAccessUnlessGranted('edit_channel', $series);
+        $playlist = new Playlist();
+        $playlist->setUser($this->getUser());
+        $playlist->setSeries($series);
+        $form = $this->createForm(PlaylistUserType::class, $playlist);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.playlist_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if ($form->get('submit')->isClicked()) { // update post
+                    $em->persist($playlist);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_playlist');
+                    return $this->redirect($this->generateUrl('oktothek_show_playlist', ['uniqID'=> $playlist->getUniqID()]));
+                }
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_playlist');
+            }
+        }
+
+        return ['form' => $form->createView(), 'series' => $series];
+    }
+    /**
+     * @Route("/channel/playlist/{uniqID}/edit", name="oktothek_channel_playlist_edit")
+     * @Template()
+     */
+    public function editPlaylistAction(Request $request, Playlist $playlist)
+    {
+        $this->denyAccessUnlessGranted('edit_channel', $playlist->getSeries());
+        $form = $this->createForm(PlaylistUserType::class, $playlist);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.playlist_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.playlist_delete_button', 'attr' => ['class' => 'btn btn-link']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if ($form->get('submit')->isClicked()) { // update post
+                    $em->persist($playlist);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_playlist');
+                    return $this->redirect($this->generateUrl('oktothek_channel_playlists', ['uniqID'=> $playlist->getSeries()->getUniqID()]));
+                } else { // delete playlist
+                    $em->remove($playlist);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_playlist');
+                    return $this->redirect($this->generateUrl('oktothek_channel_playlists', ['uniqID' => $playlist->getSeries()->getUniqID()]));
+                }
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_playlist');
+            }
+        }
+
+        return ['form' => $form->createView(), 'series' => $playlist->getSeries()];
     }
 
     /**
@@ -176,7 +241,7 @@ class ProducerController extends Controller
         $this->denyAccessUnlessGranted('view_channel', $series);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series), $page, 3);
+        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series), $page, 8);
         return ['posts' => $posts, 'series' => $series];
     }
 

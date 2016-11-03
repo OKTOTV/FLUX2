@@ -21,13 +21,14 @@
   <li role="presentation" class="active"><a href="{{ path('oktothek_backend_news_index')}}">{{ 'oktothek.backend_news_header'|trans }}</a></li>
   <li role="presentation"><a href="{{ path('oktothek_backend_page_index') }}">{{ 'oktothek.backend_page_header'|trans }}</a></li>
 </ul>
-<div class="navigation">
-    {{ knp_pagination_render(posts) }}
-</div>
-<div class="list-group">
-    {% for post in posts %}
-        <a href="{{ path('oktothek_backend_news_show', {'post': post.id})}}" class="list-group-item">{{ post.name }}</a>
-    {% endfor %}
-</div>
-
+<section class="tabs-content">
+    <div class="navigation">
+        {{ knp_pagination_render(posts) }}
+    </div>
+    <div class="list-group">
+        {% for post in posts %}
+            <a href="{{ path('oktothek_backend_news_show', {'post': post.id})}}" class="list-group-item">{{ post.name }}</a>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}
