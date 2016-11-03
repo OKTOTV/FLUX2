@@ -9,7 +9,7 @@
 {% block body_main %}
 <div class="page-header">
     <h1>{{ 'oktothek.user_update_subscription_header'|trans({'%series%': series}) }}</h1>
-    <a href="{{ path('user_channels')}}">{{ 'oktothek_user_channels_title'|trans }}</a>
+    <a href="{{ path('oktothek_user_channels', {'username': app.user.username})}}">{{ 'oktothek_user_channels_title'|trans }}</a>
 </div>
 
 {{ form_start(form) }}
