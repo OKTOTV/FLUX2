@@ -33,7 +33,23 @@ class PostRepository extends EntityRepository
 
     public function findAllPostQuery()
     {
-        return $this->getEntityManager()->createQuery('Select p From AppBundle:Post p');
+        return $this->getEntityManager()
+            ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.series IS NULL');
+    }
+
+    public function findAllBlogPost($number, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT p FROM AppBundle:Post p
+                WHERE p.series IS NOT NULL
+                ORDER BY p.createdAt DESC'
+            );
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($number)->getResult();
     }
 
     public function findPostsForSeries($series)

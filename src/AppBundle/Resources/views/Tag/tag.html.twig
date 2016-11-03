@@ -55,7 +55,9 @@
                     <div id="anchor_posts"></div>
                     <h2>{{ 'oktothek_tag_posts_header'|trans }}</h2>
                     {% include "AppBundle::Tag/postsTag.html.twig" with {'posts': tag.posts} %}
-                    <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                    {% if tag.posts|length >= 5 %}
+                        <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                    {% endif %}
                 </section>
             {% endif %}
             {% if tag.pages is not empty %}
@@ -63,7 +65,9 @@
                     <div id="anchor_pages"></div>
                     <h2>{{ 'oktothek_tag_pages_header'|trans }}</h2>
                     {% include "AppBundle::Tag/pagesTag.html.twig" with {'pages': tag.pages} %}
-                    <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                    {% if tag.pages|length >= 5 %}
+                        <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                    {% endif %}
                 </section>
         {% endif %}
         </div>
@@ -71,11 +75,11 @@
 {%- endblock -%}
 {% block javascripts %}
     {{ parent() }}
-	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-	<link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
     <style type="text/css">
         .bg-bleur {
             {% if tag.episodes is not empty %}

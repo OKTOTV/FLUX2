@@ -4,28 +4,27 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': ''} %}
 {% endblock %}
 {% block body_main %}
-
-<div>
-    <h1>{{ 'oktothek.backend_index_slider'|trans}}</h1>
-    <p>
-        <div class="btn-group" role="group">
-            <a href="{{ path('oktothek_backend_slide_new') }}" class="btn btn-default">{{'oktothek_backend_slide_new'|trans|raw }}</a>
-            <a href="{{ path('oktothek_backend_news_new') }}" class="btn btn-default">{{'oktothek_backend_news_new'|trans|raw }}</a>
-            <a href="{{ path('oktothek_page_new') }}" class="btn btn-default">{{ 'oktothek_backend_page_new'|trans|raw }}</a>
-        </div>
-    </p>
-</div>
-
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="{{ path('oktothek_backend_slide_index')}}">{{ 'oktothek.backend_slider_header'|trans}}</a></li>
-  <li role="presentation"><a href="{{ path('oktothek_backend_news_index')}}">{{ 'oktothek.backend_news_header'|trans }}</a></li>
-  <li role="presentation"><a href="{{ path('oktothek_backend_page_index') }}">{{ 'oktothek.backend_page_header'|trans }}</a></li>
-</ul>
-<section class="tabs-content">
-<div class="list-group">
-{% for slide in slides %}
-    <a href="{{ path('oktothek_backend_slide_edit', {'slide': slide.id})}}" class="list-group-item">{{ slide.name }}</a>
-{% endfor %}
-</div>
-</section>
+    <div>
+        <h1>{{ 'oktothek.backend_index_slider'|trans}}</h1>
+        <p>
+            <div class="btn-group" role="group">
+                <a href="{{ path('oktothek_backend_slide_new') }}" class="btn btn-default">{{'oktothek_backend_slide_new'|trans|raw }}</a>
+                <a href="{{ path('oktothek_backend_news_new') }}" class="btn btn-default">{{'oktothek_backend_news_new'|trans|raw }}</a>
+                <a href="{{ path('oktothek_page_new') }}" class="btn btn-default">{{ 'oktothek_backend_page_new'|trans|raw }}</a>
+            </div>
+        </p>
+    </div>
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="{{ path('oktothek_backend_slide_index')}}">{{ 'oktothek.backend_slider_header'|trans}}</a></li>
+        <li role="presentation"><a href="{{ path('oktothek_backend_news_index')}}">{{ 'oktothek.backend_news_header'|trans }}</a></li>
+        <li role="presentation"><a href="{{ path('oktothek_backend_page_index') }}">{{ 'oktothek.backend_page_header'|trans }}</a></li>
+        <li role="presentation"><a href="{{ path('oktothek_backend_news_blogpost_index')}}">{{ 'oktothek.backend_blogpost_header'|trans }}</a></li>
+    </ul>
+    <section class="tabs-content">
+    <div class="list-group">
+    {% for slide in slides %}
+        <a href="{{ path('oktothek_backend_slide_edit', {'slide': slide.id})}}" class="list-group-item">{{ slide.name }}</a>
+    {% endfor %}
+    </div>
+    </section>
 {% endblock %}
