@@ -16,8 +16,8 @@
             {% include "AppBundle:Default/Series:SeriesThumb.html.twig" %}
         {% endif %}
     {% endfor %}
-    {% set numberofseries = 4 - seriess|length %}
-    {% for i in 0..numberofseries %}
+    {% set numberofseries = 5 - seriess|slice(0,5)|length %}
+    {% for i in 0..numberofseries if i > 0 %}
         <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></article>
     {% endfor %}
             </div>

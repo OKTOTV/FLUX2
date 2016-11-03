@@ -15,11 +15,11 @@
             {% include "AppBundle:Default:_share.html.twig" with {'show_button': true, 'site_media': tag.episodes[0].posterframe(true)|thumb(720,1280) } %}
         </header>
         <div class="container content-bg">
-            {% if tag.episodes is not empty %}
+            {% if episodes is not empty %}
                 <section class="inc-pins">
                     <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
                     {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': tag.episodes} %}
-                    {% if tag.episodes|length >= 5 %}
+                    {% if episodes|length > 5 %}
                         <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more">
                             {{ 'oktothek_tag_more_results'|trans|raw }}
                         </a>
@@ -31,7 +31,7 @@
                     <div id="anchor_series"></div>
                     <h2>{{ 'oktothek_tag_series_header'|trans }}</h2>
                     {% include "AppBundle::Tag/seriesTag.html.twig" with {'seriess': seriess} %}
-                    {% if seriess|length >= 5 %}
+                    {% if seriess|length > 5 %}
                         <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="pull-right more">
                             {{ 'oktothek_tag_more_results'|trans|raw }}
                         </a>
@@ -43,29 +43,29 @@
                     <div id="anchor_playlists"></div>
                     <h2>{{ 'oktothek_tag_playlists_header'|trans }}</h2>
                     {% include "AppBundle::Tag/playlistTag.html.twig" with {'playlists': playlists} %}
-                    {% if seriess|length >= 5 %}
+                    {% if seriess|length > 5 %}
                         <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more">
                             {{ 'oktothek_tag_more_results'|trans|raw }}
                         </a>
                     {% endif %}
                 </section>
             {% endif %}
-            {% if tag.posts is not empty %}
+            {% if posts is not empty %}
                 <section>
                     <div id="anchor_posts"></div>
                     <h2>{{ 'oktothek_tag_posts_header'|trans }}</h2>
                     {% include "AppBundle::Tag/postsTag.html.twig" with {'posts': tag.posts} %}
-                    {% if tag.posts|length >= 5 %}
+                    {% if posts|length > 5 %}
                         <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
                     {% endif %}
                 </section>
             {% endif %}
-            {% if tag.pages is not empty %}
+            {% if pages is not empty %}
                 <section>
                     <div id="anchor_pages"></div>
                     <h2>{{ 'oktothek_tag_pages_header'|trans }}</h2>
                     {% include "AppBundle::Tag/pagesTag.html.twig" with {'pages': tag.pages} %}
-                    {% if tag.pages|length >= 5 %}
+                    {% if pages|length > 5 %}
                         <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
                     {% endif %}
                 </section>

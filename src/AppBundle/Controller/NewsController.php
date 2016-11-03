@@ -19,14 +19,15 @@ class NewsController extends Controller
 {
 
     /**
-     * @Route("/{page}", name="oktothek_news", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Route("/", name="oktothek_news")
      * @Template()
      */
-    public function newsAction($page)
+    public function newsAction(Request $request)
     {
+        $page = $request->query->get('page', 1);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findActivePostQuery(), $page, 5);
+        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findAllActivePosts(0, true), $page, 5);
 
         return ['posts' => $posts];
     }
