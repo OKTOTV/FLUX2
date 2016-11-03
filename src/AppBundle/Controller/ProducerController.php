@@ -67,6 +67,10 @@ class ProducerController extends Controller
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $series->addPost($post);
+                foreach ($post->getAssets() as $asset) {
+                    $asset->setSeries($series);
+                    $em->persist($asset);
+                }
                 $em->persist($post);
                 $em->persist($series);
                 $em->flush();
@@ -98,7 +102,10 @@ class ProducerController extends Controller
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 if ($form->get('submit')->isClicked()) { // update
-                    $series->addPost($post);
+                    foreach ($post->getAssets() as $asset) {
+                        $asset->setSeries($series);
+                        $em->persist($asset);
+                    }
                     $em->persist($post);
                     $em->persist($series);
                     $em->flush();

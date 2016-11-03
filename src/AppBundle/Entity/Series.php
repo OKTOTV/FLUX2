@@ -34,6 +34,11 @@ class Series extends OktoSeries
     protected $playlists;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Asset", mappedBy="series", cascade="remove")
+     */
+    protected $files;
+
+    /**
      * Add abonnements
      *
      * @param \AppBundle\Entity\Abonnements $abonnements
@@ -141,5 +146,39 @@ class Series extends OktoSeries
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Add files
+     *
+     * @param \AppBundle\Entity\Asset $files
+     * @return Series
+     */
+    public function addFile(\AppBundle\Entity\Asset $files)
+    {
+        $this->files[] = $files;
+        $files->setSeries($this);
+        return $this;
+    }
+
+    /**
+     * Remove files
+     *
+     * @param \AppBundle\Entity\Asset $files
+     */
+    public function removeFile(\AppBundle\Entity\Asset $files)
+    {
+        $files->setSeries(Null);
+        $this->files->removeElement($files);
+    }
+
+    /**
+     * Get files
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFiles()
+    {
+        return $this->files;
     }
 }
