@@ -193,6 +193,13 @@ oktothek.tag_edit_popular_button:      <span class="glyphicon glyphicon-edit" ar
 oktothek.tag_popular_update_button:    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Änderungen speichern
 oktothek.tag_search_label:             Bestehende Tags durchsuchen
 
+# tag pager
+oktothek.tag_pager_episode_header:     "Alle Clips zu #%tag%"
+oktothek.tag_pager_pages_header:       "Alle Seiten zu #%tag%"
+oktothek.tag_pager_playlists_header:   "Alle Playlists zu #%tag%"
+oktothek.tag_pager_posts_header:       "Alle Posts zu #%tag%"
+oktothek.tag_pager_series_header:      "Alle Serien zu #%tag%"
+
 ## academy
 oktothek_academy_header:                Akademie
 oktothek_academy_misc_info:             %price%€ / %price_reduced%€
