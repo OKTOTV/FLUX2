@@ -50,7 +50,7 @@ class NotificationService
 
     public function createNewPostNotifications(Post $post)
     {
-        if ($post->getOnlineAt() <= new \Datetime() && $post->getSeries() != null && $post->isActive()) {
+        if ($post->getOnlineAt() <= new \Datetime() && $post->getSeries() != null && $post->getIsActive()) {
             $notifications = [];
             $mails = [];
             foreach ($post->getSeries()->getAbonnements() as $abonnement) {
