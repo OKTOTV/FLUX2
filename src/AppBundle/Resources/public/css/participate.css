@@ -82,6 +82,9 @@ body.participate {
 .participate #planets .cloud9-item:nth-child(3) nav.sub-right li:nth-child(1) span {
 	background-image:url(../images/icon_participate_contact.svg);
 }
+.participate #planets .cloud9-item:nth-child(3) nav.sub-right li:nth-child(2) span {
+	background-image:url(../images/icon_participate_feedback.svg);
+}
 .participate #planets .cloud9-item:nth-child(4) nav.sub-left li:nth-child(2) span {
 	background-image:url(../images/icon_participate_info.svg);
 }
@@ -387,6 +390,10 @@ body.participate #planets .cloud9-item nav li span {
 .participate #planets .cloud9-item:nth-child(3) nav.sub-right li:nth-child(1) span {
 	top:12px;
 	left:172px;
+}
+.participate #planets .cloud9-item:nth-child(3) nav.sub-right li:nth-child(2) span {
+	top:27px;
+	left:194px;
 }
 .participate #planets .cloud9-item:nth-child(4) nav.sub-right li:nth-child(1) span {
 	top:17px;
