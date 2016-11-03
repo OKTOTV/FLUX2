@@ -15,13 +15,15 @@
         {% include "AppBundle:Default:_share.html.twig" with {'show_button': true} %}
     </header>
 </div>
-<div class="navigation">
-    {{ knp_pagination_render(pages) }}
-</div>
+<section class="container">
+    div class="navigation">
+        {{ knp_pagination_render(pages) }}
+    </div>
 
-{% include 'AppBundle::Page/PageStack.html.twig' with {'pages': pages} %}
+    {% include 'AppBundle::Page/PageStack.html.twig' with {'pages': pages} %}
 
-<div class="navigation">
-    {{ knp_pagination_render(pages) }}
-</div>
+    <div class="navigation">
+        {{ knp_pagination_render(pages) }}
+    </div>
+</section>
 {% endblock %}

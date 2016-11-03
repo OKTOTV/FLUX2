@@ -15,13 +15,15 @@
         {% include "AppBundle:Default:_share.html.twig" with {'show_button': true} %}
     </header>
 </div>
-<div class="navigation">
-    {{ knp_pagination_render(playlists) }}
-</div>
+<section class="container">
+    <div class="navigation">
+        {{ knp_pagination_render(playlists) }}
+    </div>
 
-{% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with {'playlists': playlists} %}
+    {% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with {'playlists': playlists} %}
 
-<div class="navigation">
-    {{ knp_pagination_render(playlists) }}
-</div>
+    <div class="navigation">
+        {{ knp_pagination_render(playlists) }}
+    </div>
+</section>
 {% endblock %}
