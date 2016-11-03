@@ -24,6 +24,7 @@ oktothek.notification_message_episode:  "%series% hat eine neue Episode veröffe
 oktothek.notification_message_post:     "%series% hat einen neuen Beitrag veröffentlicht"
 oktothek.notification_livestream:       "%series% ist jetzt Live"
 oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"></span>
+oktothek.menu_tag_dropdown:             'Popular <span class="caret">'
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Brandneu in der Oktothek
