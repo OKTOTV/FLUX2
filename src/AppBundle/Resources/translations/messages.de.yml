@@ -468,7 +468,7 @@ oktothek_backend_slide_from_episode:        Slide generieren
 oktothek.backend_news_header:               Posts
 oktothek.backend_blogpost_header:           Blogposts von Sendereihen
 oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neuer Post
-
+oktothek.backend_files_header:              Promo Dateien
 ## edit
 oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Beitrag bearbeiten
 oktothek_backend_slide_from_news:           Slide generieren

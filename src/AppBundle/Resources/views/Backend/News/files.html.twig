@@ -45,7 +45,20 @@
 
         {% for file in files %}
             <div class="list-group-item">
-                {{ file.name }}
+                <div class="row">
+                    <div class="col-md-3">
+                        {{ file.filekey }}
+                    </div>
+                    <div class="col-md-8">
+                        {{ file.name }}
+                    </div>
+                    <div class="col-md-1">
+                        {{ file|filesize }}
+                    </div>
+                </div>
+                <div class="well well-sm">
+                    ![{{file.name}}]({{ file|link }} "{{file.name}}")
+                </div>
             </div>
         {% endfor %}
     </div>
