@@ -8,7 +8,7 @@ use Oktolab\MediaBundle\Entity\Repository\BaseSeriesRepository;
 
 class SeriesRepository extends BaseSeriesRepository
 {
-    public function findEpisodesWithTag(Series $series, Tag $tag, $pagerable = false, $number = 8) {
+    public function findEpisodesWithTag(Series $series, Tag $tag, $pagerable = false, $number = 9) {
         if ($pagerable) {
             return $this->getEntityManager()
                 ->createQuery(
@@ -56,7 +56,7 @@ class SeriesRepository extends BaseSeriesRepository
             ->getResult();
     }
 
-    public function findNewestEpisodesForSeries(Series $series, $numberEpisodes = 8)
+    public function findNewestEpisodesForSeries(Series $series, $numberEpisodes = 9)
     {
         return $this->getEntityManager()
             ->createQuery(

@@ -89,7 +89,7 @@ class SeriesController extends Controller
         $page = $request->query->get('page', 1);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $episodes = $paginator->paginate($em->getRepository('AppBundle:Series')->findActiveEpisodes($series, true), $page, 10);
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Series')->findActiveEpisodes($series, true), $page, 12);
         return ['episodes' => $episodes, 'series' => $series];
     }
 }
