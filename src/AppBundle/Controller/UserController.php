@@ -133,7 +133,7 @@ class UserController extends Controller
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_edit_abonnement');
 
-                return $this->redirect($this->generateUrl('user_channels'));
+                return $this->redirect($this->generateUrl('oktothek_user_abonnements'));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_post');
             }
