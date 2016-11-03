@@ -1226,6 +1226,11 @@ header .collapseShare .btn,
 	-khtml-border-radius:25px;
 	border-radius: 25px;
 }
+.team figure {
+    -moz-border-radius:75px;
+	-khtml-border-radius:75px;
+	border-radius: 75px;
+}
 /*.avatar {
 	-moz-border-radius:25px;
 	-khtml-border-radius:25px;
@@ -1549,10 +1554,10 @@ footer .networks {
 html, body {
 	height:100%;
 }
-.series .infos ul, .footer ul, .footer li, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul, body.producer ul.list-group  {
+.series .infos ul, .footer ul, .footer li, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul, body.producer ul.list-group, .team li  {
 	list-style:none;
 }
-.series .infos ul, .tags ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul, body.producer ul.list-group {
+.series .infos ul, .tags ul, .academy .timetable, .oktothek .participart-list, .series .blog aside ul, body.producer ul.list-group, .team ul {
 	margin-left:0;
 	padding-left:0;
 }
@@ -2641,7 +2646,34 @@ body.producer aside ul.socialnetworks li div {
     margin-left:50px;
     padding-top:10px;
 }
+.team img {
+    height:150px;
+    width:auto;
+}
+.team figure {
+    overflow:hidden;
+    height:150px;
+    width:150px;
+}
+.team {
+    margin:50px 0;
+}
+.team li {
+    float:left;
+    width:50%;
+    box-sizing:border-box;
+    padding:10px 10px 30px 10px;
+}
+.team + p, .team + h2, .team + h3 {
+    clear:left;
+}
 
+.team li:nth-child(2n+1) {
+    clear:left;
+}
+.team figure {
+    margin-bottom:20px;
+}
 
 @media (min-width: 580px) {
 	article.pin {
@@ -2660,6 +2692,15 @@ body.producer aside ul.socialnetworks li div {
 		margin-bottom:0px;
 		padding-bottom:30px;
 	}
+     .team li {
+        width:33%;
+    }
+    .team li:nth-child(3n+1) {
+        clear:left;
+    }
+    .team li:nth-child(2n+1) {
+	    clear:none;
+    }
 }
 @media (min-width: 768px) {
 	
@@ -2695,6 +2736,15 @@ body.producer aside ul.socialnetworks li div {
 	.tagpage article.pin {
 		width:50%;
 	}
+    .team li {
+        width:25%;
+    }
+    .team li:nth-child(4n+1) {
+        clear:left;
+    }
+    .team li:nth-child(3n+1) {
+	    clear:none;
+    }
 	/*.academy .collapse {
 	    width: 970px;
 	}*/
