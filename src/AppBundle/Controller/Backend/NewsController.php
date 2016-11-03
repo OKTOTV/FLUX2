@@ -31,6 +31,39 @@ class NewsController extends Controller
     }
 
     /**
+     * @Route("/blogposts", name="oktothek_backend_news_blogpost_index")
+     * @Template()
+     */
+    public function blogPostAction(Request $request)
+    {
+        $page = $request->query->get('page', 1);
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findAllBlogPost(0, true), $page, 5);
+
+        return ['posts' => $posts];
+    }
+
+    /**
+     * @Route("/files", name="oktothek_backend_news_files_index")
+     * @Template()
+     */
+    public function filesAction(Request $request)
+    {
+        $page = $request->query->get('page', 1);
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $files = $paginator->paginate(
+            $em->getRepository('AppBundle:Asset')->findAssetsFromAdapter(
+                $this->getParameter('bprs_asset.class'), 0, 'promo', true),
+                $page,
+                5
+            );
+
+        return ['files' => $files];
+    }
+
+    /**
      * @Route("/new", name="oktothek_backend_news_new")
      * @Template()
      */

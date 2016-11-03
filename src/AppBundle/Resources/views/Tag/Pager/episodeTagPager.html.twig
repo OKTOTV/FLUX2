@@ -10,37 +10,37 @@
 <div id="top"></div>
 <div class="container-fluid">
     <div class="bg-bleur"></div>
-    <header class="container">
-        <h1>{{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
+    <header class="container page-header">
+        <h1>Alle Clips zu {{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
         {% include "AppBundle:Default:_share.html.twig" with {'show_button': true} %}
     </header>
 </div>
 <section class="container">
-<div class="row">
-    <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            {{ 'oktothek.user_favorites_filter'|trans|raw }}
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="filter_menu">
-            <li {% if episodes.isSorted('e.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_name'|trans, 'e.name') }}</li>
-            <li {% if episodes.isSorted('e.firstranAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_firstranAt'|trans, 'e.firstranAt') }}</li>
-        </ul>
+    <div class="row">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{ 'oktothek.user_favorites_filter'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                <li {% if episodes.isSorted('e.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_name'|trans, 'e.name') }}</li>
+                <li {% if episodes.isSorted('e.firstranAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_firstranAt'|trans, 'e.firstranAt') }}</li>
+            </ul>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="navigation">
-        {{ knp_pagination_render(episodes) }}
+    <div class="row">
+        <div class="navigation">
+            {{ knp_pagination_render(episodes) }}
+        </div>
     </div>
-</div>
-<div class="row">
-{% for episode in episodes %}
-    {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
-{% endfor %}
-</div>
-<div class="row">
-    <div class="navigation">
-        {{ knp_pagination_render(episodes) }}
+    <div class="row">
+    {% for episode in episodes %}
+        {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+    {% endfor %}
     </div>
-</div>
+    <div class="row">
+        <div class="navigation">
+            {{ knp_pagination_render(episodes) }}
+        </div>
+    </div>
 </section>
 {% endblock %}

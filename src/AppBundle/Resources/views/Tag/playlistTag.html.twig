@@ -1,7 +1,7 @@
 <div class="row">
     {% for playlist in playlists|slice(0,5) %}
         {% if loop.first %}
-            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first" data-toggle="tooltip" title="{{ playlist.description }}">
+            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" data-toggle="tooltip" title="{{ playlist.description }}">
                 <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}">
                     <figure class="playlist-pin pin">
                         {% if playlist.items is not empty %}
@@ -20,7 +20,7 @@
     {% endfor %}
     {% set numberOfPlaylists = 5 - playlists|slice(0,5)|length %}
     {% for i in 1..numberOfPlaylists %}
-        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"></article>
+        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></article>
     {% endfor %}
     </div>
 </div>

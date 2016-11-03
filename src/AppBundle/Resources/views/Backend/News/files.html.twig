@@ -1,0 +1,76 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+
+<div>
+    <h1>{{ 'oktothek.backend_index_slider'|trans}}</h1>
+    <p>
+        <div class="btn-group" role="group">
+            <a href="{{ path('oktothek_backend_slide_new') }}" class="btn btn-default">{{'oktothek_backend_slide_new'|trans|raw }}</a>
+            <a href="{{ path('oktothek_backend_news_new') }}" class="btn btn-default">{{'oktothek_backend_news_new'|trans|raw }}</a>
+            <a href="{{ path('oktothek_page_new') }}" class="btn btn-default">{{ 'oktothek_backend_page_new'|trans|raw }}</a>
+        </div>
+    </p>
+</div>
+
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="{{ path('oktothek_backend_slide_index')}}">{{ 'oktothek.backend_slider_header'|trans}}</a></li>
+    <li role="presentation"><a href="{{ path('oktothek_backend_news_index')}}">{{ 'oktothek.backend_news_header'|trans }}</a></li>
+    <li role="presentation"><a href="{{ path('oktothek_backend_page_index') }}">{{ 'oktothek.backend_page_header'|trans }}</a></li>
+    <li role="presentation"><a href="{{ path('oktothek_backend_news_blogpost_index')}}">{{ 'oktothek.backend_blogpost_header'|trans }}</a></li>
+    <li role="presentation" class="active"><a href="{{ path('oktothek_backend_news_files_index')}}">{{ 'oktothek.backend_files_header'|trans }}</a></li>
+</ul>
+<section class="tabs-content">
+    <div class="navigation">
+        {{ knp_pagination_render(files) }}
+    </div>
+    <div class="list-group">
+        <div class="form-group">
+            <label for="fileupload" class="required">Upload</label>
+            <br />
+            <span class="btn btn-default fileinput-button">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span>{{ button_label|default('bprs_asset.button_label')|trans }}</span>
+                <input class="bprs-fileupload form-control" type="file" name="files[]" data-type="multiple" data-reference="#upload" data-junksize="{{ junksize }}" data-url="{{ oneup_uploader_endpoint('promo') }}" data-type="multiple" multiple />
+            </span>
+            <div id="progress" class="progress">
+                <div class="progress-bar progress-bar-success"></div>
+            </div>
+            <div id="upload" data-prototype=''>
+            </div>
+        </div>
+
+        {% for file in files %}
+            <div class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        {{ file.filekey }}
+                    </div>
+                    <div class="col-md-8">
+                        {{ file.name }}
+                    </div>
+                    <div class="col-md-1">
+                        {{ file|filesize }}
+                    </div>
+                </div>
+                <div class="well well-sm">
+                    ![{{file.name}}]({{ file|link }} "{{file.name}}")
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts%}
+    {{ parent() }}
+    {% include "BprsAssetBundle::singleUpload.js.twig" %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% include "BprsAssetBundle::singleUpload.css.twig" %}
+{% endblock %}

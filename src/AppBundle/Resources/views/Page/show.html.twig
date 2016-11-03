@@ -5,13 +5,15 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
 {% endblock %}
 
+{% set body_class = "page" %}
 {% block body %}
-<div class="container">
+<div class="container content">
     {% if page.id is empty %}
         <a href="#" onclick="goBack();return false;" class="btn btn-default">{{ 'oktothek.page_preview_back_button'|trans }}</a>
     {% else %}
         <a href="{{ path('oktothek_page_edit', {'page': page.id})}}" class="btn btn-default">{{ 'oktothek.page_edit_button'|trans|raw }}</a>
     {% endif %}
+    <h1>{{ page.title }}</h1>
     {{ page.text|markdown() }}
 </div>
 {% endblock %}
@@ -22,7 +24,6 @@
     function goBack() {
         window.history.back();
     }
-
 </script>
 
 {% endblock %}

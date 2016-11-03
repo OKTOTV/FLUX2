@@ -61,6 +61,11 @@ class User extends BaseUser
      */
     private $channels;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Asset", mappedBy="owner")
+     */
+    private $files;
+
     public function __construct() {
         parent::__construct();
         $this->abonnements = new \Doctrine\Common\Collections\ArrayCollection();
@@ -294,5 +299,39 @@ class User extends BaseUser
     public function getChannels()
     {
         return $this->channels;
+    }
+
+    /**
+     * Add files
+     *
+     * @param \AppBundle\Entity\Asset $files
+     * @return User
+     */
+    public function addFile(\AppBundle\Entity\Asset $files)
+    {
+        $this->files[] = $files;
+        $files->setOwner($this);
+        return $this;
+    }
+
+    /**
+     * Remove files
+     *
+     * @param \AppBundle\Entity\Asset $files
+     */
+    public function removeFile(\AppBundle\Entity\Asset $files)
+    {
+        $files->setOwner(Null);
+        $this->files->removeElement($files);
+    }
+
+    /**
+     * Get files
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFiles()
+    {
+        return $this->files;
     }
 }

@@ -5,23 +5,25 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "tagpage head-white-color head-transparent-bg fullscreen-background" %}
+{% set body_class = "clip_overview" %}
 {% block body %}
 <div id="top"></div>
 <div class="container-fluid">
     <div class="bg-bleur"></div>
-    <header class="container">
-        <h1>{{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
+    <header class="container page-header">
+        <h1>Alle Seiten zu {{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
         {% include "AppBundle:Default:_share.html.twig" with {'show_button': true} %}
     </header>
 </div>
-<div class="navigation">
-    {{ knp_pagination_render(pages) }}
-</div>
+<section class="container">
+    div class="navigation">
+        {{ knp_pagination_render(pages) }}
+    </div>
 
-{% include 'AppBundle::Page/PageStack.html.twig' with {'pages': pages} %}
+    {% include 'AppBundle::Page/PageStack.html.twig' with {'pages': pages} %}
 
-<div class="navigation">
-    {{ knp_pagination_render(pages) }}
-</div>
+    <div class="navigation">
+        {{ knp_pagination_render(pages) }}
+    </div>
+</section>
 {% endblock %}
