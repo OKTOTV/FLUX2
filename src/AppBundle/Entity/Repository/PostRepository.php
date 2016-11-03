@@ -37,6 +37,17 @@ class PostRepository extends EntityRepository
             ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.series IS NULL');
     }
 
+    public function findAllActivePosts($number = 6, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.isActive = 1 AND p.onlineAt < :now AND p.series IS NULL')
+            ->setParameter('now', new \DateTime());
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($number)->getResult();
+    }
+
     public function findAllBlogPost($number, $query_only = false)
     {
         $query = $this->getEntityManager()
