@@ -1,17 +1,17 @@
-<div class="row">
+<div class="row episode-tags">
 {% for episode in episodes %}
     {% if loop.first %}
         <article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin first-pin" title="{{ episode.description }}">
-            <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">
-                <figure class="episode-pin pin">
+            <figure class="episode-pin pin">
+                <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">
                     <img src="{{ episode.posterframe(true)|path() }}" class="img-responsive"/>
-                    <figcaption>
-                        <h3>{{ episode.series.name }}</h3>
-                        <p>{{ episode.name }}</p>
-                        <p><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</p>
-                    </figcaption>
-                </figure>
-            </a>
+                </a>
+                <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
+                <figcaption>
+                    <h3><a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name|default('') }} ansehen">{{ episode.series.name }}</a></h3>
+                    <p>{{ episode.name }}</p>
+                </figcaption>
+            </figure>
         </article>
         <div class="col-md-6 col-lg-6 col-sm-8 col-xs-12 small-pins">
     {% else %}
@@ -20,7 +20,7 @@
 {% endfor %}
 {% set numberOfEpisodes = 5 - episodes|length %}
 {% for i in 1..numberOfEpisodes %}
-    <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"></article>
+    <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></article>
 {% endfor %}
-        </div>
+    </div>
 </div>

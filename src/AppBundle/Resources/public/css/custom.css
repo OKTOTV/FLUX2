@@ -1143,6 +1143,9 @@ button.list-group-item-danger,
     border-bottom: none;
     border-left: solid 2px #112022;
 }
+.tagpage .empty figure {
+    border: solid 1px #112022;
+}
 /* Türkis */
 /*.pull-right .icon { 
 border: solid 2px #13fffd;
@@ -2506,6 +2509,11 @@ figure.pin img {
 .tagpage .pin.empty figure {
 	width:100%;
     min-height:180px;
+    padding-top:65px;
+}
+.tagpage .episode-tags .pin.empty figure {
+	width:100%;
+    min-height:200px;
     padding-top:65px;
 }
 /*.tagpage .pin.empty:nth-child(3), .tagpage .pin.empty:nth-child(4) {

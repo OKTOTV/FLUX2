@@ -1,7 +1,7 @@
 <div class="row">
     {% for series in seriess %}
         {% if loop.first %}
-            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first" title="{{ series.description }}">
+            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ series.description }}">
                 <figure class="series-pin pin">
                     <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }} ansehen">
                         <img src="{{ series.posterframe|thumb(309,550) }}" class="img-responsive"/>
@@ -18,7 +18,7 @@
     {% endfor %}
     {% set numberofseries = 4 - seriess|length %}
     {% for i in 0..numberofseries %}
-        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure></figure></article>
+        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></article>
     {% endfor %}
             </div>
 </div>
