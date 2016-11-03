@@ -8,7 +8,7 @@
 {% block body %}
 <div class="container">
     <header class="page-header">
-        <h1>{{ course.coursetype.title }} {{ 'oktothe_academy_book_course_header'|trans }}</h1>
+        <h1>{{ 'oktothe_academy_book_course_header'|trans({'%coursetype%': course.coursetype.title}) }}</h1>
 	</header>
     <section>
     <p>{{ course.coursetype.description }}</p>
