@@ -16,22 +16,12 @@
 </div>
 <div class="list-group">
     {% for playlist in playlists %}
-    <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID})}}" class="list-group-item">
-        <div class="row">
-            <div class="col-md-3">
-                {# <img class="img img-responsive" src="{{ episode.posterframe|thumb(135,240)}}" /> #}
-            </div>
-            <div class="col-md-9">
-                <h4 class="list-group-item-heading">{{ playlists.name }}</h4>
-                <p class="list-group-item-text">{{ playlists.description }}</p>
-            </div>
-        </div>
-    </a>
+    <a href="{{ path('oktothek_channel_playlist_edit', {'uniqID': playlist.uniqID})}}" class="list-group-item">{{ playlist.name }}</a>
     {% endfor %}
 </div>
 <div class="navigation">
     {{ knp_pagination_render(playlists) }}
 </div>
-<a href="" class="btn btn-default">{{'oktothek.series_producer_new_playlist'|trans|raw }}</a>
+<a href="{{ path('oktothek_channel_playlist_new', {'uniqID': series.uniqID})}}" class="btn btn-default">{{'oktothek.series_producer_new_playlist'|trans|raw }}</a>
 </section>
 {% endblock %}

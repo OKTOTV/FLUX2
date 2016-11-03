@@ -29,6 +29,11 @@ class Series extends OktoSeries
     protected $users;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Playlist", mappedBy="series", cascade="remove")
+     */
+    protected $playlists;
+
+    /**
      * Add abonnements
      *
      * @param \AppBundle\Entity\Abonnements $abonnements

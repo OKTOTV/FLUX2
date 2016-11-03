@@ -15,9 +15,12 @@
     {{ knp_pagination_render(posts) }}
 </div>
 <div class="list-group news-container">
-    {% for post in posts %}
-        {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %}
-    {% endfor %}
+    <div class="list-group">
+        {% for post in posts %}
+            <a href="{{ path('oktothek_series_edit_blog_post', {'uniqID': series.uniqID, 'post': post.id})}}" class="list-group-item">{{ post.name }}</a>
+        {% endfor %}
+    </div>
+        {#% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': loop.index } %#}
 </div>
 <div class="navigation">
     {{ knp_pagination_render(posts) }}

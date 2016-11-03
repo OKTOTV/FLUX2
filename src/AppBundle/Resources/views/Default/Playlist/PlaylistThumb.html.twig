@@ -9,9 +9,11 @@
             <figcaption>
                 <h3>{{ playlist.name }}</h3>
                 <p>
+                    {% if playlist.user %}
                     <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}">
                         {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}
                     </a>
+                    {% endif %}
                 </p>
             </figcaption>
         </figure>
