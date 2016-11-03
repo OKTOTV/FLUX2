@@ -1018,6 +1018,7 @@ header .collapseShare a.btn,
 .playlists .playlist_container .list-group-item, 
 .collapseWindow > div.collapse-content, 
 /*.collapseCoursedetails, */
+article.pin figure.pin,
 .series .news-pin, 
 .series .news-form, 
 .series .blog aside .aside-inner, 
@@ -2105,6 +2106,9 @@ article.pin:nth-child(2n+1) {
 article.pin {
 	margin-bottom:20px;
 	width:100%;
+}
+article.pin figcaption {
+    padding:0 5px 1px 5px;
 }
 .col-md-3.pin, .col-lg-3.pin, .col-sm-6.pin, .col-xs-6.pin, .col-md-6.pin, .col-lg-6.pin {
 	padding-left:5px;
