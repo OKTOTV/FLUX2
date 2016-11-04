@@ -1,5 +1,8 @@
 @charset "UTF-8";
 /* CSS Document */
+body.news h1 {
+    text-align:left;
+}
 .news h3 {
 	margin-top:0;
 	margin-bottom:20px;
@@ -15,14 +18,14 @@ body.oktothek .news article.pin {
 }
 
 /* News */
-body.newsarchiv aside ul {
+body.newsarchiv aside ul, body.news aside ul {
 	list-style:none;
 }
-body.newsarchiv aside ul {
+body.newsarchiv aside ul, body.news aside ul {
 	margin-left:0;
 	padding-left:0;
 }
-body.newsarchiv aside .box h3:first-child {
+body.newsarchiv aside .box h3:first-child, body.news aside .box h3:first-child  {
 	padding-top:0;
 	margin-top:0;
 }
@@ -41,13 +44,13 @@ body.newsarchiv .page-header.detail, body.news .page-header.archiv {
     padding: 0;
     text-align: left;
 }
-body.newsarchiv aside {
+body.newsarchiv aside, body.news aside {
 	margin-top:40px;
 }
-body.newsarchiv aside .box {
+body.newsarchiv aside .box, body.news aside .box {
 	padding:40px 15px;
 }
-body.newsarchiv aside .box {
+body.newsarchiv aside .box, body.news aside .box {
     margin-bottom:2px;
 }
 .news .filter-news {

@@ -1031,6 +1031,7 @@ article.pin figure.pin,
 .livestream .schedule .panel-default,
 .edit-playlists .tt-menu,
 .newsarchiv aside .box,
+.news aside .box,
 .nav-tabs > li > a:focus,
 .nav-tabs > li > a:hover,
 .nav-tabs > li.active > a,
@@ -1295,9 +1296,6 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 }
 .socialnetworks .icon-instagramm {
 	background-image:url(../images/icon_instagramm.svg);
-}
-.newsarchiv aside .icon-pinterest {
-	background-image:url(../images/icon_pinterest.png);
 }
 .socialnetworks .icon-pinterest {
 	background-image:url(../images/icon_pinterest.svg);
