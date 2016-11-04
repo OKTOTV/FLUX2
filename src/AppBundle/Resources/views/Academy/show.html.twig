@@ -13,7 +13,7 @@
             {% for coursetype in coursetypes if coursetype.highlight %}
                 <article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" data-toggle="tooltip" data-placement="right" title="#">
                     <figure class="academy-pin pin">
-                        <img src="{{ coursetype.image|link }}" class="img-responsive" />
+                        <img src="{{ coursetype.image|thumb(135,240) }}" class="img-responsive" />
                         <figcaption>
                             <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
                               <h3>{{ coursetype.title }}</h3>
