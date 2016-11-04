@@ -1774,7 +1774,7 @@ figcaption h3 {
 figcaption p {
 	margin:2px 0 10px 0;
 }
-.oktothek h2, .episode h2, .series h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .subheadline, figcaption h1, figcaption .misc, .playlists h1, .playlists .misc, .academy figcaption .misc {
+.oktothek h2, .episode h2, .series h2, .page h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .subheadline, figcaption h1, figcaption .misc, .playlists h1, .playlists .misc, .academy figcaption .misc {
 	text-align:center;
 }
 .series .current-episode h2, .comments h2, figcaption .subheadline, .page .subheadline {
@@ -2729,6 +2729,9 @@ body.producer aside ul.socialnetworks li div {
 	}
     article.pin:nth-child(2n+1) {
 	    clear:none;
+    }
+    article.pin:nth-child(4n+1) {
+	    clear:left;
     }
     body.tagpage article.pin:nth-child(2n+1) {
 	    clear:left;

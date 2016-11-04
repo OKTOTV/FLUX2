@@ -17,7 +17,7 @@ class AcademyExtension extends \Twig_Extension
             $time = $time + ($coursedate->getCourseEnd()->format('U') - $coursedate->getCourseStart()->format('U'));
         }
 
-        return ($time / 3600);
+        return ceil($time / 3600);
     }
 
     public function getName() {
