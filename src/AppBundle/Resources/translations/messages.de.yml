@@ -408,6 +408,7 @@ oktothek.user_update_abonnement_button:     Einstellungen aktualisieren
 user_edit_subscription:                     Benachrichtigungseinstellungen
 
 ## notifications
+oktothek_mail_notification_livestream_subject:      Livestream auf OKTO
 oktothek_mail_notification_new_episode_subject:     Neue Episode
 oktothek_mail_notification_new_post_subject:        Neuer Blogeintrag
 

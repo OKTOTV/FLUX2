@@ -35,13 +35,15 @@ class NotificationService
         $notifications = [];
         $mails = [];
         foreach ($episode->getSeries()->getAbonnements() as $abonnement) {
-            $notification = new Notification();
-            $notification->setEpisode($episode);
-            $notification->setType(Notification::NEW_EPISODE);
-            $abonnement->getUser()->addNotification($notification);
-            $notifications[] = $notification;
-            if ($abonnement->getSendMails()) {
-                $mails[] = $notification;
+            if ($abonnement->getNewEpisode()) {
+                $notification = new Notification();
+                $notification->setEpisode($episode);
+                $notification->setType(Notification::NEW_EPISODE);
+                $abonnement->getUser()->addNotification($notification);
+                $notifications[] = $notification;
+                if ($abonnement->getSendMails()) {
+                    $mails[] = $notification;
+                }
             }
         }
         $this->sendMails(Notification::NEW_EPISODE, $mails);
@@ -75,7 +77,7 @@ class NotificationService
         $notifications = [];
         $mails = [];
         foreach ($series->getAbonnements() as $abonnement) {
-            if ($abonnement->getNewPost()) {
+            if ($abonnement->getLivestream()) {
                 $notification = new Notification();
                 $notification->setUser($abonnement->getUser());
                 $notification->setSeries($series);
