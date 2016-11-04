@@ -30,8 +30,9 @@ class AcademyController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $coursetypes = $em->getRepository('AppBundle:Course\Coursetype')->findActiveCoursetypes();
+        $highlights = $em->getRepository('AppBundle:Course\Coursetype')->findHighlightedCoursetypes();
 
-        return ['coursetypes' => $coursetypes];
+        return ['coursetypes' => $coursetypes, 'highlights' => $highlights];
     }
 
     /**

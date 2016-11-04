@@ -12,10 +12,38 @@ use Doctrine\ORM\EntityRepository;
  */
 class CoursetypeRepository extends EntityRepository
 {
-    public function findActiveCoursetypes()
+    public function findActiveCoursetypes($query_only = false)
     {
-        return $this->getEntityManager()
-            ->createQuery('SELECT c,i FROM AppBundle:Course\Coursetype c LEFT JOIN c.image i WHERE c.is_active = true')
-            ->getResult();
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT c,i FROM AppBundle:Course\Coursetype c
+                LEFT JOIN c.image i
+                WHERE c.is_active = true
+                AND c.highlight = false
+                AND SIZE(c.courses) != 0
+            ');
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getResult();
+    }
+
+    public function findHighlightedCoursetypes($query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT c,i FROM AppBundle:Course\Coursetype c
+                LEFT JOIN c.image i
+                WHERE c.is_active = true
+                AND c.highlight = true
+                AND SIZE(c.courses) != 0'
+            );
+
+        if ($query_only) {
+            return $query;
+        }
+
+        return $query->getResult();
     }
 }

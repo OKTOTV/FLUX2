@@ -9,84 +9,13 @@
 {% block body_main %}
     <h1>{{ 'oktothek_academy_header'|trans }}</h1>
     <section>
-        <div class="row">
-            {% for coursetype in coursetypes if coursetype.highlight %}
-                <article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" data-toggle="tooltip" data-placement="right" title="#">
-                    <figure class="academy-pin pin">
-                        <img src="{{ coursetype.image|thumb(135,240) }}" class="img-responsive" />
-                        <figcaption>
-                            <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
-                              <h3>{{ coursetype.title }}</h3>
-                                <p>{{ coursetype.courses[0].dates|hours~'h'}} | {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
-                            </a>
-                        </figcaption>
-                    </figure>
-                </article>
-            {% endfor %}
-        </div>
+        {% include "AppBundle:Academy:_courseStack.html.twig" with {'coursetypes': highlights} %}
     </section>
     <!-- Ende Highlights -->
     <!-- Start Kursauflistung -->
     <section class="courses">
         <h2>{{ 'oktothek_academy_courses'|trans }}</h2>
-        <div class="row">
-            {% for coursetype in coursetypes if not coursetype.highlight %}
-                <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pin" data-placement="right" title="#" id="course{{coursetype.id}}">
-                    <figure class="academy-pin pin">
-                        <div class="image-container">
-                            <img src="{{ coursetype.image|thumb(135,240) }}" class="img-responsive"/>
-                            <div class="preview-button">
-                                <div class="preview-content">
-                                    <div class="bg-opacity"> </div>
-                                    <a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}">Schnellansicht</a>
-                                   </div>
-                               <div class="preview-icon"><a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}"><div class="pin-icon"><span> </span></div></a></div>
-                            </div>
-                        </div>
-                        <figcaption>
-                            <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
-                                <h3>{{ coursetype.title }}</h3>
-                                <p><span class="price">{{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</span></p>
-                            </a>
-                        </figcaption>
-                    </figure>
-
-                    <!-- Schnellansicht Details Start -->
-                <div class="collapse preview collapseWindow" data-placement="right" title="#" id="collapseDetail{{coursetype.id}}">
-                    <div class="collapse-header"> </div>
-                    <div class="col-md-12 collapse-content">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                                <h3>{{ coursetype.title }}</h3>
-                                    <p>{{ coursetype.teaser }}</p>
-                                    <p><a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" class="more">Details zum Kurs</a></p>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                                    <p class="misc">Dauer {{ coursetype.courses[0].dates|hours~'h'}}</p>
-                                    <h4>Termine</h4>
-                                    <ul class="timetable">
-                                        {% for course in coursetype.courses %}
-                                        <li>
-                                            <p>
-                                                {% for date in course.dates %}
-                                                <span>{{ date.courseStart|date('d.m.Y') }}</span> {{ date.courseStart|date('H:i') }} - {{ date.courseEnd|date('H:i') }}<br />
-                                                {% endfor %}
-                                            </p>
-                                            <p class="booking">
-                                                <a href="{{ path('oktothek_academy_book_course', {'course': course.id})}}" class="btn btn-default">{{'oktothek_academy_book_course'|trans }}</a>
-                                            </p>
-                                        </li>
-                                       {% endfor %}
-                                   </ul>
-                               </div>
-                           </div>
-                       </div>
-                </div>
-                <!-- Schnellansicht Details Ende -->
-                </article>
-
-            {% endfor %}
-        </div>
+        {% include "AppBundle:Academy:_courseStack.html.twig" with {'coursetypes': coursetypes} %}
     </section>
     <!-- Ende Kursauflistung -->
     <!-- Anfang Gruppenangebot -->
