@@ -209,6 +209,9 @@ body.producer ul.list-group .pin a p {
 .pin .pin-icon {
 	font-size:10px;
 }
+h3 {
+    line-height:1.25em;
+}
 .btn, 
 header .navbar-nav a, 
 header #dropdownMenuTags.btn-default, 
@@ -2593,6 +2596,9 @@ figure.pin img {
 	height:100%;
 	width:100%;
 	padding-top:20px;
+}
+.academy figcaption {
+    min-height:68px;
 }
 .academy .pin-icon {
 	cursor:pointer;
