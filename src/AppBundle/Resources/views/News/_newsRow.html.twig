@@ -9,14 +9,14 @@
     {% if text_only == false %}
         <figure class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">
-                <img src="{{ post.assets[0]|path() }}" class="img img-responsive" />
+                <img src="{{ post.assets[0]|thumb(220,390) }}" class="img img-responsive" />
             </a>
         </figure>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
     {% endif %}
             <p>
                 {% for tag in post.tags %}
-                    <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default"> {{ tag.text }}</span></a>
+                    <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default">#{{ tag.text }}</span></a>
                 {% endfor %}
             </p>
             <header class="page-header">

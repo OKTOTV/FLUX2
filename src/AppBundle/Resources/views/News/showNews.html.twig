@@ -8,11 +8,31 @@
 {% set body_class = "news" %}
 {% block body %}
     <div class="container">
-        {% include 'AppBundle::News/newsDetails.html.twig' %}
-        {#% include 'AppBundle::News/post.html.twig' %#}
-        <section class="comments comment-pager">
-        {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
-        </section>
+        <div class="row">
+            <div class="col-md-8 news-container">
+                {% include 'AppBundle::News/newsDetails.html.twig' %}
+                {#% include 'AppBundle::News/post.html.twig' %#}
+                <section class="comments comment-pager">
+                    {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
+                </section>
+            </div>
+            <aside class="col-md-4">
+                <div class="box">
+                    <h3>{{ 'oktothek.newsletter_header'|trans }}</h3>
+                    {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_default_newsletter }))}}
+                </div>
+                <div class="box">
+                    <h3>SOCIAL NETWORKS</h3>
+                    <p>Folgen Sie uns auf:</p>
+                    <ul class="socialnetworks">
+                        <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                        <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                        <li><a href="https://www.instagram.com/oktotv/" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                        <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
 	</div>
 {% endblock %}
 {% block javascripts %}
