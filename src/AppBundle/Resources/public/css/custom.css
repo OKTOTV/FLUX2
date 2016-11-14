@@ -903,9 +903,6 @@ header .collapseShare a.btn,
 	color:#000000;
 }
 /* Türkis */
-/*a, a.more  { 
-	color:#13fffd;
-}*/
 .pin figcaption p a, 
 .pin figcaption a p, 
 .pin a figcaption p, 
@@ -1583,6 +1580,8 @@ footer .networks {
 html, body {
 	height:100%;
 }
+
+/* Listen */
 .series .infos ul, .footer ul, .footer li, .academy .timetable, .oktothek .participart-list li, .series .blog aside ul, body.producer ul.list-group, .team li  {
 	list-style:none;
 }
@@ -1590,6 +1589,7 @@ html, body {
 	margin-left:0;
 	padding-left:0;
 }
+body.page section ul, body.news section ul,
 h1 {
 	margin-top:0;
 }
@@ -1813,17 +1813,6 @@ article.pin figcaption {
     padding-top:0;
     padding-bottom:1px;
 }
-.oktothek .more figure.episode-pin {
-    height:158px;
-    text-align:center;
-    padding-top:80px;
-    vertical-align:center;
-}
-.oktothek .more figure.episode-pin a {
-    display:inline-block;
-    padding:12px;
-    line-height:12px;
-}
 figure.pin img {
 	max-width:100%;
 	float:none;
@@ -1832,15 +1821,6 @@ figure.pin img {
 }
 .pin .bg-opacity {
 	margin-right:0px;
-}
-body.oktothek .news .col-md-3.pin, body.oktothek .news .col-lg-3.pin, body.oktothek .news .col-sm-6.pin, body.oktothek .news .col-xs-6.pin {
-	padding-left:15px;
-	padding-right:15px;
-}
-body.oktothek .news article.pin {
-	margin-bottom:2px;
-	padding-top:15px;
-	padding-bottom:15px;
 }
 @media (min-width: 580px) {
 	article.pin {
@@ -1888,7 +1868,7 @@ figcaption h3 {
 figcaption p {
 	margin:2px 0 10px 0;
 }
-.oktothek h2, .episode h2, .series h2, .page h2, .tagpage h1, .tagpage .misc, .tagpage h2, .academy h1, .academy h2, .subheadline, figcaption h1, figcaption .misc, .playlists h1, .playlists .misc, .academy figcaption .misc {
+h1, h2, .tagpage .misc, .subheadline, figcaption .misc, .playlists .misc, .academy figcaption .misc {
 	text-align:center;
 }
 .series .current-episode h2, .comments h2, figcaption .subheadline, .page .subheadline {
@@ -2206,7 +2186,7 @@ section {
 	margin-bottom:60px;
 	padding-bottom:40px;
 }
-section.container, .container-fluid header, .oktothek, .playlists div.player-container {
+section.container, .container-fluid header, .playlists div.player-container {
 	position:relative;
 }
 .episode .series, .playlists .series {
@@ -2239,59 +2219,6 @@ section.container, .container-fluid header, .oktothek, .playlists div.player-con
 
 
 
-/* Oktothek */
-.oktothek .participart .button_container {
-	height:180px;
-	width:240px;
-	margin:0 auto;
-}
-.oktothek .participart .but-full, #StartPlaylist.btn {
-	height:50px;
-}
-.oktothek .participart .button_container .btn, #StartPlaylist.btn {
-	padding:12px 40px;
-}
-.oktothek .participart article p {
-	margin-bottom:40px;
-}
-.oktothek .participart .button_container .but-full {
-	margin-top:70px;
-}
-.oktothek .participart-list {
-	text-align:center;
-	display:table;
-	width:auto;
-	margin:10px auto 0 auto;
-}
-.oktothek .participart-list li {
-	width:140px;
-	float:left;
-	margin-right:10px;
-}
-/* Spacelayout */
-.oktothek .participart-list li figure {
-	width:140px;
-	height:140px;
-	vertical-align:middle;
-	text-align:center;
-	line-height:140px;
-	margin-bottom:20px;
-}
-.oktothek .participart-list li:last-child {
-	margin-right:0px;
-}
-.oktothek .participart article {
-	padding-bottom:40px;
-}
-.oktothek article {
-	position:relative;
-}
-.oktothek .btn.login {
-	width:150px;
-}
-.oktothek .newest-playlists .aligncenter, .oktothek section.container .subheadline {
-	margin-bottom:40px;
-}
 button.dropdown-toggle .glyphicon-sort-by-alphabet {
     display:none;
 }
@@ -2379,6 +2306,7 @@ button.dropdown-toggle .glyphicon-sort-by-alphabet {
   margin:0 auto;
 }
 
+
 /* Serien */
 .series .play-episode, .container-bg-opacity {
 	position:absolute;
@@ -2448,20 +2376,6 @@ button.dropdown-toggle .glyphicon-sort-by-alphabet {
 }
 .series .blog aside.col-md-3, .series .blog aside.col-lg-3, .series .blog aside.col-sm-3, .series .blog aside.col-xs-3 {
 	padding-left:2px;
-}
-.play-episode {
-/*	top:50%;
-	left:50%;
-	margin-top:-25px;
-	margin-left:-25px;*/
-}
-.play-episode.btn-default {
-/*	width:50px;
-	height:50px;
-	padding:0;
-	line-height:50px;
-	vertical-align:middle;
-	text-align:center;*/
 }
 
 /* Tags */
