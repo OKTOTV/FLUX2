@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Serien */
+
+/* Listen */
+.series .infos ul, .series .blog aside ul  {
+	list-style:none;
+}
+.series .infos ul, .series .blog aside ul {
+	margin-left:0;
+	padding-left:0;
+}
+
+.series .play-episode, .container-bg-opacity {
+	position:absolute;
+	left:0;
+	top:0;
+}
+.series .description-wrapper a.more {
+	cursor:pointer;
+}
+.series h1 {
+	margin: 0;
+}
+.series .episode-description h3, .series .infos h3 {
+	margin-top:0;
+}
+.series .blog aside.col-md-3, .series .blog aside.col-lg-3, .series .blog aside.col-sm-3, .series .blog aside.col-xs-3 {
+	padding-left:2px;
+}
+.series .infos {
+	text-align:center;
+}
+.series .contact {
+	margin-top:20px;
+}
+.series .infos ul {
+	margin-top:10px;
+}
+.series figcaption .misc, .academy figcaption .misc {
+	margin-top:15px;
+	clear:right;
+}
+.series figure.series-posterframe {
+	padding-left:0px;
+}
+.series div.series-posterframe {
+	padding-right:0px;
+}
+.series .blog aside .aside-inner {
+	margin-left:5px;
+	padding:15px;
+}
+.series .current-episode h2 {
+	text-align:left;
+}

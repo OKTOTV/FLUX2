@@ -11,7 +11,6 @@
         <div class="row">
             <div class="col-md-8 news-container">
                 {% include 'AppBundle::News/newsDetails.html.twig' %}
-                {#% include 'AppBundle::News/post.html.twig' %#}
                 <section class="comments comment-pager">
                     {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
                 </section>

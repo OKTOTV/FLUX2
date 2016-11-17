@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* Produzenten */
+body.producer aside ul.socialnetworks li, body.producer aside ul.socialnetworks li a {
+    display:block;
+}
+body.producer aside ul.socialnetworks li a {
+    float:left;
+}
+body.producer .nav-tabs {
+    margin-top:40px;
+}
+section.tabs-content {
+    padding:15px;
+}
+body.producer .subheadline {
+    margin:40px 0;
+}
+body.producer aside ul.list-group {
+    margin-top:20px;
+}
+body.producer aside .description {
+    padding-bottom:20px;
+}
+body.producer aside .description + li {
+    padding-top:20px;
+}
+body.producer aside li {
+    padding-top:0px;
+    padding-bottom:4px;
+}
+body.producer aside ul.socialnetworks li div {
+    margin-left:50px;
+    padding-top:10px;
+}

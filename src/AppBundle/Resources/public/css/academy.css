@@ -1,2 +1,95 @@
 /* CSS Document */
 
+/* Academy */
+body.academy .pin figure div.image-container .preview-button button, 
+body.academy .pin figure div.image-container .preview-content, 
+body.academy .pin .preview-content a, 
+body.academy .pin figure div.image-container .preview-button {
+	position:absolute;
+}
+body.academy .pin figure div.image-container {
+	position:relative;
+}
+body.academy .timetable, 
+body.academy .pin figure div.image-container .preview-button, 
+body.academy .pin .preview-content .bg-opacity, 
+body.academy .pin .preview-content, 
+body.academy .pin .preview-content a {
+	width:100%;
+}
+body.academy .pin .preview-content, 
+body.academy .pin .preview-content a, 
+body.academy .preview-icon {
+	height:100%;
+}
+body.academy .pin .preview-content, 
+body.academy .pin .preview-content a {
+	top:0;
+}
+body.academy .timetable {
+	display:table;
+}
+body.academy .timetable span, 
+body.academy .preview-icon span {
+	display:inline-block;
+}
+body.academy .preview-icon, 
+body.academy .pin .preview-content a {
+	display:block;
+}
+body.academy .timetable li {
+	line-height:2em;
+	display:table-row;
+}
+body.academy .timetable p {
+	display:table-cell;
+}
+body.academy .timetable li p {
+	vertical-align:middle;
+	padding:2px;
+}
+body.academy .timetable li p:last-child {
+	vertical-align:bottom;
+	text-align:right;
+}
+body.academy .timetable span {
+	width:120px;
+}
+body.academy .pin figure div.image-container .preview-button {
+	bottom:0;
+	text-align:center;
+	padding:0;
+	height:33%;
+}
+body.academy .preview-icon span {
+	width:16px;
+	height:20px;
+}
+body.academy .pin-icon {
+	bottom:3px;
+	top:auto;
+}
+body.academy .pin-icon {
+	cursor:pointer;
+	padding-top:10px;
+}
+body.academy .pin .preview-content a {
+	padding-top:20px;
+}
+body.academy figcaption {
+    min-height:68px;
+}
+body.academy .preview h4 {
+	margin-top:20px;
+}
+body.academy .price {
+	margin-right:15px;
+}
+
+/* Newsletter */
+body.academy .newsletter fieldset {
+    text-align:center;
+}
+body.academy .newsletter .input-group {
+	margin:0 auto;
+}

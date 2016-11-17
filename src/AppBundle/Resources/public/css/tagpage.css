@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* CSS Document */
+/* Tags */
+body.tagpage .container.content-bg, 
+body.tagpage figure.episode-pin, 
+body.tagpage section.inc-pins > div {
+    position:relative;
+}
+body.tagpage .inc-pins .pins-wrapper, 
+body.tagpage section.inc-pins > div {
+	display:table;
+}
+body.tagpage section.inc-pins .row, 
+body.tagpage .inc-pins .row {
+    display:table-row;
+}
+body.tagpage article.first-pin, 
+body.tagpage .row .small-pins, 
+body.tagpage article.first, 
+body.tagpage .inc-pins div.pin {
+    display:table-cell;
+}
+body.tagpage .row .small-pins > div, 
+body.tagpage .inc-pins .pins-wrapper, 
+body.tagpage .pin.empty figure, 
+body.tagpage .episode-tags .pin.empty figure {
+    width:100%;
+}
+body.tagpage article.first-pin, 
+body.tagpage .row .small-pins {
+    height:100%;
+}
+body.tagpage .pin.empty, 
+body.tagpage .pin.empty figure {
+	min-height:180px;
+}
+body.tagpage article.first-pin, 
+body.tagpage .row .small-pins, 
+body.tagpage article.first, 
+body.tagpage .inc-pins div.pin {
+    vertical-align:top;
+}
+body.tagpage .row > .col-lg-6, 
+body.tagpage article.first, 
+body.tagpage .inc-pins div.pin {
+    float:none;
+}
+body.tagpage .container.content-bg {
+	padding-top:20px;
+	margin-bottom:80px;
+	padding-left:25px;
+	padding-right:25px;
+}
+body.tagpage .content-bg section {
+	margin-bottom:0px;
+	padding-bottom:80px;
+	padding-top:40px;
+	clear:both;
+}
+body.tagpage section.inc-pins > div {
+    padding-bottom:65px;
+}
+body.tagpage article.empty .icon-player {
+    width:50px;
+    height:50px;
+    margin:0 auto;
+    padding-top:10px;
+    padding-left:10px;
+}
+body.tagpage .content-bg .row  {
+	padding-bottom:15px;
+	margin:0;
+}
+body.tagpage .misc {
+	line-height:36px;
+	vertical-align:middle;
+}
+body.tagpage article.first-pin {
+	margin-right:5px;
+	margin-left:5px;
+	padding-right:0px;
+	padding-left:0px;
+}
+body.tagpage .inc-pins div.pin {
+	padding-left:5px;
+}
+body.tagpage .inc-pins article.pin {
+	padding-bottom:10px;
+}
+body.tagpage .inc-pins article.pin:nth-child(3), 
+body.tagpage .inc-pins article.pin:nth-child(4) {
+	padding-bottom:0px;
+}
+body.tagpage .inc-pins article figcaption p {
+	margin-bottom:0;
+}
+body.tagpage .inc-pins article figcaption {
+	padding:0 5px 10px 5px;
+}
+body.tagpage .pin.empty {
+	padding-left:5px;
+	padding-right:5px;
+}
+body.tagpage .pin.empty figure {
+    padding-top:65px;
+}
+body.tagpage .episode-tags .pin.empty figure {
+    min-height:200px;
+    padding-top:65px;
+}
+body.tagpage .triangle {
+  margin:0 auto;
+}
+@media (min-width: 992px) {
+    body.tagpage article.pin {
+        width:50%;
+    }
+    body.tagpage article.pin:nth-child(2n+1) {
+	    clear:left;
+    }
+}

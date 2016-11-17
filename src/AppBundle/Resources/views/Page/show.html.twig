@@ -29,3 +29,7 @@
 </script>
 
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/pages.css') }}" rel="stylesheet" />
+{% endblock %}

@@ -65,6 +65,9 @@ article.post {
 .post .misc a {
     margin-left:15px;
 }
+body.news .details .tags {
+    text-align:left;
+}
 @media (min-width: 580px) {
     /* Pins */
     .news article.pin {

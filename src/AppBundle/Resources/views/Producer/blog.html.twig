@@ -110,3 +110,7 @@
 {% include "BprsAssetBundle::singleUpload.css.twig" %}
 
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
+{% endblock %}

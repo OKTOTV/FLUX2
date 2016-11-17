@@ -4,8 +4,11 @@
 </p>
 {% endif %}
     <!-- Start Collapse Share-->
-    <div class="collapse" id="{{ data_target|default('collapseShare')}}">
-        <div>
+    <div class="collapse collapseShare collapseWindow" id="{{ data_target|default('collapseShare')}}">
+        <div class="collapse-header">
+            <div class="triangle"></div>
+        </div>
+        <div class="collapse-content">
             <h3>{{ 'oktothek_share_header'|trans }}</h3>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="div_share_sn">

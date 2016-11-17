@@ -34,31 +34,16 @@ $(document).ready(function(){
 	//Menü
 
 	function addHeaderBG() {
-	 // if ($('body').hasClass('fullscreen-images') || $('body').hasClass('fullscreen-background')) {
 	      if($(document).scrollTop() <= headerScrollheight) {
 			  //Header transparent setzen und Schlagschatten entfernen
-	          $('body').addClass('head-white-color')
-		               .removeClass('head-white-color')
-				       .addClass('head-transparent-bg')
+	          $('body').addClass('head-transparent-bg')
 				       .removeClass('head-black-bg');
-		      //$('.navbar-fixed-top').removeClass('dropshadow'); //Schlagschatten
 
 	      } else if ($(document).scrollTop() > headerScrollheight) {
 			  //Header schwarz setzen und Schlagschatten hinzufügen
-		      $('body').removeClass('head-white-color')
-			          .addClass('head-white-color')
-					  .addClass('head-black-bg')
+		      $('body').addClass('head-black-bg')
 					  .removeClass('head-transparent-bg');
-		      //$('.navbar-fixed-top').addClass('dropshadow'); //Schlagschatten
-
 		   }
-	     /*}else {
-			if($(document).scrollTop() <= headerScrollheight) {
-				$('.navbar-fixed-top').removeClass('dropshadow');
-		    } else if ($(document).scrollTop() > headerScrollheight) {
-				$('.navbar-fixed-top').addClass('dropshadow');
-			}
-		}*/
 	 }
 
 	 addHeaderBG();

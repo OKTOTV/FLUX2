@@ -10,7 +10,7 @@
     <div id="top"></div>
     <div class="container-fluid">
         <div class="bg-bleur"></div>
-        <header>
+        <header class="page-header">
             <h1>{{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
             {% include "AppBundle:Default:_share.html.twig" with {'show_button': true, 'site_media': tag.episodes[0].posterframe(true)|thumb(720,1280) } %}
         </header>
@@ -79,6 +79,7 @@
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}
+    <link href="{{ asset('bundles/app/css/tagpage.css') }}" rel="stylesheet" />
     <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
     <style type="text/css">
         .bg-bleur {

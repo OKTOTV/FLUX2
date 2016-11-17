@@ -25,3 +25,8 @@
 <a href="{{ path('oktothek_channel_playlist_new', {'uniqID': series.uniqID})}}" class="btn btn-default">{{'oktothek.series_producer_new_playlist'|trans|raw }}</a>
 </section>
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/playlists.css') }}" rel="stylesheet" />
+{% endblock %}

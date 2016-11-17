@@ -28,3 +28,7 @@
 <a href="{{ path('oktothek_series_blog_post', {'uniqID': series.uniqID}) }}" class="btn btn-default">{{'oktothek.series_producer_new_blogpost'|trans|raw }}</a>
 </section>
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
+{% endblock %}
