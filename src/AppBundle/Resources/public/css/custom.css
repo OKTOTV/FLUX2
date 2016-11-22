@@ -1388,6 +1388,269 @@ footer .networks {
 
 /****************************  Weitere Formatierungen ****************************/
 
+/* Header */
+header .navbar {
+	height:50px;
+	margin-bottom:0;
+}
+header .navbar .container-fluid {
+	padding:0 15px;
+}
+/* Logo */
+header .navbar-brand {
+	display:block;
+	outline:none;
+}
+header .navbar-brand .brandimage {
+	vertical-align:top;
+	width:40px;
+	height:36px;
+}
+header .navbar-brand .brandimage span {
+	margin-left:-9990px;
+}
+header .navbar-brand {
+	padding:8px 0;
+	height:50px;
+}
+/* Hauptmenü */
+header .navbar .nav > li {
+	padding:5px 10px;
+}
+header .navbar .nav > li > a {
+	display:inline;
+	padding:0;
+	/*padding:0 0 5px 0;
+	vertical-align:top;*/
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
+		padding-top:7px;
+	}
+header .navbar-collapse .navbar-nav {
+	margin:20px 0;
+}
+header .navbar-collapse .navbar-nav>li>a {
+	margin-left:24px;
+}
+header .navbar-collapse .navbar-nav.navbar-right > li > a {
+	margin-left:0;
+}
+header .navbar-collapse .navbar-nav span.icon-login {
+	margin-right:8px;
+}
+header .navbar-collapse .navbar-nav.themes {
+	margin-bottom:40px;
+}
+header .navbar-inverse .navbar-toggle {	/*Small Menubutton*/
+	margin-top:6px;
+	padding:10px;
+	position:relative;
+	z-index:10;
+}
+header .navbar-inverse button.search-button {	/*Small Menubutton*/
+	margin-top:7px;
+	padding:0 10px 0 10px;
+}
+header .navbar-inverse button.search-button.collapsed {	/*Small Menubutton*/
+	padding:0 9px 0 11px;
+}
+header .navbar-inverse button.search-button span {
+	line-height:33px;
+	vertical-align:middle;
+}
+header .navbar-content {
+	margin-top:-11px;
+	margin-left:-15px;
+	margin-right:-15px;
+}
+header .navbar-fixed-top #mainmenu-container {
+	max-height:100%;
+	width:100%;
+	overflow:hidden;
+	position:relative;
+	z-index:2;
+	margin-top:0px;
+	height:auto;
+}
+header #mainmenu-container.navbar-collapse h3 {
+	margin:40px 0 20px 25px;
+}
+header ul.mainmenu, header ul.navbar-right, header .navbar-nav.themes li, header .navbar-nav.themes li:first-child {
+	float:none;
+	width:100%;
+}
+header ul.themes {
+	clear:left;
+}
+/*header .navbar-collapse.collapse {
+	width:100%;
+}*/
+header .navbar .navbar-form {
+	padding:1px 0 0 0;
+	margin:0;
+}
+header form button[type="submit"] {
+	height:35px;
+	width:auto;
+	float:right;
+	margin-left:0;
+}
+header button span.icon-close {
+	display:none;
+}
+header form .searchfield-container {
+	position:relative;
+	overflow:hidden;
+	height:35px;
+}
+header .search-tagnav-container {
+	position:relative;
+	margin-top:-45px;
+	/*width:100%;*/
+	width:auto;
+}
+header .search-tagnav-position  {
+	margin:0;
+}
+header .search-tagnav-position .navbar-form {
+	margin-top:-1px;
+}
+header .navbar-fixed-top #search-container.navbar-collapse {
+	overflow:hideen;
+	max-height:50px;
+	padding-right:0;
+}
+header .searchfield {
+	margin-left:0px;
+	margin-right:0px;
+	width:100%;
+}
+header .navbar-form input.form-control {
+	display:inline;
+}
+
+
+header .navbar-fixed-top .navbar-toggle {
+	margin-right:0;
+}
+.bg-bleur {
+	position:fixed;
+	z-index:0;
+	width:100%;
+	height:100%;
+	top:0;
+}
+header .icon, header .navbar-nav li a {
+	line-height:25px;
+	vertical-align:middle;
+}
+header .icon.icon-upload {
+	width:20px;
+	height:30px;
+}
+header .icon.icon-login {
+	width:12px;
+	height:14px;
+}
+header + .container-fluid {
+	margin-top:-90px;
+}
+@media (min-width: 420px) {
+	header ul.mainmenu, header ul.navbar-right, header .navbar-nav.themes li {
+	    float:left;
+	    width:50%;
+    }
+}
+
+@media (min-width: 768px) {
+
+	header .navbar .container-fluid {
+		padding:0 20px;
+	}
+	header .navbar > .container .navbar-brand, header .navbar > .container-fluid .navbar-brand {
+    	margin-left: 0px;
+	}
+	header .navbar {
+	    height:140px;
+    }
+	header .navbar-brand {
+		padding:20px 0;
+		height:150px;
+	}
+	header .navbar-brand {
+		margin-right:20px;
+	}
+	header .navbar-content {
+		margin-top:0px;
+		margin-left:60px;
+	}
+	header .navbar-fixed-top #mainmenu-container {
+		height:90px;
+		margin-top:0;
+	}
+	
+	header .navbar-fixed-top #search-container.navbar-collapse {
+	    max-height:auto;
+		padding-right:15px;
+    }
+	header .navbar-brand .brandimage {
+		width:45px;
+		height:75px;
+	}
+	header .search-tagnav-container {
+		position:absolute;
+	    z-index:50;
+		top:86px;
+		width:auto;
+		left:50%;
+		margin-left:-253px;
+		margin-top:0px;
+    }
+	header ul.mainmenu, header ul.navbar-right {
+	    width:auto;
+	}
+	header .navbar-collapse .navbar-nav > li > a {
+	    margin-left:0;
+    }
+	header .navbar-collapse .navbar-nav span.icon-login {
+	    margin-right:0;
+    }
+	header .searchfield {
+		float:left;
+		margin:0;
+		width:366px;
+	}
+	/*header .navbar .navbar-form {
+		margin-top:-110px;
+	}*/
+	header .navbar-form input.form-control {
+		width: 300px;
+		/*height:35px;*/
+		padding-top:7px;
+	}
+	header form button[type="submit"] {
+		margin-left:12px;
+	    width:54px;
+	}
+	header .navbar .navbar-form {
+	    padding:0;
+	    margin:0;
+    }
+	header .navbar-collapse .navbar-nav {
+		margin:0;
+	}
+	header .navbar .nav > li {
+		padding:20px 10px 25px 10px;
+	}
+	header .search-tagnav-position  {
+		width:526px;
+		margin:0 auto;
+	}
+	header + .container-fluid {
+		margin-top:0;
+	}
+}
+
 html, body {
 	height:100%;
 }
@@ -1400,27 +1663,44 @@ html, body {
 	margin-left:0;
 	padding-left:0;
 }
-body.page section ul, body.news section ul,
-h1 {
+body.page section ul, body.news section ul {
+	margin-top:0;
+}
+
+/* Überschriften */
+.page h2 {
+	margin-top:50px;
+}
+h1, h2 {
+	text-align:center;
+}
+h1, .footer .networks h3 {
 	margin-top:0;
 }
 body.tagpage h1 {
 	margin-top:20px;
 }
-h2 {
+h1.name, h2.name {
+	margin-bottom:4px;
+}
+h2, h1 {
 	margin-bottom:50px;
+}
+header.page-header h1 {
+    margin-bottom:0px;
+}
+h2 {
 	margin-top:10px;
 }
-.page h2 {
-	margin-bottom:50px;
-	margin-top:50px;
+figcaption h3 {
+	margin:0;
 }
 
 /* Page Header */
 header.page-header {
 	text-align:center;
-    padding-bottom:40px;
-	margin-top:40px;
+    margin-bottom:50px;
+	margin-top:50px;
 }
 header.page-header .navbar {
 	height:auto;
@@ -1731,25 +2011,27 @@ p.tags {
     margin:0;
 }
 
+/* Clip Übersichten */
+.clip_overview section .navigation {
+    text-align:right;
+}
+
 
 /* Space Layout */
 .episode time, .playlists time {
 	margin-bottom:50px;
 }
-h1.name, h2.name {
-	margin-bottom:4px;
-}
 figcaption p.more {
 	margin-bottom:15px;
-}
-figcaption h3 {
-	margin:0;
 }
 figcaption p {
 	margin:2px 0 10px 0;
 }
-h1, h2, .misc, .subheadline {
+.misc, .subheadline {
 	text-align:center;
+}
+header .misc {
+    margin-top:10px;
 }
 figcaption .subheadline, .page .subheadline {
 	text-align:left;
@@ -1791,268 +2073,7 @@ figcaption  {
 	top:15px;
 }
 
-/* Header */
-header .navbar {
-	height:50px;
-	margin-bottom:0;
-}
-header .navbar .container-fluid {
-	padding:0 15px;
-}
-/* Logo */
-header .navbar-brand {
-	display:block;
-	outline:none;
-}
-header .navbar-brand .brandimage {
-	vertical-align:top;
-	width:40px;
-	height:36px;
-}
-header .navbar-brand .brandimage span {
-	margin-left:-9990px;
-}
-header .navbar-brand {
-	padding:8px 0;
-	height:50px;
-}
-/* Hauptmenü */
-header .navbar .nav > li {
-	padding:5px 10px;
-}
-header .navbar .nav > li > a {
-	display:inline;
-	padding:0;
-	/*padding:0 0 5px 0;
-	vertical-align:top;*/
-}
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
-		padding-top:7px;
-	}
-header .navbar-collapse .navbar-nav {
-	margin:20px 0;
-}
-header .navbar-collapse .navbar-nav>li>a {
-	margin-left:24px;
-}
-header .navbar-collapse .navbar-nav.navbar-right > li > a {
-	margin-left:0;
-}
-header .navbar-collapse .navbar-nav span.icon-login {
-	margin-right:8px;
-}
-header .navbar-collapse .navbar-nav.themes {
-	margin-bottom:40px;
-}
-header .navbar-inverse .navbar-toggle {	/*Small Menubutton*/
-	margin-top:6px;
-	padding:10px;
-	position:relative;
-	z-index:10;
-}
-header .navbar-inverse button.search-button {	/*Small Menubutton*/
-	margin-top:7px;
-	padding:0 10px 0 10px;
-}
-header .navbar-inverse button.search-button.collapsed {	/*Small Menubutton*/
-	padding:0 9px 0 11px;
-}
-header .navbar-inverse button.search-button span {
-	line-height:33px;
-	vertical-align:middle;
-}
-header .navbar-content {
-	margin-top:-11px;
-	margin-left:-15px;
-	margin-right:-15px;
-}
-header .navbar-fixed-top #mainmenu-container {
-	max-height:100%;
-	width:100%;
-	overflow:hidden;
-	position:relative;
-	z-index:2;
-	margin-top:0px;
-	height:auto;
-}
-header #mainmenu-container.navbar-collapse h3 {
-	margin:40px 0 20px 25px;
-}
-header ul.mainmenu, header ul.navbar-right, header .navbar-nav.themes li, header .navbar-nav.themes li:first-child {
-	float:none;
-	width:100%;
-}
-header ul.themes {
-	clear:left;
-}
-/*header .navbar-collapse.collapse {
-	width:100%;
-}*/
-header .navbar .navbar-form {
-	padding:1px 0 0 0;
-	margin:0;
-}
-header form button[type="submit"] {
-	height:35px;
-	width:auto;
-	float:right;
-	margin-left:0;
-}
-header button span.icon-close {
-	display:none;
-}
-header form .searchfield-container {
-	position:relative;
-	overflow:hidden;
-	height:35px;
-}
-header .search-tagnav-container {
-	position:relative;
-	margin-top:-45px;
-	/*width:100%;*/
-	width:auto;
-}
-header .search-tagnav-position  {
-	margin:0;
-}
-header .search-tagnav-position .navbar-form {
-	margin-top:-1px;
-}
-header .navbar-fixed-top #search-container.navbar-collapse {
-	overflow:hideen;
-	max-height:50px;
-	padding-right:0;
-}
-header .searchfield {
-	margin-left:0px;
-	margin-right:0px;
-	width:100%;
-}
-header .navbar-form input.form-control {
-	display:inline;
-}
 
-
-header .navbar-fixed-top .navbar-toggle {
-	margin-right:0;
-}
-.bg-bleur {
-	position:fixed;
-	z-index:0;
-	width:100%;
-	height:100%;
-	top:0;
-}
-header .icon, header .navbar-nav li a {
-	line-height:25px;
-	vertical-align:middle;
-}
-header .icon.icon-upload {
-	width:20px;
-	height:30px;
-}
-header .icon.icon-login {
-	width:12px;
-	height:14px;
-}
-header + .container-fluid {
-	margin-top:-90px;
-}
-@media (min-width: 420px) {
-	header ul.mainmenu, header ul.navbar-right, header .navbar-nav.themes li {
-	    float:left;
-	    width:50%;
-    }
-}
-
-@media (min-width: 768px) {
-
-	header .navbar .container-fluid {
-		padding:0 20px;
-	}
-	header .navbar > .container .navbar-brand, header .navbar > .container-fluid .navbar-brand {
-    	margin-left: 0px;
-	}
-	header .navbar {
-	    height:140px;
-    }
-	header .navbar-brand {
-		padding:20px 0;
-		height:150px;
-	}
-	header .navbar-brand {
-		margin-right:20px;
-	}
-	header .navbar-content {
-		margin-top:0px;
-		margin-left:60px;
-	}
-	header .navbar-fixed-top #mainmenu-container {
-		height:90px;
-		margin-top:0;
-	}
-	
-	header .navbar-fixed-top #search-container.navbar-collapse {
-	    max-height:auto;
-		padding-right:15px;
-    }
-	header .navbar-brand .brandimage {
-		width:45px;
-		height:75px;
-	}
-	header .search-tagnav-container {
-		position:absolute;
-	    z-index:50;
-		top:86px;
-		width:auto;
-		left:50%;
-		margin-left:-253px;
-		margin-top:0px;
-    }
-	header ul.mainmenu, header ul.navbar-right {
-	    width:auto;
-	}
-	header .navbar-collapse .navbar-nav > li > a {
-	    margin-left:0;
-    }
-	header .navbar-collapse .navbar-nav span.icon-login {
-	    margin-right:0;
-    }
-	header .searchfield {
-		float:left;
-		margin:0;
-		width:366px;
-	}
-	/*header .navbar .navbar-form {
-		margin-top:-110px;
-	}*/
-	header .navbar-form input.form-control {
-		width: 300px;
-		/*height:35px;*/
-		padding-top:7px;
-	}
-	header form button[type="submit"] {
-		margin-left:12px;
-	    width:54px;
-	}
-	header .navbar .navbar-form {
-	    padding:0;
-	    margin:0;
-    }
-	header .navbar-collapse .navbar-nav {
-		margin:0;
-	}
-	header .navbar .nav > li {
-		padding:20px 10px 25px 10px;
-	}
-	header .search-tagnav-position  {
-		width:526px;
-		margin:0 auto;
-	}
-	header + .container-fluid {
-		margin-top:0;
-	}
-}
 
 
 /* Content allgemein */
@@ -2164,9 +2185,6 @@ section.container, .container-fluid header, .playlists div.player-container {
 }
 .footer .networks div.col-md-6 ul {
 	padding-top:22px;
-}
-.footer .networks h3 {
-	margin-top:0;
 }
 .footer .networks div.col-md-6, .footer .networks div.col-md-6:first-child {
 	text-align:center;

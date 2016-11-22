@@ -16,11 +16,11 @@
     </header>
 </div>
 <section class="container">
-    <div class="navigation">
+    <div class="navigation row">
         {{ knp_pagination_render(pages) }}
     </div>
     {% include 'AppBundle::Page/PageStack.html.twig' with {'pages': pages} %}
-    <div class="navigation">
+    <div class="navigation row">
         {{ knp_pagination_render(pages) }}
     </div>
 </section>

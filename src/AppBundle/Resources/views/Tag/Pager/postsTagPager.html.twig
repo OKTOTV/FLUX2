@@ -16,13 +16,13 @@
     </header>
 </div>
 <section class="container">
-    <div class="navigation">
+    <div class="navigation row">
         {{ knp_pagination_render(posts) }}
     </div>
     {% for post in posts %}
         {% include 'AppBundle::News/post.html.twig' with {'newsloop': loop.index }%}
     {% endfor %}
-    <div class="navigation">
+    <div class="navigation row">
         {{ knp_pagination_render(posts) }}
     </div>
 </section>

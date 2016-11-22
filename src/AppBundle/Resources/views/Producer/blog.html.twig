@@ -107,10 +107,7 @@
 {% block stylesheets %}
 {{ parent() }}
 <link href="{{ asset('bundles/bprsstyle/css/datetimepicker.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
 {% include "BprsAssetBundle::singleUpload.css.twig" %}
 
-{% endblock %}
-{% block stylesheets %}
-    {{ parent() }}
-    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
 {% endblock %}
