@@ -14,9 +14,9 @@
         </figure>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
     {% endif %}
-            <p>
+            <p class="tags">
                 {% for tag in post.tags %}
-                    <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}"><span class="label label-default">#{{ tag.text }}</span></a>
+                    <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}" class="tag">{{ tag.text }}</a>
                 {% endfor %}
             </p>
             <header class="page-header">

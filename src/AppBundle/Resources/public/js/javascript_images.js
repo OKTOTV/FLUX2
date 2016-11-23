@@ -129,6 +129,17 @@ $(document).ready(function(){
 		    $( this ).find('span').css('display','none');
 		}
 	});
+    
+    $('.anchor').click(function(event) {
+        event.preventDefault();
+        var offsetname = $(this).attr('href');
+        var offset = $(offsetname).offset();
+		
+		if (offset) {
+		    $("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
+		    $( this ).find('span').css('display','none');
+		}
+	});
 	
 	function showButtonDown() {
 	      if($(document).scrollTop() <= headerScrollheight) {

@@ -19,19 +19,22 @@
         <section class="participart bg-fullscreen">
             <div id="anchor_participart"></div>
             <h2 id="button_down">Mitmachen <span class="icon participant-arrow-down"> </span></h2>
+            {% if is_granted('ROLE_OKTOLAB_USER') %}
+            {% else %}
             <article class="container">
                 <p class="aligncenter subheadline">Du platzt vor Ideen? Dann bist du bei uns richtig!</p>
-                <div class="aligncenter button_container"><a href="{{ path('participate') }}" class="btn btn-default but-full" title="Mitmachen">ICH MACH MIT!</a></div>
+                <div class="aligncenter button_container"><a href="{{ path('bprs_user_login') }}" class="btn btn-default but-full">Melde Dich an!</a></div>
                 <ul class="participart-list">
-                  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_ideas.svg')}}" width="100px" height="100px"></figure><figcaption>5 Schritte zur eigenen Sendung</figcaption></a></li>
-                  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_oktonaut.svg')}}" width="100px" height="100px"></figure><figcaption>Was Oktonauten wissen müssen</figcaption></a></li>
-                  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_camera.svg')}}" width="100px" height="100px"></figure><figcaption>Workshops</figcaption></a></li>
-                  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_upload.svg')}}" width="100px" height="100px"></figure><figcaption>Produktion uploaden</figcaption></a></li>
+                  <li><a href="#show_clips" class="anchor"><figure><img src="{{ asset('bundles/app/images/figure_oktonaut.svg')}}" width="100px" height="100px"></figure><figcaption>Clips ansehen</figcaption></a></li>
+                  <li><a href="https://flux2.okto.tv/de/oktothek/episode/581a3a0983644"><figure><img src="{{ asset('bundles/app/images/figure_ideas.svg')}}" width="100px" height="100px"></figure><figcaption>5 Schritte zur eigenen Sendung</figcaption></a></li>
+                  <li><a href="#"><figure><img src="{{ asset('bundles/app/images/figure_camera.svg')}}" width="100px" height="100px"></figure><figcaption>Equipment &<br>Verleih</figcaption></a></li>
+                  <li><a href="http://intake.okto.tv/" target="_blank"><figure><img src="{{ asset('bundles/app/images/figure_upload.svg')}}" width="100px" height="100px"></figure><figcaption>Produktion uploaden</figcaption></a></li>
                 </ul>
             </article>
+            {% endif %}
         </section>
         {# render newest episodes #}
-        <section class="newest-videos container">
+        <section class="newest-videos container" id="show_clips">
             <div id="anchor_newest_videos"></div>
             <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
             <p class="subheadline">{{ 'oktothek.newest_videos_sub'|trans}}</p>
@@ -79,4 +82,5 @@
     <link href="{{ asset('bundles/app/css/fs_images.css') }}" rel="stylesheet" />
     <link href="{{ asset('bundles/app/css/news.css') }}" rel="stylesheet" />
     <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/oktothek.css') }}" rel="stylesheet" />
 {% endblock %}

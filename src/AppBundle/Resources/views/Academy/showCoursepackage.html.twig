@@ -5,7 +5,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'academy', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "academy head-white-color" %}
+{% set body_class = "academy" %}
 {% block body_main %}
     <div class="page-header">
         <h1>{{ coursepackage }}</h1>
@@ -13,4 +13,8 @@
 
     <p>{{ coursepackage.description }}</p>
     <a href="{{ path('oktothek_academy_book_coursepackage', {'coursepackage': coursepackage.id}) }}">Buchen</a>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/academy.css') }}" rel="stylesheet" />
 {% endblock %}

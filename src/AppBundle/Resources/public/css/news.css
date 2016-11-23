@@ -7,15 +7,6 @@ body.news h1 {
 	margin-top:0;
 	margin-bottom:20px;
 }
-body.oktothek .news .col-md-3.pin, body.oktothek .news .col-lg-3.pin, body.oktothek .news .col-sm-6.pin, body.oktothek .news .col-xs-6.pin {
-	padding-left:15px;
-	padding-right:15px;
-}
-body.oktothek .news article.pin {
-	margin-bottom:2px;
-	padding-top:15px;
-	padding-bottom:15px;
-}
 
 /* News */
 body.newsarchiv aside ul, body.news aside ul {
@@ -74,12 +65,11 @@ article.post {
 .post .misc a {
     margin-left:15px;
 }
-@media (min-width: 580px) {
-    .news article.pin {
-		width:100%;
-	}
+body.news .details .tags {
+    text-align:left;
 }
-@media (min-width: 992px) {
+@media (min-width: 580px) {
+    /* Pins */
     .news article.pin {
 		width:100%;
 	}

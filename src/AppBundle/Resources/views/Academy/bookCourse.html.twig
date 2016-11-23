@@ -4,7 +4,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'academy', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "academy head-white-color" %}
+{% set body_class = "academy" %}
 {% block body %}
 <div class="container">
     <header class="page-header">
@@ -29,4 +29,8 @@
     <img src="{{ asset('bundles/bprssofort/images/sofort_175x75.png') }}" class="img img-rounded img-responsive" />
     </section>
 </div>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/academy.css') }}" rel="stylesheet" />
 {% endblock %}

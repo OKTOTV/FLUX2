@@ -5,11 +5,15 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'academy', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "academy head-white-color" %}
+{% set body_class = "academy" %}
 {% block body_main %}
 
 
     {{ form_start(form)}}
         {{form_row(form.attendee)}}
     {{ form_end(form)}}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/academy.css') }}" rel="stylesheet" />
 {% endblock %}

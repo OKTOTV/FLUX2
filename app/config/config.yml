@@ -124,7 +124,7 @@ oktolab_media:
         360p:
             name: 360p
             sortNumber: 0
-            video_width: 480
+            video_width: 640
             video_height: 360
         720p:
             name: 720p
@@ -144,7 +144,7 @@ oktolab_media:
         facebook:
             name: facebook
             sortNumber: -1
-            video_width: 480
+            video_width: 640
             video_height: 360
             container: mp4
             public: false

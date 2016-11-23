@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body.oktothek, .oktothek article {
+	position:relative;
+}
+.oktothek .newest-playlists .aligncenter, .oktothek section.container .subheadline {
+	margin-bottom:40px;
+}
+
+body.oktothek .more figure.episode-pin {
+    height:158px;
+    text-align:center;
+    padding-top:80px;
+    vertical-align:center;
+}
+body.oktothek .more figure.episode-pin a {
+    display:inline-block;
+    padding:12px;
+    line-height:12px;
+}
+.oktothek .btn.login {
+	width:150px;
+}
+
+/* Pins */
+body.oktothek .news .col-md-3.pin, body.oktothek .news .col-lg-3.pin, body.oktothek .news .col-sm-6.pin, body.oktothek .news .col-xs-6.pin {
+	padding-left:15px;
+	padding-right:15px;
+}
+body.oktothek .news article.pin {
+	margin-bottom:2px;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+/* Mitmachbereich */
+.oktothek .participart .button_container {
+	height:180px;
+	width:240px;
+	margin:0 auto;
+}
+.oktothek .participart article {
+	padding-bottom:40px;
+}
+.oktothek .participart article p {
+	margin-bottom:40px;
+}
+.oktothek .participart .but-full, #StartPlaylist.btn {
+	height:50px;
+}
+.oktothek .participart .button_container .btn, #StartPlaylist.btn {
+	padding:12px 40px;
+}
+.oktothek .participart .button_container .but-full {
+	margin-top:70px;
+}
+.oktothek .participart-list {
+	text-align:center;
+	display:table;
+	width:auto;
+	margin:10px auto 0 auto;
+}
+.oktothek .participart-list li {
+	width:140px;
+	float:left;
+	margin-right:10px;
+}
+.oktothek .participart-list li figure {
+	width:140px;
+	height:140px;
+	vertical-align:middle;
+	text-align:center;
+	line-height:140px;
+	margin-bottom:20px;
+}
+.oktothek .participart-list li:last-child {
+	margin-right:0px;
+}

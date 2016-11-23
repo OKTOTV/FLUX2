@@ -34,3 +34,7 @@
 </div>
 </section>
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
+{% endblock %}
