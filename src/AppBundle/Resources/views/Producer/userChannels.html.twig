@@ -10,11 +10,7 @@
     {% if series is empty %}
         <p>{{ 'oktothek_series_my_channels_empty'|trans }}</p>
     {% else %}
-        <div class="list-group">
-            {% for channel in series %}
-                <a href="{{ path('oktothek_channel', {'uniqID': channel.uniqID}) }}" class="list-group-item">{{ channel.name }}</a>
-            {% endfor %}
-        </div>
+        {% include "AppBundle:Producer:SeriesStack.html.twig" with {'seriess': series} %}
     {% endif %}
 {% endblock %}
 {% block stylesheets %}
