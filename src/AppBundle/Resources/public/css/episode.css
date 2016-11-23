@@ -1,3 +1,26 @@
 @charset "UTF-8";
 /* CSS Document */
-
+body.episode article {
+    position:relative;
+}
+body.episode #player + article, body.more-clips article, body.playlists .description-container article {
+	margin-top:40px;
+}
+body.episode article time[pubdate="pubdate"], body.playlists article time[pubdate="pubdate"] {
+	display:block;
+}
+.icon-views {
+	display:inline-block;
+	height:15px;
+	width:20px;
+}
+body.episode .misc a, body.episode .misc span.views {
+	margin-right:10px;
+}
+body.episode .misc {
+	padding-bottom:20px;
+    text-align: left;
+}
+body.episode #favorite {
+	margin-right:20px;
+}
