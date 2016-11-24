@@ -10,7 +10,7 @@ oktothek_more_results:                  "Mehr Anzeigen"
 oktothek.menu_oktothek:                 Oktothek
 oktothek.menu_tv:                       TV
 oktothek.menu_participate:              Mitmachen
-oktothek.menu_academy:                  Akademie
+oktothek.menu_academy:                  Workshops
 oktothek.menu_backend:                  <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend
 oktothek.menu_user_playlists:           <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Playlisten
 oktothek.menu_user_channels:            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Abos
@@ -36,6 +36,7 @@ oktothek.best_videos_sub:               Die meistgefragten Videos der Okto Commu
 
 oktothek.newest_playlists:              Neue Playlisten
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
+oktothek.newest_playlists_show_less:    Weniger Playlisten anzeigen <span class="icon">-</span>
 oktothek.newest_news_show_more:         Mehr News anzeigen
 oktothek.episode_stack_collapse_title:  Weitere neueste Videos anzeigen
 
@@ -201,7 +202,7 @@ oktothek.tag_pager_posts_header:       "Alle Posts zu #%tag%"
 oktothek.tag_pager_series_header:      "Alle Serien zu #%tag%"
 
 ## academy
-oktothek_academy_header:                Akademie
+oktothek_academy_header:                Workshops
 oktothek_academy_misc_info:             %price%€ / %price_reduced%€
 oktothek_academy_course_free:           Dieser Kurs ist Kostenlos
 oktothek_academy_courses:               Kursangebote
@@ -325,7 +326,7 @@ oktothek.backend_academy_course_header:  Kurstypen
 oktothek_backend_academy_new_coursepackage: <span class="glyphicon glyphicon-plus"></span> Neues Kurspaket anlegen
 
 oktothek_backend_academy_new_coursetype: <span class="glyphicon glyphicon-plus"></span> Neuen Kurstyp anlegen
-oktothek.backend_academy_header:        Akademie
+oktothek.backend_academy_header:        Workshops
 oktothek_backend_new_course:            <span class="glyphicon glyphicon-plus"></span> Neuen Kurs hinzufügen
 oktothek.backend_new_course_header:     Neuer Kurs
 oktothek_backend_course_add_new_date:   <span class="glyphicon glyphicon-plus"></span> Kurstermin hinzufügen

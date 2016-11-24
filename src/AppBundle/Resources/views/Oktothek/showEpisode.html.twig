@@ -182,22 +182,35 @@
             }
         });
 
+        var addPlaylist = function() {
+            var playlist = $('.playlist-new-input');
+            if (playlist.val()) {
+                var item = playlist.attr('data-prototype');
+                item = item.replace(/__name__/g, playlist.val());
+                $.ajax({
+                    url: "{{ path('oktothek_playlist_new')}}",
+                    data: {
+                        'name': playlist.val(),
+                        'uniqID': "{{ episode.uniqID }}"
+                    },
+                    type: 'POST',
+                    success: function(data) {
+                        $('.playlists').append(item);
+                        playlist.val('');
+                    }
+                });
+            }
+        };
+
         $(document).on('click', '.playlist-new', function(e){
-            var playlist = $(this).parents('.input-group').children('input');
-            var item = playlist.attr('data-prototype');
-            item = item.replace(/__name__/g, playlist.val());
-            $.ajax({
-                url: "{{ path('oktothek_playlist_new')}}",
-                data: {
-                    'name': playlist.val(),
-                    'uniqID': "{{ episode.uniqID }}"
-                },
-                type: 'POST',
-                success: function(data) {
-                    $('.playlists').append(item);
-                    playlist.val('');
-                }
-            })
+            addPlaylist();
+        });
+
+        $(document).on("keypress", ".playlist-new-input", function(event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                addPlaylist();
+            }
         });
 
         // AJAX pagination

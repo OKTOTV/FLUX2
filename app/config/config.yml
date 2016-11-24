@@ -279,7 +279,11 @@ fos_elastica:
                         groups: [search]
                     mappings:
                         name:        { boost: 8, analyzer: episode_analyzer }
+<<<<<<< HEAD
                         description: { index_analyzer: analyzer }
+=======
+                        description: { analyzer: episode_analyzer }
+>>>>>>> master
                     persistence:
                         driver: orm
                         model:  AppBundle\Entity\Series

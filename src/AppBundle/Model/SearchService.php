@@ -58,6 +58,7 @@ class SearchService
         $multiquery->setType(\Elastica\Query\MultiMatch::TYPE_MOST_FIELDS);
         $boolQuery->addMust($multiquery);
 
+<<<<<<< HEAD
         $activeQuery = new \Elastica\Query\Term();
         $activeQuery->setTerm('is_active', true);
         $boolQuery->addMust($activeQuery);
@@ -78,6 +79,23 @@ class SearchService
         //     $activeQuery->setTerm('is_active', true);
         //     $boolQuery->addMust($activeQuery);
         // }
+=======
+        $query = new \Elastica\Query\Match();
+        $query->setFieldQuery('name', $searchphrase);
+
+        $boolQuery->addShould($query);
+
+        $desc_query = new \Elastica\Query\Match();
+        $desc_query->setFieldQuery('description', $searchphrase);
+
+        $boolQuery->addShould($desc_query);
+
+        if (!$includeInactive) {
+            $activeQuery = new \Elastica\Query\Term();
+            $activeQuery->setTerm('is_active', true);
+            $boolQuery->addMust($activeQuery);
+        }
+>>>>>>> master
         return $this->seriesFinder->find($boolQuery, $results);
     }
 
