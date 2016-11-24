@@ -1089,7 +1089,7 @@ header .btn,
 header .misc .btn,
 header .collapseShare .btn,
 .livestream #nav-programm .icon,
-.oktothek .more figure.episode-pin a {
+body.oktothek .more figure.episode-pin a {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -1172,23 +1172,15 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 	background-position:center center;
 	background-image:url(../images/icon_down_arrow.svg);
 }
-.oktothek .participart {
+body.oktothek .participart {
 	background-image:url(../images/space.jpg);
 }
-.oktothek .participart {
-	background-repeat:no-repeat;
-	background-position:center center;
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-.oktothek .participart .button_container {
+body.oktothek .participart .button_container {
 	background-image:url(../images/planet3.svg);
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-.oktothek .participart-list li figure {
+body.oktothek .participart-list li figure {
 	background-image:url(../images/participart_circle.svg);
 	background-repeat:no-repeat;
 	background-position:center center;
@@ -1198,17 +1190,15 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-
-.bg-bleur, .fs-image div {
-	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
+body.oktothek .carousel-control.left span {
+    background-image:url(../images/caret_left.svg);
 	background-repeat:no-repeat;
-	background-position:center top;
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
-.oktothek a.btn.login {
+body.oktothek .carousel-control.right span {
+    background-image:url(../images/caret_right.svg);
+	background-repeat:no-repeat;
+}
+body.oktothek a.btn.login {
 	background-image:url(../images/icon_login.svg);
 	background-repeat:no-repeat;
 	background-position:90px center;
@@ -1217,12 +1207,12 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
-.oktothek a.btn.login:hover, 
-.oktothek a.btn.login:focus, 
-.oktothek a.btn.login:active {
+body.oktothek a.btn.login:hover, 
+body.oktothek a.btn.login:focus, 
+body.oktothek a.btn.login:active {
 	background-image:url(../images/icon_login_hover.svg);
 }
-.oktothek .more figure.episode-pin {
+body.oktothek .more figure.episode-pin {
     background-image:url(../images/img_8_1.png);
 	background-repeat:no-repeat;
 }
@@ -1276,6 +1266,15 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 .playlists .edit:hover {
 	background-image:url(../images/icon_edit_hover.svg);
 }
+.bg-bleur, .fs-image div, body.oktothek .more figure.episode-pin, body.oktothek .participart {
+	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
+	background-repeat:no-repeat;
+	background-position:center top;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 section:last-child, 
 section.playlist_container,
 .edit-playlists form fieldset:last-child,
@@ -1299,6 +1298,18 @@ section.playlist_container,
     opacity: 0.7;       /* modern browser */
     -moz-opacity: 0.7;  /* older Mozilla browser */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
+}
+#carousel figcaption .bg-opacity {
+    opacity: 0.4;       /* modern browser */
+    -moz-opacity: 0.4;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; /* IE8 in Standard Compliant Mode */
+}
+@media (min-width: 768px) {
+    #carousel figcaption .bg-opacity {
+        opacity: 0.7;       /* modern browser */
+        -moz-opacity: 0.7;  /* older Mozilla browser */
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
+    }
 }
 body.tagpage .bg-opacity {
     opacity: 0.6;       /* modern browser */
@@ -2143,7 +2154,7 @@ section.container, .container-fluid header, .playlists div.player-container {
 	text-align:center;
 }
 .footer section {
-	padding-top:120px;
+	padding-top:40px;
 	margin-bottom:0;
 }
 .footer nav, .footer section.partner {
@@ -2164,6 +2175,15 @@ section.container, .container-fluid header, .playlists div.player-container {
 .footer .networks div.col-md-6 ul {
 	padding-top:22px;
 }
+.footer .networks h3 {
+    text-align:center;
+    padding-top:20px;
+}
+.footer .newsletter .input-group {
+        margin-left:auto;
+        margin-right:auto;
+        display:block;
+    }
 .footer .networks div.col-md-6, .footer .networks div.col-md-6:first-child {
 	text-align:center;
 }
@@ -2238,6 +2258,13 @@ footer .networks {
 	.footer .partner li:first-child {
 		margin-left:0px;
 	}
+    .footer section {
+	    padding-top:120px;
+    }
+    .footer .networks h3 {
+        text-align:left;
+        padding-top:0;
+    }
 	.footer .networks div.col-md-6 {
 		vertical-align:bottom;
 	}
@@ -2250,6 +2277,7 @@ footer .networks {
 	.footer .input-group {
 	    width:300px;
 	    margin:0;
+        display:table-cell;
 	}
 }
 

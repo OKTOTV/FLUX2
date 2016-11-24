@@ -46,3 +46,5 @@ app/data.db3
 *.rdb
 
 .DS_Store
+
+app/cache/.gitkeep
