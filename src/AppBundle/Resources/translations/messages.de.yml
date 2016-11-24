@@ -36,6 +36,7 @@ oktothek.best_videos_sub:               Die meistgefragten Videos der Okto Commu
 
 oktothek.newest_playlists:              Neue Playlisten
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
+oktothek.newest_playlists_show_less:    Weniger Playlisten anzeigen <span class="icon">-</span>
 oktothek.newest_news_show_more:         Mehr News anzeigen
 oktothek.episode_stack_collapse_title:  Weitere neueste Videos anzeigen
 
