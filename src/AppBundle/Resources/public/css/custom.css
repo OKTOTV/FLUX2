@@ -1674,6 +1674,9 @@ body.page section ul, body.news section ul {
 h1, h2 {
 	text-align:center;
 }
+h1.name {
+    text-align:left;
+}
 h1, .footer .networks h3 {
 	margin-top:0;
 }
@@ -1917,6 +1920,18 @@ figure.pin img {
 .pin .bg-opacity {
 	margin-right:0px;
 }
+figcaption p.more {
+	margin-bottom:15px;
+}
+figcaption p {
+	margin:2px 0 10px 0;
+}
+figcaption .subheadline, .page .subheadline {
+	text-align:left;
+}
+figcaption  {
+	margin-top:10px;
+}
 @media (min-width: 580px) {
 	article.pin {
 		width:50%;
@@ -2000,6 +2015,12 @@ figure.pin img {
 .container.tags li a:before {
 	 content: "#";
 }
+.container-episode-tag {
+	position:relative;
+	height:35px;
+	width:200px;
+	cursor:pointer;
+}
 a.tag:before {
     margin-left:5px;
     content:'#';
@@ -2016,33 +2037,41 @@ p.tags {
     text-align:right;
 }
 
-
-/* Space Layout */
+/* Zeiformatierungen */
 .episode time, .playlists time {
 	margin-bottom:50px;
 }
-figcaption p.more {
-	margin-bottom:15px;
+.timetable .btn {
+	height:18px;
+	padding:1px 8px;
 }
-figcaption p {
-	margin:2px 0 10px 0;
-}
+
+/*Miscareas und Detailareas*/
 .misc, .subheadline {
 	text-align:center;
 }
 header .misc {
     margin-top:10px;
 }
-figcaption .subheadline, .page .subheadline {
-	text-align:left;
+.preview p.misc {
+	margin-top: 20px;
 }
-figcaption  {
-	margin-top:10px;
+body.episode .series, body.playlists .series {
+	margin-bottom:0;
 }
+#episode-tag-stack {
+    margin-top:30px;
+}
+
+/*Icons und Buttons*/
 .icon {
 	display:inline-block;
 }
-/* Spacelayout */
+.container-episode-tag .caret {
+	position:absolute;
+	right:8px;
+	top:15px;
+}
 .btn {
 	height:36px;
 	padding:8px 16px;
@@ -2054,26 +2083,20 @@ figcaption  {
 	height:40px;
 	width:40px;
 }
-.timetable .btn {
-	height:18px;
-	padding:1px 8px;
+.news a.pull-right {
+	margin-top:30px;
+	margin-right:15px;
 }
+.pull-right .icon {
+	width:38px;
+	height:38px;
+	text-align:center;
+}
+
+/*Formulare*/
 .form-control {
 	height:35px;
 }
-.container-episode-tag {
-	position:relative;
-	height:35px;
-	width:200px;
-	cursor:pointer;
-}
-.container-episode-tag .caret {
-	position:absolute;
-	right:8px;
-	top:15px;
-}
-
-
 
 
 /* Content allgemein */
@@ -2087,52 +2110,12 @@ section {
 section.container, .container-fluid header, .playlists div.player-container {
 	position:relative;
 }
-.episode .series, .playlists .series {
-	margin-bottom:0;
-}
 .aligncenter {
 	text-align:center;
 }
 .preview-content {
 	display:none;
 }
-.news a.pull-right {
-	margin-top:30px;
-	margin-right:15px;
-}
-.pull-right .icon {
-	width:38px;
-	height:38px;
-	text-align:center;
-}
-
-
-
-.episode article, .more-clips article, .playlists .description-container article {
-	margin-top:40px;
-}
-.episode article time[pubdate="pubdate"], .playlists article time[pubdate="pubdate"] {
-	display:block;
-}
-.icon-views {
-	display:inline-block;
-	height:15px;
-	width:20px;
-}
-.episode .misc a, .episode .misc span.views {
-	margin-right:10px;
-}
-.episode .misc {
-	padding-bottom:20px;
-}
-.episode #favorite {
-	margin-right:20px;
-}
-.episode article {
-    position:relative;
-}
-
-
 .container-bg-opacity {
 	z-index:0;
 	width:100%;
@@ -2145,11 +2128,6 @@ section.container, .container-fluid header, .playlists div.player-container {
 	height:100%;
 	width:100%;
 }
-
-.preview p.misc {
-	margin-top: 20px;
-}
-
 
 
 /* Footer */

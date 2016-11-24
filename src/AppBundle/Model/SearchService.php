@@ -52,22 +52,15 @@ class SearchService
     public function searchSeries($searchphrase, $includeInactive = false, $results = 5)
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
+        $multiquery = new \Elastica\Query\MultiMatch();
+        $multiquery->setFields(['name', 'description']);
+        $multiquery->setQuery($searchphrase);
+        $multiquery->setType(\Elastica\Query\MultiMatch::TYPE_MOST_FIELDS);
+        $boolQuery->addMust($multiquery);
+        $activeQuery = new \Elastica\Query\Term();
+        $activeQuery->setTerm('is_active', true);
+        $boolQuery->addMust($activeQuery);
 
-        $query = new \Elastica\Query\Match();
-        $query->setFieldQuery('name', $searchphrase);
-
-        $boolQuery->addShould($query);
-
-        $desc_query = new \Elastica\Query\Match();
-        $desc_query->setFieldQuery('description', $searchphrase);
-
-        $boolQuery->addShould($desc_query);
-
-        if (!$includeInactive) {
-            $activeQuery = new \Elastica\Query\Term();
-            $activeQuery->setTerm('is_active', true);
-            $boolQuery->addMust($activeQuery);
-        }
         return $this->seriesFinder->find($boolQuery, $results);
     }
 
