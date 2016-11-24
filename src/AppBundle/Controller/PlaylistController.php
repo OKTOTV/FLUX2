@@ -96,7 +96,7 @@ class PlaylistController extends Controller
     public function indexAction(Request $request)
     {
         $page = $request->query->get('page', 1);
-        $results = $request->query->get('results', 10);
+        $results = $request->query->get('results', 12);
         $results = ($results > 20) ? 20 : $results;
         $em = $this->getDoctrine()->getManager();
         $query = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists(0, true);
