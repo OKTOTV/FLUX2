@@ -95,7 +95,7 @@ class TagController extends Controller
         $em = $this->getDoctrine()->getManager();
         $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
         $paginator = $this->get('knp_paginator');
-        $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findEpisodesWithTag($tag, 0, true), $page, 5);
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findEpisodesWithTag($tag, 0, true), $page, 12);
         return ['tag' => $tag, 'episodes' => $episodes];
     }
 
@@ -108,7 +108,7 @@ class TagController extends Controller
         $em = $this->getDoctrine()->getManager();
         $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
         $paginator = $this->get('knp_paginator');
-        $seriess = $paginator->paginate($em->getRepository('AppBundle:Tag')->findSeriesWithTag($tag, 0, true), $page, 5);
+        $seriess = $paginator->paginate($em->getRepository('AppBundle:Tag')->findSeriesWithTag($tag, 0, true), $page, 12);
         return ['tag' => $tag, 'seriess' => $seriess];
     }
 
@@ -147,7 +147,7 @@ class TagController extends Controller
         $em = $this->getDoctrine()->getManager();
         $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $slug]);
         $paginator = $this->get('knp_paginator');
-        $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findPlaylistsWithTag($tag, 0, true), $page, 5);
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Tag')->findPlaylistsWithTag($tag, 0, true), $page, 12);
         return ['tag' => $tag, 'playlists' => $episodes];
     }
 }
