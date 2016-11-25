@@ -27,14 +27,15 @@
         <h3>Neue Playlist erstellen</h3>
         <form>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Playlistname" data-prototype='<li><button type="button" class="playlist btn btn-default active"><span class="glyphicon glyphicon-ok"> </span></button><span>__name__</span></li>'>
+                <input type="text" class="form-control playlist-new-input" placeholder="Playlistname" data-prototype='<li><button type="button" class="playlist btn btn-default active"><span class="glyphicon glyphicon-ok"> </span></button><span>__name__</span></li>'>
                 <span class="input-group-btn"><button class="playlist-new btn btn-default" type="button">Erstellen</button></span>
             </div>
         </form>
 {% else %}
-        <p>{{ 'oktothek.episode_show_playlist_login_register'|trans({
-        '%link%': '<a href="#">'~'oktothek.episode_show_playlist_login_register_link'|trans~'</a>'
-        })|raw }}
+        <p>
+            {{ 'oktothek.episode_show_playlist_login_register'|trans({
+                '%link%': '<a href="#">'~'oktothek.episode_show_playlist_login_register_link'|trans~'</a>'
+            })|raw }}
         </p>
 {% endif %}
     </div>
