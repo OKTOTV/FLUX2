@@ -66,7 +66,7 @@ header .navbar .nav.navbar-right > li > a,
 .oktothek .participart figcaption, 
 .pin figcaption h3, 
 .news h3, 
-.footer h3, 
+footer h3, 
 .collapseShare h3, 
 .collapsePlaylist h3, 
 .collapseCoursedetails h3, 
@@ -140,7 +140,7 @@ h3,
 .h3, 
 header .collapse.in h3, 
 article figcaption h3, 
-.footer h3, 
+footer h3, 
 #anchor-menu .panel-title, 
 .newsarchiv h2, 
 .post h3, 
@@ -179,7 +179,7 @@ header .nav,
 .btn, 
 .pin .pin-icon .glyphicon, 
 a.tag, 
-.footer h3, 
+footer h3, 
 .input-group-addon, 
 .collapseShare h3, 
 .collapsePlaylist h3, 
@@ -571,14 +571,14 @@ header .icon.icon-login {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-header .navbar-nav .dropdown-menu, .footer .dropdown-menu {
+header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	background-image:url(../images/speachbubble_small.png);
     background-repeat:no-repeat;
 }
 header .navbar-nav .dropdown-menu {
 	background-position:150px top;
 }
-.footer .dropdown-menu {
+footer .dropdown-menu {
 	background-position:center top;
 }
 header .navbar-inverse .navbar-nav.navbar-right > li > a:hover, 
@@ -1114,7 +1114,7 @@ hr {
 	background-position:left center;
 	background-image:url(../images/hr_bg.png);
 }
-section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description  {
+section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, footer nav  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border.png);
@@ -1281,13 +1281,16 @@ section.playlist_container,
 .newsarchiv article:last-child {
 	background-image:none;
 }
-
+@media (min-width: 420px) {
+    footer nav {
+        background-image:none;
+    }
+}
 @media (min-width: 768px) {
     section.fs-image-content, section.player-container {
 	    background-image:none;
     }
 }
-
 .socialnetworks a {
 	-webkit-border-radius:20px;
 	-moz-border-radius:20px;
@@ -1333,30 +1336,30 @@ body.tagpage .bg-opacity {
 
 /****************************  Color, Effects Footer ****************************/
 
-.footer .nav > li > a, 
-.footer .nav > li > a:active, 
-.footer .nav > li > a:hover, 
+footer .nav > li > a, 
+footer .nav > li > a:active, 
+footer .nav > li > a:hover, 
 #anchor-menu .panel-default > .panel-heading, 
 .btn.btn-top:hover {
 	color:#ffffff;
 }
 .btn.btn-top,
-.footer .nav .open > a, 
-.footer .nav .open > a:focus,
-.footer .nav .open > a:hover {
+footer .nav .open > a, 
+footer .nav .open > a:focus,
+footer .nav .open > a:hover {
 	color:#fcce14;
 }
 
-#anchor-menu .panel-default > .panel-heading, .footer {
+#anchor-menu .panel-default > .panel-heading, footer {
 	background-color:#000000;
 }
-.footer .nav > li > a:active, 
-.footer .nav > li > a:hover, 
+footer .nav > li > a:active, 
+footer .nav > li > a:hover, 
 .btn.btn-top:hover, 
-.footer,
-.footer .nav .open > a, 
-.footer .nav .open > a:focus, 
-.footer .nav .open > a:hover
+footer.footer,
+footer .nav .open > a, 
+footer .nav .open > a:focus, 
+footer .nav .open > a:hover,
 footer .networks {
 	background-color:transparent;
 }
@@ -1371,7 +1374,7 @@ footer .networks {
 	background-image:url(../images/icon_top_arrow.svg);
 }
 
-.footer section {
+footer section {
 	background-image:none;
 }
 
@@ -1667,10 +1670,10 @@ html, body {
 }
 
 /* Listen */
-.footer ul, .footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group  {
+footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group  {
 	list-style:none;
 }
-.tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group {
+footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group {
 	margin-left:0;
 	padding-left:0;
 }
@@ -1688,7 +1691,7 @@ h1, h2 {
 h1.name {
     text-align:left;
 }
-h1, .footer .networks h3 {
+h1, footer .networks h3 {
 	margin-top:0;
 }
 body.tagpage h1 {
@@ -1752,7 +1755,7 @@ header .navbar-nav .dropdown-menu {
 button.btn.dropdown-toggle, header button.btn.dropdown-toggle {
     padding: 8px 20px 8px 8px;
 }
-header .navbar-nav .dropdown-menu, .footer .dropdown-menu {
+header .navbar-nav .dropdown-menu, footer .dropdown-menu {
     padding:15px 10px 10px 10px;
 }
 header .open .dropdown-menu .dropdown-header, header .open .dropdown-menu > li > a {
@@ -1806,7 +1809,7 @@ button.dropdown-toggle .glyphicon-sort-by-alphabet {
     .dropdown-menu {
 		padding:0;
 	}
-    header .navbar-nav .dropdown-menu, .footer .dropdown-menu {
+    header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 		padding:15px 0 0 0;
 	}
 	header .open .dropdown-menu .dropdown-header, header .open .dropdown-menu > li > a {
@@ -1844,7 +1847,7 @@ button.dropdown-toggle .glyphicon-sort-by-alphabet {
 body.academy section.newsletter form .input-group, body.academy .newsletter label {
     display:block;
 }
-.newsletter .input-group .form-control, body.newsarchiv .footer .newsletter .input-group .form-control {
+.newsletter .input-group .form-control, body.newsarchiv footer .newsletter .input-group .form-control {
     width:200px;
 }
 body.newsarchiv .newsletter .input-group {
@@ -1853,11 +1856,11 @@ body.newsarchiv .newsletter .input-group {
 body.academy .newsletter .input-group-btn {
 	width:auto;
 }
-.newsletter .input-group, body.newsarchiv .footer .newsletter .input-group, body.academy section.newsletter .input-group {
+.newsletter .input-group, body.newsarchiv footer .newsletter .input-group, body.academy section.newsletter .input-group {
 	margin:0 auto;
     width:300px;
 }
-.newsletter .input-group-addon, body.newsarchiv .footer .newsletter .input-group-addon {
+.newsletter .input-group-addon, body.newsarchiv footer .newsletter .input-group-addon {
     width:100px;
     height:35px;
 }
@@ -2142,49 +2145,64 @@ section.container, .container-fluid header, .playlists div.player-container {
 
 
 /* Footer */
-.footer {
+footer {
 	height:350px;
 	width:100%;
 	position:relative;
 }
-.footer .container {
+footer .container {
 	margin:0 auto;
 }
-.footer .partner {
+footer .partner {
 	text-align:center;
 }
-.footer section {
+footer .partner li {
+ padding:20px 5px;
+}
+footer section {
 	padding-top:40px;
 	margin-bottom:0;
 }
-.footer nav, .footer section.partner {
-	padding-top:35px;
+footer nav {
+	padding-top:0px;
+	margin-bottom:20px;
+}
+footer section.partner {
+	padding-top:15px;
 	margin-bottom:0;
-	height:130px;
 }
-.footer nav ul {
+footer nav ul {
 	width:auto;
+    margin-top:20px;
 }
-.footer nav ul li {
-	line-height:95px;
+footer nav ul li {
 	vertical-align:middle;
 }
-.footer .nav > li, .footer .nav > li > a, .footer .partner li {
+footer .nav > li, footer .nav > li > a, footer .partner li {
 	display:block;
 }
-.footer .networks div.col-md-6 ul {
+footer .nav > li, footer .partner li {
+	width:auto;
+}
+footer .nav > li.languages a  {
+    margin-left:-19px;
+}
+footer .networks div.col-md-6:last-child {
+    padding-left:0;
+}
+footer .networks div.col-md-6 ul {
 	padding-top:22px;
 }
-.footer .networks h3 {
+footer .networks h3 {
     text-align:center;
     padding-top:20px;
 }
-.footer .newsletter .input-group {
-        margin-left:auto;
-        margin-right:auto;
-        display:block;
-    }
-.footer .networks div.col-md-6, .footer .networks div.col-md-6:first-child {
+footer .newsletter .input-group {
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+footer .networks div.col-md-6, footer .networks div.col-md-6:first-child {
 	text-align:center;
 }
 .btn-top .icon-top {
@@ -2195,7 +2213,7 @@ footer .networks {
 	height:220px;
 	position:relative;
 }
-#anchor-menu {
+/*#anchor-menu {
 	position:fixed;
 	z-index:100;
 	left:50%;
@@ -2222,7 +2240,7 @@ footer .networks {
 	line-height:46px;
 	vertical-align:middle;
 	text-align:center;
-}
+}*/
 .btn.btn-top {
 	padding:0;
 	height:auto;
@@ -2232,49 +2250,94 @@ footer .networks {
 	display:block;
 	margin:0 auto;
 }
-#anchor-menu .panel-title {
+/*#anchor-menu .panel-title {
 	width:220px;
-}
+}*/
 .btn-top {
 	display:block;
 	margin:0 auto;
 }
-#anchor-menu .panel-heading .glyphicon, .btn-top .glyphicon {
+/*#anchor-menu .panel-heading .glyphicon, .btn-top .glyphicon {
 	margin-left:5px;
 	vertical-align:middle;
 }
 #anchor-menu .list-group-item {
 	padding-top:5px;
 	padding-bottom:5px;
+}*/
+@media (min-width: 420px) {
+    footer .nav > li, footer .partner li {
+	    width:50%;
+        float:left;
+    }
+    footer .partner {
+	    text-align:left;
+    }
+    footer .nav > li:nth-child(2n+1), footer .partner > li:nth-child(2n+1) {
+        clear:left;
+    }
+    footer nav {
+	    margin-bottom:0px;
+    }
+    footer section.partner {
+	    padding-top:35px;
+    }
 }
-
 @media (min-width: 768px) {
-	.footer .nav > li, .footer .nav > li > a, .footer .partner li {
+	footer .nav > li, footer .nav > li > a, footer .partner li {
 		display:inline;
 	}
-	.footer .partner li {
+    footer .nav > li, footer .partner li {
+	    width:auto;
+    }
+    footer .nav > li:nth-child(2n+1), footer .partner li:nth-child(2n+1) {
+        clear:none;
+    }
+    footer nav {
+	    padding-top:50px;
+	    margin-bottom:0;
+    }
+	footer .partner li {
 		margin-left:40px;
 	}
-	.footer .partner li:first-child {
+    footer .nav > li.languages a  {
+        margin-left:0;
+    }
+    footer nav, footer section.partner {
+	    height:130px;
+    }
+	footer .partner li:first-child {
 		margin-left:0px;
 	}
-    .footer section {
+    footer .partner {
+	    text-align:center;
+        padding:0 5px;
+    }
+    footer .partner ul {
+        width: auto;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    footer .partner li {
+        float:none;
+    }
+    footer section {
 	    padding-top:120px;
     }
-    .footer .networks h3 {
+    footer .networks h3 {
         text-align:left;
         padding-top:0;
     }
-	.footer .networks div.col-md-6 {
+	footer .networks div.col-md-6 {
 		vertical-align:bottom;
 	}
-	.footer .networks div.col-md-6 {
+	footer .networks div.col-md-6 {
 		text-align:left;
 	}
-	.footer .networks div.col-md-6:first-child {
+	footer .networks div.col-md-6:first-child {
 	    text-align:right;
 	}
-	.footer .input-group {
+	footer .newsletter .input-group {
 	    width:300px;
 	    margin:0;
         display:table-cell;
