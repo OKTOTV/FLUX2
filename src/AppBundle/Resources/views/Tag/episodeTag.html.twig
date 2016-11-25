@@ -1,5 +1,5 @@
 <div class="row episode-tags">
-{% for episode in episodes %}
+{% for episode in episodes|slice(0,5) %}
     {% if loop.first %}
         <article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin first-pin" title="{{ episode.description }}">
             <figure class="episode-pin pin">
