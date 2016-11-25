@@ -6,7 +6,7 @@
 <footer class="footer">
     <section class="networks">
 	    <div class="container row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-xs-12">
                 <ul class="socialnetworks">
                     <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
                     <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
@@ -14,8 +14,10 @@
                     <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
                 </ul>
             </div>
-             <h3>{{ 'oktothek.newsletter_header'|trans }}</h3>
-            {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_default_newsletter }))}}
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <h3>{{ 'oktothek.newsletter_header'|trans }}</h3>
+                {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_default_newsletter }))}}
+            </div>
         </div>
     </section>
 	<div class="container row">

@@ -33,8 +33,15 @@ body.oktothek .news article.pin {
 	padding-top:15px;
 	padding-bottom:15px;
 }
+body.oktothek .news-pin {
+    padding-top:20px;
+}
 
 /* Mitmachbereich */
+.oktothek .participart {
+    margin-bottom:40px;
+    padding-bottom:40px;
+}
 .oktothek .participart .button_container {
 	height:180px;
 	width:240px;
@@ -62,9 +69,15 @@ body.oktothek .news article.pin {
 	margin:10px auto 0 auto;
 }
 .oktothek .participart-list li {
-	width:140px;
+	width:50%;
 	float:left;
-	margin-right:10px;
+    padding-right:10px;
+    margin-right:0;
+    text-align: center;
+}
+.oktothek .participart-list li a {
+    text-align: center;
+    padding-right:10px;
 }
 .oktothek .participart-list li figure {
 	width:140px;
@@ -72,8 +85,41 @@ body.oktothek .news article.pin {
 	vertical-align:middle;
 	text-align:center;
 	line-height:140px;
-	margin-bottom:20px;
+	margin:10px auto 5px auto;
+}
+.oktothek .participart-list li figcaption {
+	margin-top:0;
 }
 .oktothek .participart-list li:last-child {
 	margin-right:0px;
+}
+@media (min-width: 768px) {
+    body.oktothek .participart {
+	    margin-bottom:60px;
+	    padding-bottom:40px;
+    }
+    /* Kommentar */
+    body.oktothek .participart-list li {
+	    width:140px;
+	    float:left;
+	    margin-right:10px;
+    }
+    body.oktothek .participart-list li figure {
+        margin-top:0;
+        margin-bottom:20px;
+    }
+    body.oktothek .participart-list li figcaption {
+	    margin-top:10px;
+    }
+    body.oktothek .more figure.episode-pin {
+        height:188px;
+    }
+    body.oktothek .news-pin {
+        padding-top:0px;
+    }
+}
+@media (min-width: 992px) {
+    body.oktothek .more figure.episode-pin {
+        height:218px;
+    }
 }

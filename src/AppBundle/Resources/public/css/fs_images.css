@@ -12,7 +12,7 @@
 	bottom:70px;
 }
 .carousel-caption {
-	bottom:50px;
+	bottom:0px;
 }
 .fs-image-ident .description-wrapper {
 	bottom:20px;
@@ -66,6 +66,7 @@ section.fs-image-content, section.fs-image-content {
 }
 .content-opacity {
 	margin-right:15px;
+    padding:0 15px 15px 15px;
 }
 section.fs-image-content, .carousel-caption, .fs-image-ident .description-wrapper {
 	padding-bottom:0;
@@ -79,9 +80,6 @@ section.bg-fullscreen h2, section.fs-image-content + section header.page-header 
 }
 .carousel-caption, .fs-image-ident .description-wrapper {
 	padding-top:10px;
-}
-.content-opacity {
-	padding:15px;
 }
 /*.academy-content .content-opacity div:first-child {
 	padding-left:15px;
@@ -114,6 +112,19 @@ section.bg-fullscreen h2, section.fs-image-content + section header.page-header 
 }
 .carousel-caption {
 	text-align:left;
+}
+.carousel-control {
+    width: 10%;
+}
+body.oktothek .carousel-control.left span::before, body.oktothek .carousel-control.right span::before {
+    content:" ";
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right {
+    width:30px;
+    height:30px;
+}
+.carousel-indicators {
+    display: none;
 }
 /*.academy-content .content-opacity div {
 	display:table-cell;
@@ -155,11 +166,12 @@ section.bg-fullscreen h2, section.fs-image-content + section header.page-header 
 		padding-top:20px;
 	    left:50%;
 	    right:0;
+        bottom:40px;
 	}
 }
 @media (min-width: 768px) and (min-height: 601px) {
 	.carousel-caption, .fs-image-ident .description-wrapper {
-	    bottom:100px;
+	    bottom:90px;
 	    width:650px;
 	    margin: 0 0 0 -325px;
 		padding-top:20px;
@@ -172,9 +184,13 @@ section.bg-fullscreen h2, section.fs-image-content + section header.page-header 
 	.carousel-caption h3, .series h1 {
 	    margin: 4px 0 20px 0;
     }
+    .content-opacity {
+        padding:15px;
+    }
 	
 	.carousel-indicators {
 	    bottom:10px;
+        display: block;
     }
 	#slider, .fs-image-content {
 	    margin-top:-140px;
