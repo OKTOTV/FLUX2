@@ -6,7 +6,7 @@
 .tagpage .collapseShare .collapse-content, .preview .collapse-header {
 	position:relative;
 }
-.collapseShare .helptext, .collapseShare .helptext, .collapseShare .socialnetworks {
+.collapseShare .socialnetworks {
 	display:inline;
 }
 .collapsePlaylist ul {
@@ -49,8 +49,17 @@
 .collapsePlaylist ul, .collapsePlaylist li {
 	padding-left:0;
 }
+.collapseShare .share-buttons, .collapseShare .helptext {
+    padding-top:20px;
+}
+.collapseShare h3 {
+    margin-top:40px;
+}
 .collapseShare .helptext {
 	padding-left:15px;
+}
+.collapseWindow .col-xs-12 {
+    float:none;
 }
 .collapsePlaylist li span {
 	padding-left:10px;
@@ -80,9 +89,6 @@
     position:relative;
     left:50%;
     margin-left:-7.5px;
-}
-.collapseShare .helptext {
-	line-height:35px;
 }
 #collapseShare input.form-control, .collapsePlaylist input.form-control {
 	width:600px;
@@ -127,8 +133,26 @@
 	    width: 100%;
     }
 }
+@media (min-width: 768px) {
+    
+}
 @media (min-width: 992px) {
-	.academy .courses .collapse-content .row div:last-child {
+    .collapseShare .helptext {
+	    display:inline;
+    }
+    .collapseShare .share-buttons, .collapseShare .helptext {
+        padding-top:0;
+    }
+    .collapseShare h3 {
+        margin-top:20px;
+    }
+    .collapseShare .helptext {
+	   line-height:35px;
+    }
+    .collapseWindow .col-xs-12 {
+        float:left;
+    }
+    .academy .courses .collapse-content .row div:last-child {
 	    padding-left:0px;
     }
 }
