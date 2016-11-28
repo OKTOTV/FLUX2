@@ -552,7 +552,8 @@ header .navbar-fixed-top {
 	background-image:none;
 }
 header .brandimage {
-	background-image:url(../images/okto_logo_mobil.svg);
+	background-image:url(../images/okto_logo_mobil.png);
+    background-image: url("../images/okto_logo_mobil.svg"), none;
 	background-repeat:no-repeat;
 	background-position:center left;
 }
@@ -562,12 +563,14 @@ header .brandimage {
 	background-position:left top;
 }
 header .icon.icon-upload {
-	background-image:url(../images/icon_rocket.svg);
+	background-image:url(../images/icon_rocket.png);
+    background-image: url("../images/icon_rocket.svg"), none;
 	background-repeat:no-repeat;
 	background-position:center center;
 }
 header .icon.icon-login {
-	background-image:url(../images/icon_login.svg);
+	background-image:url(../images/icon_login.png);
+    background-image: url("../images/icon_login.svg"), none;
 	background-repeat:no-repeat;
 	background-position:center center;
 }
@@ -622,7 +625,8 @@ header .navbar-inverse .navbar-nav > .active > a:focus {
 		background-color:transparent;
 	}
 	header .brandimage {
-	    background-image:url(../images/okto_logo.svg);
+	    background-image:url(../images/okto_logo.png);
+        background-image: url("../images/okto_logo.svg"), none;
 	    background-repeat:no-repeat;
 	    background-position:center center;
     }
@@ -1371,7 +1375,8 @@ footer .networks {
 .btn-top .icon-top {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/icon_top_arrow.svg);
+	background-image:url(../images/icon_top_arrow.png);
+    background-image: url("../images/icon_top_arrow.svg"), none;
 }
 
 footer section {
@@ -1844,10 +1849,12 @@ button.dropdown-toggle .glyphicon-sort-by-alphabet {
 .newsletter form .input-group {
     display:table-cell;
 }
-body.academy section.newsletter form .input-group, body.academy .newsletter label {
+body.academy section.newsletter form .input-group, body.academy .newsletter label, footer .newsletter .input-group {
     display:block;
 }
-.newsletter .input-group .form-control, body.newsarchiv footer .newsletter .input-group .form-control {
+.newsletter .input-group .form-control, 
+body.newsarchiv footer .newsletter .input-group .form-control, 
+body.newsarchiv .newsletter .input-group .form-control {
     width:200px;
 }
 body.newsarchiv .newsletter .input-group {
@@ -1860,17 +1867,47 @@ body.academy .newsletter .input-group-btn {
 	margin:0 auto;
     width:300px;
 }
-.newsletter .input-group-addon, body.newsarchiv footer .newsletter .input-group-addon {
+.newsletter .input-group-addon, body.newsarchiv footer .newsletter .input-group-addon, footer .newsletter .input-group-addon {
     width:100px;
     height:35px;
 }
-body.newsarchiv .newsletter .input-group .form-control {
-    width:200px;
+footer .newsletter .input-group {
+    margin:0;
+    width:100%;
+}
+footer .newsletter .input-group .form-control {
+    min-width:190px;
+    width:auto;
+}
+footer .input-group .form-control {
+    float:none;
+}
+footer .newsletter .input-group {
+    margin-left:auto;
+    margin-right:auto;
 }
 body.newsarchiv .newsletter .input-group-addon {
     width:auto;
     padding:6px 10px;
 }
+@media (min-width: 420px) {
+    footer .newsletter .input-group {
+	    margin:0 auto;
+        width:300px;
+    }
+    footer .newsletter .input-group .form-control {
+        width:200px;
+        min-width: 200px;
+        max-width:200px;
+    }
+    footer .input-group .form-control {
+        float:left;
+    }
+}
+@media (min-width: 768px) {
+    
+}
+
 
 /* Socialnetworkbuttons */
 .socialnetworks li {
@@ -2189,6 +2226,7 @@ footer .nav > li.languages a  {
 }
 footer .networks div.col-md-6:last-child {
     padding-left:0;
+    padding-right:0;
 }
 footer .networks div.col-md-6 ul {
 	padding-top:22px;
@@ -2196,11 +2234,6 @@ footer .networks div.col-md-6 ul {
 footer .networks h3 {
     text-align:center;
     padding-top:20px;
-}
-footer .newsletter .input-group {
-    margin-left:auto;
-    margin-right:auto;
-    display:block;
 }
 footer .networks div.col-md-6, footer .networks div.col-md-6:first-child {
 	text-align:center;

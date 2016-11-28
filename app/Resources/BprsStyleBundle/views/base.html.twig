@@ -13,7 +13,18 @@
         {% block javascripts %}
             <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
             <script src="{{ asset('bundles/bprsstyle/js/bootstrap.min.js') }}"></script>
-			<script src="{{ asset('bundles/app/js/javascript.js') }}"></script>
+            <!--[if lt IE 9]>
+            <script>
+                document.createElement('header');
+                document.createElement('nav');
+                document.createElement('section');
+                document.createElement('article');
+                document.createElement('aside');
+                document.createElement('footer');
+                document.createElement('time');
+            </script>
+            <![endif]-->
+            <script src="{{ asset('bundles/app/js/javascript.js') }}"></script>
         {% endblock %}
         {% block header %}{% endblock %}
         {% block messages %}{% endblock %}
