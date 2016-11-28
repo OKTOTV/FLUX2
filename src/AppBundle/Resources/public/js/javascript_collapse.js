@@ -32,9 +32,14 @@ $(document).ready(function(){
                 $('.collapseWindow').eq(i).find('.collapse-header .triangle').css('margin-left', pos.left + el.width()/2 - $('.collapseWindow').eq(i).find('.collapse-header .triangle').width()/4 + 'px');
 		}
 	}
-	if ($('body').hasClass('episode')) {
+	if ($('body').hasClass('episode') && $( window ).width() < 768) {
 		posBubbletop();
 	}
+    $( window ).on("resize orientationchange", function(){
+        if ($( window ).width() < 768) {
+            posBubbletop();
+        }
+    });
     
  // Show more Entries
 if ($('body').hasClass('oktothek')) {

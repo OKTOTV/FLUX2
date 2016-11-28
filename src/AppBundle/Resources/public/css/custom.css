@@ -122,7 +122,9 @@ header .navbar-toggle.menu-button span.icon-close,
 .academy .preview p, 
 #favorite .glyphicon, 
 .container.tags a,
-.page .content {
+.page .content,
+button.btn-default#ButtonPlaylist .visible-xs-inline, 
+button.btn-default#ButtonShare .visible-xs-inline {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -505,10 +507,7 @@ header #dropdownMenuTags.btn-default,
 	border-radius:0px;
 }
 .form-control
-.dropdown-menu, 
-.more-clips select, 
-.more-clips select *, 
-.more-clips select.form-control option {
+.dropdown-menu {
 	border:none;
 }
 
@@ -949,10 +948,17 @@ body.tagpage header .misc .btn-default,
 .collapsePlaylist li button.btn-default:focus,
 .producer a.list-group-item:focus,
 .producer a.list-group-item:hover,
-body.tagpage .inc-pins article.pin.empty figure {
+body.tagpage .inc-pins article.pin.empty figure,
+button.btn-default#ButtonPlaylist:hover, 
+button.btn-default#ButtonShare:hover {
 	background-color:transparent;
 }
-
+@media (min-width: 768px) {
+    button.btn-default#ButtonPlaylist:hover, 
+    button.btn-default#ButtonShare:hover {
+	    background-color:#fcce14;
+    }
+}
 .play-episode.btn-default {
 	border: solid 1px #ffffff;
 }
@@ -1049,7 +1055,12 @@ header.page-header,
 .nav-tabs > li > a:hover,
 .nav-tabs > li.active > a, 
 .nav-tabs > li.active > a:focus, 
-.nav-tabs > li.active > a:hover {
+.nav-tabs > li.active > a:hover,
+.more-clips select, 
+.more-clips select *, 
+.more-clips select.form-control option,
+button.btn-default#ButtonPlaylist, 
+button.btn-default#ButtonShare {
 	border:none;
 }
 .triangle {
@@ -1109,6 +1120,12 @@ body.tagpage .empty .icon-player {
 	-moz-border-radius:25px;
 	-khtml-border-radius:25px;
 	border-radius: 25px;
+}
+@media (min-width: 768px) {
+    button.btn-default#ButtonPlaylist, 
+    button.btn-default#ButtonShare {
+	    border: solid 2px #fcce14;
+    }
 }
 
 /* Hintergründe */
@@ -1876,7 +1893,7 @@ footer .newsletter .input-group {
     width:100%;
 }
 footer .newsletter .input-group .form-control {
-    min-width:190px;
+    min-width:187px;
     width:auto;
 }
 footer .input-group .form-control {
@@ -2382,4 +2399,14 @@ footer .networks {
 /* Backend */
 body .panel, .bootstrap .datetimepicker .widget a {
 	color:#000;
+}
+body.episode a.backend {
+    display: block;
+    margin-bottom:20px;
+}
+@media (min-width: 580px) {
+    body.episode a.backend {
+        display: inline;
+        margin-bottom:0;
+    }
 }
