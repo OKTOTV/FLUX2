@@ -178,6 +178,9 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	    left:50%;
 	    right:0;
 	}
+    .carousel-control {
+        display:none;
+    }
 }
 @media (min-width: 768px) {
 	
