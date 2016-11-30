@@ -2031,8 +2031,8 @@ figcaption  {
 
 /* Kommentare */
 .comments {
-	padding-top:40px;
-	padding-bottom:40px;
+	padding-top:20px;
+	padding-bottom:20px;
 }
 .comments textarea {
 	margin-bottom:20px;
@@ -2063,6 +2063,12 @@ figcaption  {
 .avatar1, .avatar2 {
 	width:50px;
 	height:50px;
+}
+@media (min-width: 768px) {
+    .comments {
+	    padding-top:20px;
+	    padding-bottom:20px;
+    }
 }
 
 /* Tags */
