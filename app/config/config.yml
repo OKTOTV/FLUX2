@@ -150,9 +150,9 @@ oktolab_media:
             public: false
     player_url: "%player_url%"
     origin:
-        margin: 20
-        position: "top-right"
-        logo: "bundles/media/img/logo.png"
+        margin: 12
+        position: "top-left"
+        logo: "bundles/app/images/player/logo.png"
 
 okto_media:
     tag_class: "AppBundle\Entity\Tag"

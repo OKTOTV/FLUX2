@@ -8,6 +8,10 @@ bprs_sofort:
     type:     annotation
     prefix:   /
 
+bprs_applink:
+    resource: .
+    type: bprs_applink
+
 start:
     path:      /
     defaults:  { _controller: AppBundle:Default:oktothek, _locale: de }
@@ -36,10 +40,6 @@ bprs_user:
 bprs_asset:
     resource: .
     type: bprs_asset
-
-bprs_applink:
-    resource: .
-    type: bprs_applink
 
 bprs_commandline:
     resource: .

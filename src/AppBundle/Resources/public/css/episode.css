@@ -22,5 +22,16 @@ body.episode .misc {
     text-align: left;
 }
 body.episode #favorite {
-	margin-right:20px;
+	margin-right:5px;
+    padding-left:2px;
+    padding-right:2px;
+}
+body.episode #ButtonPlaylist, body.episode #ButtonShare {
+    padding-left:8px;
+    padding-right:8px;
+}
+@media (min-width: 768px) {
+    body.episode #favorite {
+	    margin-right:20px;
+    }
 }

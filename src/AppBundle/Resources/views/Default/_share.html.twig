@@ -1,6 +1,6 @@
 {% if show_button is defined %}
 <p class="misc">
-    <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#{{ data_target|default('collapseShare')}}" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#">{{ 'oktothek_share_header'|trans }}</button>
+    <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#{{ data_target|default('collapseShare')}}" aria-expanded="false" aria-controls="collapseShare" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="hidden-xs">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
 </p>
 {% endif %}
     <!-- Start Collapse Share-->

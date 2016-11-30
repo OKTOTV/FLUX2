@@ -6,8 +6,12 @@
 .tagpage .collapseShare .collapse-content, .preview .collapse-header {
 	position:relative;
 }
-.collapseShare .helptext, .collapseShare .helptext, .collapseShare .socialnetworks {
+.collapseShare .socialnetworks {
 	display:inline;
+}
+.collapseShare .socialnetworks li {
+    padding:4px 2px;
+    line-height: 48px;
 }
 .collapsePlaylist ul {
 	display:table;
@@ -49,8 +53,17 @@
 .collapsePlaylist ul, .collapsePlaylist li {
 	padding-left:0;
 }
+.collapseShare .share-buttons, .collapseShare .helptext {
+    padding-top:20px;
+}
+.collapseShare h3 {
+    margin-top:40px;
+}
 .collapseShare .helptext {
 	padding-left:15px;
+}
+.collapseWindow .col-xs-12 {
+    float:none;
 }
 .collapsePlaylist li span {
 	padding-left:10px;
@@ -81,14 +94,14 @@
     left:50%;
     margin-left:-7.5px;
 }
-.collapseShare .helptext {
-	line-height:35px;
-}
 #collapseShare input.form-control, .collapsePlaylist input.form-control {
-	width:600px;
+	width:100%;
 }
 .collapsePlaylist .input-group-btn {
 	width:auto;
+}
+.collapsePlaylist .input-group {
+	width:100%;
 }
 .collapsePlaylist li button.btn {
 	width:30px;
@@ -108,7 +121,9 @@
     display:none;
 }
 .tagpage .collapseShare {
-	width:770px;
+	width:100%;
+    max-width: 500px;
+    padding:0 15px;
 }
 .academy section .collapse {
 	width: 100%;
@@ -123,12 +138,47 @@
     padding-top:20px;
 }
 @media (min-width: 580px) {
+    .collapseShare .socialnetworks li {
+	    padding:0;
+        line-height: auto;
+    }
 	.academy section .collapse {
 	    width: 100%;
     }
 }
+@media (min-width: 768px) {
+    .tagpage .collapseShare {
+	    width:500px;
+        padding:0;
+    }
+}
 @media (min-width: 992px) {
-	.academy .courses .collapse-content .row div:last-child {
+    .collapseShare .helptext {
+	    display:inline;
+    }
+    .collapseShare .share-buttons, .collapseShare .helptext {
+        padding-top:0;
+    }
+    .collapseShare h3 {
+        margin-top:20px;
+    }
+    .collapseShare .helptext {
+	   line-height:35px;
+    }
+    .collapseWindow .col-xs-12 {
+        float:left;
+    }
+    #collapseShare input.form-control, .collapsePlaylist input.form-control {
+	    width:600px;
+    }
+    .collapsePlaylist .input-group {
+	    width:auto;
+    }
+    .tagpage .collapseShare {
+	    width:770px;
+        max-width:770px;
+    }
+    .academy .courses .collapse-content .row div:last-child {
 	    padding-left:0px;
     }
 }

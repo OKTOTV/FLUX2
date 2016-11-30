@@ -198,4 +198,32 @@ $(document).ready(function(){
 			$('.avatar-container').eq(i).find('div').addClass(avatar[rand]);
 		}
 	}
+    
+    function setHeight_more(el) {
+        if ($(el).parents('article.more').width() == 50) {
+            var moreHeight = ((($(el).parents('section.container').width() - 50)/2)/16) * 9 + 67;
+        } else if ($(el).parents('article.more').width() == 100) {
+            var moreHeight = (($( window ).width() - 10)/16) * 9;
+        }
+        $(el).css('height', moreHeight + 'px');
+    }
+    
+    /* Oktothek */
+    if ($('body').hasClass('oktothek')) {
+        $('.pull-right.more').click(function() {
+            var el = ($(this).parent().find('.more figure.episode-pin'));
+            setHeight_more(el);
+            $(window).on("resize orientationchange", function(){
+                setHeight_more(el);
+            });
+        })
+        
+        $(window).on("resize orientationchange", function(){
+            if ($('.more figure.episode-pin').css('display','block')) {
+                var el = $(this);
+                setHeight_more(el);
+            }
+        });
+    }
+    
 });

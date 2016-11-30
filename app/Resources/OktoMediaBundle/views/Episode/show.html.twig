@@ -23,6 +23,12 @@
                 <img src="{{ episode.posterframe|path }}" class="img-responsive"/>
             {% endif %}
             {{ episode.description|default('oktolab_media.show_episode_description_missing'|trans) }}
+            <div class="list-group">
+                {% for caption in episode.captions %}
+                    <a href="{{ path('oktolab_caption_show', {'caption': caption.id }) }}" class="list-group-item">{{ caption.label }}</a>
+                {% endfor %}
+                <a href="{{ path('oktolab_caption_new', {'uniqID': episode.uniqID}) }}" class="list-group-item">{{ 'oktolab_media.caption_new_button'|trans|raw }}</a>
+            </div>
         </div>
         <div class="col-md-4">
             <p>Aktiv: {{ episode.isActive }}</p>
