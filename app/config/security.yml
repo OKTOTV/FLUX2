@@ -38,10 +38,11 @@ security:
             security: false
 
         api:
-            pattern:  ^/api
+            pattern:  /api
             http_basic: ~
             provider: bprs_applink
             stateless: true
+            anonymous: ~
 
         main:
             pattern:    /

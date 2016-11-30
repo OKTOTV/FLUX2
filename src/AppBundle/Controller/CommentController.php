@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Form\CommentType;
 use AppBundle\Entity\Comment;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * Episode controller.
@@ -26,8 +27,8 @@ class CommentController extends Controller
     public function commentEpisodeAction(Request $request, $uniqID)
     {
         $comment = new Comment();
-        $commentForm = $this->createForm(new CommentType(), $comment, ['action' => $this->generateUrl('oktothek_comment', ['uniqID' => $uniqID])]);
-        $commentForm->add('submit', 'submit', ['label' => 'oktothek.comment_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $commentForm = $this->createForm(CommentType::class, $comment, ['action' => $this->generateUrl('oktothek_comment', ['uniqID' => $uniqID])]);
+        $commentForm->add('submit', SubmitType::class, ['label' => 'oktothek.comment_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") {
             $commentForm->handleRequest($request);
@@ -54,8 +55,8 @@ class CommentController extends Controller
     public function answerCommentAction(Request $request, Comment $comment)
     {
         $answer = new Comment();
-        $commentForm = $this->createForm(new CommentType(), $answer, ['action' => $this->generateUrl('oktothek_answer_comment', ['comment' => $comment->getId()])]);
-        $commentForm->add('submit', 'submit', ['label' => 'oktothek.comment_reply_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $commentForm = $this->createForm(CommentType::class, $answer, ['action' => $this->generateUrl('oktothek_answer_comment', ['comment' => $comment->getId()])]);
+        $commentForm->add('submit', SubmitType::class, ['label' => 'oktothek.comment_reply_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") {
             $commentForm->handleRequest($request);
