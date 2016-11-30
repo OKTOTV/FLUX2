@@ -2107,11 +2107,16 @@ p.tags {
 
 /* Zeiformatierungen */
 .episode time, .playlists time {
-	margin-bottom:50px;
+	margin-bottom:30px;
 }
 .timetable .btn {
 	height:18px;
 	padding:1px 8px;
+}
+@media (min-width: 768px) {
+    .episode time, .playlists time {
+	    margin-bottom:50px;
+    }
 }
 
 /*Miscareas und Detailareas*/
@@ -2172,8 +2177,8 @@ body.episode .series, body.playlists .series {
 	padding:0;
 }
 section {
-	margin-bottom:60px;
-	padding-bottom:40px;
+	margin-bottom:30px;
+	padding-bottom:20px;
 }
 section.container, .container-fluid header, .playlists div.player-container {
 	position:relative;
@@ -2195,6 +2200,12 @@ section.container, .container-fluid header, .playlists div.player-container {
 .bg-opacity {
 	height:100%;
 	width:100%;
+}
+@media (min-width: 420px) {
+    section {
+	    margin-bottom:60px;
+	    padding-bottom:40px;
+    }
 }
 
 
@@ -2219,6 +2230,7 @@ footer section {
 }
 footer nav {
 	padding-top:0px;
+    padding-bottom:20px;
 	margin-bottom:20px;
 }
 footer section.partner {
@@ -2328,6 +2340,7 @@ footer .networks {
     }
     footer nav {
 	    margin-bottom:0px;
+        padding-bottom:0px;
     }
     footer section.partner {
 	    padding-top:35px;
