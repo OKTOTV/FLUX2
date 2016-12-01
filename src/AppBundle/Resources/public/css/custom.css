@@ -1199,22 +1199,28 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 	background-position:center center;
 }
 .socialnetworks .icon-facebook {
-	background-image:url(../images/icon_facebook.svg);
+	background-image:url(../images/icon_facebook.png);
+    background-image: url("../images/icon_facebook.svg"), none;
 }
 .socialnetworks .icon-twitter {
-	background-image:url(../images/icon_twitter.svg);
+	background-image:url(../images/icon_twitter.png);
+    background-image: url("../images/icon_twitter.svg"), none;
 }
 .socialnetworks .icon-googleplus {
-	background-image:url(../images/icon_googleplus.svg);
+	background-image:url(../images/icon_googleplus.png);
+    background-image: url("../images/icon_googleplus.svg"), none;
 }
 .socialnetworks .icon-instagramm {
-	background-image:url(../images/icon_instagramm.svg);
+	background-image:url(../images/icon_instagramm.png);
+    background-image: url("../images/icon_instagramm.svg"), none;
 }
 .socialnetworks .icon-pinterest {
-	background-image:url(../images/icon_pinterest.svg);
+	background-image:url(../images/icon_pinterest.png);
+    background-image: url("../images/icon_pinterest.svg"), none;
 }
 .socialnetworks .icon-youtube {
-	background-image:url(../images/icon_youtube.svg);
+	background-image:url(../images/icon_youtube.png);
+    background-image: url("../images/icon_youtube.svg"), none;
 }
 .pin .pin-icon, 
 .playlists .mini-player {
@@ -1800,12 +1806,18 @@ header.page-header h1 {
 h2 {
 	margin-top:10px;
 }
+h2:first-child {
+	margin-top:0px;
+}
 figcaption h3 {
 	margin:0;
 }
 @media (min-width: 768px) {
     h2, h1 {
 	    margin-bottom:50px;
+    }
+    h2:first-child {
+	    margin-top:10px;
     }
 }
 
