@@ -1172,7 +1172,7 @@ hr {
 section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, footer nav  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
-	background-image:url(../images/section_border.png);
+	background-image:url(../images/section_border_small.png);
 }
 .icon-views {
 	background-repeat:no-repeat;
@@ -1347,8 +1347,10 @@ section.playlist_container,
     }
 }
 @media (min-width: 768px) {
-    section.fs-image-content, section.player-container {
-	    background-image:none;
+    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, footer nav  {
+	    background-repeat:no-repeat;
+	    background-position:bottom center;
+	    background-image:url(../images/section_border.png);
     }
     .avatar-container {
 	    background-image:url(../images/avatar_circle.png);
@@ -1369,6 +1371,9 @@ section.playlist_container,
     .avatar4 {
 	    background-image:url(../images/avantar_boy4.png);
         background-image: url("../images/avantar_boy4.svg"), none;
+    }
+    section.fs-image-content, section.player-container {
+	    background-image:none;
     }
 }
 .socialnetworks a {
