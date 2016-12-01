@@ -1967,7 +1967,7 @@ footer .newsletter .input-group {
     width:100%;
 }
 footer .newsletter .input-group .form-control {
-    min-width:187px;
+    min-width:180px;
     width:auto;
 }
 footer .input-group .form-control {
@@ -2196,6 +2196,7 @@ figcaption  {
 /* Tags */
 .container.tags ul {
 	padding:20px 0;
+    margin-right:0;
 }
 .container.tags li {
 	display:inline;
