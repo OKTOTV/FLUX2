@@ -58,14 +58,16 @@
         <!-- End Modal Window Share-->
         <!-- Start Aktuelle Episode -->
         <header class="page-header"><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
-        <article>
+        <article class="row">
             <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
                 <img src="{{ series.episodes[0].posterframe|path() }}" />
             </figure>
-            <div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
+                <div>
                     <h3>{{ series.episodes[0].name }}</h3>
                     <p class="description">{{ series.episodes[0].description }}</p>
-                    <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
+                </div>
+                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
             </div>
         </article>
         <!-- Ende Serienbeschreibung -->

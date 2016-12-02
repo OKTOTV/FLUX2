@@ -875,19 +875,20 @@ header .collapseShare a.btn,
 .pagination > li > a:focus  {
 	background-color:#ffffff;
 }
-.oktothek .news article, 
-.playlists .playlist_container .list-group-item, 
+body.oktothek .news article, 
+body.playlists .playlist_container .list-group-item, 
 .collapseWindow > div.collapse-content,
 article.pin figure.pin,
-.series .news-pin, 
-.series .news-form, 
-.series .blog aside .aside-inner, 
+body.series .news-pin, 
+body.series .news-form, 
+body.series .blog aside .aside-inner, 
+body.series .series-posterframe > div,
 body.tagpage .inc-pins article.pin figure,
 #playlist_items .row,
 .container.tags ul, 
-.livestream .schedule .panel-default,
-.edit-playlists .tt-menu,
-.newsarchiv aside .box,
+body.livestream .schedule .panel-default,
+body.edit-playlists .tt-menu,
+body.newsarchiv aside .box,
 .news aside .box,
 .nav-tabs > li > a:focus,
 .nav-tabs > li > a:hover,
@@ -972,6 +973,11 @@ body.tagpage .inc-pins article.pin.empty figure,
 button.btn-default#ButtonPlaylist:hover, 
 button.btn-default#ButtonShare:hover {
 	background-color:transparent;
+}
+@media (min-width: 580px) {
+    body.series .series-posterframe > div {
+        background-color:transparent;
+    }
 }
 @media (min-width: 768px) {
     button.btn-default#ButtonPlaylist:hover, 
@@ -1765,6 +1771,9 @@ header + .container-fluid {
 html, body {
 	height:100%;
 }
+.container-fluid {
+	padding:0;
+}
 
 /* Listen */
 footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group  {
@@ -2327,9 +2336,6 @@ body.episode .series, body.playlists .series {
 
 
 /* Content allgemein */
-.container-fluid {
-	padding:0;
-}
 .playlists div.player-container {
 	position:relative;
 }
@@ -2350,12 +2356,6 @@ body.episode .series, body.playlists .series {
 .bg-opacity {
 	height:100%;
 	width:100%;
-}
-@media (min-width: 420px) {
-    section {
-	    margin-bottom:60px;
-	    padding-bottom:40px;
-    }
 }
 
 

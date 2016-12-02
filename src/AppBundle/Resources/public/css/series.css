@@ -43,10 +43,14 @@
 	clear:right;
 }
 .series figure.series-posterframe {
-	padding-left:0px;
+	padding-left:5px;
 }
 .series div.series-posterframe {
-	padding-right:0px;
+	padding-right:5px;
+}
+body.series .series-posterframe > div {
+    padding: 10px 5px 1px 5px;
+    margin-bottom:20px;
 }
 .series .blog aside .aside-inner {
 	margin-left:5px;
@@ -54,4 +58,20 @@
 }
 .series .current-episode h2 {
 	text-align:left;
+}
+.series-posterframe .pull-right {
+    display: inline-block;
+    padding-right:10px;
+}
+@media (min-width: 768px) {
+    .series figure.series-posterframe {
+	    padding-left:0px;
+    }
+    .series div.series-posterframe {
+	    padding-right:0px;
+    }
+    body.series .series-posterframe > div {
+        padding: 0 0 0 15px;
+        margin-bottom:0;
+    }
 }
