@@ -29,7 +29,7 @@
                         {{ series.description }}</p>
                     <p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
                     <p class="misc">
-                    <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+                    <button type="button" class="btn btn-default hidden-xs" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
                     {% if app.user is not empty %}
                         {% if in_abo %}
                             <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>

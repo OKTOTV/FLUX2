@@ -1821,14 +1821,26 @@ figcaption h3 {
     }
 }
 
-/* Page Header */
+/* Section, Page Header */
+section.container, .container-fluid header {
+	position:relative;
+}
+section, header.page-header {
+	margin-bottom:40px;
+	padding-bottom:40px;
+}
 header.page-header {
 	text-align:center;
-    margin-bottom:50px;
-	margin-top:50px;
+    padding-bottom:0;
 }
 header.page-header .navbar {
 	height:auto;
+}
+@media (min-width: 420px) {
+    section, header.page-header {
+        margin-bottom:60px;
+	    margin-top:40px;
+    }
 }
 
 /* Dropdown, Select */
@@ -2305,6 +2317,7 @@ body.episode .series, body.playlists .series {
 	width:38px;
 	height:38px;
 	text-align:center;
+    margin-left:5px;
 }
 
 /*Formulare*/
@@ -2317,11 +2330,7 @@ body.episode .series, body.playlists .series {
 .container-fluid {
 	padding:0;
 }
-section {
-	margin-bottom:40px;
-	padding-bottom:40px;
-}
-section.container, .container-fluid header, .playlists div.player-container {
+.playlists div.player-container {
 	position:relative;
 }
 .aligncenter {
