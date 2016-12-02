@@ -239,6 +239,8 @@ oktothek.series_episodes_filter:        <span class="glyphicon glyphicon-sort-by
 oktothek.series_episodes_name_filter:   Name
 oktothek.series_episodes_onlineStart_filter: Datum
 oktothek.series_reachmes_header:        Mehr Infos über %series% gibt es hier!
+oktothek.series_show_blog:              Zum Blog
+oktothek.series_more_blog_entries:      Mehr Blogeinträge
 
 ## series share
 oktothek_series.share_header:           Teilen
