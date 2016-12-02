@@ -82,6 +82,9 @@ body.series .blog aside .aside-inner {
 section.blog .post > div {
     padding:10px 10px 0 10px;
 }
+section.blog article.post + .comments {
+    padding-top:0;
+}
 @media (min-width: 580px) {
     /* Pins */
     .news article.pin {
