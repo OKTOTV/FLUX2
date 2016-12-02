@@ -59,6 +59,9 @@ body.newsarchiv aside .box, body.news aside .box {
 .post .page-header, .post .page-header > h3 {
     margin-top:0;
 }
+.post .page-header {
+    margin-bottom:20px;
+}
 article.post {
     padding: 40px 0;
 }
@@ -77,11 +80,23 @@ body.series .blog aside .aside-inner {
 	padding-left:2px;
 }
 section.blog .post > div {
-    padding:10px 5px 0 5px;
+    padding:10px 10px 0 10px;
 }
 @media (min-width: 580px) {
     /* Pins */
     .news article.pin {
 		width:100%;
 	}
+    section.blog .post > div {
+        padding:20px 15px 0 15px;
+    }
+}
+@media (min-width: 768px) {
+    
+    
+}
+@media (min-width: 992px) {
+    section.blog .post > div {
+        padding-top:0;
+    }
 }
