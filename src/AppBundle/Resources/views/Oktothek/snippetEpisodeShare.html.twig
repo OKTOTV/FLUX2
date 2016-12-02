@@ -12,7 +12,7 @@
                     <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ episode.name|url_encode }}" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>
                     <li><a href="https://twitter.com/intent/tweet?url={{ share_url }}" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
                     <li><a href="https://plus.google.com/share?url={{ share_url }}" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
-                    <li><a href="http://pinterest.com/pin/create/link/?url={{ share_url }}&media={{ episode.posterframe(true)|thumb(720,1280)}}" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                    <li><a href="https://pinterest.com/pin/create/link/?url={{ share_url }}&media={{ episode.posterframe(true)|thumb(720,1280)}}" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
                 </ul>
                 <a href="mailto:?to=&subject={{ episode.name }}&body={{ share_url }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
             </div>

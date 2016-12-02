@@ -239,6 +239,14 @@ oktothek.series_episodes_filter:        <span class="glyphicon glyphicon-sort-by
 oktothek.series_episodes_name_filter:   Name
 oktothek.series_episodes_onlineStart_filter: Datum
 oktothek.series_reachmes_header:        Mehr Infos über %series% gibt es hier!
+
+## series share
+oktothek_series.share_header:           Teilen
+oktothek_series.share_fb:               Facebook
+oktothek_series.share_tw:               Twitter
+oktothek_series.share_gp:               Google+
+oktothek_series.share_pint:             Pinterest
+
 # my channels and backend
 oktothek_series_my_channels_header:     Meine Sendereihen
 oktothek_series_my_channels_empty:      Du bist derzeit keinen Sendereihen in der Oktothek zugewiesen!
