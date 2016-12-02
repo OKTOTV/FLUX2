@@ -71,12 +71,18 @@ article.post {
 body.news .details .tags {
     text-align:left;
 }
-
+body.series .infos ul, body.series .blog aside ul  {
+	list-style:none;
+}
+body.series .infos ul, body.series .blog aside ul {
+	margin-left:0;
+	padding-left:0;
+}
 body.series .blog aside .aside-inner {
 	margin-left:5px;
 	padding:15px;
 }
-.series .blog aside.col-md-3, .series .blog aside.col-lg-3, .series .blog aside.col-sm-3, .series .blog aside.col-xs-3 {
+body.series .blog aside.col-md-3, body.series .blog aside.col-lg-3, body.series .blog aside.col-sm-3, body.series .blog aside.col-xs-3 {
 	padding-left:2px;
 }
 section.blog .post > div {

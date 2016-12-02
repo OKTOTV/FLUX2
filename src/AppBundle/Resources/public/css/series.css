@@ -4,13 +4,6 @@
 /* Serien */
 
 /* Listen */
-.series .infos ul, .series .blog aside ul  {
-	list-style:none;
-}
-.series .infos ul, .series .blog aside ul {
-	margin-left:0;
-	padding-left:0;
-}
 
 .series .play-episode, .container-bg-opacity {
 	position:absolute;
