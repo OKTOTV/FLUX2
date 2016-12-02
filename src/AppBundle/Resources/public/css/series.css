@@ -26,9 +26,6 @@
 .series .episode-description h3, .series .infos h3 {
 	margin-top:0;
 }
-.series .blog aside.col-md-3, .series .blog aside.col-lg-3, .series .blog aside.col-sm-3, .series .blog aside.col-xs-3 {
-	padding-left:2px;
-}
 .series .infos {
 	text-align:center;
 }
@@ -51,10 +48,6 @@
 body.series .series-posterframe > div {
     padding: 10px 5px 1px 5px;
     margin-bottom:20px;
-}
-.series .blog aside .aside-inner {
-	margin-left:5px;
-	padding:15px;
 }
 .series .current-episode h2 {
 	text-align:left;

@@ -2062,7 +2062,7 @@ article.pin, figure.pin img {
 article.pin {
 	margin-bottom:20px;
 }
-.col-md-3.pin, .col-lg-3.pin, .col-sm-6.pin, .col-xs-6.pin, .col-md-6.pin, .col-lg-6.pin, article.pin figcaption {
+.col-md-3.pin, .col-lg-3.pin, .col-sm-6.pin, .col-xs-6.pin, .col-md-6.pin, .col-lg-6.pin, article.pin figcaption, article.post figure  {
 	padding-left:5px;
 	padding-right:5px;
 }
@@ -2123,6 +2123,10 @@ figcaption  {
 		margin-bottom:0px;
 		padding-bottom:30px;
 	}
+    article.post figure {
+        padding-left:15px;
+        padding-right:15px;
+    }
 }
 @media (min-width: 992px) {
 	article.pin {

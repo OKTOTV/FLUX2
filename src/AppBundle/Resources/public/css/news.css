@@ -68,6 +68,17 @@ article.post {
 body.news .details .tags {
     text-align:left;
 }
+
+body.series .blog aside .aside-inner {
+	margin-left:5px;
+	padding:15px;
+}
+.series .blog aside.col-md-3, .series .blog aside.col-lg-3, .series .blog aside.col-sm-3, .series .blog aside.col-xs-3 {
+	padding-left:2px;
+}
+section.blog .post > div {
+    padding:10px 5px 0 5px;
+}
 @media (min-width: 580px) {
     /* Pins */
     .news article.pin {
