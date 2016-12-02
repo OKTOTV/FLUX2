@@ -84,7 +84,7 @@
                 <h2>{{ 'oktothek.episode_tag_header'|trans }}</h2>
                 <ul class="row">
                     {% for tag in episode.tags %}
-                        <li class="col-md-1"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
+                        <li class="col-xs-6 col-sm-3 col-md-2 col-lg-1"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
                     {% endfor %}
                 </ul>
             </section>

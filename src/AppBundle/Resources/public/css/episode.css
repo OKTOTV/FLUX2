@@ -18,8 +18,11 @@ body.episode .misc a, body.episode .misc span.views {
 	margin-right:10px;
 }
 body.episode .misc {
-	padding-bottom:20px;
+	padding-bottom:0px;
     text-align: left;
+}
+body.episode p.misc {
+	margin-bottom:0;
 }
 body.episode #favorite {
 	margin-right:5px;
@@ -33,5 +36,11 @@ body.episode #ButtonPlaylist, body.episode #ButtonShare {
 @media (min-width: 768px) {
     body.episode #favorite {
 	    margin-right:20px;
+    }
+    body.episode .misc {
+	    padding-bottom:20px;
+    }
+    body.episode p.misc {
+	    margin-bottom:10px;
     }
 }

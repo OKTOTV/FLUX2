@@ -58,9 +58,12 @@
 section.fs-image-content, section.fs-image-content {
 	margin-bottom:0;
 }
-.carousel figcaption p, .fs-image-content figcaption p {
-	    margin:2px 0 10px 0;
-    }
+.carousel figcaption p {	 
+    margin:2px 0 10px 0;
+}
+.fs-image-content figcaption p {	 
+    margin:2px 0 2px 0;
+}
 #slider, .fs-image-content {
 	margin-top:-90px;
 }
@@ -105,7 +108,10 @@ section.bg-fullscreen h2, section.fs-image-content + section header.page-header 
 }
 .fs-image-ident .description-wrapper .more {
 	text-align:center;
-	padding-top:20px;
+	padding-top:5px;
+}
+.fs-image-ident .description-wrapper.details .more {
+	padding-top:10px;
 }
 .fs-image-ident .description-wrapper a.pull-right {
 	float:none !important;
@@ -130,7 +136,7 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	display:table-cell;
 	vertical-align:top;
 }*/
-#button_down span, .fs-image-content .facts, .fs-image-content figcaption .misc {
+#button_down span, .fs-image-content .facts, .fs-image-content figcaption .misc, .fs-image-content .description {
 	display:none;
 }
 .fs-image-misc-mobile {
@@ -138,8 +144,14 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	text-align:center;
 	padding:20px 0 40px 0;
 }
+.fs-image-content .details .description {
+    display: block;
+}
 .fs-image-content figcaption h1 {
-	margin-bottom:20px;
+	margin-bottom:0px;
+}
+.fs-image-content figcaption.details h1 {
+    margin-bottom:20px;
 }
 @media (min-width: 401px) {
 	.fs-image-ident .description-wrapper a.pull-right {
@@ -152,11 +164,26 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	.fs-image-ident .description-wrapper {
 	    bottom:30px;
     }
+    .fs-image-content .description {
+        display: block;
+    }
+    .fs-image-content figcaption h1 {
+	    margin-bottom:20px;
+    }
+    .fs-image-content figcaption p {	 
+        margin:2px 0 10px 0;
+    }
+    .fs-image-ident .description-wrapper .more {
+        padding-bottom:5px;
+    }
 }
 @media (min-width: 768px) and (min-height: 501px) {
 	.fs-image-ident .facts {
 	    text-align:left;
 	}
+    .fs-image-ident .description-wrapper .more {
+        padding-bottom:0;
+    }
 }
 @media (min-width: 768px) and (max-height: 600px) {
 	.carousel-caption, .fs-image-ident .description-wrapper {
