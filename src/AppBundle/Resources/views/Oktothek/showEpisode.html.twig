@@ -3,7 +3,7 @@
 <meta property="og:url" content="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID })}}" />
 <meta property="og:title" content="{{ episode.name }}" />
 <meta property="og:description" content="{{ episode.description }}" />
-<meta property="og:image" content="{{ episode.posterframe|path() }}" />
+<meta property="og:image" content="{{ episode.posterframe(true)|thumb(720,1280) }}" />
 
 {% set fb_media = null %}
 {% for media in episode.media %}
