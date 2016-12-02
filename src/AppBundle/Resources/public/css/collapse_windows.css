@@ -10,8 +10,9 @@
 	display:inline;
 }
 .collapseShare .socialnetworks li {
-    padding:4px 2px;
+    padding:8px;
     line-height: 48px;
+    display: inline-block;
 }
 .collapsePlaylist ul {
 	display:table;
@@ -141,6 +142,7 @@
     .collapseShare .socialnetworks li {
 	    padding:0;
         line-height: auto;
+        display:inline;
     }
 	.academy section .collapse {
 	    width: 100%;

@@ -1,4 +1,10 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
+{% block metas %}
+    <meta property="og:url" content="{{ url('oktothek_show_series', {'uniqID': series.uniqID })}}" />
+    <meta property="og:title" content="{{ series.name }}" />
+    <meta property="og:description" content="{{ series.description }}" />
+    <meta property="og:image" content="{{ series.posterframe|thumb(720,1280) }}" />
+{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
@@ -29,7 +35,7 @@
                         {{ series.description }}</p>
                     <p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
                     <p class="misc">
-                    <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+                    <button type="button" class="btn btn-default hidden-xs" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
                     {% if app.user is not empty %}
                         {% if in_abo %}
                             <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
@@ -58,14 +64,16 @@
         <!-- End Modal Window Share-->
         <!-- Start Aktuelle Episode -->
         <header class="page-header"><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
-        <article>
+        <article class="row">
             <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
                 <img src="{{ series.episodes[0].posterframe|path() }}" />
             </figure>
-            <div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
+                <div>
                     <h3>{{ series.episodes[0].name }}</h3>
                     <p class="description">{{ series.episodes[0].description }}</p>
-                    <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
+                </div>
+                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
             </div>
         </article>
         <!-- Ende Serienbeschreibung -->

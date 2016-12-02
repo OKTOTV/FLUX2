@@ -172,14 +172,16 @@ $(document).ready(function(){
 				VarCollapseFinish = setInterval(function(){ hideAnchorlist() }, 100);
             });
 		}
-		//Top Button
-		$('.btn-top').click(function(event) {
-            event.preventDefault();
-            jQuery('html, body').animate({scrollTop: 0}, Ts_duration);
-            return false;
-        })
-		$('#anchor-menu .collapse').collapse(); //Ankermenü Collapse aktivieren
+		
+		//$('#anchor-menu .collapse').collapse(); //Ankermenü Collapse aktivieren
     }
+    
+    //Top Button
+    $('.btn-top').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: 0}, Ts_duration);
+        return false;
+    })
 	
 	/* Kommentare */
 	
