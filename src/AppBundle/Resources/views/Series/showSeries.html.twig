@@ -84,7 +84,7 @@
             <div id="anchor_blog"></div>
             <div class="container">
                 <h2>{{ 'oktothek_series_blog_header'|trans }}</h2>
-                {% include 'AppBundle::Default/Series/blog.html.twig' with { 'posts': [teasers[0]], 'teasers': teasers,'uniqID': series.uniqID } %}
+                {% include 'AppBundle::Series/snippetSeriesBlog.html.twig' with {'teasers': teasers, 'uniqID': series.uniqID} %}
             </div>
         </section>
     {% endif %}
