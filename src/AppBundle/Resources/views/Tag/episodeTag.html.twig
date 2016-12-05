@@ -1,7 +1,7 @@
-<div class="row episode-tags">
+<div class="row clip-tags">
 {% for episode in episodes|slice(0,5) %}
     {% if loop.first %}
-        <article class="col-md-6 col-lg-6 col-sm-8 col-xs-12 pin first-pin" title="{{ episode.description }}">
+        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ episode.description }}">
             <figure class="episode-pin pin">
                 <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="... ansehen">
                     <img src="{{ episode.posterframe(true)|path() }}" class="img-responsive"/>
@@ -13,7 +13,7 @@
                 </figcaption>
             </figure>
         </article>
-        <div class="col-md-6 col-lg-6 col-sm-8 col-xs-12 small-pins">
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 small-pins">
     {% else %}
         {% include "AppBundle:Default/Episode:EpisodeThumb.html.twig" %}
     {% endif %}
