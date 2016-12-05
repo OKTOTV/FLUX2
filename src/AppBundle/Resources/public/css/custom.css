@@ -1834,6 +1834,9 @@ figcaption h3 {
 section.container, .container-fluid header {
 	position:relative;
 }
+section {
+	clear:both;
+}
 section, header.page-header {
 	margin-bottom:40px;
 	padding-bottom:40px;
