@@ -92,4 +92,19 @@ class SeriesController extends Controller
         $episodes = $paginator->paginate($em->getRepository('AppBundle:Series')->findActiveEpisodes($series, true), $page, 12);
         return ['episodes' => $episodes, 'series' => $series];
     }
+
+    /**
+     * @Route("/series/{uniqID}/playlists.{_format}", name="oktothek_show_series_playlists", defaults={"_format": "html"})
+     * @Method("GET")
+     * @Template()
+     */
+    public function playlistsAction(Request $request, Series $series)
+    {
+        $page = $request->query->get('page', 1);
+        $results = $request->query->get('results', 12);
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeries($series, true), $page, $results);
+        return ['playlists' => $playlists, 'series' => $series];
+    }
 }
