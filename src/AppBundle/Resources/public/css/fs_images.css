@@ -2,7 +2,7 @@
 /* CSS Document */
 
 /* Slider und Fullscreen Images */
-.carousel-caption, .fs-image-ident .description-wrapper, .preloader {
+.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper, .preloader {
 	position:absolute;
 }
 .fs-image-content, .fs-image-ident, .content-opacity {
@@ -14,26 +14,26 @@
 .carousel-caption {
 	bottom:0px;
 }
-.fs-image-ident .description-wrapper {
+.fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	bottom:20px;
 }
 .carousel-indicators {
 	bottom:0;
 }
-.carousel-caption, .fs-image-ident .description-wrapper {
+.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	right:0;
 }
 .preloader {
 	top:0px;
 	left:0px;
 }
-.carousel-caption, .fs-image-ident .description-wrapper {
+.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	left:5%;
 }
 .fs-image-content figure, .fs-image-content figure div, .preloader {
 	width: 100%;
 }
-.carousel-caption, .fs-image-ident .description-wrapper {
+.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	width:90%;
 }
 .carousel-inner > .item > a > img, .carousel-inner > .item > img {
@@ -49,7 +49,7 @@
 .carousel .item, .carousel-inner > .item > a > img, .carousel-inner > .item > img, .fs-image-content figure, .fs-image-content figure div, .preloader {
     height: 100%;
 }
-.carousel-caption h3, .carousel-caption, .fs-image-ident .description-wrapper {
+.carousel-caption h3, .carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	margin: 0;
 }
 .fullscreen-images header + .container-fluid, section.bg-fullscreen h2 {
@@ -71,7 +71,7 @@ section.fs-image-content, section.fs-image-content {
 	margin-right:15px;
     padding:0 15px 15px 15px;
 }
-section.fs-image-content, .carousel-caption, .fs-image-ident .description-wrapper {
+section.fs-image-content, .carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	padding-bottom:0;
 }
 
@@ -81,7 +81,7 @@ section.fs-image-content + section header.page-header  {
 section.bg-fullscreen h2, section.fs-image-content + section header.page-header  {
 	padding-top:20px;
 }
-.carousel-caption, .fs-image-ident .description-wrapper {
+.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	padding-top:10px;
 }
 /*.academy-content .content-opacity div:first-child {
@@ -90,14 +90,14 @@ section.bg-fullscreen h2, section.fs-image-content + section header.page-header 
 .carousel-inner {
 	overflow:hidden;
 }
-.fs-image-ident .description-wrapper.details {
+.fs-image-ident .description-wrapper.details, .playlists .description-wrapper.details {
 	overflow:auto;
 	background-color:#000;
 }
 .content-opacity {
 	z-index:1;
 }
-.carousel-caption, .fs-image-ident .description-wrapper {
+.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
     z-index: 10;
 }
 .fs-image-ident .facts {
@@ -106,14 +106,14 @@ section.bg-fullscreen h2, section.fs-image-content + section header.page-header 
 .preloader {
 	z-index:100;
 }
-.fs-image-ident .description-wrapper .more {
+.fs-image-ident .description-wrapper .more, .playlists .description-wrapper .more {
 	text-align:center;
 	padding-top:5px;
 }
-.fs-image-ident .description-wrapper.details .more {
+.fs-image-ident .description-wrapper.details .more, .playlists .description-wrapper.details .more {
 	padding-top:10px;
 }
-.fs-image-ident .description-wrapper a.pull-right {
+.fs-image-ident .description-wrapper a.pull-right, .playlists .description-wrapper a.pullright {
 	float:none !important;
 }
 .carousel-caption {
@@ -154,14 +154,14 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
     margin-bottom:20px;
 }
 @media (min-width: 401px) {
-	.fs-image-ident .description-wrapper a.pull-right {
+	.fs-image-ident .description-wrapper a.pull-right, .playlists .description-wrapper a.pull-right {
 	    float:right !important;
     }
-	.fs-image-ident .description-wrapper .more {
+	.fs-image-ident .description-wrapper .more, .playlists .description-wrapper .more {
 		text-align:left;
 	    padding-top:0px;
     }
-	.fs-image-ident .description-wrapper {
+	.fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	    bottom:30px;
     }
     .fs-image-content .description {
@@ -173,7 +173,7 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
     .fs-image-content figcaption p {	 
         margin:2px 0 10px 0;
     }
-    .fs-image-ident .description-wrapper .more {
+    .fs-image-ident .description-wrapper .more, .playlists .description-wrapper .more {
         padding-bottom:5px;
     }
 }
@@ -181,12 +181,12 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	.fs-image-ident .facts {
 	    text-align:left;
 	}
-    .fs-image-ident .description-wrapper .more {
+    .fs-image-ident .description-wrapper .more, .playlists .description-wrapper .more {
         padding-bottom:0;
     }
 }
 @media (min-width: 768px) and (max-height: 600px) {
-	.carousel-caption, .fs-image-ident .description-wrapper {
+	.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	    bottom:30px;
 	    width:650px;
 	    margin: 0 0 0 -325px;
@@ -197,7 +197,7 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	}
 }
 @media (min-width: 768px) and (min-height: 601px) {
-	.carousel-caption, .fs-image-ident .description-wrapper {
+	.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
 	    bottom:90px;
 	    width:650px;
 	    margin: 0 0 0 -325px;

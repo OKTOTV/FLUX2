@@ -16,12 +16,14 @@
     </header>
 </div>
 <section class="container">
-    <div class="navigation row">
+    <div class="navigation row pager-row">
         {{ knp_pagination_render(posts) }}
     </div>
+    <div>
     {% for post in posts %}
         {% include 'AppBundle::News/post.html.twig' with {'newsloop': loop.index }%}
     {% endfor %}
+    </div>
     <div class="navigation row">
         {{ knp_pagination_render(posts) }}
     </div>

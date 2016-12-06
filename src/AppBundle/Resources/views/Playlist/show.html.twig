@@ -25,7 +25,7 @@
                 <h1>{{ playlist.name }}</h1>
                 <p>Erstellt von {{ playlist.user }}</p>
                 <p class="description">{{ playlist.description }}</p>
-                <p class="misc"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> Playliste starten</button> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button></p>
+                <p class="misc"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> Playliste starten</button> <button type="button" class="btn btn-default hidden-xs" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button></p>
             </div>
         </header>
 		<div class="playlist-buttons">
@@ -39,6 +39,10 @@
             {% endif %}
         </div>
     </div>
+    <div class="fs-image-misc-mobile">
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen"><span class="hidden-xs">Teilen</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
+        </div>
+    {% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
     <div class="description-container row">
         <!--<div class="col-md-3">
             <div class="list-group">
@@ -57,7 +61,6 @@
     </div>
 </section>
 <section class="container playlist_container">
-    {% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
     <ul class="list-group">
         {% for playlistItem in playlist.items %}
         <li class="list-group-item clearfix">
@@ -84,9 +87,13 @@
 {{ parent() }}
 {{ playlist(playlist)|raw }}
 <script src="{{ asset('bundles/app/js/javascript_playlists.js')}}"></script>
+<script src="{{ asset('bundles/app/js/javascript_images.js')}}"></script>
+<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
 {% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('bundles/app/css/playlists.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/fs_images.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
 {% endblock %}

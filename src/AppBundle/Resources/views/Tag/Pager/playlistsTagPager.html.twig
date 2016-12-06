@@ -15,13 +15,13 @@
         {% include "AppBundle:Default:_share.html.twig" with {'show_button': true} %}
     </header>
 </div>
-<section class="container">
+<section class="container pager-row">
     <div class="navigation row">
         {{ knp_pagination_render(playlists) }}
     </div>
-
-    {% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with {'playlists': playlists} %}
-
+    <div>
+        {% include 'AppBundle::Default/Playlist/PlaylistStack.html.twig' with {'playlists': playlists} %}
+    </div>
     <div class="navigation row">
         {{ knp_pagination_render(playlists) }}
     </div>
