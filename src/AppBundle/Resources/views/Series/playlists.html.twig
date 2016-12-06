@@ -14,8 +14,8 @@
         {{ 'oktothek.series_playlists_filter'|trans|raw }}
       </button>
       <ul class="dropdown-menu" aria-labelledby="filter_menu">
-        <li {% if playlists.isSorted('e.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.series_playlists_name_filter'|trans, 'p.name') }}</li>
-        <li {% if playlists.isSorted('e.createdAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.series_playlists_createdAt_filter'|trans, 'p.createdAt') }}</li>
+        <li {% if playlists.isSorted('p.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.series_playlists_name_filter'|trans, 'p.name') }}</li>
+        <li {% if playlists.isSorted('p.createdAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.series_playlists_createdAt_filter'|trans, 'p.createdAt') }}</li>
       </ul>
     </div>
 </div>
