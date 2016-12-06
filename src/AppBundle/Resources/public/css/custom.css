@@ -111,6 +111,7 @@ h1, h2, .h2, .livestream header h1 time {
 .carousel-caption h3, 
 .pull-right .icon, 
 .series h1, 
+.playlists .description-wrapper h1,
 .playlists #StartPlaylist.btn span.glyphicon, 
 .playlists .btn.circle {
 	font-size:24px;
@@ -263,6 +264,7 @@ header .navbar-nav.themes a,
 .post .label, 
 label, .carousel-caption h3, 
 .series h1, 
+.playlists .description-wrapper h1,
 .livestream .schedule li time {
 	font-weight:400;
 }
