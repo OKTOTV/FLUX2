@@ -111,6 +111,7 @@ h1, h2, .h2, .livestream header h1 time {
 .carousel-caption h3, 
 .pull-right .icon, 
 .series h1, 
+.playlists .description-wrapper h1,
 .playlists #StartPlaylist.btn span.glyphicon, 
 .playlists .btn.circle {
 	font-size:24px;
@@ -263,6 +264,7 @@ header .navbar-nav.themes a,
 .post .label, 
 label, .carousel-caption h3, 
 .series h1, 
+.playlists .description-wrapper h1,
 .livestream .schedule li time {
 	font-weight:400;
 }
@@ -2272,6 +2274,22 @@ p.tags {
 /* Clip Übersichten */
 .clip_overview section .navigation {
     text-align:right;
+}
+.pager-row > div:first-child {
+    margin-left:-10px;
+    margin-bottom: 30px;
+}
+.pager-row .dropdown {
+    width: 100%;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .pager-row .dropdown {
+        text-align: left;
+    }
+    .pager-row > div:first-child {
+        margin-bottom: 0px;
+    }
 }
 
 /* Zeiformatierungen */

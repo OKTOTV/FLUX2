@@ -11,8 +11,8 @@
             <h1>{{ 'oktothek.user_playlist_header'|trans }}</h1>
         </header>
         <section>
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="row pager-row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="dropdown">
                         <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             {{ 'oktothek.playlist_index_filter'|trans|raw }}
@@ -24,7 +24,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 navigation">
+                <div class="hidden-xs hidden-sm col-md-6 col-lg-6 navigation">
                     {{ knp_pagination_render(playlists) }}
                 </div>
             </div>

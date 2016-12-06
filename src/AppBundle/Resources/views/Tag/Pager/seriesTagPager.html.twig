@@ -16,12 +16,14 @@
     </header>
 </div>
 <section class="container">
-    <div class="row navigation">
+    <div class="row navigation pager-row">
         {{ knp_pagination_render(seriess) }}
     </div>
-    {% for series in seriess %}
-        {% include "AppBundle:Default:Series/SeriesThumb.html.twig" %}
-    {% endfor %}
+    <div>
+        {% for series in seriess %}
+            {% include "AppBundle:Default:Series/SeriesThumb.html.twig" %}
+        {% endfor %}
+    </div>
     <div class="row navigation">
         {{ knp_pagination_render(seriess) }}
     </div>
