@@ -174,6 +174,7 @@ class ProducerController extends Controller
         $playlists = $paginator->paginate($em->getRepository('AppBundle:Playlist')->findPlaylistsForSeries($series), $page, 8);
         return ['playlists' => $playlists, 'series' => $series];
     }
+
     /**
      * @Route("/channel/{uniqID}/playlist/new", name="oktothek_channel_playlist_new")
      * @Template()
