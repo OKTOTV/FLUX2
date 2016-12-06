@@ -2273,6 +2273,22 @@ p.tags {
 .clip_overview section .navigation {
     text-align:right;
 }
+.pager-row > div:first-child {
+    margin-left:-10px;
+    margin-bottom: 30px;
+}
+.pager-row .dropdown {
+    width: 100%;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .pager-row .dropdown {
+        text-align: left;
+    }
+    .pager-row > div:first-child {
+        margin-bottom: 0px;
+    }
+}
 
 /* Zeiformatierungen */
 .episode time, .playlists time {
