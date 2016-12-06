@@ -287,6 +287,8 @@ fos_elastica:
                         listener: ~
                         finder: ~
                 playlist:
+                    serializer:
+                        groups: [search]
                     persistence:
                         driver: orm
                         model:  AppBundle\Entity\Playlist
