@@ -141,13 +141,6 @@ oktolab_media:
             sortNumber: 3
             video_width: 3840
             video_height: 2160
-        facebook:
-            name: facebook
-            sortNumber: -1
-            video_width: 640
-            video_height: 360
-            container: mp4
-            public: false
     player_url: "%player_url%"
     origin:
         margin: 12
