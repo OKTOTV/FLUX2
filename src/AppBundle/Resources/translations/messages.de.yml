@@ -248,6 +248,10 @@ oktothek.series_playlists_filter:       <span class="glyphicon glyphicon-sort-by
 oktothek.series_playlists_name_filter:  Name
 oktothek.series_playlists_createdAt_filter: Datum
 
+## series blog
+oktothek.series_blog_header:            "%series%'s Blog"
+oktothek.series_back_to_root:           Zur Sendereihe
+
 ## series share
 oktothek_series.share_header:           Teilen
 oktothek_series.share_fb:               Facebook
