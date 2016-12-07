@@ -12,20 +12,21 @@
 {% block body %}
 <section class="container">
     <div id="button_down"><span class="icon playlists-arrow-down" style="display: inline;"> </span></div>
-    <div class="player-container row">
-        <div>
-            <figure id="player"></figure>
-        </div>
+    <div class="player-container row description-overlay">
+        <figure>
+            <div id="player"></div>
+        </figure>
         <header class="description-wrapper">
             <div class="container-bg-opacity">
                 <div class="bg-opacity"></div>
             </div>
             <div class="content-opacity">
-                <button class="btn transparent pull-right"><span class="icon-close" aria-hidden="true" style="display: block;">×</span></button>
+                <button class="btn transparent pull-right btn-close"><span class="icon-close" aria-hidden="true" style="display: block;">×</span></button>
                 <h1>{{ playlist.name }}</h1>
-                <p>Erstellt von {{ playlist.user }}</p>
+                <p class="author">Erstellt von {{ playlist.user }}</p>
                 <p class="description">{{ playlist.description }}</p>
-                <p class="misc"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> Playliste starten</button> <button type="button" class="btn btn-default hidden-xs" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button></p>
+                <p class="more clear-fix"><a class="more pull-right">weiterlesen</a> <button id="StartPlaylist" class="btn btn-default visible-xs-inline"><span class="glyphicon glyphicon-play"> </span></button></p>
+                <p class="misc hidden-xs"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> Playliste starten</button> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button></p>
             </div>
         </header>
 		<div class="playlist-buttons">
@@ -43,6 +44,8 @@
             <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen"><span class="hidden-xs">Teilen</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
         </div>
     {% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
+</section>
+<section class="container">
     <div class="description-container row">
         <!--<div class="col-md-3">
             <div class="list-group">

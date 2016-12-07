@@ -28,6 +28,9 @@
 .playlists #button_down {
 	cursor:pointer;
 }
+.playlists h2.name {
+    text-align: left;
+}
 .playlists .playlist_container .list-group-item {
 	margin-bottom:2px;
 }
@@ -48,6 +51,10 @@
 .playlists .playlist-buttons {
 	right: -50px;
 	top:0;
+}
+.playlists .description-container {
+    margin-left:0;
+    margin-right:0;
 }
 .playlists .description-container h2 {
 	margin-bottom:4px;
@@ -100,6 +107,10 @@
 	vertical-align:middle;
 	padding-left:1px;
 }
+.playlists .content-opacity .author {
+    text-align: center;
+    margin-right:30px;
+}
 @media (min-width: 768px) and (max-height: 600px) {
 	.playlists header.description-wrapper {
 	    bottom:30px;
@@ -112,11 +123,22 @@
 }
 @media (min-width: 768px) and (min-height: 601px) {
 	.playlists header.description-wrapper {
-	    bottom:100px;
+	    bottom:30px;
 	    width:650px;
 	    margin: 0 0 0 -325px;
 	    left:50%;
 	    right:0;
+	}
+}
+@media (min-width: 768px) {
+    .playlists .description-container {
+        margin-left:-15px;
+        margin-right:-15px;
+    }
+}
+@media (min-width: 992px) {
+    .playlists header.description-wrapper {
+	    bottom:150px;
 	}
 }
 /* Edit Playlists */

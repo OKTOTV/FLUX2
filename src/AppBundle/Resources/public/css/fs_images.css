@@ -2,10 +2,10 @@
 /* CSS Document */
 
 /* Slider und Fullscreen Images */
-.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper, .preloader {
+.carousel-caption, .description-overlay .description-wrapper, .playlists .description-wrapper, .preloader {
 	position:absolute;
 }
-.fs-image-content, .fs-image-ident, .content-opacity {
+.fs-image-content, .description-overlay, .content-opacity {
 	position:relative;
 }
 .preloader {
@@ -14,26 +14,26 @@
 .carousel-caption {
 	bottom:0px;
 }
-.fs-image-ident .description-wrapper, .playlists .description-wrapper {
+.description-overlay .description-wrapper, .playlists .description-wrapper {
 	bottom:20px;
 }
 .carousel-indicators {
 	bottom:0;
 }
-.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
+.carousel-caption, .description-overlay .description-wrapper, .playlists .description-wrapper {
 	right:0;
 }
 .preloader {
 	top:0px;
 	left:0px;
 }
-.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
+.carousel-caption, .description-overlay .description-wrapper, .playlists .description-wrapper {
 	left:5%;
 }
 .fs-image-content figure, .fs-image-content figure div, .preloader {
 	width: 100%;
 }
-.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
+.carousel-caption, .description-overlay .description-wrapper, .playlists .description-wrapper {
 	width:90%;
 }
 .carousel-inner > .item > a > img, .carousel-inner > .item > img {
@@ -43,13 +43,13 @@
 .carousel-inner > .item > a > img, .carousel-inner > .item > img {
 	max-width:none;
 }
-.carousel-inner, .fs-image-ident {
+.carousel-inner, .description-overlay {
 	height:auto;
 }
 .carousel .item, .carousel-inner > .item > a > img, .carousel-inner > .item > img, .fs-image-content figure, .fs-image-content figure div, .preloader {
     height: 100%;
 }
-.carousel-caption h3, .carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
+.carousel-caption h3, .carousel-caption, .description-overlay .description-wrapper, .playlists .description-wrapper {
 	margin: 0;
 }
 .fullscreen-images header + .container-fluid, section.bg-fullscreen h2 {
@@ -61,7 +61,7 @@ section.fs-image-content, section.fs-image-content {
 .carousel figcaption p {	 
     margin:2px 0 10px 0;
 }
-.fs-image-content figcaption p {	 
+.description-overlay .content-opacity p {	 
     margin:2px 0 2px 0;
 }
 #slider, .fs-image-content {
@@ -71,7 +71,7 @@ section.fs-image-content, section.fs-image-content {
 	margin-right:15px;
     padding:0 15px 15px 15px;
 }
-section.fs-image-content, .carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
+section.fs-image-content, .carousel-caption, .description-overlay .description-wrapper {
 	padding-bottom:0;
 }
 
@@ -81,7 +81,7 @@ section.fs-image-content + section header.page-header  {
 section.bg-fullscreen h2, section.fs-image-content + section header.page-header  {
 	padding-top:20px;
 }
-.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
+.carousel-caption, .description-overlay .description-wrapper {
 	padding-top:10px;
 }
 /*.academy-content .content-opacity div:first-child {
@@ -90,30 +90,30 @@ section.bg-fullscreen h2, section.fs-image-content + section header.page-header 
 .carousel-inner {
 	overflow:hidden;
 }
-.fs-image-ident .description-wrapper.details, .playlists .description-wrapper.details {
+.description-overlay .description-wrapper.details {
 	overflow:auto;
 	background-color:#000;
 }
 .content-opacity {
 	z-index:1;
 }
-.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
+.carousel-caption, .description-overlay .description-wrapper {
     z-index: 10;
 }
-.fs-image-ident .facts {
+.description-overlay .facts {
 	text-align:center;
 }
 .preloader {
 	z-index:100;
 }
-.fs-image-ident .description-wrapper .more, .playlists .description-wrapper .more {
+.description-overlay .description-wrapper .more {
 	text-align:center;
 	padding-top:5px;
 }
-.fs-image-ident .description-wrapper.details .more, .playlists .description-wrapper.details .more {
+.description-overlay .description-wrapper.details .more {
 	padding-top:10px;
 }
-.fs-image-ident .description-wrapper a.pull-right, .playlists .description-wrapper a.pullright {
+.description-overlay .description-wrapper a.pull-right {
 	float:none !important;
 }
 .carousel-caption {
@@ -136,7 +136,7 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	display:table-cell;
 	vertical-align:top;
 }*/
-#button_down span, .fs-image-content .facts, .fs-image-content figcaption .misc, .fs-image-content .description {
+#button_down span, .description-overlay .facts, .description-overlay figcaption .misc, .description-overlay.description {
 	display:none;
 }
 .fs-image-misc-mobile {
@@ -144,49 +144,55 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	text-align:center;
 	padding:20px 0 40px 0;
 }
-.fs-image-content .details .description {
+body.playlists .fs-image-misc-mobile {
+    padding-bottom:0;
+}
+.description-overlay .details .description {
     display: block;
 }
-.fs-image-content figcaption h1 {
+.description-overlay .content-opacity h1 {
 	margin-bottom:0px;
 }
-.fs-image-content figcaption.details h1 {
+.description-overlay .details h1 {
     margin-bottom:20px;
 }
+.description-wrapper a.more {
+	cursor:pointer;
+}
 @media (min-width: 401px) {
-	.fs-image-ident .description-wrapper a.pull-right, .playlists .description-wrapper a.pull-right {
+	.description-overlay .description-wrapper a.pull-right {
 	    float:right !important;
     }
-	.fs-image-ident .description-wrapper .more, .playlists .description-wrapper .more {
+	.description-overlay .description-wrapper .more {
 		text-align:left;
 	    padding-top:0px;
     }
-	.fs-image-ident .description-wrapper, .playlists .description-wrapper {
+	.description-overlay .description-wrapper {
 	    bottom:30px;
     }
-    .fs-image-content .description {
+    .description-overlay .description {
         display: block;
     }
-    .fs-image-content figcaption h1 {
+    .description-overlay .content-opacity h1 {
 	    margin-bottom:20px;
     }
-    .fs-image-content figcaption p {	 
+    .description-overlay .content-opacity p {	 
         margin:2px 0 10px 0;
     }
-    .fs-image-ident .description-wrapper .more, .playlists .description-wrapper .more {
+    .description-overlay .description-wrapper .more {
         padding-bottom:5px;
     }
 }
 @media (min-width: 768px) and (min-height: 501px) {
-	.fs-image-ident .facts {
+	.description-overlay .facts {
 	    text-align:left;
 	}
-    .fs-image-ident .description-wrapper .more, .playlists .description-wrapper .more {
+    .description-overlay .description-wrapper .more {
         padding-bottom:0;
     }
 }
 @media (min-width: 768px) and (max-height: 600px) {
-	.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
+	.carousel-caption, .description-overlay .description-wrapper {
 	    bottom:30px;
 	    width:650px;
 	    margin: 0 0 0 -325px;
@@ -197,7 +203,7 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	}
 }
 @media (min-width: 768px) and (min-height: 601px) {
-	.carousel-caption, .fs-image-ident .description-wrapper, .playlists .description-wrapper {
+	.carousel-caption, .description-overlay .description-wrapper {
 	    bottom:90px;
 	    width:650px;
 	    margin: 0 0 0 -325px;
@@ -225,9 +231,9 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	#slider, .fs-image-content {
 	    margin-top:-140px;
     }
-	.fs-image-ident {
+	/*.description-overlay {
 		overflow:hidden;
-	}
+	}*/
 	#button_down {
 		cursor:pointer;
 	}
@@ -255,7 +261,7 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	.fs-image-misc-mobile, .fs-image-misc-mobile .misc {
 		display:none;
 	}
-	.fs-image-content .facts, .fs-image-content figcaption .misc {
+	.description-overlay .facts, .description-overlay figcaption .misc {
 		display:block;
 	}
 }
