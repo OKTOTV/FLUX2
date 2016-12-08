@@ -83,7 +83,8 @@ h3,
 .timetable .btn, 
 .academy .price, 
 .playlists .btn.circle, 
-.edit-playlists form label  {
+.edit-playlists form label,
+.livestream .schedule li h4 {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -104,15 +105,15 @@ h1, h2, .h2, .livestream header h1 time {
 	letter-spacing:0.5px;
 }
 #anchor-menu .panel-title .glyphicon, 
-.btn-top .glyphicon, 
-.livestream .schedule li time {
+.btn-top .glyphicon {
 	font-size:30px;
 }
 .carousel-caption h3, 
 .pull-right .icon, 
 .series h1, 
 .playlists h1,
-.playlists .btn.circle {
+.playlists .btn.circle,
+.livestream .schedule li time {
 	font-size:24px;
 }
 header .navbar-toggle.search-button span, 
@@ -247,7 +248,6 @@ h3,
 .edit-playlists form label, 
 #planets .cloud9-item figcaption,
 .livestream .current-episode,
-.livestream .schedule li h4,
 .oktothek .more figure.episode-pin,
 .post .misc a {
 	text-transform:uppercase;
@@ -258,7 +258,8 @@ h3,
 #slider h3, 
 header .navbar-nav.themes a, 
 .playlists .btn.circle, 
-.dropdown-menu > li a {
+.dropdown-menu > li a,
+.livestream .schedule li h4 {
 	text-transform:none;
 }
 .post .label, 
@@ -295,6 +296,16 @@ select:focus:active {
     outline:none;
 }
 
+@media (min-width: 580px) {
+    .livestream .schedule li h4 {
+        text-transform:uppercase;
+    }
+    .livestream .schedule li h4 {
+	    font-family: HelveticaNeueLTStd-Roman, Helvetica, sans-serif;
+	    font-weight: normal;
+	    font-style: normal;
+    }
+}
 
 @media (min-width: 768px) {
 	header .navbar .nav.navbar-right > li > a {
@@ -311,6 +322,9 @@ select:focus:active {
     }
     header .form-control::-webkit-input-placeholder {
         font-size:16px;
+    }
+    .livestream .schedule li time {
+	    font-size:30px;
     }
 	.carousel-caption h3, 
     .fs-image-content h1, 
