@@ -18,9 +18,12 @@ $(document).ready(function(){
     if ($('body').hasClass('playlists')) {
         var playerheight;
         function sizePlayerheight() {
-            if (Winwidth >= 992) {
+                
+            if ($('.container').width >= 1170) {
                 playerheight = "658px";
-            } else if (Winwidth >= 768) {
+            } else if ($('.container').width >= 970) {
+                playerheight = "546px";
+            } else if ($('.container').width >= 750) {
                 playerheight = "422px";
             } else {
                 playerheight = "auto";
@@ -224,10 +227,19 @@ $(document).ready(function(){
 			_paddingLeft = '0px';
 			_paddingRight = '0px';
 		} else {    //Fenster wird geschlossen
-            if (Winwidth >= 992) {
+            if (Winwidth >= 1200) {
+                origTop = $('.description-overlay figure').height() - origHeight - 100;
+                _bottom = '100px';
+				_left = '50%';
+				_width = '650px';
+				_marginLeft = '-325px';
+				_paddingLeft = '0px';
+				_paddingRight = '0px';
+				_position = 'absolute';
+            } else if (Winwidth >= 992) {
                 origTop = $('.description-overlay figure').height() - origHeight - 100;
                 if ($('body').hasClass('playlists')) {
-                   _bottom = '150px';
+                   _bottom = '30px';
                 } else {
                     _bottom = '100px';
                 }
@@ -460,16 +472,42 @@ $(document).ready(function(){
 				.css('height','auto')
 				.css('padding-left','15px')
 				.css('padding-right','15px');
-		    if (Winwidth >= 768 && Winheight >600) {
-                if ($('body').hasClass('playlists')) {
-                   $('.description-overlay .description-wrapper')
-					.css('bottom','150px')
+            if (Winwidth >= 1200) {
+                $('.description-overlay .description-wrapper')
+				    .css('bottom','100px')
 					.css('left','50%')
 				    .css('width','650px')
 				    .css('margin-left','-325px');
+                $('.description-overlay .facts').css('display','block');
+			    $('.description-overlay .misc').css('display','block');
+			    $('.fs-image-misc-mobile').css('display','none');
+            } else if (Winwidth >= 992) {
+                if ($('body').hasClass('playlists')) {
+                     $('.description-overlay .description-wrapper')
+				        .css('bottom','30px')
+					    .css('left','50%')
+				        .css('width','650px')
+				        .css('margin-left','-325px');
                 } else {
-                   $('.description-overlay .description-wrapper')
-					.css('bottom','100px')
+                     $('.description-overlay .description-wrapper')
+				        .css('bottom','100px')
+					    .css('left','50%')
+				        .css('width','650px')
+				        .css('margin-left','-325px');
+                }
+				$('.description-overlay .facts').css('display','block');
+			    $('.description-overlay .misc').css('display','block');
+			    $('.fs-image-misc-mobile').css('display','none');
+            } else if (Winwidth >= 768 && Winheight >600) {
+                if ($('body').hasClass('playlists')) {
+                    $('.description-overlay .description-wrapper')
+				        .css('bottom','30px')
+					    .css('left','50%')
+				        .css('width','650px')
+				        .css('margin-left','-325px');
+                } else {
+                    $('.description-overlay .description-wrapper')
+				    .css('bottom','100px')
 					.css('left','50%')
 				    .css('width','650px')
 				    .css('margin-left','-325px');

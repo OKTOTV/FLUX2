@@ -178,6 +178,7 @@ body.playlists .fs-image-misc-mobile {
     }
     .description-overlay .content-opacity p {	 
         margin:2px 0 10px 0;
+        clear:both;
     }
     .description-overlay .description-wrapper .more {
         padding-bottom:5px;

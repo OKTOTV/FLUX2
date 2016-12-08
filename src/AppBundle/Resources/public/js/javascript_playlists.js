@@ -64,7 +64,11 @@ $(document).ready(function(){
     function closePlaylistDescr(status) {
         if (status == 'min') {
             $('.playlists header.description-wrapper').css('display','none');
-            $('.playlists .playlist-minimized').css('display','block');
+            if ($(window).width >= 768 ) {
+                $('.playlists .playlist-minimized').css('display','block');
+            } else {
+                $('.playlists .playlist-minimized').css('display','inline-block');
+            }
             $('.playlists .jw-display-icon-container').css('display','table');
         } else {
             $('.playlists header.description-wrapper').css('display','block');

@@ -112,7 +112,6 @@ h1, h2, .h2, .livestream header h1 time {
 .pull-right .icon, 
 .series h1, 
 .playlists h1,
-.playlists #StartPlaylist.btn span.glyphicon, 
 .playlists .btn.circle {
 	font-size:24px;
 }
@@ -125,7 +124,8 @@ header .navbar-toggle.menu-button span.icon-close,
 .container.tags a,
 .page .content,
 button.btn-default#ButtonPlaylist .visible-xs-inline, 
-button.btn-default#ButtonShare .visible-xs-inline {
+button.btn-default#ButtonShare .visible-xs-inline,
+.playlists #StartPlaylist.btn span.glyphicon {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -275,7 +275,10 @@ header .nav {
 .academy .pin .preview-content a, 
 .livestream .panel-heading a,
 .collapsePlaylist li a:hover,
-a:hover.tag {
+a:hover.tag,
+.btn-link:hover,
+.btn-link:active,
+.btn-link:active:focus {
 	text-decoration:none;
 }
 a, 
@@ -323,6 +326,9 @@ select:focus:active {
 		font-size:19px;
 		letter-spacing: 0.1px;
 	}
+    .playlists #StartPlaylist.btn span.glyphicon {
+        font-size: 24px;
+    }
 }
 
 /****************************** Color, Effects ******************************/
@@ -689,6 +695,9 @@ body,
 .btn-default:hover, 
 .btn-default:active, 
 .btn-default:active:focus, 
+.btn-link:hover,
+.btn-link:active,
+.btn-link:active:focus,
 .episode .misc a, 
 a:hover, 
 select.form-control.ghost, 
@@ -809,6 +818,7 @@ button.list-group-item,
 .episode .series a, 
 a, 
 a.more,
+.btn-link,
 .news h3 a:hover, 
 .pin h3 a:hover, 
 .pin a:hover h3, 
