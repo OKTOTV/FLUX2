@@ -266,7 +266,8 @@ header .navbar-nav.themes a,
 label, .carousel-caption h3, 
 .series h1, 
 .playlists .description-wrapper h1,
-.livestream .schedule li time {
+.livestream .schedule li time,
+body.participate .close {
 	font-weight:400;
 }
 header .nav {
@@ -839,7 +840,8 @@ a.more,
 .pin figcaption p a:hover, 
 .pin figcaption a:hover p, 
 .pin a:hover figcaption p, 
-.livestream .schedule li a:hover h4 /*Gelb*/ {
+body.livestream .schedule li a:hover h4,
+body.participate .close/*Gelb*/ {
 	color: #fcce14;
 }
 a.list-group-item-danger:focus, 
@@ -1448,13 +1450,17 @@ body.tagpage .bg-opacity {
     -moz-opacity: 0.6;  /* older Mozilla browser */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE8 in Standard Compliant Mode */
 }
-
 .bg-bleur {
 	-webkit-filter: blur(50px);
 	-moz-filter: blur(50px);
 	-o-filter: blur(50px);
 	-ms-filter: blur(50px);
 	filter: blur(50px);
+}
+body.participate .close {
+    -webkit-text-shadow: none;
+	-moz-text-shadow: none;
+	text-shadow: none;
 }
 
 

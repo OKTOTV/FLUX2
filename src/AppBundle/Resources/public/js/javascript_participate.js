@@ -5,7 +5,7 @@ var img_array_act = new Array('heinrich_act.svg', 'planet1_act.svg', 'satelit_ac
 $(document).ready(function(){
     var planets;
     var source_array;
-    if ($(window).width() >= 768) {
+    if ($(window).width() >= 992) {
     planets = $("#planets").Cloud9Carousel( {
         autoPlay: 0,
         bringToFront: true,
@@ -15,36 +15,43 @@ $(document).ready(function(){
         onLoaded: function( carousel ) {
             $("#planets").data("carousel").go( 1 );
             $("#planets figure").eq(4).find('nav').addClass('active');
-            source_array = coloredFigure();
+            source_array = coloredFigure(true);
         }
     } );
     }
     
     var resizeTimer;
     $( window ).on('resize', function() {
+        $('#planets').addClass('move');
         if(resizeTimer){
             clearTimeout(resizeTimer);
         }
         resizeTimer = setTimeout(function() {
-            if ($(window).width() >= 768) {
-                $('#planets').find('nav.active').removeClass('active');
-                planets = $("#planets").Cloud9Carousel( {
+            if ($(window).width() >= 992) {
+                
+                planets = $("#planets").css('opacity','0').Cloud9Carousel( {
                 autoPlay: 0,
                 bringToFront: true,
                 yRadius: $('#planets').height()/2.5,
                 xRadius: $('#planets').width() / 2.3,
                 speed:1,
                 onLoaded: function( carousel ) {
+                    $('#planets').removeClass('move');
+                    $('#planets').css('opacity','1');
                     $("#planets").data("carousel").go( 1 );
                     $("#planets figure").eq(4).find('nav').addClass('active');
-                    source_array = coloredFigure();
+                    source_array = coloredFigure(true);
             } } );
             } else {
+                $('#planets').removeClass('move');
+                $('#planets').css('opacity','1');
                 $("#planets").data("carousel").deactivate();
                 $('#planets figure').removeAttr('style');
+                $('#planets').find('nav.active').removeClass('active');
+                source_array = coloredFigure(false);
             }
             resizeTimer = null;
-        }, 200);
+        }, 300);
      });
      $(window).on("orientationchange", function(){
         //if ($(window).width() < 768) {
@@ -53,7 +60,7 @@ $(document).ready(function(){
         
     });
     
-    function coloredFigure() {
+    function coloredFigure(newEl) {
         var elNotActive = $("#planets figure");
         for (var i=0; i<elNotActive.length; i++) {
             var source = $(elNotActive[i]).find('img').attr('src');
@@ -66,24 +73,35 @@ $(document).ready(function(){
             }
             $('#planets figure').eq(i).find('img').attr('src',new_source);
         }
-        var el = $('#planets figure nav.active').parents('figure');
-        var index = $('#planets figure').index(el);
-        var source = el.find('img').attr('src');
-        var source_array = source.split('/');
-        source_array[source_array.length - 1] = img_array_act[index];
-        new_source = "";
-        for (var i=0; i<source_array.length; i++) {
-            new_source += source_array[i];
-            if (i != source_array.length - 1) new_source += "/";
-        }
+        if (newEl == true) {
+            var el = $('#planets figure nav.active').parents('figure');
+            var index = $('#planets figure').index(el);
+            var source = el.find('img').attr('src');
+            var source_array = source.split('/');
+            source_array[source_array.length - 1] = img_array_act[index];
+            new_source = "";
+            for (var i=0; i<source_array.length; i++) {
+                new_source += source_array[i];
+                if (i != source_array.length - 1) new_source += "/";
+            }
         
-        $('#planets figure').eq(index).find('img').attr('src',new_source);
+            $('#planets figure').eq(index).find('img').attr('src',new_source);
+        }
     }
-   
+    var close = false;
     $('#planets figure').click(function(e) { 
+            if (close == false) {
+                $('#planets').find('nav.active').removeClass('active');
+                $(this).find('nav').addClass('active');
+                source_array = coloredFigure(true);
+            } else {
+                close = false;
+            }
+    });
+    $('#planets nav .close').click(function(e) {
+            close = true;
             $('#planets').find('nav.active').removeClass('active');
-            $(this).find('nav').addClass('active');
-            source_array = coloredFigure();
+            source_array = coloredFigure(false);
     });
 
 });
