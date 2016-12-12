@@ -5,11 +5,11 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'academy', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "academy head-white-color head-transparent-bg fullscreen-images" %}
+{% set body_class = "academy fullscreen-images" %}
 {% block body %}
     <div id="top"></div>
     <section class="academy-content fs-image-content">
-        <div class="academy-ident fs-image-ident">
+        <div class="academy-ident fs-image-ident description-overlay">
             <figure class="academy-image fs-image"><div style="background-image:url({{ coursetype.image|link }});"></div></figure>
             <figcaption class="current-course description-wrapper">
                 <div class="container-bg-opacity">
