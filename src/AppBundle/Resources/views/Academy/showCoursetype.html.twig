@@ -26,7 +26,7 @@
             </figcaption>
         </div>
         <div class="fs-image-misc-mobile">
-            <p class="misc"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen"><span class="hidden-xs">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button></p>
+            <p class="misc"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button></p>
             <p>Dauer {{ coursetype.courses[0].dates|hours~'h' }}, Kosten {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
         </div>
     </section>
