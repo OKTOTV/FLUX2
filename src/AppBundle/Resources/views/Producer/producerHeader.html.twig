@@ -5,7 +5,7 @@
         <a href="{{ path('oktothek_series_blog_post', {'uniqID': series.uniqID}) }}" class="btn btn-default">{{'oktothek.series_producer_new_blogpost'|trans|raw }}</a>
     </p>
 </header>
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs nav-justified">
   <li role="presentation" {% if active == "producer_info" %} class="active"{% endif %}>
       <a href="{{ path('oktothek_channel', {'uniqID': series.uniqID}) }}">Allgemein</a>
   </li>

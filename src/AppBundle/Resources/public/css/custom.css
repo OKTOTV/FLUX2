@@ -183,6 +183,7 @@ header .nav,
 .btn, 
 .pin .pin-icon .glyphicon, 
 a.tag, 
+.nav-justified,
 footer h3, 
 .input-group-addon, 
 .collapseShare h3, 
@@ -222,6 +223,7 @@ header #dropdownMenuTags.btn-default,
 footer .nav > li > a, 
 a.more,
 a.less, 
+.nav-justified,
 .episode .series a, 
 .comments a.answerlink, 
 #anchor-menu .panel-title, 
@@ -1128,6 +1130,10 @@ header.page-header,
 .nav-tabs > li.active > a, 
 .nav-tabs > li.active > a:focus, 
 .nav-tabs > li.active > a:hover,
+.nav-tabs.nav-justified > .active > a, 
+.nav-tabs.nav-justified > .active > a:focus, 
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > li > a,
 .more-clips select, 
 .more-clips select *, 
 .more-clips select.form-control option,
@@ -2440,6 +2446,9 @@ footer .partner li {
 footer section {
 	padding-top:40px;
 	margin-bottom:0;
+}
+footer section:first-child {
+	margin-top:0;
 }
 footer nav {
 	padding-top:0px;
