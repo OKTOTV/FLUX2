@@ -29,7 +29,7 @@
 /* 
 !!!!!! Freischalten wenn Online !!!!!!!
 @import must be at top of file, otherwise CSS will not work  
-@import url("//hello.myfonts.net/count/313a85");1111*/
+@import url("//hello.myfonts.net/count/313a85");*/
 
   
 @font-face {font-family: 'HelveticaNeueLTStd-Lt';src: url('../fonts/313A85_0_0.eot');src: url('../fonts/313A85_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/313A85_0_0.woff2') format('woff2'),url('../fonts/313A85_0_0.woff') format('woff'),url('../fonts/313A85_0_0.ttf') format('truetype');}
