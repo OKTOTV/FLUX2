@@ -1019,6 +1019,12 @@ button.btn-default#ButtonShare:hover {
 .academy .timetable li:first-child p {
 	border-top:dotted 1px #5a6769;
 }
+.academy .timetable li p:first-child {
+    border-bottom:none;
+}
+.academy .timetable li:first-child p:last-child {
+    border-top:none;
+}
 .collapseShare .btn-default, 
 .container-episode-tag,
 .livestream #nav-programm a:hover .icon,
@@ -1193,6 +1199,12 @@ body.tagpage .empty .icon-player {
     button.btn-default#ButtonPlaylist, 
     button.btn-default#ButtonShare {
 	    border: solid 2px #fcce14;
+    }
+    .academy .timetable li p:first-child {
+	    border-bottom:dotted 1px #5a6769;
+    }
+    .academy .timetable li:first-child p:last-child {
+        border-top:dotted 1px #5a6769;
     }
 }
 

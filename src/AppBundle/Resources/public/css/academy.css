@@ -42,15 +42,14 @@ body.academy .timetable li {
 	display:table-row;
 }
 body.academy .timetable p {
-	display:table-cell;
+	display:block;
 }
 body.academy .timetable li p {
 	vertical-align:middle;
 	padding:2px;
 }
 body.academy .timetable li p:last-child {
-	vertical-align:bottom;
-	text-align:right;
+	text-align:center;
 }
 body.academy .timetable span {
 	width:120px;
@@ -92,4 +91,13 @@ body.academy .newsletter fieldset {
 }
 body.academy .newsletter .input-group {
 	margin:0 auto;
+}
+@media (min-width: 768px) {
+    body.academy .timetable p {
+	    display:table-cell;
+    }
+    body.academy .timetable li p:last-child {
+	    vertical-align:bottom;
+	    text-align:right;
+    }
 }
