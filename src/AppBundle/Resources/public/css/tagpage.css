@@ -135,6 +135,11 @@ body.tagpage .clip-tags .pin.empty figure {
 body.tagpage .triangle {
   margin:0 auto;
 }
+body.tagpage .pages .list-group-item {
+    margin-bottom: 2px;
+    padding-top:13px;
+    padding-bottom:13px;
+}
 @media (min-width: 580px) {
     /*body.tagpage .pin.empty,
     body.tagpage .pin {
