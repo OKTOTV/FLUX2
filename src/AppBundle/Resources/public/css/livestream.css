@@ -19,7 +19,10 @@
 	-moz-border-radius:0px;
 	border-radius:0px;
 }
-
+.livestream .schedule {
+    margin-left:-30px;
+    margin-right:-30px;
+}
 .livestream .schedule ul {
 	list-style:none;
 }
@@ -46,8 +49,12 @@
 .livestream header.page-header #nav-livestream, .livestream .schedule header, .livestream header.page-header .row, .livestream .schedule #page-header-content, .livestream .schedule img, .livestream .panel-heading {
 	width:100%;
 }
-.livestream .schedule .panel-heading time, .livestream header.page-header .navbar-nav:first-child, .livestream .schedule header .page-header-content div:first-child, .livestream header.page-header .navbar-nav:last-child, .livestream .schedule header .page-header-content div:last-child {
-	width:10%;
+.livestream .schedule .panel-heading time, 
+.livestream header.page-header .navbar-nav:first-child, 
+.livestream .schedule header .page-header-content div:first-child, 
+.livestream header.page-header .navbar-nav:last-child, 
+.livestream .schedule header .page-header-content div:last-child {
+	width:30%;
 }
 .livestream .schedule img {
 	max-width:100%;
@@ -94,9 +101,12 @@
     margin-bottom:40px;
 }
 .livestream .schedule .row {
-	margin-right:15px;
+	margin-right:0;
+    padding-right:15px;
+    padding-left:15px;
 }
-.livestream p.current-episode, .livestream .current-episode {
+.livestream p.current-episode, 
+.livestream .current-episode {
 	margin-bottom:0;
 }
 .livestream #current_show time {
@@ -105,11 +115,12 @@
 .livestream .schedule ul {
 	margin-left:0;
 }
-.livestream header.page-header nav, .livestream .schedule header {
+.livestream header.page-header nav, 
+.livestream .schedule header {
 	margin-left:-15px;
 }
 .livestream .schedule .panel-collapse {
-	margin-left:10%;
+	margin-left:30%;
 }
 .livestream button.today {
 	margin-left:20px;
@@ -118,7 +129,7 @@
 	padding:2px;
 }
 .livestream .schedule .panel-collapse {
-	padding: 0 15px;
+	padding: 0 15px 0 7.5px;
 }
 .livestream .panel-heading h4 {
     padding-top:8px;
@@ -138,7 +149,9 @@
 .livestream header.page-header time {
 	line-height:34px;
 }
-.livestream header.page-header .navbar-nav, .livestream .schedule header .page-header-content div, .livestream .schedule img {
+.livestream header.page-header .navbar-nav, 
+.livestream .schedule header .page-header-content div, 
+.livestream .schedule img {
 	float:none;
 }
 .livestream .posterframe {
@@ -159,11 +172,61 @@
     vertical-align:center;
     top:0;
 }
+@media (min-width: 420px) {
+    .livestream .schedule .panel-heading time, 
+    .livestream header.page-header .navbar-nav:first-child, 
+    .livestream .schedule header .page-header-content div:first-child, 
+    .livestream header.page-header .navbar-nav:last-child, 
+    .livestream .schedule header .page-header-content div:last-child {
+	    width:20%;
+    }
+    .livestream .schedule .panel-collapse {
+	    margin-left:20%;
+    }
+}
 @media (min-width: 580px) {
     .livestream .schedule img {
 	    /*width:260px;*/
 	    height:auto;
 	    margin:0;
 		float:none;
+    }
+    .livestream .schedule .panel-heading time, 
+    .livestream header.page-header .navbar-nav:first-child, 
+    .livestream .schedule header .page-header-content div:first-child, 
+    .livestream header.page-header .navbar-nav:last-child, 
+    .livestream .schedule header .page-header-content div:last-child {
+	    width:15%;
+    }
+    .livestream .schedule .panel-collapse {
+	    margin-left:15%;
+    }
+}
+@media (min-width: 768px) {
+    .livestream .schedule {
+        margin-left:0px;
+        margin-right:0px;
+    }
+    .livestream .schedule .row {
+	    margin-right:15px;
+        padding:0;
+    }
+    .livestream .schedule .panel-collapse {
+	    padding: 0 15px;
+    }
+}
+@media (min-width: 992px) {
+    .livestream .schedule .panel-heading time, 
+    .livestream header.page-header .navbar-nav:first-child, 
+    .livestream .schedule header .page-header-content div:first-child, 
+    .livestream header.page-header .navbar-nav:last-child, 
+    .livestream .schedule header .page-header-content div:last-child {
+	    width:10%;
+    }
+    .livestream .schedule .panel-collapse {
+	    margin-left:10%;
+    }
+    .livestream .schedule .panel-collapse {
+	    padding: 0 15px;
     }
 }
