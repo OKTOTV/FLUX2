@@ -25,7 +25,7 @@ $(document).ready(function(){
         $("a.playme").parents('li').removeClass('active');
         $(activeNode).addClass('active');
 			//Beschreibung ausgeben
-        $('.description-container article').replaceWith('<article><p class="series"><a href="' + $(activeNode).find('figcaption h3').attr('data-link') + '" title="' + $(activeNode).find('figcaption h3').text() + '">' + $(activeNode).find('figcaption h3').text() + '</a></p><h2>' + $(activeNode).find('figcaption p').text() + '</h2><time pubdate="pubdate">online seit <span class="date">' + $(activeNode).find('figcaption p').attr('data-date') + '</span></time><p class="description">' + $(activeNode).find('article').attr('title') + '</p><p><a href="' + $(activeNode).find('figcaption a.playme').attr('href') + '" class="episodelink">Folgendetails</a></p><article>');
+        $('.description-container article').replaceWith('<article><p class="series"><a href="' + $(activeNode).find('figcaption h3').attr('data-link') + '" title="' + $(activeNode).find('figcaption h3').text() + '">' + $(activeNode).find('figcaption h3').text() + '</a></p><h2 class="name">' + $(activeNode).find('figcaption p').text() + '</h2><time pubdate="pubdate">online seit <span class="date">' + $(activeNode).find('figcaption p').attr('data-date') + '</span></time><p class="description">' + $(activeNode).find('article').attr('title') + '</p><p><a href="' + $(activeNode).find('figcaption a.playme').attr('href') + '" class="episodelink">Folgendetails</a></p><article>');
     });
     //Ruft Statusänderung Playlisticons auf wenn Play aktiviert wird
     jwplayer().on('play', function(){
@@ -64,7 +64,11 @@ $(document).ready(function(){
     function closePlaylistDescr(status) {
         if (status == 'min') {
             $('.playlists header.description-wrapper').css('display','none');
-            $('.playlists .playlist-minimized').css('display','block');
+            if ($(window).width >= 768 ) {
+                $('.playlists .playlist-minimized').css('display','block');
+            } else {
+                $('.playlists .playlist-minimized').css('display','inline-block');
+            }
             $('.playlists .jw-display-icon-container').css('display','table');
         } else {
             $('.playlists header.description-wrapper').css('display','block');

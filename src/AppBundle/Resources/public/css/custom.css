@@ -83,7 +83,8 @@ h3,
 .timetable .btn, 
 .academy .price, 
 .playlists .btn.circle, 
-.edit-playlists form label  {
+.edit-playlists form label,
+.livestream .schedule li h4 {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -104,16 +105,15 @@ h1, h2, .h2, .livestream header h1 time {
 	letter-spacing:0.5px;
 }
 #anchor-menu .panel-title .glyphicon, 
-.btn-top .glyphicon, 
-.livestream .schedule li time {
+.btn-top .glyphicon {
 	font-size:30px;
 }
 .carousel-caption h3, 
 .pull-right .icon, 
 .series h1, 
-.playlists .description-wrapper h1,
-.playlists #StartPlaylist.btn span.glyphicon, 
-.playlists .btn.circle {
+.playlists h1,
+.playlists .btn.circle,
+.livestream .schedule li time {
 	font-size:24px;
 }
 header .navbar-toggle.search-button span, 
@@ -125,7 +125,8 @@ header .navbar-toggle.menu-button span.icon-close,
 .container.tags a,
 .page .content,
 button.btn-default#ButtonPlaylist .visible-xs-inline, 
-button.btn-default#ButtonShare .visible-xs-inline {
+button.btn-default#ButtonShare .visible-xs-inline,
+.playlists #StartPlaylist.btn span.glyphicon {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -182,6 +183,7 @@ header .nav,
 .btn, 
 .pin .pin-icon .glyphicon, 
 a.tag, 
+.nav-justified,
 footer h3, 
 .input-group-addon, 
 .collapseShare h3, 
@@ -221,6 +223,7 @@ header #dropdownMenuTags.btn-default,
 footer .nav > li > a, 
 a.more,
 a.less, 
+.nav-justified,
 .episode .series a, 
 .comments a.answerlink, 
 #anchor-menu .panel-title, 
@@ -247,7 +250,6 @@ h3,
 .edit-playlists form label, 
 #planets .cloud9-item figcaption,
 .livestream .current-episode,
-.livestream .schedule li h4,
 .oktothek .more figure.episode-pin,
 .post .misc a {
 	text-transform:uppercase;
@@ -258,14 +260,16 @@ h3,
 #slider h3, 
 header .navbar-nav.themes a, 
 .playlists .btn.circle, 
-.dropdown-menu > li a {
+.dropdown-menu > li a,
+.livestream .schedule li h4 {
 	text-transform:none;
 }
 .post .label, 
 label, .carousel-caption h3, 
 .series h1, 
 .playlists .description-wrapper h1,
-.livestream .schedule li time {
+.livestream .schedule li time,
+body.participate .close {
 	font-weight:400;
 }
 header .nav {
@@ -275,7 +279,10 @@ header .nav {
 .academy .pin .preview-content a, 
 .livestream .panel-heading a,
 .collapsePlaylist li a:hover,
-a:hover.tag {
+a:hover.tag,
+.btn-link:hover,
+.btn-link:active,
+.btn-link:active:focus {
 	text-decoration:none;
 }
 a, 
@@ -292,6 +299,16 @@ select:focus:active {
     outline:none;
 }
 
+@media (min-width: 580px) {
+    .livestream .schedule li h4 {
+        text-transform:uppercase;
+    }
+    .livestream .schedule li h4 {
+	    font-family: HelveticaNeueLTStd-Roman, Helvetica, sans-serif;
+	    font-weight: normal;
+	    font-style: normal;
+    }
+}
 
 @media (min-width: 768px) {
 	header .navbar .nav.navbar-right > li > a {
@@ -309,6 +326,9 @@ select:focus:active {
     header .form-control::-webkit-input-placeholder {
         font-size:16px;
     }
+    .livestream .schedule li time {
+	    font-size:30px;
+    }
 	.carousel-caption h3, 
     .fs-image-content h1, 
     .playlists h1 {
@@ -323,6 +343,9 @@ select:focus:active {
 		font-size:19px;
 		letter-spacing: 0.1px;
 	}
+    .playlists #StartPlaylist.btn span.glyphicon {
+        font-size: 24px;
+    }
 }
 
 /****************************** Color, Effects ******************************/
@@ -689,6 +712,9 @@ body,
 .btn-default:hover, 
 .btn-default:active, 
 .btn-default:active:focus, 
+.btn-link:hover,
+.btn-link:active,
+.btn-link:active:focus,
 .episode .misc a, 
 a:hover, 
 select.form-control.ghost, 
@@ -809,13 +835,15 @@ button.list-group-item,
 .episode .series a, 
 a, 
 a.more,
+.btn-link,
 .news h3 a:hover, 
 .pin h3 a:hover, 
 .pin a:hover h3, 
 .pin figcaption p a:hover, 
 .pin figcaption a:hover p, 
 .pin a:hover figcaption p, 
-.livestream .schedule li a:hover h4 /*Gelb*/ {
+body.livestream .schedule li a:hover h4,
+body.participate .close/*Gelb*/ {
 	color: #fcce14;
 }
 a.list-group-item-danger:focus, 
@@ -993,6 +1021,12 @@ button.btn-default#ButtonShare:hover {
 .academy .timetable li:first-child p {
 	border-top:dotted 1px #5a6769;
 }
+.academy .timetable li p:first-child {
+    border-bottom:none;
+}
+.academy .timetable li:first-child p:last-child {
+    border-top:none;
+}
 .collapseShare .btn-default, 
 .container-episode-tag,
 .livestream #nav-programm a:hover .icon,
@@ -1096,6 +1130,10 @@ header.page-header,
 .nav-tabs > li.active > a, 
 .nav-tabs > li.active > a:focus, 
 .nav-tabs > li.active > a:hover,
+.nav-tabs.nav-justified > .active > a, 
+.nav-tabs.nav-justified > .active > a:focus, 
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > li > a,
 .more-clips select, 
 .more-clips select *, 
 .more-clips select.form-control option,
@@ -1167,6 +1205,12 @@ body.tagpage .empty .icon-player {
     button.btn-default#ButtonPlaylist, 
     button.btn-default#ButtonShare {
 	    border: solid 2px #fcce14;
+    }
+    .academy .timetable li p:first-child {
+	    border-bottom:dotted 1px #5a6769;
+    }
+    .academy .timetable li:first-child p:last-child {
+        border-top:dotted 1px #5a6769;
     }
 }
 
@@ -1352,7 +1396,8 @@ body.oktothek .more figure.episode-pin {
 section:last-child, 
 section.playlist_container,
 .edit-playlists form fieldset:last-child,
-.newsarchiv article:last-child {
+.newsarchiv article:last-child,
+body.playlists section:first-child {
 	background-image:none;
 }
 @media (min-width: 420px) {
@@ -1423,18 +1468,17 @@ body.tagpage .bg-opacity {
     -moz-opacity: 0.6;  /* older Mozilla browser */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE8 in Standard Compliant Mode */
 }
-#planets .bg-opacity {
-    opacity: 0.1;       /* modern browser */
-    -moz-opacity: 0.1;  /* older Mozilla browser */
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=1)"; /* IE8 in Standard Compliant Mode */
-}
-
 .bg-bleur {
 	-webkit-filter: blur(50px);
 	-moz-filter: blur(50px);
 	-o-filter: blur(50px);
 	-ms-filter: blur(50px);
 	filter: blur(50px);
+}
+body.participate .close {
+    -webkit-text-shadow: none;
+	-moz-text-shadow: none;
+	text-shadow: none;
 }
 
 
@@ -2402,6 +2446,9 @@ footer .partner li {
 footer section {
 	padding-top:40px;
 	margin-bottom:0;
+}
+footer section:first-child {
+	margin-top:0;
 }
 footer nav {
 	padding-top:0px;

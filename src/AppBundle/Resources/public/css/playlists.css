@@ -28,8 +28,14 @@
 .playlists #button_down {
 	cursor:pointer;
 }
+.playlists h2.name {
+    text-align: left;
+}
 .playlists .playlist_container .list-group-item {
 	margin-bottom:2px;
+}
+.playlists .playlist_container article.pin {
+	width: 100%;
 }
 .playlists .list-group {
 	margin-left:-15px;
@@ -39,21 +45,33 @@
 	padding-top:20px;
 }
 .playlists #StartPlaylist.btn, .playlists #StartPlaylist.btn .glyphicon {
-	line-height:24px;
+	line-height:16px;
+}
+.playlists #StartPlaylist.btn {
+    padding:0;
+    width: 36px;
+    margin-right:10px;
 }
 .playlists #StartPlaylist.btn .glyphicon {
 	vertical-align:middle;
-	top:-3px;
+	top:0px;
 }
 .playlists .playlist-buttons {
 	right: -50px;
 	top:0;
+}
+.playlists .description-container {
+    margin-left:0;
+    margin-right:0;
 }
 .playlists .description-container h2 {
 	margin-bottom:4px;
 }
 .playlists .playlist-minimized button span {
 	margin-top:-7px;
+}
+.playlists .fs-image-misc-mobile .edit-playlist {
+    display: inline;
 }
 .playlists header .btn.transparent {
 	margin-right:-15px;
@@ -100,25 +118,14 @@
 	vertical-align:middle;
 	padding-left:1px;
 }
-@media (min-width: 768px) and (max-height: 600px) {
-	.playlists header.description-wrapper {
-	    bottom:30px;
-	    width:650px;
-	    margin: 0 0 0 -325px;
-		padding-top:20px;
-	    left:50%;
-	    right:0;
-	}
+.playlists .content-opacity .author {
+    text-align: center;
+    margin-right:30px;
 }
-@media (min-width: 768px) and (min-height: 601px) {
-	.playlists header.description-wrapper {
-	    bottom:100px;
-	    width:650px;
-	    margin: 0 0 0 -325px;
-	    left:50%;
-	    right:0;
-	}
+.playlists .description-overlay .description-wrapper .more {
+    text-align:center;
 }
+
 /* Edit Playlists */
 .edit-playlists #playlist_items {
 	margin-bottom:40px;
@@ -133,7 +140,7 @@
 	margin-left:4px;
 }
 .edit-playlists #playlist_items .list-group {
-	float:right;
+    float:left;
 	margin-bottom:0;
 }
 .edit-playlists #playlist_items .list-group-item {
@@ -162,14 +169,13 @@
 	padding-bottom:40px;
 }
 .edit-playlists form .form-group.search > div {
-    width:315px;
-    margin:0 -15px 0 auto;
+    width:100%;
 }
 .edit-playlists form .form-group.search .twitter-typeahead {
     /*width:315px;*/
 }
 .edit-playlists form .form-group.search input {
-    width:265px;
+    width:100%;
 }
 .edit-playlists .form-group.search .icon-search {
     width:50px;
@@ -193,4 +199,74 @@
 .edit-playlists .tt-menu img {
     width:190px;
     height:auto;
+}
+.edit-playlists .delete-playlist {
+    margin-top:40px;
+    margin-bottom:20px;
+}
+
+@media (min-width: 401px) {
+    #StartPlaylist.visible-xs-inline {
+        margin-right:-60px;
+    }
+}
+@media (min-width: 768px) and (max-height: 600px) {
+	.playlists header.description-wrapper {
+	    bottom:30px;
+	    width:650px;
+	    margin: 0 0 0 -325px;
+		padding-top:20px;
+	    left:50%;
+	    right:0;
+	}
+    .playlists #StartPlaylist.btn {
+        margin-right:0;
+    }
+}
+@media (min-width: 768px) and (min-height: 601px) {
+	.playlists header.description-wrapper {
+	    bottom:30px;
+	    width:650px;
+	    margin: 0 0 0 -325px;
+	    left:50%;
+	    right:0;
+	}
+}
+@media (min-width: 768px) {
+    .playlists .description-container {
+        margin-left:-15px;
+        margin-right:-15px;
+    }
+    .playlists .description-overlay .description-wrapper .more {
+        text-align:left;
+    }
+    .playlists #StartPlaylist.btn {
+        padding:8px 16px;
+        width: auto;
+    }
+    .playlists #StartPlaylist.btn .glyphicon {
+	    vertical-align:middle;
+	    top:-3px;
+        margin-right:2px;
+    }
+    .edit-playlists form .form-group.search input {
+        width:265px;
+    }
+    .edit-playlists form .form-group.search > div {
+        width:315px;
+        margin:0 -15px 0 auto;
+    }
+    .edit-playlists #playlist_items .list-group {
+	    float:right;
+    }
+}
+@media (min-width: 992px) {
+    .playlists header.description-wrapper {
+	    bottom:30px;
+	}
+}
+@media (min-width: 1200px) {
+    .playlists header.description-wrapper {
+	    bottom:100px;
+	}
 }

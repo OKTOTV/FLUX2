@@ -13,6 +13,7 @@ body.producer .nav-tabs {
 }
 section.tabs-content {
     padding:15px;
+    margin-top:0;
 }
 body.producer .subheadline {
     margin:40px 0;
@@ -33,4 +34,24 @@ body.producer aside li {
 body.producer aside ul.socialnetworks li div {
     margin-left:50px;
     padding-top:10px;
+}
+body.producer .row.pin {
+    padding-bottom:40px;
+}
+body.producer .row.pin .pin {
+    padding-bottom:20px;
+}
+body.producer .row.pin .pin img {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    body.producer .row.pin {
+        padding-bottom:0px;
+    }
+    body.producer .row.pin .pin {
+        padding-bottom:0px;
+    }
+    body.producer .row.pin .pin img {
+        width: auto;
+    }
 }
