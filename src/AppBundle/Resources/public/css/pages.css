@@ -10,7 +10,7 @@
 .team li  {
 	list-style:none;
 }
-.team ul {
+ul.team {
 	margin-left:0;
 	padding-left:0;
 }
