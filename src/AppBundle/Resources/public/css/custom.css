@@ -251,7 +251,8 @@ h3,
 #planets .cloud9-item figcaption,
 .livestream .current-episode,
 .oktothek .more figure.episode-pin,
-.post .misc a {
+.post .misc a,
+body.tagpage .pages .list-group-item a {
 	text-transform:uppercase;
 }
 
@@ -802,7 +803,8 @@ header .collapseShare a.btn,
 .livestream .schedule a h4,
 body.producer li.list-group-item,
 body.producer ul.list-group .pin a p,
-.pagination li.disabled span { /* Hellgrau */
+.pagination li.disabled span,
+body.tagpage .pages .list-group-item a { /* Hellgrau */
 	color:#dcdcdc;
 }
 a.tag, 
@@ -843,7 +845,8 @@ a.more,
 .pin figcaption a:hover p, 
 .pin a:hover figcaption p, 
 body.livestream .schedule li a:hover h4,
-body.participate .close/*Gelb*/ {
+body.participate .close,
+body.tagpage .pages .list-group-item a:hover /*Gelb*/ {
 	color: #fcce14;
 }
 a.list-group-item-danger:focus, 
@@ -936,7 +939,8 @@ body.tagpage article.empty .icon-player,
 .pagination > .disabled > span:hover,
 .pagination > li > a, 
 .pagination > li > span,
-.alert-success { /* Dunkelgrau */
+.alert-success,
+body.tagpage .pages .list-group-item { /* Dunkelgrau */
 	background-color:#112022;
 }
 article.pin figure.pin:hover,
