@@ -126,7 +126,7 @@ header .navbar-toggle.menu-button span.icon-close,
 .page .content,
 button.btn-default#ButtonPlaylist .visible-xs-inline, 
 button.btn-default#ButtonShare .visible-xs-inline,
-.playlists #StartPlaylist.btn span.glyphicon {
+.playlists #StartPlaylist_small.btn span.glyphicon {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -1199,7 +1199,7 @@ body.oktothek .more figure.episode-pin a {
 	border-radius: 20px;
 }
 .participart .button_container .btn, 
-#StartPlaylist.btn,
+#StartPlaylist_small.btn,
 body.tagpage .empty .icon-player {
 	-moz-border-radius:25px;
 	-khtml-border-radius:25px;
