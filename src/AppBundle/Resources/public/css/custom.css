@@ -2030,9 +2030,16 @@ body.academy section.newsletter form .input-group, body.academy .newsletter labe
     display:block;
 }
 .newsletter .input-group .form-control, 
-body.newsarchiv footer .newsletter .input-group .form-control, 
-body.newsarchiv .newsletter .input-group .form-control {
+body.newsarchiv footer .newsletter .input-group .form-control {
     width:200px;
+}
+body.newsarchiv .newsletter .input-group .form-control,
+body.news .newsletter .input-group .form-control {
+    width:160px;
+}
+body.newsarchiv .newsletter .input-group .input-group-addon, body.newsarchiv .news .input-group .input-group-addon {
+    padding-left:3px;
+    padding-right:3px;
 }
 body.newsarchiv .newsletter .input-group {
     width:100%;
@@ -2044,7 +2051,7 @@ body.academy .newsletter .input-group-btn {
 	margin:0 auto;
     width:300px;
 }
-.newsletter .input-group-addon, body.newsarchiv footer .newsletter .input-group-addon, footer .newsletter .input-group-addon {
+body.newsarchiv footer .newsletter .input-group-addon, footer .newsletter .input-group-addon, body.newsarchiv .newsletter .input-group-addon, body.news .newsletter .input-group-addon {
     width:100px;
     height:35px;
 }
@@ -2063,10 +2070,10 @@ footer .newsletter .input-group {
     margin-left:auto;
     margin-right:auto;
 }
-body.newsarchiv .newsletter .input-group-addon {
+/*body.newsarchiv .newsletter .input-group-addon {
     width:auto;
     padding:6px 10px;
-}
+}*/
 @media (min-width: 420px) {
     footer .newsletter .input-group {
 	    margin:0 auto;
@@ -2081,8 +2088,11 @@ body.newsarchiv .newsletter .input-group-addon {
         float:left;
     }
 }
-@media (min-width: 768px) {
-    
+@media (min-width: 1200px) {
+    body.newsarchiv .newsletter .input-group .form-control,
+body.news .newsletter .input-group .form-control {
+        width:200px;
+    }
 }
 
 

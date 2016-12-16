@@ -32,7 +32,7 @@ body.news .post-content img {
 	padding-bottom:0;
     text-align:left;
 }
-body.newsarchiv .page-header.detail, body.news .page-header.archiv {
+body.newsarchiv .page-header.detail, body.news .page-header.archiv, body.newsarchiv aside, body.news aside {
     display:none;
 }
 .post .label {
@@ -107,6 +107,9 @@ section.blog article.post + .comments {
     
 }
 @media (min-width: 992px) {
+    body.newsarchiv aside, body.news aside {
+        display: block;
+    }
     section.blog .post > div {
         padding-top:0;
     }
