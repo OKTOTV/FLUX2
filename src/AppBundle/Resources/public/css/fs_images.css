@@ -71,6 +71,9 @@ section.fs-image-content, section.fs-image-content {
 	margin-right:15px;
     padding:0 15px 15px 15px;
 }
+section.bg-fullscreen, section.episode-description, section.academy-description {
+    margin-top:0;
+}
 section.fs-image-content, .carousel-caption, .description-overlay .description-wrapper {
 	padding-bottom:0;
 }
