@@ -94,7 +94,8 @@ h3,
 .participart .button_container .btn, 
 .btn.btn-top, 
 figcaption .description, 
-#planets .cloud9-item figcaption {
+#planets .cloud9-item figcaption,
+.login a.btn.but-full {
 	font-family: HelveticaNeueLTStd-Lt, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -340,7 +341,8 @@ select:focus:active {
 	.subheadline, 
     .participart .button_container .btn, 
     figcaption .description, 
-    .playlists header .description {
+    .playlists header .description,
+    .login a.btn.but-full {
 		font-size:19px;
 		letter-spacing: 0.1px;
 	}
@@ -771,6 +773,7 @@ a.tag:hover,
 }
 .form-control, 
 .oktothek article a.btn-default, 
+.login a.btn.but-full,
 .modal, button .btn-default.active, 
 .input-group-addon, 
 .collapseShare .btn-default, 
@@ -950,7 +953,10 @@ body.tagpage article.first-pin:hover { /* Mittleres Grau */
     background-color:#192e31;
 }
 /* Spacelayout */
-button .btn-default.but-full.active, 
+.oktothek a.btn-default.but-full.active, 
+.oktothek a.btn-default.but-full, 
+.login a.btn-default.but-full.active, 
+.login a.btn-default.but-full, 
 .btn-default:hover, 
 .btn-default:focus, 
 .btn-default:active, 
@@ -969,7 +975,6 @@ button .btn-default.but-full.active,
 .btn-primary.active:hover, 
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
-.oktothek article a.btn-default.but-full, 
 .input-group-addon,
 .oktothek .more figure.episode-pin a { /* Gelb */
 	background-color:#fcce14;
@@ -1200,7 +1205,8 @@ body.oktothek .more figure.episode-pin a {
 }
 .participart .button_container .btn, 
 #StartPlaylist_small.btn,
-body.tagpage .empty .icon-player {
+body.tagpage .empty .icon-player,
+.login a.btn.but-full {
 	-moz-border-radius:25px;
 	-khtml-border-radius:25px;
 	border-radius: 25px;
@@ -1225,7 +1231,7 @@ hr {
 	background-position:left center;
 	background-image:url(../images/hr_bg.png);
 }
-section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, footer nav  {
+section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, .login fieldset, footer nav  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border_small.png);
@@ -1401,7 +1407,8 @@ section:last-child,
 section.playlist_container,
 .edit-playlists form fieldset:last-child,
 .newsarchiv article:last-child,
-body.playlists section:first-child {
+body.playlists section:first-child,
+.login fieldset:last-child {
 	background-image:none;
 }
 @media (min-width: 420px) {
@@ -1410,7 +1417,7 @@ body.playlists section:first-child {
     }
 }
 @media (min-width: 768px) {
-    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, footer nav  {
+    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, .login fieldset, footer nav  {
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
 	    background-image:url(../images/section_border.png);
@@ -2415,6 +2422,29 @@ body.episode .series, body.playlists .series {
 /*Formulare*/
 .form-control {
 	height:35px;
+}
+.login form {
+    width:320px;
+    margin:0 auto;
+}
+.login form button[type="submit"] {
+    display: block;
+    margin:20px auto;
+}
+.login form .registry .button-container {
+    text-align: center;
+}
+.login fieldset {
+    padding-bottom:20px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.login a.btn.but-full {
+    padding:12px 40x !important;
+    height: 50px;
+    border-radius: 25px;
+    vertical-align:middle;
+    line-height: 34px;
 }
 
 
