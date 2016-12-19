@@ -3,6 +3,7 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
 {% endblock %}
+{% set body_class = "producer" %}
 {% block body_main %}
     <header class="page-header">
         <h1>{{ 'oktothek_series_my_channels_header'|trans }}</h1>

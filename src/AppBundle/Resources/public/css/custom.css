@@ -278,6 +278,7 @@ header .nav {
 	letter-spacing: 0.75px;
 }
 .pin figcaption a,
+figure.pin a,
 .academy .pin .preview-content a, 
 .livestream .panel-heading a,
 .collapsePlaylist li a:hover,
@@ -601,10 +602,6 @@ header .icon.icon-login {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-header .navbar-nav .dropdown-menu, footer .dropdown-menu {
-	background-image:url(../images/speachbubble_small.png);
-    background-repeat:no-repeat;
-}
 header .navbar-nav .dropdown-menu {
 	background-position:150px top;
 }
@@ -614,7 +611,8 @@ footer .dropdown-menu {
 header .navbar-inverse .navbar-nav.navbar-right > li > a:hover, 
 header .navbar-inverse .navbar-nav.navbar-right > .active > a, 
 header .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, 
-header .navbar-inverse .navbar-nav > .active > a:focus {
+header .navbar-inverse .navbar-nav > .active > a:focus,
+header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	background-image:none;
 }
 
@@ -667,6 +665,10 @@ header .navbar-inverse .navbar-nav > .active > a:focus {
 	    background-repeat:repeat-x;
 	    background-position:left top;
 	}
+    header .navbar-nav .dropdown-menu, footer .dropdown-menu {
+	    background-image:url(../images/speachbubble_small.png);
+        background-repeat:no-repeat;
+    }
 	header .navbar-collapse .navbar-nav.themes/*, .navbar-inverse .navbar-nav.navbar-right > li > a:hover, .navbar-inverse .navbar-nav.navbar-right > .active > a, .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus*/ {
 		background-image:none;
 	}
@@ -1609,7 +1611,7 @@ header .navbar-collapse .navbar-nav>li>a {
 header .navbar-collapse .navbar-nav.navbar-right > li > a {
 	margin-left:0;
 }
-header .navbar-collapse .navbar-nav span.icon-login {
+header .navbar-collapse .navbar-nav span.icon-login, header .navbar-collapse .navbar-nav span.glyphicon-bookmark {
 	margin-right:8px;
 }
 header .navbar-collapse .navbar-nav.themes {
@@ -2168,7 +2170,7 @@ figure.pin img {
 figcaption p.more {
 	margin-bottom:15px;
 }
-figcaption p {
+figcaption p, .producer .series-pin h3 {
 	margin:2px 0 10px 0;
 }
 figcaption .subheadline, .page .subheadline {
