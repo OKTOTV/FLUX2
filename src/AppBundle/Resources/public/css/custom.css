@@ -1251,7 +1251,8 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 .small-arrow-right {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/small_arrow_right.svg);
+	background-image:url(../images/small_arrow_right.png);
+    background-image:url(../images/small_arrow_right.svg), none;
 	-webkit-background-size: 40% 40%;
     -moz-background-size: 40% 40%;
     -o-background-size: 40% 40%;
@@ -1290,18 +1291,21 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 .playlists .mini-player {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/bg_favourite.svg);
+	background-image:url(../images/bg_favourite.png);
+    background-image:url(../images/bg_favourite.svg), none;
 }
 .participant-arrow-down {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/icon_down_arrow.svg);
+	background-image:url(../images/icon_down_arrow.png);
+    background-image:url(../images/icon_down_arrow.svg), none;
 }
 body.oktothek .participart {
 	background-image:url(../images/space.jpg);
 }
 body.oktothek .participart .button_container {
-	background-image:url(../images/planet3.svg);
+	background-image:url(../images/participate/planet3_oktothek.png);
+    background-image:url(../images/planet3.svg), none;
 	background-repeat:no-repeat;
 	background-position:center center;
 }
