@@ -22,7 +22,9 @@ $(document).ready(function(){
     
     var resizeTimer;
     $( window ).on('resize', function() {
-        $('#planets').addClass('move');
+        if ($(window).width() >= 992) {
+            $('#planets').addClass('move');
+        }
         if(resizeTimer){
             clearTimeout(resizeTimer);
         }
@@ -30,20 +32,22 @@ $(document).ready(function(){
             if ($(window).width() >= 992) {
                 
                 planets = $("#planets").css('opacity','0').Cloud9Carousel( {
-                autoPlay: 0,
-                bringToFront: true,
-                yRadius: $('#planets').height()/2.5,
-                xRadius: $('#planets').width() / 2.3,
-                speed:1,
-                onLoaded: function( carousel ) {
-                    $('#planets').removeClass('move');
-                    $('#planets').css('opacity','1');
-                    $("#planets").data("carousel").go( 1 );
-                    $("#planets figure").eq(4).find('nav').addClass('active');
-                    source_array = coloredFigure(true);
-            } } );
+                    autoPlay: 0,
+                    bringToFront: true,
+                    yRadius: $('#planets').height()/2.5,
+                    xRadius: $('#planets').width() / 2.3,
+                    speed:1,
+                    onLoaded: function( carousel ) {
+                        $('#planets').removeClass('move');
+                        $('#planets').css('opacity','1');
+                        $("#planets").data("carousel").go( 1 );
+                        $("#planets figure").eq(4).find('nav').addClass('active');
+                        source_array = coloredFigure(true);
+                } } );
             } else {
-                $('#planets').removeClass('move');
+                if ($('#planets').hasClass('move')) {
+                    $('#planets').removeClass('move');
+                }
                 $('#planets').css('opacity','1');
                 $("#planets").data("carousel").deactivate();
                 $('#planets figure').removeAttr('style');

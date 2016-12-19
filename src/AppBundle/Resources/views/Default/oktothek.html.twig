@@ -18,9 +18,11 @@
     <div id="oktothek">
         <section class="participart bg-fullscreen">
             <div id="anchor_participart"></div>
-            <h2 id="button_down">Mitmachen <span class="icon participant-arrow-down"> </span></h2>
             {% if is_granted('ROLE_OKTOLAB_USER') %}
+            <h2 id="button_down">Willkommen {{ app.user.username }}<span class="icon participant-arrow-down"> </span></h2>
+            <article class="container"><p class="aligncenter subheadline">Viele neue Videos warten auf dich.</p></article>
             {% else %}
+            <h2 id="button_down">Mitmachen <span class="icon participant-arrow-down"> </span></h2>
             <article class="container">
                 <p class="aligncenter subheadline">Du platzt vor Ideen? Dann bist du bei uns richtig!</p>
                 <div class="aligncenter button_container"><a href="{{ path('bprs_user_login') }}" class="btn btn-default but-full">Melde Dich an!</a></div>

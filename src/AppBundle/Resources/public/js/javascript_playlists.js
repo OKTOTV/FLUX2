@@ -77,10 +77,17 @@ $(document).ready(function(){
         }
     }
     /* Ändert Playlistenbeschreibungs Status*/
-    $('#StartPlaylist').click(function(e){
+    function startPlaylist(e) {
         e.preventDefault();
         jwplayer('player').playlistItem($('.playme').eq(0).data('list'));
         closePlaylistDescr('min');
+    }
+    
+    $('#StartPlaylist_small').click(function(e){
+        startPlaylist(e);
+    });
+    $('#StartPlaylist').click(function(e){
+        startPlaylist(e);
     });
     $('.playlists header .btn.transparent').click(function() {
         closePlaylistDescr('min');

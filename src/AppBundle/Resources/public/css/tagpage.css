@@ -110,6 +110,9 @@ body.tagpage .inc-pins article figcaption p {
 body.tagpage .inc-pins article figcaption {
 	padding:0 5px 10px 5px;
 }
+body.tagpage .pin.empty {
+    display: none;
+}
 body.tagpage .pin.empty,
 body.tagpage .pin,
 body.tagpage .pin.empty figure.pin,
@@ -147,6 +150,9 @@ body.tagpage .pages .list-group-item {
     }*/
     body.tagpage .inc-pins div.pin {
         display:table-cell;
+    }
+    body.tagpage .pin.empty {
+        display: block;
     }
     body.tagpage .pin.empty,
     body.tagpage .pin {

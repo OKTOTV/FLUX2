@@ -94,7 +94,8 @@ h3,
 .participart .button_container .btn, 
 .btn.btn-top, 
 figcaption .description, 
-#planets .cloud9-item figcaption {
+#planets .cloud9-item figcaption,
+.login a.btn.but-full {
 	font-family: HelveticaNeueLTStd-Lt, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -126,7 +127,7 @@ header .navbar-toggle.menu-button span.icon-close,
 .page .content,
 button.btn-default#ButtonPlaylist .visible-xs-inline, 
 button.btn-default#ButtonShare .visible-xs-inline,
-.playlists #StartPlaylist.btn span.glyphicon {
+.playlists #StartPlaylist_small.btn span.glyphicon {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -277,6 +278,7 @@ header .nav {
 	letter-spacing: 0.75px;
 }
 .pin figcaption a,
+figure.pin a,
 .academy .pin .preview-content a, 
 .livestream .panel-heading a,
 .collapsePlaylist li a:hover,
@@ -340,7 +342,8 @@ select:focus:active {
 	.subheadline, 
     .participart .button_container .btn, 
     figcaption .description, 
-    .playlists header .description {
+    .playlists header .description,
+    .login a.btn.but-full {
 		font-size:19px;
 		letter-spacing: 0.1px;
 	}
@@ -599,10 +602,6 @@ header .icon.icon-login {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-header .navbar-nav .dropdown-menu, footer .dropdown-menu {
-	background-image:url(../images/speachbubble_small.png);
-    background-repeat:no-repeat;
-}
 header .navbar-nav .dropdown-menu {
 	background-position:150px top;
 }
@@ -612,7 +611,8 @@ footer .dropdown-menu {
 header .navbar-inverse .navbar-nav.navbar-right > li > a:hover, 
 header .navbar-inverse .navbar-nav.navbar-right > .active > a, 
 header .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, 
-header .navbar-inverse .navbar-nav > .active > a:focus {
+header .navbar-inverse .navbar-nav > .active > a:focus,
+header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	background-image:none;
 }
 
@@ -665,6 +665,10 @@ header .navbar-inverse .navbar-nav > .active > a:focus {
 	    background-repeat:repeat-x;
 	    background-position:left top;
 	}
+    header .navbar-nav .dropdown-menu, footer .dropdown-menu {
+	    background-image:url(../images/speachbubble_small.png);
+        background-repeat:no-repeat;
+    }
 	header .navbar-collapse .navbar-nav.themes/*, .navbar-inverse .navbar-nav.navbar-right > li > a:hover, .navbar-inverse .navbar-nav.navbar-right > .active > a, .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus*/ {
 		background-image:none;
 	}
@@ -771,6 +775,7 @@ a.tag:hover,
 }
 .form-control, 
 .oktothek article a.btn-default, 
+.login a.btn.but-full,
 .modal, button .btn-default.active, 
 .input-group-addon, 
 .collapseShare .btn-default, 
@@ -950,7 +955,10 @@ body.tagpage article.first-pin:hover { /* Mittleres Grau */
     background-color:#192e31;
 }
 /* Spacelayout */
-button .btn-default.but-full.active, 
+.oktothek a.btn-default.but-full.active, 
+.oktothek a.btn-default.but-full, 
+.login a.btn-default.but-full.active, 
+.login a.btn-default.but-full, 
 .btn-default:hover, 
 .btn-default:focus, 
 .btn-default:active, 
@@ -969,7 +977,6 @@ button .btn-default.but-full.active,
 .btn-primary.active:hover, 
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
-.oktothek article a.btn-default.but-full, 
 .input-group-addon,
 .oktothek .more figure.episode-pin a { /* Gelb */
 	background-color:#fcce14;
@@ -1199,8 +1206,9 @@ body.oktothek .more figure.episode-pin a {
 	border-radius: 20px;
 }
 .participart .button_container .btn, 
-#StartPlaylist.btn,
-body.tagpage .empty .icon-player {
+#StartPlaylist_small.btn,
+body.tagpage .empty .icon-player,
+.login a.btn.but-full {
 	-moz-border-radius:25px;
 	-khtml-border-radius:25px;
 	border-radius: 25px;
@@ -1225,7 +1233,7 @@ hr {
 	background-position:left center;
 	background-image:url(../images/hr_bg.png);
 }
-section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, footer nav  {
+section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, .login fieldset, footer nav  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border_small.png);
@@ -1243,7 +1251,8 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 .small-arrow-right {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/small_arrow_right.svg);
+	background-image:url(../images/small_arrow_right.png);
+    background-image:url(../images/small_arrow_right.svg), none;
 	-webkit-background-size: 40% 40%;
     -moz-background-size: 40% 40%;
     -o-background-size: 40% 40%;
@@ -1282,18 +1291,21 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 .playlists .mini-player {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/bg_favourite.svg);
+	background-image:url(../images/bg_favourite.png);
+    background-image:url(../images/bg_favourite.svg), none;
 }
 .participant-arrow-down {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/icon_down_arrow.svg);
+	background-image:url(../images/icon_down_arrow.png);
+    background-image:url(../images/icon_down_arrow.svg), none;
 }
 body.oktothek .participart {
 	background-image:url(../images/space.jpg);
 }
 body.oktothek .participart .button_container {
-	background-image:url(../images/planet3.svg);
+	background-image:url(../images/participate/planet3_oktothek.png);
+    background-image:url(../images/planet3.svg), none;
 	background-repeat:no-repeat;
 	background-position:center center;
 }
@@ -1401,7 +1413,8 @@ section:last-child,
 section.playlist_container,
 .edit-playlists form fieldset:last-child,
 .newsarchiv article:last-child,
-body.playlists section:first-child {
+body.playlists section:first-child,
+.login fieldset:last-child {
 	background-image:none;
 }
 @media (min-width: 420px) {
@@ -1410,7 +1423,7 @@ body.playlists section:first-child {
     }
 }
 @media (min-width: 768px) {
-    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, footer nav  {
+    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, .login fieldset, footer nav  {
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
 	    background-image:url(../images/section_border.png);
@@ -1602,7 +1615,7 @@ header .navbar-collapse .navbar-nav>li>a {
 header .navbar-collapse .navbar-nav.navbar-right > li > a {
 	margin-left:0;
 }
-header .navbar-collapse .navbar-nav span.icon-login {
+header .navbar-collapse .navbar-nav span.icon-login, header .navbar-collapse .navbar-nav span.glyphicon-bookmark {
 	margin-right:8px;
 }
 header .navbar-collapse .navbar-nav.themes {
@@ -2030,9 +2043,16 @@ body.academy section.newsletter form .input-group, body.academy .newsletter labe
     display:block;
 }
 .newsletter .input-group .form-control, 
-body.newsarchiv footer .newsletter .input-group .form-control, 
-body.newsarchiv .newsletter .input-group .form-control {
+body.newsarchiv footer .newsletter .input-group .form-control {
     width:200px;
+}
+body.newsarchiv .newsletter .input-group .form-control,
+body.news .newsletter .input-group .form-control {
+    width:160px;
+}
+body.newsarchiv .newsletter .input-group .input-group-addon, body.newsarchiv .news .input-group .input-group-addon {
+    padding-left:3px;
+    padding-right:3px;
 }
 body.newsarchiv .newsletter .input-group {
     width:100%;
@@ -2044,7 +2064,7 @@ body.academy .newsletter .input-group-btn {
 	margin:0 auto;
     width:300px;
 }
-.newsletter .input-group-addon, body.newsarchiv footer .newsletter .input-group-addon, footer .newsletter .input-group-addon {
+body.newsarchiv footer .newsletter .input-group-addon, footer .newsletter .input-group-addon, body.newsarchiv .newsletter .input-group-addon, body.news .newsletter .input-group-addon {
     width:100px;
     height:35px;
 }
@@ -2063,10 +2083,10 @@ footer .newsletter .input-group {
     margin-left:auto;
     margin-right:auto;
 }
-body.newsarchiv .newsletter .input-group-addon {
+/*body.newsarchiv .newsletter .input-group-addon {
     width:auto;
     padding:6px 10px;
-}
+}*/
 @media (min-width: 420px) {
     footer .newsletter .input-group {
 	    margin:0 auto;
@@ -2081,8 +2101,11 @@ body.newsarchiv .newsletter .input-group-addon {
         float:left;
     }
 }
-@media (min-width: 768px) {
-    
+@media (min-width: 1200px) {
+    body.newsarchiv .newsletter .input-group .form-control,
+body.news .newsletter .input-group .form-control {
+        width:200px;
+    }
 }
 
 
@@ -2151,7 +2174,7 @@ figure.pin img {
 figcaption p.more {
 	margin-bottom:15px;
 }
-figcaption p {
+figcaption p, .producer .series-pin h3 {
 	margin:2px 0 10px 0;
 }
 figcaption .subheadline, .page .subheadline {
@@ -2405,6 +2428,29 @@ body.episode .series, body.playlists .series {
 /*Formulare*/
 .form-control {
 	height:35px;
+}
+.login form {
+    width:320px;
+    margin:0 auto;
+}
+.login form button[type="submit"] {
+    display: block;
+    margin:20px auto;
+}
+.login form .registry .button-container {
+    text-align: center;
+}
+.login fieldset {
+    padding-bottom:20px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.login a.btn.but-full {
+    padding:12px 40x !important;
+    height: 50px;
+    border-radius: 25px;
+    vertical-align:middle;
+    line-height: 34px;
 }
 
 

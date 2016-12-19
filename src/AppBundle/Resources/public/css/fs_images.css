@@ -71,6 +71,9 @@ section.fs-image-content, section.fs-image-content {
 	margin-right:15px;
     padding:0 15px 15px 15px;
 }
+section.bg-fullscreen, section.episode-description, section.academy-description {
+    margin-top:0;
+}
 section.fs-image-content, .carousel-caption, .description-overlay .description-wrapper {
 	padding-bottom:0;
 }
@@ -160,9 +163,6 @@ body.playlists .fs-image-misc-mobile {
 	cursor:pointer;
 }
 @media (min-width: 401px) {
-	.description-overlay .description-wrapper a.pull-right {
-	    float:right !important;
-    }
 	.description-overlay .description-wrapper .more {
 		text-align:left;
 	    padding-top:0px;
@@ -217,7 +217,9 @@ body.playlists .fs-image-misc-mobile {
     }
 }
 @media (min-width: 768px) {
-	
+	.description-overlay .description-wrapper a.pull-right {
+	    float:right !important;
+    }
 	.carousel-caption h3, .series h1 {
 	    margin: 4px 0 20px 0;
     }

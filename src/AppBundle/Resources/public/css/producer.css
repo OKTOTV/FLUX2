@@ -41,6 +41,9 @@ body.producer .row.pin {
 body.producer .row.pin .pin {
     padding-bottom:20px;
 }
+body.producer .series-pin h3 {
+	margin:2px 0 10px 0;
+}
 body.producer .row.pin .pin img {
     width: 100%;
 }

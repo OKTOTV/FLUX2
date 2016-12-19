@@ -44,15 +44,15 @@
 .playlists section.player-container {
 	padding-top:20px;
 }
-.playlists #StartPlaylist.btn, .playlists #StartPlaylist.btn .glyphicon {
+.playlists #StartPlaylist_small.btn, .playlists #StartPlaylist.btn, .playlists #StartPlaylist.btn .glyphicon, .playlists #StartPlaylist_small.btn .glyphicon {
 	line-height:16px;
 }
-.playlists #StartPlaylist.btn {
+.playlists #StartPlaylist_small.btn {
     padding:0;
     width: 36px;
     margin-right:10px;
 }
-.playlists #StartPlaylist.btn .glyphicon {
+.playlists #StartPlaylist_small.btn .glyphicon {
 	vertical-align:middle;
 	top:0px;
 }
@@ -206,7 +206,7 @@
 }
 
 @media (min-width: 401px) {
-    #StartPlaylist.visible-xs-inline {
+    #StartPlaylist_small {
         margin-right:-60px;
     }
 }
@@ -243,6 +243,7 @@
     .playlists #StartPlaylist.btn {
         padding:8px 16px;
         width: auto;
+        margin-right:10px;
     }
     .playlists #StartPlaylist.btn .glyphicon {
 	    vertical-align:middle;
