@@ -283,6 +283,7 @@ figure.pin a,
 .livestream .panel-heading a,
 .collapsePlaylist li a:hover,
 a:hover.tag,
+a.pull-right.more,
 .btn-link:hover,
 .btn-link:active,
 .btn-link:active:focus {
@@ -722,6 +723,7 @@ body,
 .btn-link:active:focus,
 .episode .misc a, 
 a:hover, 
+a:hover.pull-right.more,
 select.form-control.ghost, 
 .oktothek article a.btn-default:hover, 
 a.play-episode.btn-default:hover, 
@@ -998,6 +1000,10 @@ body.tagpage header .misc .btn-default,
 .livestream header .navbar-default, 
 .livestream .schedule .panel-default > .panel-heading, 
 .livestream .navbar-nav .btn-default:hover,
+.livestream .navbar-nav .btn-default:focus, 
+.livestream .navbar-nav .btn-default:active, 
+.livestream .navbar-nav .btn-default:active:focus, 
+.livestream .navbar-nav .btn-default:active:hover,
 #episode-tag, 
 .list-group-item, 
 #favorite.btn-default:hover, 
@@ -1038,6 +1044,7 @@ button.btn-default#ButtonShare:hover {
 .academy .timetable li:first-child p:last-child {
     border-top:none;
 }
+a:hover.pull-right .icon, 
 .collapseShare .btn-default, 
 .container-episode-tag,
 .livestream #nav-programm a:hover .icon,
@@ -2074,7 +2081,7 @@ body.academy .newsletter .input-group-btn {
 	margin:0 auto;
     width:300px;
 }
-body.newsarchiv footer .newsletter .input-group-addon, footer .newsletter .input-group-addon, body.newsarchiv .newsletter .input-group-addon, body.news .newsletter .input-group-addon {
+body.newsarchiv footer .newsletter .input-group-addon, footer .newsletter .input-group-addon, body.newsarchiv .newsletter .input-group-addon, body.news .newsletter .input-group-addon, body.academy .newsletter .input-group-addon {
     width:100px;
     height:35px;
 }

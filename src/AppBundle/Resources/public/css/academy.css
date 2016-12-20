@@ -81,6 +81,9 @@ body.academy figcaption {
 body.academy .preview h4 {
 	margin-top:20px;
 }
+body.academy .preview .misc {
+    text-align: left;
+}
 body.academy .price {
 	margin-right:15px;
 }
