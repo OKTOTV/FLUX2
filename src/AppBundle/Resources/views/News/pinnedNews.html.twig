@@ -3,11 +3,11 @@
     <h2>{{ 'oktothek_news_pinned_header'|trans }}</h2>
     {% for post in posts %}
         <article class="row pin" title="{{ post.name }}">
-            <a href="{{ path('oktothek_show_news', {'slug': post.slug})}}">
+            <a href="{{ path('oktothek_show_news', {'slug': post.slug})}}" title="Mehr über {{ post.name }} lesen">
                 <figure class="col-md-3 col-lg-3 col-sm-6 col-xs-12 pin">
                     {% if post.assets is defined %}
                         {% if post.assets[0]|isImage() %}
-                            <img src="{{ post.assets[0]|thumb(200, 263) }}" />
+                            <img src="{{ post.assets[0]|thumb(200, 263) }}" alt="{{ post.name }}" />
                         {% endif %}
                     {% endif %}
                 </figure>
@@ -15,10 +15,10 @@
             <div class="news-pin pin col-md-9 col-lg-9 col-sm-6 col-xs-12">
                 <p class="tags">
                 {% for tag in post.tags %}
-                    <a class="tag" href="{{ path('oktothek_tag_show', {'slug': tag.slug}) }}">{{ tag }}</a>
+                    <a class="tag" href="{{ path('oktothek_tag_show', {'slug': tag.slug}) }}" title="Mehr zum Thema {{ tag }} lesen">{{ tag }}</a>
                 {% endfor %}
                 </p>
-                <h3><a href="{{ path('oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
+                <h3><a href="{{ path('oktothek_show_news', {'slug': post.slug})}}" title="Mehr über {{ post.name }} lesen">{{ post.name }}</a></h3>
                 <p>{{ post.teaser|nl2br }}</p>
             </div>
         </article>

@@ -127,6 +127,7 @@ header .navbar-toggle.menu-button span.icon-close,
 .page .content,
 button.btn-default#ButtonPlaylist .visible-xs-inline, 
 button.btn-default#ButtonShare .visible-xs-inline,
+button.btn-default#ButtonShare_mobil .visible-xs-inline,
 .playlists #StartPlaylist_small.btn span.glyphicon {
 		font-size:16px;
 	}
@@ -277,6 +278,7 @@ body.participate .close {
 header .nav {
 	letter-spacing: 0.75px;
 }
+#carousel a,
 .pin figcaption a,
 figure.pin a,
 .academy .pin .preview-content a, 
@@ -725,6 +727,8 @@ body,
 a:hover, 
 a:hover.pull-right.more,
 select.form-control.ghost, 
+#carousel a h3,
+#carousel a p.subheadline,
 .oktothek article a.btn-default:hover, 
 a.play-episode.btn-default:hover, 
 .news h3 a, 
@@ -1018,7 +1022,8 @@ body.tagpage header .misc .btn-default,
 .producer a.list-group-item:hover,
 body.tagpage .inc-pins article.pin.empty figure,
 button.btn-default#ButtonPlaylist:hover, 
-button.btn-default#ButtonShare:hover {
+button.btn-default#ButtonShare:hover,
+button.btn-default#ButtonShare_mobil:hover{
 	background-color:transparent;
 }
 @media (min-width: 580px) {
@@ -1130,7 +1135,7 @@ a:hover.pull-right .icon,
 body.tagpage .empty figure {
     border: solid 1px #112022;
 }
-/* Türkis */
+iframe,
 .form-control, 
 .newsarchiv article:first-child,
 header.page-header, 
@@ -1157,6 +1162,7 @@ header.page-header,
 .more-clips select.form-control option,
 button.btn-default#ButtonPlaylist, 
 button.btn-default#ButtonShare,
+button.btn-default#ButtonShare_mobil,
 .alert-success {
 	border:none;
 }
@@ -1320,7 +1326,7 @@ body.oktothek .participart-list li figure {
 	background-image:url(../images/participart_circle.png);
     background-image:url(../images/participart_circle.svg), none;
 	background-repeat:no-repeat;
-	background-position:center center;
+	background-position:center top;
 }
 body.oktothek .carousel-control.left span {
     background-image:url(../images/caret_left.png);

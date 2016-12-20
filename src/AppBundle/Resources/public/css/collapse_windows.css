@@ -57,7 +57,7 @@
 .collapseShare .share-buttons, .collapseShare .helptext {
     padding-top:20px;
 }
-#ButtonShare .share-btn-text {
+#ButtonShare .share-btn-text, #ButtonShare_mobil .share-btn-text {
     margin-right:5px;
 }
 .collapseShare h3 {
