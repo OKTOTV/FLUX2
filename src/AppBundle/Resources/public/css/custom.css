@@ -1310,20 +1310,24 @@ body.oktothek .participart .button_container {
 	background-position:center center;
 }
 body.oktothek .participart-list li figure {
-	background-image:url(../images/participart_circle.svg);
+	background-image:url(../images/participart_circle.png);
+    background-image:url(../images/participart_circle.svg), none;
 	background-repeat:no-repeat;
 	background-position:center center;
 }
 body.oktothek .carousel-control.left span {
-    background-image:url(../images/caret_left.svg);
+    background-image:url(../images/caret_left.png);
+    background-image:url(../images/caret_left.svg), none;
 	background-repeat:no-repeat;
 }
 body.oktothek .carousel-control.right span {
-    background-image:url(../images/caret_right.svg);
+    background-image:url(../images/caret_right.png);
+    background-image:url(../images/caret_right.svg), none;
 	background-repeat:no-repeat;
 }
 body.oktothek a.btn.login {
-	background-image:url(../images/icon_login.svg);
+	background-image:url(../images/icon_login.png);
+    background-image:url(../images/icon_login.svg), none;
 	background-repeat:no-repeat;
 	background-position:90px center;
 	-webkit-background-size: 50% 50%;
@@ -1334,7 +1338,8 @@ body.oktothek a.btn.login {
 body.oktothek a.btn.login:hover, 
 body.oktothek a.btn.login:focus, 
 body.oktothek a.btn.login:active {
-	background-image:url(../images/icon_login_hover.svg);
+	background-image:url(../images/icon_login_hover.png);
+    background-image:url(../images/icon_login_hover.svg), none;
 }
 body.oktothek .more figure.episode-pin {
     background-image:url(../images/img_8_1.png);
@@ -1374,31 +1379,36 @@ body.oktothek .more figure.episode-pin {
     background-image: url("../images/avantar_boy4.svg"), none;
 }
 .preview-icon span {
-	background-image:url(../images/icon_preview.svg);
+	background-image:url(../images/icon_preview.png);
+    background-image:url(../images/icon_preview.svg), none;
 	background-repeat:no-repeat;
 	background-position:center center;
 }
 .preview .collapse-header  {
-	background-image:url(../images/speachbubble.svg);
+	background-image:url(../images/speachbubble.png);
+    background-image:url(../images/speachbubble.svg), none;
 	background-repeat:no-repeat;
 	background-position:top left;
 }
 .playlists .playlists-arrow-down {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/icon_playlist_arrow.svg);
+	background-image:url(../images/icon_playlist_arrow.png);
+    background-image:url(../images/icon_playlist_arrow.svg), none;
 }
 .playlists .edit {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/icon_edit.svg);
+	background-image:url(../images/icon_edit.png);
+    background-image:url(../images/icon_edit.svg), none;
 	-webkit-background-size: 50% 50%;
     -moz-background-size: 50% 50%;
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
 .playlists .edit:hover {
-	background-image:url(../images/icon_edit_hover.svg);
+	background-image:url(../images/icon_edit_hover.png);
+    background-image:url(../images/icon_edit_hover.svg), none;
 }
 .bg-bleur, .fs-image div, body.oktothek .more figure.episode-pin, body.oktothek .participart {
 	/*background-image:url(../images/dummy_bleur_bg.jpg);*/

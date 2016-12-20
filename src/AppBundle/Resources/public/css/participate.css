@@ -82,25 +82,32 @@ body.participate {
 	background-position:center center;
 }
 .participate #planets .cloud9-item:nth-child(1) nav.sub-right li:nth-child(1) span {
-	background-image:url(../images/icon_participate_speechbubble.svg);
+	background-image:url(../images/icon_participate_speechbubble.png);
+    background-image:url(../images/icon_participate_speechbubble.svg), none;
 }
 .participate #planets .cloud9-item:nth-child(3) nav.sub-right li:nth-child(1) span {
-	background-image:url(../images/icon_participate_contact.svg);
+	background-image:url(../images/icon_participate_contact.png);
+    background-image:url(../images/icon_participate_contact.svg), none;
 }
 .participate #planets .cloud9-item:nth-child(3) nav.sub-right li:nth-child(2) span {
-	background-image:url(../images/icon_participate_feedback.svg);
+	background-image:url(../images/icon_participate_feedback.png);
+    background-image:url(../images/icon_participate_feedback.svg), none;
 }
 .participate #planets .cloud9-item:nth-child(4) nav.sub-left li:nth-child(2) span {
-	background-image:url(../images/icon_participate_info.svg);
+	background-image:url(../images/icon_participate_info.png);
+    background-image:url(../images/icon_participate_info.svg), none;
 }
 .participate #planets .cloud9-item:nth-child(5) nav.sub-left li:nth-child(1) span {
-	background-image:url(../images/icon_participate_upload.svg);
+	background-image:url(../images/icon_participate_upload.png);
+    background-image:url(../images/icon_participate_upload.svg), none;
 }
 .participate #planets .cloud9-item:nth-child(5) nav.sub-left li:nth-child(2) span {
-	background-image:url(../images/icon_participate_blackboard.svg);
+	background-image:url(../images/icon_participate_blackboard.png);
+    background-image:url(../images/icon_participate_blackboard.svg), none;
 }
 .participate #planets .cloud9-item:nth-child(5) nav.sub-right li:nth-child(1) span {
-	background-image:url(../images/icon_participate_5steps.svg);
+	background-image:url(../images/icon_participate_5steps.png);
+    background-image:url(../images/icon_participate_5steps.svg), none;
 }
 .participate #planets .cloud9-item:nth-child(1) nav.sub-right li:nth-child(2) span, .participate #planets .cloud9-item:nth-child(2) nav.sub-right li:nth-child(1) span, .participate #planets .cloud9-item:nth-child(4) nav.sub-left li:nth-child(1) span, .participate #planets .cloud9-item:nth-child(4) nav.sub-right li:nth-child(1) span {
 	/*background-image:url(../images/icon_participate_email.svg);*/
