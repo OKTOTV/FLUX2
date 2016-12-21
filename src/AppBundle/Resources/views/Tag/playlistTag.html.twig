@@ -7,7 +7,7 @@
                     <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}"><img src="{{ playlist.items[0].episode.posterframe|thumb(309,550) }}" class="img-responsive" alt="{{ playlist.name }}{% if playlist.user %}, {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}{% endif %}"/></a>
                     {% endif %}
                     <figcaption>
-                        <h3>{{ playlist.name }}</h3>
+                        <h3><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="{{ playlist.name }} ansehen">{{ playlist.name }}</a></h3>
                         <p>
                             {% if playlist.user %}
                             <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}" title="Mehr über {{ playlist.user.username }} erfahren">
