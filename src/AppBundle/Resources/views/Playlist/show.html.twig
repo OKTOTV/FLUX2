@@ -65,7 +65,7 @@
 		<article>
 		    <p class="series"><a href="#" title=""></a></p>
 		    <h2 class="name"></h2>
-			<time pubdate="pubdate">online seit <span class="date"></span></time>
+			<time pubdate="pubdate" datetime="">online seit <span class="date"></span></time>
 		    <p class="description"></p>
 			<p><a href="#" class="episodelink">Folgendetails</a></p>
 		</article>
@@ -76,17 +76,20 @@
         {% for playlistItem in playlist.items %}
         <li class="list-group-item clearfix">
             <article title="{{ playlistItem.episode.description }}" class="pin">
-                <figure class="col-md-2 col-lg-2 col-sm-3 col-xs-4 pin">
-				    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}">
-					<div class="mini-player"><span class="glyphicon glyphicon-play"> </span></div>
-                    <img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive"/></a>
+                <figure class="row">
+				    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-4 pin">
+                        <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}" title="{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }} ansehen">
+					       <div class="mini-player"><span class="glyphicon glyphicon-play"> </span></div>
+                            <img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive" alt="{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}"/>
+                        </a>
+                    </div>
+                    <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-8">
+                        <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}" title="{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }} ansehen">
+                            <h3 data-link="{{ path('oktothek_show_series', {'uniqID': playlistItem.episode.series.uniqID}) }}">{{ playlistItem.episode.series.name|default('') }}</h3>
+                            <p data-date="{{ playlistItem.episode.onlineStart|date('d.m.Y')}}">{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</p>
+                        </a>
+                    </figcaption>
                 </figure>
-                <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-8">
-                    <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}">
-                        <h3 data-link="{{ path('oktothek_show_series', {'uniqID': playlistItem.episode.series.uniqID}) }}">{{ playlistItem.episode.series.name|default('') }}</h3>
-                        <p data-date="{{ playlistItem.episode.onlineStart|date('d.m.Y')}}">{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</p>
-                    </a>
-                </figcaption>
             </article>
         </li>
         {% endfor %}
