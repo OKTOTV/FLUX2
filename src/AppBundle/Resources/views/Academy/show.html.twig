@@ -8,9 +8,10 @@
 {% set body_class = "academy" %}
 {% block body_main %}
     <header class="page-header">
-        <h1>{{ 'oktothek_academy_header'|trans }}</h1>
+        <!--<h1>{{ 'oktothek_academy_header'|trans }}</h1>-->
     </header>
     <section>
+        <h2>Empfohlen</h2>
         {% include "AppBundle:Academy:_courseStack.html.twig" with {'coursetypes': highlights} %}
     </section>
     <!-- Ende Highlights -->

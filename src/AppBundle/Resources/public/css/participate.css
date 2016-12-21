@@ -217,14 +217,14 @@ body.participate #univers #planets.move {
     -webkit-animation-fill-mode:forwards;
 }
 
-@keyframes move_figure { 
+@keyframes move_div { 
   	0%   {margin-top: 0px;}
     33%  {margin-top: 3px;}
 	66%  {margin-top: -3px;}
     100% {margin-top: 0px;}
 }
-#planets figure:hover {
-	animation: move_figure 3s infinite linear;
+#planets div:hover {
+	animation: move_div 3s infinite linear;
 }
 
 
@@ -259,17 +259,24 @@ body.participate .container, body.participate .footer {
 body.participate #planets .cloud9-item, #buttons button {
   cursor: pointer;
 }
-body.participate #planets figure {
+body.participate #planets div {
     position: relative;
     margin-bottom:0px;
     margin-left:5%;
     margin-right:5%;
 }
-body.participate figure img {
+body.participate div img {
     max-height: 100px;
     max-width: 100px;
 }
-body.participate figure:nth-child(2n+0) {
+body.participate figure .click_figure {
+    position: absolute;
+    display: block;
+    top:0;
+    width: 100%;
+    height: 100%;
+}
+body.participate div:nth-child(2n+0) {
     text-align: right;
 }
 
@@ -330,31 +337,31 @@ body.participate #planets nav.sub-left hr, body.participate #planets nav.sub-rig
 body.participate #planets .cloud9-item nav li span {
 	width:20px;
 	height:20px;
-    margin:8px 20px 0 -30px;
+    margin:8px 20px 0 -41px;
 }
 @media (min-width: 420px) {
-    body.participate figure img {
+    body.participate div img {
         max-height: 150px;
         max-width: 150px;
     }
-    body.participate #planets figure:first-child {
+    body.participate #planets div:first-child {
        top:0px;
     }
-    body.participate #planets figure:nth-child(2) {
+    body.participate #planets div:nth-child(2) {
         top:-100px;
     }
-    body.participate #planets figure:nth-child(3) {
+    body.participate #planets div:nth-child(3) {
         top:-100px;
     }
-    body.participate #planets figure:nth-child(4) {
+    body.participate #planets div:nth-child(4) {
         top:-150px;
     }
-    body.participate #planets figure:nth-child(5) {
+    body.participate #planets div:nth-child(5) {
         top:-150px;
     }
 }
 @media (min-width: 768px) {
-    body.participate figure img {
+    body.participate div img {
         max-height: 250px;
         max-width: 250px;
     }
@@ -380,13 +387,13 @@ body.participate #planets .cloud9-item nav li span {
         height:660px;
 	    padding-top:100px;
     }
-    body.participate #planets figure {
+    body.participate #planets div {
         margin:0px;
     }
-    body.participate #planets figure:first-child, body.participate #planets figure:nth-child(2), body.participate #planets figure:nth-child(3), body.participate #planets figure:nth-child(4), body.participate #planets figure:nth-child(5) {
+    body.participate #planets div:first-child, body.participate #planets div:nth-child(2), body.participate #planets div:nth-child(3), body.participate #planets div:nth-child(4), body.participate #planets div:nth-child(5) {
         top:auto;
     }
-    body.participate figure:nth-child(2n+0) {
+    body.participate div:nth-child(2n+0) {
         text-align: left;
     }
     body.participate #univers nav.active {
@@ -403,7 +410,7 @@ body.participate #planets .cloud9-item nav li span {
     body.participate #planets nav.sub-left li div.dot {
         float:right;
     }
-    body.participate figure img {
+    body.participate div img {
         max-height: 250px;
         max-width: 250px;
     }

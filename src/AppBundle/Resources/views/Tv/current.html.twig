@@ -2,7 +2,7 @@
     <header>
       <p class="current-episode">Derzeit auf Okto</p>
       <h1 class="name">{{ current.name|default(current.series_name)}}</h1>
-      <time>{{ current.airdate|date('Y.m.d H:i')}}</time>
+      <time datetime="{{ current.airdate|date('Y-m-d H:i')}}">{{ current.airdate|date('Y.m.d H:i')}}</time>
       <p class="description">{{ current.description }}</p>
     </header>
 </section>

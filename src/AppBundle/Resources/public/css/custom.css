@@ -2615,6 +2615,7 @@ footer .networks {
 .btn-top {
 	display:block;
 	margin:0 auto;
+    width: 70px;
 }
 /*#anchor-menu .panel-heading .glyphicon, .btn-top .glyphicon {
 	margin-left:5px;
