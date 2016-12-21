@@ -1,17 +1,22 @@
 <div class="row">
     {% for playlist in playlists|slice(0,5) %}
         {% if loop.first %}
-            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" data-toggle="tooltip" title="{{ playlist.description }}">
-                <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}">
-                    <figure class="playlist-pin pin">
-                        {% if playlist.items is not empty %}
-                            <img src="{{ playlist.items[0].episode.posterframe|thumb(309,550) }}" class="img-responsive"/>
-                        {% endif %}
-                        <figcaption>
-                            <h3>{{ playlist.name }}</h3>
-                        </figcaption>
-                    </figure>
-                </a>
+            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" data-toggle="tooltip" title="{{ playlist.description }} ansehen">
+                <figure class="playlist-pin pin">
+                    {% if playlist.items is not empty %}
+                    <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}"><img src="{{ playlist.items[0].episode.posterframe|thumb(309,550) }}" class="img-responsive" alt="{{ playlist.name }}{% if playlist.user %}, {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}{% endif %}"/></a>
+                    {% endif %}
+                    <figcaption>
+                        <h3>{{ playlist.name }}</h3>
+                        <p>
+                            {% if playlist.user %}
+                            <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}" title="Mehr über {{ playlist.user.username }} erfahren">
+                                {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}
+                            </a>
+                            {% endif %}
+                        </p>
+                    </figcaption>
+                </figure>
             </article>
             <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 small-pins">
         {% else %}
