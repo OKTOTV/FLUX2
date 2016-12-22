@@ -155,6 +155,7 @@ oktothek.episode_tag_header:            Tags
 oktothek_share_email:                   Email
 oktothek.success_publish_episode:       Episode veröffentlichen
 oktothek.episode_show_in_backend:       Im Backend anzeigen
+oktothek.episode_show_in_frontend:      Zum Frontend
 
 ## comment
 oktothek.comment_author:                %name% am <time>%date%</time>
@@ -492,7 +493,7 @@ oktothek.success_delete_slide:              Slide erfolgreich gelöscht
 oktothek.success_update_slide:              Slide erfolgreich aktualisiert
 oktothek.error_update_slide:                Slide konnte nicht aktualisiert werden
 
-oktothek_backend_slide_from_episode:        Slide generieren
+oktothek_backend_slide_from_episode:        <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Slide generieren
 
 # news
 ## index

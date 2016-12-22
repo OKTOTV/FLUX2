@@ -7,57 +7,80 @@
 {% block body_main %}
     <div class="page-header">
         <h1>{{ episode.name }}</h1>
-        <a href="{{ path('oktolab_episode_edit', {'episode': episode.uniqID}) }}" class="btn btn-default">Bearbeiten</a>
-        <a href="{{ path('oktothek_backend_slide_from_episode', {'uniqID': episode.uniqID})}}" class="btn btn-default">{{ 'oktothek_backend_slide_from_episode'|trans }}</a>
-        <a href="{{ path('oktolab_episode_encode', {'uniqID': episode.uniqID}) }}" class="btn btn-default">{{ 'oktolab_media.show_episode_add_to_encode_queue'|trans|raw }}</a>
-        {% if episode.technicalStatus >= 50 and episode.isActive == false %}
-        <a href="{{ path('oktothek_backend_publish_episode', {'uniqID': episode.uniqID })}}" class="btn btn-default">{{ 'oktothek.backend_episode_publish'|trans|raw }}</a>
-        {% endif %}
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'oktolab_media.episode_show_actions'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="{{ path('oktolab_episode_edit', {'episode': episode.uniqID}) }}">{{ 'oktolab_media.episode_edit_button'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktothek_backend_slide_from_episode', {'uniqID': episode.uniqID})}}">{{ 'oktothek_backend_slide_from_episode'|trans|raw }}</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ path('oktolab_episode_encode', {'uniqID': episode.uniqID}) }}">{{ 'oktolab_media.show_episode_add_to_encode_queue'|trans|raw }}</a></li>
+                {% if episode.technicalStatus >= 50 and episode.isActive == false %}
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{{ path('oktothek_backend_publish_episode', {'uniqID': episode.uniqID })}}" class="btn btn-default">{{ 'oktothek.backend_episode_publish'|trans|raw }}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" class="btn btn-default">{{ 'oktothek.episode_show_in_frontend'|trans }}</a>
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-7">
             {% if episode.video is not empty %}
                 <div id="video">
                 </div>
             {% elseif episode.posterframe is not empty %}
                 <img src="{{ episode.posterframe|path }}" class="img-responsive"/>
             {% endif %}
-            {{ episode.description|default('oktolab_media.show_episode_description_missing'|trans) }}
+            {{ episode.description|default('oktolab_media.show_episode_description_missing'|trans)|nl2br }}
+        </div>
+        <div class="col-md-5">
+            <h4>{{ 'oktolab_media_info_for_episode_header'|trans }}</h4>
+            <dl class="dl-horizontal">
+                <dt>{{ 'oktolab_media.episode_info_isActive'|trans }}</dt>
+                <dd>{{ 'oktolab_media.episode_info_isActive_choice'|transchoice( episode.isActive ) }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_createdAt'|trans }}</dt>
+                <dd>{{ episode.createdAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_updatedAt'|trans }}</dt>
+                <dd>{{ episode.updatedAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_onlineStart'|trans }}</dt>
+                <dd>{{ episode.onlineStart|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_onlineEnd'|trans}}</dt>
+                <dd>{% if episode.onlineEnd %}{{ episode.onlineEnd|date("d.m.Y H:i") }}{% endif %}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_firstranAt'|trans }}</dt>
+                <dd>{{ episode.firstranAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'okto_media.episode_info_series'|trans }}</dt>
+                <dd>
+                    {% if episode.series %}
+                        <a href="{{ path('oktolab_series_show', {'series': episode.series.uniqID})}}">{{ episode.series.name}}</a>
+                    {% endif %}
+                </dd>
+
+                <dt>{{ 'oktolab_media.episode_info_uniqID'|trans}}</dt>
+                <dd>{{ episode.uniqID }}</dd>
+            </dl>
+
+            <h4>{{ 'oktolab_media_media_for_episode_header'|trans }}</h4>
+            <div class="list-group">
+                {% for media in episode.media %}
+                    <a href="{{ path('oktolab_media_show_media', {'media': media.id })}}" class="list-group-item">{{ media.quality }}</a>
+                {% endfor %}
+                <a href="{{ path('oktolab_media_new_media', {'uniqID': episode.uniqID}) }}" class="list-group-item">{{ 'oktolab_media.episode_add_new_media'|trans|raw }}</a>
+            </div>
+
+            <h4>{{ 'oktolab_media.episode_show_captions_header'|trans }}</h4>
             <div class="list-group">
                 {% for caption in episode.captions %}
                     <a href="{{ path('oktolab_caption_show', {'caption': caption.id }) }}" class="list-group-item">{{ caption.label }}</a>
                 {% endfor %}
                 <a href="{{ path('oktolab_caption_new', {'uniqID': episode.uniqID}) }}" class="list-group-item">{{ 'oktolab_media.caption_new_button'|trans|raw }}</a>
             </div>
-        </div>
-        <div class="col-md-4">
-            <p>Aktiv: {{ episode.isActive }}</p>
-            <p>Angelegt am: {{ episode.createdAt|date("d.m.Y H:i") }}</p>
-            <p>Aktualisiert am: {{ episode.updatedAt|date("d.m.Y H:i") }}</p>
-            <p>Online von: {{ episode.onlineStart|date("d.m.Y H:i") }}</p>
-            <p>Erstausstrahlung am: {{ episode.firstranAt|date("d.m.Y H:i") }}</p>
-            <p>
-                {% if episode.series is not empty %}
-                    Sendereihe: <a href="{{ path('oktolab_series_show', {'series': episode.series.uniqID})}}">{{ episode.series.name|default('Keiner Sendereihe zugewiesen') }}</a>
-                {% else %}
-                    Keiner Sendereihe zugewiesen
-                {% endif %}
-            </p>
-            {% if episode.onlineEnd is empty %}
-                Online bis: nicht beschränkt
-            {% else %}
-                Online bis: {{ episode.onlineEnd|date("d.m.Y H:i") }}</p>
-            {% endif %}
-            <p>UniqID: {{ episode.uniqID }}</p>
-            <p>Technischer Status: {{ 'oktolab_media.show_episode_technical_state_choice'|transchoice(episode.technicalStatus) }}</p>
-            {% if episode.video is not empty %}
-                <a href="{{ path('bprs_asset_download', {'filekey': episode.video.filekey}) }}" class="btn btn-default"><span class="glyphicon glyphicon-download"></span>Video</a>
-            {% endif %}
-            {% if episode.posterframe is not empty %}
-                <a href="{{ path('bprs_asset_download', {'filekey': episode.posterframe.filekey}) }}" class="btn btn-default"><span class="glyphicon glyphicon-download"></span>Posterframe</a>
-            {% endif %}
-            <h2>{{ 'oktolab_media_media_for_episode_header'|trans }}</h2>
-            {{ render(controller('OktolabMediaBundle:Media:mediaForEpisode', {'uniqID': episode.uniqID})) }}
         </div>
     </div>
 {% endblock %}
