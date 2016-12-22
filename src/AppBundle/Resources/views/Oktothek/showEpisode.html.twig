@@ -7,7 +7,7 @@
 
 {% set fb_media = null %}
 {% for media in episode.media %}
-    {% if media.quality == "facebook" %}
+    {% if media.quality == "360p" %}
         {% set fb_media = media %}
     {% endif %}
 {% endfor %}
@@ -41,7 +41,7 @@
                 <h1 class="name">{{ episode.name }}</h1>
                 <time pubdate="pubdate" datetime="{{ episode.onlineStart|date('d.m.Y')}}">online seit {{ episode.onlineStart|date('d.m.Y')}}</time>
                 <p class="description">
-                    {{ episode.description }}
+                    {{ episode.description|nl2br }}
                 </p>
                 <p class="misc">
                     {% if app.user is empty %}

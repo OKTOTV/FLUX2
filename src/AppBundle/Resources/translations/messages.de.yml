@@ -155,6 +155,7 @@ oktothek.episode_tag_header:            Tags
 oktothek_share_email:                   Email
 oktothek.success_publish_episode:       Episode veröffentlichen
 oktothek.episode_show_in_backend:       Im Backend anzeigen
+oktothek.episode_show_in_frontend:      Zum Frontend
 
 ## comment
 oktothek.comment_author:                %name% am <time>%date%</time>
@@ -241,6 +242,16 @@ oktothek.series_episodes_onlineStart_filter: Datum
 oktothek.series_reachmes_header:        Mehr Infos über %series% gibt es hier!
 oktothek.series_show_blog:              Zum Blog
 oktothek.series_more_blog_entries:      Mehr Blogeinträge
+
+## series playlists
+oktothek_series_playlists_title:        %series% Playlisten
+oktothek.series_playlists_filter:       <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
+oktothek.series_playlists_name_filter:  Name
+oktothek.series_playlists_createdAt_filter: Datum
+
+## series blog
+oktothek.series_blog_header:            "%series%'s Blog"
+oktothek.series_back_to_root:           Zur Sendereihe
 
 ## series share
 oktothek_series.share_header:           Teilen
@@ -482,7 +493,7 @@ oktothek.success_delete_slide:              Slide erfolgreich gelöscht
 oktothek.success_update_slide:              Slide erfolgreich aktualisiert
 oktothek.error_update_slide:                Slide konnte nicht aktualisiert werden
 
-oktothek_backend_slide_from_episode:        Slide generieren
+oktothek_backend_slide_from_episode:        <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Slide generieren
 
 # news
 ## index
