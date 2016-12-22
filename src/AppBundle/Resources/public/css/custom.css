@@ -1534,6 +1534,7 @@ body.participate .close {
 }
 
 
+
 /****************************  Color, Effects Footer ****************************/
 
 footer .nav > li > a, 
@@ -1575,8 +1576,6 @@ footer .networks {
         color: #ffffff;
     }
 }
-
-
 
 .btn-top .icon-top {
 	background-repeat:no-repeat;
@@ -2508,6 +2507,16 @@ body.episode .series, body.playlists .series {
     border-radius: 25px;
     vertical-align:middle;
     line-height: 34px;
+}
+.login label {
+    border: 0 none;
+    clip: rect(0px, 0px, 0px, 0px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
 

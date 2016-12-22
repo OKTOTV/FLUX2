@@ -4,7 +4,10 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "fullscreen-images oktothek head-white-color head-transparent-bg" %}
+{% set body_class = "oktothek" %}
 {% block body_main %}
+<div class="container login">
+  <header class="page-header"><h1 class="form-signin-heading">Registrieren</h1></header>
     {{ form(form) }}
+</div>
 {% endblock %}

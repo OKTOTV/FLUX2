@@ -136,6 +136,36 @@ $(document).ready(function(){
 			posDescription($('.description-overlay'));
 		}
     });
+    
+    function changeCarouselOpacity() {
+        if ($(window).width() >= 768) {
+            $('#carousel figcaption a').mouseenter(function(){
+                $('#carousel figcaption .bg-opacity').animate({
+                    opacity: 0.8
+                }, 200);
+            });
+            $('#carousel figcaption a').mouseleave(function(){
+                $('#carousel figcaption .bg-opacity').animate({
+                    opacity: 0.7
+                }, 200);
+            });
+        } else {
+            $('#carousel figcaption .bg-opacity').removeAttr('style');
+        }
+        
+        /*$('.participant-arrow-down').mouseenter(function(){
+            $(this).addClass('jump');
+        });
+        $('.participant-arrow-down').mouseleave(function(){
+            $(this).removeClass('jump');
+        });*/
+    }
+    
+    changeCarouselOpacity();
+    $(window).on("resize orientationchange", function(){
+        changeCarouselOpacity();
+    });
+    
 	
 	//Anchor Oktothek und Serie:
 	$('#button_down').click(function() {

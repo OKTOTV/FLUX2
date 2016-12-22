@@ -244,6 +244,7 @@ body.playlists .fs-image-misc-mobile {
         vertical-align:bottom;
         margin-top:10px;
         margin-bottom:40px;
+        position: relative;
 	}
 	#button_down span {
 		position:absolute;
@@ -268,3 +269,16 @@ body.playlists .fs-image-misc-mobile {
 		display:block;
 	}
 }
+/* Animationen */
+/*@keyframes jump-arrow { 
+  from { 
+    0%   {margin-top: -13px;}
+    25%  {margin-top: -20px;}
+	50%  {margin-top: -10px;}
+    75%  {margin-top: -20px;}
+    100% {margin-top: -13px;}
+  } 
+}
+.jump {
+    animation: jump-arrow 2s infinite linear;
+}*/
