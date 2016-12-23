@@ -10,7 +10,7 @@
                         <h3><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="{{ playlist.name }} ansehen">{{ playlist.name }}</a></h3>
                         <p>
                             {% if playlist.user %}
-                            <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}" title="Mehr über {{ playlist.user.username }} erfahren">
+                            <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}" title="{{ playlist.user.username }} erfahren">
                                 {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}
                             </a>
                             {% endif %}

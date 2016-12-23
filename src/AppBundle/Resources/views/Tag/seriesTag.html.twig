@@ -3,11 +3,11 @@
         {% if loop.first %}
             <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ series.description }}">
                 <figure class="series-pin pin">
-                    <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="Mehr über {{ series.name }} lesen">
+                    <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}">
                         <img src="{{ series.posterframe|thumb(309,550) }}" class="img-responsive" alt="{{ series.name }}"/>
                     </a>
                     <figcaption>
-                        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="Mehr über {{ series.name }} lesen">
+                        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}">
                             <h3>{{ series.name }}</h3>
                         </a>
                     </figcaption>

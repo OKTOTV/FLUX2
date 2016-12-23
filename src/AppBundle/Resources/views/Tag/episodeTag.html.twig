@@ -8,7 +8,7 @@
                 </a>
                 <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
                 <figcaption>
-                    <h3><a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="Mehr über {{ episode.series.name|default('') }} lesen">{{ episode.series.name }}</a></h3>
+                    <h3><a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name|default('') }}">{{ episode.series.name }}</a></h3>
                     <p><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.name }} ansehen">{{ episode.name }}</a></p>
                 </figcaption>
             </figure>
