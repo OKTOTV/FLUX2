@@ -20,7 +20,7 @@ body.newsarchiv aside .box h3:first-child, body.news aside .box h3:first-child  
 	padding-top:0;
 	margin-top:0;
 }
-body.newsarchiv article:nth-child(2n+0) figure {
+body.newsarchiv article:nth-child(2n+0) figure, body.tagpage article:nth-child(2n+0) figure {
     float:right;
 }
 body.news .post-content img {
@@ -71,7 +71,7 @@ article.post {
 body.news .details .tags {
     text-align:left;
 }
-body.news figure+div, body.newsarchiv figure+div {
+body.news figure+div, body.newsarchiv figure+div, body.tagpage figure+div {
     margin-top:20px;
 }
 body.series .infos ul, body.series .blog aside ul  {
@@ -113,7 +113,7 @@ section.blog article.post + .comments {
     section.blog .post > div {
         padding-top:0;
     }
-    body.news figure+div, body.newsarchiv figure+div {
+    body.news figure+div, body.newsarchiv figure+div, body.tagpage figure+div {
         margin-top:0px;
     }
 }

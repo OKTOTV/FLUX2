@@ -61,7 +61,7 @@
                 </section>
             {% endif %}
             {% if pages is not empty %}
-                <section>
+                <section class="inc-pages">
                     <div id="anchor_pages"></div>
                     <h2>{{ 'oktothek_tag_pages_header'|trans }}</h2>
                     {% include "AppBundle::Tag/pagesTag.html.twig" with {'pages': tag.pages} %}
@@ -81,6 +81,7 @@
     {{ parent() }}
     <link href="{{ asset('bundles/app/css/tagpage.css') }}" rel="stylesheet" />
     <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/news.css') }}" rel="stylesheet" />
     <style type="text/css">
         .bg-bleur {
             {% if tag.episodes is not empty %}
