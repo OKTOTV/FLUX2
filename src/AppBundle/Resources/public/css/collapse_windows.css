@@ -129,6 +129,10 @@
     max-width: 500px;
     padding:0 15px;
 }
+.tagpage .inc-posts .collapseShare {
+    width:100%;
+    max-width:100%;
+}
 .academy section .collapse {
 	width: 100%;
 	clear:left;
