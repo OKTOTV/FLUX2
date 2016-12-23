@@ -41,6 +41,9 @@ ul.team {
 .team figure {
     margin-bottom:20px;
 }
+body.page iframe {
+    max-width: 100%;
+}
 
 @media (min-width: 580px) {
      .team li {

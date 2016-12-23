@@ -36,7 +36,7 @@ $(document).ready(function(){
 		posBubbletop();
 	}
     $( window ).on("resize orientationchange", function(){
-        if ($( window ).width() < 768) {
+        if ($('body').hasClass('episode') && $( window ).width() < 768) {
             posBubbletop();
         }
     });

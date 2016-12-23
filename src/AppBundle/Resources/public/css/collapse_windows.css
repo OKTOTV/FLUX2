@@ -3,7 +3,7 @@
 .collapsePlaylist ul, .collapsePlaylist li {
     list-style:none;
 }
-.tagpage .collapseShare .collapse-content, .preview .collapse-header {
+.tagpage .collapseShare .collapse-content, .preview .collapse-header, .clip_overview .collapseShare .collapse-content {
 	position:relative;
 }
 .collapseShare .socialnetworks {
@@ -45,7 +45,7 @@
 .collapseShare div, .preview .collapse-header {
 	margin:0;
 }
-.tagpage .collapseShare, .tagpage .collapse-header div {
+.tagpage .collapseShare, .tagpage .collapse-header div, .clip_overview .collapseShare, .clip_overview .collapse-header div {
 	margin:0 auto;
 }
 #collapseShare h3 { /* Überschrift Barrierefreiheit */
@@ -57,7 +57,7 @@
 .collapseShare .share-buttons, .collapseShare .helptext {
     padding-top:20px;
 }
-#ButtonShare .share-btn-text {
+#ButtonShare .share-btn-text, #ButtonShare_mobil .share-btn-text {
     margin-right:5px;
 }
 .collapseShare h3 {
@@ -75,10 +75,10 @@
 .academy section .collapse-content {
 	padding-bottom:20px;
 }
-.collapseWindow > div.collapse-content, .tagpage #collapseTagShare .content-opacity {
+.collapseWindow > div.collapse-content, .tagpage #collapseTagShare .content-opacity, .clip_overview #collapseTagShare .content-opacity {
 	padding:20px;
 }
-.collapseShare div, .tagpage .collapseShare, .preview .collapse-header {
+.collapseShare div, .tagpage .collapseShare, .clip_overview .collapseShare, .preview .collapse-header {
 	padding:0;
 }
 .collapseShare a  {
@@ -87,7 +87,7 @@
 .collapseShare .share-buttons  {
 	text-align:left;
 }
-.tagpage .collapseShare  {
+.tagpage .collapseShare, .clip_overview .collapseShare  {
 	text-align:center;
 }
 .collapseShare div, .collapseShare a, .collapseShare .helptext {
@@ -124,10 +124,14 @@
 .less {
     display:none;
 }
-.tagpage .collapseShare {
+.tagpage .collapseShare, .clip_overview .collapseShare {
 	width:100%;
     max-width: 500px;
     padding:0 15px;
+}
+.tagpage .inc-posts .collapseShare {
+    width:100%;
+    max-width:100%;
 }
 .academy section .collapse {
 	width: 100%;
@@ -152,7 +156,7 @@
     }
 }
 @media (min-width: 768px) {
-    .tagpage .collapseShare {
+    .tagpage .collapseShare, .clip_overview .collapseShare {
 	    width:500px;
         padding:0;
     }
@@ -182,7 +186,7 @@
     .collapsePlaylist .input-group {
 	    width:auto;
     }
-    .tagpage .collapseShare {
+    .tagpage .collapseShare, .clip_overview .collapseShare {
 	    width:770px;
         max-width:770px;
     }

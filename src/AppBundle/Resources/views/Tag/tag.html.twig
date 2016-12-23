@@ -51,21 +51,21 @@
                 </section>
             {% endif %}
             {% if posts is not empty %}
-                <section>
+                <section class="inc-posts">
                     <div id="anchor_posts"></div>
                     <h2>{{ 'oktothek_tag_posts_header'|trans }}</h2>
                     {% include "AppBundle::Tag/postsTag.html.twig" with {'posts': tag.posts} %}
-                    {% if posts|length > 5 %}
+                    {% if posts|length > 3 %}
                         <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
                     {% endif %}
                 </section>
             {% endif %}
             {% if pages is not empty %}
-                <section>
+                <section class="inc-pages">
                     <div id="anchor_pages"></div>
                     <h2>{{ 'oktothek_tag_pages_header'|trans }}</h2>
                     {% include "AppBundle::Tag/pagesTag.html.twig" with {'pages': tag.pages} %}
-                    {% if pages|length > 5 %}
+                    {% if pages|length > 6 %}
                         <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
                     {% endif %}
                 </section>
@@ -81,6 +81,7 @@
     {{ parent() }}
     <link href="{{ asset('bundles/app/css/tagpage.css') }}" rel="stylesheet" />
     <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/news.css') }}" rel="stylesheet" />
     <style type="text/css">
         .bg-bleur {
             {% if tag.episodes is not empty %}

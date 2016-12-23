@@ -23,29 +23,29 @@
         <div class="series-ident fs-image-ident description-overlay">
             <figure class="episode-posterframe fs-image">
                 <div style="background-image:url({{ series.posterframe|path() }});"></div>
-            </figure>
-            <figcaption class="current-episode description-wrapper">
-                <div class="container-bg-opacity">
-                    <div class="bg-opacity"></div>
-                </div>
-                <div class="content-opacity">
-                    <h1>{{ series.name }}</h1>
-                    <p class="facts"></p>
-                    <p class="description">
-                        {{ series.description }}</p>
-                    <p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
-                    <p class="misc">
-                    <button type="button" class="btn btn-default hidden-xs" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
-                    {% if app.user is not empty %}
-                        {% if in_abo %}
-                            <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
-                        {% else %}
-                            <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+                <figcaption class="current-episode description-wrapper">
+                    <div class="container-bg-opacity">
+                        <div class="bg-opacity"></div>
+                    </div>
+                    <div class="content-opacity">
+                        <h1>{{ series.name }}</h1>
+                        <p class="facts"></p>
+                        <p class="description">
+                            {{ series.description }}</p>
+                        <p class="more clear-fix"><a class="more pull-right">weiterlesen</a></p>
+                        <p class="misc">
+                        <button type="button" class="btn btn-default hidden-xs" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+                        {% if app.user is not empty %}
+                            {% if in_abo %}
+                                <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
+                            {% else %}
+                                <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
-                    </p>
-                </div>
-            </figcaption>
+                        </p>
+                    </div>
+                </figcaption>
+            </figure>
         </div>
         <div class="fs-image-misc-mobile">
             {% if app.user is not empty %}
@@ -55,7 +55,7 @@
                     <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
                 {% endif %}
             {% endif %}
-            <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare_mobil" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
         </div>
     </section>
     <section class="container episode-description">
@@ -66,7 +66,7 @@
         <header class="page-header"><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
         <article class="row">
             <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
-                <img src="{{ series.episodes[0].posterframe|path() }}" />
+                <img src="{{ series.episodes[0].posterframe|path() }}" alt="{{ series.episodes[0].description }}" />
             </figure>
             <div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
                 <div>
@@ -110,7 +110,7 @@
     <script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
     <script src="{{ asset('bundles/app/js/javascript_images.js') }}"></script>
 	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
-    <script text="type/javascript">
+    <script type="text/javascript">
         $(document).on('change', '#episode-tag', function(){
             var optionSelected = $("option:selected", this);
             console.log(optionSelected);

@@ -50,8 +50,8 @@ body.tagpage article.first,
 body.tagpage .inc-pins div.pin {
     vertical-align:top;
 }
-body.tagpage .row > .col-lg-6, 
-body.tagpage article.first, 
+body.tagpage .inc-pins .row > .col-lg-6, 
+body.tagpage .inc-pins article.first, 
 body.tagpage .inc-pins div.pin {
     float:none;
 }
@@ -142,6 +142,9 @@ body.tagpage .pages .list-group-item {
     margin-bottom: 2px;
     padding-top:13px;
     padding-bottom:13px;
+}
+body.tagpage .inc-pages h3 {
+    display: none;
 }
 @media (min-width: 580px) {
     /*body.tagpage .pin.empty,

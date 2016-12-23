@@ -59,7 +59,7 @@ body.oktothek .news-pin {
 .oktothek .participart article {
 	padding-bottom:40px;
 }
-.oktothek .participart article p {
+.oktothek .participart article p, .oktothek .participart article h4 {
 	margin-bottom:40px;
 }
 .oktothek .participart .but-full, #StartPlaylist.btn {
@@ -90,7 +90,7 @@ body.oktothek .news-pin {
 }
 .oktothek .participart-list li figure {
 	width:140px;
-	height:140px;
+	min-height:140px;
 	vertical-align:middle;
 	text-align:center;
 	line-height:140px;
@@ -98,6 +98,7 @@ body.oktothek .news-pin {
 }
 .oktothek .participart-list li figcaption {
 	margin-top:0;
+    line-height: 1.4em;
 }
 .oktothek .participart-list li:last-child {
 	margin-right:0px;

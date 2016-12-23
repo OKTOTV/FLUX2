@@ -36,10 +36,10 @@
             </figure>
             <article>
                 <p class="series">
-                    <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="Mehr über {{ episode.series.name }} erfahren">{{ episode.series.name }}</a>
+                    <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name }}">{{ episode.series.name }}</a>
                 </p>
                 <h1 class="name">{{ episode.name }}</h1>
-                <time pubdate="pubdate">online seit {{ episode.onlineStart|date('d.m.Y')}}</time>
+                <time pubdate="pubdate" datetime="{{ episode.onlineStart|date('d.m.Y')}}">online seit {{ episode.onlineStart|date('d.m.Y')}}</time>
                 <p class="description">
                     {{ episode.description|nl2br }}
                 </p>
