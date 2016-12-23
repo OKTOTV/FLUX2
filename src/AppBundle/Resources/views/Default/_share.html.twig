@@ -18,10 +18,10 @@
                         <li><a href="https://twitter.com/intent/tweet?url={{ site_url|default(app.request.uri)|url_encode }}" class="icon-twitter" target="_blank"><span>{{ 'oktothek_share_tw'|trans }}</span></a></li>
                         <li><a href="https://plus.google.com/share?url={{ site_url|default(app.request.uri)|url_encode }}" class="icon-googleplus" target="_blank"><span>{{ 'oktothek_share_gp'|trans }}</span></a></li>
                         {% if site_media is defined %}
-                            <li><a href="http://pinterest.com/pin/create/link/?url={{ site_url|default(app.request.uri)|url_encode }}&media="{{ site_media }} class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>{{'oktothek_share_pint'|trans}}</span></a></li>
+                            <li><a href="http://pinterest.com/pin/create/link/?url={{ site_url|default(app.request.uri)|url_encode }}&media={{ site_media }}" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>{{'oktothek_share_pint'|trans}}</span></a></li>
                         {% endif %}
                     </ul>
-                    <a href="mailto:?body={{ site_url|default(app.request.uri) }}" type="button" class="btn btn-default" data-toggle="tab" id="share_email">{{ 'oktothek_share_email'|trans }}</a>
+                    <a href="mailto:?body={{ site_url|default(app.request.uri) }}" class="btn btn-default" data-toggle="tab" id="share_email">{{ 'oktothek_share_email'|trans }}</a>
                 </div>
                 {% if site_embed is defined %}
                     <div class="row">

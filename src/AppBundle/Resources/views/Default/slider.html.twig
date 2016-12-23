@@ -10,19 +10,20 @@
   <div class="carousel-inner" role="listbox">
     {% for slide in slides %}
         <figure class="item {% if loop.index0 == 0 %}active{% endif %}">
-            <a href="{{ slide.link }}">
-                <img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%">
+            <a href="{{ slide.link }}"><img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%"></a>
                 <figcaption class="carousel-caption">
                     <div class="container-bg-opacity">
                         <div class="bg-opacity"></div>
                     </div>
+                    <a href="{{ slide.link }}">
                     <div class="content-opacity">
                         <p class="type">{{ 'oktothek.slide_type_choice'|transchoice(slide.slidetype) }}</p>
                         <h3>{{ slide.name }}</h3>
                         <p class="slide-content subheadline">{{ slide.description }}</p>
                     </div>
+                    </a>
                 </figcaption>
-            </a>
+            
         </figure>
     {% endfor %}
   </div>

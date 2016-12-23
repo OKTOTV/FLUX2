@@ -14,7 +14,7 @@ $(document).ready(function(){
         speed:1,
         onLoaded: function( carousel ) {
             $("#planets").data("carousel").go( 1 );
-            $("#planets figure").eq(4).find('nav').addClass('active');
+            $("#planets div.cloud9-item").eq(4).find('nav').addClass('active');
             source_array = coloredFigure(true);
         }
     } );
@@ -41,7 +41,7 @@ $(document).ready(function(){
                         $('#planets').removeClass('move');
                         $('#planets').css('opacity','1');
                         $("#planets").data("carousel").go( 1 );
-                        $("#planets figure").eq(4).find('nav').addClass('active');
+                        $("#planets div.cloud9-item").eq(4).find('nav').addClass('active');
                         source_array = coloredFigure(true);
                 } } );
             } else {
@@ -50,7 +50,7 @@ $(document).ready(function(){
                 }
                 $('#planets').css('opacity','1');
                 $("#planets").data("carousel").deactivate();
-                $('#planets figure').removeAttr('style');
+                $('#planets div.cloud9-item').removeAttr('style');
                 $('#planets').find('nav.active').removeClass('active');
                 source_array = coloredFigure(false);
             }
@@ -65,7 +65,7 @@ $(document).ready(function(){
     });
     
     function coloredFigure(newEl) {
-        var elNotActive = $("#planets figure");
+        var elNotActive = $("#planets div.cloud9-item");
         for (var i=0; i<elNotActive.length; i++) {
             var source = $(elNotActive[i]).find('img').attr('src');
             var source_array = source.split('/');
@@ -75,11 +75,11 @@ $(document).ready(function(){
                 new_source += source_array[m];
                 if (m != source_array.length - 1) new_source += "/";
             }
-            $('#planets figure').eq(i).find('img').attr('src',new_source);
+            $('#planets div.cloud9-item').eq(i).find('img').attr('src',new_source);
         }
         if (newEl == true) {
-            var el = $('#planets figure nav.active').parents('figure');
-            var index = $('#planets figure').index(el);
+            var el = $('#planets div.cloud9-item nav.active').parents('div');
+            var index = $('#planets div.cloud9-item').index(el);
             var source = el.find('img').attr('src');
             var source_array = source.split('/');
             source_array[source_array.length - 1] = img_array_act[index];
@@ -88,12 +88,11 @@ $(document).ready(function(){
                 new_source += source_array[i];
                 if (i != source_array.length - 1) new_source += "/";
             }
-        
-            $('#planets figure').eq(index).find('img').attr('src',new_source);
+            $('#planets div.cloud9-item').eq(index).find('img').attr('src',new_source);
         }
     }
     var close = false;
-    $('#planets figure').click(function(e) { 
+    $('#planets div.cloud9-item').click(function(e) { 
             if (close == false) {
                 $('#planets').find('nav.active').removeClass('active');
                 $(this).find('nav').addClass('active');

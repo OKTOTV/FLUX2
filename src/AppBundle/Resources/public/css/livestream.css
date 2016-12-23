@@ -170,7 +170,7 @@
 .livestream .navbar-nav a.btn span {
     line-height:34px;
     vertical-align:center;
-    top:0;
+    top:-2px;
 }
 @media (min-width: 420px) {
     .livestream .schedule .panel-heading time, 

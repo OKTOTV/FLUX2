@@ -10,7 +10,6 @@
 <header class="page-header">
     <h1>{{ 'oktothek.newest_episodes_header'|trans }}</h1>
 </header>
-</div>
 <section class="container">
     <div class="row pager-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -37,6 +36,7 @@
             </div>
         </div>
     </div>
+    <h2 class="sr-only">Episoden</h2>
     <div class="row">
         {% for episode in episodes %}
             {% include 'AppBundle:Default:EpisodeThumb.html.twig' %}

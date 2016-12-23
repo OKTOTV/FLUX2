@@ -127,6 +127,7 @@ header .navbar-toggle.menu-button span.icon-close,
 .page .content,
 button.btn-default#ButtonPlaylist .visible-xs-inline, 
 button.btn-default#ButtonShare .visible-xs-inline,
+button.btn-default#ButtonShare_mobil .visible-xs-inline,
 .playlists #StartPlaylist_small.btn span.glyphicon {
 		font-size:16px;
 	}
@@ -277,12 +278,14 @@ body.participate .close {
 header .nav {
 	letter-spacing: 0.75px;
 }
+#carousel a,
 .pin figcaption a,
 figure.pin a,
 .academy .pin .preview-content a, 
 .livestream .panel-heading a,
 .collapsePlaylist li a:hover,
 a:hover.tag,
+a.pull-right.more,
 .btn-link:hover,
 .btn-link:active,
 .btn-link:active:focus {
@@ -615,7 +618,17 @@ header .navbar-inverse .navbar-nav > .active > a:focus,
 header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	background-image:none;
 }
-
+@media (min-width: 420px) {
+    footer .dropdown-menu {
+	    background-image:url(../images/speachbubble_small.png);
+        background-repeat:no-repeat;
+    }
+    footer .dropdown-menu > li, 
+	footer .dropdown-menu > li > a:hover, 
+	footer .dropdown-menu > li > a:active {
+		background-color: #112022;
+	}
+}
 
 @media (min-width: 768px) {
 	/* Color */
@@ -665,7 +678,7 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	    background-repeat:repeat-x;
 	    background-position:left top;
 	}
-    header .navbar-nav .dropdown-menu, footer .dropdown-menu {
+    header .navbar-nav .dropdown-menu {
 	    background-image:url(../images/speachbubble_small.png);
         background-repeat:no-repeat;
     }
@@ -720,9 +733,13 @@ body,
 .btn-link:hover,
 .btn-link:active,
 .btn-link:active:focus,
+.collapseShare a.btn-default:hover, 
 .episode .misc a, 
 a:hover, 
+a:hover.pull-right.more,
 select.form-control.ghost, 
+#carousel a h3,
+#carousel a p.subheadline,
 .oktothek article a.btn-default:hover, 
 a.play-episode.btn-default:hover, 
 .news h3 a, 
@@ -959,6 +976,7 @@ body.tagpage article.first-pin:hover { /* Mittleres Grau */
 .oktothek a.btn-default.but-full, 
 .login a.btn-default.but-full.active, 
 .login a.btn-default.but-full, 
+.collapseShare a.btn-default:hover, 
 .btn-default:hover, 
 .btn-default:focus, 
 .btn-default:active, 
@@ -998,6 +1016,10 @@ body.tagpage header .misc .btn-default,
 .livestream header .navbar-default, 
 .livestream .schedule .panel-default > .panel-heading, 
 .livestream .navbar-nav .btn-default:hover,
+.livestream .navbar-nav .btn-default:focus, 
+.livestream .navbar-nav .btn-default:active, 
+.livestream .navbar-nav .btn-default:active:focus, 
+.livestream .navbar-nav .btn-default:active:hover,
 #episode-tag, 
 .list-group-item, 
 #favorite.btn-default:hover, 
@@ -1012,7 +1034,8 @@ body.tagpage header .misc .btn-default,
 .producer a.list-group-item:hover,
 body.tagpage .inc-pins article.pin.empty figure,
 button.btn-default#ButtonPlaylist:hover, 
-button.btn-default#ButtonShare:hover {
+button.btn-default#ButtonShare:hover,
+button.btn-default#ButtonShare_mobil:hover{
 	background-color:transparent;
 }
 @media (min-width: 580px) {
@@ -1038,6 +1061,7 @@ button.btn-default#ButtonShare:hover {
 .academy .timetable li:first-child p:last-child {
     border-top:none;
 }
+a:hover.pull-right .icon, 
 .collapseShare .btn-default, 
 .container-episode-tag,
 .livestream #nav-programm a:hover .icon,
@@ -1123,7 +1147,7 @@ button.btn-default#ButtonShare:hover {
 body.tagpage .empty figure {
     border: solid 1px #112022;
 }
-/* Türkis */
+iframe,
 .form-control, 
 .newsarchiv article:first-child,
 header.page-header, 
@@ -1150,6 +1174,7 @@ header.page-header,
 .more-clips select.form-control option,
 button.btn-default#ButtonPlaylist, 
 button.btn-default#ButtonShare,
+button.btn-default#ButtonShare_mobil,
 .alert-success {
 	border:none;
 }
@@ -1310,20 +1335,24 @@ body.oktothek .participart .button_container {
 	background-position:center center;
 }
 body.oktothek .participart-list li figure {
-	background-image:url(../images/participart_circle.svg);
+	background-image:url(../images/participart_circle.png);
+    background-image:url(../images/participart_circle.svg), none;
 	background-repeat:no-repeat;
-	background-position:center center;
+	background-position:center top;
 }
 body.oktothek .carousel-control.left span {
-    background-image:url(../images/caret_left.svg);
+    background-image:url(../images/caret_left.png);
+    background-image:url(../images/caret_left.svg), none;
 	background-repeat:no-repeat;
 }
 body.oktothek .carousel-control.right span {
-    background-image:url(../images/caret_right.svg);
+    background-image:url(../images/caret_right.png);
+    background-image:url(../images/caret_right.svg), none;
 	background-repeat:no-repeat;
 }
 body.oktothek a.btn.login {
-	background-image:url(../images/icon_login.svg);
+	background-image:url(../images/icon_login.png);
+    background-image:url(../images/icon_login.svg), none;
 	background-repeat:no-repeat;
 	background-position:90px center;
 	-webkit-background-size: 50% 50%;
@@ -1334,7 +1363,8 @@ body.oktothek a.btn.login {
 body.oktothek a.btn.login:hover, 
 body.oktothek a.btn.login:focus, 
 body.oktothek a.btn.login:active {
-	background-image:url(../images/icon_login_hover.svg);
+	background-image:url(../images/icon_login_hover.png);
+    background-image:url(../images/icon_login_hover.svg), none;
 }
 body.oktothek .more figure.episode-pin {
     background-image:url(../images/img_8_1.png);
@@ -1374,31 +1404,36 @@ body.oktothek .more figure.episode-pin {
     background-image: url("../images/avantar_boy4.svg"), none;
 }
 .preview-icon span {
-	background-image:url(../images/icon_preview.svg);
+	background-image:url(../images/icon_preview.png);
+    background-image:url(../images/icon_preview.svg), none;
 	background-repeat:no-repeat;
 	background-position:center center;
 }
 .preview .collapse-header  {
-	background-image:url(../images/speachbubble.svg);
+	background-image:url(../images/speachbubble.png);
+    background-image:url(../images/speachbubble.svg), none;
 	background-repeat:no-repeat;
 	background-position:top left;
 }
 .playlists .playlists-arrow-down {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/icon_playlist_arrow.svg);
+	background-image:url(../images/icon_playlist_arrow.png);
+    background-image:url(../images/icon_playlist_arrow.svg), none;
 }
 .playlists .edit {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/icon_edit.svg);
+	background-image:url(../images/icon_edit.png);
+    background-image:url(../images/icon_edit.svg), none;
 	-webkit-background-size: 50% 50%;
     -moz-background-size: 50% 50%;
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
 .playlists .edit:hover {
-	background-image:url(../images/icon_edit_hover.svg);
+	background-image:url(../images/icon_edit_hover.png);
+    background-image:url(../images/icon_edit_hover.svg), none;
 }
 .bg-bleur, .fs-image div, body.oktothek .more figure.episode-pin, body.oktothek .participart {
 	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
@@ -1499,13 +1534,15 @@ body.participate .close {
 }
 
 
+
 /****************************  Color, Effects Footer ****************************/
 
 footer .nav > li > a, 
 footer .nav > li > a:active, 
 footer .nav > li > a:hover, 
 #anchor-menu .panel-default > .panel-heading, 
-.btn.btn-top:hover {
+.btn.btn-top:hover,
+footer .open .dropdown-menu > li > a:hover  {
 	color:#ffffff;
 }
 .btn.btn-top,
@@ -1513,6 +1550,9 @@ footer .nav .open > a,
 footer .nav .open > a:focus,
 footer .nav .open > a:hover {
 	color:#fcce14;
+}
+footer .open .dropdown-menu > li > a {
+    color: #9d9d9d;
 }
 
 #anchor-menu .panel-default > .panel-heading, footer {
@@ -1531,7 +1571,11 @@ footer .networks {
 footer .networks {
 	background-color:#112022;
 }
-
+@media (min-width: 768px) {
+    footer .open .dropdown-menu > li > a {
+        color: #ffffff;
+    }
+}
 
 .btn-top .icon-top {
 	background-repeat:no-repeat;
@@ -2000,11 +2044,23 @@ select#episode-tag::-ms-expand { /* for IE 11 */
 button.dropdown-toggle .glyphicon-sort-by-alphabet {
     display:none;
 }
+footer .open .dropdown-menu {
+    position: static;
+    width: 100%;
+}
+@media (min-width: 420px) {
+    footer .open .dropdown-menu {
+        position: absolute;
+    }
+    footer .dropdown-menu {
+		padding:15px 0 0 0;
+	}
+}
 @media (min-width: 768px) {
     .dropdown-menu {
 		padding:0;
 	}
-    header .navbar-nav .dropdown-menu, footer .dropdown-menu {
+    header .navbar-nav .dropdown-menu {
 		padding:15px 0 0 0;
 	}
 	header .open .dropdown-menu .dropdown-header, header .open .dropdown-menu > li > a {
@@ -2064,7 +2120,7 @@ body.academy .newsletter .input-group-btn {
 	margin:0 auto;
     width:300px;
 }
-body.newsarchiv footer .newsletter .input-group-addon, footer .newsletter .input-group-addon, body.newsarchiv .newsletter .input-group-addon, body.news .newsletter .input-group-addon {
+body.newsarchiv footer .newsletter .input-group-addon, footer .newsletter .input-group-addon, body.newsarchiv .newsletter .input-group-addon, body.news .newsletter .input-group-addon, body.academy .newsletter .input-group-addon {
     width:100px;
     height:35px;
 }
@@ -2452,6 +2508,16 @@ body.episode .series, body.playlists .series {
     vertical-align:middle;
     line-height: 34px;
 }
+.login label {
+    border: 0 none;
+    clip: rect(0px, 0px, 0px, 0px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
 
 
 /* Content allgemein */
@@ -2523,7 +2589,7 @@ footer .nav > li, footer .partner li {
 	width:auto;
 }
 footer .nav > li.languages a  {
-    margin-left:-19px;
+    margin-left:0px;
 }
 footer .networks div.col-md-6:last-child {
     padding-left:0;
@@ -2590,6 +2656,7 @@ footer .networks {
 .btn-top {
 	display:block;
 	margin:0 auto;
+    width: 70px;
 }
 /*#anchor-menu .panel-heading .glyphicon, .btn-top .glyphicon {
 	margin-left:5px;
@@ -2616,6 +2683,9 @@ footer .networks {
     }
     footer section.partner {
 	    padding-top:35px;
+    }
+    footer .nav > li.languages a  {
+        margin-left:-19px;
     }
 }
 @media (min-width: 768px) {
