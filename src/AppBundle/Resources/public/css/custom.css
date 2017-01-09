@@ -281,6 +281,8 @@ header .nav {
 #carousel a,
 .pin figcaption a,
 figure.pin a,
+.container.tags a:hover,
+.container.tags a:focus,
 .academy .pin .preview-content a, 
 .livestream .panel-heading a,
 .collapsePlaylist li a:hover,
@@ -288,14 +290,16 @@ figure.pin a,
 a:hover.tag,
 a:focus.tag,
 a.pull-right.more,
-.news h3 a:hover,
-.news h3 a:focus,
 .btn-link:hover,
 .btn-link:focus,
 .btn-link:active,
 .btn-link:active:focus,
 .participart-list a:hover,
-.participart-list a:focus {
+.participart-list a:focus,
+.blog aside a.more:hover,
+.blog aside a.more:focus,
+.tagpage .pages > .list-group-item > a:hover, 
+.tagpage .pages > .list-group-item > a:focus {
 	text-decoration:none;
 }
 a, 
@@ -760,9 +764,13 @@ select.form-control.ghost,
 #carousel a p.subheadline,
 .oktothek article a.btn-default:hover, 
 .oktothek article a.btn-default:focus, 
+.registry a.btn-default.but-full:hover, 
+.registry a.btn-default.but-full:focus, 
 a.play-episode.btn-default:hover,
 a.play-episode.btn-default:focus,
 .news h3 a, 
+.news-pin.pin h3 a:hover, 
+.news-pin.pin h3 a:focus, 
 .post h3 a, 
 .pin h3 a, 
 .pin a h3, 
@@ -813,7 +821,12 @@ a.tag:hover,
 a.tag:focus,
 .alert-success,
 button.input-group-addon:hover,
-button.input-group-addon:focus {
+button.input-group-addon:focus,
+.container.tags a:hover,
+.container.tags a:focus,
+.post a.tag:hover,
+.post a.tag:focus,
+.blog aside a.more {
 	color:#ffffff;
 }
 .form-control, 
@@ -888,8 +901,6 @@ button.list-group-item,
 a, 
 a.more,
 .btn-link,
-.news h3 a:hover, 
-.news h3 a:focus, 
 .pin h3 a:hover,
 .pin h3 a:focus,
 .pin a:hover h3, 
@@ -899,6 +910,8 @@ a.more,
 .pin figcaption a:hover p, 
 .pin figcaption a:focus p, 
 .pin a:hover figcaption p, 
+.blog aside a.more:hover,
+.blog aside a.more:focus,
 body.livestream .schedule li a:hover h4,
 body.livestream .schedule li a:focus h4,
 body.participate .close,
@@ -929,8 +942,10 @@ button.list-group-item-danger:hover,
 body, 
 .bg-opacity, 
 select, 
-.oktothek article a.btn-default:hover, 
-.oktothek article a.btn-default:focus, 
+.oktothek article a.btn-default.but-full:hover, 
+.oktothek article a.btn-default.but-full:focus, 
+.registry a.btn-default.but-full:hover, 
+.registry a.btn-default.but-full:focus, 
 body.tagpage .content-bg, 
 .preloader,
 .tabs-content .pagination > .disabled > a, 
@@ -1008,7 +1023,8 @@ body.tagpage .inc-pins article.pin figure:focus,
 body.tagpage .inc-pins article.pin:hover figure,
 body.tagpage .inc-pins article.pin:focus figure,
 body.tagpage article.first-pin:hover,
-body.tagpage article.first-pin:focus { /* Mittleres Grau */
+body.tagpage article.first-pin:focus,
+.tagpage .pages > .list-group-item:hover { /* Mittleres Grau */
     background-color:#192e31;
 }
 /* Spacelayout */
@@ -1043,6 +1059,8 @@ body.tagpage article.first-pin:focus { /* Mittleres Grau */
 .btn.active, 
 .btn:active,
 .btn:focus,
+button.btn:active,
+button.btn:focus,
 button.input-group-addon:focus,
 button.input-group-addon:active {
     background-color:#d9b112;
@@ -1286,6 +1304,12 @@ body.tagpage .empty .icon-player,
 	-moz-border-radius:25px;
 	-khtml-border-radius:25px;
 	border-radius: 25px;
+}
+.btn:focus, button.dropdown-toggle:focus {
+    outline-offset: 2px;
+}
+button.dropdown-toggle:focus {
+    outline:dotted 1px #ffffff;
 }
 @media (min-width: 768px) {
     button.btn-default#ButtonPlaylist, 
