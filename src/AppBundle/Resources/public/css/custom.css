@@ -284,11 +284,18 @@ figure.pin a,
 .academy .pin .preview-content a, 
 .livestream .panel-heading a,
 .collapsePlaylist li a:hover,
+.collapsePlaylist li a:focus,
 a:hover.tag,
+a:focus.tag,
 a.pull-right.more,
+.news h3 a:hover,
+.news h3 a:focus,
 .btn-link:hover,
+.btn-link:focus,
 .btn-link:active,
-.btn-link:active:focus {
+.btn-link:active:focus,
+.participart-list a:hover,
+.participart-list a:focus {
 	text-decoration:none;
 }
 a, 
@@ -433,6 +440,7 @@ header .navbar-inverse .navbar-nav > li > a:focus,
 .navbar-inverse .navbar-nav > .active > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus, 
 header form button[type="submit"], 
+header .btn:focus, 
 header input.form-control, 
 header #dropdownMenuTags.btn-default, 
 header #dropdownMenuTags.btn-default:hover, 
@@ -734,20 +742,26 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 body,
 .btn-default, 
 .btn-default:hover, 
-.btn-default:active, 
+.btn-default:active,
+.btn-default:focus,
 .btn-default:active:focus, 
 .btn-link:hover,
 .btn-link:active,
+.btn-link:focus,
 .btn-link:active:focus,
 .collapseShare a.btn-default:hover, 
 .episode .misc a, 
 a:hover, 
+a:focus, 
 a:hover.pull-right.more,
+a:focus.pull-right.more,
 select.form-control.ghost, 
 #carousel a h3,
 #carousel a p.subheadline,
 .oktothek article a.btn-default:hover, 
-a.play-episode.btn-default:hover, 
+.oktothek article a.btn-default:focus, 
+a.play-episode.btn-default:hover,
+a.play-episode.btn-default:focus,
 .news h3 a, 
 .post h3 a, 
 .pin h3 a, 
@@ -761,12 +775,15 @@ a .pin-icon,
 .btn-default:focus, 
 .btn-default:active:hover, 
 .btn-default.active:hover, 
+.btn-default.active:focus, 
 .btn-default.focus:active, 
 .btn-default.active.focus, 
 .btn-primary:focus, 
 .btn-primary:active:hover, 
 .btn-primary.active:hover, 
+.btn-primary.active:focus, 
 .btn-primary.focus:active, 
+.btn-primary.focus:focus, 
 .btn-primary.active.focus, 
 a.list-group-item-danger, 
 button.list-group-item-danger, 
@@ -793,7 +810,10 @@ body.producer ul.list-group .pin a h3,
 .pagination > li > a, 
 .pagination > li > span,
 a.tag:hover,
-.alert-success {
+a.tag:focus,
+.alert-success,
+button.input-group-addon:hover,
+button.input-group-addon:focus {
 	color:#ffffff;
 }
 .form-control, 
@@ -856,6 +876,8 @@ a.tag,
     color: #818181;
 }
 a.list-group-item, 
+.participart-list a:hover,
+.participart-list a:focus,
 button.list-group-item,
 .color1 a, 
 .active .color1.pin a h3, 
@@ -867,14 +889,21 @@ a,
 a.more,
 .btn-link,
 .news h3 a:hover, 
-.pin h3 a:hover, 
+.news h3 a:focus, 
+.pin h3 a:hover,
+.pin h3 a:focus,
 .pin a:hover h3, 
+.pin a:focus h3, 
 .pin figcaption p a:hover, 
+.pin figcaption p a:focus, 
 .pin figcaption a:hover p, 
+.pin figcaption a:focus p, 
 .pin a:hover figcaption p, 
 body.livestream .schedule li a:hover h4,
+body.livestream .schedule li a:focus h4,
 body.participate .close,
-body.tagpage .pages .list-group-item a:hover /*Gelb*/ {
+body.tagpage .pages .list-group-item a:hover,
+body.tagpage .pages .list-group-item a:focus /*Gelb*/ {
 	color: #fcce14;
 }
 a.list-group-item-danger:focus, 
@@ -901,6 +930,7 @@ body,
 .bg-opacity, 
 select, 
 .oktothek article a.btn-default:hover, 
+.oktothek article a.btn-default:focus, 
 body.tagpage .content-bg, 
 .preloader,
 .tabs-content .pagination > .disabled > a, 
@@ -972,9 +1002,13 @@ body.tagpage .pages .list-group-item { /* Dunkelgrau */
 	background-color:#112022;
 }
 article.pin figure.pin:hover,
+article.pin figure.pin:focus,
 body.tagpage .inc-pins article.pin figure:hover,
+body.tagpage .inc-pins article.pin figure:focus,
 body.tagpage .inc-pins article.pin:hover figure,
-body.tagpage article.first-pin:hover { /* Mittleres Grau */
+body.tagpage .inc-pins article.pin:focus figure,
+body.tagpage article.first-pin:hover,
+body.tagpage article.first-pin:focus { /* Mittleres Grau */
     background-color:#192e31;
 }
 /* Spacelayout */
@@ -982,7 +1016,8 @@ body.tagpage article.first-pin:hover { /* Mittleres Grau */
 .oktothek a.btn-default.but-full, 
 .login a.btn-default.but-full.active, 
 .login a.btn-default.but-full, 
-.collapseShare a.btn-default:hover, 
+.collapseShare a.btn-default:hover,
+.collapseShare a.btn-default:focus,
 .btn-default:hover, 
 .btn-default:focus, 
 .btn-default:active, 
@@ -1006,7 +1041,10 @@ body.tagpage article.first-pin:hover { /* Mittleres Grau */
 	background-color:#fcce14;
 }
 .btn.active, 
-.btn:active {
+.btn:active,
+.btn:focus,
+button.input-group-addon:focus,
+button.input-group-addon:active {
     background-color:#d9b112;
 }
 a.list-group-item-danger, 
@@ -1040,8 +1078,11 @@ body.tagpage header .misc .btn-default,
 .producer a.list-group-item:hover,
 body.tagpage .inc-pins article.pin.empty figure,
 button.btn-default#ButtonPlaylist:hover, 
+button.btn-default#ButtonPlaylist:focus, 
 button.btn-default#ButtonShare:hover,
-button.btn-default#ButtonShare_mobil:hover{
+button.btn-default#ButtonShare:focus,
+button.btn-default#ButtonShare_mobil:hover,
+button.btn-default#ButtonShare_mobil:focus {
 	background-color:transparent;
 }
 @media (min-width: 580px) {
@@ -1050,8 +1091,10 @@ button.btn-default#ButtonShare_mobil:hover{
     }
 }
 @media (min-width: 768px) {
-    button.btn-default#ButtonPlaylist:hover, 
-    button.btn-default#ButtonShare:hover {
+    button.btn-default#ButtonPlaylist:hover,
+    button.btn-default#ButtonPlaylist:focus,
+    button.btn-default#ButtonShare:hover,
+    button.btn-default#ButtonShare:focus {
 	    background-color:#fcce14;
     }
 }
@@ -1538,6 +1581,12 @@ body.participate .close {
 	-moz-text-shadow: none;
 	text-shadow: none;
 }
+.socialnetworks a:hover,
+.socialnetworks a:focus {
+    opacity: 0.7;
+    -moz-opacity: 0.7;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
+}
 
 
 
@@ -1546,15 +1595,20 @@ body.participate .close {
 footer .nav > li > a, 
 footer .nav > li > a:active, 
 footer .nav > li > a:hover, 
+footer .nav > li > a:focus, 
 #anchor-menu .panel-default > .panel-heading, 
 .btn.btn-top:hover,
-footer .open .dropdown-menu > li > a:hover  {
+.btn.btn-top:focus,
+footer .open .dropdown-menu > li > a:hover,
+footer .open .dropdown-menu > li > a:focus {
 	color:#ffffff;
 }
 .btn.btn-top,
+footer .nav > li > a:hover,
+footer .nav > li > a:focus,
 footer .nav .open > a, 
 footer .nav .open > a:focus,
-footer .nav .open > a:hover {
+footer .nav .open > a:hover /* Gelb */ {
 	color:#fcce14;
 }
 footer .open .dropdown-menu > li > a {
@@ -1566,7 +1620,9 @@ footer .open .dropdown-menu > li > a {
 }
 footer .nav > li > a:active, 
 footer .nav > li > a:hover, 
+footer .nav > li > a:focus, 
 .btn.btn-top:hover, 
+.btn.btn-top:focus, 
 footer.footer,
 footer .nav .open > a, 
 footer .nav .open > a:focus, 
@@ -1580,6 +1636,10 @@ footer .networks {
 @media (min-width: 768px) {
     footer .open .dropdown-menu > li > a {
         color: #ffffff;
+    }
+    footer .open .dropdown-menu > li > a:hover,
+    footer .open .dropdown-menu > li > a:focus {
+        color:#fcce14;
     }
 }
 
@@ -1608,6 +1668,9 @@ footer section {
 #anchor-menu .panel > .list-group .list-group-item, 
 #anchor-menu .panel > .panel-collapse > .list-group .list-group-item {
 	border-width:0;
+}
+.btn.btn-top {
+    outline-offset: 2px;
 }
 
 /****************************  Color, Effects Backend ****************************/

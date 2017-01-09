@@ -88,6 +88,12 @@ body.oktothek .news-pin {
     text-align: center;
     padding-right:10px;
 }
+.oktothek .participart-list li figure a {
+    padding-right:0px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 .oktothek .participart-list li figure {
 	width:140px;
 	min-height:140px;
