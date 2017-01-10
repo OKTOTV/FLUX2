@@ -269,6 +269,17 @@ body.playlists .fs-image-misc-mobile {
 		display:block;
 	}
 }
+
+@media (min-width: 1200px) {
+    .carousel-indicators .active {
+        width: 16px;
+        height: 16px;
+    }
+    .carousel-indicators li {
+        width: 14px;
+        height: 14px;
+    }
+}
 /* Animationen */
 /*@keyframes jump-arrow { 
   from { 
