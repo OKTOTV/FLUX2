@@ -16,7 +16,7 @@
     <section>
     <h2>Termine</h2>
     {% for date in course.dates %}
-        <p>{{ date.courseStart|date('H:i d.m.Y')}} - {{ date.courseEnd|date('H:i d.m.Y')}}</p>
+        <p>{{ date.courseStart|date('D, d.m.Y H:i')}} - {{ date.courseEnd|date('D, d.m.Y H:i')}}</p>
     {% endfor %}
     {% if course.coursetype.price <= 0 %}
         <p>{{ 'oktothek_academy_course_free'|trans }}</p>
