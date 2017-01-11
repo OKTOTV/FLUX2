@@ -33,7 +33,7 @@
                     <ul>
                         {% for teaser in teasers %}
                             <li>
-                                <time pubdate="pubdate">{{ teaser.updatedAt|date('d.m.Y')}}</time>
+                                <time pubdate="pubdate" datetime="{{ teaser.updatedAt|date('d.m.Y')}}">{{ teaser.updatedAt|date('D, d.m.Y')}}</time>
                                 <p><a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a></p>
                             </li>
                         {% endfor %}

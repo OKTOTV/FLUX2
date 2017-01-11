@@ -7,7 +7,7 @@
     {% for comment in comments %}
     <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div class="avatar2"></div></div>
     <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
-        <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': comment.user.username, '%date%': comment.createdAt|date('d.m.Y H:i')})|raw }}</div>
+        <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': comment.user.username, '%date%': comment.createdAt|date('D, d.m.Y H:i')})|raw }}</div>
         <div class="comment-text">
             <p>{{ comment.text|nl2br }}</p>
         </div>
