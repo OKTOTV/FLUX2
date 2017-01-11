@@ -631,17 +631,6 @@ header .navbar-inverse .navbar-nav > .active > a:focus,
 header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	background-image:none;
 }
-@media (min-width: 420px) {
-    footer .dropdown-menu {
-	    background-image:url(../images/speachbubble_small.png);
-        background-repeat:no-repeat;
-    }
-    footer .dropdown-menu > li, 
-	footer .dropdown-menu > li > a:hover, 
-	footer .dropdown-menu > li > a:active {
-		background-color: #112022;
-	}
-}
 
 @media (min-width: 768px) {
 	/* Color */
@@ -1242,7 +1231,8 @@ header.page-header,
 button.btn-default#ButtonPlaylist, 
 button.btn-default#ButtonShare,
 button.btn-default#ButtonShare_mobil,
-.alert-success {
+.alert-success,
+.caret {
 	border:none;
 }
 .triangle {
@@ -1355,6 +1345,12 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
     -moz-background-size: 40% 40%;
     -o-background-size: 40% 40%;
 	background-size: 40% 40%;
+}
+.caret {
+    background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/caret_bg.png);
+    background-image:url(../images/caret_bg.svg), none;
 }
 .socialnetworks li a,
 .series .infos li a {
@@ -1526,6 +1522,15 @@ body.playlists section:first-child,
 	background-image:none;
 }
 @media (min-width: 420px) {
+    footer .dropdown-menu {
+	    background-image:url(../images/speachbubble_small.png);
+        background-repeat:no-repeat;
+    }
+    footer .dropdown-menu > li, 
+	footer .dropdown-menu > li > a:hover, 
+	footer .dropdown-menu > li > a:active {
+		background-color: #112022;
+	}
     footer nav {
         background-image:none;
     }
@@ -2154,6 +2159,10 @@ button.dropdown-toggle .glyphicon-sort-by-alphabet {
 footer .open .dropdown-menu {
     position: static;
     width: 100%;
+}
+.caret {
+    width: 0.6em;
+    height: 0.4em;
 }
 @media (min-width: 420px) {
     footer .open .dropdown-menu {
