@@ -281,15 +281,57 @@ body.playlists .fs-image-misc-mobile {
     }
 }
 /* Animationen */
-/*@keyframes jump-arrow { 
-  from { 
-    0%   {margin-top: -13px;}
-    25%  {margin-top: -20px;}
-	50%  {margin-top: -10px;}
-    75%  {margin-top: -20px;}
-    100% {margin-top: -13px;}
-  } 
+@keyframes jump_the_arrow { 
+    0%   {
+        margin-top:-13px;
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    18%  {
+        margin-top:-20px;
+        -moz-transform: rotate(-5deg);
+        -ms-transform: rotate(-5deg);
+        -o-transform: rotate(-5deg);
+        -webkit-transform: rotate(-5deg);
+        transform: rotate(-5deg);
+    }
+	36%  {
+        margin-top:-10px;
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    42%  {
+        margin-top:-17px;
+    }
+    58% {
+        margin-top:-11px;
+    }
+    80% {
+        margin-top:-13px;
+    }
+    100% {
+        margin-top:-13px;
+    }
 }
-.jump {
-    animation: jump-arrow 2s infinite linear;
-}*/
+#button_down:hover span.participant-arrow-down, #button_down:hover span.playlists-arrow-down {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-animation-name: jump_the_arrow;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+    -moz-animation-name: jump_the_arrow;
+    -moz-animation-duration: 1s;
+    -moz-animation-iteration-count: 1;
+    -o-animation-name: jump_the_arrow;
+    -o-animation-duration: 1s;
+    -o-animation-iteration-count: 1;
+    animation-name: jump_the_arrow;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
