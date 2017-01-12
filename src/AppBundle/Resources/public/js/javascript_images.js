@@ -161,9 +161,21 @@ $(document).ready(function(){
         });*/
     }
     
+    function showCarouselNav() {
+        $('#carousel').mouseenter(function() {
+            $('.carousel-control').css('display','block');
+        });
+        $('#carousel').mouseleave(function() {
+            $('.carousel-control').css('display','none');
+        });
+    }
+    
     changeCarouselOpacity();
+    showCarouselNav();
+    
     $(window).on("resize orientationchange", function(){
         changeCarouselOpacity();
+        showCarouselNav();
     });
     
 	

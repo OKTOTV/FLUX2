@@ -66,7 +66,6 @@ $(document).ready(function(){
 	 
 	 $(window).on("resize orientationchange", function(){
 		 Winwidth = $( window ).width();
-		 //console.log(Winwidth);
 		 Sizes();
 		 if (Winwidth < 768) {
 		     Customize_responsiveMenu();
