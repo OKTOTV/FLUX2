@@ -6,10 +6,10 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class AcademyService
 {
-    const ACADEMY_OPEN_TRANSACTION =   'oktothek_academy_open_transaction';
-    const ACADEMY_CLOSED_TRANSACTION = 'oktothek_academy_closed_transaction';
-    const ACADEMY_MONEY =              'oktothek_academy_money_open';
-    const ACADEMY_MONEY_CLOSED =       'oktothek_academy_money_closed';
+    const ACADEMY_OPEN_TRANSACTION =   'oktothek_academy_open_transaction'; // opened an transaction. user is on SOFORT page to enter online banking credentials
+    const ACADEMY_CLOSED_TRANSACTION = 'oktothek_academy_closed_transaction'; // user successfully finished the transaction
+    const ACADEMY_MONEY =              'oktothek_academy_money_open'; // user wants to pay with real money (urgh) at okto
+    const ACADEMY_MONEY_CLOSED =       'oktothek_academy_money_closed'; // user successfully paid with real money
 
     private $sofort;
     private $em;
