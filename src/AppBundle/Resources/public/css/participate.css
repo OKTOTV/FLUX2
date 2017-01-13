@@ -19,19 +19,19 @@ body.participate #planets .cloud9-item nav li span {
 .participate #planets .color1 a, .participate #planets .color2 a, .participate #planets .color3 a, .participate #planets .color4 a, .participate #planets .color5 a {
     color:#ffffff;
 }
-body.participate .color5, .participate #planets nav a{
+body.participate .color5 a span, .participate #planets nav a{
 	color:#ffffff;
 }
-body.participate .color1, body.participate #univers header /*Gelb*/ {
+body.participate .color1 a span, body.participate #univers header /*Gelb*/ {
 	color: #fcce14;
 }
-body.participate .color2 { /* Pink */
+body.participate .color2 a span { /* Pink */
 	color: #d1418f;
 }
-body.participate .color3 { /* Grün */
+body.participate .color3 a span { /* Grün */
 	color: #91e31c;
 }
-body.participate .color4 { /* Blau */
+body.participate .color4 a span { /* Blau */
 	color: #13fffd;
 }
 
@@ -320,6 +320,9 @@ body.participate #planets nav li {
 body.participate #planets nav.sub-right li, body.participate #planets nav.sub-left li {
     padding:20px;
 }
+body.participate #planets nav.sub-left li a {
+    top:10px;
+}
 body.participate #planets nav li a {
     position:relative;
 }
@@ -337,7 +340,17 @@ body.participate #planets nav.sub-left hr, body.participate #planets nav.sub-rig
 body.participate #planets .cloud9-item nav li span {
 	width:20px;
 	height:20px;
+}
+body.participate #planets .cloud9-item nav.sub-right li span {
     margin:8px 20px 0 -41px;
+}
+body.participate #planets .cloud9-item nav.sub-left li span {
+    position: absolute;
+    left:-43px;
+    top:-5px;
+}
+body.participate #planets .cloud9-item nav.sub-left li:nth-child(2) span {
+    left:-40px;
 }
 @media (min-width: 420px) {
     body.participate div img {
@@ -383,12 +396,22 @@ body.participate #planets .cloud9-item nav li span {
 	    -khtml-border-radius:0px;
 	    border-radius: 0px;
     }
+    body.participate #planets .cloud9-item nav.sub-left li span {
+        position: static;
+    }
     body.participate #planets {
         height:660px;
 	    padding-top:100px;
     }
     body.participate #planets div {
         margin:0px;
+    }
+    body.participate #planets nav a {
+        line-height: 30px;
+        vertical-align: middle;
+    }
+    body.participate #planets nav.sub-left li a {
+        top:0px;
     }
     body.participate #planets div:first-child, body.participate #planets div:nth-child(2), body.participate #planets div:nth-child(3), body.participate #planets div:nth-child(4), body.participate #planets div:nth-child(5) {
         top:auto;
@@ -400,12 +423,15 @@ body.participate #planets .cloud9-item nav li span {
         top:20px;
         left:auto;
     }
-    body.participate #planets .cloud9-item nav li span {
+    body.participate #planets .cloud9-item nav.sub-right li span {
 	    display:block;
-        position:absolute;
         width:23px;
 	    height:23px;
-        margin:0;
+        margin:16px 0 0 0;
+	    float:left;
+    }
+    body.participate #planets .cloud9-item nav.sub-left li span {
+        vertical-align: middle;
     }
     body.participate #planets nav.sub-left li div.dot {
         float:right;
@@ -483,15 +509,18 @@ body.participate #planets .cloud9-item nav li span {
         -ms-transform: rotate(-20deg);
         -o-transform: rotate(-20deg);
         -webkit-transform: rotate(-20deg);
+        transform: rotate(-20deg); 
     }
     body.participate #planets nav.sub-right li:nth-child(1) a, body.participate #planets nav.sub-left li:nth-child(1) a {
-        top:20px;
+        top:16px;
+        left:10px;
     }
     body.participate #planets nav.sub-right li:nth-child(2) div.dot {
         -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
         -o-transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
+        transform: rotate(0deg); 
     }
     body.participate #planets nav li:nth-child(2) a {
         top:20px;
@@ -501,12 +530,14 @@ body.participate #planets .cloud9-item nav li span {
         -ms-transform: rotate(15deg);
         -o-transform: rotate(15deg);
         -webkit-transform: rotate(15deg);
+        transform: rotate(15deg); 
     }
     body.participate #planets nav.sub-left li:nth-child(2) div.dot {
         -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
         -o-transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
+        transform: rotate(0deg); 
     }
     body.participate #planets nav li:nth-child(3) a {
         top:40px;
@@ -516,12 +547,14 @@ body.participate #planets .cloud9-item nav li span {
         -ms-transform: rotate(20deg);
         -o-transform: rotate(20deg);
         -webkit-transform: rotate(20deg);
+        transform: rotate(20deg); 
     }
     body.participate #planets nav.sub-left li:nth-child(3) div.dot {
         -moz-transform: rotate(-15deg);
         -ms-transform: rotate(-15deg);
         -o-transform: rotate(-15deg);
         -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg); 
     }
     body.participate #planets nav.sub-left li:nth-child(1) div.dot {
         right:-25px;
@@ -545,82 +578,87 @@ body.participate #planets .cloud9-item nav li span {
         left:auto;
     }
     body.participate #planets nav.sub-left li:nth-child(1) a {
-        right:120px;
+        right:58px;
+        top:10px;
         left:auto;
     }    
-    body.participate #planets nav.sub-right li:nth-child(1) a {
-        left:10px;
-    }
     body.participate #planets nav.sub-left li:nth-child(2) a {
-        right:125px;
-        top:auto;
+        right:62px;
+        top:25px;
         left:auto;
     }
     body.participate #planets .cloud9-item:nth-child(4) nav.sub-left li:nth-child(2) a {
-        right:155px;
-        top:auto;
+        right:96px;
+        top:22px;
         left:auto;
     }
     body.participate #planets nav.sub-left li:nth-child(3) a {
-        right:0px;
+        right:62px;
         top:auto;
         left:auto;
     }
     body.participate #planets nav.sub-right li:nth-child(2) a {
         left:35px;
+        top:25px;
     }
     body.participate #planets nav.sub-right li:nth-child(3) a {
         margin-left:15px;
     }
     .participate #planets .cloud9-item:nth-child(1) nav.sub-right li:nth-child(1) span {
-	    top:16px;
-	    left:170px;
+	    /*top:16px;
+	    left:170px;*/
+        margin-left:-48px;
     }
     .participate #planets .cloud9-item:nth-child(1) nav.sub-right li:nth-child(2) span {
-	    top:27px;
-	    left:194px;
+	    /*top:27px;
+	    left:194px;*/
+        margin-left:-25px;
+        margin-top:25px;
     }
     .participate #planets .cloud9-item:nth-child(2) nav.sub-right li:nth-child(1) span {
-        top:15px;
-	    left:170px;
+        /*top:15px;
+	    left:170px;*/
+        margin-left:-50px;
     }
     .participate #planets .cloud9-item:nth-child(3) nav.sub-right li:nth-child(1) span {
-	    top:12px;
-	    left:172px;
+	    /*top:12px;
+	    left:172px;*/
+        margin-left:-46px;
     }
     .participate #planets .cloud9-item:nth-child(3) nav.sub-right li:nth-child(2) span {
-	    top:27px;
-	    left:194px;
+	    /*top:27px;
+	    left:194px;*/
+        margin-left:-27px;
+        margin-top:27px;
     }
     .participate #planets .cloud9-item:nth-child(4) nav.sub-right li:nth-child(1) span {
-	    top:17px;
-	    left:173px;
+	    /*top:17px;
+	    left:173px;*/
+        margin-left:-46px;
     }
     .participate #planets .cloud9-item:nth-child(4) nav.sub-left li:nth-child(1) span {
-	    top:17px;
-	    left:51px;
+	    margin-left:35px;
     }
     .participate #planets .cloud9-item:nth-child(4) nav.sub-left li:nth-child(2) span {
-	    top:25px;
-	    left:22px;
+        margin-left:37px;
     }
     .participate #planets .cloud9-item:nth-child(5) nav.sub-left li:nth-child(1) span {
-	    top:10px;
-	    left:60px;
+        margin-left:30px;
         width:35px;
         height:35px;
     }
     .participate #planets .cloud9-item:nth-child(5) nav.sub-left li:nth-child(2) span {
-	    top:27px;
-	    left:43px;
         width:20px;
 	    height:20px;
+        margin-left:37px;
     }
     .participate #planets .cloud9-item:nth-child(5) nav.sub-right li:nth-child(1) span {
-	    top:16px;
-	    left:168px;
+	    /*top:16px;
+	    left:168px;*/
         width:30px;
         height:30px;
+        margin-left:-52px;
+        margin-right:10px;
     }
 }
 @media (min-width: 992px) {

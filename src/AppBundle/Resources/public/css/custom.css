@@ -281,27 +281,38 @@ header .nav {
 #carousel a,
 .pin figcaption a,
 figure.pin a,
+.container.tags a:hover,
+.container.tags a:focus,
 .academy .pin .preview-content a, 
 .livestream .panel-heading a,
 .collapsePlaylist li a:hover,
+.collapsePlaylist li a:focus,
 a:hover.tag,
+a:focus.tag,
 a.pull-right.more,
 .btn-link:hover,
+.btn-link:focus,
 .btn-link:active,
-.btn-link:active:focus {
+.btn-link:active:focus,
+.participart-list a:hover,
+.participart-list a:focus,
+.blog aside a.more:hover,
+.blog aside a.more:focus,
+.tagpage .pages > .list-group-item > a:hover, 
+.tagpage .pages > .list-group-item > a:focus {
 	text-decoration:none;
 }
 a, 
 a:hover, 
 a:active, 
-a:focus,
 select,
 select:hover,
 select:active,
-select:focus,
-select:active:focus,
 select:active:hover,
-select:focus:active {
+select:focus:active,
+a:focus,
+select:focus,
+select:active:focus {
     outline:none;
 }
 
@@ -409,6 +420,7 @@ header .navbar-inverse .navbar-toggle:hover,
 header .navbar-inverse .navbar-toggle:focus, 
 .dropdown-menu > li > a:hover, 
 .dropdown-menu > li > a:active, 
+.dropdown-menu > li > a:focus, 
 .dropdown-menu > li.active > a, 
 .dropdown-menu > li.active > a:focus, 
 .dropdown-menu > li.active > a:hover, 
@@ -432,6 +444,7 @@ header .navbar-inverse .navbar-nav > li > a:focus,
 .navbar-inverse .navbar-nav > .active > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus, 
 header form button[type="submit"], 
+header .btn:focus, 
 header input.form-control, 
 header #dropdownMenuTags.btn-default, 
 header #dropdownMenuTags.btn-default:hover, 
@@ -618,17 +631,6 @@ header .navbar-inverse .navbar-nav > .active > a:focus,
 header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	background-image:none;
 }
-@media (min-width: 420px) {
-    footer .dropdown-menu {
-	    background-image:url(../images/speachbubble_small.png);
-        background-repeat:no-repeat;
-    }
-    footer .dropdown-menu > li, 
-	footer .dropdown-menu > li > a:hover, 
-	footer .dropdown-menu > li > a:active {
-		background-color: #112022;
-	}
-}
 
 @media (min-width: 768px) {
 	/* Color */
@@ -648,7 +650,8 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	}
 	.dropdown-menu > li, 
 	.dropdown-menu > li > a:hover, 
-	.dropdown-menu > li > a:active {
+	.dropdown-menu > li > a:active,
+    .dropdown-menu > li > a:focus {
 		background-color: #112022;
 	}
 	/* Backgroundcolor */
@@ -673,7 +676,8 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	    background-repeat:repeat-x;
 	    background-position:left top;
     }
-	/*.navbar-inverse .navbar-nav > li > a:hover, */.navbar-inverse .navbar-nav > .active > a/*, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus*/ {
+	.navbar-inverse .navbar-nav > .active > a, 
+    .navbar-inverse .navbar-nav > .active > a:focus {
 		background-image:url(../images/menu-border.png);
 	    background-repeat:repeat-x;
 	    background-position:left top;
@@ -686,7 +690,9 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 		background-image:none;
 	}
 	header .navbar-inverse .navbar-nav > li > a:hover, 
-	header .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
+    header .navbar-inverse .navbar-nav > li > a:focus, 
+	header .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link,
+    header .navbar-inverse .navbar-nav.navbar-right > li > a:focus span.link {
 		border-top:solid #ffffff 1px;
 	}
 	/* Border */
@@ -694,6 +700,7 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	header .navbar-inverse .navbar-nav > .active > a:focus, 
 	header .navbar-inverse .navbar-nav > .active > a:hover, 
 	header .navbar-inverse .navbar-nav.navbar-right > li > a:hover,
+    header .navbar-inverse .navbar-nav.navbar-right > li > a:focus,
 	header #mainmenu-container {
 		border-top:none;
 	}
@@ -702,7 +709,7 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	}
 	
 	.navbar-inverse .navbar-nav > li > a:focus {
-		outline:none;
+        outline: none;
 	}
 }
 
@@ -728,21 +735,31 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 body,
 .btn-default, 
 .btn-default:hover, 
-.btn-default:active, 
+.btn-default:active,
+.btn-default:focus,
 .btn-default:active:focus, 
 .btn-link:hover,
 .btn-link:active,
+.btn-link:focus,
 .btn-link:active:focus,
 .collapseShare a.btn-default:hover, 
 .episode .misc a, 
 a:hover, 
+a:focus, 
 a:hover.pull-right.more,
+a:focus.pull-right.more,
 select.form-control.ghost, 
 #carousel a h3,
 #carousel a p.subheadline,
 .oktothek article a.btn-default:hover, 
-a.play-episode.btn-default:hover, 
+.oktothek article a.btn-default:focus, 
+.registry a.btn-default.but-full:hover, 
+.registry a.btn-default.but-full:focus, 
+a.play-episode.btn-default:hover,
+a.play-episode.btn-default:focus,
 .news h3 a, 
+.news-pin.pin h3 a:hover, 
+.news-pin.pin h3 a:focus, 
 .post h3 a, 
 .pin h3 a, 
 .pin a h3, 
@@ -755,12 +772,15 @@ a .pin-icon,
 .btn-default:focus, 
 .btn-default:active:hover, 
 .btn-default.active:hover, 
+.btn-default.active:focus, 
 .btn-default.focus:active, 
 .btn-default.active.focus, 
 .btn-primary:focus, 
 .btn-primary:active:hover, 
 .btn-primary.active:hover, 
+.btn-primary.active:focus, 
 .btn-primary.focus:active, 
+.btn-primary.focus:focus, 
 .btn-primary.active.focus, 
 a.list-group-item-danger, 
 button.list-group-item-danger, 
@@ -787,7 +807,15 @@ body.producer ul.list-group .pin a h3,
 .pagination > li > a, 
 .pagination > li > span,
 a.tag:hover,
-.alert-success {
+a.tag:focus,
+.alert-success,
+button.input-group-addon:hover,
+button.input-group-addon:focus,
+.container.tags a:hover,
+.container.tags a:focus,
+.post a.tag:hover,
+.post a.tag:focus,
+.blog aside a.more {
 	color:#ffffff;
 }
 .form-control, 
@@ -850,6 +878,8 @@ a.tag,
     color: #818181;
 }
 a.list-group-item, 
+.participart-list a:hover,
+.participart-list a:focus,
 button.list-group-item,
 .color1 a, 
 .active .color1.pin a h3, 
@@ -860,15 +890,22 @@ button.list-group-item,
 a, 
 a.more,
 .btn-link,
-.news h3 a:hover, 
-.pin h3 a:hover, 
+.pin h3 a:hover,
+.pin h3 a:focus,
 .pin a:hover h3, 
+.pin a:focus h3, 
 .pin figcaption p a:hover, 
+.pin figcaption p a:focus, 
 .pin figcaption a:hover p, 
+.pin figcaption a:focus p, 
 .pin a:hover figcaption p, 
+.blog aside a.more:hover,
+.blog aside a.more:focus,
 body.livestream .schedule li a:hover h4,
+body.livestream .schedule li a:focus h4,
 body.participate .close,
-body.tagpage .pages .list-group-item a:hover /*Gelb*/ {
+body.tagpage .pages .list-group-item a:hover,
+body.tagpage .pages .list-group-item a:focus /*Gelb*/ {
 	color: #fcce14;
 }
 a.list-group-item-danger:focus, 
@@ -894,7 +931,10 @@ button.list-group-item-danger:hover,
 body, 
 .bg-opacity, 
 select, 
-.oktothek article a.btn-default:hover, 
+.oktothek article a.btn-default.but-full:hover, 
+.oktothek article a.btn-default.but-full:focus, 
+.registry a.btn-default.but-full:hover, 
+.registry a.btn-default.but-full:focus, 
 body.tagpage .content-bg, 
 .preloader,
 .tabs-content .pagination > .disabled > a, 
@@ -966,9 +1006,14 @@ body.tagpage .pages .list-group-item { /* Dunkelgrau */
 	background-color:#112022;
 }
 article.pin figure.pin:hover,
+article.pin figure.pin:focus,
 body.tagpage .inc-pins article.pin figure:hover,
+body.tagpage .inc-pins article.pin figure:focus,
 body.tagpage .inc-pins article.pin:hover figure,
-body.tagpage article.first-pin:hover { /* Mittleres Grau */
+body.tagpage .inc-pins article.pin:focus figure,
+body.tagpage article.first-pin:hover,
+body.tagpage article.first-pin:focus,
+.tagpage .pages > .list-group-item:hover { /* Mittleres Grau */
     background-color:#192e31;
 }
 /* Spacelayout */
@@ -976,7 +1021,8 @@ body.tagpage article.first-pin:hover { /* Mittleres Grau */
 .oktothek a.btn-default.but-full, 
 .login a.btn-default.but-full.active, 
 .login a.btn-default.but-full, 
-.collapseShare a.btn-default:hover, 
+.collapseShare a.btn-default:hover,
+.collapseShare a.btn-default:focus,
 .btn-default:hover, 
 .btn-default:focus, 
 .btn-default:active, 
@@ -1000,7 +1046,12 @@ body.tagpage article.first-pin:hover { /* Mittleres Grau */
 	background-color:#fcce14;
 }
 .btn.active, 
-.btn:active {
+.btn:active,
+.btn:focus,
+button.btn:active,
+button.btn:focus,
+button.input-group-addon:focus,
+button.input-group-addon:active {
     background-color:#d9b112;
 }
 a.list-group-item-danger, 
@@ -1034,8 +1085,11 @@ body.tagpage header .misc .btn-default,
 .producer a.list-group-item:hover,
 body.tagpage .inc-pins article.pin.empty figure,
 button.btn-default#ButtonPlaylist:hover, 
+button.btn-default#ButtonPlaylist:focus, 
 button.btn-default#ButtonShare:hover,
-button.btn-default#ButtonShare_mobil:hover{
+button.btn-default#ButtonShare:focus,
+button.btn-default#ButtonShare_mobil:hover,
+button.btn-default#ButtonShare_mobil:focus {
 	background-color:transparent;
 }
 @media (min-width: 580px) {
@@ -1044,8 +1098,10 @@ button.btn-default#ButtonShare_mobil:hover{
     }
 }
 @media (min-width: 768px) {
-    button.btn-default#ButtonPlaylist:hover, 
-    button.btn-default#ButtonShare:hover {
+    button.btn-default#ButtonPlaylist:hover,
+    button.btn-default#ButtonPlaylist:focus,
+    button.btn-default#ButtonShare:hover,
+    button.btn-default#ButtonShare:focus {
 	    background-color:#fcce14;
     }
 }
@@ -1175,7 +1231,8 @@ header.page-header,
 button.btn-default#ButtonPlaylist, 
 button.btn-default#ButtonShare,
 button.btn-default#ButtonShare_mobil,
-.alert-success {
+.alert-success,
+.caret {
 	border:none;
 }
 .triangle {
@@ -1238,6 +1295,12 @@ body.tagpage .empty .icon-player,
 	-khtml-border-radius:25px;
 	border-radius: 25px;
 }
+.btn:focus, button.dropdown-toggle:focus {
+    outline-offset: 2px;
+}
+button.dropdown-toggle:focus {
+    outline:dotted 1px #ffffff;
+}
 @media (min-width: 768px) {
     button.btn-default#ButtonPlaylist, 
     button.btn-default#ButtonShare {
@@ -1282,6 +1345,12 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
     -moz-background-size: 40% 40%;
     -o-background-size: 40% 40%;
 	background-size: 40% 40%;
+}
+.caret {
+    background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/caret_bg.png);
+    background-image:url(../images/caret_bg.svg), none;
 }
 .socialnetworks li a,
 .series .infos li a {
@@ -1453,6 +1522,15 @@ body.playlists section:first-child,
 	background-image:none;
 }
 @media (min-width: 420px) {
+    footer .dropdown-menu {
+	    background-image:url(../images/speachbubble_small.png);
+        background-repeat:no-repeat;
+    }
+    footer .dropdown-menu > li, 
+	footer .dropdown-menu > li > a:hover, 
+	footer .dropdown-menu > li > a:active {
+		background-color: #112022;
+	}
     footer nav {
         background-image:none;
     }
@@ -1532,6 +1610,12 @@ body.participate .close {
 	-moz-text-shadow: none;
 	text-shadow: none;
 }
+.socialnetworks a:hover,
+.socialnetworks a:focus {
+    opacity: 0.7;
+    -moz-opacity: 0.7;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
+}
 
 
 
@@ -1540,15 +1624,20 @@ body.participate .close {
 footer .nav > li > a, 
 footer .nav > li > a:active, 
 footer .nav > li > a:hover, 
+footer .nav > li > a:focus, 
 #anchor-menu .panel-default > .panel-heading, 
 .btn.btn-top:hover,
-footer .open .dropdown-menu > li > a:hover  {
+.btn.btn-top:focus,
+footer .open .dropdown-menu > li > a:hover,
+footer .open .dropdown-menu > li > a:focus {
 	color:#ffffff;
 }
 .btn.btn-top,
+footer .nav > li > a:hover,
+footer .nav > li > a:focus,
 footer .nav .open > a, 
 footer .nav .open > a:focus,
-footer .nav .open > a:hover {
+footer .nav .open > a:hover /* Gelb */ {
 	color:#fcce14;
 }
 footer .open .dropdown-menu > li > a {
@@ -1560,7 +1649,9 @@ footer .open .dropdown-menu > li > a {
 }
 footer .nav > li > a:active, 
 footer .nav > li > a:hover, 
+footer .nav > li > a:focus, 
 .btn.btn-top:hover, 
+.btn.btn-top:focus, 
 footer.footer,
 footer .nav .open > a, 
 footer .nav .open > a:focus, 
@@ -1574,6 +1665,10 @@ footer .networks {
 @media (min-width: 768px) {
     footer .open .dropdown-menu > li > a {
         color: #ffffff;
+    }
+    footer .open .dropdown-menu > li > a:hover,
+    footer .open .dropdown-menu > li > a:focus {
+        color:#fcce14;
     }
 }
 
@@ -1603,6 +1698,9 @@ footer section {
 #anchor-menu .panel > .panel-collapse > .list-group .list-group-item {
 	border-width:0;
 }
+.btn.btn-top {
+    outline-offset: 2px;
+}
 
 /****************************  Color, Effects Backend ****************************/
 .panel-body {
@@ -1623,12 +1721,15 @@ header .navbar .container-fluid {
 /* Logo */
 header .navbar-brand {
 	display:block;
-	outline:none;
+    outline: none;
 }
 header .navbar-brand .brandimage {
 	vertical-align:top;
 	width:40px;
 	height:36px;
+}
+header a.navbar-brand:focus .brandimage {
+    border: dotted 1px #ffffff;
 }
 header .navbar-brand .brandimage span {
 	margin-left:-9990px;
@@ -1647,7 +1748,13 @@ header .navbar .nav > li > a {
 	/*padding:0 0 5px 0;
 	vertical-align:top;*/
 }
-.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
+.navbar-inverse .navbar-nav > li > a:hover, 
+.navbar-inverse .navbar-nav > li > a:focus, 
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus, 
+.navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link, 
+.navbar-inverse .navbar-nav.navbar-right > li > a:focus span.link {
 		padding-top:7px;
 	}
 header .navbar-collapse .navbar-nav {
@@ -1716,8 +1823,9 @@ header .navbar .navbar-form {
 header form button[type="submit"] {
 	height:35px;
 	width:auto;
-	float:right;
 	margin-left:0;
+    position: absolute;
+    right: 0;
 }
 header button span.icon-close {
 	display:none;
@@ -1726,6 +1834,8 @@ header form .searchfield-container {
 	position:relative;
 	overflow:hidden;
 	height:35px;
+    width:100%;
+    float: left;
 }
 header .search-tagnav-container {
 	position:relative;
@@ -1748,9 +1858,11 @@ header .searchfield {
 	margin-left:0px;
 	margin-right:0px;
 	width:100%;
+    height: 35px;
 }
 header .navbar-form input.form-control {
 	display:inline;
+    padding-right:54px;
 }
 
 
@@ -1783,6 +1895,16 @@ header + .container-fluid {
 	header ul.mainmenu, header ul.navbar-right, header .navbar-nav.themes li {
 	    float:left;
 	    width:50%;
+    }
+}
+@media (min-width: 768px) and (max-height: 730px) {
+    .navbar-fixed-top {
+        position: absolute;
+    }
+}
+@media (min-width: 768px) and (min-height: 731px) {
+    .navbar-fixed-top {
+        position: fixed;
     }
 }
 
@@ -1839,22 +1961,22 @@ header + .container-fluid {
 	header .navbar-collapse .navbar-nav span.icon-login {
 	    margin-right:0;
     }
+    header form .searchfield-container {
+        width: 312px;
+    }
 	header .searchfield {
 		float:left;
 		margin:0;
 		width:366px;
 	}
-	/*header .navbar .navbar-form {
-		margin-top:-110px;
-	}*/
 	header .navbar-form input.form-control {
 		width: 300px;
-		/*height:35px;*/
 		padding-top:7px;
 	}
 	header form button[type="submit"] {
-		margin-left:12px;
 	    width:54px;
+        position: static;
+        right: auto;
 	}
 	header .navbar .navbar-form {
 	    padding:0;
@@ -2047,6 +2169,10 @@ button.dropdown-toggle .glyphicon-sort-by-alphabet {
 footer .open .dropdown-menu {
     position: static;
     width: 100%;
+}
+.caret {
+    width: 0.6em;
+    height: 0.4em;
 }
 @media (min-width: 420px) {
     footer .open .dropdown-menu {
@@ -2505,7 +2631,7 @@ body.episode .series, body.playlists .series {
     padding:12px 40x !important;
     height: 50px;
     border-radius: 25px;
-    vertical-align:middle;
+    vertical-align: middle;
     line-height: 34px;
 }
 .login label {
