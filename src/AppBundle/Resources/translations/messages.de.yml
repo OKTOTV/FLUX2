@@ -205,7 +205,7 @@ oktothek.tag_pager_series_header:      "Alle Serien zu #%tag%"
 
 ## academy
 oktothek_academy_header:                Workshops
-oktothek_academy_misc_info:             %price%€ / %price_reduced%€
+oktothek_academy_misc_info:             €&thinsp;%price% / Ermäßigt €&thinsp;%price_reduced%
 oktothek_academy_course_free:           Dieser Kurs ist Kostenlos
 oktothek_academy_courses:               Kursangebote
 oktothek_academy_b2b:                   Gruppen Angebote
@@ -517,7 +517,7 @@ oktothek_share_tw:                          Twitter
 oktothek_share_gp:                          Google Plus
 oktothek_share_inst:                        Instagram
 oktothek_share_pint:                        Pinterest
-oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420 x 315px eingebettet."
+oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420&nbsp;x&nbsp;315px eingebettet."
 oktothek_share_embed:                       Einbetten
 
 # oktothek episode thumb
