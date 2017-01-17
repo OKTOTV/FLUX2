@@ -22,7 +22,7 @@
         <p>{{ 'oktothek_academy_course_free'|trans }}</p>
     {% else %}
         <p>Vollpreis / Ermäßigter Preis</p>
-        <p>{{ 'oktothek_academy_misc_info'|trans({'%price%': course.coursetype.price, '%price_reduced%': course.coursetype.priceReduced}) }}</p>
+        <p>{{ 'oktothek_academy_misc_info'|trans({'%price%': course.coursetype.price|number_format(2, ',', '.'), '%price_reduced%': course.coursetype.priceReduced|number_format(2, ',', '.')})|raw }}</p>
     {% endif %}
     {{ form_start(form) }}
     {{ form_end(form) }}

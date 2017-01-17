@@ -17,7 +17,7 @@
                 </div>
                 <div class="content-opacity">
                     <h1>{{ coursetype.title }}</h1>
-                    <p class="facts">Dauer {{ coursetype.courses[0].dates|hours~'h' }}, Kosten {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price, '%price_reduced%': coursetype.priceReduced}) }}</p>
+                    <p class="facts">Dauer {{ coursetype.courses[0].dates|hours~'h' }}, Kosten {{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.') })|raw }}</p>
                     <p class="description">{{ coursetype.teaser }}</p>
                     <p class="misc">
                 <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}">{{ 'oktothek_share_header'|trans }}</button>
@@ -41,7 +41,7 @@
         <header class="page-header">
             <h2 id="button_down">Details zu {{ coursetype.title }} <span class="icon participant-arrow-down"> </span></h2>
         </header>
-        
+
         <article class="description">{{ coursetype.description|markdown }}</article>
     </section>
     <section class="container">
