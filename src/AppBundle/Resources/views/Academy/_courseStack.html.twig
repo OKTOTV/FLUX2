@@ -15,7 +15,7 @@
                 <figcaption>
                     <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="... ansehen">
                         <h3>{{ coursetype.title }}</h3>
-                        <p><span class="price">{{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format, '%price_reduced%': coursetype.priceReduced|number_format})|raw }}</span></p>
+                        <p><span class="price">{{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.')})|raw }}</span></p>
                     </a>
                 </figcaption>
             </figure>
