@@ -18,7 +18,7 @@ use AppBundle\Form\Course\CoursepackageSelectType;
 
 /**
  * Academy controller.
- * @Route("/academy")
+ * @Route("/workshops")
  */
 class AcademyController extends Controller
 {
