@@ -240,6 +240,13 @@ oktothek_academy_show_stay_informed:    "Informiert bleiben"
 ### showCoursepackage.html.twig:
 oktothek_academy_sCp_book:              "Kurspaket buchen"
 oktothek_academy_sCp_book_title:        "Kurspaket %title% buchen"
+oktothek_academy_sCp_timetable:         "Termine"
+
+### showCoursetype.html.twig:
+oktothek_academy_sCt_facts:             "%duration%, Kosten %price%"
+oktothek_academy_sCt_timetable:         "Termine"
+oktothek_academy_sCt_header_details:    "Details zu %coursetype%"
+oktothek_academy_sCt_book_title:        "Kurs %title% buchen"
 
 ## tv
 oktothek_tv_title:                      TV
