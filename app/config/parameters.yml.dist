@@ -56,6 +56,7 @@ parameters:
     mailchimp_api_key: "your_secret_key"
     mailchimp_default_newsletter: "???"
     mailchimp_academy_newsletter: "???"
+    oktothek_academy_mail:        "academy@mail.com"
     oktothek_aws_key:    "your_IAM_key"
     oktothek_aws_secret: "your_IAM_secret"
     oneup_flysystem_adapters:
