@@ -567,7 +567,7 @@ oktothek_default_share_title_pin:           "Auf Pinterest pinnen"
 oktothek_default_share_title_mail:          "Link via E-Mail teilen"
 
 # oktothek episode thumb
-oktothek_episode_thumb_default_title:       Episode vom %date%
+oktothek_episode_thumb_default_title:       Episode vom %date% ansehen
 
 # producer
 oktothek.series_producer_text:              Hier findest du allgemeine Informationen und Statistiken zu deiner Sendereihe.
