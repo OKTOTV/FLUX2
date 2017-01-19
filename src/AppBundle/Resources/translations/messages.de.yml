@@ -205,7 +205,7 @@ oktothek.tag_pager_series_header:      "Alle Serien zu #%tag%"
 
 ## academy
 oktothek_academy_header:                Workshops
-oktothek_academy_misc_info:             €&thinsp;%price% / Ermäßigt €&thinsp;%price_reduced%
+oktothek_academy_misc_info:             €&thinsp;%price% / ermäßigt* €&thinsp;%price_reduced%
 oktothek_academy_course_free:           Dieser Kurs ist Kostenlos
 oktothek_academy_courses:               Kursangebote
 oktothek_academy_b2b:                   Angebote für Gruppen
@@ -216,6 +216,18 @@ oktothek_academy_b2b_paragraph: >
 oktothek_academy_b2b_more:              'Kontakt <a href="mailto:%email%?subject=B2B%20Kursangebote%20bei%20OKTO">%email%</a>'
 oktothe_academy_book_course_header:     "%coursetype% buchen"
 oktothek_academy_book_course:           Kurs buchen
+
+## _courseStack.html.twig
+oktothek_academy_quickview:             "Schnellansicht"
+oktothek_academy_hover_title:           "%coursetype% ansehen"
+oktothek_academy_show_details:          "Details zum Kurs %coursetype%"
+oktothek_academy_duration_choice:       "{0} Dauer %count% Stunden |{1} Dauer %count% Stunde |]1,Inf[ Dauer %count% Stunden"
+oktothek_academy_timetable:             "Termine"
+oktothek_academy_timetable_days_choice: "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} Sa|{7} So"
+oktothek_academy_timetable_date:        "%day%, %date%"
+oktothek_academy_timetable_date_format: "d.m.Y"
+oktothek_academy_timetable_time:        "start - end"
+oktothek_academy_timetable_time_format: "H:i"
 
 ## tv
 oktothek_tv_title:                      TV
