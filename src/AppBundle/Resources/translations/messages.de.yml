@@ -559,6 +559,13 @@ oktothek_share_pint:                        Pinterest
 oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420&nbsp;x&nbsp;315px eingebettet."
 oktothek_share_embed:                       Einbetten
 
+## _share.html.twig
+oktothek_default_share_title_fb:            "Link auf Facebook teilen"
+oktothek_default_share_title_tw:            "Link tweeten"
+oktothek_default_share_title_gp:            "Link auf Google+ teilen"
+oktothek_default_share_title_pin:           "Auf Pinterest pinnen"
+oktothek_default_share_title_mail:          "Link via E-Mail teilen"
+
 # oktothek episode thumb
 oktothek_episode_thumb_default_title:       Episode vom %date%
 
