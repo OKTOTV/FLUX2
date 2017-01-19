@@ -11,7 +11,7 @@
         <!--<h1>{{ 'oktothek_academy_header'|trans }}</h1>-->
     </header>
     <section>
-        <h2>Empfohlen</h2>
+        <h2>{{ 'oktothek_academy_show_recommend'|trans }}</h2>
         {% include "AppBundle:Academy:_courseStack.html.twig" with {'coursetypes': highlights} %}
     </section>
     <!-- Ende Highlights -->
@@ -19,7 +19,7 @@
     <section class="courses">
         <h2>{{ 'oktothek_academy_courses'|trans }}</h2>
         {% include "AppBundle:Academy:_courseStack.html.twig" with {'coursetypes': coursetypes} %}
-        <p><small>* Ermäßigte Preise für StudentInnen, Zivildiener, Menschen mit geringem Einkommen.</small></p>
+        <p><small>{{ 'oktothek_academy_show_footnote'|trans }}</small></p>
     </section>
     <!-- Ende Kursauflistung -->
     <!-- Anfang Gruppenangebot -->
@@ -31,7 +31,7 @@
     <!-- Ende Gruppenangebote -->
     <!-- Anfang Newsletter -->
     <section class="newsletter">
-        <h2>Informiert bleiben</h2>
+        <h2>{{ 'oktothek_academy_show_stay_informed'|trans }}</h2>
         {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_academy_newsletter }))}}
     </section>
     <!-- Ende Newsletter -->

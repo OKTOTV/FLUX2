@@ -217,7 +217,7 @@ oktothek_academy_b2b_more:              'Kontakt <a href="mailto:%email%?subject
 oktothe_academy_book_course_header:     "%coursetype% buchen"
 oktothek_academy_book_course:           Kurs buchen
 
-## _courseStack.html.twig
+### _courseStack.html.twig
 oktothek_academy_quickview:             "Schnellansicht"
 oktothek_academy_hover_title:           "%coursetype% ansehen"
 oktothek_academy_show_details:          "Details zum Kurs %coursetype%"
@@ -228,6 +228,11 @@ oktothek_academy_timetable_date:        "%day%, %date%"
 oktothek_academy_timetable_date_format: "d.m.Y"
 oktothek_academy_timetable_time:        "start - end"
 oktothek_academy_timetable_time_format: "H:i"
+
+### show.html.twig
+oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"
+oktothek_academy_show_footnote:          "* Ermäßigte Preise für StudentInnen, Zivildiener, Menschen mit geringem Einkommen."
+oktothek_academy_show_stay_informed:    "Informiert bleiben"
 
 ## tv
 oktothek_tv_title:                      TV
