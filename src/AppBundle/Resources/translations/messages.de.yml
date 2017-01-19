@@ -229,10 +229,17 @@ oktothek_academy_timetable_date_format: "d.m.Y"
 oktothek_academy_timetable_time:        "start - end"
 oktothek_academy_timetable_time_format: "H:i"
 
+### bookCourse.html.twig
+oktothek_academy_bC_dates:              "Termine"
+
 ### show.html.twig
 oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"
 oktothek_academy_show_footnote:          "* Ermäßigte Preise für StudentInnen, Zivildiener, Menschen mit geringem Einkommen."
 oktothek_academy_show_stay_informed:    "Informiert bleiben"
+
+### showCoursepackage.html.twig:
+oktothek_academy_sCp_book:              "Kurspaket buchen"
+oktothek_academy_sCp_book_title:        "Kurspaket %title% buchen"
 
 ## tv
 oktothek_tv_title:                      TV
@@ -343,9 +350,9 @@ oktothek.backend_coursedate_end_label:  Terminende
 # Attendee
 oktothek_attendee_name_label:           Vorname
 oktothek_attendee_surname_label:        Nachname
-oktothek_attendee_email_label:          Mailadresse
+oktothek_attendee_email_label:          E-Mail
 oktothek_attendee_tel_label:            Telefonnummer
-oktothek_attendee_reduced_label:        Ermäßigt
+oktothek_attendee_reduced_label:        ermäßigt
 
 attendee_info_name:           Vorname
 attendee_info_surname:        Nachname
