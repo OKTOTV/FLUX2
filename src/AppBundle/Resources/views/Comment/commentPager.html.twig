@@ -13,7 +13,7 @@
         </div>
         <!-- Antwort Container -->
         <div class="comment-answer">
-            <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}">{{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}</a>
+            <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}" title="{{ 'oktothek_comment_cP_answer'|trans }}">{{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}</a>
             <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
 
                 <!-- Antwort -->
@@ -50,5 +50,5 @@
         </div>
     </div>
     {% else %}
-        <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default login">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
+        <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default login" title="{{ 'oktothek_comment_cP_login_title'|trans }}">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
     {% endif %}
