@@ -30,10 +30,12 @@
     </section>
     <!-- Ende Gruppenangebote -->
     <!-- Anfang Newsletter -->
+    {# Excluded by BAS and SAB 
     <section class="newsletter">
         <h2>{{ 'oktothek_academy_show_stay_informed'|trans }}</h2>
         {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_academy_newsletter }))}}
     </section>
+    #}
     <!-- Ende Newsletter -->
 {% endblock %}
 {% block javascripts %}

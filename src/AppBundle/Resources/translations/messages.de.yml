@@ -584,7 +584,7 @@ oktothek.producer_new_playlist_header:      Playliste für Sendereihe anlegen
 
 # newsletter
 oktothek.newsletter_header:                 Newsletter
-oktothek.newsletter_mail_placeholder:       Email
+oktothek.newsletter_mail_placeholder:       E-Mail
 oktothek.newsletter_subscribe_submit:       Anmelden
 oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
 
