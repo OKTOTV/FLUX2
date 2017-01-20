@@ -28,13 +28,14 @@ oktothek.menu_tag_dropdown:             'Popular <span class="caret">'
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Brandneu in der Oktothek
-oktothek.newest_videos_sub:             Hier kannst du dir die aktuellesten Videos unserer OktonautInnen ansehen.
+oktothek.newest_videos_sub:             Hier kannst du dir die aktuellsten Videos unserer OktonautInnen ansehen.
 oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class='icon'>+</span>
 oktothek.newest_videos_show_less:       Weniger Videos anzeigen <span class='icon'>-</span>
 oktothek.best_videos:                   Beliebteste Clips
 oktothek.best_videos_sub:               Die meistgefragten Videos der Okto Community findest du hier.
 
-oktothek.newest_playlists:              Neue Playlisten
+oktothek.newest_playlists:              "Aktuelle Playlisten"
+oktothek.newest_playlists_sub:          "Tipps von einem anderen Stern."
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
 oktothek.newest_playlists_show_less:    Weniger Playlisten anzeigen <span class="icon">-</span>
 oktothek.newest_news_show_more:         Mehr News anzeigen
@@ -55,6 +56,35 @@ oktothek.login_register:                Neuen Account anlegen
 ## search and results
 oktothek_results_header:                Suchergebnisse für "%searchphrase%"
 oktothek.searchfield_placeholder:       Suche Videos, Leute und Infos
+
+## Default
+### oktothek.html.twig
+oktothek_default_welcome:               "Willkommen %user%!"
+oktothek_default_sub_welcome:           "Viele neue Videos und Möglichkeiten warten auf dich."
+oktothek_default_participate:           "Mitmachen"
+oktothek_default_participate_sub:       "Du platzt vor Ideen? Dann bist du bei uns richtig!"
+oktothek_default_participate_login:     "Melde Dich an!"
+oktothek_default_participate_view_clips: "Clips ansehen"
+oktothek_default_participate_view_clips_title: "Eintauchen in die Oktothek und Videos ansehen."
+oktothek_default_participate_5_steps:   "5 Schritte zur eigenen Sendung"
+oktothek_default_participate_5_steps_title: "Wie werde ich zum/zur SendungsmacherIn? Von der Couch ins TV-Studio."
+oktothek_default_participate_equipment: "Equipment &<br />Verleih"
+oktothek_default_participate_equipment_title: "Hier kannst du dir das Equipment für deinen nächsten Dreh ausborgen."
+oktothek_default_participate_upload:    "Produktion hochladen"
+oktothek_default_participate_upload_title: "Dein Video ist bereit zum Herzeigen? Du kannst es hier hochladen."
+
+### footer.html.twig
+oktothek_default_footer_back_to_top:    'Nach oben <span class="icon icon-top"></span>'
+oktothek_default_sr_header:             "Folge uns auf:"
+oktothek_default_footer_fb:             "Facebook"
+oktothek_default_footer_fb_title:       "Okto auf Facebook"
+oktothek_default_footer_tw:             "Twitter"
+oktothek_default_footer_tw_title:       "Okto auf Twitter"
+oktothek_default_footer_insta:          "Instagram"
+oktothek_default_footer_insta_title:    "Okto auf Instagram"
+oktothek_default_footer_yt:             "Youtube"
+oktothek_default_footer_yt_title:       "Okto auf Youtube"
+oktothek_default_footer_partner:        "Partner"
 
 ## news post
 ## form labels
@@ -545,7 +575,7 @@ oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edi
 oktothek_backend_slide_from_news:           Slide generieren
 
 # default (oktothek)
-oktothek_default_login_teaser:              Melde Dich an um eine neue Playlist zu erstellen und werde Teil der Okto Community!
+oktothek_default_login_teaser:              "Melde dich an, um selbst eine Playlist zu erstellen und werde Teil der Okto Community!"
 oktothek_default_login_teaser_link:         ANMELDEN
 oktothek_default_newest_playlists_text:     Hier ist der heiße Scheiß!
 
