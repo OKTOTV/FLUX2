@@ -4,7 +4,7 @@ Previous:   Vorherige
 Next:       Nächste
 
 # oktothek
-oktothek_more_results:                  "Mehr Anzeigen"
+oktothek_more_results:                  "Alles Anzeigen"
 
 ## menu
 oktothek.menu_oktothek:                 Oktothek
@@ -38,7 +38,7 @@ oktothek.newest_playlists:              Neue Playlisten
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
 oktothek.newest_playlists_show_less:    Weniger Playlisten anzeigen <span class="icon">-</span>
 oktothek.newest_news_show_more:         Mehr News anzeigen
-oktothek.episode_stack_collapse_title:  Weitere neueste Videos anzeigen
+oktothek.episode_stack_collapse_title:  "Mehr Videos anzeigen"
 
 oktothek.newest_episodes_header:        Neueste Clips
 oktothek.best_episodes_header:          Beliebteste Clips
@@ -565,6 +565,9 @@ oktothek_default_share_title_tw:            "Link tweeten"
 oktothek_default_share_title_gp:            "Link auf Google+ teilen"
 oktothek_default_share_title_pin:           "Auf Pinterest pinnen"
 oktothek_default_share_title_mail:          "Link via E-Mail teilen"
+
+### EpisodeStack.html.twig
+oktothek_episodeStack_more_results_title:   "Alle Videos anzeigen"
 
 # oktothek episode thumb
 oktothek_episode_thumb_default_title:       Episode vom %date% ansehen
