@@ -17,10 +17,10 @@
         </ul>
         {# example for an login area #}
         <ul class="nav navbar-nav navbar-right">
-            <li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank"><span class="icon icon-upload"></span> <span class="link">HOCHLADEN</span></a></li>
+            <li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank" title="{{ 'oktothek.menu_upload_title'|trans }}"><span class="icon icon-upload"></span> <span class="link">{{ 'oktothek.menu_upload'|trans }}</span></a></li>
             {% if is_granted('ROLE_OKTOLAB_USER') or is_granted('ROLE_OKTOLAB_PRODUCER') %}
                 <li {% if dropdown == "user_menu" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="icon icon-login"></span> <span class="link">{{ app.user.username }}</span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="icon icon-login"></span> <span class="link">{{ app.user.username }}</span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li {% if selected == "playlists" %}class="active"{% endif %}>
                             <a href="{{ path('oktothek_user_playlists', {'username': app.user.username}) }}">{{ 'oktothek.menu_user_playlists'|trans|raw }}</a>
@@ -68,9 +68,9 @@
                 </li>
                 {% if is_granted('ROLE_OKTOLAB_USER') %}
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{{ 'oktothek.menu_user_notifications_title'|trans }}">
                             {% if app.user.notifications is not empty %}{{ 'oktothek.menu_user_notifications'|trans|raw }}
-                            {% else %}{{ 'oktothek.menu_user_notifications_empty'|trans|raw }} <span class="visible-xs-inline">Benachrichtigung</span> {% endif %}
+                            {% else %}{{ 'oktothek.menu_user_notifications_empty'|trans|raw }} <span class="visible-xs-inline">{{ 'oktothek.menu_notification_xs'|trans }}</span> {% endif %}
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><div class="triangle"></div></li>
@@ -96,7 +96,7 @@
                                 {% endif %}
                             {% endfor %}
                             {% if app.user.notifications is empty %}
-                                <li><a href="#">{{ 'oktothek.menu_user_no_notifications'|trans}}</a></li>
+                                <li><a href="{{ path('oktothek_user_abonnements') }}">{{ 'oktothek.menu_user_no_notifications'|trans}}</a></li>
                             {% endif %}
                         </ul>
                     </li>
@@ -106,7 +106,7 @@
             {% endif %}
             </ul>
             <ul class="nav navbar-nav visible-xs-block themes">
-                <li><h3 class="tag">Beliebteste Themen</h3></li>
+                <li><h3 class="tag">{{ 'oktothek.menu_best_tags'|trans }}</h3></li>
                 {{ render(controller('AppBundle:Tag:menuTags')) }}
             </ul>
         </div>
