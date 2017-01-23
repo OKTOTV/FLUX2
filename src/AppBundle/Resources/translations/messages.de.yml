@@ -3,14 +3,20 @@
 Previous:   Vorherige
 Next:       Nächste
 
+# layout.html.twig
+oktothek_layout_navigation:             "Navigation ein-/ausblenden"
+oktothek_layout_search:                 "Suche ein-/ausblenden"
+
 # oktothek
-oktothek_more_results:                  "Mehr Anzeigen"
+oktothek_more_results:                  "Alles Anzeigen"
 
 ## menu
 oktothek.menu_oktothek:                 Oktothek
 oktothek.menu_tv:                       TV
 oktothek.menu_participate:              Mitmachen
 oktothek.menu_academy:                  Workshops
+oktothek.menu_upload:                   Hochladen
+oktothek.menu_upload_title:             "Produktion hochladen"
 oktothek.menu_backend:                  <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend
 oktothek.menu_user_playlists:           <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Playlisten
 oktothek.menu_user_channels:            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Abos
@@ -19,26 +25,31 @@ oktothek.menu_my_channels:              <span class="glyphicon glyphicon-film" a
 oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> Abmelden
 oktothek.menu_user_notifications:       <span class="glyphicon glyphicon-bookmark" style="color:red"></span>
 oktothek.menu_user_notifications_empty: <span class="glyphicon glyphicon-bookmark"></span>
-oktothek.menu_user_no_notifications:    Derzeit keine Benachrichtigungen
+oktothek.menu_user_no_notifications:    "Hier kannst du deine Abos verwalten."
 oktothek.notification_message_episode:  "%series% hat eine neue Episode veröffentlicht"
 oktothek.notification_message_post:     "%series% hat einen neuen Beitrag veröffentlicht"
 oktothek.notification_livestream:       "%series% ist jetzt Live"
 oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"></span>
-oktothek.menu_tag_dropdown:             'Popular <span class="caret">'
+oktothek.menu_tag_dropdown:             'Themen <span class="caret">'
+oktothek.menu_best_tags:                "Beliebteste Themen"
+oktothek.menu_notification_xs:          "Benachrichtigung"
+oktothek.menu_user_notifications_title: "Benachrichtigungen"
+
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Brandneu in der Oktothek
-oktothek.newest_videos_sub:             Hier kannst du dir die aktuellesten Videos unserer OktonautInnen ansehen.
+oktothek.newest_videos_sub:             Hier kannst du dir die aktuellsten Videos unserer OktonautInnen ansehen.
 oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class='icon'>+</span>
 oktothek.newest_videos_show_less:       Weniger Videos anzeigen <span class='icon'>-</span>
 oktothek.best_videos:                   Beliebteste Clips
 oktothek.best_videos_sub:               Die meistgefragten Videos der Okto Community findest du hier.
 
-oktothek.newest_playlists:              Neue Playlisten
+oktothek.newest_playlists:              "Aktuelle Playlisten"
+oktothek.newest_playlists_sub:          "Tipps von einem anderen Stern."
 oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
 oktothek.newest_playlists_show_less:    Weniger Playlisten anzeigen <span class="icon">-</span>
 oktothek.newest_news_show_more:         Mehr News anzeigen
-oktothek.episode_stack_collapse_title:  Weitere neueste Videos anzeigen
+oktothek.episode_stack_collapse_title:  "Mehr Videos anzeigen"
 
 oktothek.newest_episodes_header:        Neueste Clips
 oktothek.best_episodes_header:          Beliebteste Clips
@@ -55,6 +66,35 @@ oktothek.login_register:                Neuen Account anlegen
 ## search and results
 oktothek_results_header:                Suchergebnisse für "%searchphrase%"
 oktothek.searchfield_placeholder:       Suche Videos, Leute und Infos
+
+## Default
+### oktothek.html.twig
+oktothek_default_welcome:               "Willkommen %user%!"
+oktothek_default_sub_welcome:           "Viele neue Videos und Möglichkeiten warten auf dich."
+oktothek_default_participate:           "Mitmachen"
+oktothek_default_participate_sub:       "Du platzt vor Ideen? Dann bist du bei uns richtig!"
+oktothek_default_participate_login:     "Melde Dich an!"
+oktothek_default_participate_view_clips: "Clips ansehen"
+oktothek_default_participate_view_clips_title: "Eintauchen in die Oktothek und Videos ansehen."
+oktothek_default_participate_5_steps:   "5 Schritte zur eigenen Sendung"
+oktothek_default_participate_5_steps_title: "Wie werde ich zum/zur SendungsmacherIn? Von der Couch ins TV-Studio."
+oktothek_default_participate_equipment: "Equipment &<br />Verleih"
+oktothek_default_participate_equipment_title: "Hier kannst du dir das Equipment für deinen nächsten Dreh ausborgen."
+oktothek_default_participate_upload:    "Produktion hochladen"
+oktothek_default_participate_upload_title: "Dein Video ist bereit zum Herzeigen? Du kannst es hier hochladen."
+
+### footer.html.twig
+oktothek_default_footer_back_to_top:    'Nach oben <span class="icon icon-top"></span>'
+oktothek_default_sr_header:             "Folge uns auf:"
+oktothek_default_footer_fb:             "Facebook"
+oktothek_default_footer_fb_title:       "Okto auf Facebook"
+oktothek_default_footer_tw:             "Twitter"
+oktothek_default_footer_tw_title:       "Okto auf Twitter"
+oktothek_default_footer_insta:          "Instagram"
+oktothek_default_footer_insta_title:    "Okto auf Instagram"
+oktothek_default_footer_yt:             "Youtube"
+oktothek_default_footer_yt_title:       "Okto auf Youtube"
+oktothek_default_footer_partner:        "Partner"
 
 ## news post
 ## form labels
@@ -149,10 +189,9 @@ oktothek.episode_show_playlist_login_register: Du kannst Playlisten nur mit eine
 oktothek.episode_show_playlist_login_register_link: Account
 oktothek.episode_show_playlist_no_playlists: Noch keine Playlisten angelegt
 oktothek.episode_show_update_playlists: Änderungen übernehmen
-oktothek.episode_comment_header:        '{0} Gib als Erster ein Kommentar ab |{1} Ein Kommentar |]1,Inf[ <span class="comments-counter">%count%</span> Kommentare'
+oktothek.episode_comment_header:        '{0} <span class="no_comment">Gib als Erster einen Kommentar ab</span> |{1} Ein Kommentar |]1,Inf[ <span class="comments-counter">%count%</span> Kommentare'
 oktothek.more_from_this_series:         Mehr aus dieser Sendereihe
 oktothek.episode_tag_header:            Tags
-oktothek_share_email:                   Email
 oktothek.success_publish_episode:       Episode veröffentlichen
 oktothek.episode_show_in_backend:       Im Backend anzeigen
 oktothek.episode_show_in_frontend:      Zum Frontend
@@ -166,6 +205,9 @@ oktothek.comment_placeholder_text:      Dein Kommentar...
 oktothek.comment_create_success:        Dein Kommentar wurde erfolgreich gepostet
 oktothek.comment_create_error:          Dein Kommentar konnte nicht gepostet werden
 
+### commentPager.html.twig
+oktothek_comment_cP_login_title:        "Zum Kommentieren anmelden"
+oktothek_comment_cP_answer:             "Auf Kommentar antworten"
 ## tag
 oktothek.tag_index_header:              Tags
 oktothek_tag_pages_header:              Seiten
@@ -205,7 +247,7 @@ oktothek.tag_pager_series_header:      "Alle Serien zu #%tag%"
 
 ## academy
 oktothek_academy_header:                Workshops
-oktothek_academy_misc_info:             €&thinsp;%price% / Ermäßigt €&thinsp;%price_reduced%
+oktothek_academy_misc_info:             €&thinsp;%price% / ermäßigt* €&thinsp;%price_reduced%
 oktothek_academy_course_free:           Dieser Kurs ist Kostenlos
 oktothek_academy_courses:               Kursangebote
 oktothek_academy_b2b:                   Angebote für Gruppen
@@ -217,6 +259,43 @@ oktothek_academy_b2b_more:              'Kontakt <a href="mailto:%email%?subject
 oktothe_academy_book_course_header:     "%coursetype% buchen"
 oktothek_academy_book_course:           Kurs buchen
 
+### _courseStack.html.twig
+oktothek_academy_quickview:             "Schnellansicht"
+oktothek_academy_hover_title:           "%coursetype% ansehen"
+oktothek_academy_show_details:          "Details zum Kurs %coursetype%"
+oktothek_academy_duration_choice:       "{0} Dauer %count% Stunden |{1} Dauer %count% Stunde |]1,Inf[ Dauer %count% Stunden"
+oktothek_academy_timetable:             "Termine"
+oktothek_academy_timetable_days_choice: "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} Sa|{7} So"
+oktothek_academy_timetable_date:        "%day%, %date%"
+oktothek_academy_timetable_date_format: "d.m.Y"
+oktothek_academy_timetable_time:        "start - end"
+oktothek_academy_timetable_time_format: "H:i"
+
+### bookCourse.html.twig
+oktothek_academy_bC_dates:              "Termine"
+
+### show.html.twig
+oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"
+oktothek_academy_show_footnote:          "* Ermäßigte Preise für StudentInnen, Zivildiener, Menschen mit geringem Einkommen."
+oktothek_academy_show_stay_informed:    "Informiert bleiben"
+
+### showCoursepackage.html.twig:
+oktothek_academy_sCp_book:              "Kurspaket buchen"
+oktothek_academy_sCp_book_title:        "Kurspaket %title% buchen"
+oktothek_academy_sCp_timetable:         "Termine"
+
+### showCoursetype.html.twig:
+oktothek_academy_sCt_facts:             "%duration%, Kosten %price%"
+oktothek_academy_sCt_timetable:         "Termine"
+oktothek_academy_sCt_header_details:    "Details zu %coursetype%"
+oktothek_academy_sCt_book_title:        "Kurs %title% buchen"
+
+### snippetCoursetypeShare.html.twig:
+oktothek_academy_sCS_share:             "Teilen"
+oktothek_academy_sCS_facebook_title:    "Kurs auf Facebook teilen"
+oktothek_academy_sCS_twitter_title:     "Kurs tweeten"
+oktothek_academy_sCS_googlep_title:     "Kurs auf Google+ teilen"
+oktothek_academy_sCS_mail_title:        "Kurs via E-Mail teilen"
 ## tv
 oktothek_tv_title:                      TV
 oktothek_tv_weekdays_choice:            "{1} Montag |{2} Dienstag |{3} Mittwoch|{4} Donnerstag|{5} Freitag|{6} Samstag|{7} Sonntag"
@@ -326,9 +405,9 @@ oktothek.backend_coursedate_end_label:  Terminende
 # Attendee
 oktothek_attendee_name_label:           Vorname
 oktothek_attendee_surname_label:        Nachname
-oktothek_attendee_email_label:          Mailadresse
+oktothek_attendee_email_label:          E-Mail
 oktothek_attendee_tel_label:            Telefonnummer
-oktothek_attendee_reduced_label:        Ermäßigt
+oktothek_attendee_reduced_label:        ermäßigt
 
 attendee_info_name:           Vorname
 attendee_info_surname:        Nachname
@@ -506,12 +585,12 @@ oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edi
 oktothek_backend_slide_from_news:           Slide generieren
 
 # default (oktothek)
-oktothek_default_login_teaser:              Melde Dich an um eine neue Playlist zu erstellen und werde Teil der Okto Community!
+oktothek_default_login_teaser:              "Melde dich an, um selbst eine Playlist zu erstellen und werde Teil der Okto Community!"
 oktothek_default_login_teaser_link:         ANMELDEN
 oktothek_default_newest_playlists_text:     Hier ist der heiße Scheiß!
 
 oktothek_share_header:                      Teilen
-oktothek_share_email:                       Email
+oktothek_share_email:                       E-Mail
 oktothek_share_fb:                          Facebook
 oktothek_share_tw:                          Twitter
 oktothek_share_gp:                          Google Plus
@@ -520,8 +599,18 @@ oktothek_share_pint:                        Pinterest
 oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420&nbsp;x&nbsp;315px eingebettet."
 oktothek_share_embed:                       Einbetten
 
+## _share.html.twig
+oktothek_default_share_title_fb:            "Link auf Facebook teilen"
+oktothek_default_share_title_tw:            "Link tweeten"
+oktothek_default_share_title_gp:            "Link auf Google+ teilen"
+oktothek_default_share_title_pin:           "Auf Pinterest pinnen"
+oktothek_default_share_title_mail:          "Link via E-Mail teilen"
+
+### EpisodeStack.html.twig
+oktothek_episodeStack_more_results_title:   "Alle Videos anzeigen"
+
 # oktothek episode thumb
-oktothek_episode_thumb_default_title:       Episode vom %date%
+oktothek_episode_thumb_default_title:       Episode vom %date% ansehen
 
 # producer
 oktothek.series_producer_text:              Hier findest du allgemeine Informationen und Statistiken zu deiner Sendereihe.
@@ -567,7 +656,7 @@ oktothek.producer_new_playlist_header:      Playliste für Sendereihe anlegen
 
 # newsletter
 oktothek.newsletter_header:                 Newsletter
-oktothek.newsletter_mail_placeholder:       Email
+oktothek.newsletter_mail_placeholder:       E-Mail
 oktothek.newsletter_subscribe_submit:       Anmelden
 oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
 
