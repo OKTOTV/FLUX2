@@ -54,7 +54,7 @@ services:
 
     oktothek_search:
         class: AppBundle\Model\SearchService
-        arguments: [ "@fos_elastica.finder.app.episode", "@fos_elastica.finder.app.series", "@fos_elastica.finder.app.playlist", "@fos_elastica.finder.app.tag" ]
+        arguments: [ "@fos_elastica.finder.app.episode", "@fos_elastica.finder.app.series", "@fos_elastica.finder.app.playlist", "@fos_elastica.finder.app.coursetype", "@fos_elastica.finder.app.tag" ]
 
     oktothek_academy:
         class: AppBundle\Model\AcademyService
@@ -126,4 +126,4 @@ services:
                 region: "eu-central-1" # 'eu-central-1' for example
                 credentials:
                     key: %oktothek_aws_key%
-                    secret: %oktothek_aws_secret% 
+                    secret: %oktothek_aws_secret%

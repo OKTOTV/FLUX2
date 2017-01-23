@@ -35,6 +35,10 @@ oktothek.menu_best_tags:                "Beliebteste Themen"
 oktothek.menu_notification_xs:          "Benachrichtigung"
 oktothek.menu_user_notifications_title: "Benachrichtigungen"
 
+## Search
+### results.html.twig
+oktothek_search_courses_header:         "Workshops"
+
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Brandneu in der Oktothek

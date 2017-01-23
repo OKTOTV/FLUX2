@@ -4,11 +4,14 @@ namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Coursetype
  *
+ * @JMS\AccessType("public_method")
+ * @JMS\ExclusionPolicy("all")
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CoursetypeRepository")
  */
@@ -25,6 +28,9 @@ class Coursetype
 
     /**
      * @var string
+     * @JMS\Expose
+     * @JMS\Type("string")
+     * @JMS\Groups({"search"})
      * @Assert\NotBlank(message="oktothek.backend_coursetype_title_notblank")
      * @Assert\Length(max=255, maxMessage="oktothek.backend_coursetype_title_maxLength")
      * @ORM\Column(name="title", type="string", length=255)
@@ -39,6 +45,9 @@ class Coursetype
     private $teaser;
 
     /**
+     * @JMS\Expose
+     * @JMS\Type("string")
+     * @JMS\Groups({"search"})
      * @Assert\NotBlank(message="oktothek.backend_coursetype_description_notblank")
      * @ORM\Column(name="description", type="text")
      */
