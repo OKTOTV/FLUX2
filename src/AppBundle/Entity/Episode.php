@@ -10,6 +10,8 @@ use AppBundle\Entity\User;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\EpisodeRepository")
+ * @JMS\AccessType("public_method")
+ * @JMS\ExclusionPolicy("all")
  */
 class Episode extends OktoEpisode {
     /**
@@ -59,5 +61,16 @@ class Episode extends OktoEpisode {
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * @JMS\Type("string")
+     * @JMS\Groups({"search"})
+     * @JMS\VirtualProperty
+     * @JMS\SerializedName("series_search")
+     */
+    public function getSeriesSearch()
+    {
+        return $this->getSeries()->getName();
     }
 }
