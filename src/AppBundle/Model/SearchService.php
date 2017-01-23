@@ -29,7 +29,7 @@ class SearchService
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
         $multiquery = new \Elastica\Query\MultiMatch();
-        $multiquery->setFields(['name', 'description', 'series']);
+        $multiquery->setFields(['name', 'description', 'series_search']);
         $multiquery->setQuery($searchphrase);
         $multiquery->setType(\Elastica\Query\MultiMatch::TYPE_MOST_FIELDS);
 

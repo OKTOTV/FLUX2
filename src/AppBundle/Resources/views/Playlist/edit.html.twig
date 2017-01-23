@@ -147,16 +147,18 @@
                 // TODO: use the prototype "replacing", add the div around and append to #playlist_items
             }
 
-            var episodes = new Bloodhound({
-              datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-              queryTokenizer: Bloodhound.tokenizers.whitespace,
-              remote: {
-                url: '{{ url('oktothek_search_episodes', {'query': "QUERY"}) }}',
-                wildcard: 'QUERY'
-              }
-            });
+            episodes = new Bloodhound({
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace,
+                remote: {
+                  url: '{{ url('oktothek_search_episodes', {'query': "QUERY"}) }}',
+                  wildcard: 'QUERY'
+                }
+              });
 
             $('#episode_search').typeahead(null, {
+                minLength: 3,
+                limit: 8,
                 name: 'episodes',
                 source: episodes,
                 templates: {
@@ -170,7 +172,6 @@
                     }
                 }
             }).bind('typeahead:select', function(ev, suggestion) {
-                console.log(suggestion);
                 addInput(suggestion);
             });
         });
