@@ -14,19 +14,19 @@
     <p>{{ course.coursetype.description }}</p>
     </section>
     <section>
-    <h2>Termine</h2>
+    <h2>{{ 'oktothek_academy_bC_dates'|trans }}</h2>
     {% for date in course.dates %}
-        <p>{{ date.courseStart|date('D, d.m.Y H:i')}} - {{ date.courseEnd|date('D, d.m.Y H:i')}}</p>
+    <span>{{ 'oktothek_academy_timetable_date'|trans({'%day%': 'oktothek_academy_timetable_days_choice'|transchoice(date.courseStart|date('N')), '%date%': date.courseStart|date('oktothek_academy_timetable_date_format'|trans)})}}</span>
+    {{ 'oktothek_academy_timetable_time'|trans({'start': date.courseStart|date('oktothek_academy_timetable_time_format'|trans), 'end': date.courseEnd|date('oktothek_academy_timetable_time_format'|trans)}) }}
     {% endfor %}
     {% if course.coursetype.price <= 0 %}
         <p>{{ 'oktothek_academy_course_free'|trans }}</p>
     {% else %}
-        <p>Vollpreis / Ermäßigter Preis</p>
         <p>{{ 'oktothek_academy_misc_info'|trans({'%price%': course.coursetype.price|number_format(2, ',', '.'), '%price_reduced%': course.coursetype.priceReduced|number_format(2, ',', '.')})|raw }}</p>
     {% endif %}
     {{ form_start(form) }}
     {{ form_end(form) }}
-    <img src="{{ asset('bundles/bprssofort/images/sofort_175x75.png') }}" class="img img-rounded img-responsive" alt="Sofort&uuml;berweisung" />
+    <p><small>{{ 'oktothek_academy_show_footnote'|trans }}</small></p>
     </section>
 </div>
 {% endblock %}

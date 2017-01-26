@@ -179,6 +179,7 @@ header .navbar-nav.themes a,
 .form-control::-webkit-input-placeholder {
         font-size:14px;
 }
+small,
 .livestream p.current-episode, 
 header .nav, 
 .pin figcaption p, 

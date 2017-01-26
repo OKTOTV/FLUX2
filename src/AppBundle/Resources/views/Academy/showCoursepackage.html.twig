@@ -12,7 +12,7 @@
     </div>
 
     <p>{{ coursepackage.description }}</p>
-    <a href="{{ path('oktothek_academy_book_coursepackage', {'coursepackage': coursepackage.id}) }}">Buchen</a>
+    <a href="{{ path('oktothek_academy_book_coursepackage', {'coursepackage': coursepackage.id}) }}" title="{{ 'oktothek_academy_sCp_book_title'|trans({'%title%': coursepackage}) }}">{{ 'oktothek_academy_sCp_book'|trans }}</a>
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}

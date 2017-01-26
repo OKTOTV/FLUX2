@@ -17,12 +17,12 @@
         {% if episodes|length > 7 %} {# there are more results. show link to paginator #}
             <article class="col-md-3 col-lg-3 col-sm-6 col-xs-12 pin more">
                 <figure class="episode-pin pin">
-                    <a href="{{ pager_url|default('#') }}" title="">{{ pager_link_text|default('oktothek_more_results')|trans|raw }}</a>
+                    <a href="{{ pager_url|default('#') }}" title="{{ 'oktothek_episodeStack_more_results_title'|trans }}">{{ pager_link_text|default('oktothek_more_results')|trans|raw }}</a>
                 </figure>
             </article>
         {% endif %}
     </div>
-    <a href="{{ collapse_link|default('#'~collapse_id) }}" data-collapseid="#{{collapse_id}}" class="pull-right more" data-lesstrans="{{collapse_link_text_less|default('oktothek.newest_videos_show_less'|trans)|raw }}" data-moretrans="{{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw }}" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title') }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}">
+    <a href="{{ collapse_link|default('#'~collapse_id) }}" data-collapseid="#{{collapse_id}}" class="pull-right more" data-lesstrans="{{collapse_link_text_less|default('oktothek.newest_videos_show_less'|trans)|raw }}" data-moretrans="{{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw }}" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title'|trans) }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}">
         {{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw}}
     </a>
 {% endif %}
