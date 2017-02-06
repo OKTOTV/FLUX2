@@ -26,35 +26,32 @@ class TvService
         );
         if ($response->getStatusCode() == 200) {
             return json_decode($response->getBody());
-            // @TODO: test check for episodes and set uniqIDs to shows
-            // $shows = json_decode($response->getBody());
-            //
-            // $uniqIDs = [];
-            // foreach ($shows as $show) {
-            //     $uniqIDs[] = $show->id;
-            // }
-            // $episodes = $this->episode_repository->findEpisodesByUniqID($uniqIDs);
-
         } else {
             return [];
         }
     }
 
-    public function getCurrent($shows = false)
+    public function getCurrent($shows = false, $numberOfNextEpisodes = 0)
     {
         $now = new \Datetime();
-        $current = false;
         if (!$shows) {
             $shows = $this->getShows(new \Datetime('-3 hours'), new \Datetime('+3 hours'));
         }
 
+        $nowPlaying = [];
+        $current = false;
         foreach ($shows as $show) {
             if (new \Datetime($show->airdate) <= $now) {
                 $current = $show;
             } else {
-                break;
+                if ($numberOfNextEpisodes <= 0) {
+                    break;
+                }
+                $nowPlaying[] = $show;
+                $numberOfNextEpisodes--;
             }
         }
-        return $current;
+        array_unshift($nowPlaying, $current);
+        return $nowPlaying;
     }
 }
