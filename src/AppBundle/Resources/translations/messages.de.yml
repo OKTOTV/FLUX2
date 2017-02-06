@@ -615,6 +615,8 @@ oktothek_episodeStack_more_results_title:   "Alle Videos anzeigen"
 
 # oktothek episode thumb
 oktothek_episode_thumb_default_title:       Episode vom %date% ansehen
+oktothek_episode_thumb_series_title:        "Mehr Infos zu %series%"
+oktothek_episode_thumb_series_default:      "Mehr Infos zur Sendereihe"
 
 # producer
 oktothek.series_producer_text:              Hier findest du allgemeine Informationen und Statistiken zu deiner Sendereihe.
