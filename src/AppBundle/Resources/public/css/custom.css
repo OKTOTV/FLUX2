@@ -986,18 +986,21 @@ header .collapseShare a.btn,
 .pagination > li > a:focus  {
 	background-color:#ffffff;
 }
-body.oktothek .news article, 
-body.playlists .playlist_container .list-group-item, 
-.collapseWindow > div.collapse-content,
 article.pin figure.pin,
+body.oktothek .news article,
+body.tagpage .inc-pins article.pin figure,
+article.pin figure.pin,
+body.tagpage article.first-pin,
+body.tagpage .pages > .list-group-item,
+.container.tags ul,
+body.series .blog aside .aside-inner, 
+body.playlists .playlist_container .list-group-item, 
+body.livestream .schedule .panel-default,
+.collapseWindow > div.collapse-content,
 body.series .news-pin, 
 body.series .news-form, 
-body.series .blog aside .aside-inner, 
 body.series .series-posterframe > div,
-body.tagpage .inc-pins article.pin figure,
-#playlist_items .row,
-.container.tags ul, 
-body.livestream .schedule .panel-default,
+#playlist_items .row, 
 body.edit-playlists .tt-menu,
 body.newsarchiv aside .box,
 .news aside .box,
@@ -1007,7 +1010,6 @@ body.newsarchiv aside .box,
 .nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover,
 section.tabs-content,
-body.tagpage article.first-pin,
 body.tagpage article.empty .icon-player,
 .pagination > .disabled > a, 
 .pagination > .disabled > a:focus, 
@@ -1017,9 +1019,24 @@ body.tagpage article.empty .icon-player,
 .pagination > .disabled > span:hover,
 .pagination > li > a, 
 .pagination > li > span,
-.alert-success,
-body.tagpage .pages .list-group-item { /* Dunkelgrau */
+.alert-success { /* Dunkelgrau */
 	background-color:#112022;
+}
+
+article.pin figure.pin,
+body.oktothek .news article,
+body.tagpage .inc-pins article.pin figure,
+article.pin figure.pin,
+body.tagpage article.first-pin,
+body.tagpage .pages > .list-group-item,
+.container.tags ul,
+body.series .blog aside .aside-inner, 
+body.playlists .playlist_container .list-group-item, 
+body.livestream .schedule .panel-default {
+    transition: background-color 0.4s ease;
+    -webkit-transition: background-color 0.4s ease;
+    -moz-transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
 }
 article.pin figure.pin:hover,
 article.pin figure.pin:focus,
@@ -1031,7 +1048,7 @@ body.tagpage .inc-pins article.pin:hover figure,
 body.tagpage .inc-pins article.pin:focus figure,
 body.tagpage article.first-pin:hover,
 body.tagpage article.first-pin:focus,
-.tagpage .pages > .list-group-item:hover,
+body.tagpage .pages > .list-group-item:hover,
 .container.tags ul:hover,
 .container.tags ul:focus,
 body.series .blog aside .aside-inner:hover, 
