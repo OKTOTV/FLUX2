@@ -1022,22 +1022,6 @@ body.tagpage article.empty .icon-player,
 .alert-success { /* Dunkelgrau */
 	background-color:#112022;
 }
-
-article.pin figure.pin,
-body.oktothek .news article,
-body.tagpage .inc-pins article.pin figure,
-article.pin figure.pin,
-body.tagpage article.first-pin,
-body.tagpage .pages > .list-group-item,
-.container.tags ul,
-body.series .blog aside .aside-inner, 
-body.playlists .playlist_container .list-group-item, 
-body.livestream .schedule .panel-default {
-    transition: background-color 0.4s ease;
-    -webkit-transition: background-color 0.4s ease;
-    -moz-transition: background-color 0.4s ease;
-    -o-transition: background-color 0.4s ease;
-}
 article.pin figure.pin:hover,
 article.pin figure.pin:focus,
 body.oktothek .news article:hover,
@@ -1058,6 +1042,21 @@ body.playlists .playlist_container .list-group-item:focus,
 body.livestream .schedule .panel-default:hover,
 body.livestream .schedule .panel-default:focus { /* Mittleres Grau */
     background-color:#192e31;
+}
+article.pin figure.pin,
+body.oktothek .news article,
+body.tagpage .inc-pins article.pin figure,
+article.pin figure.pin,
+body.tagpage article.first-pin,
+body.tagpage .pages > .list-group-item,
+.container.tags ul,
+body.series .blog aside .aside-inner, 
+body.playlists .playlist_container .list-group-item, 
+body.livestream .schedule .panel-default {
+    transition: background-color 0.4s ease;
+    -webkit-transition: background-color 0.4s ease;
+    -moz-transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
 }
 /* Spacelayout */
 .oktothek a.btn-default.but-full.active, 
