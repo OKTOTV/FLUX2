@@ -19,10 +19,10 @@
         <section class="participart bg-fullscreen">
             <div id="anchor_participart"></div>
             {% if is_granted('ROLE_OKTOLAB_USER') %}
-            <h2 id="button_down">{{ 'oktothek_default_welcome'|trans({'%user%': app.user.username}) }}<span class="icon participant-arrow-down"> </span></h2>
+            <h2 id="button_down">{{ 'oktothek_default_welcome'|trans({'%user%': app.user.username}) }}<span class="icon participant-arrow-down">Hier!</span></h2>
             <article class="container"><p class="aligncenter subheadline">{{ 'oktothek_default_sub_welcome'|trans }}</p></article>
             {% else %}
-            <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump"> </span></h2>
+            <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump">Hier!</span></h2>
             <article class="container">
                 <h4 class="aligncenter subheadline">{{ 'oktothek_default_participate_sub'|trans }}</h4>
                 <div class="aligncenter button_container"><a href="{{ path('bprs_user_login') }}" class="btn btn-default but-full">{{'oktothek_default_participate_login'|trans }}</a></div>
