@@ -57,6 +57,10 @@ h2,
 	font-family: HelveticaNeueLTStd-Roman, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
+    text-rendering: optimizeLegibility;
+    /*text-shadow:1px 1px 1px 1px rgba(0,0,0,0.005);
+     -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;*/
 }
 bold,
 strong,
@@ -90,6 +94,7 @@ h3,
 	font-style: normal;
 }
 .carousel-caption .slide-content, 
+.icon.participant-arrow-down,
 .subheadline, 
 .participart .button_container .btn, 
 .btn.btn-top, 
@@ -204,7 +209,9 @@ a.more,
 a.less, 
 #playlist_items a p,
 .post .misc a,
-body.producer ul.list-group .pin a p {
+body.producer ul.list-group .pin a p,
+.icon.participant-arrow-down,
+.icon.playlists-arrow-down {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -819,6 +826,12 @@ button.input-group-addon:focus,
 .blog aside a.more {
 	color:#ffffff;
 }
+*::-moz-selection {
+    color:#ffffff;
+}
+*::selection {
+    color:#ffffff;
+}
 .form-control, 
 .oktothek article a.btn-default, 
 .login a.btn.but-full,
@@ -890,6 +903,8 @@ button.list-group-item,
 .episode .series a, 
 a, 
 a.more,
+.icon.participant-arrow-down,
+.icon.playlists-arrow-down,
 .btn-link,
 .pin h3 a:hover,
 .pin h3 a:focus,
@@ -971,18 +986,21 @@ header .collapseShare a.btn,
 .pagination > li > a:focus  {
 	background-color:#ffffff;
 }
-body.oktothek .news article, 
-body.playlists .playlist_container .list-group-item, 
-.collapseWindow > div.collapse-content,
 article.pin figure.pin,
+body.oktothek .news article,
+body.tagpage .inc-pins article.pin figure,
+article.pin figure.pin,
+body.tagpage article.first-pin,
+body.tagpage .pages > .list-group-item,
+.container.tags ul,
+body.series .blog aside .aside-inner, 
+body.playlists .playlist_container .list-group-item, 
+body.livestream .schedule .panel-default,
+.collapseWindow > div.collapse-content,
 body.series .news-pin, 
 body.series .news-form, 
-body.series .blog aside .aside-inner, 
 body.series .series-posterframe > div,
-body.tagpage .inc-pins article.pin figure,
-#playlist_items .row,
-.container.tags ul, 
-body.livestream .schedule .panel-default,
+#playlist_items .row, 
 body.edit-playlists .tt-menu,
 body.newsarchiv aside .box,
 .news aside .box,
@@ -992,7 +1010,6 @@ body.newsarchiv aside .box,
 .nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover,
 section.tabs-content,
-body.tagpage article.first-pin,
 body.tagpage article.empty .icon-player,
 .pagination > .disabled > a, 
 .pagination > .disabled > a:focus, 
@@ -1002,20 +1019,44 @@ body.tagpage article.empty .icon-player,
 .pagination > .disabled > span:hover,
 .pagination > li > a, 
 .pagination > li > span,
-.alert-success,
-body.tagpage .pages .list-group-item { /* Dunkelgrau */
+.alert-success { /* Dunkelgrau */
 	background-color:#112022;
 }
 article.pin figure.pin:hover,
 article.pin figure.pin:focus,
+body.oktothek .news article:hover,
+body.oktothek .news article:focus,
 body.tagpage .inc-pins article.pin figure:hover,
 body.tagpage .inc-pins article.pin figure:focus,
 body.tagpage .inc-pins article.pin:hover figure,
 body.tagpage .inc-pins article.pin:focus figure,
 body.tagpage article.first-pin:hover,
 body.tagpage article.first-pin:focus,
-.tagpage .pages > .list-group-item:hover { /* Mittleres Grau */
+body.tagpage .pages > .list-group-item:hover,
+.container.tags ul:hover,
+.container.tags ul:focus,
+body.series .blog aside .aside-inner:hover, 
+body.series .blog aside .aside-inner:focus,
+body.playlists .playlist_container .list-group-item:hover, 
+body.playlists .playlist_container .list-group-item:focus,
+body.livestream .schedule .panel-default:hover,
+body.livestream .schedule .panel-default:focus { /* Mittleres Grau */
     background-color:#192e31;
+}
+article.pin figure.pin,
+body.oktothek .news article,
+body.tagpage .inc-pins article.pin figure,
+article.pin figure.pin,
+body.tagpage article.first-pin,
+body.tagpage .pages > .list-group-item,
+.container.tags ul,
+body.series .blog aside .aside-inner, 
+body.playlists .playlist_container .list-group-item, 
+body.livestream .schedule .panel-default {
+    transition: background-color 0.4s ease;
+    -webkit-transition: background-color 0.4s ease;
+    -moz-transition: background-color 0.4s ease;
+    -o-transition: background-color 0.4s ease;
 }
 /* Spacelayout */
 .oktothek a.btn-default.but-full.active, 
@@ -1045,6 +1086,12 @@ body.tagpage article.first-pin:focus,
 .input-group-addon,
 .oktothek .more figure.episode-pin a { /* Gelb */
 	background-color:#fcce14;
+}
+*::-moz-selection {
+    background-color:#fcce14;
+}
+*::selection {
+    background-color:#fcce14;
 }
 .btn.active, 
 .btn:active,
@@ -1389,7 +1436,7 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 	background-image:url(../images/bg_favourite.png);
     background-image:url(../images/bg_favourite.svg), none;
 }
-.participant-arrow-down {
+.participant-arrow-down, .playlists .playlists-arrow-down {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/icon_down_arrow.png);
@@ -1485,12 +1532,6 @@ body.oktothek .more figure.episode-pin {
 	background-repeat:no-repeat;
 	background-position:top left;
 }
-.playlists .playlists-arrow-down {
-	background-repeat:no-repeat;
-	background-position:center center;
-	background-image:url(../images/icon_playlist_arrow.png);
-    background-image:url(../images/icon_playlist_arrow.svg), none;
-}
 .playlists .edit {
 	background-repeat:no-repeat;
 	background-position:center center;
@@ -1582,16 +1623,42 @@ body.playlists section:first-child,
     -moz-opacity: 0.9;  /* older Mozilla browser */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"; /* IE8 in Standard Compliant Mode */
 }
-#carousel figcaption .bg-opacity {
+#carousel figcaption .bg-opacity, 
+.current-episode.description-wrapper .bg-opacity, 
+.current-course.description-wrapper .bg-opacity {
     opacity: 0.4;       /* modern browser */
     -moz-opacity: 0.4;  /* older Mozilla browser */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; /* IE8 in Standard Compliant Mode */
 }
+#carousel figcaption:hover .bg-opacity, 
+.current-episode.description-wrapper:hover .bg-opacity, 
+.current-course.description-wrapper:hover .bg-opacity {
+    opacity: 0.8;       /* modern browser */
+    -moz-opacity: 0.8;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /* IE8 in Standard Compliant Mode */
+    transition: opacity 0.2s ease;
+    -webkit-transition: opacity 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+    -o-transition: opacity 0.2s ease;
+}
 @media (min-width: 768px) {
-    #carousel figcaption .bg-opacity {
+    #carousel figcaption .bg-opacity, 
+    .current-episode.description-wrapper .bg-opacity, 
+    .current-course.description-wrapper .bg-opacity {
         opacity: 0.7;       /* modern browser */
         -moz-opacity: 0.7;  /* older Mozilla browser */
         -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
+        transition: opacity 0.2s ease;
+        -webkit-transition: opacity 0.2s ease;
+        -moz-transition: opacity 0.2s ease;
+        -o-transition: opacity 0.2s ease;
+    }
+    #carousel figcaption:hover .bg-opacity, 
+    .current-episode.description-wrapper:hover .bg-opacity, 
+    .current-course.description-wrapper:hover .bg-opacity {
+        opacity: 0.8;       /* modern browser */
+        -moz-opacity: 0.8;  /* older Mozilla browser */
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /* IE8 in Standard Compliant Mode */
     }
 }
 body.tagpage .bg-opacity {
@@ -2449,6 +2516,10 @@ figcaption  {
 .avatar1, .avatar2, .avatar3, .avatar4 {
 	width:30px;
 	height:30px;
+}
+.no_comment {
+    display: block;
+    text-align: center;
 }
 /*#appbundle_comment_submit {
     margin:0 auto;

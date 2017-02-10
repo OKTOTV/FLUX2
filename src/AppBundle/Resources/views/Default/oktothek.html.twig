@@ -19,28 +19,28 @@
         <section class="participart bg-fullscreen">
             <div id="anchor_participart"></div>
             {% if is_granted('ROLE_OKTOLAB_USER') %}
-            <h2 id="button_down">{{ 'oktothek_default_welcome'|trans({'%user%': app.user.username}) }}<span class="icon participant-arrow-down"> </span></h2>
+            <h2 id="button_down">{{ 'oktothek_default_welcome'|trans({'%user%': app.user.username}) }}<span class="icon participant-arrow-down">Hier!</span></h2>
             <article class="container"><p class="aligncenter subheadline">{{ 'oktothek_default_sub_welcome'|trans }}</p></article>
             {% else %}
-            <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump"> </span></h2>
+            <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump">Hier!</span></h2>
             <article class="container">
                 <h4 class="aligncenter subheadline">{{ 'oktothek_default_participate_sub'|trans }}</h4>
                 <div class="aligncenter button_container"><a href="{{ path('bprs_user_login') }}" class="btn btn-default but-full">{{'oktothek_default_participate_login'|trans }}</a></div>
                 <ul class="participart-list clearfix">
                   <li><figure><a href="#show_clips" class="anchor" title="{{ 'oktothek_default_participate_view_clips_title'|trans }}">
-                    <svg width="100" height="100" viewbox="0 0 100 100">
+                    <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
                         <image xlink:href="{{ asset('bundles/app/images/figure_oktonaut.svg')}}" src="{{ asset('bundles/app/images/figure_oktonaut.png')}}" alt="{{ 'oktothek_default_participate_view_clips'|trans }}" width="100" height="100" style="width:100%;height:auto;" />
                     </svg></a><figcaption><a href="#show_clips" class="anchor" title="{{ 'oktothek_default_participate_view_clips_title'|trans }}">{{ 'oktothek_default_participate_view_clips'|trans }}</a></figcaption></figure></li>
                   <li><figure><a href="https://flux2.okto.tv/de/oktothek/episode/581a3a0983644" title="{{ 'oktothek_default_participate_5_steps_title'|trans }}">
-                    <svg width="100" height="100">
+                    <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
                         <image xlink:href="{{ asset('bundles/app/images/figure_ideas.svg')}}" src="{{ asset('bundles/app/images/figure_ideas.png')}}" alt="{{ 'oktothek_default_participate_5_steps'|trans }}" width="100" height="100" alt="Wie setze ich meine Ideen um?" />
                     </svg></a><figcaption><a href="https://flux2.okto.tv/de/oktothek/episode/581a3a0983644" title="{{ 'oktothek_default_participate_5_steps_title'|trans }}">{{ 'oktothek_default_participate_5_steps'|trans }}</a></figcaption></figure></li>
                   <li><figure><a href="https://flux2.okto.tv/de/page/equipment_und_verleih" title="{{ 'oktothek_default_participate_equipment_title'|trans}}">
-                    <svg width="100" height="100">
+                    <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
                         <image xlink:href="{{ asset('bundles/app/images/figure_camera.svg')}}" src="{{ asset('bundles/app/images/figure_camera.png')}}" alt="{{ 'oktothek_default_participate_equipment'|trans|raw }}" width="100" height="100" alt="Equipment" />
                     </svg></a><figcaption><a href="https://flux2.okto.tv/de/page/equipment_und_verleih" title="{{ 'oktothek_default_participate_equipment_title'|trans}}">{{ 'oktothek_default_participate_equipment'|trans|raw }}</a></figcaption></figure></li>
                   <li><figure><a href="http://intake.okto.tv/" target="_blank" title="{{ 'oktothek_default_participate_upload_title'|trans}}">
-                    <svg width="100" height="100">
+                    <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
                         <image xlink:href="{{ asset('bundles/app/images/figure_upload.svg')}}" src="{{ asset('bundles/app/images/figure_upload.png')}}" alt="{{ 'oktothek_default_participate_upload'|trans }}" width="100" height="100" alt="Upload starten" />
                     </svg></a><figcaption><a href="http://intake.okto.tv/" target="_blank" title="{{ 'oktothek_default_participate_upload_title'|trans}}">{{ 'oktothek_default_participate_upload'|trans }}</a></figcaption></figure></li>
                 </ul>

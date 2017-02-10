@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
-body.news h1 {
+body.news h1, body.newsarchiv h1 {
     text-align:left;
 }
 .news h3 {
@@ -42,6 +42,9 @@ body.newsarchiv .page-header.detail, body.news .page-header.archiv, body.newsarc
 }
 body.newsarchiv aside, body.news aside {
 	margin-top:40px;
+}
+body.newsarchiv .page-header {
+    margin-bottom: 20px;
 }
 body.newsarchiv aside .box, body.news aside .box {
 	padding:40px 15px;
