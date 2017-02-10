@@ -7,25 +7,41 @@
 {% block body_main -%}
     <div class="page-header">
         <h1>{{ series }}</h1>
-        <a href="{{ path('oktolab_series_edit', { 'series': series.uniqID }) }}" class="btn btn-default">{{ 'oktolab_media.series_edit_button'|trans|raw }}</a>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'oktolab_media.series_show_actions'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="{{ path('oktolab_series_edit', { 'series': series.uniqID }) }}">{{ 'oktolab_media.series_edit_button'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktolab_media_export_series', {'series': series.uniqID}) }}">{{ 'oktolab_media.series_export_button'|trans|raw }}</a></li>
+            </ul>
+        </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-7">
             {% if series.posterframe is not empty %}
                 <img src="{{ series.posterframe|path }}" class="img-responsive" />
             {% endif %}
             {{ series.description }}
         </div>
-        <div class="col-md-4">
-            <p>Angelegt am: {{ series.createdAt|date('d.m.Y H:i') }}</p>
-            <p>Aktualisiert am: {{ series.updatedAt|date('d.m.Y H:i') }}</p>
-            {% if series.isActive %}
-                <p>Sendereihe ist: Aktiv</p>
-            {% else %}
-                <p>Sendereihe ist: Inaktiv</p>
-            {% endif %}
-            <p>ID: {{ series.uniqID }}</p>
-            <p>Webtitel: {{ series.webtitle }}</p>
+        <div class="col-md-5">
+            <h4>{{ 'oktolab_media_info_for_series_header'|trans }}</h4>
+            <dl class="dl-horizontal">
+                <dt>{{ 'oktolab_media.series_info_isActive'|trans }}</dt>
+                <dd>{{ 'oktolab_media.series_info_isActive_choice'|transchoice( series.isActive ) }}</dd>
+
+                <dt>{{ 'oktolab_media.series_info_createdAt'|trans }}</dt>
+                <dd>{{ series.createdAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.series_info_updatedAt'|trans }}</dt>
+                <dd>{{ series.updatedAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.series_info_uniqID'|trans}}</dt>
+                <dd>{{ series.uniqID }}</dd>
+
+                <dt>{{ 'oktolab_media.series_info_webtitle'|trans}}</dt>
+                <dd>{{ series.webtitle }}</dd>
+            </dl>
             <div class="list-group">
                 {% for reachme in series.reachmes %}
                         <a href="{{ path('flux2_reachme_show', {'reachme': reachme.id })}}" class="list-group-item">{{ 'reachme_type_transchoice'|transchoice(reachme.type) }}</a>

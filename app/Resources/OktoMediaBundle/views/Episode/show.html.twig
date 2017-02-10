@@ -12,9 +12,11 @@
                 {{ 'oktolab_media.episode_show_actions'|trans|raw }}
             </button>
             <ul class="dropdown-menu">
+                <li><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">{{ 'oktothek.episode_show_in_frontend'|trans|raw }}</a></li>
                 <li><a href="{{ path('oktolab_episode_edit', {'episode': episode.uniqID}) }}">{{ 'oktolab_media.episode_edit_button'|trans|raw }}</a></li>
                 <li><a href="{{ path('oktothek_backend_slide_from_episode', {'uniqID': episode.uniqID})}}">{{ 'oktothek_backend_slide_from_episode'|trans|raw }}</a></li>
                 <li role="separator" class="divider"></li>
+                <li><a href="{{ path('oktolab_media_export_episode', {'uniqID': episode.uniqID}) }}">{{ 'oktolab_media.show_episode_export'|trans|raw }}</a></li>
                 <li><a href="{{ path('oktolab_episode_encode', {'uniqID': episode.uniqID}) }}">{{ 'oktolab_media.show_episode_add_to_encode_queue'|trans|raw }}</a></li>
                 {% if episode.technicalStatus >= 50 and episode.isActive == false %}
                     <li role="separator" class="divider"></li>
@@ -22,7 +24,6 @@
                 {% endif %}
             </ul>
         </div>
-        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" class="btn btn-default">{{ 'oktothek.episode_show_in_frontend'|trans }}</a>
     </div>
     <div class="row">
         <div class="col-md-7">
