@@ -12,12 +12,20 @@
     </div>
     <section id="current_show">
         {% if current %}
-        <header>
-          <p class="current-episode">Derzeit auf Okto</p>
-          <h1 class="name">{{ current.name|default(current.series_name)}}</h1>
-          <time datetime="{{ current.airdate|date('Y-m-d H:i')}}">{{ current.airdate|date('D, d.m.Y H:i')}}</time>
-          <p class="description">{{ current.description }}</p>
-        </header>
+            <header>
+              <p class="current-episode">Derzeit auf Okto</p>
+              <h1 class="name">{{ current[0].name|default(current[0].series_name)}}</h1>
+              <time datetime="{{ current[0].airdate|date('Y-m-d H:i')}}">{{ current[0].airdate|date('D, d.m.Y H:i')}}</time>
+              <p class="description">{{ current[0].description }}</p>
+            </header>
+            {% for next in current|slice(1) %}
+            <header>
+                <p class="next-episode">Im Anschluss</p>
+                <h1 class="name">{{ next.name|default(next.series_name)}}</h1>
+                <time datetime="{{ next.airdate|date('Y-m-d H:i')}}">{{ next.airdate|date('D, d.m.Y H:i')}}</time>
+                <p class="description">{{ next.description }}</p>
+            </header>
+            {% endfor %}
         {% endif %}
     </section>
 
@@ -28,10 +36,9 @@
     {{ parent() }}
     <script src="https://content.jwplatform.com/libraries/qecJHTsP.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            if (!event.state) {
-                history.pushState({'url': "{{ url}}" });
-            }
+        $(document).ready(function(event){
+            setInterval("updateCurrent()", 10000);
+
             var playerInstance = jwplayer("player");
             playerInstance.setup({
                 file: "http://d2jk87psbjrjdz.cloudfront.net/livehttporigin/okto/playlist.m3u8",
@@ -39,10 +46,9 @@
             });
         });
 
-        setInterval("updateCurrent()", 10000);
         function updateCurrent() {
             $.ajax({
-                url: "{{ path('oktothek_tv_current_show') }}",
+                url: "{{ url('oktothek_tv_current_show') }}",
                 success: function(data) {
                     $('#current_show').replaceWith(data);
                 }
@@ -61,14 +67,15 @@
         $(document).on('click', '.loadme', function(e) {
             e.preventDefault();
             var url = $(this).attr('href');
-            history.pushState({'url': url}, "TV");
-            console.log('pushed url: '+url);
+            history.pushState({'url': url}, "");
             updateProgram(url);
-        })
+        });
 
         window.onpopstate = function(event) {
             if (event.state) {
                 updateProgram(event.state.url);
+            } else {
+                updateProgram("{{ url }}");
             }
         }
     </script>

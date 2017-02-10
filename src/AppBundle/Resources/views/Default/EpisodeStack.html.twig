@@ -3,7 +3,7 @@
 <div class="row">
     {% for episode in episodes|slice(0,4) %}
         {% if episode.isActive %}
-            {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+            {% include "AppBundle:Episode:EpisodeThumb.html.twig" %}
         {% endif %}
     {% endfor %}
 </div>
@@ -11,7 +11,7 @@
     <div class="row collapse" id="{{ collapse_id }}">
        {% for episode in episodes|slice(4,3) %}
             {% if episode.isActive %}
-                {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+                {% include "AppBundle:Episode:EpisodeThumb.html.twig" %}
             {% endif %}
         {% endfor %}
         {% if episodes|length > 7 %} {# there are more results. show link to paginator #}

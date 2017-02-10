@@ -96,7 +96,7 @@ class Post
     private $tags;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Asset", fetch="EAGER")
+     * @ORM\ManyToMany(targetEntity="Asset", fetch="EAGER", cascade={"remove"})
      * @ORM\JoinTable(name="post_asset",
      *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=true)}

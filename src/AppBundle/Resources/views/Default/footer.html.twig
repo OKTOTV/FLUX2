@@ -5,7 +5,7 @@
 <!-- End Top Button -->
 <footer class="footer">
     <section class="networks" role="navigation">
-	    <div class="container row">
+        <div class="container row">
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <h3 class="sr-only">{{ 'oktothek_default_sr_header'|trans }}</h3>
                 <ul class="socialnetworks">
@@ -21,8 +21,8 @@
             </div>
         </div>
     </section>
-	<div class="container row">
-		<nav class="col-md-12 col-sm-12 col-xs-12">
+    <div class="container row">
+        <nav class="col-md-12 col-sm-12 col-xs-12">
             {{ render(controller('AppBundle:Page:footer', {'slug': page.slug|default(app.request.get('_route'))})) }}
         </nav>
         <section class="partner col-md-12 col-sm-12 col-xs-12">
