@@ -315,6 +315,13 @@ oktothek.backend_index_api_keychains:   API Schnittstellen
 oktothek.backend_index_academy:         Academy
 oktothek.backend_tag:                   Tags
 
+### comment index.html.twig
+oktothek.backend_index_comments:        "Kommentare"
+oktothek.backend_index_back_to_backend: '<span class="glyphicon glyphicon-arrow-left"></span> Zum Administrationsbereich'
+oktothek.backend_index_sort_drop:       '<span class="glyphicon glyphicon-sort"></span> Sortieren<span class="caret"></span>'
+oktothek.backend_index_sort_user:       '<span class="glyphicon glyphicon-user"></span> Benutzername'
+oktothek.backend_index_sort_createdAt:  '<span class="glyphicon glyphicon-calendar"></span> Datum'
+
 ## series
 oktothek_series_blog_header:            Blog
 oktothek_series_episodes_all:           Alle Folgen

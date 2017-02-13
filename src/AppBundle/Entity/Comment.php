@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Comment
  *
  * @ORM\Table()
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CommentRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Comment
@@ -57,9 +57,15 @@ class Comment
      */
     private $referer;
 
+    /**
+     * @ORM\Column(name="removed", type="boolean", options={"default": false})
+     */
+    private $removed;
+
     public function __construct()
     {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->removed = false;
     }
 
     public function setText($text = "")
@@ -197,5 +203,24 @@ class Comment
     public function getReferer()
     {
         return $this->referer;
+    }
+
+    public function getRemoved()
+    {
+        return $this->removed;
+    }
+
+    public function setRemoved($value)
+    {
+        $this->removed = $value;
+        return $this;
+    }
+
+    /**
+     * small helper for nicer syntax
+     */
+    public function isRemoved()
+    {
+        return $this->removed;
     }
 }

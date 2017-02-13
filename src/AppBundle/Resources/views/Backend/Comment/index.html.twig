@@ -1,0 +1,33 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': 'oktothek_backend'} %}
+{% endblock %}
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ 'oktothek.backend_index_comments'|trans}}</h1>
+        <a href="{{ path('backend') }}" class="btn btn-default">{{ 'oktothek.backend_index_back_to_backend'|trans|raw }}</a>
+        <!-- Single button -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'oktothek.backend_index_sort_drop'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li {% if comments.isSorted('u.username') %}class="active"{% endif %}>{{ knp_pagination_sortable(comments, 'oktothek.backend_index_sort_createdAt'|trans|raw, 'u.username') }}</li>
+                <li {% if comments.isSorted('c.createdAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(comments, 'oktothek.backend_index_sort_createdAt'|trans|raw, 'c.createdAt') }}</li>
+                <li><a href="#">{{ 'oktothek.backend_index_sort_user'|trans|raw }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(comments) }}
+    </div>
+    <div class="list-group">
+        {% for comment in comments %}
+            <a href="" class="list-group-item">
+                <p>{{ comment.createdAt|date('H:i d.m.Y') }} - {{ comment.user.username }}</p>
+                <p>{{ comment.text|nl2br }}</p>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
