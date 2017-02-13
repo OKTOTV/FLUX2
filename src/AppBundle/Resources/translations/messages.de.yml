@@ -524,9 +524,15 @@ oktothek_user_unsubscribe:                  Abo beenden
 oktothek.success_edit_abonnement:           Benachrichtigungseinstellungen aktualisiert
 oktothek.error_edit_post:                   Benachrichtigungseinstellungen konnten nicht übernommen werden
 
+## show.html.twig
+oktothek_user_header:                       "User %user%"
+oktothek_user_playlist_header:              "Playlisten"
+oktothek_user_favorites_header:             "Favoriten"
+oktothek_user_abonnements_header:           "Abonnements"
+
 ## playlists
-oktothek.user_playlist_header:              Meine Playlisten
-oktothek_user_playlists_title:              Meine Playlisten
+oktothek.user_playlist_header:              Playlisten von %user%
+oktothek_user_playlists_title:              Playlisten von %user%
 
 ## favorites
 oktothek.user_favorites_header:             Meine Favoriten

@@ -20,7 +20,7 @@
             </article>
         {% endif %}
     </div>
-    <a href="{{ collapse_link|default(pager_url|default('#'~collapse_id)) }}"
+    <a href="{{ collapse_link|default('#'~collapse_id) }}"
         class="pull-right more"
         title=""
         data-toggle="collapse"
