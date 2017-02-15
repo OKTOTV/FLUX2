@@ -42,7 +42,7 @@ class Comment
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="parent", cascade={"remove"}, onDelete="CASCADE")
      */
     private $children;
 

@@ -127,3 +127,10 @@ services:
                 credentials:
                     key: %oktothek_aws_key%
                     secret: %oktothek_aws_secret%
+
+# event listener
+    oktothek.comment_remove_on_episode_delete:
+        class: AppBundle\Event\DeleteEpisodeEventListener
+        arguments:  [ "@doctrine.orm.entity_manager" ]
+        tags:
+            - { name: kernel.event_listener, event: oktolab_media.delete_episode', method: onEpisodeDelete }

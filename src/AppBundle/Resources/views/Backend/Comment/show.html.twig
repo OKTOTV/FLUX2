@@ -14,6 +14,7 @@
             <ul class="dropdown-menu">
                 <li><a href="{{ path('backend') }}">{{ 'oktothek.backend_show_comment_back_to_backend'|trans|raw }}</a></li>
                 <li><a href="{{ path('oktolab_backend_comment_index') }}">{{ 'oktothek.backend_show_comment_back_to_index'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktothek_show_episode', {'uniqID': comment.referer}) }}"</li>
                 <li role="separator" class="divider"></li>
                 <li><a href="{{ path('oktothek_backend_comment_remove', {'comment': comment.id}) }}">{{ 'oktothek.backend_show_comment_remove'|trans|raw }}</a></li>
             </ul>
