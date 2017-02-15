@@ -71,6 +71,9 @@ class Episode extends OktoEpisode {
      */
     public function getSeriesSearch()
     {
-        return $this->getSeries()->getName();
+        if ($this->getSeries()) {
+            return $this->getSeries()->getName();
+        }
+        return "";
     }
 }

@@ -21,7 +21,7 @@
                             <li><a href="http://pinterest.com/pin/create/link/?url={{ site_url|default(app.request.uri)|url_encode }}&media={{ site_media }}" class="icon-pinterest" target="_blank"  title="{{'oktothek_default_share_title_pin'|trans}}"><span>{{'oktothek_share_pint'|trans}}</span></a></li>
                         {% endif %}
                     </ul>
-                    <a href="mailto:?body={{ site_url|default(app.request.uri) }}" class="btn btn-default" data-toggle="tab" id="share_email" title="{{'oktothek_default_share_title_mail'|trans}}">{{ 'oktothek_share_email'|trans }}</a>
+                    <a href="mailto:?body={{ site_url|default(app.request.uri)|url_encode }}" class="btn btn-default" data-toggle="tab" id="share_email" title="{{'oktothek_default_share_title_mail'|trans}}">{{ 'oktothek_share_email'|trans }}</a>
                 </div>
                 {% if site_embed is defined %}
                     <div class="row">

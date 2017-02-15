@@ -315,6 +315,25 @@ oktothek.backend_index_api_keychains:   API Schnittstellen
 oktothek.backend_index_academy:         Academy
 oktothek.backend_tag:                   Tags
 
+### comment index.html.twig
+oktothek.backend_index_comments:        "Kommentare"
+oktothek.backend_index_back_to_backend: '<span class="glyphicon glyphicon-arrow-left"></span> Zum Administrationsbereich'
+oktothek.backend_index_sort_drop:       '<span class="glyphicon glyphicon-sort"></span> Sortieren<span class="caret"></span>'
+oktothek.backend_index_sort_user:       '<span class="glyphicon glyphicon-user"></span> Benutzername'
+oktothek.backend_index_sort_createdAt:  '<span class="glyphicon glyphicon-calendar"></span> Datum'
+
+### comment show.html.twig
+oktothek.backend_show_comment_drop:     'Aktionen<span class="caret"></span>'
+oktothek.backend_show_comment_back_to_backend: '<span class="glyphicon glyphicon-arrow-left"></span> Administrationsbereich'
+oktothek.backend_show_comment_back_to_index: '<span class="glyphicon glyphicon-list"></span> Kommentar Index'
+oktothek.backend_show_comment_remove:   '<span class="glyphicon glyphicon-warning-sign"></span> Kommentar entfernen'
+
+### comment remove.html.twig
+oktothek.backend_comment_remove_label:  'Kommentar sperren'
+
+## Comment commentPager.html.twig
+oktothek.comment_pager_comment_removed: "Dieses Kommentar wurde entfernt"
+
 ## series
 oktothek_series_blog_header:            Blog
 oktothek_series_episodes_all:           Alle Folgen
@@ -524,9 +543,15 @@ oktothek_user_unsubscribe:                  Abo beenden
 oktothek.success_edit_abonnement:           Benachrichtigungseinstellungen aktualisiert
 oktothek.error_edit_post:                   Benachrichtigungseinstellungen konnten nicht übernommen werden
 
+## show.html.twig
+oktothek_user_header:                       "User %user%"
+oktothek_user_playlist_header:              "Playlisten"
+oktothek_user_favorites_header:             "Favoriten"
+oktothek_user_abonnements_header:           "Abonnements"
+
 ## playlists
-oktothek.user_playlist_header:              Meine Playlisten
-oktothek_user_playlists_title:              Meine Playlisten
+oktothek.user_playlist_header:              Playlisten von %user%
+oktothek_user_playlists_title:              Playlisten von %user%
 
 ## favorites
 oktothek.user_favorites_header:             Meine Favoriten
