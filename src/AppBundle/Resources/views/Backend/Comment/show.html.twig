@@ -1,0 +1,52 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': 'oktothek_backend'} %}
+{% endblock %}
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ 'oktothek.backend_index_comments'|trans}}</h1>
+        <!-- Single button -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'oktothek.backend_show_comment_drop'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="{{ path('backend') }}">{{ 'oktothek.backend_show_comment_back_to_backend'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktolab_backend_comment_index') }}">{{ 'oktothek.backend_show_comment_back_to_index'|trans|raw }}</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ path('oktothek_backend_comment_remove', {'comment': comment.id}) }}">{{ 'oktothek.backend_show_comment_remove'|trans|raw }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{ comment.createdAt|date('H:i d.m.Y') }} - {{ comment.user.username }}
+        </div>
+        <div class="panel-body">
+            <p>{{ comment.text|nl2br }}</p>
+        </div>
+        {% if comment.removed %}
+        <div class="panel-footer">
+            Gesperrt
+        </div>
+        {% endif %}
+    </div>
+    {% if comment.children is not empty %}
+        {% for comment in comment.children %}
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <a href="{{ path('oktolab_backend_comment_show', {'comment': comment.id}) }}">{{ comment.createdAt|date('H:i d.m.Y') }} - {{ comment.user.username }}</a>
+                </div>
+                <div class="panel-body">
+                    <p>{{ comment.text|nl2br }}</p>
+                </div>
+                {% if comment.removed %}
+                <div class="panel-footer">
+                    Gesperrt
+                </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

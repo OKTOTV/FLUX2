@@ -8,9 +8,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use AppBundle\Entity\Episode;
-use AppBundle\Entity\Post;
-use AppBundle\Form\PostType;
+use AppBundle\Entity\Comment;
+use AppBundle\Form\Backend\RemoveCommentType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 /**
  * Series backend controller.
  *
@@ -48,11 +49,34 @@ class CommentController extends Controller
     }
 
     /**
-     * @Route("/{comment}/hide", name="oktothek_backend_comment_hide")
+     * @Route("/{comment}/remove", name="oktothek_backend_comment_remove")
      * @Template()
      */
-    public function hideComment(Request $request, Comment $comment)
+    public function removeAction(Request $request, Comment $comment)
     {
+        $form = $this->createForm(RemoveCommentType::class, $comment);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.slide_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.slide_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                if ($form->get('submit')->isClicked()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($comment);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_update_comment');
+
+                    return $this->redirect($this->generateUrl('oktothek_backend_comment_show', ['comment' => $comment->getId()]));
+                } else { //delete
+                    $this->get('oktothek_slide')->deleteSlide($comment);
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_comment');
+                    return $this->redirect($this->generateUrl('oktolab_backend_comment_index'));
+                }
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_update_comment');
+            }
+        }
 
         return ['form' => $form->createView()];
     }

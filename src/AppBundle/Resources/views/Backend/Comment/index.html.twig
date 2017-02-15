@@ -13,9 +13,12 @@
                 {{ 'oktothek.backend_index_sort_drop'|trans|raw }}
             </button>
             <ul class="dropdown-menu">
-                <li {% if comments.isSorted('u.username') %}class="active"{% endif %}>{{ knp_pagination_sortable(comments, 'oktothek.backend_index_sort_createdAt'|trans|raw, 'u.username') }}</li>
-                <li {% if comments.isSorted('c.createdAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(comments, 'oktothek.backend_index_sort_createdAt'|trans|raw, 'c.createdAt') }}</li>
-                <li><a href="#">{{ 'oktothek.backend_index_sort_user'|trans|raw }}</a></li>
+                <li {% if comments.isSorted('u.username') %}class="active"{% endif %}>
+                    {{ knp_pagination_sortable(comments, 'oktothek.backend_index_sort_user'|trans, 'u.username') }}
+                </li>
+                <li {% if comments.isSorted('c.createdAt') %}class="active"{% endif %}>
+                    {{ knp_pagination_sortable(comments, 'oktothek.backend_index_sort_createdAt'|trans, 'c.createdAt') }}
+                </li>
             </ul>
         </div>
     </div>
@@ -24,7 +27,7 @@
     </div>
     <div class="list-group">
         {% for comment in comments %}
-            <a href="" class="list-group-item">
+            <a href="{{ path('oktothek_backend_comment_show', {'comment': comment.id}) }}" class="list-group-item{% if comment.removed %} list-group-item-danger{% endif %}">
                 <p>{{ comment.createdAt|date('H:i d.m.Y') }} - {{ comment.user.username }}</p>
                 <p>{{ comment.text|nl2br }}</p>
             </a>
