@@ -32,6 +32,12 @@
                 {% include "AppBundle::Tag/playlistTag.html.twig" with {'playlists': playlists} %}
             </section>
         {% endif %}
+        {% if coursetypes is not empty %}
+            <section class="inc-pins">
+                <h2>{{ 'oktothek_search_courses_header'|trans }}</h2>
+                {% include "AppBundle::Search/coursetypeResults.html.twig" with {'coursetypes': coursetypes } %}
+            </section>
+        {% endif %}
     </div>
 {%- endblock -%}
 {% block stylesheets %}

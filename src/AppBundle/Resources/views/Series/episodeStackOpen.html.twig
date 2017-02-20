@@ -6,7 +6,7 @@
 <div class="row">
     {% for episode in episodes|slice(0,4) %}
         {% if episode.isActive %}
-            {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+            {% include "AppBundle:Episode:EpisodeThumb.html.twig" %}
         {% endif %}
     {% endfor %}
 </div>
@@ -14,7 +14,7 @@
 <div class="row">
     {% for episode in episodes|slice(4,4) %}
         {% if episode.isActive %}
-            {% include "AppBundle:Default:EpisodeThumb.html.twig" %}
+            {% include "AppBundle:Episode:EpisodeThumb.html.twig" %}
         {% endif %}
     {% endfor %}
 </div>

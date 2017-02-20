@@ -14,12 +14,12 @@ use JMS\Serializer\Annotation as JMS;
 class Series extends OktoSeries
 {
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Abonnement", mappedBy="series", cascade="remove")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Abonnement", mappedBy="series", cascade={"remove"})
      */
     private $abonnements;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Post", mappedBy="series")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Post", mappedBy="series", cascade={"remove"})
      */
     protected $posts;
 
@@ -29,12 +29,12 @@ class Series extends OktoSeries
     protected $users;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Playlist", mappedBy="series", cascade="remove")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Playlist", mappedBy="series", cascade={"remove"})
      */
     protected $playlists;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Asset", mappedBy="series", cascade="remove")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Asset", mappedBy="series", cascade={"remove"})
      */
     protected $files;
 

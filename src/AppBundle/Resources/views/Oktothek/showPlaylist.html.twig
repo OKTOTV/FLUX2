@@ -14,7 +14,7 @@
         </div>
 
         {% for item in playlist.items %}
-            {% include 'AppBundle:Default:EpisodeThumb.html.twig' with {'episode': item.episode} %}
+            {% include 'AppBundle:Episode:EpisodeThumb.html.twig' with {'episode': item.episode} %}
         {% endfor %}
     </div>
 {% endblock %}

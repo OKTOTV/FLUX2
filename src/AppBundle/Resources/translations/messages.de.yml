@@ -35,6 +35,10 @@ oktothek.menu_best_tags:                "Beliebteste Themen"
 oktothek.menu_notification_xs:          "Benachrichtigung"
 oktothek.menu_user_notifications_title: "Benachrichtigungen"
 
+## Search
+### results.html.twig
+oktothek_search_courses_header:         "Workshops"
+
 ## oktothek index
 oktothek.participate_header:            Mitmachen
 oktothek.newest_videos:                 Brandneu in der Oktothek
@@ -194,7 +198,7 @@ oktothek.more_from_this_series:         Mehr aus dieser Sendereihe
 oktothek.episode_tag_header:            Tags
 oktothek.success_publish_episode:       Episode veröffentlichen
 oktothek.episode_show_in_backend:       Im Backend anzeigen
-oktothek.episode_show_in_frontend:      Zum Frontend
+oktothek.episode_show_in_frontend:      '<span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Zum Frontend'
 
 ## comment
 oktothek.comment_author:                %name% am <time>%date%</time>
@@ -310,6 +314,25 @@ oktothek.backend_index_media:           Oktothek
 oktothek.backend_index_api_keychains:   API Schnittstellen
 oktothek.backend_index_academy:         Academy
 oktothek.backend_tag:                   Tags
+
+### comment index.html.twig
+oktothek.backend_index_comments:        "Kommentare"
+oktothek.backend_index_back_to_backend: '<span class="glyphicon glyphicon-arrow-left"></span> Zum Administrationsbereich'
+oktothek.backend_index_sort_drop:       '<span class="glyphicon glyphicon-sort"></span> Sortieren<span class="caret"></span>'
+oktothek.backend_index_sort_user:       '<span class="glyphicon glyphicon-user"></span> Benutzername'
+oktothek.backend_index_sort_createdAt:  '<span class="glyphicon glyphicon-calendar"></span> Datum'
+
+### comment show.html.twig
+oktothek.backend_show_comment_drop:     'Aktionen<span class="caret"></span>'
+oktothek.backend_show_comment_back_to_backend: '<span class="glyphicon glyphicon-arrow-left"></span> Administrationsbereich'
+oktothek.backend_show_comment_back_to_index: '<span class="glyphicon glyphicon-list"></span> Kommentar Index'
+oktothek.backend_show_comment_remove:   '<span class="glyphicon glyphicon-warning-sign"></span> Kommentar entfernen'
+
+### comment remove.html.twig
+oktothek.backend_comment_remove_label:  'Kommentar sperren'
+
+## Comment commentPager.html.twig
+oktothek.comment_pager_comment_removed: "Dieses Kommentar wurde entfernt"
 
 ## series
 oktothek_series_blog_header:            Blog
@@ -520,9 +543,15 @@ oktothek_user_unsubscribe:                  Abo beenden
 oktothek.success_edit_abonnement:           Benachrichtigungseinstellungen aktualisiert
 oktothek.error_edit_post:                   Benachrichtigungseinstellungen konnten nicht übernommen werden
 
+## show.html.twig
+oktothek_user_header:                       "User %user%"
+oktothek_user_playlist_header:              "Playlisten"
+oktothek_user_favorites_header:             "Favoriten"
+oktothek_user_abonnements_header:           "Abonnements"
+
 ## playlists
-oktothek.user_playlist_header:              Meine Playlisten
-oktothek_user_playlists_title:              Meine Playlisten
+oktothek.user_playlist_header:              Playlisten von %user%
+oktothek_user_playlists_title:              Playlisten von %user%
 
 ## favorites
 oktothek.user_favorites_header:             Meine Favoriten
@@ -611,6 +640,10 @@ oktothek_episodeStack_more_results_title:   "Alle Videos anzeigen"
 
 # oktothek episode thumb
 oktothek_episode_thumb_default_title:       Episode vom %date% ansehen
+oktothek_episode_thumb_series_title:        "Mehr Infos zu %series%"
+oktothek_episode_thumb_timestamp_format:    "%day%, %date%"
+oktothek_episode_thumb_day_choice:          "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} Sa|{7} So"
+oktothek_episode_thumb_date_format:         "d.m.Y"
 
 # producer
 oktothek.series_producer_text:              Hier findest du allgemeine Informationen und Statistiken zu deiner Sendereihe.

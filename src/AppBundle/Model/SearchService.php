@@ -11,11 +11,12 @@ class SearchService
     private $playlistFinder;
     private $tagFinder;
 
-    public function __construct($episodeFinder, $seriesFinder, $playlistFinder, $tagFinder)
+    public function __construct($episodeFinder, $seriesFinder, $playlistFinder, $coursetypeFinder, $tagFinder)
     {
         $this->episodeFinder = $episodeFinder;
         $this->seriesFinder = $seriesFinder;
         $this->playlistFinder = $playlistFinder;
+        $this->coursetypeFinder = $coursetypeFinder;
         $this->tagFinder = $tagFinder;
     }
 
@@ -67,6 +68,11 @@ class SearchService
     public function searchPlaylists($searchphrase, $results = 5)
     {
         return $this->playlistFinder->find($searchphrase, $results);
+    }
+
+    public function searchCourseTypes($searchphrase, $results = 5)
+    {
+        return $this->coursetypeFinder->find($searchphrase, $results);
     }
 
     public function searchRelatedEpisodes(Episode $episode, $numberResults = 5)
