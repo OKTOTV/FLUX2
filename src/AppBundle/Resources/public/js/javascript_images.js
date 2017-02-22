@@ -66,15 +66,27 @@ $(document).ready(function(){
 
 		if (Winheight / _ratio > Winwidth) {
 			newMargin = (Winwidth - (Winheight / _ratio)) / 2;
-			$(el).css('height', Winheight + 'px').css('width', (Winheight / _ratio) + 'px').css('margin-left', newMargin + "px");
+            newWidth = Winheight / _ratio;
+			//$(el).css('height', Winheight + 'px').css('width', (Winheight / _ratio) + 'px').css('margin-left', newMargin + "px");
+            $('#carousel').css('width', newWidth + 'px').css('margin-left', newMargin + "px");
+            $('.carousel-control.right').css('right', (newWidth - Winwidth)/2 + 'px').css('left','auto');;
+            $('.carousel-control.left').css('left', (newWidth - Winwidth)/2 + 'px').css('right','auto');
+            $(el).css('height', '100%').css('width', newWidth + 'px').css('margin-left', "0px");
         } else {
-			$(el).css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
+            $('#carousel').css('width', '100%').css('margin-left','0px');
+            $('.carousel-control.right').css('right','0px').css('left','auto');;
+            $('.carousel-control.right').css('left','0px').css('right','auto');
+			//$(el).css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
+            $(el).css('height','auto').css('width',Winwidth + 'px').css('margin-left','0px');
         }
 		//$(el).fadeIn(600);
 	}
 	
 	function resizeImageMobile(el, container, _ratio) {
 		_parentContainer = $(container).find('figure').parent('div');
+        $('#carousel').css('width', '100%').css('margin-left','0px');
+        $('.carousel-control.right').css('right','0px').css('left','auto');
+        $('.carousel-control.left').css('left','0px').css('right','auto');
 		if (_parentContainer.css('height') != "auto")
 			$(container).find('figure').parent('div').css('height','auto');
 		el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
@@ -93,8 +105,10 @@ $(document).ready(function(){
 				var i=0;
 				//Bildgröße berechnen lassen:
 				if (Winwidth >= 768) {
+                    $('#slider').css('height',($( window ).height() - borderbottom) + 'px');
 					resizeImage($(items).find('img'), container, aspectRatio);
 				} else {
+                    $('#slider').css('height','auto');
 					resizeImageMobile($(items).find('img'), container, aspectRatio);
 				}
 				if (carouselslide == false) {
