@@ -1,34 +1,10 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
-
+{% import 'AppBundle::Playlist/playlistitem_macro.html.twig' as playlistMacro %}
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 {% set body_class = "producer" %}
 {% block body_main %}
-
-{% macro playlistitem_macro(prototype) %}
-<div class="row">
-    <div class="col-md-3 col-xs-3">
-        <img src="__thumb__" class="img img-responsive" />
-    </div>
-    <div class="col-md-8 col-xs-7">
-        <h4>__header__</h4>
-        <p>__desc__</p>
-    </div>
-    <div class="col-md-1 col-xs-2">
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-danger remove"><span class="glyphicon glyphicon-remove"></span></a>
-        </div>
-        <div class="list-group">
-            <a href="#" class="list-group-item moveup"><span class="glyphicon glyphicon-chevron-up"></span></a><a href="#" class="list-group-item movedown"><span class="glyphicon glyphicon-chevron-down"></span></a>
-        </div>
-    </div>
-    <div class="hidden">
-        {{ form_widget(prototype)}}
-    </div>
-</div>
-{% endmacro %}
-
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_playlists', 'series': series} %}
 <section class="tabs-content">
@@ -41,7 +17,7 @@
         <div class="form-group search">
             <div>
                 <label for="episode_search">{{ 'oktothek.playlist_search_label'|trans }}</label>
-                <div class="icon-search"><span class="glyphicon glyphicon-search"></span></div><input type="text" class="form-control" id="episode_search" data-prototype="{{ _self.playlistitem_macro(form.items.vars.prototype)|e('html_attr') }}"/>
+                <div class="icon-search"><span class="glyphicon glyphicon-search"></span></div><input type="text" class="form-control" id="episode_search" data-prototype="{{ playlistMacro.playlistitem_macro(form.items.vars.prototype)|e('html_attr') }}"/>
             </div>
         </div>
 
