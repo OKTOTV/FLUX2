@@ -9,9 +9,9 @@
             <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 share-buttons">
                 <ul class="socialnetworks">
                 {% set share_url = url('oktothek_academy_coursetype', {'coursetype': coursetype.id} ) %}
-                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ coursetype.title|url_encode }}" class="icon-facebook" target="_blank" title="{{ 'oktothek_academy_sCS_facebook_title'|trans }}"><span>Facebook</span></a></li>
-                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank"  title="{{ 'oktothek_academy_sCS_twitter_title'|trans }}"><span>Twitter</span></a></li>
-                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank"  title="{{ 'oktothek_academy_sCS_googlep_title'|trans }}"><span>Google Plus</span></a></li>
+                <li><a href="https://www.facebook.com/sharer.php?u={{ share_url|default(app.request.uri)|url_encode }}" class="icon-facebook" target="_blank" title="{{'oktothek_default_share_title_fb'|trans}}"><span>{{ 'oktothek_share_fb'|trans }}</span></a></li>
+                <li><a href="https://twitter.com/intent/tweet?url={{ share_url|default(app.request.uri)|url_encode }}" class="icon-twitter" target="_blank" title="{{'oktothek_default_share_title_tw'|trans}}"><span>{{ 'oktothek_share_tw'|trans }}</span></a></li>
+                <li><a href="https://plus.google.com/share?url={{ share_url|default(app.request.uri)|url_encode }}" class="icon-googleplus" target="_blank" title="{{'oktothek_default_share_title_gp'|trans}}"><span>{{ 'oktothek_share_gp'|trans }}</span></a></li>
                 </ul>
                 <a href="mailto:?to=&subject={{ coursetype.title|url_encode }}&body={{ share_url }}" class="btn btn-default" title="{{ 'oktothek_academy_sCS_mail_title'|trans }}">{{ 'oktothek_share_email'|trans }}</a>
             </div>
