@@ -86,6 +86,7 @@ oktothek_default_participate_equipment: "Equipment &<br />Verleih"
 oktothek_default_participate_equipment_title: "Hier kannst du dir das Equipment für deinen nächsten Dreh ausborgen."
 oktothek_default_participate_upload:    "Produktion hochladen"
 oktothek_default_participate_upload_title: "Dein Video ist bereit zum Herzeigen? Du kannst es hier hochladen."
+oktothek_default_useless_fancy_button:  "Hier!"
 
 ### footer.html.twig
 oktothek_default_footer_back_to_top:    'Nach oben <span class="icon icon-top"></span>'
@@ -190,6 +191,9 @@ oktothek.error_edit_playlist:           Die Playlist konnte nicht gespeichert we
 oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
 oktothek.success_delete_playlist:       Wiedergabeliste erfolgreich gelöscht
 oktothek.playlist_delete_info:          Nicht zufrieden mit der Playliste? Hier kannst Du sie wieder löschen.
+
+### show.html.twig
+oktothek.playlist_show_next_video:      "Nächstes Video"
 
 ## thumb
 oktothek_playlist_thumb_creator:        Erstellt von %user%
