@@ -47,10 +47,7 @@
     </section>
     <section class="container academy-description">
         <!-- Start Collapse Share-->
-
-{% include 'AppBundle:Academy:snippetCoursetypeShare.html.twig' with {'coursetype': coursetype} %}
-
-
+        {% include 'AppBundle:Academy:snippetCoursetypeShare.html.twig' with {'coursetype': coursetype} %}
         <!-- End Modal Window Share-->
         <header class="page-header">
             <h2 id="button_down">{{ 'oktothek_academy_sCt_header_details'|trans({'%coursetype%': coursetype.title}) }}<span class="icon participant-arrow-down"> </span></h2>

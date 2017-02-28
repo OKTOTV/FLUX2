@@ -67,9 +67,11 @@ class ProducerController extends Controller
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $series->addPost($post);
-                foreach ($post->getAssets() as $asset) {
-                    $asset->setSeries($series);
-                    $em->persist($asset);
+                if ($post->getAssets()) {
+                    foreach ($post->getAssets() as $asset) {
+                        $asset->setSeries($series);
+                        $em->persist($asset);
+                    }
                 }
                 $em->persist($post);
                 $em->persist($series);
@@ -251,6 +253,34 @@ class ProducerController extends Controller
         $paginator = $this->get('knp_paginator');
         $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series), $page, 8);
         return ['posts' => $posts, 'series' => $series];
+    }
+
+    /**
+     * @Route("/channel/{uniqID}/assets", name="oktothek_channel_assets")
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function seriesAssetModalAction(Request $request, Series $series)
+    {
+        return ['series' => $series];
+    }
+
+    /**
+     * @Route("/channel/{uniqID}/assets/ajax", name="oktothek_channel_assets_ajax")
+     * @Template("BprsAssetBundle:Asset:ajaxModalList.html.twig")
+     */
+    public function seriesAjaxModalAction(Request $request, Series $series)
+    {
+        $results = $request->query->get('results', 10);
+        $page = $request->query->get('page', 1);
+        $em = $this->getDoctrine()->getManager();
+        $asset_class = $this->container->getParameter('bprs_asset.class');
+        $query = $em->getRepository($asset_class)
+            ->findFilesWithSeries($results, $series, true);
+        $paginator = $this->get('knp_paginator');
+        $assets = $paginator->paginate($query, $page, $results);
+        $assets->setUsedRoute('oktothek_channel_assets', ['uniqID' => $series->getUniqID()]);
+        return ['assets' => $assets, 'series' => $series];
     }
 
     /**

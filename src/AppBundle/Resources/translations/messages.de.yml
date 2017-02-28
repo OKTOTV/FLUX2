@@ -86,6 +86,7 @@ oktothek_default_participate_equipment: "Equipment &<br />Verleih"
 oktothek_default_participate_equipment_title: "Hier kannst du dir das Equipment für deinen nächsten Dreh ausborgen."
 oktothek_default_participate_upload:    "Produktion hochladen"
 oktothek_default_participate_upload_title: "Dein Video ist bereit zum Herzeigen? Du kannst es hier hochladen."
+oktothek_default_useless_fancy_button:  "Hier!"
 
 ### footer.html.twig
 oktothek_default_footer_back_to_top:    'Nach oben <span class="icon icon-top"></span>'
@@ -133,6 +134,13 @@ oktothek.post_show_more:                Mehr dazu anzeigen
 oktothek.success_create_post:           Post erfolgreich angelegt
 oktothek.success_update_post:           Eintrag erfolgreich aktualisiert
  oktothek.success_delete_post  :           Post erfolgreich gelöscht
+
+# AppBundle/Resources/views/Oktothek/snippedEpisodeShare.html.twig
+oktothek.snippedEpisodeShare_title_fb: "Auf Facebook teilen"
+oktothek.snippedEpisodeShare_title_tw: "Auf Twitter teilen"
+oktothek.snippedEpisodeShare_title_gp: "Auf Google+ teilen"
+oktothek.snippedEpisodeShare_title_pin: "Auf Pinterest teilen"
+oktothek.snippedEpisodeShare_title_mail: "Als E-Mail teilen"
 
 ## page
 ### index page
@@ -183,6 +191,9 @@ oktothek.error_edit_playlist:           Die Playlist konnte nicht gespeichert we
 oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
 oktothek.success_delete_playlist:       Wiedergabeliste erfolgreich gelöscht
 oktothek.playlist_delete_info:          Nicht zufrieden mit der Playliste? Hier kannst Du sie wieder löschen.
+
+### show.html.twig
+oktothek.playlist_show_next_video:      "Nächstes Video"
 
 ## thumb
 oktothek_playlist_thumb_creator:        Erstellt von %user%
@@ -303,6 +314,7 @@ oktothek_academy_sCS_mail_title:        "Kurs via E-Mail teilen"
 ## tv
 oktothek_tv_title:                      TV
 oktothek_tv_weekdays_choice:            "{1} Montag |{2} Dienstag |{3} Mittwoch|{4} Donnerstag|{5} Freitag|{6} Samstag|{7} Sonntag"
+oktothek_tv_weekdays_short_choice:      "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek_tv_weedays_format:             "%day%, %date%"
 
 ## participate

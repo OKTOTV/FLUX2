@@ -91,7 +91,7 @@ class SearchController extends Controller
      */
     public function searchTagAction($query)
     {
-        $tags = $this->get('oktothek_search')->searchTags($query);
+        $tags = $this->get('oktothek_search')->searchTags($query, 5);
         $data = [];
         foreach ($tags as $tag) {
             $data[] = ['name' => $tag->getText(), 'slug' => $tag->getSlug(), 'rank' => $tag->getRank()];
