@@ -134,6 +134,13 @@ oktothek.success_create_post:           Post erfolgreich angelegt
 oktothek.success_update_post:           Eintrag erfolgreich aktualisiert
  oktothek.success_delete_post  :           Post erfolgreich gelöscht
 
+# AppBundle/Resources/views/Oktothek/snippedEpisodeShare.html.twig
+oktothek.snippedEpisodeShare_title_fb: "Auf Facebook teilen"
+oktothek.snippedEpisodeShare_title_tw: "Auf Twitter teilen"
+oktothek.snippedEpisodeShare_title_gp: "Auf Google+ teilen"
+oktothek.snippedEpisodeShare_title_pin: "Auf Pinterest teilen"
+oktothek.snippedEpisodeShare_title_mail: "Als E-Mail teilen"
+
 ## page
 ### index page
 oktothek.backend_page_header:           Seiten

@@ -9,12 +9,12 @@
             <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 share-buttons">
                 <ul class="socialnetworks">
                     {% set share_url = url('oktothek_show_episode', {'uniqID': episode.uniqID})|url_encode %}
-                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ episode.name|url_encode }}" class="icon-facebook" target="_blank"><span>Facebook</span></a></li>
-                    <li><a href="https://twitter.com/intent/tweet?url={{ share_url }}" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
-                    <li><a href="https://plus.google.com/share?url={{ share_url }}" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
-                    <li><a href="https://pinterest.com/pin/create/link/?url={{ share_url }}&media={{ episode.posterframe(true)|thumb(720,1280)}}" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ episode.name|url_encode }}" class="icon-facebook" target="_blank" title="{{ 'oktothek.snippedEpisodeShare_title_fb'|trans }}"><span>Facebook</span></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url={{ share_url }}" class="icon-twitter" target="_blank" title="{{ 'oktothek.snippedEpisodeShare_title_tw'|trans }}"><span>Twitter</span></a></li>
+                    <li><a href="https://plus.google.com/share?url={{ share_url }}" class="icon-googleplus" target="_blank" title="{{ 'oktothek.snippedEpisodeShare_title_gp'|trans }}"><span>Google Plus</span></a></li>
+                    <li><a href="https://pinterest.com/pin/create/link/?url={{ share_url }}&media={{ episode.posterframe(true)|thumb(720,1280)}}" class="icon-pinterest" target="_blank" title="{{ 'oktothek.snippedEpisodeShare_title_pin'|trans }}"><span>Pinterest</span></a></li>
                 </ul>
-                <a href="mailto:?to=&subject={{ episode.name|url_encode }}&body={{ share_url }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
+                <a href="mailto:?to=&subject={{ episode.name|url_encode }}&body={{ share_url }}" class="btn btn-default" title="{{ 'oktothek.snippedEpisodeShare_title_mail'|trans }}">{{ 'oktothek_share_email'|trans }}</a>
             </div>
         </div>
         <h3>{{ 'oktothek_share_embed'|trans }}</h3>
