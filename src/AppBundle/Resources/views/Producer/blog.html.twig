@@ -15,6 +15,7 @@
    <div class="row">
        <div class="col-md-8">
            {{ form_row(form.description)}}
+           {% render(controller('AppBundle:Producer:seriesAssetModal', {'uniqID': series.uniqID}))%}
        </div>
        <div class="col-md-4">
            {% include "AppBundle::Default/markdown_helper.html.twig" %}
