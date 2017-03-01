@@ -707,3 +707,6 @@ oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
 
 # participate
 oktothek.participate_5_steps:               Die fünf Schritte zur Sendung
+
+# app/Resources/BprsUserBundle/views/Login/login.html.twig
+flux2.login.remember_me_label:              Remember me
