@@ -39,8 +39,8 @@ class Slide
     private $description;
 
     /**
-    * @ORM\OneToOne(targetEntity="Asset")
-    * @ORM\JoinColumn(name="asset_id", referencedColumnName="id")
+    * @ORM\ManyToOne(targetEntity="Asset")
+    * @ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=false)
     */
     private $asset;
 

@@ -32,7 +32,8 @@ class SliderService
     {
         $slide = new Slide();
         $slide->setAsset($episode->getPosterframe());
-        $slide->setName($episode->getName().' - '.$episode->getSeries()->getName());
+        $slide->setName($episode->getName());
+        $slide->setDescription($episode->getSeries()->getName());
         $slide->setOnlineAt(new \DateTime());
         $slide->setLink($this->router->generate('oktothek_show_episode', ['uniqID' => $episode->getUniqID()], UrlGeneratorInterface::ABSOLUTE_URL));
         $slide->setSlideType(Slide::TYPE_EPISODE);

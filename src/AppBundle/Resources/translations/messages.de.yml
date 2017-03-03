@@ -438,11 +438,14 @@ oktothek.backend_course_attendees:      %count% Teilnehmer
 oktothek.backend_coursedate_start_label: Terminbeginn
 oktothek.backend_coursedate_end_label:  Terminende
 # Attendee
+# AppBundle/Resources/views/Backend/Attendee/show.html.twig
+oktothek.backend_attendee_show_back_to_index: '<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zum Teilnehmerindex'
 oktothek_attendee_name_label:           Vorname
 oktothek_attendee_surname_label:        Nachname
 oktothek_attendee_email_label:          E-Mail
 oktothek_attendee_tel_label:            Telefonnummer
 oktothek_attendee_reduced_label:        ermäßigt
+attendee_info_course:                   Kurs
 
 attendee_info_name:           Vorname
 attendee_info_surname:        Nachname
@@ -457,8 +460,22 @@ oktothek_academy_closed_transaction:    Online Zahlung (bezahlt)
 oktothek_academy_money_open:            Barzahlung (offen)
 oktothek_academy_money_closed:          Barzahlung (bezahlt)
 
+# AppBundle/Resources/views/Backend/Attendee/index.html.twig
+oktothek.backend_attendee_dropdown:     '<span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Sortieren<span class="caret"></span>'
+oktothek.academy_backend_attendee_email: '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> E-Mail'
+oktothek.academy_backend_attendee_date: '<span class="glyphicon glyphicon-time" ariah-hidden="true"></span> Aktualisiert'
+oktothek.academy_backend_attendee_name: "Familienname"
+oktothek.academy_backend_attendee_surname: "Name"
+
+oktothek.academy_backend_attendee_index: "Kursteilnehmer"
+oktothek.backend_attendee_info_email:    "E-Mail"
+oktothek.backend_attendee_info_tel:      "Telefonnummer"
+oktothek.backend_attendee_info_no_tel:   "Nicht angegeben"
+
+# AppBundle/Resources/views/Backend/Course/index.html.twig
 oktothek.backend_academy_package_header: Kurspakete
 oktothek.backend_academy_course_header:  Kurstypen
+oktothek.backend_academy_attendee_header: Kursteilnehmer
 oktothek_backend_academy_new_coursepackage: <span class="glyphicon glyphicon-plus"></span> Neues Kurspaket anlegen
 
 oktothek_backend_academy_new_coursetype: <span class="glyphicon glyphicon-plus"></span> Neuen Kurstyp anlegen
@@ -470,7 +487,8 @@ oktothek.course_create_button:          <span class="glyphicon glyphicon-floppy-
 oktothek_backend_course_month_choice:   "{1} Jänner|{2} Februar|{3} März|{4} April|{5} Mai|{6} Juni|{7} Juli|{8} August|{9} September|{10} Oktober|{11} November|{12} Dezember"
 oktothek_backend_show_course_back_to_type: Zurück zum Kurstyp
 oktothek_backend_edit_course:           Kurs bearbeiten
-oktothek_backend_back_to_coursetypes:   Zurück zur Kurstyp Übersicht
+oktothek_backend_back_to_coursetypes:   <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zu Kurstypen
+oktothek.backend_coursetype_dropdown:   <span class="glyphicon glyphicon-cog"></span> Aktionen <span class="caret"></span>
 oktothek_backend_edit_coursetype:       <span class="glyphicon glyphicon-edit"></span> Kurstyp bearbeiten
 
 oktothek_backend_coursetype_price_info: Vollpreis

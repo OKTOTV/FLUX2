@@ -1,0 +1,64 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+    <ul class="nav nav-tabs">
+      <li role="presentation">
+          <a href="{{ path('oktothek_backend_courses') }}">
+              {{ 'oktothek.backend_academy_course_header'|trans}}
+          </a>
+      </li>
+      <li role="presentation">
+          <a href="{{ path('oktothek_backend_coursepackages') }}">
+              {{ 'oktothek.backend_academy_package_header'|trans}}
+          </a>
+      </li>
+      <li role="presentation" class="active">
+          <a href="{{ path('oktothek_backend_attendee_index') }}">
+              {{ 'oktothek.backend_academy_attendee_header'|trans }}
+          </a>
+      </li>
+    </ul>
+    <div class="page-header">
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{ 'oktothek.backend_attendee_dropdown'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                <li {% if attendees.isSorted('a.email') %}class="active"{% endif %}>{{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_email'|trans, 'a.email') }}</li>
+                <li {% if attendees.isSorted('a.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_name'|trans, 'a.name') }}</li>
+                <li {% if attendees.isSorted('a.surname') %}class="active"{% endif %}>{{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_surname'|trans, 'a.surname') }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(attendees) }}
+    </div>
+    {% for attendee in attendees %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a href="{{ path('oktothek_backend_show_attendee', {'attendee': attendee.id}) }}">{{ attendee }}</a>
+        </div>
+        <div class="panel-body">
+            <dl class="dl-horizontal">
+                <dt>{{ 'oktothek.backend_attendee_info_email'|trans }}</dt>
+                <dd>{{ attendee.email }}</dd>
+                <dt>{{ 'oktothek.backend_attendee_info_tel'|trans }}</dt>
+                <dd>{{ attendee.tel|default('oktothek.backend_attendee_info_no_tel'|trans) }}</dd>
+            </dl>
+        </div>
+        <div class="list-group">
+            {% for course in attendee.courses if attendee.courses is not empty %}
+                <a href="{{ path('oktothek_backend_show_course', {'course': course.id})  }}" class="list-group-item">
+                    {{ course.coursetype }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(attendees) }}
+    </div>
+    {% endfor %}
+{% endblock %}

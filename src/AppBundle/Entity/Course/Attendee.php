@@ -9,7 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Attendee
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\AttendeeRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Attendee
 {
@@ -81,6 +82,11 @@ class Attendee
      * @ORM\Column(name="uniqID", type="string", length=255, nullable=true)
      */
     private $uniqID;
+
+    /**
+     * @ORM\Column(name="updatedAt", type="datetime")
+     */
+    private $updatedAt;
 
     public function __toString()
     {
@@ -218,6 +224,7 @@ class Attendee
     {
         $this->uniqID = uniqID();
         $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->updatedAt = new \DateTime();
     }
 
     /**
@@ -320,5 +327,23 @@ class Attendee
     public function getUniqID()
     {
         return $this->uniqID;
+    }
+
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAt($datetime = null)
+    {
+        if (!$datetime) {
+            $datetime = new \DateTime();
+        }
+        $this->updatedAt = $datetime;
+        return $this;
     }
 }
