@@ -27,9 +27,18 @@
                 {{ 'oktothek.backend_attendee_dropdown'|trans|raw }}
             </button>
             <ul class="dropdown-menu" aria-labelledby="filter_menu">
-                <li {% if attendees.isSorted('a.email') %}class="active"{% endif %}>{{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_email'|trans, 'a.email') }}</li>
-                <li {% if attendees.isSorted('a.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_name'|trans, 'a.name') }}</li>
-                <li {% if attendees.isSorted('a.surname') %}class="active"{% endif %}>{{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_surname'|trans, 'a.surname') }}</li>
+                <li {% if attendees.isSorted('a.email') %}class="active"{% endif %}>
+                    {{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_email'|trans, 'a.email') }}
+                </li>
+                <li {% if attendees.isSorted('a.name') %}class="active"{% endif %}>
+                    {{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_name'|trans, 'a.name') }}
+                </li>
+                <li {% if attendees.isSorted('a.surname') %}class="active"{% endif %}>
+                    {{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_surname'|trans, 'a.surname') }}
+                </li>
+                <li {% if attendees.isSorted('a.updatedAt') %}class="active"{% endif %}>
+                    {{ knp_pagination_sortable(attendees, 'oktothek.academy_backend_attendee_date'|trans, 'a.updatedAt') }}
+                </li>
             </ul>
         </div>
     </div>
@@ -37,26 +46,28 @@
         {{ knp_pagination_render(attendees) }}
     </div>
     {% for attendee in attendees %}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <a href="{{ path('oktothek_backend_show_attendee', {'attendee': attendee.id}) }}">{{ attendee }}</a>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a href="{{ path('oktothek_backend_show_attendee', {'attendee': attendee.id}) }}">{{ attendee }}</a>
+            </div>
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>{{ 'oktothek.backend_attendee_info_email'|trans }}</dt>
+                    <dd>{{ attendee.email }}</dd>
+                    <dt>{{ 'oktothek.backend_attendee_info_tel'|trans }}</dt>
+                    <dd>{{ attendee.tel|default('oktothek.backend_attendee_info_no_tel'|trans) }}</dd>
+                    <dt>{{ 'oktothek.backend_attendee_info_date'|trans }}</dt>
+                    <dd>{{ attendee.updatedAt|date('oktothek.backend_attendee_info_date_format'|trans) }}</dd>
+                </dl>
+            </div>
+            <div class="list-group">
+                {% for course in attendee.courses if attendee.courses is not empty %}
+                    <a href="{{ path('oktothek_backend_show_course', {'course': course.id})  }}" class="list-group-item">
+                        {{ course.coursetype }}
+                    </a>
+                {% endfor %}
+            </div>
         </div>
-        <div class="panel-body">
-            <dl class="dl-horizontal">
-                <dt>{{ 'oktothek.backend_attendee_info_email'|trans }}</dt>
-                <dd>{{ attendee.email }}</dd>
-                <dt>{{ 'oktothek.backend_attendee_info_tel'|trans }}</dt>
-                <dd>{{ attendee.tel|default('oktothek.backend_attendee_info_no_tel'|trans) }}</dd>
-            </dl>
-        </div>
-        <div class="list-group">
-            {% for course in attendee.courses if attendee.courses is not empty %}
-                <a href="{{ path('oktothek_backend_show_course', {'course': course.id})  }}" class="list-group-item">
-                    {{ course.coursetype }}
-                </a>
-            {% endfor %}
-        </div>
-    </div>
     {% endfor %}
     <div class="navigation">
         {{ knp_pagination_render(attendees) }}

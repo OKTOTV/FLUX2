@@ -471,6 +471,8 @@ oktothek.academy_backend_attendee_index: "Kursteilnehmer"
 oktothek.backend_attendee_info_email:    "E-Mail"
 oktothek.backend_attendee_info_tel:      "Telefonnummer"
 oktothek.backend_attendee_info_no_tel:   "Nicht angegeben"
+oktothek.backend_attendee_info_date:     "Letzte Änderungen"
+oktothek.backend_attendee_info_date_format: "H:i d.m.Y"
 
 # AppBundle/Resources/views/Backend/Course/index.html.twig
 oktothek.backend_academy_package_header: Kurspakete
