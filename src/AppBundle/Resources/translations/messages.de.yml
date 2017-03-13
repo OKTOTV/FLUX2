@@ -3,6 +3,8 @@
 Previous:   Vorherige
 Next:       Nächste
 
+oktothek.info_webtitle_not_found:       "Unter dieser Url konnte keine Sendereihe gefunden werden."
+
 # layout.html.twig
 oktothek_layout_navigation:             "Navigation ein-/ausblenden"
 oktothek_layout_search:                 "Suche ein-/ausblenden"

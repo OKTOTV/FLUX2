@@ -38,6 +38,7 @@ parameters:
 
     player_url:     "http://url.to.your/player.js"
     program_url:    'http://delorian.okto.tv/app.php/de/delorian/public_api/program/%%s/%%s'
+    bprs_asset_404: "http://your.placeholder.com/Logo2.png"
     bprs_asset_adapters:
         posterframe:
             url:  "http://your.url/path/posterframes"
