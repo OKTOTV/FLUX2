@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Course\Course;
 use AppBundle\Entity\Course\Attendee;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
+use AppBundle\Form\Backend\MoveAttendeeType;
 
 /**
  * @Route("/backend/attendee")
@@ -66,5 +66,58 @@ class AttendeeController extends Controller
     public function setPaymentstatusAction(Request $request, Attendee $attendee)
     {
         // TODO: update attendee paymentstatus (frontoffice form to update paymentsettings)
+    }
+
+    /**
+     * @Route("/{attendee}/move", name="oktothek_backend_move_attendee")
+     * @Template()
+     */
+    public function moveAttendeeAction(Request $request, Attendee $attendee)
+    {
+        $openCourses = $this->get('oktothek_academy')
+            ->getAvailableCoursesToMove($attendee);
+
+        $form = $this->createForm(
+            MoveAttendeeType::class,
+            $attendee,
+            [
+                'fromCourses' => $attendee->getCourses(),
+                'toCourses' => $openCourses,
+                'translator' => $this->get('translator')
+            ]
+        );
+
+        $form->add('submit', SubmitType::class, [
+            'label' => 'oktothek.attendee_move_button',
+            'attr' => ['class' => 'btn btn-primary']
+        ]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $this->get('oktothek_academy')->moveAttendeeFromCourseToCourse(
+                    $attendee,
+                    $form->get('fromCourse')->getData(),
+                    $form->get('toCourse')->getData()
+                );
+                $this->get('session')->getFlashBag()->add(
+                    'success',
+                    'oktothek.success_move_attendee'
+                );
+                return $this->redirect(
+                    $this->generateUrl(
+                        'oktothek_backend_show_attendee',
+                        ['attendee' => $attendee->getId()]
+                    )
+                );
+            } else {
+                $this->get('session')->getFlashBag()->add(
+                    'error',
+                    'oktothek.error_move_attendee'
+                );
+            }
+        }
+
+        return ['form' => $form->createView(), 'attendee' => $attendee];
     }
 }

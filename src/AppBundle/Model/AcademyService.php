@@ -138,6 +138,31 @@ class AcademyService
 
     }
 
+    /**
+     * move Attendee to another course.
+     * sends email with information again.
+     */
+    public function moveAttendeeFromCourseToCourse($attendee, $fromCourse, $toCourse)
+    {
+        $fromCourse->removeAttendee($attendee);
+        $toCourse->addAttendee($attendee);
+        $this->em->persist($fromCourse);
+        $this->em->persist($toCourse);
+        $this->em->persist($attendee);
+        $this->em->flush();
+        $this->sendMovedAttendeeMail($attendee, $fromCourse, $toCourse);
+        return true;
+    }
+
+    public function getAvailableCoursesToMove() {
+        return $this->em->getRepository('AppBundle:Course\Course')
+            ->findFutureCourses();
+    }
+
+    private function sendMovedAttendeeMail($attendee, $fromCourse, $toCourse) {
+        //TODO: add mailer and send mail
+    }
+
     private function sendBookingSuccessMail($attendee)
     {
         //TODO: add mailer and send a mail

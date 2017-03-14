@@ -7,6 +7,7 @@
     <div class="page-header">
         <h1>{{ attendee }}</h1>
         <a href="{{ path('oktothek_backend_attendee_index') }}" class="btn btn-default">{{ 'oktothek.backend_attendee_show_back_to_index'|trans|raw }}</a>
+        <a href="{{ path('oktothek_backend_move_attendee', {'attendee': attendee.id})}}">{{ 'oktothek.backend_attendee_move_to_course'|trans|raw }}</a>
     </div>
     <table class="table table-bordered">
         <tbody>

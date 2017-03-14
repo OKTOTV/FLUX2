@@ -476,6 +476,15 @@ oktothek.backend_attendee_info_no_tel:   "Nicht angegeben"
 oktothek.backend_attendee_info_date:     "Letzte Änderungen"
 oktothek.backend_attendee_info_date_format: "H:i d.m.Y"
 
+# AppBundle/Resources/views/Backend/Attendee/show.html.twig
+oktothek.backend_attendee_move_to_course:   "Kurs umbuchen"
+
+# AppBundle/Resources/views/Backend/Attendee/moveAttendee.html.twig
+oktothek.backend_move_from_course_label:  "Von Kurs"
+oktothek.backend_move_to_course_label:    "Zu Kurs"
+oktothek.attendee_move_button:            '<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Umbuchen'
+oktothek.attendee_move_course_full_label: "%course% (Voll)"
+
 # AppBundle/Resources/views/Backend/Course/index.html.twig
 oktothek.backend_academy_package_header: Kurspakete
 oktothek.backend_academy_course_header:  Kurstypen

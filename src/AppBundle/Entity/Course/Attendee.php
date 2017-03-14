@@ -233,21 +233,21 @@ class Attendee
      * @param \AppBundle\Entity\Course $courses
      * @return Attendee
      */
-    public function addCourse($courses)
+    public function addCourse($course)
     {
-        $this->courses[] = $courses;
-
+        $this->courses[] = $course;
         return $this;
     }
 
     /**
      * Remove courses
      *
-     * @param \AppBundle\Entity\Course $courses
+     * @param \AppBundle\Entity\Course $course
      */
-    public function removeCourse($courses)
+    public function removeCourse($course)
     {
-        $this->courses->removeElement($courses);
+        $this->courses->removeElement($course);
+        return $this;
     }
 
     /**

@@ -1,0 +1,12 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': ''} %}
+{% endblock %}
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ attendee }}</h1>
+        <a href="{{ path('oktothek_backend_attendee_index') }}" class="btn btn-default">{{ 'oktothek.backend_attendee_show_back_to_index'|trans|raw }}</a>
+    </div>
+    {{ form(form) }}
+{% endblock %}
