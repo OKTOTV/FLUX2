@@ -213,9 +213,11 @@ class Course
      *
      * @param \AppBundle\Entity\Attendee $attendees
      */
-    public function removeAttendee($attendees)
+    public function removeAttendee($attendee)
     {
-        $this->attendees->removeElement($attendees);
+        $this->attendees->removeElement($attendee);
+        $attendee->removeCourse($this);
+        return $this;
     }
 
     /**
@@ -312,5 +314,13 @@ class Course
     {
         $this->updatedAt = new \DateTime();
         return $this;
+    }
+
+    public function isFull()
+    {
+        if (count($this->attendees) >= $this->max_attendees) {
+            return true;
+        }
+        return false;
     }
 }

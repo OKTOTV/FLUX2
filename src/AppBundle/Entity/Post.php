@@ -438,7 +438,6 @@ class Post
     public function setSeries(Series $series = null)
     {
         $this->series = $series;
-
         return $this;
     }
 

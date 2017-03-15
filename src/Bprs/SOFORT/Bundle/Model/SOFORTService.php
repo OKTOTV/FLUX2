@@ -3,6 +3,7 @@
 namespace Bprs\SOFORT\Bundle\Model;
 
 use Sofort\SofortLib\Sofortueberweisung;
+use Sofort\SofortLib\Refund;
 
 class SOFORTService
 {
@@ -41,5 +42,12 @@ class SOFORTService
         } else {
             return $Sofortueberweisung;
         }
+    }
+
+    public function getRefund($name, $iban, $bic)
+    {
+        $refund = new Refund($this->configkey);
+        $refund->setSenderSepaAccount($bic, $iban, $name);
+        return $refund;
     }
 }

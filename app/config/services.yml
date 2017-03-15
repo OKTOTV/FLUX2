@@ -133,4 +133,10 @@ services:
         class: AppBundle\Event\DeleteEpisodeEventListener
         arguments:  [ "@doctrine.orm.entity_manager" ]
         tags:
-            - { name: kernel.event_listener, event: oktolab_media.delete_episode', method: onEpisodeDelete }
+            - { name: kernel.event_listener, event: oktolab_media.delete_episode, method: onEpisodeDelete }
+
+    oktothek.asset_listener:
+        class: AppBundle\Event\AssetEventListener
+        arguments: [ "@security.token_storage" ]
+        tags:
+            - { name: kernel.event_listener, event: bprs_asset.pre_create, method: onPrePersist }

@@ -58,6 +58,10 @@ security:
                 target: /de
             anonymous: ~
             provider: database
+            remember_me:
+                secret: '%secret%'
+                httponly: false
+                secure: '%secure_cookie%'
 
     access_control:
         - { path: /backend, roles: ROLE_USER }

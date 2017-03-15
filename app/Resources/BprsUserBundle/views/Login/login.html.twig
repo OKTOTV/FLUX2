@@ -16,6 +16,11 @@
             <label for="password" class="sr-only">{{ 'bprs_user.login.password_label'|trans }}</label>
             <input type="password" id="password" name="_password" class="form-control" placeholder="{{ 'bprs_user.login.password_label'|trans }}" required />
         </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="remember_me" name="_remember_me" checked /> {{ 'flux2.login.remember_me_label'|trans }}
+            </label>
+        </div>
         <div class="form-group">
             <p><input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"></p>
             <p><a href="{{ path('bprs_user_iforgot') }}">{{ 'bprs_user.login.reset_password'|trans }}</a><p>

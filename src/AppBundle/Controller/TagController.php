@@ -78,7 +78,7 @@ class TagController extends Controller
         $repo = $em->getRepository('AppBundle:Tag');
         return [
             'tag' => $slug,
-            'posts' => $repo->findPostsWithTag($slug),
+            'posts' => $repo->findPostsWithTag($slug, 4),
             'pages' => $repo->findPagesWithTag($slug),
             'episodes' => $repo->findEpisodesWithTag($slug),
             'seriess'    => $repo->findSeriesWithTag($slug),

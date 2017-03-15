@@ -6,6 +6,8 @@
 {% block body_main %}
     <div class="page-header">
         <h1>{{ attendee }}</h1>
+        <a href="{{ path('oktothek_backend_attendee_index') }}" class="btn btn-default">{{ 'oktothek.backend_attendee_show_back_to_index'|trans|raw }}</a>
+        <a href="{{ path('oktothek_backend_move_attendee', {'attendee': attendee.id})}}">{{ 'oktothek.backend_attendee_move_to_course'|trans|raw }}</a>
     </div>
     <table class="table table-bordered">
         <tbody>
@@ -37,6 +39,14 @@
                 <td>{{ 'attendee_info_paymentStatus'|trans }}</td>
                 <td>{{ attendee.paymentStatus|trans }}</td>
             </tr>
+            {% if attendee.courses is not empty %}
+                {% for course in attendee.courses %}
+                <tr>
+                    <td>{{ 'attendee_info_course'|trans }}</td>
+                    <td><a href="{{ path('oktothek_backend_show_course', {'course': course.id})}}">{{ course.coursetype }}</a></td>
+                </tr>
+                {% endfor %}
+            {% endif %}
         <tbody>
     </table>
 

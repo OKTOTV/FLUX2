@@ -1,0 +1,22 @@
+{% macro playlistitem_macro(prototype) %}
+<div class="row">
+    <div class="col-md-3 col-xs-3">
+        <img src="__thumb__" class="img img-responsive" />
+    </div>
+    <div class="col-md-8 col-xs-7">
+        <h4>__header__</h4>
+        <p>__desc__</p>
+    </div>
+    <div class="col-md-1 col-xs-2">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-danger remove"><span class="glyphicon glyphicon-remove"></span></a>
+        </div>
+        <div class="list-group">
+            <a href="#" class="list-group-item moveup"><span class="glyphicon glyphicon-chevron-up"></span></a><a href="#" class="list-group-item movedown"><span class="glyphicon glyphicon-chevron-down"></span></a>
+        </div>
+    </div>
+    <div class="hidden">
+        {{ form_widget(prototype)}}
+    </div>
+</div>
+{% endmacro %}

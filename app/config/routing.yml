@@ -18,6 +18,10 @@ start:
     requirements:
         _locale:  de|en
 
+series_redirect:
+    path:      /{webtitle}
+    defaults:  { _controller: AppBundle:Default:seriesRedirect }
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

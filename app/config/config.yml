@@ -23,6 +23,7 @@ framework:
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
+        cookie_lifetime: 86400 #1 day
     fragments:       ~
     http_method_override: true
 
@@ -169,7 +170,7 @@ bprs_asset:
     filesystem_map: oneup_flysystem.mount_manager
     worker_queue: %worker_queue%
     thumb_filesystem: posterframe
-    404:      "http://localhost/FLUX2/web/bundles/app/images/placeholder/Logo2.png"
+    404:      "%bprs_asset_404%"
     adapters: "%bprs_asset_adapters%"
 
 oneup_flysystem:

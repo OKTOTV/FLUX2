@@ -56,28 +56,51 @@ class AcademyController extends Controller
 
         $form = $this->createForm(new AttendeeType(), $attendee);
         if ($course->getCoursetype()->getPrice() <= 0) {
-            $form->add('register', 'submit', ['label' => 'oktothek.register_attendee_button', 'attr' => ['class' => 'btn btn-primary']]);
+            $form->add(
+                'register',
+                'submit',
+                [
+                    'label' => 'oktothek.register_attendee_button',
+                    'attr' => ['class' => 'btn btn-primary']
+                ]
+            );
         } else {
-            $form->add('sofort', 'submit', ['label' => 'oktothek.book_sofort_button', 'attr' => ['class' => 'btn btn-primary']]);
-            $form->add('submit', 'submit', ['label' => 'oktothek.attendee_create_button', 'attr' => ['class' => 'btn btn-default']]);
+            $form->add(
+                'sofort',
+                'submit',
+                [
+                    'label' => 'oktothek.book_sofort_button',
+                    'attr' => ['class' => 'btn btn-primary']
+                ]
+            );
         }
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
             if ($form->isValid()) {
-                // die(var_dump($form->getClickedButton()));
                 if ($form->has('sofort') && $form->get('sofort')->isClicked()) {
-                    if ($url = $this->get('oktothek_academy')->bookCourseSOFORT($attendee, $course)) {
+                    if ($url = $this->get('oktothek_academy')->bookCourseSOFORT(
+                        $attendee,
+                        $course
+                    )) {
                         return $this->redirect($url);
                     }
-                    $this->get('session')->getFlashBag()->add('error', 'oktothek.error_sofort_book_course');
+                    $this->get('session')->getFlashBag()
+                        ->add('error', 'oktothek.error_sofort_book_course');
                 } elseif ($form->has('register') && $form->get('register')->isClicked()) {
-                    $this->get('oktothek_academy')->registerCourse($attendee, $course);
-                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_register_course');
-                    return $this->redirect($this->generateUrl('oktothek_academy_coursetype', ['coursetype' => $course->getCoursetype()->getId()]));
-                } else {
-                    $this->get('oktothek_academy')->bookCourse($attendee, $course);
-                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_book_course');
-                    return $this->redirect($this->generateUrl('oktothek_academy_coursetype', ['coursetype' => $course->getCoursetype()->getId()]));
+                    $this->get('oktothek_academy')->registerCourse(
+                        $attendee,
+                        $course
+                    );
+                    $this->get('session')->getFlashBag()->add(
+                        'success',
+                        'oktothek.success_register_course'
+                    );
+                    return $this->redirect(
+                        $this->generateUrl(
+                            'oktothek_academy_coursetype',
+                            ['coursetype' => $course->getCoursetype()->getId()]
+                        )
+                    );
                 }
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_book_course');
@@ -97,14 +120,6 @@ class AcademyController extends Controller
         $this->get('oktothek_academy')->completedPayment($attendee);
         $this->get('session')->getFlashBag()->add('success', 'oktothek.success_book_SOFORT_course');
         return $this->redirect($this->generateUrl('oktothek_academy'));
-    }
-
-    /**
-    * @Route("/book/{transactionId}/cancel", name="oktothek_academy_cancel_book_course")
-    */
-    public function cancelBookedCourseAction($transactionId)
-    {
-        # code...
     }
 
     /**
@@ -139,12 +154,12 @@ class AcademyController extends Controller
                     $this->get('oktothek_coursepackage')->registerCourses($coursepackageSelection);
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_register_coursepackage');
                     return $this->redirect($this->generateUrl('oktothek_academy_coursetype', ['coursetype' => $course->getCoursetype()->getId()]));
-
-                } else {
-                    $this->get('oktothek_coursepackage')->bookCourses($coursepackageSelection);
-                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_book_coursepackage');
-                    return $this->redirect($this->generateUrl('oktothek_academy'));
                 }
+                // } else {
+                //     $this->get('oktothek_coursepackage')->bookCourses($coursepackageSelection);
+                //     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_book_coursepackage');
+                //     return $this->redirect($this->generateUrl('oktothek_academy'));
+                // }
 
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_book_coursepackage');

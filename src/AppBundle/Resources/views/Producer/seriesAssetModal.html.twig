@@ -1,0 +1,95 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#asset_modal">
+  {{ 'bprs_asset.modal_button'|trans }}
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="asset_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4>{{ 'bprs_asset.asset_modal_header'|trans }}</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <label for="snippet">Snippet</label>
+                <textarea type="snippet" class="form-control" id="asset-snippet" placeholder="{{'bprs_asset.modal_snippet_placeholder'|trans}}" rows="5"></textarea>
+              </div>
+              <div class="row selected">
+              </div>
+              {{ render(controller('AppBundle:Producer:SeriesAjaxModal', {'uniqID': series.uniqID})) }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary copy-snippet">{{ 'bprs_asset.modal_highlight'|trans}}</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'bprs_asset.modal_close'|trans }}</button>
+        </div>
+      </div>
+    </div>
+</div>
+<script>
+    var updateSnippet = function(format) {
+        console.log(format);
+        $('#asset-snippet').val('');
+        var snippet = "";
+        if (format == 'markdown') {
+            $('.asset-selected').each(function(index, asset){
+                console.log($(asset).data('mimetype'));
+                if ($(asset).data('mimetype') == "image/jpeg" || $(asset).data('mimetype') == "image/png") {
+                    console.log('image');
+                    snippet += '!['+$(asset).data("name")+']('+$(asset).data("src")+' "'+$(asset).data("name")+'")'+"\n";
+                } else {
+                    // console.log('not an image, make link');
+                }
+            });
+        } else { //html
+            $('#asset-snippet').val('');
+            $('.asset-selected').each(function(index, asset){
+                console.log(asset);
+                if ($(asset).data('mimetype') == "image/jpeg" || $(asset).data('mimetype') == "image/png") {
+                    console.log('image');
+                    snippet += '<img src="'+$(asset).data("src")+'" class="img img-responsive" />'+"\n";
+                } else {
+                    // console.log('not an image, make link');
+                }
+            });
+        }
+        $('#asset-snippet').val(snippet);
+    };
+
+    // add asset to snippet
+    $(document).on('click', '.asset', function(e){
+        var asset = $(this).clone();
+        asset.removeClass('asset');
+        asset.addClass('asset-selected');
+        $('.selected').append(asset);
+        updateSnippet('html');
+        // console.log(asset);
+    });
+
+    // highlight snippet (also copies to clipboard in some browsers)
+    $(document).on('click', '.copy-snippet', function(e){
+        console.log('copy to clipboard');
+        $('#asset-snippet').select();
+        document.execCommand('copy');
+    });
+
+    // remove asset from snippet
+    $(document).on('click', '.asset-selected', function(e){
+        // console.log(this);
+        $(this).remove();
+        updateSnippet('html');
+    });
+
+    // AJAX pagination
+    $( document ).on('click', '.pagination > li > a', function(e){
+        e.preventDefault();
+        var link = $(this);
+        $.ajax({
+            url: link.attr('href'),
+            context: document.body
+        }).success(function(data) {
+            $(link.parents('.asset-pager')).replaceWith(data);
+        });
+    });
+</script>

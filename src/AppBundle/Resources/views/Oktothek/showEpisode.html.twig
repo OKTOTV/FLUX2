@@ -41,7 +41,7 @@
                 <h1 class="name">{{ episode.name }}</h1>
                 <time pubdate="pubdate" datetime="{{ episode.onlineStart|date('d.m.Y')}}">online seit {{ episode.onlineStart|date('D, d.m.Y')}}</time>
                 <p class="description">
-                    {{ episode.description|nl2br }}
+                    {{ episode.description|converturls|nl2br }}
                 </p>
                 <p class="misc">
                     {% if app.user is empty %}

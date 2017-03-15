@@ -44,7 +44,7 @@
                         {% endif %}
                         {% if is_granted('ROLE_BPRS_COMMANDLINE_BACKEND') %}
                             <li {% if selected == "jobs" %}class="active"{% endif %}>
-                                <a href="{{ path('list_status')}}">{{ 'bprs_commandline.job_menu'|trans|raw }}</a>
+                                <a href="{{ path('list_jobs')}}">{{ 'bprs_commandline.job_menu'|trans|raw }}</a>
                             </li>
                         {% endif %}
                         {% if is_granted('ROLE_BPRS_USER_BACKEND') %}

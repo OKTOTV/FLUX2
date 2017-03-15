@@ -4,18 +4,33 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': ''} %}
 {% endblock %}
 {% block body_main %}
-<div>
-    <h1>{{ 'oktothek.backend_academy_header'|trans}}</h1>
-    <p>
-        <a href="{{ path('oktothek_backend_new_coursetype') }}" class="btn btn-default">{{'oktothek_backend_academy_new_coursetype'|trans|raw }}</a>
-        <a href="{{ path('oktothek_backend_new_coursepackage') }}" class="btn btn-default">{{'oktothek_backend_academy_new_coursepackage'|trans|raw }}</a>
-    </p>
-</div>
-
 <ul class="nav nav-tabs">
-  <li role="presentation"><a href="{{ path('oktothek_backend_courses')}}">{{ 'oktothek.backend_academy_course_header'|trans}}</a></li>
-  <li role="presentation" class="active"><a href="{{ path('oktothek_backend_coursepackages')}}">{{ 'oktothek.backend_academy_package_header'|trans}}</a></li>
+  <li role="presentation">
+      <a href="{{ path('oktothek_backend_courses') }}">
+          {{ 'oktothek.backend_academy_course_header'|trans}}
+      </a>
+  </li>
+  <li role="presentation" class="active">
+      <a href="{{ path('oktothek_backend_coursepackages') }}">
+          {{ 'oktothek.backend_academy_package_header'|trans}}
+      </a>
+  </li>
+  <li role="presentation">
+      <a href="{{ path('oktothek_backend_attendee_index') }}">
+          {{ 'oktothek.backend_academy_attendee_header'|trans }}
+      </a>
+  </li>
 </ul>
+<div class="page-header">
+    <div class="btn-group" role="group" aria-label="...">
+        <a href="{{ path('oktothek_backend_new_coursetype') }}" class="btn btn-default">
+            {{'oktothek_backend_academy_new_coursetype'|trans|raw }}
+        </a>
+        <a href="{{ path('oktothek_backend_new_coursepackage') }}" class="btn btn-default">
+            {{'oktothek_backend_academy_new_coursepackage'|trans|raw }}
+        </a>
+    </div>
+</div>
 
 <div class="list-group">
 {% for coursepackage in coursepackages %}
