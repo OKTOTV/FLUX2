@@ -18,7 +18,6 @@ $(document).ready(function(){
     if ($('body').hasClass('playlists')) {
         var playerheight;
         function sizePlayerheight() {
-                
             if ($('.container').width >= 1170) {
                 playerheight = "658px";
             } else if ($('.container').width >= 970) {
@@ -46,7 +45,6 @@ $(document).ready(function(){
 		        $(container).css('height',playerheight);
             } else
                 $(container).css('height',Winheight);
-            
 			if ($(container).hasClass('fs-image-ident'))
 			    $('.fs-image').css('height','100%');
 		} else {
@@ -63,7 +61,7 @@ $(document).ready(function(){
     }
 
 	function resizeImage(el, container, _ratio) {
-
+        
 		if (Winheight / _ratio > Winwidth) {
 			newMargin = (Winwidth - (Winheight / _ratio)) / 2;
             newWidth = Winheight / _ratio;
@@ -75,7 +73,7 @@ $(document).ready(function(){
         } else {
             $('#carousel').css('width', '100%').css('margin-left','0px');
             $('.carousel-control.right').css('right','0px').css('left','auto');;
-            $('.carousel-control.right').css('left','0px').css('right','auto');
+            $('.carousel-control.left').css('left','0px').css('right','auto');
 			//$(el).css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
             $(el).css('height','auto').css('width',Winwidth + 'px').css('margin-left','0px');
         }
