@@ -17,7 +17,7 @@
         </ul>
         {# example for an login area #}
         <ul class="nav navbar-nav navbar-right">
-            <li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank" title="{{ 'oktothek.menu_upload_title'|trans }}"><span class="icon icon-upload"></span> <span class="link">{{ 'oktothek.menu_upload'|trans }}</span></a></li>
+            <li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank" data-tooltip="{{ 'oktothek.menu_upload_title'|trans }}"><span class="icon icon-upload"></span> <span class="link">{{ 'oktothek.menu_upload'|trans }}</span></a></li>
             {% if is_granted('ROLE_OKTOLAB_USER') or is_granted('ROLE_OKTOLAB_PRODUCER') %}
                 <li {% if dropdown == "user_menu" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="icon icon-login"></span> <span class="link">{{ app.user.username }}</span></a>
@@ -68,7 +68,7 @@
                 </li>
                 {% if is_granted('ROLE_OKTOLAB_USER') %}
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="{{ 'oktothek.menu_user_notifications_title'|trans }}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-tooltip="{{ 'oktothek.menu_user_notifications_title'|trans }}">
                             {% if app.user.notifications is not empty %}{{ 'oktothek.menu_user_notifications'|trans|raw }}
                             {% else %}{{ 'oktothek.menu_user_notifications_empty'|trans|raw }} <span class="visible-xs-inline">{{ 'oktothek.menu_notification_xs'|trans }}</span> {% endif %}
                         </a>
