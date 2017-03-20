@@ -477,7 +477,9 @@ oktothek.backend_attendee_info_date:     "Letzte Änderungen"
 oktothek.backend_attendee_info_date_format: "H:i d.m.Y"
 
 # AppBundle/Resources/views/Backend/Attendee/show.html.twig
-oktothek.backend_attendee_move_to_course:   "Kurs umbuchen"
+oktothek.backend_attendee_move_to_course:   '<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Kurs umbuchen'
+oktothek.backend_attendee_edit:             '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Teilnehmer bearbeiten'
+oktothek.success_money_register_course:     "Kursteilnehmer mit Barzahlung erfolgreich angelegt"
 
 # AppBundle/Resources/views/Backend/Attendee/moveAttendee.html.twig
 oktothek.backend_move_from_course_label:  "Von Kurs"
@@ -486,11 +488,13 @@ oktothek.attendee_move_button:            '<span class="glyphicon glyphicon-copy
 oktothek.attendee_move_course_full_label: "%course% (Voll)"
 
 # AppBundle/Resources/views/Backend/Course/index.html.twig
-oktothek.backend_academy_package_header: Kurspakete
-oktothek.backend_academy_course_header:  Kurstypen
-oktothek.backend_academy_attendee_header: Kursteilnehmer
-oktothek_backend_academy_new_coursepackage: <span class="glyphicon glyphicon-plus"></span> Neues Kurspaket anlegen
+oktothek_backend_show_course_dropdown:          'Aktionen <span class="caret"></span>'
+oktothek.backend_academy_package_header:        'Kurspakete'
+oktothek.backend_academy_course_header:         'Kurstypen'
+oktothek.backend_academy_attendee_header:       'Kursteilnehmer'
+oktothek_backend_academy_new_coursepackage:     '<span class="glyphicon glyphicon-plus"></span> Neues Kurspaket anlegen'
 
+# AppBundle/Resources/views/Backend/Course/show.html.twig
 oktothek_backend_academy_new_coursetype: <span class="glyphicon glyphicon-plus"></span> Neuen Kurstyp anlegen
 oktothek.backend_academy_header:        Workshops
 oktothek_backend_new_course:            <span class="glyphicon glyphicon-plus"></span> Neuen Kurs hinzufügen
@@ -498,8 +502,9 @@ oktothek.backend_new_course_header:     Neuer Kurs
 oktothek_backend_course_add_new_date:   <span class="glyphicon glyphicon-plus"></span> Kurstermin hinzufügen
 oktothek.course_create_button:          <span class="glyphicon glyphicon-floppy-disk"></span> Kurs anlegen
 oktothek_backend_course_month_choice:   "{1} Jänner|{2} Februar|{3} März|{4} April|{5} Mai|{6} Juni|{7} Juli|{8} August|{9} September|{10} Oktober|{11} November|{12} Dezember"
-oktothek_backend_show_course_back_to_type: Zurück zum Kurstyp
-oktothek_backend_edit_course:           Kurs bearbeiten
+oktothek_backend_show_course_back_to_type:      '<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zum Kurstyp'
+oktothek_backend_edit_course:                   '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Kurs bearbeiten'
+oktothek_backend_show_course_create_attendee:   '<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Teilnehmer anlegen'
 oktothek_backend_back_to_coursetypes:   <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zu Kurstypen
 oktothek.backend_coursetype_dropdown:   <span class="glyphicon glyphicon-cog"></span> Aktionen <span class="caret"></span>
 oktothek_backend_edit_coursetype:       <span class="glyphicon glyphicon-edit"></span> Kurstyp bearbeiten
