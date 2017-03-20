@@ -86,4 +86,22 @@ class DefaultController extends Controller
 
         return ['form' => $form->createView()];
     }
+
+    public function seriesRedirectAction($webtitle)
+    {
+        $repo = $this->get('oktolab_media')->getSeriesRepo();
+        $series = $repo->findOneBy(['webtitle' => $webtitle]);
+
+        if ($series) {
+            return $this->redirect($this->generateUrl(
+                'oktothek_show_series', ['uniqID' => $series->getUniqID()]
+            ));
+        } else {
+            $this->get('session')->getFlashBag()->add(
+                'info',
+                'oktothek.info_webtitle_not_found'
+            );
+            return $this->redirect($this->generateUrl('homepage'));
+        }
+    }
 }

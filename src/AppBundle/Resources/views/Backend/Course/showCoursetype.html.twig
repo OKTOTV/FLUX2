@@ -6,11 +6,28 @@
 {% block body_main %}
     <div class="page-header">
         <h1>{{ coursetype }}</h1>
-        <a href="{{ path('oktothek_backend_courses')}}" class="btn btn-default">{{ 'oktothek_backend_back_to_coursetypes'|trans }}</a>
-        <a href="{{path('oktothek_backend_new_course', {'coursetype': coursetype.id})}}" class="btn btn-default">
-            {{ 'oktothek_backend_new_course'|trans|raw }}
-        </a>
-        <a href="{{ path('oktothek_backend_edit_coursetype', {'coursetype': coursetype.id})}}" class="btn btn-default">{{ 'oktothek_backend_edit_coursetype'|trans|raw }}</a>
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                {{ 'oktothek.backend_coursetype_dropdown'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                <li>
+                    <a href="{{ path('oktothek_backend_courses')}}">
+                        {{ 'oktothek_backend_back_to_coursetypes'|trans|raw }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{path('oktothek_backend_new_course', {'coursetype': coursetype.id})}}">
+                        {{ 'oktothek_backend_new_course'|trans|raw }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('oktothek_backend_edit_coursetype', {'coursetype': coursetype.id})}}">
+                        {{ 'oktothek_backend_edit_coursetype'|trans|raw }}
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-8">

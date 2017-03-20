@@ -30,23 +30,38 @@
 .carousel-caption, .description-overlay .description-wrapper, .playlists .description-wrapper {
 	left:5%;
 }
-.fs-image-content figure, .fs-image-content figure div, .preloader {
+.fs-image-content figure, .fs-image-content figure div {
+	/*width: 100%;*/
+}
+.preloader {
 	width: 100%;
 }
 .carousel-caption, .description-overlay .description-wrapper, .playlists .description-wrapper {
 	width:90%;
 }
 .carousel-inner > .item > a > img, .carousel-inner > .item > img {
-	min-width: 100%;
-	width:auto;
+	/*min-width: 100%;
+	width:auto;*/
 }
 .carousel-inner > .item > a > img, .carousel-inner > .item > img {
-	max-width:none;
+	/*max-width:none;*/
 }
-.carousel-inner, .description-overlay {
+.description-overlay {
 	height:auto;
 }
-.carousel .item, .carousel-inner > .item > a > img, .carousel-inner > .item > img, .fs-image-content figure, .fs-image-content figure div, .preloader {
+.carousel,
+.item,
+.active,
+.carousel-inner {
+    height: 100%;
+}
+.carousel-inner {
+	/*height:auto;*/
+}
+.carousel .item, .carousel-inner > .item > a > img, .carousel-inner > .item > img {
+    /*height: 100%;*/
+}
+.fs-image-content figure, .fs-image-content figure div, .preloader {
     height: 100%;
 }
 .carousel-caption h3, .carousel-caption, .description-overlay .description-wrapper, .playlists .description-wrapper {
@@ -66,6 +81,10 @@ section.fs-image-content, section.fs-image-content {
 }
 #slider, .fs-image-content {
 	margin-top:-90px;
+}
+#slider {
+    position: relative;
+    overflow: hidden;
 }
 .content-opacity {
 	margin-right:15px;
@@ -90,7 +109,7 @@ section.bg-fullscreen h2, section.fs-image-content + section header.page-header 
 /*.academy-content .content-opacity div:first-child {
 	padding-left:15px;
 }*/
-.carousel-inner {
+.carousel-inner, .carousel-inner > .item.next.left {
 	overflow:hidden;
 }
 .description-overlay .description-wrapper.details {

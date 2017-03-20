@@ -18,4 +18,23 @@ class CourseRepository extends EntityRepository
             ->createQuery('SELECT c FROM AppBundle:Course\Course c WHERE c.coursetype = :coursetype')
             ->setParameter('coursetype', $coursetype->getId());
     }
+
+    public function findFutureCourses($query_only = false)
+    {
+        $date = new \DateTime();
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT c FROM AppBundle:Course\Course c
+                LEFT JOIN c.dates d
+                WHERE c.is_active = true
+                AND d.courseStart > :now'
+            )
+            ->setParameter('now', $date->format('Y-m-d'));
+
+        if ($query_only) {
+            return $query;
+        }
+
+        return $query->getResult();
+    }
 }

@@ -8,6 +8,7 @@ class AcademyService
 {
     const ACADEMY_OPEN_TRANSACTION =   'oktothek_academy_open_transaction'; // opened an transaction. user is on SOFORT page to enter online banking credentials
     const ACADEMY_CLOSED_TRANSACTION = 'oktothek_academy_closed_transaction'; // user successfully finished the transaction
+    const ACADEMY_REFUND_TRANSACTION = 'oktothek_academy_refund_transaction'; // opened successfully a refund at SOFORT
     const ACADEMY_MONEY =              'oktothek_academy_money_open'; // user wants to pay with real money (urgh) at okto
     const ACADEMY_MONEY_CLOSED =       'oktothek_academy_money_closed'; // user successfully paid with real money
 
@@ -88,6 +89,78 @@ class AcademyService
         $em->persist($attendee);
         $em->flush();
         $this->sendBookingSuccessMail($attendee);
+    }
+
+    /**
+     * Use this function if you want to refund a single attenddee transactions
+     */
+    public function refundAttendeeCourse($attendee, $course, $bic, $iban)
+    {
+        $refund = $this->sofort->getRefund($attendee, $bic, $iban);
+
+        if ($attendee->getReducedEligible()) {
+            $refund->addRefund(
+                $attendee->getTransactionId(),
+                $course->getCoursetype()->getPriceReduced()
+            );
+        } else {
+            $refund->addRefund(
+                $attendee->getTransactionId(),
+                $course->getCoursetype()->getPrice()
+            );
+        }
+
+        $refund->sendRequest();
+        if ($refund->isError()) {
+            return false;
+        }
+
+        $attendee->setPaymentStatus(AcademyService::ACADEMY_REFUND_TRANSACTION);
+        $this->em->persist($attendee);
+        $this->em->flush();
+
+        return true;
+    }
+
+    /**
+     * cancel a complete course. You'll have to handle each Attendee separately
+     */
+    public function cancelCourse($course)
+    {
+        $course->setIsActive(false);
+        $this->em->persist($course);
+        $this->em->flush();
+        if (count($course->getAttendees())) {
+            foreach ($course->getAttendees() as $attendee) {
+                # TODO: send mail what to do: new course, refund, etc.
+            }
+        }
+
+    }
+
+    /**
+     * move Attendee to another course.
+     * sends email with information again.
+     */
+    public function moveAttendeeFromCourseToCourse($attendee, $fromCourse, $toCourse)
+    {
+        $fromCourse->removeAttendee($attendee);
+        $toCourse->addAttendee($attendee);
+        $this->em->persist($fromCourse);
+        $this->em->persist($toCourse);
+        $this->em->persist($attendee);
+        $this->em->flush();
+        $this->sendMovedAttendeeMail($attendee, $fromCourse, $toCourse);
+        return true;
+    }
+
+    public function getAvailableCoursesToMove() {
+        return $this->em->getRepository('AppBundle:Course\Course')
+            ->findFutureCourses();
+    }
+
+    private function sendMovedAttendeeMail($attendee, $fromCourse, $toCourse) {
+        //TODO: add mailer and send mail
     }
 
     private function sendBookingSuccessMail($attendee)

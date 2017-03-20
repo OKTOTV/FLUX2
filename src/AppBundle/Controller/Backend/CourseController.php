@@ -188,13 +188,4 @@ class CourseController extends Controller
     {
         return ['course' => $course];
     }
-
-    /**
-     * @Route("attendee/{attendee}/show", name="oktothek_backend_show_attendee")
-     * @Template()
-     */
-    public function showAttendeeAction(Attendee $attendee)
-    {
-        return ['attendee' => $attendee];
-    }
 }

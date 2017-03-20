@@ -15,7 +15,7 @@ class PostRepository extends EntityRepository
     public function findPinnedPosts($numberOfPosts = 4)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.isActive = :active AND p.onlineAt < :now AND p.pinned = :pinned')
+            ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.isActive = :active AND p.onlineAt < :now AND p.pinned = :pinned ORDER BY p.createdAt DESC')
             ->setParameter('active', true)
             ->setParameter('pinned', true)
             ->setParameter('now', new \DateTime())

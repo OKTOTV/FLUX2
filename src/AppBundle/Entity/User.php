@@ -12,9 +12,8 @@ use AppBundle\Entity\Abonnement;
 use AppBundle\Entity\Notification;
 
 /**
- * IntakeUser
+ * User
  * @ORM\Table()
- * ORM\Entity(repositoryClass="Bprs\UserBundle\Entity\UserRepository")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\UserRepository")
  */
 class User extends BaseUser
