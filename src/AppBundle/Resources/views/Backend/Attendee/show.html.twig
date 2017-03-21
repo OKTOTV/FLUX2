@@ -27,6 +27,11 @@
                         {{ 'oktothek.backend_attendee_edit'|trans|raw }}
                     </a>
                 </li>
+                <li>
+                    <a href="{{ path('oktothek_backend_edit_paymentstatus', {'attendee': attendee.id}) }}">
+                        {{ 'oktothek.backend_attendee_update_paymentstatus'|trans|raw }}
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -58,8 +63,16 @@
                 <td>{{ attendee.transactionId }}</td>
             </tr>
             <tr>
+                <td>{{ 'attendee_info_info'|trans }}</td>
+                <td>{{ attendee.info|nl2br }}</td>
+            </tr>
+            <tr>
                 <td>{{ 'attendee_info_paymentStatus'|trans }}</td>
                 <td>{{ attendee.paymentStatus|trans }}</td>
+            </tr>
+            <tr>
+                <td>{{ 'attendee_info_updatedAt'|trans }}</td>
+                <td>{{ attendee.updatedAt|date('H:i d.m.Y') }}</td>
             </tr>
             {% if attendee.courses is not empty %}
                 {% for course in attendee.courses %}

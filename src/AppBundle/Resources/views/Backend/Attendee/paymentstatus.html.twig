@@ -1,0 +1,41 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ name|default('OKTO')~' | '~'oktothek_academy_header'|trans }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'academy', 'dropdown': ''} %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="page-header">
+        <h1>{{ form.vars.value }}</h1>
+        <!-- Single button -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'oktothek_backend_attendee_paymentstatus_dropdown'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{{ path('oktothek_backend_attendee_index') }}">
+                        {{ 'oktothek.backend_attendee_paymentstatus_back_to_index'|trans|raw }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('oktothek_backend_move_attendee', {'attendee': form.vars.value.id})}}">
+                        {{ 'oktothek.backend_attendee_paymentstatus_move_to_course'|trans|raw }}
+                    </a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                    <a href="{{ path('oktothek_backend_show_attendee', {'attendee': form.vars.value.id})}}">
+                        {{ 'oktothek.backend_attendee_paymentstatus_cancel'|trans|raw }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+	</div>
+
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+
+</div>
+{% endblock %}
