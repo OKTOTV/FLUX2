@@ -22,6 +22,10 @@ series_redirect:
     path:      /{webtitle}
     defaults:  { _controller: AppBundle:Default:seriesRedirect }
 
+shorturl:
+    path:      /watch
+    defaults:  { _controller: AppBundle:Default:episodeShort }
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
