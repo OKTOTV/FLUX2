@@ -12,6 +12,7 @@ use AppBundle\Entity\Course\Attendee;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use AppBundle\Form\Backend\MoveAttendeeType;
 use AppBundle\Form\Course\AttendeeType;
+use AppBundle\Form\Course\AttendeePaymentType;
 
 /**
  * @Route("/backend/attendee")
@@ -148,9 +149,39 @@ class AttendeeController extends Controller
      * @Route("/{attendee}/paymentstatus", name="oktothek_backend_edit_paymentstatus")
      * @Template()
      */
-    public function setPaymentstatusAction(Request $request, Attendee $attendee)
+    public function paymentstatusAction(Request $request, Attendee $attendee)
     {
-        // TODO: update attendee paymentstatus (frontoffice form to update paymentsettings)
+        $form = $this->createForm(AttendeePaymentType::class, $attendee);
+        $form->add(
+            'submit',
+            SubmitType::class,
+            [
+                'label' => 'oktothek_edit_attendee_payment_button',
+                'attr' => ['class' => 'btn btn-primary']
+            ]
+        );
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($attendee);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add(
+                    'success',
+                    'oktothek.success_edit_attendee_payment'
+                );
+                return $this->redirect(
+                    $this->generateUrl(
+                        'oktothek_backend_show_attendee',
+                        ['attendee' => $attendee->getId()]
+                    )
+                );
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_attendee_payment');
+            }
+        }
+
+        return ['form' => $form->createView()];
     }
 
     /**

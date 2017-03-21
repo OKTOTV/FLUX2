@@ -454,13 +454,16 @@ attendee_info_surname:        Nachname
 attendee_info_email:          Mailadresse
 attendee_info_tel:            Telefonnummer
 attendee_info_reduced:        Preisstufe
+attendee_info_info:           Notiz
 attendee_info_reduced_choice: "{0} Vollpreis|{1} Ermäßigter Preis"
 attendee_info_transactionId:  Transaktions ID
 attendee_info_paymentStatus:  Zahlungsstatus
-oktothek_academy_open_transaction:      Online Zahlung (offen)
-oktothek_academy_closed_transaction:    Online Zahlung (bezahlt)
-oktothek_academy_money_open:            Barzahlung (offen)
-oktothek_academy_money_closed:          Barzahlung (bezahlt)
+attendee_info_updatedAt:      Zuletzt geändert
+oktothek_academy_open_transaction:      "Online Zahlung (offen)"
+oktothek_academy_closed_transaction:    "Online Zahlung (bezahlt)"
+oktothek_academy_refund_transaction:    "Rückerstatted"
+oktothek_academy_money_open:            "Barzahlung (offen)"
+oktothek_academy_money_closed:          "Barzahlung (bezahlt)"
 
 # AppBundle/Resources/views/Backend/Attendee/index.html.twig
 oktothek.backend_attendee_dropdown:     '<span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Sortieren<span class="caret"></span>'
@@ -479,13 +482,30 @@ oktothek.backend_attendee_info_date_format: "H:i d.m.Y"
 # AppBundle/Resources/views/Backend/Attendee/show.html.twig
 oktothek.backend_attendee_move_to_course:   '<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Kurs umbuchen'
 oktothek.backend_attendee_edit:             '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Teilnehmer bearbeiten'
+oktothek.backend_attendee_update_paymentstatus: '<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Zahlungsstatus ändern'
 oktothek.success_money_register_course:     "Kursteilnehmer mit Barzahlung erfolgreich angelegt"
+
+# create.html.twig
+
+oktothek_attendee_info_label:               "Notiz"
+oktothek_attendee_info_placeholder:         "Notizen. Maximal 500 Zeichen"
+
+# edit.html.twig
+oktothek.success_edit_attendee:             "Teilnehmer erfolgreich aktualisiert"
 
 # AppBundle/Resources/views/Backend/Attendee/moveAttendee.html.twig
 oktothek.backend_move_from_course_label:  "Von Kurs"
 oktothek.backend_move_to_course_label:    "Zu Kurs"
 oktothek.attendee_move_button:            '<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Umbuchen'
 oktothek.attendee_move_course_full_label: "%course% (Voll)"
+
+# AppBundle/Resources/views/Backend/Attendee/paymentstatus.html.twig
+oktothek_backend_attendee_paymentstatus_dropdown:   'Aktionen <span class="caret"></span>'
+oktothek.backend_attendee_paymentstatus_back_to_index:  '<span class="glyphicon glyphicon-list" aria-hidden="true"></span> Zum Teilnehmerindex'
+oktothek.backend_attendee_paymentstatus_move_to_course: '<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Kurs Umbuchen'
+oktothek.backend_attendee_paymentstatus_cancel:         '<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Ansicht'
+oktothek_attendee_paymentstatus_label:    "Zahlungsstatus"
+oktothek_edit_attendee_payment_button:    '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Zahlungsstatus aktualisieren'
 
 # AppBundle/Resources/views/Backend/Course/index.html.twig
 oktothek_backend_show_course_dropdown:          'Aktionen <span class="caret"></span>'
