@@ -488,13 +488,22 @@ oktothek.backend_attendee_edit:             '<span class="glyphicon glyphicon-ed
 oktothek.backend_attendee_update_paymentstatus: '<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Zahlungsstatus ändern'
 oktothek.success_money_register_course:     "Kursteilnehmer mit Barzahlung erfolgreich angelegt"
 
-# create.html.twig
+# AppBundle/Resources/views/Backend/Attendee/create.html.twig
+
+oktothek.backend_create_attendee_button_register:   '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Teilnehmer anlegen'
+oktothek.backend_create_attendee_button_money:      '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Teilnehmer anlegen'
+oktothek.backend_success_register_course:           "Teilnehmer erfolgreich angemeldet"
+oktothek.backend_success_money_register_course:     "Teilnehmer erfolgreich angemeldet"
 
 oktothek_attendee_info_label:               "Notiz"
 oktothek_attendee_info_placeholder:         "Notizen. Maximal 500 Zeichen"
 
-# edit.html.twig
+# AppBundle/Resources/views/Backend/Attendee/edit.html.twig
 oktothek.success_edit_attendee:             "Teilnehmer erfolgreich aktualisiert"
+oktothek.error_edit_attendee:               "Änderungen konnten nicht gespeichert werden"
+oktothek_edit_attendee_button:              '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Änderungen speichern'
+oktothek_backend_delete_attendee_button:    '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Teilnehmer löschen'
+oktothek.success_delete_attendee:           'Teilnehmer erfolgreich gelöscht'
 
 # AppBundle/Resources/views/Backend/Attendee/moveAttendee.html.twig
 oktothek.backend_move_from_course_label:  "Von Kurs"
