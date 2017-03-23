@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\User;
@@ -28,6 +29,17 @@ class DefaultController extends Controller
             'newest_episodes'  => $newest_episodes,
             'newest_playlists' => $newest_playlists
         ];
+    }
+
+    /**
+     * @Method("GET")
+     */
+    public function episodeShortAction(Request $request)
+    {
+        if ($request->query->get('v')) {
+            return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $request->query->get('v')]));
+        }
+        return $this->redirect('homepage');
     }
 
     /**

@@ -1,0 +1,36 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ name|default('OKTO')~' | '~'oktothek_academy_header'|trans }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'academy', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "academy" %}
+{% block body %}
+<div class="container">
+    <header class="page-header">
+        <h1>{{ 'oktothe_academy_book_course_header'|trans({'%coursetype%': course.coursetype.title}) }}</h1>
+	</header>
+    <section>
+    <p>{{ course.coursetype.description }}</p>
+    </section>
+    <section>
+    <h2>{{ 'oktothek_academy_bC_dates'|trans }}</h2>
+    {% for date in course.dates %}
+    <span>{{ 'oktothek_academy_timetable_date'|trans({'%day%': 'oktothek_academy_timetable_days_choice'|transchoice(date.courseStart|date('N')), '%date%': date.courseStart|date('oktothek_academy_timetable_date_format'|trans)})}}</span>
+    {{ 'oktothek_academy_timetable_time'|trans({'start': date.courseStart|date('oktothek_academy_timetable_time_format'|trans), 'end': date.courseEnd|date('oktothek_academy_timetable_time_format'|trans)}) }}
+    {% endfor %}
+    {% if course.coursetype.price <= 0 %}
+        <p>{{ 'oktothek_academy_course_free'|trans }}</p>
+    {% else %}
+        <p>{{ 'oktothek_academy_misc_info'|trans({'%price%': course.coursetype.price|number_format(2, ',', '.'), '%price_reduced%': course.coursetype.priceReduced|number_format(2, ',', '.')})|raw }}</p>
+    {% endif %}
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+    <p><small>{{ 'oktothek_academy_show_footnote'|trans }}</small></p>
+    </section>
+</div>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/academy.css') }}" rel="stylesheet" />
+{% endblock %}

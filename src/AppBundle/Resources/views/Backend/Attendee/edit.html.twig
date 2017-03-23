@@ -1,0 +1,22 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ name|default('OKTO')~' | '~'oktothek_academy_header'|trans }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'academy', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "academy" %}
+{% block body %}
+<div class="container">
+    <header class="page-header">
+        <h1></h1>
+	</header>
+
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+
+</div>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/academy.css') }}" rel="stylesheet" />
+{% endblock %}

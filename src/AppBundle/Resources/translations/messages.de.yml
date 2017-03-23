@@ -423,7 +423,12 @@ oktothek_backend_coursetype_isActive_info: Aktiv
 oktothek_backend_courstype_isActive_choice: "{0} Nein|{1} Ja"
 
 
-# Course
+# AppBundle/Resources/views/Backend/Course/showCourse.html.twig
+oktothek_backend_course_trainer:            "Kursleiter"
+oktothek_backend_course_type:               "Kurstyp"
+oktothek_backend_course_maxAttendees:       "Maximale Teilnehmer"
+oktothek_backend_course_currentAttendees:   "Derzeit Angemeldet"
+
 oktothek.error_create_course:           Der Kurs konnte nicht angelegt werden
 oktothek.success_create_course:         Kurs erfolgreich angelegt
 oktothek.success_delete_course:         Kurs erfolgreich gelöscht
@@ -433,8 +438,6 @@ oktothek.backend_course_trainer_maxAttendees_label: Teilnehmeranzahl
 oktothek.backend_course_isActive_label: Aktiv
 oktothek.backend_course_dates_label:    Termine
 
-oktothek.backend_course_maxAttendees:   %count% Plätze
-oktothek.backend_course_attendees:      %count% Teilnehmer
 
 # Coursedate
 oktothek.backend_coursedate_start_label: Terminbeginn
@@ -454,20 +457,23 @@ attendee_info_surname:        Nachname
 attendee_info_email:          Mailadresse
 attendee_info_tel:            Telefonnummer
 attendee_info_reduced:        Preisstufe
+attendee_info_info:           Notiz
 attendee_info_reduced_choice: "{0} Vollpreis|{1} Ermäßigter Preis"
 attendee_info_transactionId:  Transaktions ID
 attendee_info_paymentStatus:  Zahlungsstatus
-oktothek_academy_open_transaction:      Online Zahlung (offen)
-oktothek_academy_closed_transaction:    Online Zahlung (bezahlt)
-oktothek_academy_money_open:            Barzahlung (offen)
-oktothek_academy_money_closed:          Barzahlung (bezahlt)
+attendee_info_updatedAt:      Zuletzt geändert
+oktothek_academy_open_transaction:      "Online Zahlung (offen)"
+oktothek_academy_closed_transaction:    "Online Zahlung (bezahlt)"
+oktothek_academy_refund_transaction:    "Rückerstatted"
+oktothek_academy_money_open:            "Barzahlung (offen)"
+oktothek_academy_money_closed:          "Barzahlung (bezahlt)"
 
 # AppBundle/Resources/views/Backend/Attendee/index.html.twig
 oktothek.backend_attendee_dropdown:     '<span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Sortieren<span class="caret"></span>'
 oktothek.academy_backend_attendee_email: '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> E-Mail'
 oktothek.academy_backend_attendee_date: '<span class="glyphicon glyphicon-time" ariah-hidden="true"></span> Aktualisiert'
-oktothek.academy_backend_attendee_name: "Familienname"
-oktothek.academy_backend_attendee_surname: "Name"
+oktothek.academy_backend_attendee_name: "Name"
+oktothek.academy_backend_attendee_surname: "Familenname"
 
 oktothek.academy_backend_attendee_index: "Kursteilnehmer"
 oktothek.backend_attendee_info_email:    "E-Mail"
@@ -477,7 +483,27 @@ oktothek.backend_attendee_info_date:     "Letzte Änderungen"
 oktothek.backend_attendee_info_date_format: "H:i d.m.Y"
 
 # AppBundle/Resources/views/Backend/Attendee/show.html.twig
-oktothek.backend_attendee_move_to_course:   "Kurs umbuchen"
+oktothek.backend_attendee_move_to_course:   '<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Kurs umbuchen'
+oktothek.backend_attendee_edit:             '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Teilnehmer bearbeiten'
+oktothek.backend_attendee_update_paymentstatus: '<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Zahlungsstatus ändern'
+oktothek.success_money_register_course:     "Kursteilnehmer mit Barzahlung erfolgreich angelegt"
+
+# AppBundle/Resources/views/Backend/Attendee/create.html.twig
+
+oktothek.backend_create_attendee_button_register:   '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Teilnehmer anlegen'
+oktothek.backend_create_attendee_button_money:      '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Teilnehmer anlegen'
+oktothek.backend_success_register_course:           "Teilnehmer erfolgreich angemeldet"
+oktothek.backend_success_money_register_course:     "Teilnehmer erfolgreich angemeldet"
+
+oktothek_attendee_info_label:               "Notiz"
+oktothek_attendee_info_placeholder:         "Notizen. Maximal 500 Zeichen"
+
+# AppBundle/Resources/views/Backend/Attendee/edit.html.twig
+oktothek.success_edit_attendee:             "Teilnehmer erfolgreich aktualisiert"
+oktothek.error_edit_attendee:               "Änderungen konnten nicht gespeichert werden"
+oktothek_edit_attendee_button:              '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Änderungen speichern'
+oktothek_backend_delete_attendee_button:    '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Teilnehmer löschen'
+oktothek.success_delete_attendee:           'Teilnehmer erfolgreich gelöscht'
 
 # AppBundle/Resources/views/Backend/Attendee/moveAttendee.html.twig
 oktothek.backend_move_from_course_label:  "Von Kurs"
@@ -485,12 +511,22 @@ oktothek.backend_move_to_course_label:    "Zu Kurs"
 oktothek.attendee_move_button:            '<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Umbuchen'
 oktothek.attendee_move_course_full_label: "%course% (Voll)"
 
-# AppBundle/Resources/views/Backend/Course/index.html.twig
-oktothek.backend_academy_package_header: Kurspakete
-oktothek.backend_academy_course_header:  Kurstypen
-oktothek.backend_academy_attendee_header: Kursteilnehmer
-oktothek_backend_academy_new_coursepackage: <span class="glyphicon glyphicon-plus"></span> Neues Kurspaket anlegen
+# AppBundle/Resources/views/Backend/Attendee/paymentstatus.html.twig
+oktothek_backend_attendee_paymentstatus_dropdown:   'Aktionen <span class="caret"></span>'
+oktothek.backend_attendee_paymentstatus_back_to_index:  '<span class="glyphicon glyphicon-list" aria-hidden="true"></span> Zum Teilnehmerindex'
+oktothek.backend_attendee_paymentstatus_move_to_course: '<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Kurs Umbuchen'
+oktothek.backend_attendee_paymentstatus_cancel:         '<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Ansicht'
+oktothek_attendee_paymentstatus_label:    "Zahlungsstatus"
+oktothek_edit_attendee_payment_button:    '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Zahlungsstatus aktualisieren'
 
+# AppBundle/Resources/views/Backend/Course/index.html.twig
+oktothek_backend_show_course_dropdown:          'Aktionen <span class="caret"></span>'
+oktothek.backend_academy_package_header:        'Kurspakete'
+oktothek.backend_academy_course_header:         'Kurstypen'
+oktothek.backend_academy_attendee_header:       'Kursteilnehmer'
+oktothek_backend_academy_new_coursepackage:     '<span class="glyphicon glyphicon-plus"></span> Neues Kurspaket anlegen'
+
+# AppBundle/Resources/views/Backend/Course/show.html.twig
 oktothek_backend_academy_new_coursetype: <span class="glyphicon glyphicon-plus"></span> Neuen Kurstyp anlegen
 oktothek.backend_academy_header:        Workshops
 oktothek_backend_new_course:            <span class="glyphicon glyphicon-plus"></span> Neuen Kurs hinzufügen
@@ -498,12 +534,14 @@ oktothek.backend_new_course_header:     Neuer Kurs
 oktothek_backend_course_add_new_date:   <span class="glyphicon glyphicon-plus"></span> Kurstermin hinzufügen
 oktothek.course_create_button:          <span class="glyphicon glyphicon-floppy-disk"></span> Kurs anlegen
 oktothek_backend_course_month_choice:   "{1} Jänner|{2} Februar|{3} März|{4} April|{5} Mai|{6} Juni|{7} Juli|{8} August|{9} September|{10} Oktober|{11} November|{12} Dezember"
-oktothek_backend_show_course_back_to_type: Zurück zum Kurstyp
-oktothek_backend_edit_course:           Kurs bearbeiten
+oktothek_backend_show_course_back_to_type:      '<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zum Kurstyp'
+oktothek_backend_edit_course:                   '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Kurs bearbeiten'
+oktothek_backend_show_course_create_attendee:   '<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Teilnehmer anlegen'
 oktothek_backend_back_to_coursetypes:   <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zu Kurstypen
 oktothek.backend_coursetype_dropdown:   <span class="glyphicon glyphicon-cog"></span> Aktionen <span class="caret"></span>
 oktothek_backend_edit_coursetype:       <span class="glyphicon glyphicon-edit"></span> Kurstyp bearbeiten
 
+# AppBundle/Resources/views/Backend/Course/showCoursetype.html.twig
 oktothek_backend_coursetype_price_info: Vollpreis
 oktothek_backend_courstype_price:       %amount% €
 oktothek_backend_coursetype_price_reduced_info: Ermäßigter Preis
@@ -512,6 +550,10 @@ oktothek_backend_coursetype_highlight_info: Hervorgehoben
 oktothek_backend_courstype_highligt_choice: "{0} Nein|{1} Ja"
 oktothek_backend_coursetype_attachment_info: Anhang
 oktothek_backend_course_no_dates:       Kurs ohne Termine!
+oktothek_backend_course_start_time_format:    "d.m.Y H:i"
+oktothek_backend_course_end_time_format:      "H:i"
+oktothek_backend_course_timestamp:      "%starttime% - %endtime%"
+oktothek_backend_course_badge:          "%current%/%max%"
 
 oktothek.backend_edit_course_header:    Kurs bearbeiten
 oktothek.course_delete_button:          <span class="glyphicon glyphicon-trash"></span> Kurs löschen

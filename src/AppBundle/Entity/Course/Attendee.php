@@ -88,6 +88,14 @@ class Attendee
      */
     private $updatedAt;
 
+    /**
+     * @var string
+     * @Assert\Length(max=500)
+     * @ORM\Column(name="info", type="string", length=500, nullable=true)
+     */
+    private $info;
+
+
     public function __toString()
     {
         return $this->name.' '.$this->surname;
@@ -338,12 +346,20 @@ class Attendee
      * @ORM\PrePersist
      * @ORM\PreUpdate
      */
-    public function setUpdatedAt($datetime = null)
+    public function setUpdatedAt()
     {
-        if (!$datetime) {
-            $datetime = new \DateTime();
-        }
-        $this->updatedAt = $datetime;
+        $this->updatedAt = new \DateTime();
+        return $this;
+    }
+
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    public function setInfo($info)
+    {
+        $this->info = $info;
         return $this;
     }
 }
