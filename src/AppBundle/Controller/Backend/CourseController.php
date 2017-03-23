@@ -104,7 +104,7 @@ class CourseController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $courses = $paginator->paginate($em->getRepository('AppBundle:Course\Course')->findCoursesForCoursetypeQuery($coursetype), $page, 4);
+        $courses = $paginator->paginate($em->getRepository('AppBundle:Course\Course')->findCoursesForCoursetypeQuery($coursetype), $page, 9);
         return ['coursetype' => $coursetype, 'courses' => $courses];
     }
 
