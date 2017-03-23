@@ -5,48 +5,44 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "series fullscreen-images" %}
+{% set body_class = "series blog newsarchiv" %}
 {% block body_main %}
 
-<header class="page-header">
-    <h1>{{ 'oktothek.series_blog_header'|trans({'%series%': series.name}) }}</h1>
-    <p>
-        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID }) }}" class="btn btn-default">{{ 'oktothek.series_back_to_root'|trans }}</a>
-    </p>
-</header>
-<section class="blog">
-<div class="row">
-    <div class="navigation">
-        {{ knp_pagination_render(posts) }}
-    </div>
+<section class="blog col-md-8 col-lg-8 col-sm-12 col-xs-12">
+    <header class="page-header">
+        <h1>{{ 'oktothek.series_blog_header'|trans({'%series%': series.name}) }}</h1>
         <div class="row">
-            <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12 news-pin">
-                {% for post in posts %}
-                    {% include 'AppBundle:News:_newsRow.html.twig' with {'post': post, 'newsloop': loop.index } %}
-                    <div class="comments comment-pager">
-                        {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
-                    </div>
-                {% endfor %}
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID }) }}" class="more pull-left"><span class="icon"><span class="glyphicon glyphicon-menu-left"></span></span>{{ 'oktothek.series_back_to_root'|trans }}</a>
             </div>
-            <aside class="col-md-3 col-lg-3 col-sm-3 hidden-xs">
-                <div class="aside-inner clearfix">
-                    <ul>
-                        {% for teaser in teasers %}
-                            <li>
-                                <time pubdate="pubdate" datetime="{{ teaser.updatedAt|date('d.m.Y')}}">{{ teaser.updatedAt|date('D, d.m.Y')}}</time>
-                                <p><a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a></p>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </aside>
+            <div class="navigation hidden-xs hidden-sm col-md-6 col-lg-6">
+                {{ knp_pagination_render(posts) }}
+            </div>
         </div>
+    </header>
+    <div class="row">
+        <div class="news-pin">
+            {% for post in posts %}
+                {% include 'AppBundle:News:_newsRow.html.twig' with {'post': post, 'newsloop': loop.index } %}
+            {% endfor %}
+        </div>
+    </div>
     <div class="navigation">
         {{ knp_pagination_render(posts) }}
     </div>
-</div>
 </section>
-
+<aside class="col-md-4 col-lg-4 hidden-sm hidden-xs">
+    <div class="aside-inner clearfix">
+        <ul>
+        {% for teaser in teasers %}
+            <li>
+                <time pubdate="pubdate" datetime="{{ teaser.updatedAt|date('d.m.Y')}}">{{ teaser.updatedAt|date('D, d.m.Y')}}</time>
+                <p><a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a></p>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</aside>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
