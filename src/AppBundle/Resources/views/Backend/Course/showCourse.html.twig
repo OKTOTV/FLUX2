@@ -29,42 +29,48 @@
               </li>
           </ul>
         </div>
-
     </div>
-
-    <ul class="list-group">
-        <li class="list-group-item">{{ course.trainer }}</li>
-        <li class="list-group-item">{{ course.coursetype }}</li>
-        <li class="list-group-item">{{ 'oktothek.backend_course_maxAttendees'|trans({'%count%': course.maxAttendees}) }}</li>
-        <li class="list-group-item">{{ 'oktothek.backend_course_attendees'|trans({'%count%': course.attendees|length}) }}</li>
-    </ul>
-    <table class="table table-bordered">
-        <thead>
-            <tr><th>Von</th><th>Bis</th></tr>
-        </thead>
-        <tbody>
-            {% for date in course.dates %}
-                <tr>
-                    <td>{{ date.courseStart|date('H:i d.m.Y') }}</td>
-                    <td>{{ date.courseEnd|date('H:i d.m.Y') }}</td>
-                </tr>
-            {% endfor %}
-        <tbody>
-    </table>
-    <table class="table table-bordered">
-        <thead>
-            <tr><th>Teilnehmer</th><th>Status</th></tr>
-        </thead>
-        <tbody>
-            {% for attendee in course.attendees %}
-                <tr>
-                    <td><a href="{{ path('oktothek_backend_show_attendee', {'attendee': attendee.id })}}">{{ attendee }}</a></td>
-                    <td>{{ attendee.paymentStatus|trans }}</td>
-                </tr>
-            {% endfor %}
-            {% if course.attendees is empty %}
-                <tr><td colspan="2">Noch keine Teilnehmer</td></tr>
-            {% endif %}
-        <tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-4">
+            <dl class="dl-horizontal">
+                <dt>{{ 'oktothek_backend_course_trainer'|trans }}</dt>
+                <dd>{{ course.trainer }}</dd>
+                <dt>{{ 'oktothek_backend_course_type'|trans }}</dt>
+                <dd>{{ course.coursetype }}</dd>
+                <dt>{{ 'oktothek_backend_course_maxAttendees'|trans }}</dt>
+                <dd>{{ course.maxAttendees }}</dd>
+                <dt>{{ 'oktothek_backend_course_currentAttendees'|trans }}</dt>
+                <dd>{{ course.attendees|length }}</dd>
+            </dl>
+            <ul class="list-group">
+                {% for date in course.dates %}
+                <li class="list-group-item">
+                    {{ 'oktothek_backend_course_timestamp'|trans({
+                            '%starttime%': date.courseStart|date('oktothek_backend_course_start_time_format'|trans),
+                            '%endtime%': date.courseEnd|date('oktothek_backend_course_end_time_format'|trans)
+                        })
+                    }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <table class="table table-bordered">
+                <thead>
+                    <tr><th>Teilnehmer</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    {% for attendee in course.attendees %}
+                        <tr>
+                            <td><a href="{{ path('oktothek_backend_show_attendee', {'attendee': attendee.id })}}">{{ attendee }}</a></td>
+                            <td>{{ attendee.paymentStatus|trans }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% if course.attendees is empty %}
+                        <tr><td colspan="2">Noch keine Teilnehmer</td></tr>
+                    {% endif %}
+                <tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

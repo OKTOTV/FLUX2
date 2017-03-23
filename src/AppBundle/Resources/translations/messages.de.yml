@@ -423,7 +423,12 @@ oktothek_backend_coursetype_isActive_info: Aktiv
 oktothek_backend_courstype_isActive_choice: "{0} Nein|{1} Ja"
 
 
-# Course
+# AppBundle/Resources/views/Backend/Course/showCourse.html.twig
+oktothek_backend_course_trainer:            "Kursleiter"
+oktothek_backend_course_type:               "Kurstyp"
+oktothek_backend_course_maxAttendees:       "Maximale Teilnehmer"
+oktothek_backend_course_currentAttendees:   "Derzeit Angemeldet"
+
 oktothek.error_create_course:           Der Kurs konnte nicht angelegt werden
 oktothek.success_create_course:         Kurs erfolgreich angelegt
 oktothek.success_delete_course:         Kurs erfolgreich gelöscht
@@ -433,8 +438,6 @@ oktothek.backend_course_trainer_maxAttendees_label: Teilnehmeranzahl
 oktothek.backend_course_isActive_label: Aktiv
 oktothek.backend_course_dates_label:    Termine
 
-oktothek.backend_course_maxAttendees:   %count% Plätze
-oktothek.backend_course_attendees:      %count% Teilnehmer
 
 # Coursedate
 oktothek.backend_coursedate_start_label: Terminbeginn
@@ -469,8 +472,8 @@ oktothek_academy_money_closed:          "Barzahlung (bezahlt)"
 oktothek.backend_attendee_dropdown:     '<span class="glyphicon glyphicon-sort" aria-hidden="true"></span> Sortieren<span class="caret"></span>'
 oktothek.academy_backend_attendee_email: '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> E-Mail'
 oktothek.academy_backend_attendee_date: '<span class="glyphicon glyphicon-time" ariah-hidden="true"></span> Aktualisiert'
-oktothek.academy_backend_attendee_name: "Familienname"
-oktothek.academy_backend_attendee_surname: "Name"
+oktothek.academy_backend_attendee_name: "Name"
+oktothek.academy_backend_attendee_surname: "Familenname"
 
 oktothek.academy_backend_attendee_index: "Kursteilnehmer"
 oktothek.backend_attendee_info_email:    "E-Mail"
@@ -485,13 +488,22 @@ oktothek.backend_attendee_edit:             '<span class="glyphicon glyphicon-ed
 oktothek.backend_attendee_update_paymentstatus: '<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Zahlungsstatus ändern'
 oktothek.success_money_register_course:     "Kursteilnehmer mit Barzahlung erfolgreich angelegt"
 
-# create.html.twig
+# AppBundle/Resources/views/Backend/Attendee/create.html.twig
+
+oktothek.backend_create_attendee_button_register:   '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Teilnehmer anlegen'
+oktothek.backend_create_attendee_button_money:      '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Teilnehmer anlegen'
+oktothek.backend_success_register_course:           "Teilnehmer erfolgreich angemeldet"
+oktothek.backend_success_money_register_course:     "Teilnehmer erfolgreich angemeldet"
 
 oktothek_attendee_info_label:               "Notiz"
 oktothek_attendee_info_placeholder:         "Notizen. Maximal 500 Zeichen"
 
-# edit.html.twig
+# AppBundle/Resources/views/Backend/Attendee/edit.html.twig
 oktothek.success_edit_attendee:             "Teilnehmer erfolgreich aktualisiert"
+oktothek.error_edit_attendee:               "Änderungen konnten nicht gespeichert werden"
+oktothek_edit_attendee_button:              '<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Änderungen speichern'
+oktothek_backend_delete_attendee_button:    '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Teilnehmer löschen'
+oktothek.success_delete_attendee:           'Teilnehmer erfolgreich gelöscht'
 
 # AppBundle/Resources/views/Backend/Attendee/moveAttendee.html.twig
 oktothek.backend_move_from_course_label:  "Von Kurs"
@@ -529,6 +541,7 @@ oktothek_backend_back_to_coursetypes:   <span class="glyphicon glyphicon-arrow-l
 oktothek.backend_coursetype_dropdown:   <span class="glyphicon glyphicon-cog"></span> Aktionen <span class="caret"></span>
 oktothek_backend_edit_coursetype:       <span class="glyphicon glyphicon-edit"></span> Kurstyp bearbeiten
 
+# AppBundle/Resources/views/Backend/Course/showCoursetype.html.twig
 oktothek_backend_coursetype_price_info: Vollpreis
 oktothek_backend_courstype_price:       %amount% €
 oktothek_backend_coursetype_price_reduced_info: Ermäßigter Preis
@@ -537,6 +550,10 @@ oktothek_backend_coursetype_highlight_info: Hervorgehoben
 oktothek_backend_courstype_highligt_choice: "{0} Nein|{1} Ja"
 oktothek_backend_coursetype_attachment_info: Anhang
 oktothek_backend_course_no_dates:       Kurs ohne Termine!
+oktothek_backend_course_start_time_format:    "d.m.Y H:i"
+oktothek_backend_course_end_time_format:      "H:i"
+oktothek_backend_course_timestamp:      "%starttime% - %endtime%"
+oktothek_backend_course_badge:          "%current%/%max%"
 
 oktothek.backend_edit_course_header:    Kurs bearbeiten
 oktothek.course_delete_button:          <span class="glyphicon glyphicon-trash"></span> Kurs löschen

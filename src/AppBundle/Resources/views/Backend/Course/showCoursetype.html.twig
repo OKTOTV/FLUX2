@@ -30,18 +30,6 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    {%if coursetype.image is not empty %}
-                        <img src="{{ coursetype.image|link }}" class="img img-responsive" />
-                    {% endif %}
-                </div>
-                <div class="panel-footer">
-                    {{ coursetype.description }}
-                </div>
-            </div>
-        </div>
         <div class="col-md-4">
             <table class="table table-bordered">
                 <tbody>
@@ -89,26 +77,49 @@
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
-    </div>
-    <h3>Kurse</h3>
-    <div class="navigation">
-        {{ knp_pagination_render(courses) }}
-    </div>
-    <div class="row">
-        {% for course in courses %}
-            <div class="col-md-3">
-                    <ul class="list-group">
-                        {% if course.dates is not empty %}
-                            <li class="list-group-item"><a href="{{ path('oktothek_backend_show_course', {'course': course.id}) }}">{{ 'oktothek_backend_course_month_choice'|transchoice(course.dates[0].courseStart|date('n'))}}</a></li>
-                        {% else %}
-                            <li class="list-group-item list-group-item-danger"><a href="{{ path('oktothek_backend_show_course', {'course': course.id}) }}">{{ 'oktothek_backend_course_no_dates'|trans }}</a></li>
-                        {% endif %}
-                        {% for date in course.dates %}
-                            <li class="list-group-item">{{ date.courseStart|date('d.m.Y')}}</li>
-                        {% endfor %}
-                    </ul>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {%if coursetype.image is not empty %}
+                        <img src="{{ coursetype.image|link }}" class="img img-responsive" />
+                    {% endif %}
+                </div>
+                <div class="panel-footer">
+                    {{ coursetype.description }}
+                </div>
             </div>
-        {% endfor %}
+        </div>
+        <div class="col-md-8">
+            <div class="navigation">
+                {{ knp_pagination_render(courses) }}
+            </div>
+            <div class="row">
+                {% for course in courses %}
+                    <div class="col-md-4">
+                        <ul class="list-group">
+                            <li class="list-group-item{% if course.isActive %} list-group-item-success{% else %} list-group-item-danger{% endif %}">
+                                <span class="badge">{{ 'oktothek_backend_course_badge'|trans({'%current%': course.attendees|length, '%max%': course.maxAttendees})}}</span>
+                                <a href="{{ path('oktothek_backend_show_course', {'course': course.id}) }}">
+                                {% if course.dates is empty %}
+                                    {{ 'oktothek_backend_course_no_dates'|trans }}
+                                {% else %}
+                                    {{ 'oktothek_backend_course_month_choice'|transchoice(course.dates[0].courseStart|date('n')) }}
+                                {% endif %}
+                                </a>
+                            </li>
+                            {% for date in course.dates %}
+                                <li class="list-group-item">
+                                    {{ 'oktothek_backend_course_timestamp'|trans({
+                                            '%starttime%': date.courseStart|date('oktothek_backend_course_start_time_format'|trans),
+                                            '%endtime%': date.courseEnd|date('oktothek_backend_course_end_time_format'|trans)
+                                        })
+                                    }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
     </div>
 {% endblock %}

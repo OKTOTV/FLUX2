@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use AppBundle\Form\Backend\MoveAttendeeType;
 use AppBundle\Form\Course\AttendeeType;
 use AppBundle\Form\Course\AttendeePaymentType;
+use AppBundle\Model\AcademyService;
 
 /**
  * @Route("/backend/attendee")
@@ -57,7 +58,7 @@ class AttendeeController extends Controller
                 'register',
                 SubmitType::class,
                 [
-                    'label' => 'oktothek.register_attendee_button',
+                    'label' => 'oktothek.backend_create_attendee_button_register',
                     'attr' => ['class' => 'btn btn-primary']
                 ]
             );
@@ -66,7 +67,7 @@ class AttendeeController extends Controller
                 'money',
                 SubmitType::class,
                 [
-                    'label' => 'oktothek.attendee_create_button',
+                    'label' => 'oktothek.backend_create_attendee_button_money',
                     'attr' => ['class' => 'btn btn-primary']
                 ]
             );
@@ -81,7 +82,7 @@ class AttendeeController extends Controller
                     );
                     $this->get('session')->getFlashBag()->add(
                         'success',
-                        'oktothek.success_register_course'
+                        'oktothek.backend_success_register_course'
                     );
                     return $this->redirect(
                         $this->generateUrl(
@@ -89,17 +90,18 @@ class AttendeeController extends Controller
                             ['coursetype' => $course->getCoursetype()->getId()]
                         )
                     );
+                } elseif ($form->has('money') && $form->get('money')->isClicked()) {
+                    $this->get('oktothek_academy')->bookCourse(
+                        $attendee,
+                        $course,
+                        false,
+                        AcademyService::ACADEMY_MONEY_CLOSED
+                    );
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.backend_success_money_register_course');
                 }
-            } elseif ($form->has('money') && $form->get('money')->isClicked()) {
-                $this->get('oktothek_academy')->bookCourse(
-                    $attendee,
-                    $course,
-                    false,
-                    AcademyService::ACADEMY_MONEY_CLOSED
-                );
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_money_register_course');
+                return $this->redirect($this->generateUrl('oktothek_backend_show_course', ['course' => $course->getId()]));
             } else {
-                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_book_course');
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.backend _error_book_course');
             }
         }
 
@@ -121,9 +123,18 @@ class AttendeeController extends Controller
                 'attr' => ['class' => 'btn btn-primary']
             ]
         );
+        $form->add(
+            'delete',
+            SubmitType::class,
+            [
+                'label' => 'oktothek_backend_delete_attendee_button',
+                'attr'  => ['class' => 'btn btn-link']
+            ]
+        );
+
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
-            if ($form->isValid()) {
+            if ($form->isValid() && $form->get('submit')->isClicked()) { //save
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($attendee);
                 $em->flush();
@@ -137,8 +148,24 @@ class AttendeeController extends Controller
                         ['attendee' => $attendee->getId()]
                     )
                 );
+            } elseif ($form->get('delete')->isClicked()) { // delete
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($attendee);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add(
+                    'success',
+                    'oktothek.success_delete_attendee'
+                );
+
+                return $this->redirect($this->generateUrl(
+                    'oktothek_backend_courses'
+                ));
+
             } else {
-                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_edit_attendee');
+                $this->get('session')->getFlashBag()->add(
+                    'error',
+                    'oktothek.error_edit_attendee'
+                );
             }
         }
 
