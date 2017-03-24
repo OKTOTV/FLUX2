@@ -23,6 +23,9 @@ body.newsarchiv aside .box h3:first-child, body.news aside .box h3:first-child  
 body.newsarchiv article:nth-child(2n+0) figure, body.tagpage article:nth-child(2n+0) figure {
     float:right;
 }
+body.news article.post figure {
+    padding-left:0;
+}
 body.news .post-content img {
     float:left;
     width:50%;
@@ -43,7 +46,7 @@ body.newsarchiv .page-header.detail, body.news .page-header.archiv, body.newsarc
 body.newsarchiv aside, body.news aside {
 	margin-top:40px;
 }
-body.newsarchiv .page-header {
+body.newsarchiv .page-header, body.series.blog header.page-header h1 {
     margin-bottom: 20px;
 }
 body.newsarchiv aside .box, body.news aside .box {
@@ -59,8 +62,11 @@ body.newsarchiv aside .box, body.news aside .box {
     width:100%;
     height:auto;
 }
-.post .page-header, .post .page-header > h3 {
+body.series.blog .page-header, .post .page-header, .post .page-header > h3 {
     margin-top:0;
+}
+body.series.blog section > header.page-header, body.series .blog > header.page-header {
+    margin-left:-15px;
 }
 .post .page-header {
     margin-bottom:20px;
@@ -84,7 +90,7 @@ body.series .infos ul, body.series .blog aside ul {
 	margin-left:0;
 	padding-left:0;
 }
-body.series .blog aside .aside-inner {
+.blog aside .aside-inner {
 	margin-left:5px;
 	padding:15px;
 }

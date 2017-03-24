@@ -106,7 +106,16 @@ figcaption .description,
 	font-style: normal;
 }
 
-h1, h2, .h2, .livestream header h1 time {
+div.list-group.tags span.label.label-default.remove::before {
+    content: "\e014";
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, .h2, .livestream header h1 time, .series.blog h1 {
 	font-size:35px;
 	letter-spacing:0.5px;
 }
@@ -116,6 +125,7 @@ h1, h2, .h2, .livestream header h1 time {
 }
 .carousel-caption h3, 
 .pull-right .icon, 
+.pull-left .icon, 
 .series h1, 
 .playlists h1,
 .playlists .btn.circle,
@@ -133,7 +143,8 @@ header .navbar-toggle.menu-button span.icon-close,
 button.btn-default#ButtonPlaylist .visible-xs-inline, 
 button.btn-default#ButtonShare .visible-xs-inline,
 button.btn-default#ButtonShare_mobil .visible-xs-inline,
-.playlists #StartPlaylist_small.btn span.glyphicon {
+.playlists #StartPlaylist_small.btn span.glyphicon,
+.series.blog header.page-header .pull-left .icon {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -211,13 +222,14 @@ a.less,
 .post .misc a,
 body.producer ul.list-group .pin a p,
 .icon.participant-arrow-down,
-.icon.playlists-arrow-down {
+.icon.playlists-arrow-down,
+div.list-group.tags span.label.label-default.remove {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
 /* Spacelayout */
 .oktothek .participart-list figcaption, 
-.edit-playlists form label {
+label {
 	font-size:11px;
 	letter-spacing:0.70px;
 }
@@ -257,12 +269,13 @@ h3,
 .h3, 
 .courses h4, 
 .playlists .series a, 
-.edit-playlists form label, 
+label, 
 #planets .cloud9-item figcaption,
 .livestream .current-episode,
 .oktothek .more figure.episode-pin,
 .post .misc a,
-body.tagpage .pages .list-group-item a {
+body.tagpage .pages .list-group-item a,
+div.list-group.tags span.label.label-default.remove {
 	text-transform:uppercase;
 }
 
@@ -281,7 +294,8 @@ label, .carousel-caption h3,
 .series h1, 
 .playlists .description-wrapper h1,
 .livestream .schedule li time,
-body.participate .close {
+body.participate .close,
+div.list-group.tags span.label.label-default.remove {
 	font-weight:400;
 }
 header .nav {
@@ -299,6 +313,7 @@ figure.pin a,
 a:hover.tag,
 a:focus.tag,
 a.pull-right.more,
+a.pull-left.more,
 .btn-link:hover,
 .btn-link:focus,
 .btn-link:active,
@@ -503,7 +518,7 @@ header .navbar-inverse .navbar-toggle:hover .icon-bar,
 header .navbar-inverse .navbar-toggle:focus .icon-bar {
 	background-color:#fcce14;
 }
-.dropdown-menu li.divider {
+.dropdown-menu li.divider, .progress {
 	background-color: #212b2c;
 }
 .more-clips select option {
@@ -768,7 +783,9 @@ body,
 a:hover, 
 a:focus, 
 a:hover.pull-right.more,
+a:hover.pull-left.more,
 a:focus.pull-right.more,
+a:focus.pull-left.more,
 select.form-control.ghost, 
 #carousel a h3,
 #carousel a p.subheadline,
@@ -1006,6 +1023,7 @@ article.pin figure.pin,
 body.tagpage article.first-pin,
 body.tagpage .pages > .list-group-item,
 .container.tags ul,
+body.series.blog aside .aside-inner, 
 body.series .blog aside .aside-inner, 
 body.playlists .playlist_container .list-group-item, 
 body.livestream .schedule .panel-default,
@@ -1049,6 +1067,8 @@ body.tagpage article.first-pin:focus,
 body.tagpage .pages > .list-group-item:hover,
 .container.tags ul:hover,
 .container.tags ul:focus,
+body.series.blog aside .aside-inner:hover, 
+body.series.blog aside .aside-inner:focus,
 body.series .blog aside .aside-inner:hover, 
 body.series .blog aside .aside-inner:focus,
 body.playlists .playlist_container .list-group-item:hover, 
@@ -1064,6 +1084,7 @@ article.pin figure.pin,
 body.tagpage article.first-pin,
 body.tagpage .pages > .list-group-item,
 .container.tags ul,
+body.series.blog aside .aside-inner, 
 body.series .blog aside .aside-inner, 
 body.playlists .playlist_container .list-group-item, 
 body.livestream .schedule .panel-default {
@@ -1151,7 +1172,9 @@ button.btn-default#ButtonPlaylist:focus,
 button.btn-default#ButtonShare:hover,
 button.btn-default#ButtonShare:focus,
 button.btn-default#ButtonShare_mobil:hover,
-button.btn-default#ButtonShare_mobil:focus {
+button.btn-default#ButtonShare_mobil:focus,
+body.series.blog .news-pin,
+div.list-group.tags span.label.label-default.remove {
 	background-color:transparent;
 }
 @media (min-width: 580px) {
@@ -1180,6 +1203,7 @@ button.btn-default#ButtonShare_mobil:focus {
     border-top:none;
 }
 a:hover.pull-right .icon, 
+a:hover.pull-left .icon, 
 .collapseShare .btn-default, 
 .container-episode-tag,
 .livestream #nav-programm a:hover .icon,
@@ -1197,6 +1221,7 @@ a:hover.pull-right .icon,
 /* Spacelayout */
 .btn-primary, 
 .pull-right .icon, 
+.pull-left .icon, 
 .btn-default, 
 .btn-default:hover, 
 .btn-default:focus, 
@@ -1294,7 +1319,8 @@ button.btn-default#ButtonPlaylist,
 button.btn-default#ButtonShare,
 button.btn-default#ButtonShare_mobil,
 .alert-success,
-.caret {
+.caret,
+div.list-group.tags span.label.label-default.remove {
 	border:none;
 }
 .triangle {
@@ -1328,7 +1354,8 @@ header .btn,
 .pagination,
 .pagination > li:last-child > a, 
 .pagination > li:last-child > span,
-.alert {
+.alert,
+div.list-group.tags span.label.label-default.remove {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -1336,6 +1363,7 @@ header .btn,
 /* Spacelayout */
 .btn, 
 .pull-right .icon, 
+.pull-left .icon, 
 header .misc .btn,
 header .collapseShare .btn,
 .livestream #nav-programm .icon,
@@ -1383,7 +1411,7 @@ hr {
 	background-position:left center;
 	background-image:url(../images/hr_bg.png);
 }
-section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, .login fieldset, footer nav  {
+section, .participart article, .edit-playlists form fieldset, .newsarchiv article, .series.blog .blog-entry, body.producer aside .description, .login fieldset, footer nav  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border_small.png);
@@ -1569,6 +1597,12 @@ body.oktothek .more figure.episode-pin {
     -o-background-size: cover;
     background-size: cover;
 }
+.crop-asset .icon {
+    background-image:url(../images/icon_cut.png);
+    background-image:url(../images/icon_cut.svg), none;
+    background-repeat:no-repeat;
+    background-position: center center;
+}
 section:last-child, 
 section.playlist_container,
 .edit-playlists form fieldset:last-child,
@@ -1592,7 +1626,7 @@ body.playlists section:first-child,
     }
 }
 @media (min-width: 768px) {
-    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, body.producer aside .description, .login fieldset, footer nav  {
+    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, .series.blog .blog-entry, body.producer aside .description, .login fieldset, footer nav  {
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
 	    background-image:url(../images/section_border.png);
@@ -2649,9 +2683,16 @@ a.tag:first-child:before {
 p.tags {
     margin:0;
 }
+div.list-group.tags span.label.label-default.remove::before {
+    line-height: 1em;
+    vertical-align: middle;
+}
+div.list-group.tags span.label.label-default.remove::before {
+    content: "\e014";
+}
 
 /* Clip Übersichten */
-.clip_overview section .navigation {
+.clip_overview section .navigation, body.series.blog header .navigation {
     text-align:right;
 }
 .pager-row > div:first-child {
@@ -2726,11 +2767,20 @@ body.episode .series, body.playlists .series {
 	margin-top:30px;
 	margin-right:15px;
 }
-.pull-right .icon {
+.series.blog header.page-header .pull-left .icon {
+    line-height: 36px;
+    vertical-align: middle;
+}
+.pull-right .icon, .pull-left .icon {
 	width:38px;
 	height:38px;
 	text-align:center;
+}
+.pull-right .icon {
     margin-left:5px;
+}
+.pull-left .icon {
+    margin-right:5px;
 }
 
 /*Formulare*/
@@ -2793,6 +2843,17 @@ body.episode .series, body.playlists .series {
 .bg-opacity {
 	height:100%;
 	width:100%;
+}
+
+/* Backend */
+form .form-group {
+    margin-bottom: 40px;
+}
+.input-group.date, .progress {
+    width: 250px;
+}
+.progress {
+    margin-top:20px;
 }
 
 

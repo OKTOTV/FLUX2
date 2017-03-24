@@ -48,3 +48,5 @@ app/data.db3
 .DS_Store
 
 app/cache/.gitkeep
+
+app/SymfonyRequirements.php
