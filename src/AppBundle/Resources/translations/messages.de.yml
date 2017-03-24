@@ -25,8 +25,8 @@ oktothek.menu_user_channels:            <span class="glyphicon glyphicon-th-larg
 oktothek.menu_user_favorites:           <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoriten
 oktothek.menu_my_channels:              <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Meine Sendereihen
 oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> Abmelden
-oktothek.menu_user_notifications:       <span class="glyphicon glyphicon-bookmark" style="color:red"></span>
-oktothek.menu_user_notifications_empty: <span class="glyphicon glyphicon-bookmark"></span>
+oktothek.menu_user_notifications:       <span class="icon icon-transmitter-active"></span>
+oktothek.menu_user_notifications_empty: <span class="icon icon-transmitter"></span>
 oktothek.menu_user_no_notifications:    "Hier kannst du deine Abos verwalten."
 oktothek.notification_message_episode:  "%series% hat eine neue Episode veröffentlicht"
 oktothek.notification_message_post:     "%series% hat einen neuen Beitrag veröffentlicht"
