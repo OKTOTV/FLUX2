@@ -11,14 +11,14 @@
 <p class="subheadline">{{ 'oktothek.series_producer_blog_text'|trans }}</p>
 
 {{ form_start(form)}}
-   {{ form_row(form.name)}}
-   <div class="row">
+    <div class="row">
        <div class="col-md-8">
-           {{ form_row(form.description)}}
+            {{ form_row(form.name)}}
+            {{ form_row(form.description)}}
        </div>
-       <div class="col-md-4">
+       <aside class="col-md-4">
            {% include "AppBundle::Default/markdown_helper.html.twig" %}
-       </div>
+       </aside>
    </div>
    {% include "BprsStyleBundle::datetimepicker.html.twig" with {'widget': form.onlineAt} %}
    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.assets, 'adapter': 'gallery', 'type': 'multiple', 'assets': form.vars.value.assets} %}

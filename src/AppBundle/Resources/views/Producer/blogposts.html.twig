@@ -14,11 +14,11 @@
 <div class="navigation">
     {{ knp_pagination_render(posts) }}
 </div>
-<div class="list-group news-container">
+<main class="list-group news-container">
     {% for post in posts %}
         {% include 'AppBundle::Producer/_blogRow.html.twig' with {'post': post, 'newsloop': loop.index} %}
     {% endfor %}
-</div>
+</main>
 <div class="navigation">
     {{ knp_pagination_render(posts) }}
 </div>

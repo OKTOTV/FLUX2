@@ -3,22 +3,25 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
-
-{% set body_class = "news" %}
+{% set body_class = "series blog news" %}
 {% block body_main %}
-
-<header class="page-header">
-    <h1>{{ series.name}}</h1>
-    <p>
-        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID }) }}" class="btn btn-default">{{ 'oktothek.series_blog_back'|trans }}</a>
-    </p>
-</header>
-<section>
-{% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': 1 } %}
-</section>
-<section class="comments comment-pager">
-{{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
-</section>
+<div class="blog col-md-8 col-lg-8 col-sm-12 col-xs-12">
+    <header class="page-header">
+        <h1>{{ series.name}}</h1>
+        <p>
+            <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID }) }}" class="more pull-left"><span class="icon"><span class="glyphicon glyphicon-menu-left"></span></span>{{ 'oktothek.series_back_to_root'|trans }}</a>
+        </p>
+    </header>
+    <section>
+        {% include 'AppBundle::News/post.html.twig' with {'post': post, 'newsloop': 1 } %}
+    </section>
+    <section class="comments comment-pager">
+        {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
+    </section>
+</div>
+<aside class="col-md-4 col-lg-4 hidden-sm hidden-xs">
+<!-- Hier kommt die sidebar rein -->
+</aside>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
