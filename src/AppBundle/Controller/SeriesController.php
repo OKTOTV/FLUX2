@@ -56,7 +56,7 @@ class SeriesController extends Controller
     /**
      * @Route("/{uniqID}/blog.{_format}", name="oktothek_show_series_blog", defaults={"_format": "html", "page": "1"}, requirements={"page": "\d+"})
      * @Method("GET")
-     * @Template()
+     * @Template("AppBundle::Series/Blog/blogIndex.html.twig")
      */
     public function blogIndexAction(Series $series, $page)
     {
