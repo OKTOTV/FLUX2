@@ -41,7 +41,7 @@
 
             var playerInstance = jwplayer("player");
             playerInstance.setup({
-                file: "http://d2jk87psbjrjdz.cloudfront.net/livehttporigin/okto/playlist.m3u8",
+                file: "{{ okto_streamurl }}",
                 image: "{{ asset('bundles/app/images/placeholder/Logo'~random(6)~'.png') }}"
             });
         });
