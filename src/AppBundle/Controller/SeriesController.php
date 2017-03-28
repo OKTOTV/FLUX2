@@ -13,12 +13,12 @@ use AppBundle\Entity\Series;
 /**
  * Series controller.
  *
- * @Route("/oktothek")
+ * @Route("/series")
  */
 class SeriesController extends Controller
 {
     /**
-     * @Route("/series/{uniqID}/episodes_with_tags_ajax", name="oktothek_series_episodes_with_tags_ajax")
+     * @Route("/{uniqID}/episodes_with_tags_ajax", name="oktothek_series_episodes_with_tags_ajax")
      * @Method({"POST", "GET"})
      * @Template()
      */
@@ -43,22 +43,22 @@ class SeriesController extends Controller
     }
 
     /**
-     * @Route("/series/{uniqID}", name="oktothek_show_series")
+     * @Route("/{uniqID}", name="oktothek_show_series")
      * @Method("GET")
      * @Template()
      */
-    public function showSeriesAction(Series $series)
+    public function showAction(Series $series)
     {
         $posts = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $series);
         return ['series' => $series, 'teasers' => $posts];
     }
 
     /**
-     * @Route("/series/{uniqID}/blog.{_format}", name="oktothek_show_series_blog", defaults={"_format": "html", "page": "1"}, requirements={"page": "\d+"})
+     * @Route("/{uniqID}/blog.{_format}", name="oktothek_show_series_blog", defaults={"_format": "html", "page": "1"}, requirements={"page": "\d+"})
      * @Method("GET")
      * @Template()
      */
-    public function showSeriesBlogAction(Series $series, $page)
+    public function blogIndexAction(Series $series, $page)
     {
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
@@ -68,23 +68,24 @@ class SeriesController extends Controller
     }
 
     /**
-     * @Route("/series/{uniqID}/blogpost/{slug}.{_format}", name="oktothek_show_series_blogpost", defaults={"_format": "html"})
+     * @Route("/{uniqID}/post/{slug}.{_format}", name="oktothek_show_series_blogpost", defaults={"_format": "html"})
+     * @Route("/{webtitle}/post/{slug}.{_format}", name="oktothek_series_blog_show", defaults={"_format": "html"})
      * @Method("GET")
      * @Template()
      */
-    public function showSeriesBlogpostAction($uniqID, $slug)
+    public function blogShowAction(Series $series, $slug)
     {
-        $series = $this->get('oktolab_media')->getSeries($uniqID);
         $post = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findOneBy(['slug' => $slug]);
-        return ['series' => $series, 'post' => $post];
+        $teaser = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $series);
+        return ['series' => $series, 'post' => $post, 'teasers' => $teaser];
     }
 
     /**
-     * @Route("/series/{uniqID}/episodes.{_format}", name="oktothek_show_series_episodes", defaults={"_format": "html"})
+     * @Route("/{uniqID}/episodes.{_format}", name="oktothek_show_series_episodes", defaults={"_format": "html"})
      * @Method("GET")
      * @Template()
      */
-    public function seriesEpisodesAction(Request $request, Series $series)
+    public function episodesAction(Request $request, Series $series)
     {
         $page = $request->query->get('page', 1);
         $em = $this->getDoctrine()->getManager();
@@ -94,7 +95,7 @@ class SeriesController extends Controller
     }
 
     /**
-     * @Route("/series/{uniqID}/playlists.{_format}", name="oktothek_show_series_playlists", defaults={"_format": "html"})
+     * @Route("/{uniqID}/playlists.{_format}", name="oktothek_show_series_playlists", defaults={"_format": "html"})
      * @Method("GET")
      * @Template()
      */

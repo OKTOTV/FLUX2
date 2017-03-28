@@ -1,0 +1,22 @@
+<!-- Start Collapse Share-->
+<div class="collapse collapseShare collapseWindow col-lg-12 col-md-12 col-sm-12 col-xs-12" id="collape-{{ newsloop|default('1') }}">
+    <div class="collapse-header">
+        <div class="triangle"></div>
+    </div>
+    <div class="collapse-content">
+        <h3>Teilen</h3>
+        <div class="row">
+            <form class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><input type="text" value="{{ url('oktothek_series_blog_show', {'slug': post.slug, 'webtitle': series.webtitle})}}" class="form-control"></form>
+            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 share-buttons">
+                <ul class="socialnetworks">
+                    <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>Google Plus</span></a></li>
+                    <li><a href="#" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>Pinterest</span></a></li>
+                </ul>
+                <a href="mailto:?to=&subject={{ post.name }}&body={{ url('oktothek_show_news', {'slug': post.slug}) }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
+           </div>
+       </div>
+   </div>
+</div>
+<!-- End Collapse Share-->
