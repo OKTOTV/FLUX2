@@ -10,24 +10,7 @@
     <div id="top"></div>
     <div id="player">
     </div>
-    <section id="current_show">
-        {% if current %}
-            <header>
-              <p class="current-episode">Derzeit auf Okto</p>
-              <h1 class="name">{{ current[0].name|default(current[0].series_name)}}</h1>
-              <time datetime="{{ current[0].airdate|date('Y-m-d H:i')}}">{{ current[0].airdate|date('D, d.m.Y H:i')}}</time>
-              <p class="description">{{ current[0].description }}</p>
-            </header>
-            {% for next in current|slice(1) %}
-            <header>
-                <p class="next-episode">Im Anschluss</p>
-                <h1 class="name">{{ next.name|default(next.series_name)}}</h1>
-                <time datetime="{{ next.airdate|date('Y-m-d H:i')}}">{{ next.airdate|date('D, d.m.Y H:i')}}</time>
-                <p class="description">{{ next.description }}</p>
-            </header>
-            {% endfor %}
-        {% endif %}
-    </section>
+    {% include "AppBundle::Tv/current.html.twig" %}
 
     {{ render(controller('AppBundle:TV:program')) }}
 {% endblock %}
@@ -41,7 +24,7 @@
 
             var playerInstance = jwplayer("player");
             playerInstance.setup({
-                file: "http://d2jk87psbjrjdz.cloudfront.net/livehttporigin/okto/playlist.m3u8",
+                file: "{{ okto_streamurl }}",
                 image: "{{ asset('bundles/app/images/placeholder/Logo'~random(6)~'.png') }}"
             });
         });

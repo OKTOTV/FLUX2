@@ -47,7 +47,7 @@
             <div class="list-group-item">
                 <div class="row">
                     <div class="col-md-3">
-                        {{ file.filekey }}
+                        <a href="{{ path('bprs_asset_show', {'filekey': file.filekey})}}">{{ file.filekey }}</a>
                     </div>
                     <div class="col-md-8">
                         {{ file.name }}
@@ -61,6 +61,9 @@
                 </div>
             </div>
         {% endfor %}
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(files) }}
     </div>
 </section>
 {% endblock %}

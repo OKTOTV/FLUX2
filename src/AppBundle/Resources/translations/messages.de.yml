@@ -25,8 +25,8 @@ oktothek.menu_user_channels:            <span class="glyphicon glyphicon-th-larg
 oktothek.menu_user_favorites:           <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoriten
 oktothek.menu_my_channels:              <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Meine Sendereihen
 oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> Abmelden
-oktothek.menu_user_notifications:       <span class="glyphicon glyphicon-bookmark" style="color:red"></span>
-oktothek.menu_user_notifications_empty: <span class="glyphicon glyphicon-bookmark"></span>
+oktothek.menu_user_notifications:       <span class="icon icon-transmitter-active"></span>
+oktothek.menu_user_notifications_empty: <span class="icon icon-transmitter"></span>
 oktothek.menu_user_no_notifications:    "Hier kannst du deine Abos verwalten."
 oktothek.notification_message_episode:  "%series% hat eine neue Episode veröffentlicht"
 oktothek.notification_message_post:     "%series% hat einen neuen Beitrag veröffentlicht"
@@ -313,12 +313,16 @@ oktothek_academy_sCS_facebook_title:    "Kurs auf Facebook teilen"
 oktothek_academy_sCS_twitter_title:     "Kurs tweeten"
 oktothek_academy_sCS_googlep_title:     "Kurs auf Google+ teilen"
 oktothek_academy_sCS_mail_title:        "Kurs via E-Mail teilen"
+
 ## tv
 oktothek_tv_title:                      TV
 oktothek_tv_weekdays_choice:            "{1} Montag |{2} Dienstag |{3} Mittwoch|{4} Donnerstag|{5} Freitag|{6} Samstag|{7} Sonntag"
 oktothek_tv_weekdays_short_choice:      "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek_tv_weedays_format:             "%day%, %date%"
 
+# AppBundle/Resources/views/Tv/current.html.twig
+oktothek_tv_current_long:               "%series% - %episode%"
+oktothek_tv_current_short:              "%series%"
 ## participate
 oktothek_participate_title:             Mitmachen
 
