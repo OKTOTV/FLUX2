@@ -88,7 +88,8 @@ h3,
 .academy .price, 
 .playlists .btn.circle, 
 .edit-playlists form label,
-.livestream .schedule li h4 {
+.livestream .schedule li h4, 
+.livestream .next-episode-schedule h4 {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -129,7 +130,8 @@ h1, h2, .h2, .livestream header h1 time, .series.blog h1 {
 .series h1, 
 .playlists h1,
 .playlists .btn.circle,
-.livestream .schedule li time {
+.livestream .schedule li time,
+.livestream .next-episode-schedule time {
 	font-size:24px;
 }
 header .navbar-toggle.search-button span, 
@@ -181,6 +183,7 @@ footer h3,
 a.more, 
 header .navbar-nav.themes a, 
 .livestream .schedule li h4, 
+.livestream .next-episode-schedule h4,
 .livestream .navbar-nav a.btn span, 
 .pin-icon {
 	font-size:14px;
@@ -286,6 +289,7 @@ header .navbar-nav.themes a,
 .playlists .btn.circle, 
 .dropdown-menu > li a,
 .livestream .schedule li h4,
+.livestream .next-episode-schedule h4,
 [data-tooltip]::after {
 	text-transform:none;
 }
@@ -294,6 +298,7 @@ label, .carousel-caption h3,
 .series h1, 
 .playlists .description-wrapper h1,
 .livestream .schedule li time,
+.livestream .next-episode-schedule time,
 body.participate .close,
 div.list-group.tags span.label.label-default.remove {
 	font-weight:400;
@@ -341,10 +346,10 @@ select:active:focus {
 }
 
 @media (min-width: 580px) {
-    .livestream .schedule li h4 {
+    .livestream .schedule li h4, .livestream .next-episode-schedule h4 {
         text-transform:uppercase;
     }
-    .livestream .schedule li h4 {
+    .livestream .schedule li h4, .livestream .next-episode-schedule h4 {
 	    font-family: HelveticaNeueLTStd-Roman, Helvetica, sans-serif;
 	    font-weight: normal;
 	    font-style: normal;
@@ -367,7 +372,7 @@ select:active:focus {
     header .form-control::-webkit-input-placeholder {
         font-size:16px;
     }
-    .livestream .schedule li time {
+    .livestream .schedule li time, .livestream .next-episode-schedule time {
 	    font-size:30px;
     }
 	.carousel-caption h3, 
@@ -789,10 +794,6 @@ a:focus.pull-left.more,
 select.form-control.ghost, 
 #carousel a h3,
 #carousel a p.subheadline,
-.oktothek article a.btn-default:hover, 
-.oktothek article a.btn-default:focus, 
-.registry a.btn-default.but-full:hover, 
-.registry a.btn-default.but-full:focus, 
 a.play-episode.btn-default:hover,
 a.play-episode.btn-default:focus,
 .news h3 a, 
@@ -803,6 +804,8 @@ a.play-episode.btn-default:focus,
 .pin a h3, 
 a .pin-icon, 
 .oktothek .participart-list a, 
+.registry a.btn-default.but-full:hover, 
+.registry a.btn-default.but-full:focus, 
 .btn.pin-icon, 
 #episode-tag option, 
 .blog aside p a, 
@@ -895,6 +898,7 @@ header .collapseShare a.btn,
 #playlist_items .color5 a p,
 .container.tags a,
 .livestream .schedule a h4,
+.livestream .next-episode-schedule h4,
 body.producer li.list-group-item,
 body.producer ul.list-group .pin a p,
 .pagination li.disabled span,
@@ -922,6 +926,8 @@ a.tag,
     color: #818181;
 }
 a.list-group-item, 
+.oktothek article a.btn-default:hover, 
+.oktothek article a.btn-default:focus, 
 .participart-list a:hover,
 .participart-list a:focus,
 button.list-group-item,
@@ -1027,6 +1033,8 @@ body.series.blog aside .aside-inner,
 body.series .blog aside .aside-inner, 
 body.playlists .playlist_container .list-group-item, 
 body.livestream .schedule .panel-default,
+body.livestream .next-episode-schedule .panel-time, 
+body.livestream #current_show .row.pin .panel-content,
 .collapseWindow > div.collapse-content,
 body.series .news-pin, 
 body.series .news-form, 
@@ -1058,6 +1066,8 @@ article.pin figure.pin:hover,
 article.pin figure.pin:focus,
 body.oktothek .news article:hover,
 body.oktothek .news article:focus,
+body.oktothek .news article:hover figure,
+body.oktothek .news article:focus figure,
 body.tagpage .inc-pins article.pin figure:hover,
 body.tagpage .inc-pins article.pin figure:focus,
 body.tagpage .inc-pins article.pin:hover figure,
@@ -1338,6 +1348,10 @@ body.tagpage .empty .triangle {
   border-right: 0 solid transparent;
   border-bottom: 15px solid transparent;
 }
+.livestream .next-episode-schedule .panel-time, 
+.livestream #current_show .row.pin .panel-content {
+    border-bottom:2px solid #000000;
+}
 .form-control, 
 .navbar, 
 .more-clips select, 
@@ -1411,7 +1425,7 @@ hr {
 	background-position:left center;
 	background-image:url(../images/hr_bg.png);
 }
-section, .participart article, .edit-playlists form fieldset, .newsarchiv article, .series.blog .blog-entry, body.producer aside .description, .login fieldset, footer nav  {
+section, .participart article, .edit-playlists form fieldset, .newsarchiv article, .series.blog .blog-entry, body.producer aside .description, .login fieldset, footer nav, .livestream #current_show header  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border_small.png);
@@ -1626,7 +1640,7 @@ body.playlists section:first-child,
     }
 }
 @media (min-width: 768px) {
-    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, .series.blog .blog-entry, body.producer aside .description, .login fieldset, footer nav  {
+    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, .series.blog .blog-entry, body.producer aside .description, .login fieldset, footer nav, .livestream #current_show header  {
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
 	    background-image:url(../images/section_border.png);
@@ -2003,6 +2017,10 @@ header .icon.icon-upload {
 header .icon.icon-login {
 	width:12px;
 	height:14px;
+}
+header .icon.icon-transmitter {
+	width:18px;
+	height:18px;
 }
 header + .container-fluid {
 	margin-top:-90px;

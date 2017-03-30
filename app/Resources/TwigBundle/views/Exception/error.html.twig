@@ -1,1 +1,24 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title%}{{ name|default('OKTO')~' | '~searchphrase }}{% endblock %}
+{%- block nav_head -%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{%- endblock -%}
+
+{% set body_class = "tagpage fullscreen-background" %}
+{%- block body -%}
 Irgendein fehler ist aufgetreten!
+{%- endblock -%}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/tagpage.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/news.css') }}" rel="stylesheet" />
+    {% if episodes is not empty %}
+        <style type="text/css">
+            .bg-bleur {
+                background-image:url( {{ episodes[0].posterframe(true)|path(720,1280) }});
+            }
+        </style>
+    {% endif %}
+{% endblock %}

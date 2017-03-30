@@ -30,13 +30,13 @@
 .livestream .schedule h4, .livestream header.page-header h1 {
     display:inline;
 }
-.livestream header.page-header nav, .livestream .schedule header, .livestream .panel-heading {
+.livestream header.page-header nav, .livestream .schedule header, .livestream .panel-heading, .livestream .next-episode-schedule {
 	display:table;
 }
-.livestream header.page-header .row, .livestream .schedule #page-header-content, .livestream .panel-heading a {
+.livestream header.page-header .row, .livestream .schedule #page-header-content, .livestream .panel-heading a, .livestream .next-episode-schedule .row {
 	display:table-row;
 }
-.livestream header.page-header .navbar-nav, .livestream .schedule header .page-header-content div, .livestream .panel-heading time, .livestream .panel-heading h4 {
+.livestream header.page-header .navbar-nav, .livestream .schedule header .page-header-content div, .livestream .panel-heading time, .livestream .panel-heading h4, .livestream .next-episode-schedule .panel-content, .livestream .next-episode-schedule .panel-time {
 	display:table-cell;
 }
 .livestream #nav-programm .icon {
@@ -78,7 +78,7 @@
 .livestream header.page-header .navbar-nav, .livestream .schedule header .page-header-content div, .livestream button {
 	vertical-align:middle;
 }
-.livestream .panel-heading time, .livestream .panel-heading h4 {
+.livestream .panel-heading time, .livestream .panel-heading h4, .livestream .next-episode-schedule .panel-content, .livestream .next-episode-schedule .panel-time {
     vertical-align:top;
 }
 
@@ -97,8 +97,12 @@
 .livestream {
 	margin-top:40px;
 }
+/* Livestream */
 .livestream header.page-header {
     margin-bottom:40px;
+}
+.livestream .next-episode-schedule .panel-time, .livestream #current_show .row.pin .panel-content {
+    margin-bottom: 1px;
 }
 .livestream .schedule .row {
 	margin-right:0;
@@ -109,9 +113,22 @@
 .livestream .current-episode {
 	margin-bottom:0;
 }
-.livestream #current_show time {
+.livestream #current_show header time {
 	margin-bottom:50px;
 }
+.livestream #current_show header {
+    padding-bottom:40px;
+    margin-bottom:60px;
+}
+.livestream #current_show .row.pin {
+    width: 100%;
+    padding:5px 15px;
+}
+.livestream #current_show .row.pin .panel-time, .livestream #current_show .row.pin .panel-content {
+    padding:5px 15px;
+}
+
+/* Schedule */
 .livestream .schedule ul {
 	margin-left:0;
 }
@@ -180,7 +197,8 @@
     .livestream .schedule header .page-header-content div:last-child {
 	    width:20%;
     }
-    .livestream .schedule .panel-collapse {
+    .livestream .schedule .panel-collapse,
+    .livestream .next-episode-schedule .panel-content {
 	    margin-left:20%;
     }
 }
@@ -198,7 +216,8 @@
     .livestream .schedule header .page-header-content div:last-child {
 	    width:15%;
     }
-    .livestream .schedule .panel-collapse {
+    .livestream .schedule .panel-collapse, 
+    .livestream .next-episode-schedule .panel-content {
 	    margin-left:15%;
     }
 }
@@ -211,7 +230,8 @@
 	    margin-right:15px;
         padding:0;
     }
-    .livestream .schedule .panel-collapse {
+    .livestream .schedule .panel-collapse, 
+    .livestream .next-episode-schedule .panel-content {
 	    padding: 0 15px;
     }
 }
@@ -223,10 +243,12 @@
     .livestream .schedule header .page-header-content div:last-child {
 	    width:10%;
     }
-    .livestream .schedule .panel-collapse {
+    .livestream .schedule .panel-collapse, 
+    .livestream .next-episode-schedule .panel-content {
 	    margin-left:10%;
     }
-    .livestream .schedule .panel-collapse {
+    .livestream .schedule .panel-collapse, 
+    .livestream .next-episode-schedule .panel-content {
 	    padding: 0 15px;
     }
 }
