@@ -78,7 +78,7 @@ body.oktothek .news-pin {
     margin-left:0;
 }
 .oktothek .participart .but-full:hover span.active {
-    margin-left:60px;
+    margin-left:80px;
 }
 .oktothek .participart .but-full:hover span.passive, .oktothek .participart .but-full span.active {
     margin-left:-400px;
@@ -155,6 +155,9 @@ body.oktothek section.container.news {
     }
     body.oktothek .participart-list li figcaption {
 	    margin-top:10px;
+    }
+    .oktothek .participart .but-full:hover span.active {
+        margin-left:60px;
     }
     body.oktothek .more figure.episode-pin {
         height:188px;
