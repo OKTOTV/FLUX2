@@ -45,7 +45,7 @@
                 </p>
                 <p class="misc">
                     {% if app.user is empty %}
-
+                        <span class="glyphicon glyphicon-heart"></span> {{ episode.users|length}}
                     {% else %}
                         {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_ADMIN') %}
                             <a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a>
