@@ -8,21 +8,27 @@
                 {{'oktothek_tv_current_short'|trans({'%series%': current[0].series_name}) }}
             {% endif %}
         </h1>
-        <time datetime="{{ current[0].airdate|date('Y-m-d H:i')}}">{{ current[0].airdate|date('D, d.m.Y H:i')}}</time>
+        <time datetime="{{ current[0].airdate|date('Y-m-d H:i')}}">Seit {{ current[0].airdate|date('H:i')}}</time>
         <p class="description">{{ current[0].description }}</p>
     </header>
+    <h2>Nächste Sendungen</h2>
+    <div class="next-episode-schedule">
     {% for next in current|slice(1) %}
-        <header>
-            <p class="next-episode">Im Anschluss</p>
-            <h1 class="name">
-                {% if next.name is not empty %}
-                    {{'oktothek_tv_current_long'|trans({'%episode%': next.name, '%series%': next.series_name}) }}
-                {% else %}
-                    {{'oktothek_tv_current_short'|trans({'%series%': next.series_name}) }}
-                {% endif %}
-            </h1>
-            <time datetime="{{ next.airdate|date('Y-m-d H:i')}}">{{ next.airdate|date('D, d.m.Y H:i')}}</time>
-            <p class="description">{{ next.description }}</p>
-        </header>
+        <article class="row pin">
+            <div class="panel-time">
+                <time datetime="{{ next.airdate|date('Y-m-d H:i')}}">{{ next.airdate|date('H:i')}}</time>
+            </div>
+            <div class="panel-content">
+                <h4 class="name">
+                    {% if next.name is not empty %}
+                        {{'oktothek_tv_current_long'|trans({'%episode%': next.name, '%series%': next.series_name}) }}
+                        {% else %}
+                        {{'oktothek_tv_current_short'|trans({'%series%': next.series_name}) }}
+                    {% endif %}
+                </h4>
+                <p class="description">{{ next.description }}</p>
+            </div>
+        </article>
     {% endfor %}
+    </div>
 </section>
