@@ -1,4 +1,5 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
+{% set episodes = bestEpisodes() %}
 
 {% block title%}{{ name|default('OKTO')~' | '~searchphrase }}{% endblock %}
 {%- block nav_head -%}
@@ -6,9 +7,18 @@
 {%- endblock -%}
 
 {% set body_class = "tagpage fullscreen-background" %}
-{%- block body -%}
+{%- block body_main -%}
 
 Diese Seite gibt es nicht!
+{# render favorites #}
+<section class="favorite-videos container">
+    <div id="anchor_favorite_videos"></div>
+    <h2>{{ 'oktothek.best_videos'|trans }}</h2>
+    <p class="subheadline">
+        {{ 'oktothek.best_videos_sub'|trans}}
+    </p>
+{% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': episodes, 'pager_url': path('oktothek_best_episodes')} %}
+</section>
 {%- endblock -%}
 {% block stylesheets %}
     {{ parent() }}
@@ -18,7 +28,7 @@ Diese Seite gibt es nicht!
     {% if episodes is not empty %}
         <style type="text/css">
             .bg-bleur {
-                background-image:url( {{ episodes[0].posterframe(true)|path(720,1280) }});
+                background-image:url( {{ episodes[0].posterframe(true)|thumb(720,1280) }});
             }
         </style>
     {% endif %}
