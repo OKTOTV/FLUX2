@@ -76,4 +76,17 @@ class Episode extends OktoEpisode {
         }
         return "";
     }
+
+    public function canBeOnline()
+    {
+        $now = new \DateTime();
+        if (
+            $this->getIsActive() &&
+            $now >= $this->getOnlineStart() &&
+            ($now <= $this->getOnlineEnd() || $this->getOnlineEnd() == null)
+        ) {
+            return true;
+        }
+        return false;
+    }
 }
