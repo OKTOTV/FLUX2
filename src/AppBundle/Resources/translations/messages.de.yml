@@ -344,6 +344,7 @@ oktothek.backend_index_sort_createdAt:  '<span class="glyphicon glyphicon-calend
 oktothek.backend_show_comment_drop:     'Aktionen<span class="caret"></span>'
 oktothek.backend_show_comment_back_to_backend: '<span class="glyphicon glyphicon-arrow-left"></span> Administrationsbereich'
 oktothek.backend_show_comment_back_to_index: '<span class="glyphicon glyphicon-list"></span> Kommentar Index'
+oktothek.backend_show_referer:          'Suche Episode mit Referenz'
 oktothek.backend_show_comment_remove:   '<span class="glyphicon glyphicon-warning-sign"></span> Kommentar entfernen'
 
 ### comment remove.html.twig
@@ -787,3 +788,6 @@ oktothek.participate_5_steps:               Die fünf Schritte zur Sendung
 
 # app/Resources/BprsUserBundle/views/Login/login.html.twig
 flux2.login.remember_me_label:              Remember me
+
+# app/Resources/OktoMediaBundle/views/Episode/show.html.twig
+oktothek.backend_episode_publish:           '<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Veröffentlichen'

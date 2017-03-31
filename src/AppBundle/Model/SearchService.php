@@ -26,7 +26,7 @@ class SearchService
      * @param $includeInactive if inactive episodes should be included
      * @return array of episodes
      */
-    public function searchEpisodes($searchphrase, $includeInactive = false, $results = 5)
+    public function searchEpisodes($searchphrase, $activeOnly = true, $results = 5)
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
         $multiquery = new \Elastica\Query\MultiMatch();
@@ -36,7 +36,7 @@ class SearchService
 
         $boolQuery->addMust($multiquery);
 
-        if (!$includeInactive) {
+        if ($activeOnly) {
             $activeQuery = new \Elastica\Query\Term();
             $activeQuery->setTerm('is_active', true);
             $boolQuery->addMust($activeQuery);
@@ -50,7 +50,7 @@ class SearchService
      * @param $includeInactive if inactive episodes should be included
      * @return array of series
      */
-    public function searchSeries($searchphrase, $includeInactive = false, $results = 5)
+    public function searchSeries($searchphrase, $activeOnly = true, $results = 5)
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
         $multiquery = new \Elastica\Query\MultiMatch();
@@ -58,10 +58,12 @@ class SearchService
         $multiquery->setQuery($searchphrase);
         $multiquery->setType(\Elastica\Query\MultiMatch::TYPE_MOST_FIELDS);
         $boolQuery->addMust($multiquery);
-        $activeQuery = new \Elastica\Query\Term();
-        $activeQuery->setTerm('is_active', true);
-        $boolQuery->addMust($activeQuery);
 
+        if ($activeOnly) {
+            $activeQuery = new \Elastica\Query\Term();
+            $activeQuery->setTerm('is_active', true);
+            $boolQuery->addMust($activeQuery);
+        }
         return $this->seriesFinder->find($boolQuery, $results);
     }
 
