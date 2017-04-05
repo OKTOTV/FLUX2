@@ -20,7 +20,7 @@
                 <li><a href="{{ path('oktolab_episode_encode', {'uniqID': episode.uniqID}) }}">{{ 'oktolab_media.show_episode_add_to_encode_queue'|trans|raw }}</a></li>
                 {% if episode.technicalStatus >= 50 and episode.isActive == false %}
                     <li role="separator" class="divider"></li>
-                    <li><a href="{{ path('oktothek_backend_publish_episode', {'uniqID': episode.uniqID })}}" class="btn btn-default">{{ 'oktothek.backend_episode_publish'|trans|raw }}</a></li>
+                    <li><a href="{{ path('oktothek_backend_publish_episode', {'uniqID': episode.uniqID })}}">{{ 'oktothek.backend_episode_publish'|trans|raw }}</a></li>
                 {% endif %}
             </ul>
         </div>

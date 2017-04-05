@@ -90,6 +90,13 @@ services:
         tags:
             - { name: twig.extension }
 
+    oktothek.twig_episode_extension:
+        class: AppBundle\Twig\EpisodeExtension
+        arguments: [ "@oktothek.episode_repository"]
+        public: false
+        tags:
+            - { name: twig.extension }
+
 # Playlist form
     oktothek.episode_repository:
         class: Doctrine\ORM\EntityRepository

@@ -1,4 +1,5 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
+{% set episodes = bestEpisodes() %}
 
 {% block title%}{{ name|default('OKTO')~' | '~searchphrase }}{% endblock %}
 {%- block nav_head -%}
@@ -8,6 +9,15 @@
 {% set body_class = "tagpage fullscreen-background" %}
 {%- block body -%}
 Irgendein fehler ist aufgetreten!
+{# render favorites #}
+<section class="favorite-videos container">
+    <div id="anchor_favorite_videos"></div>
+    <h2>{{ 'oktothek.best_videos'|trans }}</h2>
+    <p class="subheadline">
+        {{ 'oktothek.best_videos_sub'|trans}}
+    </p>
+    {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': episodes, 'pager_url': path('oktothek_best_episodes')} %}
+</section>
 {%- endblock -%}
 {% block stylesheets %}
     {{ parent() }}
@@ -17,7 +27,7 @@ Irgendein fehler ist aufgetreten!
     {% if episodes is not empty %}
         <style type="text/css">
             .bg-bleur {
-                background-image:url( {{ episodes[0].posterframe(true)|path(720,1280) }});
+                background-image:url( {{ episodes[0].posterframe(true)|thumb(720,1280) }});
             }
         </style>
     {% endif %}

@@ -30,8 +30,12 @@
     <div class="container-fluid">
         <section class="container">
             <figure id="player">
-                {% if episode.video is empty %}
-                    <img src="{{ episode.posterframe|path }}" class="img-responsive" />
+                {% if episode.canBeOnline %}
+                    {% if episode.video is empty %}
+                        <img src="{{ episode.posterframe|path }}" class="img-responsive" />
+                    {% endif %}
+                {% else %}
+                    <img src="{{ asset('bundles/app/images/player/sad_panda.jpg') }}" class="img-responsive center-block" />
                 {% endif %}
             </figure>
             <article>
@@ -100,7 +104,9 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
-    {{ player(episode)|raw }}
+    {% if episode.canBeOnline %}
+        {{ player(episode)|raw }}
+    {% endif %}
     <script type="text/javascript">
         $(document).ready(function(){
 
