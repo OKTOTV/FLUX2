@@ -163,6 +163,7 @@ header .form-control::-webkit-input-placeholder {
 h3, 
 .h3, 
 header .collapse.in h3, 
+body.oktothek .participart [data-tooltip]::after, 
 article figcaption h3, 
 footer h3, 
 #anchor-menu .panel-title, 
@@ -419,7 +420,8 @@ header .navbar-inverse .navbar-nav > .active > a:focus,
 .dropdown-toggle.btn-default:active,
 .dropdown-toggle.btn-default:active:focus,
 .dropdown-toggle.btn-default:active:hover,
-.dropdown-toggle.btn-default:focus:active
+.dropdown-toggle.btn-default:focus:active,
+a[data-tooltip]::after
 {
     color: #ffffff;
 }
@@ -2197,7 +2199,7 @@ figcaption h3 {
     }
 }
 
-/* Title */
+/* Title, Tooltips */
 [data-tooltip] {
     position: relative;
 }
@@ -2214,7 +2216,9 @@ figcaption h3 {
   margin-top:14px;
   padding:2px 6px;
   z-index: 100;
-  white-space: nowrap;
+}
+header [data-tooltip]::after {
+    white-space: nowrap;
 }
 header .navbar-right li:last-child [data-tooltip]::after {
     left:auto;
@@ -2229,12 +2233,27 @@ header .navbar-right li:last-child [data-tooltip]::after {
     margin-left:-5px;
     left:50%;
 }
+body.oktothek .participart [data-tooltip]:hover::before {
+    margin-top:2px;
+    margin-left:0px;
+    left:95px;
+}
 header .navbar-right li:last-child [data-tooltip]::before {
     margin-left:-10px;
 }
  
 [data-tooltip]:hover::after {
   opacity: 1;
+}
+body.oktothek .participart [data-tooltip]::after {
+    width: 200px;
+    text-align: left;
+    line-height: 1.4em;
+    padding:10px;
+}
+body.oktothek .participart figure [data-tooltip]::after {
+    margin-top:0px;
+    top:200px;
 }
 
 /* Section, Page Header */
