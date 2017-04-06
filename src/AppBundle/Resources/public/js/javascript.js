@@ -209,8 +209,8 @@ $(document).ready(function(){
         $(el).css('height', moreHeight + 'px');
     }
     
-    /* Oktothek */
-    if ($('body').hasClass('oktothek')) {
+    /* Oktothek, Errorpage */
+    if ($('body').hasClass('oktothek') || $('body').hasClass('errorpage')) {
         $('.pull-right.more').click(function() {
             var el = ($(this).parent().find('.more figure.episode-pin'));
             setHeight_more(el);
