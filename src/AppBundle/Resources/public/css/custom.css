@@ -460,7 +460,8 @@ header .navbar-inverse .navbar-nav > a:focus,
 header .navbar-inverse .navbar-nav > a:hover, 
 header .navbar-inverse .navbar-nav > li > a:hover, 
 header .navbar-inverse .navbar-nav > li > a:focus,
-.carousel-caption .type/*, header .navbar-inverse .navbar-nav.mainmenu > li.active > a, header .navbar-inverse .navbar-nav.mainmenu > li:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li:active > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:active > a*/ { /* Gelb */
+.carousel-caption .type,
+header .notifications a { /* Gelb */
 	color: #fcce14;
 }
 
@@ -2094,6 +2095,9 @@ header + .container-fluid {
     }
 	header .navbar-collapse .navbar-nav span.icon-login {
 	    margin-right:0;
+    }
+    header .notifications p {
+        padding:3px 20px;
     }
     header form .searchfield-container {
         width: 312px;
