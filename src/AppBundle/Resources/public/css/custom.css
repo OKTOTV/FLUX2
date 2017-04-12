@@ -163,6 +163,7 @@ header .form-control::-webkit-input-placeholder {
 h3, 
 .h3, 
 header .collapse.in h3, 
+body.oktothek .participart [data-tooltip]::after, 
 article figcaption h3, 
 footer h3, 
 #anchor-menu .panel-title, 
@@ -275,7 +276,7 @@ h3,
 label, 
 #planets .cloud9-item figcaption,
 .livestream .current-episode,
-.oktothek .more figure.episode-pin,
+.more figure.episode-pin,
 .post .misc a,
 body.tagpage .pages .list-group-item a,
 div.list-group.tags span.label.label-default.remove {
@@ -419,7 +420,8 @@ header .navbar-inverse .navbar-nav > .active > a:focus,
 .dropdown-toggle.btn-default:active,
 .dropdown-toggle.btn-default:active:focus,
 .dropdown-toggle.btn-default:active:hover,
-.dropdown-toggle.btn-default:focus:active
+.dropdown-toggle.btn-default:focus:active,
+a[data-tooltip]::after
 {
     color: #ffffff;
 }
@@ -460,7 +462,8 @@ header .navbar-inverse .navbar-nav > a:focus,
 header .navbar-inverse .navbar-nav > a:hover, 
 header .navbar-inverse .navbar-nav > li > a:hover, 
 header .navbar-inverse .navbar-nav > li > a:focus,
-.carousel-caption .type/*, header .navbar-inverse .navbar-nav.mainmenu > li.active > a, header .navbar-inverse .navbar-nav.mainmenu > li:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li:active > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:hover > a, header .navbar-inverse .navbar-nav.mainmenu > li.active:active > a*/ { /* Gelb */
+.carousel-caption .type,
+header .notifications a { /* Gelb */
 	color: #fcce14;
 }
 
@@ -875,7 +878,7 @@ button.input-group-addon:focus,
 .bootstrap-datetimepicker-widget, 
 header .collapseShare .form-control,
 header .collapseShare a.btn,
-.oktothek .more figure.episode-pin a,
+.more figure.episode-pin a,
 .pagination > li.active > a, 
 .pagination > li.active > span,
 .pagination > li > a:hover,
@@ -1129,7 +1132,7 @@ body.livestream .schedule .panel-default {
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
 .input-group-addon,
-.oktothek .more figure.episode-pin a { /* Gelb */
+.more figure.episode-pin a { /* Gelb */
 	background-color:#fcce14;
 }
 *::-moz-selection {
@@ -1258,7 +1261,7 @@ a:hover.pull-left .icon,
 .btn-primary.active.focus,
 .btn-primary.but-full:hover,
 .livestream #nav-programm .icon,
-.oktothek .more figure.episode-pin a { /* Gelb */
+.more figure.episode-pin a { /* Gelb */
 	border: solid 2px #fcce14;
 }
 .pagination > li > a, 
@@ -1381,7 +1384,7 @@ div.list-group.tags span.label.label-default.remove {
 header .misc .btn,
 header .collapseShare .btn,
 .livestream #nav-programm .icon,
-body.oktothek .more figure.episode-pin a {
+.more figure.episode-pin a {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -1539,7 +1542,7 @@ body.oktothek a.btn.login:active {
 	background-image:url(../images/icon_login_hover.png);
     background-image:url(../images/icon_login_hover.svg), none;
 }
-body.oktothek .more figure.episode-pin {
+.more figure.episode-pin {
     background-image:url(../images/img_8_1.png);
 	background-repeat:no-repeat;
 }
@@ -1602,7 +1605,7 @@ body.oktothek .more figure.episode-pin {
 	background-image:url(../images/icon_edit_hover.png);
     background-image:url(../images/icon_edit_hover.svg), none;
 }
-.bg-bleur, .fs-image div, body.oktothek .more figure.episode-pin, body.oktothek .participart {
+.bg-bleur, .fs-image div, .more figure.episode-pin, body.oktothek .participart {
 	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
 	background-repeat:no-repeat;
 	background-position:center top;
@@ -2095,6 +2098,9 @@ header + .container-fluid {
 	header .navbar-collapse .navbar-nav span.icon-login {
 	    margin-right:0;
     }
+    header .notifications p {
+        padding:3px 20px;
+    }
     header form .searchfield-container {
         width: 312px;
     }
@@ -2193,7 +2199,7 @@ figcaption h3 {
     }
 }
 
-/* Title */
+/* Title, Tooltips */
 [data-tooltip] {
     position: relative;
 }
@@ -2210,7 +2216,9 @@ figcaption h3 {
   margin-top:14px;
   padding:2px 6px;
   z-index: 100;
-  white-space: nowrap;
+}
+header [data-tooltip]::after {
+    white-space: nowrap;
 }
 header .navbar-right li:last-child [data-tooltip]::after {
     left:auto;
@@ -2225,12 +2233,27 @@ header .navbar-right li:last-child [data-tooltip]::after {
     margin-left:-5px;
     left:50%;
 }
+body.oktothek .participart [data-tooltip]:hover::before {
+    margin-top:2px;
+    margin-left:0px;
+    left:95px;
+}
 header .navbar-right li:last-child [data-tooltip]::before {
     margin-left:-10px;
 }
  
 [data-tooltip]:hover::after {
   opacity: 1;
+}
+body.oktothek .participart [data-tooltip]::after {
+    width: 200px;
+    text-align: left;
+    line-height: 1.4em;
+    padding:10px;
+}
+body.oktothek .participart figure [data-tooltip]::after {
+    margin-top:0px;
+    top:200px;
 }
 
 /* Section, Page Header */
@@ -2861,6 +2884,11 @@ body.episode .series, body.playlists .series {
 .bg-opacity {
 	height:100%;
 	width:100%;
+}
+
+/* Fehlerseite */
+.errorpage .favorite-videos p {
+    margin-bottom:40px;
 }
 
 /* Backend */

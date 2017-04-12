@@ -42,7 +42,7 @@ $(document).ready(function(){
     });
     
  // Show more Entries
-if ($('body').hasClass('oktothek')) {
+if ($('body').hasClass('oktothek') || $('body').hasClass('errorpage')) {
     $('a.more[data-toggle="collapse"]').click(function(e){
         e.preventDefault();
         $('.collapse').on('show.bs.collapse', function () {

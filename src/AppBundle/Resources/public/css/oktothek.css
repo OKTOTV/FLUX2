@@ -8,14 +8,14 @@ body.oktothek, .oktothek article {
 	margin-bottom:40px;
 }
 
-body.oktothek .more figure.episode-pin {
+.more figure.episode-pin {
     height:158px;
     width:100%;
     text-align:center;
     padding-top:80px;
     vertical-align:center;
 }
-body.oktothek .more figure.episode-pin a {
+.more figure.episode-pin a {
     display:inline-block;
     padding:12px;
     line-height:12px;
@@ -159,7 +159,7 @@ body.oktothek section.container.news {
     .oktothek .participart .but-full:hover span.active {
         margin-left:60px;
     }
-    body.oktothek .more figure.episode-pin {
+   .more figure.episode-pin {
         height:188px;
     }
     body.oktothek section.container.news {
@@ -179,12 +179,12 @@ body.oktothek section.container.news {
     }
 }
 @media (min-width: 992px) {
-    body.oktothek .more figure.episode-pin {
+    .more figure.episode-pin {
         height:190px;
     }
 }
 @media (min-width: 1200px) {
-    body.oktothek .more figure.episode-pin {
+    .more figure.episode-pin {
         height:218px;
     }
 }
