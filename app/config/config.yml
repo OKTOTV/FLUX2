@@ -118,6 +118,7 @@ bprs_user:
 
 oktolab_media:
     encoding_filesystem: cache
+    worker_queue: %worker_queue%
     episode_class: AppBundle\Entity\Episode
     series_class: AppBundle\Entity\Series
     asset_class: AppBundle\Entity\Asset
