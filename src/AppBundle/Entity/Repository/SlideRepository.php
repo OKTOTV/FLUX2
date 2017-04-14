@@ -50,4 +50,12 @@ class SlideRepository extends EntityRepository
             ->setParameter('id', $slide)
             ->getOneOrNullResult();
     }
+
+    public function findSlidesWithAsset($asset)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT s FROM AppBundle:Slide s LEFT JOIN s.asset a where a.id = :id')
+            ->setParameter('id', $asset->getId())
+            ->getResult();
+    }
 }
