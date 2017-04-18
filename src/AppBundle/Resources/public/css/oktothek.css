@@ -4,6 +4,16 @@
 body.oktothek, .oktothek article {
 	position:relative;
 }
+.oktothek .participart-list li figcaption p {
+    text-align: left;
+}
+.more figure.episode-pin,
+.oktothek .participart-list,
+.oktothek .participart-list li,
+.oktothek .participart-list li a,
+.oktothek .participart-list li figure {
+    text-align:center;
+}
 .oktothek .newest-playlists .aligncenter, .oktothek section.container .subheadline {
 	margin-bottom:40px;
 }
@@ -11,7 +21,6 @@ body.oktothek, .oktothek article {
 .more figure.episode-pin {
     height:158px;
     width:100%;
-    text-align:center;
     padding-top:80px;
     vertical-align:center;
 }
@@ -93,7 +102,6 @@ body.oktothek .news-pin {
 	margin-top:70px;
 }
 .oktothek .participart-list {
-	text-align:center;
 	display:table;
 	width:auto;
 	margin:10px auto 0 auto;
@@ -103,10 +111,8 @@ body.oktothek .news-pin {
 	float:left;
     padding-right:10px;
     margin-right:0;
-    text-align: center;
 }
 .oktothek .participart-list li a {
-    text-align: center;
     padding-right:10px;
 }
 .oktothek .participart-list li figure a {
@@ -120,7 +126,6 @@ body.oktothek .news-pin {
 	width:140px;
 	min-height:140px;
 	vertical-align:middle;
-	text-align:center;
 	/*line-height:140px;*/
 	margin:10px auto 5px auto;
 }
@@ -131,6 +136,20 @@ body.oktothek .news-pin {
 .oktothek .participart-list li figcaption {
 	margin-top:0;
     line-height: 1.4em;
+}
+.oktothek .participart-list li figcaption p {
+    display: none;
+    margin-top:20px;
+    padding-top:12px;
+}
+.oktothek .participart-list li figcaption span {
+    display: block;
+    padding:2px 6px;
+}
+@media speech {
+    .oktothek .participart-list li figcaption p {
+        display: block;
+    }
 }
 .oktothek .participart-list li:last-child {
 	margin-right:0px;

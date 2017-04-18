@@ -206,6 +206,19 @@ $(document).ready(function(){
 	 $(document).scroll(function(){
 	     showButtonDown();
 	 });
+    
+    /* Oktothek Mitmachbereich */
+    if ($('body').hasClass('oktothek')) {
+        $('.oktothek .participart-list li figure').mouseover(function() {
+            if ($(this).find('figcaption p').css('display') == 'none') 
+                $(this).find('figcaption p').slideDown( 400, function() {});
+        })
+        $('.oktothek .participart-list li figure').mouseleave(function() {
+            if ($(this).find('figcaption p').css('display') == 'block') 
+                $(this).find('figcaption p').slideUp( 400, function() {});
+        })
+    }
+    
 	
 	/* Serien und Akademie */
 	function Textproperties() {

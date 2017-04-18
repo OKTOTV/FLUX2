@@ -291,7 +291,8 @@ header .navbar-nav.themes a,
 .dropdown-menu > li a,
 .livestream .schedule li h4,
 .livestream .next-episode-schedule h4,
-[data-tooltip]::after {
+[data-tooltip]::after, 
+.oktothek .participart-list li figcaption span {
 	text-transform:none;
 }
 .post .label, 
@@ -1026,9 +1027,11 @@ header .collapseShare a.btn,
 	background-color:#ffffff;
 }
 article.pin figure.pin,
+li.pin figure.pin,
 body.oktothek .news article,
 body.tagpage .inc-pins article.pin figure,
 article.pin figure.pin,
+li.pin figure.pin,
 body.tagpage article.first-pin,
 body.tagpage .pages > .list-group-item,
 .container.tags ul,
@@ -1062,11 +1065,14 @@ body.tagpage article.empty .icon-player,
 .pagination > li > a, 
 .pagination > li > span,
 .alert-success,
-[data-tooltip]::after { /* Dunkelgrau */
+[data-tooltip]::after,
+.oktothek .participart-list li figcaption span { /* Dunkelgrau */
 	background-color:#112022;
 }
 article.pin figure.pin:hover,
 article.pin figure.pin:focus,
+li.pin figure.pin:hover,
+li.pin figure.pin:focus,
 body.oktothek .news article:hover,
 body.oktothek .news article:focus,
 body.oktothek .news article:hover figure,
@@ -1091,9 +1097,11 @@ body.livestream .schedule .panel-default:focus { /* Mittleres Grau */
     background-color:#192e31;
 }
 article.pin figure.pin,
+li.pin figure.pin,
 body.oktothek .news article,
 body.tagpage .inc-pins article.pin figure,
 article.pin figure.pin,
+li.pin figure.pin,
 body.tagpage article.first-pin,
 body.tagpage .pages > .list-group-item,
 .container.tags ul,
@@ -1513,6 +1521,12 @@ body.oktothek .participart .button_container {
 body.oktothek .participart-list li figure {
 	background-image:url(../images/participart_circle.png);
     background-image:url(../images/participart_circle.svg), none;
+	background-repeat:no-repeat;
+	background-position:center top;
+}
+body.oktothek .participart-list li figcaption p {
+    background-image: url(../images/speachbubble_title.png);
+    background-image:url(../images/speachbubble_title.svg), none;
 	background-repeat:no-repeat;
 	background-position:center top;
 }
@@ -2208,7 +2222,6 @@ figcaption h3 {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s;
- 
   display: block;  
   position: absolute; 
   left: 0;
@@ -2511,13 +2524,30 @@ body.news .newsletter .input-group .form-control {
 }
 
 /* Pins */
-article.pin, figure.pin img {
+ul.row, li.pin {
+    list-style-type: none;
+}
+ul.row {
+    padding-left:0px;
+}
+article.pin, 
+li.pin, 
+figure.pin img {
 	width:100%;
 }
-article.pin {
+article.pin,
+li.pin {
 	margin-bottom:20px;
 }
-.col-md-3.pin, .col-lg-3.pin, .col-sm-6.pin, .col-xs-6.pin, .col-md-6.pin, .col-lg-6.pin, article.pin figcaption, article.post figure  {
+.col-md-3.pin, 
+.col-lg-3.pin, 
+.col-sm-6.pin, 
+.col-xs-6.pin, 
+.col-md-6.pin, 
+.col-lg-6.pin, 
+article.pin figcaption, 
+li.pin figcaption, 
+article.post figure  {
 	padding-left:5px;
 	padding-right:5px;
 }
@@ -2534,10 +2564,12 @@ article.pin {
 	display:block;
 	margin-bottom:3px;
 }
-article.pin:nth-child(2n+1) {
+article.pin:nth-child(2n+1),
+li.pin:nth-child(2n+1) {
 	clear:none;
 }
-article.pin figcaption {
+article.pin figcaption,
+li.pin figcaption {
     padding-top:0;
     padding-bottom:1px;
 }
@@ -2563,7 +2595,8 @@ figcaption  {
 	margin-top:10px;
 }
 @media (min-width: 580px) {
-	article.pin {
+	article.pin,
+    li.pin {
 		width:50%;
 	}
     figure.pin img {
@@ -2571,10 +2604,12 @@ figcaption  {
 	    margin:0;
 		float:none;
     }
-	article.pin:nth-child(2n+1) {
+	article.pin:nth-child(2n+1),
+    li.pin:nth-child(2n+1) {
 	    clear:left;
     }
-	article.pin {
+	article.pin,
+    li.pin {
 		margin-bottom:0px;
 		padding-bottom:30px;
 	}
@@ -2584,13 +2619,16 @@ figcaption  {
     }
 }
 @media (min-width: 992px) {
-	article.pin {
+	article.pin,
+    li.pin {
 		width:25%;
 	}
-    article.pin:nth-child(2n+1) {
+    article.pin:nth-child(2n+1),
+    li.pin:nth-child(2n+1) {
 	    clear:none;
     }
-    article.pin:nth-child(4n+1) {
+    article.pin:nth-child(4n+1),
+    li.pin:nth-child(4n+1) {
 	    clear:left;
     }
 }
@@ -2845,7 +2883,7 @@ body.episode .series, body.playlists .series {
     margin-bottom:20px;
 }
 .login a.btn.but-full {
-    padding:12px 40x !important;
+    padding:12px 40px !important;
     height: 50px;
     border-radius: 25px;
     vertical-align: middle;
