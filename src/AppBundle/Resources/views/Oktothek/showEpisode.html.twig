@@ -30,11 +30,8 @@
     <div class="container-fluid">
         <section class="container">
             <figure id="player">
-                {% if episode.canBeOnline %}
-                    {% if episode.video is empty %}
-                        <img src="{{ episode.posterframe|path }}" class="img-responsive" />
-                    {% endif %}
-                {% else %}
+                {% if episode.video is empty %}
+                    {# <img src="{{ episode.posterframe|path }}" class="img-responsive" /> #}
                     <img src="{{ asset('bundles/app/images/player/sad_panda.jpg') }}" class="img-responsive center-block" />
                 {% endif %}
             </figure>
