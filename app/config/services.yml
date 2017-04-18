@@ -144,6 +144,7 @@ services:
 
     oktothek.asset_listener:
         class: AppBundle\Event\AssetEventListener
-        arguments: [ "@security.token_storage" ]
+        arguments: [ "@security.token_storage", "@doctrine.orm.entity_manager" ]
         tags:
             - { name: kernel.event_listener, event: bprs_asset.pre_create, method: onPrePersist }
+            - { name: kernel.event_listener, event: bprs_asset.pre_delete, method: onPreDelete }

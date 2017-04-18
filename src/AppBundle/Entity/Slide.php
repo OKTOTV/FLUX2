@@ -39,7 +39,7 @@ class Slide
     private $description;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Asset")
+    * @ORM\ManyToOne(targetEntity="Asset", cascade={"persist", "remove"})
     * @ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=false)
     */
     private $asset;

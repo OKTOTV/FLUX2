@@ -118,32 +118,37 @@ bprs_user:
 
 oktolab_media:
     encoding_filesystem: cache
+    worker_queue: %worker_queue%
     episode_class: AppBundle\Entity\Episode
     series_class: AppBundle\Entity\Series
     asset_class: AppBundle\Entity\Asset
     keep_original: false
     serializing_schema: 'okto'
     resolutions:
-        360p:
-            name: 360p
-            sortNumber: 0
-            video_width: 640
-            video_height: 360
+        # 360p:
+        #     name: 360p
+        #     sortNumber: 0
+        #     video_width: 640
+        #     video_height: 360
+        #     adapter: "video"
         720p:
             name: 720p
             sortNumber: 1
             video_width: 1280
             video_height: 720
+            adapter: "video"
         1080p:
             name: 1080p
             sortNumber: 2
             video_width: 1920
             video_height: 1080
+            adapter: "video"
         UHD:
             name: UHD
             sortNumber: 3
             video_width: 3840
             video_height: 2160
+            adapter: "video"
     player_url: "%player_url%"
     origin:
         margin: 12

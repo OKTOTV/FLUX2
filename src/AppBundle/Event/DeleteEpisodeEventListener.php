@@ -2,7 +2,7 @@
 
 namespace AppBundle\Event;
 
-use Oktolab\MediaBunle\Event\DeleteEpisodeEvent;
+use Oktolab\MediaBundle\Event\DeleteEpisodeEvent;
 
 class DeleteEpisodeEventListener {
 
