@@ -97,10 +97,13 @@
                                 {% endif %}
                             {% endfor %}
                             {% if app.user.notifications is empty %}
-                                <li class="notifications"><p>Im Moment sind keine Benachrichtigungen vorhanden.</p>
-                                    <p><a href="{{ path('oktothek_user_abonnements') }}">{{ 'oktothek.menu_user_no_notifications'|trans}}</a></p>
-                                </li>
+                            <li class="notifications">
+                                <p>{{ 'oktothek.menu_user_no_notifications'|trans}}</p>
+                            </li>
                             {% endif %}
+                            <li class="notifications">
+                                <p><a href="{{ path('oktothek_user_abonnements') }}">{{ 'oktothek.menu_user_settings_notifications'|trans}}</a></p>
+                            </li>
                         </ul>
                     </li>
                 {% endif %}

@@ -21,6 +21,6 @@
 {% endif %}
 {% if episodes|length > 8 %}
     <a href="{{ path('oktothek_show_series_episodes', {'uniqID': episodes[0].series.uniqID}) }}" class="pull-right more" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title'|trans) }}">
-        {{ 'oktothek.newest_videos_show_more'|trans|raw }}
+        {{ 'oktothek_series_episodeStack_show_more'|trans|raw }}
     </a>
 {% endif %}
