@@ -365,6 +365,9 @@ oktothek.series_reachmes_header:        Mehr Infos über %series% gibt es hier!
 oktothek.series_show_blog:              Zum Blog
 oktothek.series_more_blog_entries:      Mehr Blogeinträge
 
+# /src/AppBundle/Resources/views/Series/episodeStackOpen.html.twig
+oktothek_series_episodeStack_show_more: 'Mehr Videos anzeigen <span class="glyphicon glyphicon-menu-right"></span>'
+
 ## series playlists
 oktothek_series_playlists_title:        %series% Playlisten
 oktothek.series_playlists_filter:       <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
