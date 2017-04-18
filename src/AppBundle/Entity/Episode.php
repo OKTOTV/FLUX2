@@ -82,6 +82,7 @@ class Episode extends OktoEpisode {
         $now = new \DateTime();
         if (
             $this->getIsActive() &&
+            $this->getSeries()->getIsActive() &&
             $now >= $this->getOnlineStart() &&
             ($now <= $this->getOnlineEnd() || $this->getOnlineEnd() == null)
         ) {

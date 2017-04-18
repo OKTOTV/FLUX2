@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\Series;
 use AppBundle\Entity\Playlist;
@@ -26,6 +27,9 @@ class OktothekController extends Controller
      */
     public function showEpisodeAction(Request $request, Episode $episode)
     {
+        if (!$episode->canBeOnline()) {
+            throw new NotFoundHttpException();
+        }
         $this->get('bprs_analytics')->trackInfo($request, $episode->getUniqID());
         $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
         return ['episode' => $episode, 'next' => $next];

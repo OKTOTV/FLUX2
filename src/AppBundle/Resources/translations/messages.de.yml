@@ -385,6 +385,11 @@ oktothek_series.share_tw:               Twitter
 oktothek_series.share_gp:               Google+
 oktothek_series.share_pint:             Pinterest
 
+## series backend
+# /app/Resources/OktoMediaBundle/views/Series/show.html.twig
+oktothek.series_show_frontend:          '<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Zum Frontend'
+
+
 # my channels and backend
 oktothek_series_my_channels_header:     Meine Sendereihen
 oktothek_series_my_channels_empty:      Du bist derzeit keinen Sendereihen in der Oktothek zugewiesen!

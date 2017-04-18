@@ -30,6 +30,7 @@ class EpisodeRepository extends BaseEpisodeRepository
                 LEFT JOIN e.posterframe p
                 LEFT JOIN e.series s
                 WHERE e.isActive = 1
+                AND s.isActive = 1
                 AND e.onlineStart < :now
                 ORDER BY e.onlineStart DESC'
             )
@@ -51,6 +52,7 @@ class EpisodeRepository extends BaseEpisodeRepository
             ->groupBy('e')
             ->orderBy('personCount', 'DESC')
             ->where('e.isActive = 1')
+            ->andWhere('s.isActive = 1')
             ->andWhere('e.onlineStart < :now')
             ->setParameter('now', new \DateTime())
             ->getQuery();

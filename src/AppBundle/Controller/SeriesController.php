@@ -49,6 +49,9 @@ class SeriesController extends Controller
      */
     public function showAction(Series $series)
     {
+        if (!$seris->getIsActive()) {
+            throw new NotFoundHttpException();
+        }
         $posts = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $series);
         return ['series' => $series, 'teasers' => $posts];
     }

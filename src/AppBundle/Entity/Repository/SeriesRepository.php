@@ -14,8 +14,10 @@ class SeriesRepository extends BaseSeriesRepository
                 ->createQuery(
                     'SELECT e FROM AppBundle:Episode e
                     JOIN AppBundle:Tag t
+                    LEFT JOIN e.series s
                     WHERE (e.onlineStart < :online_start OR e.onlineStart IS NULL)
                     AND e.isActive = 1
+                    AND s.isActive = 1
                     AND e.series = :series_id
                     AND t.id = :tag_id'
                 )
@@ -27,9 +29,11 @@ class SeriesRepository extends BaseSeriesRepository
             ->createQuery(
                 'SELECT e FROM AppBundle:Episode e
                 JOIN e.tags t
+                LEFT JOIN e.series s
                 WHERE t.id = :tag_id
                 AND e.series = :series_id
                 AND e.isActive = 1
+                AND s.isActive = 1
                 AND (e.onlineStart < :online_start OR e.onlineStart IS NULL)
                 ORDER BY e.onlineStart DESC'
             )
@@ -61,8 +65,10 @@ class SeriesRepository extends BaseSeriesRepository
         return $this->getEntityManager()
             ->createQuery(
                 'SELECT e FROM AppBundle:Episode e
+                LEFT JOIN e.series s
                 WHERE e.series = :series_id
                 AND e.isActive = 1
+                AND s.isActive = 1
                 AND (e.onlineStart < :now OR e.onlineStart IS NULL)
                 ORDER BY e.onlineStart DESC'
             )
