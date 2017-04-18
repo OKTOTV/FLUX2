@@ -6,30 +6,27 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {%- endblock -%}
 
-{% set body_class = "tagpage fullscreen-background" %}
+{% set body_class = "errorpage" %}
 {%- block body_main -%}
-
-Diese Seite gibt es nicht!
+<header class="page-header">
+    <h1>Leider nichts gefunden!</h1>
+</header>
+<section class="container"><p class="subheadline">Vielleicht wirst kann dir die Suche weiter helfen.</p></section>
 {# render favorites #}
 <section class="favorite-videos container">
     <div id="anchor_favorite_videos"></div>
-    <h2>{{ 'oktothek.best_videos'|trans }}</h2>
+    <h2 class="sr-only">{{ 'oktothek.best_videos'|trans }}</h2>
     <p class="subheadline">
-        {{ 'oktothek.best_videos_sub'|trans}}
+        Hier kannst du auch noch stöbern!
     </p>
 {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': episodes, 'pager_url': path('oktothek_best_episodes')} %}
 </section>
 {%- endblock -%}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('bundles/app/css/tagpage.css') }}" rel="stylesheet" />
-    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
-    <link href="{{ asset('bundles/app/css/news.css') }}" rel="stylesheet" />
-    {% if episodes is not empty %}
-        <style type="text/css">
-            .bg-bleur {
-                background-image:url( {{ episodes[0].posterframe(true)|thumb(720,1280) }});
-            }
-        </style>
-    {% endif %}
+    <link href="{{ asset('bundles/app/css/oktothek.css') }}" rel="stylesheet" />
 {% endblock %}

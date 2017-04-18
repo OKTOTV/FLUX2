@@ -64,16 +64,28 @@ $(document).ready(function(){
 		 });
 	 }
 	 
-	 $(window).on("resize orientationchange", function(){
-		 Winwidth = $( window ).width();
-		 Sizes();
-		 if (Winwidth < 768) {
-		     Customize_responsiveMenu();
-		 }
-	 });
-	 if ($( window ).width() < 768) {
-	     Customize_responsiveMenu();
-	 }
+    $(window).on("resize orientationchange", function(){
+        Winwidth = $( window ).width();
+        Sizes();
+        if (Winwidth < 768) {
+            Customize_responsiveMenu();
+        }
+    });
+    if ($( window ).width() < 768) {
+        Customize_responsiveMenu();
+    }
+    
+    //Header Dropdown Menu
+    $('header .dropdown-toggle').on('mouseenter', function() {
+        if (Winwidth >= 768 && !$(this).parents('.dropdown').hasClass('open')) {
+            $(this).parent().find('.dropdown-toggle').dropdown('toggle');
+        }
+    })
+    $('header .dropdown').on('mouseleave', function() {
+        if (Winwidth >= 768 && $(this).hasClass('open')) {
+            $(this).find('.dropdown-toggle').dropdown('toggle');
+        }
+    })
 	 
 	 function openIcon(el, icon, status) {
 		 if (status == "open") {
@@ -209,8 +221,8 @@ $(document).ready(function(){
         $(el).css('height', moreHeight + 'px');
     }
     
-    /* Oktothek */
-    if ($('body').hasClass('oktothek')) {
+    /* Oktothek, Errorpage */
+    if ($('body').hasClass('oktothek') || $('body').hasClass('errorpage')) {
         $('.pull-right.more').click(function() {
             var el = ($(this).parent().find('.more figure.episode-pin'));
             setHeight_more(el);

@@ -11,7 +11,7 @@
         <article class="row post">
             {% if text_only == false %}
                 <figure class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug}, 'uniqID': series.uniqID)}}">
+                    <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug, 'uniqID': series.uniqID})}}">
                         <img src="{{ teasers[0].assets[0]|thumb(220,390) }}" class="img img-responsive" alt="{{ teasers[0].name }}"/>
                     </a>
                 </figure>

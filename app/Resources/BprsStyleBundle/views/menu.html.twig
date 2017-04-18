@@ -68,7 +68,8 @@
                 </li>
                 {% if is_granted('ROLE_OKTOLAB_USER') %}
                     <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-tooltip="{{ 'oktothek.menu_user_notifications_title'|trans }}">
+                    {#% <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-tooltip="{{ 'oktothek.menu_user_notifications_title'|trans }}"> %#}
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             {% if app.user.notifications is not empty %}{{ 'oktothek.menu_user_notifications'|trans|raw }}
                             {% else %}{{ 'oktothek.menu_user_notifications_empty'|trans|raw }} <span class="visible-xs-inline">{{ 'oktothek.menu_notification_xs'|trans }}</span> {% endif %}
                         </a>
@@ -96,7 +97,9 @@
                                 {% endif %}
                             {% endfor %}
                             {% if app.user.notifications is empty %}
-                                <li><a href="{{ path('oktothek_user_abonnements') }}">{{ 'oktothek.menu_user_no_notifications'|trans}}</a></li>
+                                <li class="notifications"><p>Im Moment sind keine Benachrichtigungen vorhanden.</p>
+                                    <p><a href="{{ path('oktothek_user_abonnements') }}">{{ 'oktothek.menu_user_no_notifications'|trans}}</a></p>
+                                </li>
                             {% endif %}
                         </ul>
                     </li>
