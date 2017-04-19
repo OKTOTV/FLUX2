@@ -98,6 +98,7 @@ h3,
 .icon.participant-arrow-down,
 .subheadline, 
 .participart .button_container .btn, 
+body.oktothek .participart .shorttext,
 .btn.btn-top, 
 figcaption .description, 
 #planets .cloud9-item figcaption,
@@ -136,7 +137,8 @@ h1, h2, .h2, .livestream header h1 time, .series.blog h1 {
 }
 header .navbar-toggle.search-button span, 
 header .navbar-toggle.menu-button span.icon-close, 
-.subheadline, .participart .button_container .btn, 
+.subheadline, .participart .button_container .btn,
+body.oktothek .participart .shorttext,
 .news p, figcaption .description, 
 .academy .preview p, 
 #favorite .glyphicon, 
@@ -387,6 +389,7 @@ select:active:focus {
 	.subheadline, 
     .participart .button_container .btn, 
     figcaption .description, 
+    body.oktothek .participart .shorttext,
     .playlists header .description,
     .login a.btn.but-full {
 		font-size:19px;
@@ -2159,10 +2162,10 @@ html, body {
 }
 
 /* Listen */
-footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group  {
+footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li  {
 	list-style:none;
 }
-footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group {
+footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li {
 	margin-left:0;
 	padding-left:0;
 }
