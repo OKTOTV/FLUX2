@@ -22,7 +22,7 @@
     <section class="series-content fs-image-content">
         <div class="series-ident fs-image-ident description-overlay">
             <figure class="episode-posterframe fs-image">
-                <div style="background-image:url({{ series.posterframe|path() }});"></div>
+                <div style="background-image:url({{ series.posterframe|thumb(720,1280) }});"></div>
                 <figcaption class="current-episode description-wrapper">
                     <div class="container-bg-opacity">
                         <div class="bg-opacity"></div>
@@ -66,7 +66,9 @@
         <header class="page-header"><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
         <article class="row">
             <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
-                <img src="{{ series.episodes[0].posterframe|path() }}" alt="{{ series.episodes[0].description }}" />
+                <a href="{{ path('oktothek_show_episode', {'uniqID': series.episodes[0].uniqID})}}">
+                    <img src="{{ series.episodes[0].posterframe|path() }}" alt="{{ series.episodes[0].description }}" />
+                </a>
             </figure>
             <div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
                 <div>

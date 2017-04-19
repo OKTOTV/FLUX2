@@ -33,6 +33,11 @@
                         {{ 'okto_media_series_show_publicate_tag_button'|trans|raw }}
                     </a>
                 </li>
+                <li>
+                    <a href="{{ path('okto_media_set_state', {'uniqID': series.uniqID})}}">
+                        {{ 'okto_media.show_series_set_state'|trans|raw }}
+                    </a>
+                </li>
                 <li role="separator" class="divider"></li>
                 <li>
                     <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}">
