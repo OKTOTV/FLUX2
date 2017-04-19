@@ -1,5 +1,5 @@
 {% set episodetext = episode.name|default( 'oktothek_episode_thumb_default_title'|trans({'%date%': 'oktothek_episode_thumb_timestamp_format'|trans({'%day%': 'oktothek_episode_thumb_day_choice'|transchoice(episode.firstRanAt|default(episode.onlineStart)|date('N')), '%date%': episode.firstRanAt|default(episode.onlineStart)|date('oktothek_episode_thumb_date_format'|trans)})})) %}
-<article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ episode.description }}">
+<li class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ episode.description }}">
     <figure class="episode-pin pin">
         <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episodetext }}"><img src="{{ episode.posterframe(true)|thumb(158,282) }}" class="img-responsive" alt="{{ episodetext }}"/></a>
         <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
@@ -12,4 +12,4 @@
             </p>
             </figcaption>
         </figure>
-</article>
+</li>
