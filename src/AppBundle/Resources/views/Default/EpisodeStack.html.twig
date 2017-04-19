@@ -1,14 +1,14 @@
 {% set collapse_id = collapse_id|default('collapse_rand_'~ random()) %}
 
-<div class="row">
+<ul class="row">
     {% for episode in episodes|slice(0,4) %}
         {% if episode.isActive %}
             {% include "AppBundle:Episode:EpisodeThumb.html.twig" %}
         {% endif %}
     {% endfor %}
-</div>
+</ul>
 {% if episodes|length > 4 %}
-    <div class="row collapse" id="{{ collapse_id }}">
+    <ul class="row collapse" id="{{ collapse_id }}">
        {% for episode in episodes|slice(4,3) %}
             {% if episode.isActive %}
                 {% include "AppBundle:Episode:EpisodeThumb.html.twig" %}
@@ -21,7 +21,7 @@
                 </figure>
             </article>
         {% endif %}
-    </div>
+    </ul>
     <a href="{{ collapse_link|default('#'~collapse_id) }}" data-collapseid="#{{collapse_id}}" class="pull-right more" data-lesstrans="{{collapse_link_text_less|default('oktothek.newest_videos_show_less'|trans)|raw }}" data-moretrans="{{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw }}" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title'|trans) }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}">
         {{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw}}
     </a>
