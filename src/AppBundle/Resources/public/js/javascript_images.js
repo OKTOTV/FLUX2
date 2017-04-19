@@ -210,19 +210,32 @@ $(document).ready(function(){
     /* Oktothek Mitmachbereich */
     if ($('body').hasClass('oktothek')) {
         var el;
-        $('.oktothek .participart-list li figure').mouseover(function() {
-            el = $(this).attr('data-target');
+        function showDivtext(cel) {
+            el = $(cel).attr('data-target');
             if ($(el).is( ":hidden" )) {
                 $('.oktothek .participart .shorttext li:visible').slideUp( 400 );
                 $(el).addClass('active');
                 $(el).slideDown( 400 );
             }
-        })
-        $('.oktothek .participart-list li figure').mouseleave(function() {
+        }
+        function hideDivtext(cel) {
             el = $(this).attr('data-target');
             $('.oktothek .participart .shorttext li:visible')
                 .removeClass('active')
                 .slideUp( 400 );
+        }
+        $('.oktothek .participart-list li figure').mouseover(function() {
+            showDivtext(this);
+        })
+        $('.oktothek .participart-list li figure').focusin(function() {
+            showDivtext(this);
+        })
+        $('.oktothek .participart-list li figure').mouseleave(function() {
+            hideDivtext(this);
+        })
+        $('.oktothek .participart-list li figure').focusout(function() {
+            el = $(this).attr('data-target');
+            hideDivtext(this);
         })
     }
     

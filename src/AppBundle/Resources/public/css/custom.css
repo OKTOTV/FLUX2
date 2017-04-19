@@ -693,7 +693,9 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	header .navbar-inverse .navbar-nav > a:hover, 
 	header .navbar-inverse .navbar-nav > li > a, 
 	header .navbar-inverse .navbar-nav > li > a:hover, 
-	header .navbar-inverse .navbar-nav > li > a:focus {
+	header .navbar-inverse .navbar-nav > li > a:focus,
+    header #search-container #form_submit.btn:focus,
+    header #search-container #form_submit.btn:active {
 		color: #ffffff;
 	}
 	.dropdown-menu > li, 
@@ -724,8 +726,7 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	    background-repeat:repeat-x;
 	    background-position:left top;
     }
-	.navbar-inverse .navbar-nav > .active > a, 
-    .navbar-inverse .navbar-nav > .active > a:focus {
+	.navbar-inverse .navbar-nav > .active > a {
 		background-image:url(../images/menu-border.png);
 	    background-repeat:repeat-x;
 	    background-position:left top;
@@ -734,18 +735,19 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	    background-image:url(../images/speachbubble_small.png);
         background-repeat:no-repeat;
     }
-	header .navbar-collapse .navbar-nav.themes/*, .navbar-inverse .navbar-nav.navbar-right > li > a:hover, .navbar-inverse .navbar-nav.navbar-right > .active > a, .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus*/ {
+	header .navbar-collapse .navbar-nav.themes, 
+    .navbar-inverse .navbar-nav > .active > a:focus {
 		background-image:none;
 	}
 	header .navbar-inverse .navbar-nav > li > a:hover, 
     header .navbar-inverse .navbar-nav > li > a:focus, 
+    .navbar-inverse .navbar-nav > .active > a:focus,
 	header .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link,
     header .navbar-inverse .navbar-nav.navbar-right > li > a:focus span.link {
 		border-top:solid #ffffff 1px;
 	}
 	/* Border */
 	header .navbar-inverse .navbar-nav > .active > a, 
-	header .navbar-inverse .navbar-nav > .active > a:focus, 
 	header .navbar-inverse .navbar-nav > .active > a:hover, 
 	header .navbar-inverse .navbar-nav.navbar-right > li > a:hover,
     header .navbar-inverse .navbar-nav.navbar-right > li > a:focus,
@@ -755,8 +757,8 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	header #mainmenu-container {
 		border-bottom:none;
 	}
-	
-	.navbar-inverse .navbar-nav > li > a:focus {
+	.navbar-inverse .navbar-nav > li > a:focus, header #search-container #form_submit.btn:focus,
+    header #search-container #form_submit.btn:active {
         outline: none;
 	}
 }
@@ -935,6 +937,8 @@ a.tag,
 a.list-group-item, 
 .oktothek article a.btn-default:hover, 
 .oktothek article a.btn-default:focus, 
+li.more a:hover, 
+li.more a.btn-default:focus, 
 .participart-list a:hover,
 .participart-list a:focus,
 button.list-group-item,
@@ -992,6 +996,8 @@ body,
 select, 
 .oktothek article a.btn-default.but-full:hover, 
 .oktothek article a.btn-default.but-full:focus, 
+li.more figure.episode-pin a:hover, 
+li.more figure.episode-pin a:focus,
 .registry a.btn-default.but-full:hover, 
 .registry a.btn-default.but-full:focus, 
 body.tagpage .content-bg, 
@@ -1695,6 +1701,14 @@ body.playlists section:first-child,
 	border-radius:20px;
 	border-width:0;
 }
+
+/* Effects */
+a, button, .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
+    -webkit-transition: all 0.2s; /* Safari */
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
 .bg-opacity {
     opacity: 0.7;       /* modern browser */
     -moz-opacity: 0.7;  /* older Mozilla browser */
@@ -1827,6 +1841,12 @@ footer .networks {
 	background-position:center center;
 	background-image:url(../images/icon_top_arrow.png);
     background-image: url("../images/icon_top_arrow.svg"), none;
+}
+.btn-top:hover .icon-top, .btn-top:focus .icon-top {
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/icon_top_arrow_hover.png);
+    background-image: url("../images/icon_top_arrow_hover.svg"), none;
 }
 
 footer section {
@@ -2398,6 +2418,7 @@ footer .open .dropdown-menu {
 @media (min-width: 768px) {
     .dropdown-menu {
 		padding:0;
+        margin-top:-2px;
 	}
     header .navbar-nav .dropdown-menu {
 		padding:15px 0 0 0;
