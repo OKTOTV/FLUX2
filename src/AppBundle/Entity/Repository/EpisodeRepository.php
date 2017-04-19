@@ -2,7 +2,7 @@
 namespace AppBundle\Entity\Repository;
 
 use AppBundle\Entity\Episode;
-use Oktolab\MediaBundle\Entity\Repository\BaseEpisodeRepository;
+use Okto\MediaBundle\Entity\Repository\EpisodeRepository as BaseEpisodeRepository;
 
 class EpisodeRepository extends BaseEpisodeRepository
 {
