@@ -47,9 +47,9 @@
                 <div class="shorttext">
                     <ul>
                         <li id="view_clips">{{ 'oktothek_default_participate_view_clips_title'|trans }}</li>
-                        <li id="5_steps">{{ 'oktothek_default_participate_5_steps'|trans }}</li>
-                        <li id="equipment">{{ 'oktothek_default_participate_equipment'|trans|raw }}</li>
-                        <li id="upload">{{ 'oktothek_default_participate_upload'|trans }}</li>
+                        <li id="5_steps">{{ 'oktothek_default_participate_5_steps_title'|trans }}</li>
+                        <li id="equipment">{{ 'oktothek_default_participate_equipment_title'|trans}}</li>
+                        <li id="upload">{{ 'oktothek_default_participate_upload_title'|trans}}</li>
                     </ul>
                 </div>
             </article>
@@ -88,8 +88,6 @@
         {# render news pins #}
         {{ render(controller('AppBundle:News:pinnedNews')) }}
     </div>
-    <!-- Start Anchor Menu -->
-    <!-- End Anchor Menu -->
     {# rest of the page END #}
 {% endblock %}
 
