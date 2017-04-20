@@ -81,12 +81,12 @@ $(document).ready(function(){
 	}
 	
 	function resizeImageMobile(el, container, _ratio) {
-		_parentContainer = $(container).find('figure').parent('div');
+		_parentContainer = $(container).find('article').parent('div');
         $('#carousel').css('width', '100%').css('margin-left','0px');
         $('.carousel-control.right').css('right','0px').css('left','auto');
         $('.carousel-control.left').css('left','0px').css('right','auto');
 		if (_parentContainer.css('height') != "auto")
-			$(container).find('figure').parent('div').css('height','auto');
+			$(container).find('article').parent('div').css('height','auto');
 		el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
 	}
 

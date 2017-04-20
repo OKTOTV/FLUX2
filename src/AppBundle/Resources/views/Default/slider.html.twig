@@ -9,7 +9,8 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     {% for slide in slides %}
-        <figure class="item {% if loop.index0 == 0 %}active{% endif %}">
+        <article class="item {% if loop.index0 == 0 %}active{% endif %}">
+        <figure>
             <a href="{{ slide.link }}"><img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%"></a>
                 <figcaption class="carousel-caption">
                     <div class="container-bg-opacity">
@@ -25,6 +26,7 @@
                 </figcaption>
 
         </figure>
+        </article>
     {% endfor %}
   </div>
   <!-- Controls -->
