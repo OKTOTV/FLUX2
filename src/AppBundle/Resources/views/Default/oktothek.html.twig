@@ -15,7 +15,7 @@
     </div>
     {# top slider, search and channels END #}
     {# rest of the page #}
-    <div id="oktothek">
+    <main id="oktothek">
         <section class="participart bg-fullscreen">
             <div id="anchor_participart"></div>
             {% if is_granted('ROLE_OKTOLAB_USER') %}
@@ -87,7 +87,7 @@
         </section>
         {# render news pins #}
         {{ render(controller('AppBundle:News:pinnedNews')) }}
-    </div>
+    </main>
     {# rest of the page END #}
 {% endblock %}
 
