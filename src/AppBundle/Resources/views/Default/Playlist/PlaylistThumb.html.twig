@@ -1,15 +1,15 @@
 <li class="col-md-3 col-lg-3 col-sm-8 col-xs-12 pin" data-toggle="tooltip" title="{{ playlist.description }}">
     <figure class="playlist-pin pin">
         {% if playlist.items is not empty %}
-            <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="{{ playlist.name }} ansehen"><img src="{{ playlist.items[0].episode.posterframe(true)|thumb(135,240) }}" class="img-responsive" alt="{{ playlist.name }}{% if playlist.user %}, {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}{% endif %}" /></a>
-        {% else %}
-            <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="keine Playliste"><img src="{{ false|thumb(135,240)}}" class="img-responsive" alt="keine Playlisten vorhanden" /></a>
+            <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="{{ playlist.name }} ansehen">
+                <img src="{{ playlist.items[0].episode.posterframe(true)|thumb(135,240) }}" class="img-responsive" alt="{{ 'oktothek_playlist_thumb_img_title'|trans({'%playlist%': playlist.name}) }}" />
+            </a>
         {% endif %}
         <figcaption>
             <h3><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="{{ playlist.name }} ansehen">{{ playlist.name }}</a></h3>
             <p>
                 {% if playlist.user %}
-                <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}" title="{{ playlist.user.username }}">
+                <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}" title="{{ 'oktothek_playlist_thumb_creator_title'|trans({'%user%': playlist.user.username}) }}">
                     {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}
                 </a>
                 {% endif %}
