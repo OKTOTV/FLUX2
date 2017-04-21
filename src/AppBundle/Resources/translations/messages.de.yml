@@ -803,6 +803,7 @@ oktothek.newsletter_header:                 Newsletter
 oktothek.newsletter_mail_placeholder:       E-Mail
 oktothek.newsletter_subscribe_submit:       Anmelden
 oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
+oktothek.newsletter_label:                  "Newsletter abbonieren"
 
 # participate
 oktothek.participate_5_steps:               Die fünf Schritte zur Sendung
