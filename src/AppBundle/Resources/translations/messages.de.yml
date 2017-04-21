@@ -5,6 +5,11 @@ Next:       Nächste
 
 oktothek.info_webtitle_not_found:       "Unter dieser Url konnte keine Sendereihe gefunden werden."
 
+# app/Resources/TwigBundle/views/Exception/error404.html.twig
+oktothek.error404_default_message:      "Vielleicht kann dir die Suche weiter helfen."
+
+# app/Resources/TwigBundle/views/Exception/error.html.twig
+oktothek.error_default_message:         "Vielleicht kann dir die Suche weiter helfen."
 # layout.html.twig
 oktothek_layout_navigation:             "Navigation ein-/ausblenden"
 oktothek_layout_search:                 "Suche ein-/ausblenden"
