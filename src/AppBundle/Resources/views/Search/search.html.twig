@@ -3,6 +3,7 @@
         {{ form_start(searchform, {'attr': {'class': 'navbar-form', 'role': 'search'}})}}
         <div class="form-group searchfield">
             <div class="searchfield-container">
+                <label for="form_search" class="required sr-only">{{ 'oktothek.searchfield_label'|trans}}</label>
                 {{ form_widget(searchform.search) }}
             </div>
             {{ form_row(searchform.submit, {'attr': {'class': 'btn'}}) }}

@@ -72,7 +72,8 @@ oktothek.login_register:                Neuen Account anlegen
 
 ## search and results
 oktothek_results_header:                Suchergebnisse für "%searchphrase%"
-oktothek.searchfield_placeholder:       Suche Videos, Leute und Infos
+oktothek.searchfield_placeholder:       "Suche Videos, Leute und Infos"
+oktothek.searchfield_label:             "Suche"
 
 ## Default
 ### oktothek.html.twig
