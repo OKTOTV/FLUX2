@@ -746,9 +746,11 @@ oktothek_default_share_title_mail:          "Link via E-Mail teilen"
 oktothek_episodeStack_more_results_title:   "Alle Videos anzeigen"
 
 # oktothek episode thumb
-oktothek_episode_thumb_default_title:       "Zu Episode vom %date%"
+oktothek_episode_thumb_default_title:       "Episode vom %date%"
 oktothek_episode_thumb_series_title:        "Zu Sendereihe %series%"
-oktothek_episode_thumb_title:               "Zu Episode %episode%"
+oktothek_episode_thumb_title:               "Zu %episode%"
+oktothek_episode_thumb_img:                 "Posterframe von %episode%"
+oktothek_episode_thumb_default_name:        "Episode vom %date%"
 oktothek_episode_thumb_timestamp_format:    "%day%, %date%"
 oktothek_episode_thumb_day_choice:          "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} Sa|{7} So"
 oktothek_episode_thumb_date_format:         "d.m.Y"

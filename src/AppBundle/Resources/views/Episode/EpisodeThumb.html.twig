@@ -1,26 +1,34 @@
 {% if episode.name is empty %}
-    {% set episodetext = 'oktothek_episode_thumb_default_title'|trans(
-        {'%date%': 'oktothek_episode_thumb_timestamp_format'|trans(
+    {% set episodetitle = 'oktothek_episode_thumb_default_title'|trans(
+        {'%date%': 'oktothek_episode_thumb_timestamp_format'|trans({
             '%day%': 'oktothek_episode_thumb_day_choice'|transchoice(episode.firstRanAt|default(episode.onlineStart)|date('N')),
-            '%date%': episode.firstRanAt|default(episode.onlineStart)|date('oktothek_episode_thumb_date_format'|trans)}
-            )
+            '%date%': episode.firstRanAt|default(episode.onlineStart)|date('oktothek_episode_thumb_date_format'|trans)
+            })
         }
     ) %}
 {% else %}
-    {% set episodetext = 'oktothek_episode_thumb_title'|trans({'%episode%': episode.name}) %}
+    {% set episodetitle = episode.name %}
 {% endif %}
 
 <li class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ episode.description }}">
     <figure class="episode-pin pin">
-        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episodetext }}"><img src="{{ episode.posterframe(true)|thumb(158,282) }}" class="img-responsive" alt="{{ episodetext }}"/></a>
+        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episodetitle}) }}">
+            <img src="{{ episode.posterframe(true)|thumb(158,282) }}" class="img-responsive" alt="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episode.name|default('oktothek_episode_thumb_default_name'|trans({'%date%': episode.firstRanAt|date('oktothek_episode_thumb_date_format'|trans)})) }) }}"/>
+        </a>
         <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
         <figcaption>
             <h3>
                 <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ 'oktothek_episode_thumb_series_title'|trans({'%series%': episode.series.name}) }}">{{ episode.series.name }}</a>
             </h3>
             <p>
-                <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episodetext }}">{{ episodetext }}</a>
+                <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ 'oktothek_episode_thumb_title'|trans({'%episode%': episodetitle}) }}">
+                    {% if episode.name is empty %}
+                        {{ episodetitle }}
+                    {% else %}
+                        {{ episode.name }}
+                    {% endif %}
+                </a>
             </p>
-            </figcaption>
-        </figure>
+        </figcaption>
+    </figure>
 </li>
