@@ -28,7 +28,7 @@ class EpisodeController extends Controller
     public function bestEpisodesAction(Request $request)
     {
         $page = $request->query->get('page', 1);
-        $number = $request->query->get('results', 10);
+        $number = $request->query->get('results', 12);
         $number = ($number > 20) ? 20 : $number;
         $em = $this->getDoctrine()->getManager();
         $query = $em->getRepository('AppBundle:Episode')->findBestEpisodes(0, true);
@@ -48,7 +48,7 @@ class EpisodeController extends Controller
     public function newestEpisodesAction(Request $request)
     {
         $page = $request->query->get('page', 1);
-        $number = $request->query->get('results', 10);
+        $number = $request->query->get('results', 12);
         $number = ($number > 20) ? 20 : $number;
         $em = $this->getDoctrine()->getManager();
         $query = $em->getRepository('AppBundle:Episode')->findNewestEpisodes(0, true);
