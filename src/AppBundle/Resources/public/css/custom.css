@@ -2016,6 +2016,9 @@ header .search-tagnav-container {
 header .search-tagnav-position  {
 	margin:0;
 }
+header .search-tagnav-position li a::before, header ul.themes li a::before {
+    content:'#';
+}
 header .search-tagnav-position .navbar-form {
 	margin-top:-1px;
 }

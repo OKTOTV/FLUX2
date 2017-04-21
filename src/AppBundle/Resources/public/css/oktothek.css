@@ -154,14 +154,9 @@ body.oktothek .news-pin {
 .oktothek .participart-list li a {
     padding-right:10px;
 }
-.oktothek .participart-list li figure a {
+.oktothek .participart-list li figure {
     padding-top:20px;
     padding-right:0;
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-.oktothek .participart-list li figure {
 	width:140px;
 	min-height:140px;
 	vertical-align:middle;
@@ -173,7 +168,7 @@ body.oktothek .news-pin {
     height:100px;
 }
 .oktothek .participart-list li figcaption {
-	margin-top:0;
+	margin-top:30px;
     line-height: 1.4em;
 }
 .oktothek .participart-list li figcaption p {
@@ -209,9 +204,6 @@ body.oktothek section.container.news {
     body.oktothek .participart-list li figure {
         margin-top:0;
         margin-bottom:20px;
-    }
-    body.oktothek .participart-list li figcaption {
-	    margin-top:10px;
     }
     .oktothek .participart .but-full:hover span.active {
         margin-left:60px;
