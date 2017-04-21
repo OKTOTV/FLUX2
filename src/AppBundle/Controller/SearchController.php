@@ -36,7 +36,7 @@ class SearchController extends Controller
                     'attr' => ['placeholder' => 'oktothek.searchfield_placeholder']
                 ]
             )
-            ->add('submit', SubmitType::class, ['label' => "oktothek.searchfiled_submit"])
+            ->add('search', SubmitType::class, ['label' => "oktothek.searchfiled_submit"])
             ->getForm();
 
         if ($request->getMethod() == "POST") {
