@@ -205,8 +205,8 @@ oktothek.playlist_delete_info:          Nicht zufrieden mit der Playliste? Hier 
 oktothek.playlist_show_next_video:      "Nächstes Video"
 
 ## thumb
-oktothek_playlist_thumb_creator:        Erstellt von %user%
-
+oktothek_playlist_thumb_creator:        "Erstellt von %user%"
+oktothek_playlist_thumb_creator_title:  "mehr über User %user%"
 ## episode
 oktothek.episode_show_playlist_header:  Playlisten
 oktothek.episode_show_playlist_login_register: Du kannst Playlisten nur mit einem %link% verwalten

@@ -3,16 +3,14 @@
         <figure class="playlist-pin pin">
             {% if playlist.items is not empty %}
                 <img src="{{ playlist.items[0].episode.posterframe(true)|thumb(135,240) }}" class="img-responsive" />
-            {% else %}
-                <img src="{{ false|thumb(135,240)}}" class="img-responsive" />
             {% endif %}
             <figcaption>
                 <h3>{{ playlist.name }}</h3>
                 <p>
                     {% if playlist.user %}
-                    <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}">
-                        {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}
-                    </a>
+                        <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}" title="{{ 'oktothek_playlist_thumb_creator_title'|trans({'%user%': playlist.user.username}) }}">
+                            {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}
+                        </a>
                     {% endif %}
                 </p>
             </figcaption>
