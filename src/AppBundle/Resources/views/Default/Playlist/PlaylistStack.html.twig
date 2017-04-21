@@ -1,6 +1,6 @@
 {% set collapse_id = collapse_id|default('collapse_rand_'~ random()) %}
 
-<ul class="row">
+<ul class="row" role="navigation">
     {% for playlist in playlists|slice(0,4) %}
         {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
     {% endfor %}
