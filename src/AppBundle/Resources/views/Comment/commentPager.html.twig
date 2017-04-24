@@ -16,43 +16,45 @@
             {% endif %}
         </div>
         <!-- Antwort Container -->
-        <div class="comment-answer">
-            <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}" title="{{ 'oktothek_comment_cP_answer'|trans }}">{{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}</a>
-            <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
+        {% if comment.children is not empty %}
+            <div class="comment-answer">
+                <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}" title="{{ 'oktothek_comment_cP_answer'|trans }}">{{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}</a>
+                <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
 
-                <!-- Antwort -->
-                {% for answer in comment.children %}
-                <div class="row">
-                    <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div></div></div>
-                    <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 answer">
-                        <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': answer.user.username, '%date%': answer.createdAt|date('d.m.Y H:i')})|raw }}</div>
-                        <div class="comment-text">
-                            <p>{{ answer.text|nl2br }}</p>
+                    <!-- Antwort -->
+                    {% for answer in comment.children %}
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div></div></div>
+                        <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 answer">
+                            <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': answer.user.username, '%date%': answer.createdAt|date('d.m.Y H:i')})|raw }}</div>
+                            <div class="comment-text">
+                                <p>{{ answer.text|nl2br }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {% endfor %}
-                <!-- Ende Antwort -->
-                {% if is_granted('ROLE_USER') %}
-                <div class="row comment-form">
-                    <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
-                        {{ render(controller('AppBundle:Comment:answerComment', {'comment': comment.Id}))}}
+                    {% endfor %}
+                    <!-- Ende Antwort -->
+                    {% if is_granted('ROLE_USER') %}
+                    <div class="row comment-form">
+                        <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
+                            {{ render(controller('AppBundle:Comment:answerComment', {'comment': comment.Id}))}}
+                        </div>
                     </div>
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
             <!-- Ende Antwort Container -->
-        </div>
+        {% endif %}
     </div>
         {% endfor %}
 </div>
     <!-- Ende Kommentar -->
-    {% if is_granted('ROLE_USER') %}
+{% if is_granted('ROLE_USER') %}
     <div class="row comment-form">
         <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
                 {{ render(controller('AppBundle:Comment:commentEpisode', {'uniqID': uniqID}))}}
         </div>
     </div>
-    {% else %}
-        <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default login" title="{{ 'oktothek_comment_cP_login_title'|trans }}">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
-    {% endif %}
+{% else %}
+    <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default login" title="{{ 'oktothek_comment_cP_login_title'|trans }}">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
+{% endif %}

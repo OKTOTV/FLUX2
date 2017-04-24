@@ -32,12 +32,21 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/watch", name="shorturl")
      * @Method("GET")
      */
     public function episodeShortAction(Request $request)
     {
         if ($request->query->get('v')) {
-            return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $request->query->get('v')]));
+            return $this->redirect($this->generateUrl(
+                'oktothek_show_episode',
+                ['uniqID' => $request->query->get('v')]
+            ));
+        } elseif ($request->query->get('p')) {
+            return $this->redirect($this->generateUrl(
+                'oktothek_show_playlist',
+                ['uniqID' => $request->query->get('p')]
+            ));
         }
         return $this->redirect('homepage');
     }

@@ -1,6 +1,7 @@
 <div class="newsletter">
     {{ form_start(form) }}
         <div class="input-group">
+            <label for="form_email" class="sr-only">{{ 'oktothek.newsletter_label'|trans }}</label>
             {{ form_widget(form.email) }}
             {{ form_row(form.submit, {'attr': {'class': 'input-group-addon'}}) }}
         </div>
