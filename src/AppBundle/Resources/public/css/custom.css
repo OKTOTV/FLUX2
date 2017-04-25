@@ -335,6 +335,9 @@ a.pull-left.more,
 .tagpage .pages > .list-group-item > a:focus {
 	text-decoration:none;
 }
+body.episode .description a {
+    text-decoration: underline;
+}
 a, 
 a:hover, 
 a:active, 
@@ -859,6 +862,7 @@ body.producer ul.list-group .pin a h3,
 a.tag:hover,
 a.tag:focus,
 .alert-success,
+.alert-dismissible .close,
 button.input-group-addon:hover,
 button.input-group-addon:focus,
 .container.tags a:hover,
@@ -971,6 +975,7 @@ body.tagpage .pages .list-group-item a:hover,
 body.tagpage .pages .list-group-item a:focus /*Gelb*/ {
 	color: #fcce14;
 }
+.alert-danger,
 a.list-group-item-danger:focus, 
 button.list-group-item-danger:focus, 
 a.list-group-item-danger:hover, 
@@ -1073,7 +1078,7 @@ body.tagpage article.empty .icon-player,
 .pagination > .disabled > span:hover,
 .pagination > li > a, 
 .pagination > li > span,
-.alert-success,
+.alert,
 [data-tooltip]::after,
 .oktothek .participart-list li figcaption span { /* Dunkelgrau */
 	background-color:#112022;
@@ -1348,7 +1353,7 @@ header.page-header,
 button.btn-default#ButtonPlaylist, 
 button.btn-default#ButtonShare,
 button.btn-default#ButtonShare_mobil,
-.alert-success,
+.alert,
 .caret,
 div.list-group.tags span.label.label-default.remove {
 	border:none;
@@ -2185,10 +2190,10 @@ html, body {
 }
 
 /* Listen */
-footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li  {
+footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc ul, body.episode ul.misc li  {
 	list-style:none;
 }
-footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li {
+footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc, body.episode ul.misc li {
 	margin-left:0;
 	padding-left:0;
 }
@@ -2645,6 +2650,12 @@ figcaption  {
         padding-right:15px;
     }
 }
+@media (min-width: 768px) {
+    .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row {
+        margin-right:-5px;
+        margin-left:-5px;
+    }
+}
 @media (min-width: 992px) {
 	article.pin,
     li.pin {
@@ -2672,7 +2683,7 @@ figcaption  {
 	margin-bottom:20px;
 }
 .comment {
-	margin-bottom:40px;
+	margin-bottom:30px;
 }
 .answer-text {
 	padding-left:0px;
@@ -2731,7 +2742,7 @@ figcaption  {
     .comment-pager .row {
         margin-left:0;
     }
-    .comment time {
+    .comment time, .comment .time { /* .comment time Löschen wenn ausgebessert */
         line-height: normal;
     }
     .avatar-container {
@@ -2818,8 +2829,18 @@ div.list-group.tags span.label.label-default.remove::before {
     }
 }
 
+/* Player */
+.player_container {
+    margin-bottom: 30px;
+}
+@media (min-width: 768px) {
+    .player_container {
+        margin-bottom: 50px;
+    }
+}
+
 /* Zeiformatierungen */
-.episode time, .playlists time {
+.episode .time, .playlists time {
 	margin-bottom:30px;
 }
 .timetable .btn {
@@ -2827,7 +2848,7 @@ div.list-group.tags span.label.label-default.remove::before {
 	padding:1px 8px;
 }
 @media (min-width: 768px) {
-    .episode time, .playlists time {
+    .episode .time, .playlists time {
 	    margin-bottom:50px;
     }
 }

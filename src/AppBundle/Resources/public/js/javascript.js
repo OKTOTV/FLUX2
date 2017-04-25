@@ -193,6 +193,19 @@ $(document).ready(function(){
         jQuery('html, body').animate({scrollTop: 0}, Ts_duration);
         return false;
     })
+    
+    /* Player */
+    if ($('div').hasClass('player_container')) {
+        function fix_playerheight() {
+            $('.player_container').css('min-height', ($('.player_container').width() / 16) * 9);
+        }
+        
+        fix_playerheight();
+        
+        $(window).on("resize orientationchange", function(){
+            fix_playerheight();
+        });
+    }
 	
 	/* Kommentare */
 	

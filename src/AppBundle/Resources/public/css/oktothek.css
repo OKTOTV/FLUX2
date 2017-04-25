@@ -223,8 +223,8 @@ body.oktothek section.container.news {
         padding-top:0px;
     }
     body.oktothek .news article.row {
-	    margin-right:-15px;
-        margin-left:-15px;
+	    /*margin-right:-12px;
+        margin-left:-12px;*/
     }
 }
 @media (min-width: 992px) {
