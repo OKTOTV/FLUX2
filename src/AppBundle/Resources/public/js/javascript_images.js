@@ -192,10 +192,10 @@ $(document).ready(function(){
 	});
 	
 	function showButtonDown() {
-	      if($(document).scrollTop() <= headerScrollheight) {
+	      if(($(document).scrollTop() <= headerScrollheight) && (Winwidth >= 768)) {
 			  //Downbutton erscheinen lassen
 			  $('.fullscreen-images #button_down span').css('display','inline');
-	      } else if ($(document).scrollTop() > headerScrollheight) {
+	      } else if (($(document).scrollTop() > headerScrollheight) && (Winwidth >= 768)) {
 			  //Downbutton ausblenden
 			  $('.fullscreen-images #button_down span').css('display','none');
 		   }
@@ -225,17 +225,24 @@ $(document).ready(function(){
                 .slideUp( 400 );
         }
         $('.oktothek .participart-list li figure').mouseover(function() {
-            showDivtext(this);
+            if (Winwidth >= 768 && Winheight >600) {
+                showDivtext(this);
+            }
         })
         $('.oktothek .participart-list li figure').focusin(function() {
-            showDivtext(this);
+            if (Winwidth >= 768 && Winheight >600) {
+                showDivtext(this);
+            }
         })
         $('.oktothek .participart-list li figure').mouseleave(function() {
-            hideDivtext(this);
+            if (Winwidth >= 768 && Winheight >600) {
+                hideDivtext(this);
+            }
         })
         $('.oktothek .participart-list li figure').focusout(function() {
-            el = $(this).attr('data-target');
-            hideDivtext(this);
+            if (Winwidth >= 768 && Winheight >600) {
+                hideDivtext(this);
+            }
         })
     }
     
@@ -423,8 +430,8 @@ $(document).ready(function(){
 		var speed = 'fast';
 	}
 	
-	$('.description-overlay .description-wrapper a.more').click(function(){
-		
+	$('.description-overlay .description-wrapper a.more').click(function( event ){
+		event.preventDefault();
 		if (layer === false) {    //Fenster wird geöffnet
 			origHeight = $('.description-overlay .description-wrapper').height() + 10;
             if ($('body').hasClass('playlists')) 

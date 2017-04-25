@@ -117,16 +117,17 @@ div.list-group.tags span.label.label-default.remove::before {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, .h2, .livestream header h1 time, .series.blog h1 {
+h1, .oktothek h2#button_down, .livestream header h1 time, .series.blog h1 {
 	font-size:35px;
 	letter-spacing:0.5px;
 }
-#anchor-menu .panel-title .glyphicon, 
+h2, .h2, #anchor-menu .panel-title .glyphicon, 
 .btn-top .glyphicon {
 	font-size:30px;
 }
 .carousel-caption h3, 
 .pull-right .icon, 
+.more.right .icon, 
 .pull-left .icon, 
 .series h1, 
 .playlists h1,
@@ -219,7 +220,7 @@ footer h3,
 .comments .comment-answer, 
 #episode-tag, 
 .infos h3, 
-.blog time, 
+.blog .time, 
 .academy .pin .preview-content a, 
 .preview p.misc, 
 a.more, 
@@ -368,6 +369,10 @@ select:active:focus {
 	    font-family: HelveticaNeueLTStd-Roman, Helvetica, sans-serif;
 	    font-weight: normal;
 	    font-style: normal;
+    }
+    h2, .h2 {
+	    font-size:35px;
+	    letter-spacing:0.5px;
     }
 	header .form-control::-moz-placeholder {
   		font-size:16px;
@@ -663,7 +668,7 @@ header .icon.icon-transmitter {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-header .icon.icon-transmitter-active {
+header .icon.icon-transmitter-active, header a:hover .icon.icon-transmitter, header a:focus .icon.icon-transmitter {
 	background-image:url(../images/icon_transmitter_active.png);
     background-image: url("../images/icon_transmitter_active.svg"), none;
 	background-repeat:no-repeat;
@@ -865,8 +870,6 @@ a.tag:focus,
 .alert-dismissible .close,
 button.input-group-addon:hover,
 button.input-group-addon:focus,
-.container.tags a:hover,
-.container.tags a:focus,
 .post a.tag:hover,
 .post a.tag:focus,
 .blog aside a.more {
@@ -921,7 +924,7 @@ body.tagpage .pages .list-group-item a { /* Hellgrau */
 a.tag, 
 .post a.tag,
 .comments .comment-answer a, 
-.blog time { /*Helltürkis*/
+.blog .time { /*Helltürkis*/
 	color:#c0fefd;
 }
 /* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -968,6 +971,8 @@ a.more,
 .pin a:hover figcaption p, 
 .blog aside a.more:hover,
 .blog aside a.more:focus,
+.container.tags a:hover,
+.container.tags a:focus,
 body.livestream .schedule li a:hover h4,
 body.livestream .schedule li a:focus h4,
 body.participate .close,
@@ -1239,6 +1244,10 @@ div.list-group.tags span.label.label-default.remove {
 }
 a:hover.pull-right .icon, 
 a:hover.pull-left .icon, 
+a:focus.pull-right .icon, 
+a:focus.pull-left .icon, 
+a:hover .more.right .icon, 
+a:focus .more.right .icon,
 .collapseShare .btn-default, 
 .container-episode-tag,
 .livestream #nav-programm a:hover .icon,
@@ -1256,6 +1265,7 @@ a:hover.pull-left .icon,
 /* Spacelayout */
 .btn-primary, 
 .pull-right .icon, 
+.more.right .icon, 
 .pull-left .icon, 
 .btn-default, 
 .btn-default:hover, 
@@ -1402,6 +1412,7 @@ div.list-group.tags span.label.label-default.remove {
 /* Spacelayout */
 .btn, 
 .pull-right .icon, 
+.more.right .icon, 
 .pull-left .icon, 
 header .misc .btn,
 header .collapseShare .btn,
@@ -1424,10 +1435,17 @@ body.tagpage .empty .icon-player,
 	-khtml-border-radius:25px;
 	border-radius: 25px;
 }
-.btn:focus, button.dropdown-toggle:focus {
+.btn:focus, 
+button.dropdown-toggle:focus, 
+.container.tags a:focus,
+a:focus.pull-right, 
+a:focus.pull-left {
     outline-offset: 2px;
 }
-button.dropdown-toggle:focus {
+button.dropdown-toggle:focus,
+.container.tags a:focus,
+a:focus.pull-right, 
+a:focus.pull-left {
     outline:dotted 1px #ffffff;
 }
 @media (min-width: 768px) {
@@ -1465,7 +1483,7 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 	background-position:center center;
 	background-image:url(../images/icon_view.svg);
 }*/
-.small-arrow-right {
+a .small-arrow-right {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/small_arrow_right.png);
@@ -1474,6 +1492,10 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
     -moz-background-size: 40% 40%;
     -o-background-size: 40% 40%;
 	background-size: 40% 40%;
+}
+a:hover .small-arrow-right, a:focus .small-arrow-right {
+	background-image:url(../images/small_arrow_right_active.png);
+    background-image:url(../images/small_arrow_right_active.svg), none;
 }
 .caret {
     background-repeat:no-repeat;
@@ -2651,9 +2673,17 @@ figcaption  {
     }
 }
 @media (min-width: 768px) {
-    .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row {
+    /* Ränder Korrekturen */
+    .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row, .clip_overview .row, .series-playlists .row {
         margin-right:-5px;
         margin-left:-5px;
+    }
+    .episode-description .row {
+        margin-right:0px;
+        margin-left:0px;
+    }
+    .series .blog {
+        padding-left:25px;
     }
 }
 @media (min-width: 992px) {
@@ -2874,6 +2904,9 @@ body.episode .series, body.playlists .series {
 .icon {
 	display:inline-block;
 }
+a.more.right {
+    text-align: center;
+}
 .container-episode-tag .caret {
 	position:absolute;
 	right:8px;
@@ -2898,7 +2931,7 @@ body.episode .series, body.playlists .series {
     line-height: 36px;
     vertical-align: middle;
 }
-.pull-right .icon, .pull-left .icon {
+.pull-right .icon, .pull-left .icon, .more.right .icon {
 	width:38px;
 	height:38px;
 	text-align:center;

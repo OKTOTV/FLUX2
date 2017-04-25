@@ -56,6 +56,9 @@ body.oktothek, .oktothek article {
 .oktothek .newest-playlists .aligncenter, .oktothek section.container .subheadline {
 	margin-bottom:40px;
 }
+body.oktothek section.participart h4 {
+    margin-top:0;
+}
 
 .more figure.episode-pin {
     height:158px;
@@ -122,13 +125,10 @@ body.oktothek .news-pin {
 .oktothek .participart .but-full span {
     transition: 0.3s;
 }
-.oktothek .participart .but-full span.passive, .oktothek .participart .but-full:hover span.active {
+.oktothek .participart .but-full span.passive {
     margin-left:0;
 }
-.oktothek .participart .but-full:hover span.active {
-    margin-left:80px;
-}
-.oktothek .participart .but-full:hover span.passive, .oktothek .participart .but-full span.active {
+.oktothek .participart .but-full span.active {
     margin-left:-400px;
 }
 .oktothek .participart .but-full span.active {
@@ -195,6 +195,15 @@ body.oktothek section.container.news {
     body.oktothek .participart {
 	    margin-bottom:60px;
 	    padding-bottom:40px;
+    }
+    body.oktothek section.participart h4 {
+        margin-top:10px;
+    }
+    .oktothek .participart .but-full:hover span.active {
+        margin-left:80px;
+    }
+    .oktothek .participart .but-full:hover span.passive, .oktothek .participart .but-full span.active {
+        margin-left:-400px;
     }
     body.oktothek .participart-list li {
 	    width:140px;

@@ -1,6 +1,6 @@
 {# Here is an example Menu. You'll want to overwrite this in app/Resources/BprsStyleBundle/views/menu.html.twig #}
 {% block menu %}
-    <div class="collapse navbar-collapse" role="navigation" id="mainmenu-container">
+    <div class="collapse navbar-collapse" id="mainmenu-container" role="menu">
         <ul class="nav navbar-nav mainmenu">
             <li {% if selected == "oktothek" %}class="active"{% endif %}>
                 <a href="{{ path('homepage') }}">{{ 'oktothek.menu_oktothek'|trans }}</a>
