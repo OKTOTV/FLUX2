@@ -1049,6 +1049,7 @@ article.pin figure.pin,
 li.pin figure.pin,
 body.oktothek .news article,
 body.tagpage .inc-pins article.pin figure,
+body.tagpage .inc-pins li.pin figure,
 article.pin figure.pin,
 li.pin figure.pin,
 body.tagpage article.first-pin,
@@ -1074,7 +1075,7 @@ body.newsarchiv aside .box,
 .nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover,
 section.tabs-content,
-body.tagpage article.empty .icon-player,
+body.tagpage li.empty .icon-player,
 .pagination > .disabled > a, 
 .pagination > .disabled > a:focus, 
 .pagination > .disabled > a:hover, 
@@ -1100,6 +1101,10 @@ body.tagpage .inc-pins article.pin figure:hover,
 body.tagpage .inc-pins article.pin figure:focus,
 body.tagpage .inc-pins article.pin:hover figure,
 body.tagpage .inc-pins article.pin:focus figure,
+body.tagpage .inc-pins li.pin figure:hover,
+body.tagpage .inc-pins li.pin figure:focus,
+body.tagpage .inc-pins li.pin:hover figure,
+body.tagpage .inc-pins li.pin:focus figure,
 body.tagpage article.first-pin:hover,
 body.tagpage article.first-pin:focus,
 body.tagpage .pages > .list-group-item:hover,
@@ -1119,6 +1124,7 @@ article.pin figure.pin,
 li.pin figure.pin,
 body.oktothek .news article,
 body.tagpage .inc-pins article.pin figure,
+body.tagpage .inc-pins li.pin figure,
 article.pin figure.pin,
 li.pin figure.pin,
 body.tagpage article.first-pin,
@@ -1207,6 +1213,7 @@ body.tagpage header .misc .btn-default,
 .producer a.list-group-item:focus,
 .producer a.list-group-item:hover,
 body.tagpage .inc-pins article.pin.empty figure,
+body.tagpage .inc-pins li.pin.empty figure,
 button.btn-default#ButtonPlaylist:hover, 
 button.btn-default#ButtonPlaylist:focus, 
 button.btn-default#ButtonShare:hover,
@@ -2906,6 +2913,7 @@ body.episode .series, body.playlists .series {
 }
 a.more.right {
     text-align: center;
+    margin-bottom: 40px;
 }
 .container-episode-tag .caret {
 	position:absolute;
@@ -2923,8 +2931,10 @@ a.more.right {
 	height:40px;
 	width:40px;
 }
-.news a.pull-right {
+.news a.pull-right, .news a.right {
 	margin-top:30px;
+}
+.news a.pull-right {
 	margin-right:15px;
 }
 .series.blog header.page-header .pull-left .icon {
@@ -3035,7 +3045,7 @@ footer .partner {
 	text-align:center;
 }
 footer .partner li {
- padding:20px 5px;
+    padding:5px 5px;
 }
 footer section {
 	padding-top:40px;
@@ -3060,10 +3070,20 @@ footer nav ul {
 footer nav ul li {
 	vertical-align:middle;
 }
-footer .nav > li, footer .nav > li > a, footer .partner li {
+footer .nav > li, footer .nav > li > a {
 	display:block;
 }
-footer .nav > li, footer .partner li {
+footer .partner li {
+    width:50%;
+    float:left;
+    text-align: center;
+}
+
+footer .partner li object {
+    max-width: 80%;
+    height: auto;
+}
+footer .nav > li {
 	width:auto;
 }
 footer .nav > li.languages a  {
@@ -3145,12 +3165,15 @@ footer .networks {
 	padding-bottom:5px;
 }*/
 @media (min-width: 420px) {
-    footer .nav > li, footer .partner li {
+    footer .nav > li {
 	    width:50%;
         float:left;
     }
-    footer .partner {
+    footer .partner li {
 	    text-align:left;
+    }
+    footer .partner li {
+        padding:20px 5px;
     }
     footer .nav > li:nth-child(2n+1), footer .partner > li:nth-child(2n+1) {
         clear:left;
