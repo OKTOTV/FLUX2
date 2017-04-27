@@ -6,6 +6,7 @@
 
 {% set body_class = "edit-playlists" %}
 {% block body_main %}
+<main>
     <header class="page-header">
         <h1>{{ 'oktothek.playlist_edit_header'|trans }}</h1>
     </header>
@@ -22,11 +23,11 @@
         </div>
 
         {{ form_label(form.items) }}
-        <div id="playlist_items">
+        <ul id="playlist_items">
             {% for item in form.items %}
-            <div class="row">
+            <li class="row">
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-                    <img src="{{ item.vars.value.episode.posterframe(true)|thumb(135,240)}}" class="img img-responsive" />
+                    <img src="{{ item.vars.value.episode.posterframe(true)|thumb(135,240)}}" class="img img-responsive" alt="Posterframe von {{ item.vars.value.episode.name }}" />
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
                     <a href="{{ path('oktothek_show_episode', {'uniqID': item.vars.value.episode.uniqID})}}">
@@ -56,15 +57,15 @@
                 <div class="hidden">
                     {{ form_row(item)}}
                 </div>
-            </div>
+            </li>
             {% endfor %}
-        </div>
+        </ul>
         {% do form.items.setRendered %}
         {{ form_row(form.submit) }}
         <div class="delete-playlist">{{ 'oktothek.playlist_delete_info'|trans }}</div>
         {{ form_row(form.delete, {'attr': {'class':'btn-link'}})}}
     {{ form_end(form) }}
-
+</main>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
@@ -145,7 +146,7 @@
                         '</div>'
                     ].join('\n'),
                     suggestion: function(data) {
-                        return '<div class="row"><div class="col-md-3"><img src="'+data.thumb+'" /></div><div class="col-md-9"><p>'+data.name+'</p></div></div>';
+                        return '<div class="row"><div class="col-xs-12 col-sm-4 col-md-4"><img src="'+data.thumb+'" /></div><div class="col-xs-12 col-sm-8 col-md-8"><p>'+data.name+'</p></div></div>';
                     }
                 }
             }).bind('typeahead:select', function(ev, suggestion) {
