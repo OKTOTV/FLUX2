@@ -2681,7 +2681,7 @@ figcaption  {
 }
 @media (min-width: 768px) {
     /* Ränder Korrekturen */
-    .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row, .clip_overview .row, .series-playlists .row {
+    .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row, .clip_overview .row, .series-playlists .row  {
         margin-right:-5px;
         margin-left:-5px;
     }
