@@ -55,6 +55,9 @@ body.tagpage .inc-pins article.first,
 body.tagpage .inc-pins div.pin {
     float:none;
 }
+body.tagpage .page-header h1::before {
+    content: '#';
+}
 body.tagpage .container.content-bg {
 	padding-top:20px;
 	margin-bottom:80px;
@@ -65,9 +68,9 @@ body.tagpage section.inc-pins > div {
     padding-bottom:65px;
 }
 body.tagpage .pull-right.more {
-    padding-top: 30px;
+    margin-top: 30px;
 }
-body.tagpage article.empty .icon-player {
+body.tagpage li.empty .icon-player {
     width:50px;
     height:50px;
     margin:0 auto;
@@ -82,7 +85,8 @@ body.tagpage .misc {
 	line-height:36px;
 	vertical-align:middle;
 }
-body.tagpage article.pin {
+body.tagpage article.pin,
+body.tagpage li.pin {
     margin-bottom:0;
 }
 body.tagpage article.first-pin {
@@ -97,11 +101,14 @@ body.tagpage .inc-pins div.pin {
 body.tagpage .inc-pins {
     padding-bottom: 110px;
 }
-body.tagpage .inc-pins article.pin {
+body.tagpage .inc-pins article.pin
+body.tagpage .inc-pins li.pin {
 	padding-bottom:10px;
 }
 body.tagpage .inc-pins article.pin:nth-child(3), 
-body.tagpage .inc-pins article.pin:nth-child(4) {
+body.tagpage .inc-pins article.pin:nth-child(4),
+body.tagpage .inc-pins li.pin:nth-child(3), 
+body.tagpage .inc-pins li.pin:nth-child(4) {
 	padding-bottom:0px;
 }
 body.tagpage .inc-pins article figcaption p {
@@ -109,6 +116,9 @@ body.tagpage .inc-pins article figcaption p {
 }
 body.tagpage .inc-pins article figcaption {
 	padding:0 5px 10px 5px;
+}
+body.tagpage .series-pin h3 {
+    margin-bottom: 10px;
 }
 body.tagpage .pin.empty {
     display: none;
@@ -175,14 +185,16 @@ body.tagpage .inc-pages h3 {
     body.tagpage .row .small-pins {
         display:table-cell;
     }
-    body.tagpage article.first-pin, body.tagpage article.pin {
+    body.tagpage article.first-pin, body.tagpage article.pin,
+    body.tagpage article.first-pin, body.tagpage li.pin {
         width:50%;
     }
     body.tagpage .pin.empty,
     body.tagpage .pin {
 	    padding-right:5px;
     }
-    body.tagpage article.pin:nth-child(2n+1) {
+    body.tagpage article.pin:nth-child(2n+1),
+    body.tagpage li.pin:nth-child(2n+1) {
 	    clear:left;
     }
     body.tagpage article.first-pin {

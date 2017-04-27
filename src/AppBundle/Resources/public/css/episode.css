@@ -14,6 +14,12 @@ body.episode article time[pubdate="pubdate"], body.playlists article time[pubdat
 	height:15px;
 	width:20px;
 }
+body.episode ul.misc li {
+    display:inline;
+}
+body.episode ul.misc li.favorite-icon {
+    padding-right:7px;
+}
 body.episode .misc a, body.episode .misc span.views {
 	margin-right:10px;
 }
@@ -21,21 +27,19 @@ body.episode .misc {
 	padding-bottom:0px;
     text-align: left;
 }
-body.episode p.misc {
+body.episode ul.misc {
 	margin-bottom:0;
 }
 body.episode #favorite {
-	margin-right:5px;
     padding-left:2px;
-    padding-right:2px;
 }
 body.episode #ButtonPlaylist, body.episode #ButtonShare {
     padding-left:8px;
     padding-right:8px;
 }
 @media (min-width: 768px) {
-    body.episode #favorite {
-	    margin-right:20px;
+    body.episode ul.misc li.favorite-icon {
+	    padding-right:20px;
     }
     body.episode .misc {
 	    padding-bottom:20px;

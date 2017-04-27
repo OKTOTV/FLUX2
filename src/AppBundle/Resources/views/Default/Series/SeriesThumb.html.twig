@@ -1,5 +1,5 @@
 {# used in Tag view #}
-<article class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ series.description }}">
+<li class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ series.description }}">
     <figure class="series-pin pin">
         <a href="{{ url|default(path('oktothek_show_series', {'uniqID': series.uniqID})) }}" title="{{ series.name }}">
             <img src="{{ series.posterframe|thumb(158,282) }}" class="img-responsive" alt="{{ series.name }}"/>
@@ -10,4 +10,4 @@
             </a>
         </figcaption>
     </figure>
-</article>
+</li>

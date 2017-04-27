@@ -18,14 +18,14 @@
                     </figcaption>
                 </figure>
             </article>
-            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 small-pins">
+            <ul class="col-md-6 col-lg-6 col-sm-12 col-xs-12 small-pins">
         {% else %}
             {% include "AppBundle:Default/Playlist:PlaylistThumb.html.twig" %}
         {% endif %}
     {% endfor %}
     {% set numberOfPlaylists = 5 - playlists|slice(0,5)|length %}
     {% for i in 0..numberOfPlaylists if i > 0 %}
-        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></article>
+        <li class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></li>
     {% endfor %}
-    </div>
+    </ul>
 </div>

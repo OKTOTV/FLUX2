@@ -13,14 +13,14 @@
                     </figcaption>
                 </figure>
             </article>
-            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 small-pins">
+            <ul class="col-md-6 col-lg-6 col-sm-12 col-xs-12 small-pins">
         {% else %}
             {% include "AppBundle:Default/Series:SeriesThumb.html.twig" %}
         {% endif %}
     {% endfor %}
     {% set numberofseries = 5 - seriess|slice(0,5)|length %}
     {% for i in 0..numberofseries if i > 0 %}
-        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></article>
+        <li class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></li>
     {% endfor %}
-            </div>
+    </ul>
 </div>

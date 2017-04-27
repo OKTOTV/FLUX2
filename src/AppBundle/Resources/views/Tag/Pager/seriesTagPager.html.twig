@@ -8,26 +8,28 @@
 {% set body_class = "clip_overview" %}
 {% block body %}
 <div id="top"></div>
-<div class="container-fluid">
-    <div class="bg-bleur"></div>
-    <header class="container page-header">
-        <h1>{{ 'oktothek.tag_pager_series_header'|trans({'%tag%': tag}) }}</h1>
-        {% include "AppBundle:Default:_share.html.twig" with {'show_button': true} %}
-    </header>
-</div>
-<section class="container">
-    <div class="row navigation pager-row">
-        {{ knp_pagination_render(seriess) }}
-    </div>
-    <div>
-        {% for series in seriess %}
-            {% include "AppBundle:Default:Series/SeriesThumb.html.twig" %}
-        {% endfor %}
-    </div>
-    <div class="row navigation">
-        {{ knp_pagination_render(seriess) }}
-    </div>
-</section>
+<main>
+    <div class="container-fluid">
+        <div class="bg-bleur"></div>
+        <header class="container page-header">
+            <h1>{{ 'oktothek.tag_pager_series_header'|trans({'%tag%': tag}) }}</h1>
+            {% include "AppBundle:Default:_share.html.twig" with {'show_button': true} %}
+        </header>
+        </div>
+    <section class="container">
+        <div class="row navigation pager-row">
+            {{ knp_pagination_render(seriess) }}
+        </div>
+        <div>
+            {% for series in seriess %}
+                {% include "AppBundle:Default:Series/SeriesThumb.html.twig" %}
+            {% endfor %}
+        </div>
+        <div class="row navigation">
+            {{ knp_pagination_render(seriess) }}
+        </div>
+    </section>
+</main>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
