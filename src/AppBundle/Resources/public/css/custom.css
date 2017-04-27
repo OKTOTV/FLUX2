@@ -336,7 +336,17 @@ a.pull-left.more,
 .tagpage .pages > .list-group-item > a:focus {
 	text-decoration:none;
 }
-body.episode .description a {
+body.episode .description a,
+.active .color1.pin a:focus h3,
+.active .color2.pin a:focus h3,
+.active .color3.pin a:focus h3,
+.active .color4.pin a:focus h3,
+.active .color5.pin a:focus h3,
+.active .color1.pin a:focus p,
+.active .color2.pin a:focus p,
+.active .color3.pin a:focus p,
+.active .color4.pin a:focus p,
+.active .color5.pin a:focus p {
     text-decoration: underline;
 }
 a, 
@@ -843,6 +853,16 @@ a .pin-icon,
 a.list-group-item-danger, 
 button.list-group-item-danger, 
 #playlist_items a h3, 
+.active .color1.pin a:hover h3,
+.active .color2.pin a:hover h3,
+.active .color3.pin a:hover h3,
+.active .color4.pin a:hover h3,
+.active .color5.pin a:hover h3,
+.active .color1.pin a:hover p,
+.active .color2.pin a:hover p,
+.active .color3.pin a:hover p,
+.active .color4.pin a:hover p,
+.active .color5.pin a:hover p,
 .blog p,
 .btn.transparent:hover, 
 .btn.transparent:focus,
