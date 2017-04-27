@@ -46,4 +46,20 @@ class CoursetypeRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function findActiveCoursetype($coursetype)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT c,i FROM AppBundle:Course\Coursetype c
+                LEFT JOIN c.image i
+                WHERE c.is_active = true
+                AND (
+                    c.slug = :coursetype OR
+                    c.id = :coursetype
+                )'
+            )->setParameter('coursetype', $coursetype);
+
+        return $query->getOneOrNullResult();
+    }
 }

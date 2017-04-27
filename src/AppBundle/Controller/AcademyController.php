@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use AppBundle\Entity\Course\Coursetype;
 use AppBundle\Entity\Course\Course;
 use AppBundle\Form\Course\AttendeeType;
@@ -39,9 +40,15 @@ class AcademyController extends Controller
      * @Route("/{coursetype}", name="oktothek_academy_coursetype")
      * @Template()
      */
-    public function showCoursetypeAction(Coursetype $coursetype)
+    public function showCoursetypeAction($coursetype)
     {
-        return ['coursetype' => $coursetype];
+        $em = $this->getDoctrine()->getManager();
+        $coursetype = $em->getRepository('AppBundle:Course\Coursetype')
+            ->findActiveCoursetype($coursetype);
+        if ($coursetype) {
+            return ['coursetype' => $coursetype];
+        }
+        throw $this->createNotFoundException();
     }
 
     /**
