@@ -8,7 +8,7 @@
 {% set body_class = "tagpage fullscreen-background" %}
 {%- block body -%}
     <div id="top"></div>
-    <div class="container-fluid">
+    <main class="container-fluid">
         <div class="bg-bleur"></div>
         <header class="page-header">
             <h1>{{ 'oktothek_tag_header'|trans({'%title%': tag.text})}}</h1>
@@ -22,8 +22,11 @@
                     <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
                     {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': tag.episodes} %}
                     {% if episodes|length > 5 %}
-                        <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more">
-                            {{ 'oktothek_tag_more_results'|trans|raw }}
+                        <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">
+                            {{ 'oktothek_tag_more_results'|trans|raw }} <span class="icon small-arrow-right"></span>
+                        </a>
+                        <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">
+                            {{ 'oktothek_tag_more_results'|trans|raw }} <span class="icon small-arrow-right"></span>
                         </a>
                     {% endif %}
                 </section>
@@ -34,8 +37,11 @@
                     <h2>{{ 'oktothek_tag_series_header'|trans }}</h2>
                     {% include "AppBundle::Tag/seriesTag.html.twig" with {'seriess': seriess} %}
                     {% if seriess|length > 5 %}
-                        <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="pull-right more">
-                            {{ 'oktothek_tag_more_results'|trans|raw }}
+                        <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">
+                            {{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
+                        </a>
+                        <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">
+                            {{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
                         </a>
                     {% endif %}
                 </section>
@@ -46,8 +52,11 @@
                     <h2>{{ 'oktothek_tag_playlists_header'|trans }}</h2>
                     {% include "AppBundle::Tag/playlistTag.html.twig" with {'playlists': playlists} %}
                     {% if seriess|length > 5 %}
-                        <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more">
-                            {{ 'oktothek_tag_more_results'|trans|raw }}
+                        <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">
+                            {{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
+                        </a>
+                        <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">
+                            {{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
                         </a>
                     {% endif %}
                 </section>
@@ -58,7 +67,8 @@
                     <h2>{{ 'oktothek_tag_posts_header'|trans }}</h2>
                     {% include "AppBundle::Tag/postsTag.html.twig" with {'posts': tag.posts} %}
                     {% if posts|length > 3 %}
-                        <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                        <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
+                        <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
                     {% endif %}
                 </section>
             {% endif %}
@@ -68,12 +78,13 @@
                     <h2>{{ 'oktothek_tag_pages_header'|trans }}</h2>
                     {% include "AppBundle::Tag/pagesTag.html.twig" with {'pages': tag.pages} %}
                     {% if pages|length > 6 %}
-                        <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more">{{ 'oktothek_tag_more_results'|trans|raw }}</a>
+                        <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
+                        <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
                     {% endif %}
                 </section>
         {% endif %}
         </div>
-    </div>
+    </main>
 {%- endblock -%}
 {% block javascripts %}
     {{ parent() }}

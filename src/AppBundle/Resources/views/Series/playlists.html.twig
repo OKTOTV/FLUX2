@@ -5,30 +5,40 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "head-white-color" %}
+{% set body_class = "clip_overview" %}
 {% block body_main %}
-<div class="page-header">
-    <h1><a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}">{{ series }}</a></h1>
-    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+<main>
+    <header class="page-header">
+        <h1><a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}">{{ series }}</a></h1>
+    </header>
+    <section class="container">
+        <div class="row pager-row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         {{ 'oktothek.series_playlists_filter'|trans|raw }}
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="filter_menu">
-        <li {% if playlists.isSorted('p.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.series_playlists_name_filter'|trans, 'p.name') }}</li>
-        <li {% if playlists.isSorted('p.createdAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.series_playlists_createdAt_filter'|trans, 'p.createdAt') }}</li>
-      </ul>
-    </div>
-</div>
-    <div class="navigation">
-        {{ knp_pagination_render(playlists) }}
-    </div>
-    <div class="row">
-    {% for playlist in playlists %}
-        {% include 'AppBundle:Playlist:_thumb.html.twig' %}
-    {% endfor %}
-    </div>
-    <div class="navigation">
-        {{ knp_pagination_render(playlists) }}
-    </div>
-
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                        <li {% if playlists.isSorted('p.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.series_playlists_name_filter'|trans, 'p.name') }}</li>
+                        <li {% if playlists.isSorted('p.createdAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(playlists, 'oktothek.series_playlists_createdAt_filter'|trans, 'p.createdAt') }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-6 col-lg-6">
+                <div class="navigation">
+                    {{ knp_pagination_render(playlists) }}
+                </div>
+            </div>
+            <h2 class="sr-only">Episoden</h2>
+            <ul class="row">
+            {% for playlist in playlists %}
+                {% include 'AppBundle:Playlist:_thumb.html.twig' %}
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(playlists) }}
+        </div>
+    </section>
+</main>
 {% endblock %}

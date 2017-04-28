@@ -116,7 +116,11 @@
                 number = $('#playlist_items > .row').length + 1;
                 form = form.replace(/__name__/g, number);
                 form = form.replace(/__thumb__/g, suggestion.thumb);
-                form = form.replace(/__header__/g, suggestion.name);
+                if (suggestion.name == null) {
+                    form = form.replace(/__header__/g, "");
+                } else {
+                    form = form.replace(/__header__/g, suggestion.name);
+                }
                 form = form.replace(/__desc__/g, suggestion.desc);
                 form = $(form);
                 form.find(':input[type="text"]').val(suggestion.uniqID);
@@ -145,7 +149,10 @@
                         '</div>'
                     ].join('\n'),
                     suggestion: function(data) {
-                        return '<div class="row"><div class="col-md-3"><img src="'+data.thumb+'" /></div><div class="col-md-9"><p>'+data.name+'</p></div></div>';
+                        if (data.name == null) {
+                            data.name = ""
+                        }
+                        return '<div class="row"><div class="col-md-3"><img src="'+data.thumb+'" /></div><div class="col-md-9"><p>'+data.series+'<br />'+data.name+'</p></div></div>';
                     }
                 }
             }).bind('typeahead:select', function(ev, suggestion) {

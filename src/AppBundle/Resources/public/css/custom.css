@@ -117,16 +117,17 @@ div.list-group.tags span.label.label-default.remove::before {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, .h2, .livestream header h1 time, .series.blog h1 {
+h1, .oktothek h2#button_down, .livestream header h1 time, .series.blog h1 {
 	font-size:35px;
 	letter-spacing:0.5px;
 }
-#anchor-menu .panel-title .glyphicon, 
+h2, .h2, #anchor-menu .panel-title .glyphicon, 
 .btn-top .glyphicon {
 	font-size:30px;
 }
 .carousel-caption h3, 
 .pull-right .icon, 
+.more.right .icon, 
 .pull-left .icon, 
 .series h1, 
 .playlists h1,
@@ -219,7 +220,7 @@ footer h3,
 .comments .comment-answer, 
 #episode-tag, 
 .infos h3, 
-.blog time, 
+.blog .time, 
 .academy .pin .preview-content a, 
 .preview p.misc, 
 a.more, 
@@ -335,6 +336,9 @@ a.pull-left.more,
 .tagpage .pages > .list-group-item > a:focus {
 	text-decoration:none;
 }
+body.episode .description a {
+    text-decoration: underline;
+}
 a, 
 a:hover, 
 a:active, 
@@ -365,6 +369,10 @@ select:active:focus {
 	    font-family: HelveticaNeueLTStd-Roman, Helvetica, sans-serif;
 	    font-weight: normal;
 	    font-style: normal;
+    }
+    h2, .h2 {
+	    font-size:35px;
+	    letter-spacing:0.5px;
     }
 	header .form-control::-moz-placeholder {
   		font-size:16px;
@@ -660,7 +668,7 @@ header .icon.icon-transmitter {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-header .icon.icon-transmitter-active {
+header .icon.icon-transmitter-active, header a:hover .icon.icon-transmitter, header a:focus .icon.icon-transmitter {
 	background-image:url(../images/icon_transmitter_active.png);
     background-image: url("../images/icon_transmitter_active.svg"), none;
 	background-repeat:no-repeat;
@@ -693,7 +701,9 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	header .navbar-inverse .navbar-nav > a:hover, 
 	header .navbar-inverse .navbar-nav > li > a, 
 	header .navbar-inverse .navbar-nav > li > a:hover, 
-	header .navbar-inverse .navbar-nav > li > a:focus {
+	header .navbar-inverse .navbar-nav > li > a:focus,
+    header #search-container #form_submit.btn:focus,
+    header #search-container #form_submit.btn:active {
 		color: #ffffff;
 	}
 	.dropdown-menu > li, 
@@ -724,8 +734,7 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	    background-repeat:repeat-x;
 	    background-position:left top;
     }
-	.navbar-inverse .navbar-nav > .active > a, 
-    .navbar-inverse .navbar-nav > .active > a:focus {
+	.navbar-inverse .navbar-nav > .active > a {
 		background-image:url(../images/menu-border.png);
 	    background-repeat:repeat-x;
 	    background-position:left top;
@@ -734,18 +743,19 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	    background-image:url(../images/speachbubble_small.png);
         background-repeat:no-repeat;
     }
-	header .navbar-collapse .navbar-nav.themes/*, .navbar-inverse .navbar-nav.navbar-right > li > a:hover, .navbar-inverse .navbar-nav.navbar-right > .active > a, .navbar-inverse .navbar-nav.navbar-right > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus*/ {
+	header .navbar-collapse .navbar-nav.themes, 
+    .navbar-inverse .navbar-nav > .active > a:focus {
 		background-image:none;
 	}
 	header .navbar-inverse .navbar-nav > li > a:hover, 
     header .navbar-inverse .navbar-nav > li > a:focus, 
+    .navbar-inverse .navbar-nav > .active > a:focus,
 	header .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link,
     header .navbar-inverse .navbar-nav.navbar-right > li > a:focus span.link {
 		border-top:solid #ffffff 1px;
 	}
 	/* Border */
 	header .navbar-inverse .navbar-nav > .active > a, 
-	header .navbar-inverse .navbar-nav > .active > a:focus, 
 	header .navbar-inverse .navbar-nav > .active > a:hover, 
 	header .navbar-inverse .navbar-nav.navbar-right > li > a:hover,
     header .navbar-inverse .navbar-nav.navbar-right > li > a:focus,
@@ -755,8 +765,8 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	header #mainmenu-container {
 		border-bottom:none;
 	}
-	
-	.navbar-inverse .navbar-nav > li > a:focus {
+	.navbar-inverse .navbar-nav > li > a:focus, header #search-container #form_submit.btn:focus,
+    header #search-container #form_submit.btn:active {
         outline: none;
 	}
 }
@@ -857,10 +867,9 @@ body.producer ul.list-group .pin a h3,
 a.tag:hover,
 a.tag:focus,
 .alert-success,
+.alert-dismissible .close,
 button.input-group-addon:hover,
 button.input-group-addon:focus,
-.container.tags a:hover,
-.container.tags a:focus,
 .post a.tag:hover,
 .post a.tag:focus,
 .blog aside a.more {
@@ -915,7 +924,7 @@ body.tagpage .pages .list-group-item a { /* Hellgrau */
 a.tag, 
 .post a.tag,
 .comments .comment-answer a, 
-.blog time { /*Helltürkis*/
+.blog .time { /*Helltürkis*/
 	color:#c0fefd;
 }
 /* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -935,6 +944,8 @@ a.tag,
 a.list-group-item, 
 .oktothek article a.btn-default:hover, 
 .oktothek article a.btn-default:focus, 
+li.more a:hover, 
+li.more a.btn-default:focus, 
 .participart-list a:hover,
 .participart-list a:focus,
 button.list-group-item,
@@ -960,6 +971,8 @@ a.more,
 .pin a:hover figcaption p, 
 .blog aside a.more:hover,
 .blog aside a.more:focus,
+.container.tags a:hover,
+.container.tags a:focus,
 body.livestream .schedule li a:hover h4,
 body.livestream .schedule li a:focus h4,
 body.participate .close,
@@ -967,6 +980,7 @@ body.tagpage .pages .list-group-item a:hover,
 body.tagpage .pages .list-group-item a:focus /*Gelb*/ {
 	color: #fcce14;
 }
+.alert-danger,
 a.list-group-item-danger:focus, 
 button.list-group-item-danger:focus, 
 a.list-group-item-danger:hover, 
@@ -992,6 +1006,8 @@ body,
 select, 
 .oktothek article a.btn-default.but-full:hover, 
 .oktothek article a.btn-default.but-full:focus, 
+li.more figure.episode-pin a:hover, 
+li.more figure.episode-pin a:focus,
 .registry a.btn-default.but-full:hover, 
 .registry a.btn-default.but-full:focus, 
 body.tagpage .content-bg, 
@@ -1033,6 +1049,7 @@ article.pin figure.pin,
 li.pin figure.pin,
 body.oktothek .news article,
 body.tagpage .inc-pins article.pin figure,
+body.tagpage .inc-pins li.pin figure,
 article.pin figure.pin,
 li.pin figure.pin,
 body.tagpage article.first-pin,
@@ -1058,7 +1075,7 @@ body.newsarchiv aside .box,
 .nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover,
 section.tabs-content,
-body.tagpage article.empty .icon-player,
+body.tagpage li.empty .icon-player,
 .pagination > .disabled > a, 
 .pagination > .disabled > a:focus, 
 .pagination > .disabled > a:hover, 
@@ -1067,7 +1084,7 @@ body.tagpage article.empty .icon-player,
 .pagination > .disabled > span:hover,
 .pagination > li > a, 
 .pagination > li > span,
-.alert-success,
+.alert,
 [data-tooltip]::after,
 .oktothek .participart-list li figcaption span { /* Dunkelgrau */
 	background-color:#112022;
@@ -1084,6 +1101,10 @@ body.tagpage .inc-pins article.pin figure:hover,
 body.tagpage .inc-pins article.pin figure:focus,
 body.tagpage .inc-pins article.pin:hover figure,
 body.tagpage .inc-pins article.pin:focus figure,
+body.tagpage .inc-pins li.pin figure:hover,
+body.tagpage .inc-pins li.pin figure:focus,
+body.tagpage .inc-pins li.pin:hover figure,
+body.tagpage .inc-pins li.pin:focus figure,
 body.tagpage article.first-pin:hover,
 body.tagpage article.first-pin:focus,
 body.tagpage .pages > .list-group-item:hover,
@@ -1103,6 +1124,7 @@ article.pin figure.pin,
 li.pin figure.pin,
 body.oktothek .news article,
 body.tagpage .inc-pins article.pin figure,
+body.tagpage .inc-pins li.pin figure,
 article.pin figure.pin,
 li.pin figure.pin,
 body.tagpage article.first-pin,
@@ -1191,6 +1213,7 @@ body.tagpage header .misc .btn-default,
 .producer a.list-group-item:focus,
 .producer a.list-group-item:hover,
 body.tagpage .inc-pins article.pin.empty figure,
+body.tagpage .inc-pins li.pin.empty figure,
 button.btn-default#ButtonPlaylist:hover, 
 button.btn-default#ButtonPlaylist:focus, 
 button.btn-default#ButtonShare:hover,
@@ -1228,6 +1251,10 @@ div.list-group.tags span.label.label-default.remove {
 }
 a:hover.pull-right .icon, 
 a:hover.pull-left .icon, 
+a:focus.pull-right .icon, 
+a:focus.pull-left .icon, 
+a:hover .more.right .icon, 
+a:focus .more.right .icon,
 .collapseShare .btn-default, 
 .container-episode-tag,
 .livestream #nav-programm a:hover .icon,
@@ -1245,6 +1272,7 @@ a:hover.pull-left .icon,
 /* Spacelayout */
 .btn-primary, 
 .pull-right .icon, 
+.more.right .icon, 
 .pull-left .icon, 
 .btn-default, 
 .btn-default:hover, 
@@ -1342,7 +1370,7 @@ header.page-header,
 button.btn-default#ButtonPlaylist, 
 button.btn-default#ButtonShare,
 button.btn-default#ButtonShare_mobil,
-.alert-success,
+.alert,
 .caret,
 div.list-group.tags span.label.label-default.remove {
 	border:none;
@@ -1391,6 +1419,7 @@ div.list-group.tags span.label.label-default.remove {
 /* Spacelayout */
 .btn, 
 .pull-right .icon, 
+.more.right .icon, 
 .pull-left .icon, 
 header .misc .btn,
 header .collapseShare .btn,
@@ -1413,10 +1442,17 @@ body.tagpage .empty .icon-player,
 	-khtml-border-radius:25px;
 	border-radius: 25px;
 }
-.btn:focus, button.dropdown-toggle:focus {
+.btn:focus, 
+button.dropdown-toggle:focus, 
+.container.tags a:focus,
+a:focus.pull-right, 
+a:focus.pull-left {
     outline-offset: 2px;
 }
-button.dropdown-toggle:focus {
+button.dropdown-toggle:focus,
+.container.tags a:focus,
+a:focus.pull-right, 
+a:focus.pull-left {
     outline:dotted 1px #ffffff;
 }
 @media (min-width: 768px) {
@@ -1454,7 +1490,7 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
 	background-position:center center;
 	background-image:url(../images/icon_view.svg);
 }*/
-.small-arrow-right {
+a .small-arrow-right {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/small_arrow_right.png);
@@ -1463,6 +1499,10 @@ section, .participart article, .edit-playlists form fieldset, .newsarchiv articl
     -moz-background-size: 40% 40%;
     -o-background-size: 40% 40%;
 	background-size: 40% 40%;
+}
+a:hover .small-arrow-right, a:focus .small-arrow-right {
+	background-image:url(../images/small_arrow_right_active.png);
+    background-image:url(../images/small_arrow_right_active.svg), none;
 }
 .caret {
     background-repeat:no-repeat;
@@ -1695,6 +1735,14 @@ body.playlists section:first-child,
 	border-radius:20px;
 	border-width:0;
 }
+
+/* Effects */
+a, button, .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
+    -webkit-transition: all 0.2s; /* Safari */
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
 .bg-opacity {
     opacity: 0.7;       /* modern browser */
     -moz-opacity: 0.7;  /* older Mozilla browser */
@@ -1827,6 +1875,12 @@ footer .networks {
 	background-position:center center;
 	background-image:url(../images/icon_top_arrow.png);
     background-image: url("../images/icon_top_arrow.svg"), none;
+}
+.btn-top:hover .icon-top, .btn-top:focus .icon-top {
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-image:url(../images/icon_top_arrow_hover.png);
+    background-image: url("../images/icon_top_arrow_hover.svg"), none;
 }
 
 footer section {
@@ -1996,6 +2050,9 @@ header .search-tagnav-container {
 header .search-tagnav-position  {
 	margin:0;
 }
+header .search-tagnav-position li a::before, header ul.themes li a::before {
+    content:'#';
+}
 header .search-tagnav-position .navbar-form {
 	margin-top:-1px;
 }
@@ -2162,10 +2219,10 @@ html, body {
 }
 
 /* Listen */
-footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li  {
+footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc ul, body.episode ul.misc li  {
 	list-style:none;
 }
-footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li {
+footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc, body.episode ul.misc li {
 	margin-left:0;
 	padding-left:0;
 }
@@ -2398,6 +2455,7 @@ footer .open .dropdown-menu {
 @media (min-width: 768px) {
     .dropdown-menu {
 		padding:0;
+        margin-top:-2px;
 	}
     header .navbar-nav .dropdown-menu {
 		padding:15px 0 0 0;
@@ -2621,6 +2679,20 @@ figcaption  {
         padding-right:15px;
     }
 }
+@media (min-width: 768px) {
+    /* Ränder Korrekturen */
+    .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row, .clip_overview .row, .series-playlists .row {
+        margin-right:-5px;
+        margin-left:-5px;
+    }
+    .episode-description .row {
+        margin-right:0px;
+        margin-left:0px;
+    }
+    .series .blog {
+        padding-left:25px;
+    }
+}
 @media (min-width: 992px) {
 	article.pin,
     li.pin {
@@ -2648,7 +2720,7 @@ figcaption  {
 	margin-bottom:20px;
 }
 .comment {
-	margin-bottom:40px;
+	margin-bottom:30px;
 }
 .answer-text {
 	padding-left:0px;
@@ -2707,7 +2779,7 @@ figcaption  {
     .comment-pager .row {
         margin-left:0;
     }
-    .comment time {
+    .comment time, .comment .time { /* .comment time Löschen wenn ausgebessert */
         line-height: normal;
     }
     .avatar-container {
@@ -2794,8 +2866,18 @@ div.list-group.tags span.label.label-default.remove::before {
     }
 }
 
+/* Player */
+.player_container {
+    margin-bottom: 30px;
+}
+@media (min-width: 768px) {
+    .player_container {
+        margin-bottom: 50px;
+    }
+}
+
 /* Zeiformatierungen */
-.episode time, .playlists time {
+.episode .time, .playlists time {
 	margin-bottom:30px;
 }
 .timetable .btn {
@@ -2803,7 +2885,7 @@ div.list-group.tags span.label.label-default.remove::before {
 	padding:1px 8px;
 }
 @media (min-width: 768px) {
-    .episode time, .playlists time {
+    .episode .time, .playlists time {
 	    margin-bottom:50px;
     }
 }
@@ -2829,6 +2911,10 @@ body.episode .series, body.playlists .series {
 .icon {
 	display:inline-block;
 }
+a.more.right {
+    text-align: center;
+    margin-bottom: 40px;
+}
 .container-episode-tag .caret {
 	position:absolute;
 	right:8px;
@@ -2845,15 +2931,17 @@ body.episode .series, body.playlists .series {
 	height:40px;
 	width:40px;
 }
-.news a.pull-right {
+.news a.pull-right, .news a.right {
 	margin-top:30px;
+}
+.news a.pull-right {
 	margin-right:15px;
 }
 .series.blog header.page-header .pull-left .icon {
     line-height: 36px;
     vertical-align: middle;
 }
-.pull-right .icon, .pull-left .icon {
+.pull-right .icon, .pull-left .icon, .more.right .icon {
 	width:38px;
 	height:38px;
 	text-align:center;
@@ -2957,7 +3045,7 @@ footer .partner {
 	text-align:center;
 }
 footer .partner li {
- padding:20px 5px;
+    padding:5px 5px;
 }
 footer section {
 	padding-top:40px;
@@ -2982,10 +3070,20 @@ footer nav ul {
 footer nav ul li {
 	vertical-align:middle;
 }
-footer .nav > li, footer .nav > li > a, footer .partner li {
+footer .nav > li, footer .nav > li > a {
 	display:block;
 }
-footer .nav > li, footer .partner li {
+footer .partner li {
+    width:50%;
+    float:left;
+    text-align: center;
+}
+
+footer .partner li object {
+    max-width: 80%;
+    height: auto;
+}
+footer .nav > li {
 	width:auto;
 }
 footer .nav > li.languages a  {
@@ -3067,12 +3165,15 @@ footer .networks {
 	padding-bottom:5px;
 }*/
 @media (min-width: 420px) {
-    footer .nav > li, footer .partner li {
+    footer .nav > li {
 	    width:50%;
         float:left;
     }
-    footer .partner {
+    footer .partner li {
 	    text-align:left;
+    }
+    footer .partner li {
+        padding:20px 5px;
     }
     footer .nav > li:nth-child(2n+1), footer .partner > li:nth-child(2n+1) {
         clear:left;

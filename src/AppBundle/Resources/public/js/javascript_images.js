@@ -81,12 +81,12 @@ $(document).ready(function(){
 	}
 	
 	function resizeImageMobile(el, container, _ratio) {
-		_parentContainer = $(container).find('figure').parent('div');
+		_parentContainer = $(container).find('article').parent('div');
         $('#carousel').css('width', '100%').css('margin-left','0px');
         $('.carousel-control.right').css('right','0px').css('left','auto');
         $('.carousel-control.left').css('left','0px').css('right','auto');
 		if (_parentContainer.css('height') != "auto")
-			$(container).find('figure').parent('div').css('height','auto');
+			$(container).find('article').parent('div').css('height','auto');
 		el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
 	}
 
@@ -192,10 +192,10 @@ $(document).ready(function(){
 	});
 	
 	function showButtonDown() {
-	      if($(document).scrollTop() <= headerScrollheight) {
+	      if(($(document).scrollTop() <= headerScrollheight) && (Winwidth >= 768)) {
 			  //Downbutton erscheinen lassen
 			  $('.fullscreen-images #button_down span').css('display','inline');
-	      } else if ($(document).scrollTop() > headerScrollheight) {
+	      } else if (($(document).scrollTop() > headerScrollheight) && (Winwidth >= 768)) {
 			  //Downbutton ausblenden
 			  $('.fullscreen-images #button_down span').css('display','none');
 		   }
@@ -210,19 +210,39 @@ $(document).ready(function(){
     /* Oktothek Mitmachbereich */
     if ($('body').hasClass('oktothek')) {
         var el;
-        $('.oktothek .participart-list li figure').mouseover(function() {
-            el = $(this).attr('data-target');
+        function showDivtext(cel) {
+            el = $(cel).attr('data-target');
             if ($(el).is( ":hidden" )) {
                 $('.oktothek .participart .shorttext li:visible').slideUp( 400 );
                 $(el).addClass('active');
                 $(el).slideDown( 400 );
             }
-        })
-        $('.oktothek .participart-list li figure').mouseleave(function() {
+        }
+        function hideDivtext(cel) {
             el = $(this).attr('data-target');
             $('.oktothek .participart .shorttext li:visible')
                 .removeClass('active')
                 .slideUp( 400 );
+        }
+        $('.oktothek .participart-list li figure').mouseover(function() {
+            if (Winwidth >= 768 && Winheight >600) {
+                showDivtext(this);
+            }
+        })
+        $('.oktothek .participart-list li figure').focusin(function() {
+            if (Winwidth >= 768 && Winheight >600) {
+                showDivtext(this);
+            }
+        })
+        $('.oktothek .participart-list li figure').mouseleave(function() {
+            if (Winwidth >= 768 && Winheight >600) {
+                hideDivtext(this);
+            }
+        })
+        $('.oktothek .participart-list li figure').focusout(function() {
+            if (Winwidth >= 768 && Winheight >600) {
+                hideDivtext(this);
+            }
         })
     }
     
@@ -410,8 +430,8 @@ $(document).ready(function(){
 		var speed = 'fast';
 	}
 	
-	$('.description-overlay .description-wrapper a.more').click(function(){
-		
+	$('.description-overlay .description-wrapper a.more').click(function( event ){
+		event.preventDefault();
 		if (layer === false) {    //Fenster wird geöffnet
 			origHeight = $('.description-overlay .description-wrapper').height() + 10;
             if ($('body').hasClass('playlists')) 

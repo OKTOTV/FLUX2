@@ -13,7 +13,7 @@
                 </figcaption>
             </figure>
         </article>
-        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 small-pins">
+        <ul class="col-md-6 col-lg-6 col-sm-12 col-xs-12 small-pins">
     {% else %}
         {% include "AppBundle:Episode:EpisodeThumb.html.twig" %}
     {% endif %}
@@ -22,5 +22,5 @@
 {% for i in 0..numberOfEpisodes if i > 0 %}
     <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></article>
 {% endfor %}
-    </div>
+    </ul>
 </div>

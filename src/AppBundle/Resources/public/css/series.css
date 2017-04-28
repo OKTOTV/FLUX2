@@ -44,7 +44,7 @@ body.series .series-posterframe > div {
 }
 .series-posterframe .pull-right {
     display: inline-block;
-    padding-right:10px;
+    margin-right:10px;
 }
 @media (min-width: 768px) {
     .series figure.series-posterframe {

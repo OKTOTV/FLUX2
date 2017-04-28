@@ -101,7 +101,7 @@ section.fs-image-content + section header.page-header  {
 	margin-top:0;
 }
 section.bg-fullscreen h2, section.fs-image-content + section header.page-header  {
-	padding-top:20px;
+	padding-top:40px;
 }
 .carousel-caption, .description-overlay .description-wrapper {
 	padding-top:10px;
@@ -181,6 +181,9 @@ body.playlists .fs-image-misc-mobile {
 .description-wrapper a.more {
 	cursor:pointer;
 }
+.participant-arrow-down {
+    display: none;
+}
 @media (min-width: 401px) {
 	.description-overlay .description-wrapper .more {
 		text-align:left;
@@ -209,6 +212,9 @@ body.playlists .fs-image-misc-mobile {
 	}
     .description-overlay .description-wrapper .more {
         padding-bottom:0;
+    }
+    .participant-arrow-down {
+        display: inline;
     }
 }
 @media (min-width: 768px) and (max-height: 600px) {

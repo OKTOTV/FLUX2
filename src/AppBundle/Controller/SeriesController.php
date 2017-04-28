@@ -43,7 +43,7 @@ class SeriesController extends Controller
     }
 
     /**
-     * @Route("/{uniqID}", name="oktothek_show_series")
+     * @Route("/{uniqID}.{_format}", name="oktothek_show_series", defaults={"_format": "html"})
      * @Method("GET")
      * @Template()
      */

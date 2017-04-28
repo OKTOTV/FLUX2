@@ -21,7 +21,7 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 class SearchController extends Controller
 {
     /**
-     * @Route("/", name="oktothek_search")
+     * @Route(".{_format}", name="oktothek_search", defaults={"_format": "html"})
      * @Method({"GET", "POST"})
      * @Template()
      */
@@ -77,6 +77,7 @@ class SearchController extends Controller
             $data[] = [
                 'uniqID' => $episode->getUniqID(),
                 'name' => $episode->getName(),
+                'series' => $episode->getSeries()->getName(),
                 'thumb' => $assetHelper->getThumbnail($episode->getPosterframe(true), 135, 240),
                 'desc' => $episode->getDescription()
             ];

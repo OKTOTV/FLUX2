@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use AppBundle\Entity\Series;
+use AppBundle\Entity\Episode;
 
 /**
  * Episode controller.
@@ -17,6 +17,37 @@ use AppBundle\Entity\Series;
  */
 class EpisodeController extends Controller
 {
+
+    /**
+     * @Route("/episode/{uniqID}.{_format}", name="oktothek_show_episode", defaults={"_format": "html"})
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction(Request $request, Episode $episode)
+    {
+        if (!$episode->canBeOnline()) {
+            throw new NotFoundHttpException();
+        }
+        $this->get('bprs_analytics')->trackInfo($request, $episode->getUniqID());
+        $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
+        return ['episode' => $episode, 'next' => $next];
+    }
+
+    /**
+     * @Route("/episode_player/{uniqID}.{_format}", name="oktothek_show_episode_player", defaults={"_format": "html"})
+     * @Method("GET")
+     * @Template()
+     */
+    public function playerAction(Request $request, Episode $episode)
+    {
+        if (!$episode->canBeOnline()) {
+            throw new NotFoundHttpException();
+        }
+        $this->get('bprs_analytics')->trackInfo($request, $episode->getUniqID());
+        $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
+        return ['episode' => $episode, 'next' => $next];
+    }
+
     /**
      * @Route(
      *    "/best_episodes.{_format}",

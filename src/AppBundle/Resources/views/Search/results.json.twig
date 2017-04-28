@@ -1,0 +1,12 @@
+[
+    {% for episode in episodes %}
+        {
+            "uniqID": "{{ episode.uniqID }}",
+            "name":   "{{ episode.name }}",
+            "series_name": "{{ episode.series.name }}",
+            "description": "{{ episode.description }}",
+            "posterframe": "{{ episode.posterframe(true)|thumb(720,1280) }}"
+        },
+        {% if not loop.last %},{% endif %}
+    {% endfor %}
+]

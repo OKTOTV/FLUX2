@@ -27,44 +27,46 @@
 {% set body_class = "episode" %}
 {% block body %}
     <div id="top"></div>
-    <div class="container-fluid">
+    <main class="container-fluid">
         <section class="container">
-            <figure id="player">
-                {% if episode.video is empty %}
-                    {# <img src="{{ episode.posterframe|path }}" class="img-responsive" /> #}
-                    <img src="{{ asset('bundles/app/images/player/sad_panda.jpg') }}" class="img-responsive center-block" />
-                {% endif %}
-            </figure>
+            <div class="player_container">
+                <figure id="player">
+                    {% if episode.video is empty %}
+                        {# <img src="{{ episode.posterframe|path }}" class="img-responsive" /> #}
+                        <img src="{{ asset('bundles/app/images/player/sad_panda.jpg') }}" class="img-responsive center-block" />
+                    {% endif %}
+                </figure>
+            </div>
             <article>
                 <p class="series">
                     <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name }}">{{ episode.series.name }}</a>
                 </p>
                 <h1 class="name">{{ episode.name }}</h1>
-                <time pubdate="pubdate" datetime="{{ episode.onlineStart|date('d.m.Y')}}">online seit {{ episode.onlineStart|date('D, d.m.Y')}}</time>
+                <div class="time">online seit {{ episode.onlineStart|date('D, d.m.Y')}}</div>
                 <p class="description">
                     {{ episode.description|converturls|nl2br }}
                 </p>
-                <p class="misc">
+                <ul class="misc">
                     {% if app.user is empty %}
-                        <span class="glyphicon glyphicon-heart"></span> {{ episode.users|length}}
+                        <li class="favorite-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length}}</li>
                     {% else %}
                         {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a>
+                            <li><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a></li>
                         {% endif %}
-                        <button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> {{ episode.users|length}}</button>
+                        <li class="favorite-icon"><button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> {{ episode.users|length}}</button></li>
                         {% set in_abo = false %}
                         {% for abonnement in app.user.abonnements if abonnement.series.uniqID == episode.series.uniqID %}
                             {% set in_abo = true %}
                         {% endfor %}
                         {% if in_abo %}
-                            <button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
+                            <li><button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button></li>
                         {% else %}
-                            <button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+                            <li><button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button></li>
                         {% endif %}
-                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen"><span class="hidden-xs">Hinzufügen</span><span class="visible-xs-inline glyphicon glyphicon-plus"></span></button>
+                        <li><button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen"><span class="hidden-xs">Hinzufügen</span><span class="visible-xs-inline glyphicon glyphicon-plus"></span></button></li>
                     {% endif %}
-                    <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen"><span class="hidden-xs">Teilen</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
-                </p>
+                    <li><button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen"><span class="hidden-xs">Teilen</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button></li>
+                </ul>
                 <!-- Start Collapse Share-->
                 {% include 'AppBundle:Oktothek:snippetEpisodeShare.html.twig' with {'episode': episode} %}
                 <!-- End Modal Window Share-->
@@ -95,7 +97,7 @@
         <div id="anchor_series"></div>
         {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': episode.series.uniqID})) }}
         <!-- Weitere Episoden der Serie Ende -->
-    </div>
+    </main>
 {% endblock %}
 
 {% block javascripts %}
