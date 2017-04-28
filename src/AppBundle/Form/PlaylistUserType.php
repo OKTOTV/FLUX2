@@ -19,7 +19,14 @@ class PlaylistUserType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'oktothek.playlist_name_label'])
-            ->add('description', TextareaType::class, ['label' => 'oktothek.playlist_description_label'])
+            ->add(
+                'description',
+                TextareaType::class,
+                [
+                    'label' => 'oktothek.playlist_description_label',
+                    'required' => false
+                ]
+            )
             ->add('items', CollectionType::class, [
                 'entry_type' => PlaylistItemType::class,
                 'allow_add'  => true,
