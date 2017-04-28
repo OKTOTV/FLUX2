@@ -19,22 +19,6 @@ use AppBundle\Entity\Playlist;
  */
 class OktothekController extends Controller
 {
-
-    /**
-     * @Route("/episode/{uniqID}.{_format}", name="oktothek_show_episode", defaults={"_format": "html"})
-     * @Method("GET")
-     * @Template()
-     */
-    public function showEpisodeAction(Request $request, Episode $episode)
-    {
-        if (!$episode->canBeOnline()) {
-            throw new NotFoundHttpException();
-        }
-        $this->get('bprs_analytics')->trackInfo($request, $episode->getUniqID());
-        $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
-        return ['episode' => $episode, 'next' => $next];
-    }
-
     /**
      * @Route("/episode/{uniqID}/related.{_format}", name="oktothek_show_similar_episode", defaults={"_format": "json"})
      * @Method("GET")
