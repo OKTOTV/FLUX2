@@ -237,7 +237,7 @@ oktothek_comment_cP_answer:             "Auf Kommentar antworten"
 ## tag
 oktothek.tag_index_header:              Tags
 oktothek_tag_pages_header:              Seiten
-oktothek_tag_header:                    "# %title%"
+oktothek_tag_header:                    "%title%"
 oktothek_tag_episode_header:            Episoden
 oktothek_tag_series_header:             Sendereihen
 oktothek_tag_playlists_header:          Playlisten
