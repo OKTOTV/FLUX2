@@ -1,0 +1,12 @@
+[
+{% for show in current %}
+    {
+        "airdate": "{{ show.airdate|date('y-m-d H:i:s')}}",
+        "name":    "{{ show.name }}",
+        "description": "{{ show.description}}",
+        "series_name": "{{ show.series_name }}",
+        "uniqID":   "{{ show.uniqID }}"
+    }
+    {% if not loop.last%},{% endif %}
+{% endfor %}
+]

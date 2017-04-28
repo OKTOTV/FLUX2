@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -52,9 +53,18 @@ class TvController extends Controller
     * @Route("/current.{_format}", name="oktothek_tv_current_show", defaults={"_format": "html"})
     * @Template()
     */
-    public function currentAction()
+    public function currentAction($_format)
     {
         $current = $this->get('oktothek_tv')->getCurrent(false, 2);
-        return ['current' => $current];
+        switch ($_format) {
+            case 'html':
+                return ['current' => $current];
+            case 'json':
+                return new JsonResponse($current);
+            default:
+                $current = $this->get('oktothek_tv')->getCurrent(false, 2);
+                return ['current' => $current];
+        }
+
     }
 }

@@ -6,7 +6,7 @@
                 <label for="form_search" class="required sr-only">{{ 'oktothek.searchfield_label'|trans}}</label>
                 {{ form_widget(searchform.search) }}
             </div>
-            {{ form_row(searchform.search, {'attr': {'class': 'btn'}}) }}
+            {{ form_row(searchform.search_submit, {'attr': {'class': 'btn'}}) }}
         </div>
         <div class="dropdown hidden-xs" role="navigation">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuTags" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{ 'oktothek.menu_tag_dropdown'|trans|raw}}</span>
