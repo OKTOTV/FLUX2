@@ -29,8 +29,6 @@ $(document).ready(function(){
             }
         }
     }
-    
-	
 	//Containerelement auf Windowgröße setzen
 	
 	
@@ -414,7 +412,7 @@ $(document).ready(function(){
 			paddingRight : _paddingRight,
 			paddingTop : _paddingTop
 		}, speed, function() {
-			$('figcaption .description').html(_String);
+			$('.description-wrapper .description').html(_String);
 	    });
 	}
 	
@@ -519,7 +517,7 @@ $(document).ready(function(){
 			//Scrollbalken
 			$('body').css('overflow','auto');
 			if ($('.description-overlay .description-wrapper').hasClass('details'))
-				    $('.description-overlay .description-wrapper').removeClass('details');
+				$('.description-overlay .description-wrapper').removeClass('details');
 			layer = false;
 		}
 		

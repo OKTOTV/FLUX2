@@ -226,6 +226,7 @@ footer h3,
 a.more, 
 a.less, 
 #playlist_items a p,
+body.edit-playlists .tt-menu,
 .post .misc a,
 body.producer ul.list-group .pin a p,
 .icon.participant-arrow-down,
@@ -333,10 +334,22 @@ a.pull-left.more,
 .blog aside a.more:hover,
 .blog aside a.more:focus,
 .tagpage .pages > .list-group-item > a:hover, 
-.tagpage .pages > .list-group-item > a:focus {
+.tagpage .pages > .list-group-item > a:focus,
+.edit-playlists #playlist_items a:hover,
+.edit-playlists #playlist_items a:focus {
 	text-decoration:none;
 }
-body.episode .description a {
+body.episode .description a,
+.active .color1.pin a:focus h3,
+.active .color2.pin a:focus h3,
+.active .color3.pin a:focus h3,
+.active .color4.pin a:focus h3,
+.active .color5.pin a:focus h3,
+.active .color1.pin a:focus p,
+.active .color2.pin a:focus p,
+.active .color3.pin a:focus p,
+.active .color4.pin a:focus p,
+.active .color5.pin a:focus p {
     text-decoration: underline;
 }
 a, 
@@ -843,6 +856,16 @@ a .pin-icon,
 a.list-group-item-danger, 
 button.list-group-item-danger, 
 #playlist_items a h3, 
+.active .color1.pin a:hover h3,
+.active .color2.pin a:hover h3,
+.active .color3.pin a:hover h3,
+.active .color4.pin a:hover h3,
+.active .color5.pin a:hover h3,
+.active .color1.pin a:hover p,
+.active .color2.pin a:hover p,
+.active .color3.pin a:hover p,
+.active .color4.pin a:hover p,
+.active .color5.pin a:hover p,
 .blog p,
 .btn.transparent:hover, 
 .btn.transparent:focus,
@@ -977,7 +1000,11 @@ body.livestream .schedule li a:hover h4,
 body.livestream .schedule li a:focus h4,
 body.participate .close,
 body.tagpage .pages .list-group-item a:hover,
-body.tagpage .pages .list-group-item a:focus /*Gelb*/ {
+body.tagpage .pages .list-group-item a:focus,
+.edit-playlists #playlist_items a:hover h3,
+.edit-playlists #playlist_items a:hover p,
+.edit-playlists #playlist_items a:focus h3,
+.edit-playlists #playlist_items a:focus p/*Gelb*/ {
 	color: #fcce14;
 }
 .alert-danger,
@@ -2219,10 +2246,10 @@ html, body {
 }
 
 /* Listen */
-footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc ul, body.episode ul.misc li  {
+footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc ul, body.episode ul.misc li, ul#playlist_items li, ul#playlist_items  {
 	list-style:none;
 }
-footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc, body.episode ul.misc li {
+footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc, body.episode ul.misc li, ul#playlist_items li, ul#playlist_items {
 	margin-left:0;
 	padding-left:0;
 }
@@ -2681,11 +2708,11 @@ figcaption  {
 }
 @media (min-width: 768px) {
     /* Ränder Korrekturen */
-    .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row, .clip_overview .row, .series-playlists .row {
+    .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row, .clip_overview .row, .series-playlists .row  {
         margin-right:-5px;
         margin-left:-5px;
     }
-    .episode-description .row {
+    .episode-description .row, .playlists .player-container.row, .playlists .description-container.row {
         margin-right:0px;
         margin-left:0px;
     }
