@@ -7,26 +7,27 @@
 
 {% set body_class = "" %}
 {% block body_main %}
-
-<header class="page-header">
-    <h1>{{ user.username }}</h1>
-</header>
-{% if playlists is not empty %}
+<main>
+    <header class="page-header">
+        <h1>{{ user.username }}</h1>
+    </header>
+    {% if playlists is not empty %}
     <section class="container">
         <h2>{{ 'oktothek_user_playlist_header'|trans }}</h2>
         {% include 'AppBundle:Default/Playlist:PlaylistStack.html.twig' with {'playlists': playlists, 'pager_url': path('oktothek_user_playlists', {'username': user.username})} %}
     </section>
-{% endif %}
-{% if favorites is not empty %}
+    {% endif %}
+    {% if favorites is not empty %}
     <section class="container">
         <h2>{{ 'oktothek_user_favorites_header'|trans }}</h2>
         {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': favorites, 'pager_url': path('oktothek_user_favorites', {'username': user.username})} %}
     </section>
-{% endif %}
-{% if channels is not empty %}
+    {% endif %}
+    {% if channels is not empty %}
     <section class="container">
         <h2>{{ 'oktothek_user_abonnements_header'|trans }}</h2>
         {% include 'AppBundle:User:channelStack.html.twig' with {'seriess': channels, 'pager_url': path('oktothek_user_channels', {'username': user.username})} %}
     </section>
-{% endif %}
+    {% endif %}
+</main>
 {% endblock %}
