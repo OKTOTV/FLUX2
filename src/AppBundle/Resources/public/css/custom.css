@@ -452,7 +452,7 @@ a[data-tooltip]::after
 }
 
 header input.form-control, 
-header #search-container #form_submit.btn, 
+header #search-container #form_search_submit.btn, 
 header button.search-button span.icon-close {
 	color: #818181;
 }
@@ -469,9 +469,9 @@ header .form-control::-webkit-input-placeholder {
 }
 header button.search-button:focus span.close-searchfield, 
 header button.search-button:hover span.icon-close, 
-header #search-container #form_submit.btn:hover, 
-header #search-container #form_submit.btn:focus, 
-header #search-container #form_submit.btn:active, 
+header #search-container #form_search_submit.btn:hover, 
+header #search-container #form_search_submit.btn:focus, 
+header #search-container #form_search_submit.btn:active, 
 header .navbar-inverse .navbar-toggle:hover, 
 header .navbar-inverse .navbar-toggle:focus, 
 .dropdown-menu > li > a:hover, 
@@ -715,8 +715,8 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	header .navbar-inverse .navbar-nav > li > a, 
 	header .navbar-inverse .navbar-nav > li > a:hover, 
 	header .navbar-inverse .navbar-nav > li > a:focus,
-    header #search-container #form_submit.btn:focus,
-    header #search-container #form_submit.btn:active {
+    header #search-container #form_search_submit.btn:focus,
+    header #search-container #form_search_submit.btn:active {
 		color: #ffffff;
 	}
 	.dropdown-menu > li, 
@@ -778,8 +778,8 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	header #mainmenu-container {
 		border-bottom:none;
 	}
-	.navbar-inverse .navbar-nav > li > a:focus, header #search-container #form_submit.btn:focus,
-    header #search-container #form_submit.btn:active {
+	.navbar-inverse .navbar-nav > li > a:focus, header #search-container #form_search_submit.btn:focus,
+    header #search-container #form_search_submit.btn:active {
         outline: none;
 	}
 }
