@@ -7,7 +7,6 @@
 
 {% set body_class = "" %}
 {% block body_main %}
-<main>
     <header class="page-header">
         <h1>{{ user.username }}</h1>
     </header>
@@ -29,5 +28,4 @@
         {% include 'AppBundle:User:channelStack.html.twig' with {'seriess': channels, 'pager_url': path('oktothek_user_channels', {'username': user.username})} %}
     </section>
     {% endif %}
-</main>
 {% endblock %}
