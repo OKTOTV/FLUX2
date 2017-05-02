@@ -17,11 +17,11 @@ class PostService
     public function deletePost($post)
     {
         $this->em->remove($post);
-        if (count($post->getAssets())) {
-            foreach($post->getAssets() as $asset) {
-                $this->asset_helper->deleteAsset($asset);
-            }
-        }
+        // if (count($post->getAssets())) {
+        //     foreach($post->getAssets() as $asset) {
+        //         $this->asset_helper->deleteAsset($asset);
+        //     }
+        // }
         $this->em->flush();
     }
 

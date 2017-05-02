@@ -40,7 +40,7 @@ services:
 
     oktothek_coursepackage:
         class: AppBundle\Model\CoursepackageService
-        arguments: [ "@form.factory", "@oktothek_academy" ]
+        arguments: [ "@form.factory", "@oktothek_academy", "@doctrine.orm.entity_manager" ]
 
     oktothek_tv:
         class: AppBundle\Model\TvService
@@ -141,6 +141,12 @@ services:
         arguments:  [ "@doctrine.orm.entity_manager" ]
         tags:
             - { name: kernel.event_listener, event: oktolab_media.delete_episode, method: onEpisodeDelete }
+
+    oktothek.series_listener:
+        class: AppBundle\Event\SeriesEventListener
+        arguments: [ "@doctrine.orm.entity_manager" ]
+        tags:
+            - { name: kernel.event_listener, event: oktolab_media.delete_series, method: preSeriesDelete }
 
     oktothek.asset_listener:
         class: AppBundle\Event\AssetEventListener

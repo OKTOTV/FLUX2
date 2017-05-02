@@ -40,7 +40,7 @@
                         <h3><a href="{{ path( 'oktothek_show_series_blogpost', {'slug': post.slug, 'uniqID': series.uniqID})}}">{{ post.name }}</a></h3>
                     </header>
                     <p>
-                        {{ post.teaser|nl2br }}
+                        {{ post.description|markdown }}
                     </p>
                     <p class="misc">
                         <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>

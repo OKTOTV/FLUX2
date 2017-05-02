@@ -1,13 +1,15 @@
 {% macro playlistitem_macro(prototype) %}
-<div class="row">
-    <div class="col-md-3 col-xs-3">
+<li class="row">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
         <img src="__thumb__" class="img img-responsive" />
     </div>
-    <div class="col-md-8 col-xs-7">
-        <h4>__header__</h4>
-        <p>__desc__</p>
+    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
+        <a href="#">
+            <h3>__header__</h3>
+            <p>__desc__</p>
+        </a>
     </div>
-    <div class="col-md-1 col-xs-2">
+    <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs">
         <div class="list-group">
             <a href="#" class="list-group-item list-group-item-danger remove"><span class="glyphicon glyphicon-remove"></span></a>
         </div>
@@ -18,5 +20,5 @@
     <div class="hidden">
         {{ form_widget(prototype)}}
     </div>
-</div>
+</li>
 {% endmacro %}
