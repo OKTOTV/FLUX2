@@ -29,7 +29,7 @@ oktothek.menu_user_playlists:           <span class="glyphicon glyphicon-play-ci
 oktothek.menu_user_channels:            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Abos
 oktothek.menu_user_favorites:           <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoriten
 oktothek.menu_my_channels:              <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Meine Sendereihen
-oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> Abmelden
+oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Abmelden
 oktothek.menu_user_notifications:       <span class="icon icon-transmitter-active"></span>
 oktothek.menu_user_notifications_empty: <span class="icon icon-transmitter"></span>
 oktothek.menu_user_no_notifications:    "Im Moment sind keine Benachrichtigungen vorhanden."
