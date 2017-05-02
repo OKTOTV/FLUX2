@@ -36,7 +36,7 @@ class AcademyService
             true
         );
         $Sofortueberweisung->setAbortUrl($this->router->generate('oktothek_academy',[], UrlGeneratorInterface::ABSOLUTE_URL));
-        $Sofortueberweisung->setReason('Testueberweisung');
+        $Sofortueberweisung->setReason($course->getCoursetype()->getTitle());
         if ($this->sofort->startTransaction($Sofortueberweisung)) {
             $attendee->setTransactionId($Sofortueberweisung->getTransactionId());
             $attendee->setPaymentStatus(AcademyService::ACADEMY_OPEN_TRANSACTION);

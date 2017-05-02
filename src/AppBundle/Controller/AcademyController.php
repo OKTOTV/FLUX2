@@ -32,8 +32,13 @@ class AcademyController extends Controller
         $em = $this->getDoctrine()->getManager();
         $coursetypes = $em->getRepository('AppBundle:Course\Coursetype')->findActiveCoursetypes();
         $highlights = $em->getRepository('AppBundle:Course\Coursetype')->findHighlightedCoursetypes();
+        $coursepackages = $em->getRepository('AppBundle:Course\Coursepackage')->findActiveCoursepackages();
 
-        return ['coursetypes' => $coursetypes, 'highlights' => $highlights];
+        return [
+            'coursetypes' => $coursetypes,
+            'highlights' => $highlights,
+            'coursepackages' => $coursepackages
+        ];
     }
 
     /**
@@ -131,7 +136,7 @@ class AcademyController extends Controller
 
     /**
      * @TODO add slug to coursepackage
-     * @Route("/coursepackage/{coursepackage}", name="oktothek_academy_show_coursepackage")
+     * @Route("/coursepackage/{slug}", name="oktothek_academy_show_coursepackage")
      * @Template()
      */
     public function showCoursepackageAction(Coursepackage $coursepackage)

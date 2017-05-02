@@ -40,10 +40,23 @@ class CoursepackageService
                 'choices' => $coursetype->getCourses()]);
         }
         if ($coursepackage->getPrice() <= 0) {
-            $form->add('register', 'submit', ['label' => 'oktothek.register_attendee_button', 'attr' => ['class' => 'btn btn-primary']]);
+            $form->add(
+                'register',
+                'submit',
+                [
+                    'label' => 'oktothek.register_attendee_button',
+                    'attr' => ['class' => 'btn btn-primary']
+                ]
+            );
         } else {
-            $form->add('sofort', 'submit', ['label' => 'oktothek.book_sofort_button', 'attr' => ['class' => 'btn btn-primary']]);
-            $form->add('submit', 'submit', ['label' => 'oktothek.attendee_create_button', 'attr' => ['class' => 'btn btn-default']]);
+            $form->add(
+                'sofort',
+                'submit',
+                [
+                    'label' => 'oktothek.book_sofort_button',
+                    'attr' => ['class' => 'btn btn-primary']
+                ]
+            );
         }
 
         return $form->getForm();
@@ -67,7 +80,11 @@ class CoursepackageService
         foreach($coursepackageSelect->getCourses() as $course)
         {
             $course->addAttendee($coursepackageSelect->getAttendee());
-            $this->academy_service->registerCourse($coursepackageSelect->getAttendee(), $course, false);
+            $this->academy_service->registerCourse(
+                $coursepackageSelect->getAttendee(),
+                $course,
+                false
+            );
         }
         $this->sendRegisterSuccessMail($coursepackageSelect->getAttendee());
     }
@@ -77,7 +94,12 @@ class CoursepackageService
         foreach($coursepackageSelect->getCourses() as $course)
         {
             $course->addAttendee($coursepackageSelect->getAttendee());
-            $this->academy_service->bookCourse($coursepackageSelect->getAttendee(), $course, false, CoursepackageService::COURSEPACKAGE_MONEY_OPEN);
+            $this->academy_service->bookCourse(
+                $coursepackageSelect->getAttendee(),
+                $course,
+                false,
+                CoursepackageService::COURSEPACKAGE_MONEY_OPEN
+            );
         }
         $this->sendBookingSuccessMail($coursepackageSelect->getAttendee());
     }
@@ -91,11 +113,21 @@ class CoursepackageService
             $Sofortueberweisung = $this->sofort->getSofortueberweisung($coursepackage->getPrice());
         }
         $Sofortueberweisung->setSuccessUrl(
-            $this->router->generate('oktothek_academy_complete_book_coursepackage', ['uniqID' => $attendee->getUniqID()], UrlGeneratorInterface::ABSOLUTE_URL),
+            $this->router->generate(
+                'oktothek_academy_complete_book_coursepackage',
+                ['uniqID' => $attendee->getUniqID()],
+                UrlGeneratorInterface::ABSOLUTE_URL
+            ),
             true
         );
-        $Sofortueberweisung->setAbortUrl($this->router->generate('oktothek_academy',[], UrlGeneratorInterface::ABSOLUTE_URL));
-        $Sofortueberweisung->setReason('Kurspacket Testueberweisung');
+        $Sofortueberweisung->setAbortUrl(
+            $this->router->generate(
+                'oktothek_academy',
+                [],
+                UrlGeneratorInterface::ABSOLUTE_URL
+            )
+        );
+        $Sofortueberweisung->setReason($coursepackage->getTitle());
         if ($this->sofort->startTransaction($Sofortueberweisung)) {
             $attendee->setTransactionId($Sofortueberweisung->getTransactionId());
             $attendee->setPaymentStatus(CoursepackageService::COURSEPACKAGE_OPEN_TRANSACTION);

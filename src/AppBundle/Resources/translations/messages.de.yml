@@ -304,6 +304,7 @@ oktothek_academy_bC_dates:              "Termine"
 oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"
 oktothek_academy_show_footnote:          "* Ermäßigte Preise für StudentInnen, Zivildiener, Menschen mit geringem Einkommen."
 oktothek_academy_show_stay_informed:    "Informiert bleiben"
+oktothek_academy_show_coursepackages:   "Kurspakete"
 
 ### showCoursepackage.html.twig:
 oktothek_academy_sCp_book:              "Kurspaket buchen"
@@ -416,6 +417,7 @@ oktothek_attende_mail_placeholder:      max@musterfrau.at
 oktothek_attende_tel_placeholder:       +43 123 456 789
 
 # Coursepackage
+oktothek.backend_edit_coursepackage_header: "Kurspaket bearbeiten"
 oktothek.backend_coursepackage_name_label: Name
 oktothek.backend_coursepackage_description_label: Beschreibung
 oktothek.backend_coursepackage_coursetypes_label: Kurstypen
@@ -423,6 +425,7 @@ oktothek.coursepackage_create_button:      <span class="glyphicon glyphicon-flop
 oktothek.backend_new_coursepackage_header: Neues Kurspaket
 oktothek.backend_coursepackage_price_label: Vollpreis
 oktothek.backend_coursepackage_priceReduced_label: Reduzierter Preis
+oktothek.backend_coursepackage_image_label: "Bild"
 oktothek.success_create_coursepackage:      Kurspaket erfolgreich angelegt
 oktothek.backend_course_isActive_choice:    "{0} Nicht öffentlich|{1} Öffentlich"
 oktothek_backend_edit_coursepackage:        Kurspaket bearbeiten
@@ -430,6 +433,11 @@ oktothek.coursepackage_delete_button:       <span class="glyphicon glyphicon-tra
 oktothek.coursepackage_edit_button:         <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
 oktothek_academy_coursepackage_select_label: Kursauswahl
 oktothek_academy_coursepackage_select_choice: "{1} Jänner|{2} Februar|{3} März|{4} April|{5} Mai|{6} Juni|{7} Juli|{8} August|{9} September|{10} Oktober|{11} November|{12} Dezember"
+oktothek.success_edit_coursepackage:        "Kurspaket erfolgreich aktualisiert"
+
+# /src/AppBundle/Resources/views/Backend/Coursepackage/show.html.twig
+oktothek.backend_academy_show_coursepackage_no_desc:   "Kein Beschreibungstext vorhanden"
+oktothek.backend_academy_show_coursepackage_coursetypes: "Kurstypen"
 
 # Coursetype
 oktothek.backend_coursetype_title_label: Titel
