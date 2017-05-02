@@ -40,7 +40,7 @@ services:
 
     oktothek_coursepackage:
         class: AppBundle\Model\CoursepackageService
-        arguments: [ "@form.factory", "@oktothek_academy" ]
+        arguments: [ "@form.factory", "@oktothek_academy", "@doctrine.orm.entity_manager" ]
 
     oktothek_tv:
         class: AppBundle\Model\TvService

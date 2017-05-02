@@ -17,18 +17,27 @@ class CoursepackageService
 
     private $factory;
     private $academy_service;
+    private $em;
 
-    public function __construct($formfactory, $academy_service)
+    public function __construct($formfactory, $academy_service, $entity_manager)
     {
         $this->factory = $formfactory;
         $this->academy_service = $academy_service;
+        $this->em = $entity_manager;
     }
 
+    /**
+     * @return coursepackage form or false if one or more coursetypes have no free courses in the future
+     */
     public function getFormForCoursepackage($coursepackage)
     {
         $form = $this->factory->createBuilder();
         $form->add('attendee', AttendeeType::class);
         foreach ($coursepackage->getCoursetypes() as $key => $coursetype) {
+            $future_courses = $this->em->getRepository('AppBundle:Course\Course')->findFutureCoursesForType($coursetype);
+            if (!$future_courses) { // no future courses available! can't book coursepackage!
+                return false;
+            }
             $form->add('courseSelection_'.$key, EntityType::class, [
                 'label' => $coursetype->getTitle(),
                 'class' => "AppBundle:Course\Course",
@@ -37,7 +46,7 @@ class CoursepackageService
                 'choice_label' => function($course) {
                     return $course;
                 },
-                'choices' => $coursetype->getCourses()]);
+                'choices' => $future_courses]);
         }
         if ($coursepackage->getPrice() <= 0) {
             $form->add(

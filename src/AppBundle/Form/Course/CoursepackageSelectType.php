@@ -9,7 +9,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use AppBundle\Form\Course\AttendeeType;
 use Doctrine\ORM\EntityRepository;
-
 use AppBundle\Form\Course\CoursepackageRadioType;
 
 class CoursepackageSelectType extends AbstractType
