@@ -223,7 +223,7 @@ oktothek.episode_show_in_backend:       Im Backend anzeigen
 oktothek.episode_show_in_frontend:      '<span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Zum Frontend'
 
 ## comment
-oktothek.comment_author:                %name% am <time>%date%</time>
+oktothek.comment_author:                %name% am <span class="time">%date%</span>
 oktothek.comment_reply_choice:          '{0} Antworten |{1} Eine Antwort |]1,Inf[ %count% Antworten'
 oktothek.comment_reply_button:          Antwort senden
 oktothek.comment_create_button:         Kommentar senden
