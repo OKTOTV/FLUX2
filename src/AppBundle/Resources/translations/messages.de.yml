@@ -638,6 +638,7 @@ oktothek_abonnement_new_post_label:         Bei neuen Beiträgen benachrichtigen
 oktothek_abonnement_send_mails_label:       Benachrichtigungen auch als Email senden
 oktothek.user_update_abonnement_button:     Einstellungen aktualisieren
 user_edit_subscription:                     Benachrichtigungseinstellungen
+oktothek_abonnement_empty:                  "Noch keine Abonnements vorhanden"
 
 ## notifications
 oktothek_mail_notification_livestream_subject:      Livestream auf OKTO

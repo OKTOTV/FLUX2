@@ -11,6 +11,7 @@
     <h1>{{ 'oktothek.user_channels_header'|trans }}</h1>
 </header>
 <section>
+    {% if channels|length %}
     <div class="row pager-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="dropdown">
@@ -29,7 +30,7 @@
     </div>
     <div class="row">
     {% for channel in channels %}
-        <h3>{{ channel }}</h3>
+        <h3><a href="{{ path('oktothek_show_series', {'uniqID': channel.series.uniqID})}}">{{ channel }}</a></h3>
             <a href="{{ path('user_update_abonnement', {'abonnement': channel.id})}}" class="btn btn-default">{{ 'user_edit_subscription'|trans }}</a>
         {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': channel.series.episodes|slice(0,3)} %}
     {% endfor %}
@@ -37,5 +38,8 @@
     <div class="navigation row">
         {{ knp_pagination_render(channels) }}
     </div>
+    {% else %}
+        {{ 'oktothek_abonnement_empty'|trans }}
+    {% endif %}
 </section>
 {% endblock %}
