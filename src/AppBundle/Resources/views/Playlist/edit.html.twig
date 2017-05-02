@@ -30,10 +30,10 @@
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
                     <a href="{{ path('oktothek_show_episode', {'uniqID': item.vars.value.episode.uniqID})}}">
-                        <h3>{{ item.vars.value.episode.series.name|default('') }}</h3>
+                        <h3>{{ item.vars.value.episode.series.name }}</h3>
                         <p>
-                            <!-- {{ item.vars.value.episode.description }}<br> -->
-                            {{ item.vars.value.episode.name }}
+                            {{ item.vars.value.episode.name }}<br />
+                            {{ item.vars.value.episode.description }}
                         </p>
                     </a>
                     <div class="visible-xs-block">
@@ -118,12 +118,14 @@
                 number = $('#playlist_items > .row').length + 1;
                 form = form.replace(/__name__/g, number);
                 form = form.replace(/__thumb__/g, suggestion.thumb);
-                if (suggestion.name == null) {
-                    form = form.replace(/__header__/g, "");
+                form = form.replace(/__header__/g, suggestion.series);
+                if (suggestion.name != null) {
+                    form = form.replace(/__desc__/g, suggestion.name+"<br />"+suggestion.desc);
                 } else {
-                    form = form.replace(/__header__/g, suggestion.name);
+                    form = form.replace(/__desc__/g, suggestion.desc);
+
                 }
-                form = form.replace(/__desc__/g, suggestion.desc);
+
                 form = $(form);
                 form.find(':input[type="text"]').val(suggestion.uniqID);
                 form.find(':input[type="number"]').val(number);

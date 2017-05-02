@@ -81,7 +81,7 @@ class Coursetype
     private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Coursepackage", mappedBy="coursetypes")
+     * @ORM\ManyToMany(targetEntity="Coursepackage", mappedBy="coursetypes", cascade={"remove"})
      */
     private $coursepackages;
 

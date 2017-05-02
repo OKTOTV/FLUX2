@@ -29,7 +29,7 @@ oktothek.menu_user_playlists:           <span class="glyphicon glyphicon-play-ci
 oktothek.menu_user_channels:            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Abos
 oktothek.menu_user_favorites:           <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoriten
 oktothek.menu_my_channels:              <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Meine Sendereihen
-oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true" style="color:red"></span> Abmelden
+oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Abmelden
 oktothek.menu_user_notifications:       <span class="icon icon-transmitter-active"></span>
 oktothek.menu_user_notifications_empty: <span class="icon icon-transmitter"></span>
 oktothek.menu_user_no_notifications:    "Im Moment sind keine Benachrichtigungen vorhanden."
@@ -223,7 +223,7 @@ oktothek.episode_show_in_backend:       Im Backend anzeigen
 oktothek.episode_show_in_frontend:      '<span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Zum Frontend'
 
 ## comment
-oktothek.comment_author:                %name% am <time>%date%</time>
+oktothek.comment_author:                %name% am <span class="time">%date%</span>
 oktothek.comment_reply_choice:          '{0} Antworten |{1} Eine Antwort |]1,Inf[ %count% Antworten'
 oktothek.comment_reply_button:          Antwort senden
 oktothek.comment_create_button:         Kommentar senden
@@ -237,7 +237,7 @@ oktothek_comment_cP_answer:             "Auf Kommentar antworten"
 ## tag
 oktothek.tag_index_header:              Tags
 oktothek_tag_pages_header:              Seiten
-oktothek_tag_header:                    "# %title%"
+oktothek_tag_header:                    "%title%"
 oktothek_tag_episode_header:            Episoden
 oktothek_tag_series_header:             Sendereihen
 oktothek_tag_playlists_header:          Playlisten
@@ -304,6 +304,7 @@ oktothek_academy_bC_dates:              "Termine"
 oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"
 oktothek_academy_show_footnote:          "* Ermäßigte Preise für StudentInnen, Zivildiener, Menschen mit geringem Einkommen."
 oktothek_academy_show_stay_informed:    "Informiert bleiben"
+oktothek_academy_show_coursepackages:   "Kurspakete"
 
 ### showCoursepackage.html.twig:
 oktothek_academy_sCp_book:              "Kurspaket buchen"
@@ -416,6 +417,7 @@ oktothek_attende_mail_placeholder:      max@musterfrau.at
 oktothek_attende_tel_placeholder:       +43 123 456 789
 
 # Coursepackage
+oktothek.backend_edit_coursepackage_header: "Kurspaket bearbeiten"
 oktothek.backend_coursepackage_name_label: Name
 oktothek.backend_coursepackage_description_label: Beschreibung
 oktothek.backend_coursepackage_coursetypes_label: Kurstypen
@@ -423,6 +425,7 @@ oktothek.coursepackage_create_button:      <span class="glyphicon glyphicon-flop
 oktothek.backend_new_coursepackage_header: Neues Kurspaket
 oktothek.backend_coursepackage_price_label: Vollpreis
 oktothek.backend_coursepackage_priceReduced_label: Reduzierter Preis
+oktothek.backend_coursepackage_image_label: "Bild"
 oktothek.success_create_coursepackage:      Kurspaket erfolgreich angelegt
 oktothek.backend_course_isActive_choice:    "{0} Nicht öffentlich|{1} Öffentlich"
 oktothek_backend_edit_coursepackage:        Kurspaket bearbeiten
@@ -430,6 +433,11 @@ oktothek.coursepackage_delete_button:       <span class="glyphicon glyphicon-tra
 oktothek.coursepackage_edit_button:         <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
 oktothek_academy_coursepackage_select_label: Kursauswahl
 oktothek_academy_coursepackage_select_choice: "{1} Jänner|{2} Februar|{3} März|{4} April|{5} Mai|{6} Juni|{7} Juli|{8} August|{9} September|{10} Oktober|{11} November|{12} Dezember"
+oktothek.success_edit_coursepackage:        "Kurspaket erfolgreich aktualisiert"
+
+# /src/AppBundle/Resources/views/Backend/Coursepackage/show.html.twig
+oktothek.backend_academy_show_coursepackage_no_desc:   "Kein Beschreibungstext vorhanden"
+oktothek.backend_academy_show_coursepackage_coursetypes: "Kurstypen"
 
 # Coursetype
 oktothek.backend_coursetype_title_label: Titel
@@ -638,6 +646,7 @@ oktothek_abonnement_new_post_label:         Bei neuen Beiträgen benachrichtigen
 oktothek_abonnement_send_mails_label:       Benachrichtigungen auch als Email senden
 oktothek.user_update_abonnement_button:     Einstellungen aktualisieren
 user_edit_subscription:                     Benachrichtigungseinstellungen
+oktothek_abonnement_empty:                  "Noch keine Abonnements vorhanden"
 
 ## notifications
 oktothek_mail_notification_livestream_subject:      Livestream auf OKTO

@@ -1,0 +1,24 @@
+<div class="row">
+    {% for coursepackage in coursepackages %}
+        <a href="{{ path('oktothek_academy_show_coursepackage', {'slug': coursepackage.slug}) }}" title="{{ coursepackage.name }}">
+            <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pin" data-placement="right" title="{{ coursepackage.name }}">
+                <figure class="academy-pin pin">
+                    <div class="image-container">
+                        <img src="{{ coursepackage.image|thumb(135,240) }}" class="img-responsive" alt="{{ coursepackage.name }}"/>
+                    </div>
+                    <figcaption>
+                            <h3>{{ coursepackage.name }}</h3>
+                            <p>
+                                <span class="price">
+                                    {{ 'oktothek_academy_misc_info'|trans({
+                                        '%price%': coursepackage.price|number_format(2, ',', '.'),
+                                        '%price_reduced%': coursepackage.priceReduced|number_format(2, ',', '.')
+                                    })|raw }}
+                                </span>
+                            </p>
+                    </figcaption>
+                </figure>
+            </article>
+        </a>
+    {% endfor %}
+</div>

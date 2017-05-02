@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use AppBundle\Entity\Series;
@@ -96,11 +97,8 @@ class Post
     private $tags;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Asset", fetch="EAGER", cascade={"remove"})
-     * @ORM\JoinTable(name="post_asset",
-     *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="asset_id", referencedColumnName="id", unique=true)}
-     *      )
+     * @ORM\ManyToMany(targetEntity="Asset", inversedBy="posts", fetch="EAGER", cascade={"persist"})
+     * @ORM\JoinTable(name="post_asset")
      */
     private $assets;
 
@@ -113,8 +111,8 @@ class Post
     public function __construct() {
         $this->uniqID = uniqid();
         $this->pinned = false;
-        $this->assets = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->assets = new ArrayCollection();
+        $this->tags = new ArrayCollection();
         $this->onlineAt = new \Datetime();
     }
 
@@ -249,6 +247,7 @@ class Post
     public function addAsset($asset)
     {
         $this->assets[] = $asset;
+        $asset->addPost($this);
 
         return $this;
     }
@@ -261,6 +260,7 @@ class Post
     public function removeAsset($asset)
     {
         $this->assets->removeElement($asset);
+        $asset->removePost($this);
     }
 
     public function setAssets($assets = null)

@@ -15,6 +15,12 @@
         {% include "AppBundle:Academy:_courseStack.html.twig" with {'coursetypes': highlights} %}
     </section>
     <!-- Ende Highlights -->
+
+    <section>
+        <h2>{{ 'oktothek_academy_show_coursepackages'|trans }}</h2>
+        {% include "AppBundle:Academy:_coursepackageStack.html.twig" with {'coursepackages': coursepackages} %}
+    </section>
+
     <!-- Start Kursauflistung -->
     <section class="courses">
         <h2>{{ 'oktothek_academy_courses'|trans }}</h2>
@@ -30,7 +36,7 @@
     </section>
     <!-- Ende Gruppenangebote -->
     <!-- Anfang Newsletter -->
-    {# Excluded by BAS and SAB 
+    {# Excluded by BAS and SAB
     <section class="newsletter">
         <h2>{{ 'oktothek_academy_show_stay_informed'|trans }}</h2>
         {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_academy_newsletter }))}}

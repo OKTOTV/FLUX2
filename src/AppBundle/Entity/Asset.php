@@ -24,6 +24,11 @@ class Asset extends BaseAsset
      */
     protected $series;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Post", mappedBy="assets")
+     */
+    protected $posts;
+
     public function getOwner()
     {
         return $this->owner;
@@ -43,6 +48,29 @@ class Asset extends BaseAsset
     public function setSeries($series)
     {
         $this->series = $series;
+        return $this;
+    }
+
+    public function addPost($post)
+    {
+        $this->posts[] = $post;
+        return $this;
+    }
+
+    public function removePost($post)
+    {
+        $this->posts->removeElement($post);
+        return $this;
+    }
+
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    public function setPosts($posts)
+    {
+        $this->posts = $posts;
         return $this;
     }
 }
