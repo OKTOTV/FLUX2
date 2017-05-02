@@ -5,39 +5,38 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'channels', 'dropdown': 'user_menu'} %}
 {% endblock %}
 
-{% set body_class = "clip_overview" %}
+{% set body_class = "clip_overview subscriptions" %}
 {% block body_main %}
-<main>
-    <header class="page-header">
-        <h1>{{ 'oktothek.user_channels_header'|trans }}</h1>
-    </header>
-    <section>
-        <div class="row pager-row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        {{ 'oktothek.user_channels_filter'|trans|raw }}
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="filter_menu">
-                        <li {% if channels.isSorted('s.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_name'|trans, 's.name') }}</li>
-                        <li {% if channels.isSorted('s.updatedAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_updatedAt'|trans, 's.updatedAt') }}</li>
-                    </ul>
-                </div>
+<header class="page-header">
+    <h1>{{ 'oktothek.user_channels_header'|trans }}</h1>
+</header>
+<section>
+    <h2 class="sr-only">Abonnierte Sendereihen</h2>
+    {% if channels|length %}
+    <div class="row pager-row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    {{ 'oktothek.user_channels_filter'|trans|raw }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                    <li {% if channels.isSorted('s.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_name'|trans, 's.name') }}</li>
+                    <li {% if channels.isSorted('s.updatedAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_updatedAt'|trans, 's.updatedAt') }}</li>
+                </ul>
             </div>
             <div class="hidden-xs hidden-sm col-md-6 col-lg-6 navigation">
                 {{ knp_pagination_render(channels) }}
             </div>
         </div>
-        <div class="row">
+        <div>
         {% for channel in channels %}
             <h3>{{ channel }}</h3>
-                <a href="{{ path('user_update_abonnement', {'abonnement': channel.id})}}" class="btn btn-default">{{ 'user_edit_subscription'|trans }}</a>
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': channel.series.episodes|slice(0,3)} %}
+            <a href="{{ path('user_update_abonnement', {'abonnement': channel.id})}}" class="btn btn-default edit" title="{{ 'user_edit_subscription'|trans }}"><span class="icon"></span><span class="sr-only">{{ 'user_edit_subscription'|trans }}</span></a>
         {% endfor %}
         </div>
         <div class="navigation row">
             {{ knp_pagination_render(channels) }}
         </div>
     </section>
-</main>
 {% endblock %}

@@ -149,7 +149,8 @@ button.btn-default#ButtonPlaylist .visible-xs-inline,
 button.btn-default#ButtonShare .visible-xs-inline,
 button.btn-default#ButtonShare_mobil .visible-xs-inline,
 .playlists #StartPlaylist_small.btn span.glyphicon,
-.series.blog header.page-header .pull-left .icon {
+.series.blog header.page-header .pull-left .icon,
+.subscriptions header.page-header .pull-left .icon {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -165,6 +166,7 @@ header .form-control::-webkit-input-placeholder {
 }
 h3, 
 .h3, 
+.checkbox label,
 header .collapse.in h3, 
 body.oktothek .participart [data-tooltip]::after, 
 article figcaption h3, 
@@ -288,6 +290,7 @@ div.list-group.tags span.label.label-default.remove {
 }
 
 .btn.btn-top, 
+.checkbox label,
 #episode-tag option, 
 #slider h3, 
 header .navbar-nav.themes a, 
@@ -1248,7 +1251,10 @@ button.btn-default#ButtonShare:focus,
 button.btn-default#ButtonShare_mobil:hover,
 button.btn-default#ButtonShare_mobil:focus,
 body.series.blog .news-pin,
-div.list-group.tags span.label.label-default.remove {
+div.list-group.tags span.label.label-default.remove,
+.subscriptions .btn-default.edit:hover,
+.subscriptions .btn-default.edit:focus,
+.subscriptions .btn-default.edit:active {
 	background-color:transparent;
 }
 @media (min-width: 580px) {
@@ -1290,7 +1296,9 @@ a:focus .more.right .icon,
 .collapsePlaylist li button.btn-default.active,
 .collapsePlaylist li button.btn-default:active,
 .collapsePlaylist li button.btn-default:hover,
-.collapsePlaylist li button.btn-default:focus {
+.collapsePlaylist li button.btn-default:focus,
+.subscriptions .btn-default.edit:hover .icon,
+.subscriptions .btn-default.edit:focus .icon {
 	border:solid 2px #ffffff;
 }
 .academy .timetable li p {
@@ -1327,7 +1335,8 @@ a:focus .more.right .icon,
 .btn-primary.active.focus,
 .btn-primary.but-full:hover,
 .livestream #nav-programm .icon,
-.more figure.episode-pin a { /* Gelb */
+.more figure.episode-pin a,
+.subscriptions .edit .icon { /* Gelb */
 	border: solid 2px #fcce14;
 }
 .pagination > li > a, 
@@ -1399,7 +1408,9 @@ button.btn-default#ButtonShare,
 button.btn-default#ButtonShare_mobil,
 .alert,
 .caret,
-div.list-group.tags span.label.label-default.remove {
+div.list-group.tags span.label.label-default.remove,
+.subscriptions .btn-default.edit,
+.subscriptions .btn-default.edit:hover {
 	border:none;
 }
 .triangle {
@@ -1451,7 +1462,8 @@ div.list-group.tags span.label.label-default.remove {
 header .misc .btn,
 header .collapseShare .btn,
 .livestream #nav-programm .icon,
-.more figure.episode-pin a {
+.more figure.episode-pin a,
+.subscriptions .edit .icon {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -1675,7 +1687,7 @@ body.oktothek a.btn.login:active {
 	background-repeat:no-repeat;
 	background-position:top left;
 }
-.playlists .edit {
+.playlists .edit, .subscriptions .edit .icon {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/icon_edit.png);
@@ -1685,7 +1697,7 @@ body.oktothek a.btn.login:active {
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
-.playlists .edit:hover {
+.playlists .edit:hover, .subscriptions .edit:hover .icon {
 	background-image:url(../images/icon_edit_hover.png);
     background-image:url(../images/icon_edit_hover.svg), none;
 }
@@ -2276,7 +2288,7 @@ body.tagpage h1 {
 h1.name, h2.name {
 	margin-bottom:4px;
 }
-h2, h1 {
+h2, h1, .subscriptions header.page-header h1 {
 	margin-bottom:20px;
 }
 header.page-header h1 {
@@ -2967,11 +2979,11 @@ a.more.right {
 .news a.pull-right {
 	margin-right:15px;
 }
-.series.blog header.page-header .pull-left .icon {
+.series.blog header.page-header .pull-left .icon, .subscriptions .edit .icon, .subscriptions header.page-header .pull-left .icon {
     line-height: 36px;
     vertical-align: middle;
 }
-.pull-right .icon, .pull-left .icon, .more.right .icon {
+.pull-right .icon, .pull-left .icon, .more.right .icon, .subscriptions .edit .icon {
 	width:38px;
 	height:38px;
 	text-align:center;
@@ -2982,18 +2994,27 @@ a.more.right {
 .pull-left .icon {
     margin-right:5px;
 }
+.subscriptions .btn-default.edit {
+    margin-top:-25px;
+    margin-bottom: 60px;
+    padding-left:0;
+    padding-right:0;
+}
 
 /*Formulare*/
 .form-control {
 	height:35px;
 }
-.login form {
+.checkbox label {
+    line-height: 1.6em;
+}
+.login form, .subscriptions form {
     width:320px;
     margin:0 auto;
 }
-.login form button[type="submit"] {
+.login form button[type="submit"], .subscriptions form button[type="submit"] {
     display: block;
-    margin:20px auto;
+    margin:40px auto 20px auto;
 }
 .login form .registry .button-container {
     text-align: center;
@@ -3048,6 +3069,11 @@ a.more.right {
 /* Fehlerseite */
 .errorpage .favorite-videos p {
     margin-bottom:40px;
+}
+
+/* Einstellungen Abos */
+.subscriptions form {
+    margin-top:100px;
 }
 
 /* Backend */

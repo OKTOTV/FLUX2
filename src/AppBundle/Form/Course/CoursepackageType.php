@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
+use Bprs\AssetBundle\Form\Type\AssetType;
 
 class CoursepackageType extends AbstractType
 {
@@ -33,6 +34,7 @@ class CoursepackageType extends AbstractType
                 'multiple' => true,
                 'label' => 'oktothek.backend_coursepackage_coursetypes_label'
             ])
+            ->add('image', AssetType::class, ['label' => 'oktothek.backend_coursepackage_image_label'])
         ;
     }
 

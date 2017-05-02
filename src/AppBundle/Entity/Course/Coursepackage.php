@@ -4,12 +4,13 @@ namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Coursepackage
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CoursepackageRepository")
  */
 class Coursepackage
 {
@@ -63,8 +64,21 @@ class Coursepackage
      */
     private $is_active;
 
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Asset",fetch="EAGER", cascade={"remove"})
+     * @ORM\JoinColumn(name="image", referencedColumnName="id")
+     */
+    private $image;
+
+    /**
+     * @var string
+     * @Gedmo\Slug(fields={"name"}, updatable=false, separator="_")
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
+
     public function __construct() {
-        $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->coursetypes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function __toString()
@@ -228,5 +242,51 @@ class Coursepackage
     public function getPriceReduced()
     {
         return $this->price_reduced;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Coursepackage
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \stdClass $image
+     * @return Courstype
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \stdClass
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

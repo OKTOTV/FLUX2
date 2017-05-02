@@ -9,7 +9,18 @@
 </div>
 
 {{ form_start(form) }}
-
+    {{ form_errors(form) }}
+    {% include "BprsAssetBundle::singleUpload.html.twig" with {'widget': form.image, 'adapter': 'posterframe', 'type': 'single', 'asset': coursepackage.image} %}
 {{ form_end(form) }}
 
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+{% include "BprsAssetBundle::singleUpload.js.twig" %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% include "BprsAssetBundle::singleUpload.css.twig" %}
 {% endblock %}

@@ -37,4 +37,24 @@ class CourseRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function findFutureCoursesForType($coursetype, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                "SELECT c FROM AppBundle:Course\Course c
+                LEFT JOIN c.dates d
+                WHERE c.coursetype = :coursetype
+                AND c.is_active = true
+                AND d.courseStart > :now
+                AND c.max_attendees > (SELECT COUNT(a) FROM AppBundle:Course\Attendee a LEFT JOIN a.courses ac where ac.id = c.id)"
+                )
+            ->setParameter('now', new \DateTime())
+            ->setParameter('coursetype', $coursetype->getId());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getResult();
+    }
 }

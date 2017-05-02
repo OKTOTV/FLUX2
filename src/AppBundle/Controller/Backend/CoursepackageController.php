@@ -93,7 +93,7 @@ class CoursepackageController extends Controller
             }
         }
 
-        return ['form' => $form->createView()];
+        return ['form' => $form->createView(), 'coursepackage' => $coursepackage];
     }
 
     /**

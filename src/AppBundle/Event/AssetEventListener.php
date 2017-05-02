@@ -28,7 +28,9 @@ class AssetEventListener {
         foreach ($slides as $slide) {
             $this->em->remove($slide);
         }
-        $this->em->flush();
+        if ($slides) {
+            $this->em->flush();
+        }
     }
 }
 
