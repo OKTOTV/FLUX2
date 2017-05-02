@@ -7,35 +7,37 @@
 
 {% set body_class = "clip_overview" %}
 {% block body_main %}
-<header class="page-header">
-    <h1>{{ 'oktothek.user_channels_header'|trans }}</h1>
-</header>
-<section>
-    <div class="row pager-row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    {{ 'oktothek.user_channels_filter'|trans|raw }}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="filter_menu">
-                    <li {% if channels.isSorted('s.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_name'|trans, 's.name') }}</li>
-                    <li {% if channels.isSorted('s.updatedAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_updatedAt'|trans, 's.updatedAt') }}</li>
-                </ul>
+<main>
+    <header class="page-header">
+        <h1>{{ 'oktothek.user_channels_header'|trans }}</h1>
+    </header>
+    <section>
+        <div class="row pager-row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        {{ 'oktothek.user_channels_filter'|trans|raw }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                        <li {% if channels.isSorted('s.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_name'|trans, 's.name') }}</li>
+                        <li {% if channels.isSorted('s.updatedAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(channels, 'oktothek_user_channel_filter_updatedAt'|trans, 's.updatedAt') }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-6 col-lg-6 navigation">
+                {{ knp_pagination_render(channels) }}
             </div>
         </div>
-        <div class="hidden-xs hidden-sm col-md-6 col-lg-6 navigation">
+        <div class="row">
+        {% for channel in channels %}
+            <h3>{{ channel }}</h3>
+                <a href="{{ path('user_update_abonnement', {'abonnement': channel.id})}}" class="btn btn-default">{{ 'user_edit_subscription'|trans }}</a>
+            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': channel.series.episodes|slice(0,3)} %}
+        {% endfor %}
+        </div>
+        <div class="navigation row">
             {{ knp_pagination_render(channels) }}
         </div>
-    </div>
-    <div class="row">
-    {% for channel in channels %}
-        <h3>{{ channel }}</h3>
-            <a href="{{ path('user_update_abonnement', {'abonnement': channel.id})}}" class="btn btn-default">{{ 'user_edit_subscription'|trans }}</a>
-        {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': channel.series.episodes|slice(0,3)} %}
-    {% endfor %}
-    </div>
-    <div class="navigation row">
-        {{ knp_pagination_render(channels) }}
-    </div>
-</section>
+    </section>
+</main>
 {% endblock %}

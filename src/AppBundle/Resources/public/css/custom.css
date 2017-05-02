@@ -2682,6 +2682,9 @@ figcaption .subheadline, .page .subheadline {
 figcaption  {
 	margin-top:10px;
 }
+.channels figcaption h3 {
+    margin-bottom: 10px;
+}
 @media (min-width: 580px) {
 	article.pin,
     li.pin {
