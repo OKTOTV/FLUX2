@@ -117,7 +117,7 @@ div.list-group.tags span.label.label-default.remove::before {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1, .oktothek h2#button_down, .livestream header h1 time, .series.blog h1 {
+h1, .oktothek h2#button_down, .livestream header h1 .time, .series.blog h1 {
 	font-size:35px;
 	letter-spacing:0.5px;
 }
@@ -132,8 +132,8 @@ h2, .h2, #anchor-menu .panel-title .glyphicon,
 .series h1, 
 .playlists h1,
 .playlists .btn.circle,
-.livestream .schedule li time,
-.livestream .next-episode-schedule time {
+.livestream .schedule li .time,
+.livestream .next-episode-schedule .time {
 	font-size:24px;
 }
 header .navbar-toggle.search-button span, 
@@ -306,8 +306,8 @@ header .navbar-nav.themes a,
 label, .carousel-caption h3, 
 .series h1, 
 .playlists .description-wrapper h1,
-.livestream .schedule li time,
-.livestream .next-episode-schedule time,
+.livestream .schedule li .time,
+.livestream .next-episode-schedule .time,
 body.participate .close,
 div.list-group.tags span.label.label-default.remove {
 	font-weight:400;
@@ -400,7 +400,7 @@ select:active:focus {
     header .form-control::-webkit-input-placeholder {
         font-size:16px;
     }
-    .livestream .schedule li time, .livestream .next-episode-schedule time {
+    .livestream .schedule li .time, .livestream .next-episode-schedule .time {
 	    font-size:30px;
     }
 	.carousel-caption h3, 
@@ -874,7 +874,7 @@ button.list-group-item-danger,
 .btn.transparent:focus,
 .color5 a,
 .livestream .description,
-.livestream .schedule li a time,
+.livestream .schedule li a .time,
 .btn-default.dropdown-toggle,
 .collapsePlaylist li button.btn-default,
 .collapsePlaylist li button.btn-default.active,
