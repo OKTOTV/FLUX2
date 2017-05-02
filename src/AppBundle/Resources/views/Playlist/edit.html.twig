@@ -6,7 +6,6 @@
 
 {% set body_class = "edit-playlists" %}
 {% block body_main %}
-<main>
     <header class="page-header">
         <h1>{{ 'oktothek.playlist_edit_header'|trans }}</h1>
     </header>
@@ -65,14 +64,14 @@
         <div class="delete-playlist">{{ 'oktothek.playlist_delete_info'|trans }}</div>
         {{ form_row(form.delete, {'attr': {'class':'btn-link'}})}}
     {{ form_end(form) }}
-</main>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $(document).on("click", '.moveup', function() {
+            $(document).on("click", '.moveup', function( event ) {
+                event.preventDefault();
                 var row = $(this).parents('.row');
                 if (row.prev().length) {
                     row.slideUp(function() {
@@ -81,9 +80,10 @@
                         });
                     });
                 }
-            });
+            }); 
 
-            $(document).on("click", ".movedown", function() {
+            $(document).on("click", ".movedown", function( event ) {
+                event.preventDefault();
                 var row = $(this).parents('.row');
                 if (row.next().length) {
                     row.slideUp(function() {
@@ -94,7 +94,8 @@
                 }
             });
 
-            $(document).on("click", '.remove', function() {
+            $(document).on("click", '.remove', function( event ) {
+                event.preventDefault();
                 var row = $(this).parents('.row');
                 row.hide('slow', function() {
                     row.remove();

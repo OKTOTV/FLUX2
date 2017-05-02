@@ -27,7 +27,7 @@
 {% set body_class = "episode" %}
 {% block body %}
     <div id="top"></div>
-    <main class="container-fluid">
+    <div class="container-fluid">
         <section class="container">
             <div class="player_container">
                 <figure id="player">
@@ -97,7 +97,7 @@
         <div id="anchor_series"></div>
         {{ render(controller("AppBundle:Series:episodesWithTagsAjax", {'uniqID': episode.series.uniqID})) }}
         <!-- Weitere Episoden der Serie Ende -->
-    </main>
+    </div>
 {% endblock %}
 
 {% block javascripts %}

@@ -10,7 +10,6 @@
 
 {% set body_class = "playlists" %}
 {% block body %}
-<main>
     <section class="container">
         <div id="button_down"><span class="icon playlists-arrow-down" style="display: inline;">{{ 'oktothek.playlist_show_next_video'|trans }}</span></div>
         <div class="player-container row description-overlay">
@@ -96,7 +95,6 @@
             {% endfor %}
         </ul>
     </section>
-</main>
 {% endblock %}
 
 {% block javascripts %}
