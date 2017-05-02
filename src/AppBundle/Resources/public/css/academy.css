@@ -95,6 +95,12 @@ body.academy .newsletter fieldset {
 body.academy .newsletter .input-group {
 	margin:0 auto;
 }
+
+/* Academy Bezahlseiten */
+body.payment form {
+    margin-bottom:20px;
+}
+
 @media (min-width: 768px) {
     body.academy .timetable p {
 	    display:table-cell;
