@@ -15,7 +15,7 @@
   <li role="presentation"{% if active == "producer_playlists" %} class="active"{% endif %}>
       <a href="{{ path('oktothek_channel_playlists', {'uniqID': series.uniqID}) }}">Playlisten</a></li>
   <li role="presentation"{% if active == "producer_episodes" %} class="active"{% endif %}>
-      <a href="{{ path('oktothek_channel_episodes', {'uniqID': series.uniqID}) }}">Episoden</a>
+      <a href="{{ path('oktothek_channel_episodes', {'uniqID': series.uniqID}) }}">Folgen</a>
   </li>
   <li role="presentation"{% if active == "producer_live" %} class="active"{% endif %}>
       <a href="{{ path('oktothek_channel_now_live', {'uniqID': series.uniqID}) }}">Live</a>

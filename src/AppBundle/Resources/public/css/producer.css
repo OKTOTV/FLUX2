@@ -47,6 +47,12 @@ body.producer .series-pin h3 {
 body.producer .row.pin .pin img {
     width: 100%;
 }
+body.producer .list-group-item .pin {
+    padding-left:0;
+}
+body.producer .list-group-item figcaption h3, body.producer .list-group-item figcaption {
+    margin-top:0;
+}
 
 /* Blog */
 body.producer .newsarchiv article:nth-child(2n+0) figure {

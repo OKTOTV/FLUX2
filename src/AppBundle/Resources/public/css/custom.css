@@ -228,7 +228,7 @@ footer h3,
 a.more, 
 a.less, 
 #playlist_items a p,
-body.edit-playlists .tt-menu,
+form .tt-menu,
 .post .misc a,
 body.producer ul.list-group .pin a p,
 .icon.participant-arrow-down,
@@ -338,8 +338,10 @@ a.pull-left.more,
 .blog aside a.more:focus,
 .tagpage .pages > .list-group-item > a:hover, 
 .tagpage .pages > .list-group-item > a:focus,
-.edit-playlists #playlist_items a:hover,
-.edit-playlists #playlist_items a:focus {
+#playlist_items a:hover,
+#playlist_items a:focus,
+.producer figcaption h3 a:hover,
+.producer figcaption h3 a:focus {
 	text-decoration:none;
 }
 body.episode .description a,
@@ -835,6 +837,7 @@ a.play-episode.btn-default:focus,
 .post h3 a, 
 .pin h3 a, 
 .pin a h3, 
+.producer figcaption h3 a,
 a .pin-icon, 
 .oktothek .participart-list a, 
 .registry a.btn-default.but-full:hover, 
@@ -927,6 +930,7 @@ header .collapseShare a.btn,
 .pin figcaption p a, 
 .pin figcaption a p, 
 .pin a figcaption p, 
+.producer figcaption p,
 .news p,
 .post p,
 .comments .author, 
@@ -964,7 +968,7 @@ a.tag,
   color: #818181;
 }
 
-.edit-playlists .form-group.search .icon-search span {
+.edit-playlists .form-group.search .icon-search span, body.producer .form-group.search .icon-search span {
     color: #818181;
 }
 a.list-group-item, 
@@ -1004,10 +1008,13 @@ body.livestream .schedule li a:focus h4,
 body.participate .close,
 body.tagpage .pages .list-group-item a:hover,
 body.tagpage .pages .list-group-item a:focus,
-.edit-playlists #playlist_items a:hover h3,
-.edit-playlists #playlist_items a:hover p,
-.edit-playlists #playlist_items a:focus h3,
-.edit-playlists #playlist_items a:focus p/*Gelb*/ {
+#playlist_items a:hover h3,
+#playlist_items a:hover p,
+#playlist_items a:focus h3,
+#playlist_items a:focus p,
+.producer figcaption h3 a:hover,
+.producer figcaption h3 a:focus,
+.producer figcaption h3 a:active /*Gelb*/ {
 	color: #fcce14;
 }
 .alert-danger,
@@ -1067,7 +1074,8 @@ button.list-group-item-danger:hover,
 .list-group-item.moveup, 
 .list-group-item.movedown,
 header .collapseShare a.btn,
-.edit-playlists .form-group.search .icon-search,
+body.edit-playlists .form-group.search .icon-search,
+body.producer .form-group.search .icon-search,
 .bootstrap-datetimepicker-widget.dropdown-menu,
 .pagination > li.active > a, 
 .pagination > li.active > span,
@@ -1096,7 +1104,7 @@ body.series .news-pin,
 body.series .news-form, 
 body.series .series-posterframe > div,
 #playlist_items .row, 
-body.edit-playlists .tt-menu,
+form .tt-menu,
 body.newsarchiv aside .box,
 .news aside .box,
 .nav-tabs > li > a:focus,
@@ -1710,12 +1718,6 @@ body.oktothek a.btn.login:active {
     -o-background-size: cover;
     background-size: cover;
 }
-.crop-asset .icon {
-    background-image:url(../images/icon_cut.png);
-    background-image:url(../images/icon_cut.svg), none;
-    background-repeat:no-repeat;
-    background-position: center center;
-}
 section:last-child, 
 section.playlist_container,
 .edit-playlists form fieldset:last-child,
@@ -1948,6 +1950,27 @@ footer section {
 /****************************  Color, Effects Backend ****************************/
 .panel-body {
 	color:#000000;
+}
+.btn-default.crop-asset:hover,
+.btn-default.crop-asset:focus,
+.btn-default.crop-asset:active {
+	background-color:transparent;
+}
+.btn-default.crop-asset,
+.btn-default.crop-asset:hover,
+.btn-default.crop-asset:focus,
+.btn-default.crop-asset:active {
+	border:none;
+}
+.crop-asset .icon {
+    background-image:url(../images/icon_cut.png);
+    background-image:url(../images/icon_cut.svg), none;
+    background-repeat:no-repeat;
+    background-position: center center;
+    -webkit-background-size: 50% 50%;
+    -moz-background-size: 50% 50%;
+    -o-background-size: 50% 50%;
+	background-size: 50% 50%;
 }
 
 
@@ -3008,11 +3031,11 @@ a.more.right {
 .checkbox label {
     line-height: 1.6em;
 }
-.login form, .subscriptions form {
+.login form, .subscriptions form, .live form {
     width:320px;
     margin:0 auto;
 }
-.login form button[type="submit"], .subscriptions form button[type="submit"] {
+.login form button[type="submit"], .subscriptions form button[type="submit"], .live form button[type="submit"] {
     display: block;
     margin:40px auto 20px auto;
 }
@@ -3040,6 +3063,19 @@ a.more.right {
     padding: 0;
     position: absolute;
     width: 1px;
+}
+.tt-menu {
+    width:315px;
+    padding:15px 10px;
+}
+.tt-menu .tt-dataset-tags div {
+    padding:5px 0;
+}
+.tt-menu .tt-dataset-tags div::before {
+    content: '#';
+}
+.twitter-typeahead + .tags {
+    margin-top:20px;
 }
 
 
@@ -3315,6 +3351,14 @@ body .panel, .bootstrap .datetimepicker .widget a {
 body.episode a.backend {
     display: block;
     margin-bottom:20px;
+}
+.remove-asset, .crop-asset {
+    padding:0;
+    line-height:36px;
+    vertical-align: middle;
+    width: 36px;
+    height: 36px;
+    display: inline-block;
 }
 @media (min-width: 580px) {
     body.episode a.backend {
