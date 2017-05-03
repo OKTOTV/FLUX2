@@ -27,12 +27,13 @@
     </div>
 </div>
 {% endmacro %}
+{% import _self as helper %}
 
 {% block body_main %}
     {{ form_start(form) }}
         <div class="form-group">
             <label for="tag_search">{{ 'oktothek.tag_search_label'|trans }}</label>
-            <input type="text" class="form-control" id="tag_search" data-prototype="{{ _self.tag_macro(form.tags.vars.prototype)|e('html_attr') }}"/>
+            <input type="text" class="form-control" id="tag_search" data-prototype="{{ helper.tag_macro(form.tags.vars.prototype)|e('html_attr') }}"/>
         </div>
         <div id="popular_tags">
             {% for tag in form.tags %}
