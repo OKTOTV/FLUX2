@@ -97,7 +97,7 @@ class AcademyController extends Controller
                         return $this->redirect($url);
                     }
                     $this->get('session')->getFlashBag()
-                        ->add('error', 'oktothek.error_sofort_book_course');
+                        ->add('error', 'oktothek.error_book_course');
                 } elseif ($form->has('register') && $form->get('register')->isClicked()) {
                     $this->get('oktothek_academy')->registerCourse(
                         $attendee,
