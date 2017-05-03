@@ -20,7 +20,7 @@
 {% endfor %}
 {% set numberOfEpisodes = 5 - episodes|slice(0,5)|length %}
 {% for i in 0..numberOfEpisodes if i > 0 %}
-    <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></article>
+    <li class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></li>
 {% endfor %}
     </ul>
 </div>
