@@ -23,9 +23,7 @@ body.newsarchiv aside .box h3:first-child, body.news aside .box h3:first-child  
 body.newsarchiv article:nth-child(2n+0) figure, body.tagpage article:nth-child(2n+0) figure {
     float:right;
 }
-body.news article.post figure {
-    padding-left:0;
-}
+
 body.news .post-content img {
     float:left;
     width:50%;
@@ -62,7 +60,10 @@ body.newsarchiv aside .box, body.news aside .box {
     width:100%;
     height:auto;
 }
-body.series.blog .page-header, .post .page-header, .post .page-header > h3 {
+body.series.blog .page-header {
+    margin-top:30px;
+}
+.post .page-header, .post .page-header > h3 {
     margin-top:0;
 }
 body.series.blog section > header.page-header, body.series .blog > header.page-header {
@@ -113,7 +114,9 @@ section.blog article.post + .comments {
     }
 }
 @media (min-width: 768px) {
-    
+    body.series.blog .page-header {
+        margin-top:0;
+    }
 }
 @media (min-width: 992px) {
     body.newsarchiv aside, body.news aside {

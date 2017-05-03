@@ -182,6 +182,28 @@ body.participate {
 	filter: blur(5px);
   } 
 }
+@keyframes show_planets { 
+  from { 
+    opacity: 0;       /* modern browser */
+    -moz-opacity: 0;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE8 in Standard Compliant Mode */
+    -webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+  } 
+  to { 
+    opacity: 1;       /* modern browser */
+    -moz-opacity: 1;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; /* IE8 in Standard Compliant Mode */
+    -webkit-filter: blur(0px);
+	-moz-filter: blur(0px);
+	-o-filter: blur(0px);
+	-ms-filter: blur(0px);
+	filter: blur(0px);
+  } 
+}
 body.participate #univers nav.active {
     margin-left:0px;
     left:0px;
@@ -211,6 +233,23 @@ body.participate #univers #planets.move {
 	-moz-animation-timing-function: ease;
     -moz-animation-fill-mode:forwards;
     -webkit-animation-name: hide_planets;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode:forwards;
+}
+body.participate #univers #planets.newmove {
+    animation-name: show_planets;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease;
+    animation-fill-mode:forwards;
+    -moz-animation-name: show_planets;
+	-moz-animation-duration: 1s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: ease;
+    -moz-animation-fill-mode:forwards;
+    -webkit-animation-name: show_planets;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-iteration-count: 1;
 	-webkit-animation-timing-function: ease;
@@ -276,7 +315,7 @@ body.participate figure .click_figure {
     width: 100%;
     height: 100%;
 }
-body.participate div:nth-child(2n+0) {
+body.participate #planets div:nth-child(2n+0) {
     text-align: right;
 }
 

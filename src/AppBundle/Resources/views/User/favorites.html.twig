@@ -7,7 +7,6 @@
 
 {% set body_class = "clip_overview" %}
 {% block body_main %}
-<main>
     <header class="page-header">
         <h1>{{ 'oktothek.user_favorites_header'|trans }}</h1>
     </header>
@@ -38,5 +37,4 @@
             {{ knp_pagination_render(favorites) }}
         </div>
     </section>
-</main>
 {% endblock %}

@@ -6,8 +6,8 @@
             <a class="btn btn-default loadme" id="yesterday" href="{{ path('oktothek_tv_program_for_date', {'date': date|date_modify('-1 day')|date('d-m-Y')}) }}"><span class="glyphicon glyphicon-chevron-left icon"></span> <span class="hidden-xs">{{'oktothek_tv_weekdays_choice'|transchoice(date|date_modify('-1 day')|date('N'))}}</span></a>
         </div>
         <div class="nav navbar-nav">
-            <h1 class="hidden-xs"><time datetime="{{ date|date('Y-m-d H:i') }}">{{'oktothek_tv_weedays_format'|trans({'%day%': 'oktothek_tv_weekdays_choice'|transchoice(date|date('N')), '%date%': date|date('d.m')})}}</time><!--<a href="{{ url('oktothek_tv_program_for_date') }}" class="btn btn-default today loadme">Heute</a>--></h1>
-            <h1 class="visible-xs-block"><time datetime="{{ date|date('Y-m-d H:i') }}">{{'oktothek_tv_weedays_format'|trans({'%day%': 'oktothek_tv_weekdays_short_choice'|transchoice(date|date('N')), '%date%': date|date('d.m')})}}</time><!--<a href="{{ url('oktothek_tv_program_for_date') }}" class="btn btn-default today loadme">Heute</a>--></h1>
+            <h2 class="hidden-xs"><span class="time">{{'oktothek_tv_weedays_format'|trans({'%day%': 'oktothek_tv_weekdays_choice'|transchoice(date|date('N')), '%date%': date|date('d.m')})}}</span><!--<a href="{{ url('oktothek_tv_program_for_date') }}" class="btn btn-default today loadme">Heute</a>--></h2>
+            <h2 class="visible-xs-block"><span class="time">{{'oktothek_tv_weedays_format'|trans({'%day%': 'oktothek_tv_weekdays_short_choice'|transchoice(date|date('N')), '%date%': date|date('d.m')})}}</span><!--<a href="{{ url('oktothek_tv_program_for_date') }}" class="btn btn-default today loadme">Heute</a>--></h2>
         </div>
         <div class="nav navbar-nav">
             <a class="btn btn-default loadme" id="tomorrow" href="{{ url('oktothek_tv_program_for_date', {'date': date|date_modify('+1 day')|date('d-m-Y')}) }}"><span class="hidden-xs">{{'oktothek_tv_weekdays_choice'|transchoice(date|date_modify('+1 day')|date('N'))}}</span> <span class="glyphicon glyphicon-chevron-right icon"></span></a>
@@ -21,7 +21,7 @@
               <li class="panel panel-default row">
                   <div class="panel-heading" role="tab" id="item{{ loop.index0 }}">
                       <a role="button" data-toggle="collapse" data-parent="#schedule-content-evening" href="#collapse{{ loop.index0 }}" aria-expanded="true" aria-controls="collapse{{ loop.index0 }}">
-                      <time datetime="{{ show.airdate|date('Y-m-d H:i') }}">{{ show.airdate|date('H:i') }}</time><h4>{% if show.name %}{{ show.series_name }} - {{ show.name }}{% else %}{{ show.series_name }}{% endif %}</h4></a>
+                      <span class="time">{{ show.airdate|date('H:i') }}</span><h4>{% if show.name %}{{ show.series_name }} - {{ show.name }}{% else %}{{ show.series_name }}{% endif %}</h4></a>
                   </div>
                   <div id="collapse{{ loop.index0 }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="item4">
                       <div class="description">{{ show.description }}</div>

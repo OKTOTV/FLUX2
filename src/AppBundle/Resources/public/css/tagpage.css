@@ -61,8 +61,8 @@ body.tagpage .page-header h1::before {
 body.tagpage .container.content-bg {
 	padding-top:20px;
 	margin-bottom:80px;
-	padding-left:25px;
-	padding-right:25px;
+	padding-left:5px;
+	padding-right:5px;
 }
 body.tagpage section.inc-pins > div {
     padding-bottom:65px;
@@ -191,6 +191,12 @@ body.tagpage .inc-pages h3 {
 @media (min-width: 768px) {
     body.tagpage .inc-pins {
         padding-bottom: 110px;
+    }
+    body.tagpage .container.content-bg {
+	    padding-top:20px;
+	    margin-bottom:80px;
+	    padding-left:25px;
+	    padding-right:25px;
     }
 }
 @media (min-width: 992px) {
