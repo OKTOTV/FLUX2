@@ -26,7 +26,7 @@ class EpisodeController extends Controller
     public function showAction(Request $request, Episode $episode)
     {
         if (!$episode->canBeOnline()) {
-            throw new NotFoundHttpException();
+            throw $this->createNotFoundException();
         }
         $this->get('bprs_analytics')->trackInfo($request, $episode->getUniqID());
         $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
@@ -41,7 +41,7 @@ class EpisodeController extends Controller
     public function playerAction(Request $request, Episode $episode)
     {
         if (!$episode->canBeOnline()) {
-            throw new NotFoundHttpException();
+            throw $this->createNotFoundException();
         }
         $this->get('bprs_analytics')->trackInfo($request, $episode->getUniqID());
         $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
