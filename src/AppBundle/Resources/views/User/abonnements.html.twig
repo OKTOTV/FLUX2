@@ -32,8 +32,8 @@
     <div class="row">
     {% for channel in channels %}
         <h3><a href="{{ path('oktothek_show_series', {'uniqID': channel.series.uniqID})}}">{{ channel }}</a></h3>
-            <a href="{{ path('user_update_abonnement', {'abonnement': channel.id})}}" class="btn btn-default">{{ 'user_edit_subscription'|trans }}</a>
         {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': channel.series.episodes|slice(0,3)} %}
+        <a href="{{ path('user_update_abonnement', {'abonnement': channel.id})}}" class="btn btn-default edit" titel="{{ 'user_edit_subscription'|trans }}"><span class="icon circle"></span></a>
     {% endfor %}
     </div>
     <div class="navigation row">
