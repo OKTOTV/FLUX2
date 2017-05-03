@@ -906,7 +906,8 @@ button.input-group-addon:hover,
 button.input-group-addon:focus,
 .post a.tag:hover,
 .post a.tag:focus,
-.blog aside a.more {
+.blog aside a.more,
+.visible-xs-block .pager li > a {
 	color:#ffffff;
 }
 *::-moz-selection {
@@ -929,7 +930,9 @@ header .collapseShare a.btn,
 .pagination > li.active > a, 
 .pagination > li.active > span,
 .pagination > li > a:hover,
-.pagination > li > a:focus {
+.pagination > li > a:focus,
+.visible-xs-block .pager li > a:hover, 
+.visible-xs-block .pager li > a:focus{
 	color:#000000;
 }
 .pin figcaption p a, 
@@ -1062,7 +1065,10 @@ body.tagpage .content-bg,
 .tabs-content .pagination > .disabled > span:focus, 
 .tabs-content .pagination > .disabled > span:hover,
 .tabs-content .pagination > li > a, 
-.tabs-content .pagination > li > span {
+.tabs-content .pagination > li > span,
+.visible-xs-block .pager .disabled > a, .visible-xs-block .pager .disabled > a:focus, .visible-xs-block .pager .disabled > a:hover, .visible-xs-block .pager .disabled > span,
+.visible-xs-block .pager li > a, 
+.visible-xs-block .pager li > a {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
@@ -1086,7 +1092,9 @@ body.producer .form-group.search .icon-search,
 .pagination > li.active > a, 
 .pagination > li.active > span,
 .pagination > li > a:hover,
-.pagination > li > a:focus  {
+.pagination > li > a:focus,
+.visible-xs-block .pager li > a:focus, 
+.visible-xs-block .pager li > a:hover {
 	background-color:#ffffff;
 }
 article.pin figure.pin,
@@ -1424,7 +1432,12 @@ button.btn-default#ButtonShare_mobil,
 .caret,
 div.list-group.tags span.label.label-default.remove,
 .subscriptions .btn-default.edit,
-.subscriptions .btn-default.edit:hover {
+.subscriptions .btn-default.edit:hover,
+.visible-xs-block .pager li > a,
+.visible-xs-block .pager .disabled > a, 
+.visible-xs-block .pager .disabled > a:focus, 
+.visible-xs-block .pager .disabled > a:hover, 
+.visible-xs-block .pager .disabled > span {
 	border:none;
 }
 .triangle {
@@ -1463,7 +1476,12 @@ header .btn,
 .pagination > li:last-child > a, 
 .pagination > li:last-child > span,
 .alert,
-div.list-group.tags span.label.label-default.remove {
+div.list-group.tags span.label.label-default.remove,
+.visible-xs-block .pager li > a,
+.visible-xs-block .pager .disabled > a, 
+.visible-xs-block .pager .disabled > a:focus, 
+.visible-xs-block .pager .disabled > a:hover, 
+.visible-xs-block .pager .disabled > span {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -2071,7 +2089,6 @@ header .navbar-fixed-top #mainmenu-container {
 	width:100%;
 	overflow:hidden;
 	position:relative;
-	z-index:2;
 	margin-top:0px;
 	height:auto;
 }
@@ -2208,10 +2225,14 @@ header + .container-fluid {
 	header .navbar-content {
 		margin-top:0px;
 		margin-left:60px;
+        height:140px;
 	}
 	header .navbar-fixed-top #mainmenu-container {
-		height:90px;
+		/*height:90px;*/
 		margin-top:0;
+	}
+    header .navbar-fixed-top #mainmenu-container .dropdown-menu {
+		z-index: 1001;
 	}
 	
 	header .navbar-fixed-top #search-container.navbar-collapse {
@@ -2224,7 +2245,7 @@ header + .container-fluid {
 	}
 	header .search-tagnav-container {
 		position:absolute;
-	    z-index:50;
+        z-index: 2;
 		top:86px;
 		width:auto;
 		left:50%;
