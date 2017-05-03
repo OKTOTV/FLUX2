@@ -2828,6 +2828,9 @@ figcaption  {
     display: block;
     text-align: center;
 }
+.comment-form fieldset {
+    text-align: center;
+}
 /*#appbundle_comment_submit {
     margin:0 auto;
 }*/
@@ -2864,6 +2867,9 @@ figcaption  {
     }
     #appbundle_comment_submit {
         margin-left:0;
+    }
+    .comment-form fieldset {
+        text-align: left;
     }
 }
 
