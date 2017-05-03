@@ -84,7 +84,7 @@ section.fs-image-content, section.fs-image-content {
     line-height: 1em;
 }
 .description-overlay .content-opacity p {	 
-    margin:2px 0 2px 0;
+    margin:10px 0 2px 0;
 }
 #slider, .fs-image-content {
 	margin-top:-90px;

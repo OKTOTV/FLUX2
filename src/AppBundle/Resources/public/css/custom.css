@@ -212,6 +212,7 @@ header .nav,
 .pin .pin-icon .glyphicon, 
 a.tag, 
 .nav-justified,
+.playlists .author,
 footer h3, 
 .input-group-addon, 
 .collapseShare h3, 
@@ -391,6 +392,9 @@ select:active:focus {
     h2, .h2 {
 	    font-size:35px;
 	    letter-spacing:0.5px;
+    }
+    .playlists .author {
+        font-size:14px;
     }
 	header .form-control::-moz-placeholder {
   		font-size:16px;
@@ -3071,7 +3075,7 @@ a.more.right {
     width: 1px;
 }
 .tt-menu {
-    width:315px;
+    width:280px;
     padding:15px 10px;
 }
 .tt-menu .tt-dataset-tags div {
@@ -3082,6 +3086,12 @@ a.more.right {
 }
 .twitter-typeahead + .tags {
     margin-top:20px;
+}
+@media (min-width: 768px) {
+    .tt-menu {
+        width:315px;
+        padding:15px 10px;
+    }
 }
 
 

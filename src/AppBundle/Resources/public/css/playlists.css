@@ -212,8 +212,8 @@ body.producer .col-lg-2, body.producer .col-md-2, body.producer .col-sm-3, body.
     padding-bottom:10px;
 }
 .tt-menu .col-xs-12, .tt-menu .col-sm-4, .tt-menu .col-md-4 {
-    padding-right:0;
-    padding-left:15px;
+    padding-right:0px;
+    padding-left:0px;
 }
 .tt-menu .col-xs-12, .tt-menu .col-sm-8, .tt-menu .col-md-8 {
     padding-left:0px;
