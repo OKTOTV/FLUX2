@@ -415,6 +415,7 @@ oktothek.success_book_SOFORT_course:    Vielen Dank! Sie erhalten in kürze eine
 oktothek.book_sofort_button:            Mit SOFORTÜberweisung bezahlen
 oktothek.attendee_create_button:        Per Überweisung oder Bar bezahlen
 oktothek.register_attendee_button:      Kostenlos Registrieren
+oktothek.error_sofort_book_course:      "Beim Bezahlvorgang ist ein Fehler aufgetreten. Bitte versuche es noch einmal."
 oktothek.error_book_course:             Bitte fülle alle Felder aus, um dich für den Workshop anzumelden
 oktothek.success_register_course:       Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Registrierungsbestätigung
 
@@ -800,6 +801,7 @@ oktothek.series_producer_blog_text:         Hier kannst du für deine Sendereihe
 oktothek.series_producer_new_blogpost:      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Blogeintrag anlegen
 ## producer episodes
 oktothek.series_producer_episode_text:      "Hier hast du Übersicht zu all deinen Folgen dieser Sendereihe. Statistiken, runterladen und Folgenstatus sind hier jederzeit für dich einsehbar."
+oktothek_producer_episodes_statistik:       "Folgenstatistik"
 
 ## producer episode
 oktothek.series_producer_episode_favorites: Favoriten
