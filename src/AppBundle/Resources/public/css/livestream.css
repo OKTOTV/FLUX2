@@ -20,8 +20,15 @@
 	border-radius:0px;
 }
 .livestream .schedule {
-    margin-left:-30px;
+    margin-left:-15px;
     margin-right:-30px;
+}
+.livestream .schedule.visible-xs-block {
+    margin-left:-40px;
+    margin-right:-12px;
+}
+.livestream .schedule.visible-xs-block h4 {
+    margin-top:0;
 }
 .livestream .schedule ul {
 	list-style:none;
@@ -38,15 +45,16 @@
 }
 .livestream header.page-header .navbar-nav, .livestream .schedule header .page-header-content div, .livestream .panel-heading .time, .livestream .panel-heading h4, .livestream .next-episode-schedule .panel-content, .livestream .next-episode-schedule .panel-time {
 	display:table-cell;
+    vertical-align: top;
 }
 .livestream #nav-programm .icon {
 	display:inline-block;
 }
-.livestream #current_show .time {
-	display:block;
+.livestream #current_show .schedule .time {
+	display:table-cell;
 }
 
-.livestream header.page-header #nav-livestream, .livestream .schedule header, .livestream header.page-header .row, .livestream .schedule #page-header-content, .livestream .schedule img, .livestream .panel-heading {
+.livestream header.page-header #nav-livestream, .livestream .schedule header, .livestream header.page-header .row, .livestream .schedule #page-header-content, .livestream .schedule img, .livestream .panel-heading, .next-episode-schedule {
 	width:100%;
 }
 .livestream .schedule .panel-heading .time, 
@@ -136,9 +144,6 @@
 .livestream .schedule header {
 	margin-left:-15px;
 }
-.livestream .schedule .panel-collapse {
-	margin-left:30%;
-}
 .livestream button.today {
 	margin-left:20px;
 }
@@ -146,7 +151,7 @@
 	padding:2px;
 }
 .livestream .schedule .panel-collapse {
-	padding: 0 15px 0 7.5px;
+	padding: 0 15px;
 }
 .livestream .panel-heading h4 {
     padding-top:8px;
@@ -157,11 +162,18 @@
 .livestream .description {
     padding-bottom:20px;
 }
+.livestream #current_show h4 {
+    margin-left:-15px;
+    padding-right:15px;
+}
 .livestream .schedule ul {
 	padding-left:0;
 }
 .livestream .panel-heading {
-    padding:5px 15px;
+    padding:5px 0px;
+}
+.livestream #current_show .panel-heading {
+    padding:5px 0px;
 }
 .livestream header.page-header .time {
 	line-height:34px;
@@ -201,6 +213,39 @@
     .livestream .next-episode-schedule .panel-content {
 	    margin-left:20%;
     }
+    .livestream #current_show h1, .livestream #current_show .current-episode {
+        margin-left:15px;
+    }
+    .livestream #current_show .description {
+        margin-left:15px;
+    }
+    .livestream #current_show .time {
+        padding-left:10px;
+        display: inline-block;
+    }
+    .livestream .schedule .panel-collapse {
+	    padding: 0 15px 0 7.5px;
+    }
+    .livestream #current_show h4 {
+        margin-left:0px;
+        padding-right:0px;
+    }
+    .livestream #current_show h1, .livestream #current_show .current-episode {
+        margin-left:0px;
+    }
+    .livestream #current_show .description {
+        margin-left:0px;
+    }
+    .livestream #current_show .time {
+        padding-left:0px;
+        display: inline-block;
+    }
+    .livestream #current_show .panel-heading, .livestream #current_show .panel-heading + div {
+        margin-left:15px;
+    }
+    .livestream .panel-heading {
+        padding:5px 15px;
+    }
 }
 @media (min-width: 580px) {
     .livestream .schedule img {
@@ -220,6 +265,16 @@
     .livestream .next-episode-schedule .panel-content {
 	    margin-left:15%;
     }
+    .livestream #current_show h1, .livestream #current_show .current-episode {
+        margin-left:0px;
+    }
+    .livestream #current_show .description {
+        margin-left:0px;
+    }
+    .livestream #current_show .time {
+        padding-left:0px;
+        display: inline-block;
+    }
 }
 @media (min-width: 768px) {
     .livestream .schedule {
@@ -233,6 +288,12 @@
     .livestream .schedule .panel-collapse, 
     .livestream .next-episode-schedule .panel-content {
 	    padding: 0 15px;
+    }
+    .livestream #current_show .panel-heading {
+        padding:5px 14px;
+    }
+    .livestream #current_show .panel-heading, .livestream #current_show .panel-heading + div {
+        margin-left:0px;
     }
 }
 @media (min-width: 992px) {
