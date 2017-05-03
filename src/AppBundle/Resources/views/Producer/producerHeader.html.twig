@@ -7,17 +7,17 @@
 </header>
 <ul class="nav nav-tabs nav-justified">
   <li role="presentation" {% if active == "producer_info" %} class="active"{% endif %}>
-      <a href="{{ path('oktothek_channel', {'uniqID': series.uniqID}) }}">Allgemein</a>
+      <a href="{{ path('oktothek_channel', {'uniqID': series.uniqID}) }}">{{ 'oktothek_producer_header_general'|trans }}</a>
   </li>
   <li role="presentation"{% if active == "producer_blog" %} class="active"{% endif %}>
-      <a href="{{ path('oktothek_channel_blogposts', {'uniqID': series.uniqID}) }}">Blog</a>
+      <a href="{{ path('oktothek_channel_blogposts', {'uniqID': series.uniqID}) }}">{{ 'oktothek_producer_header_blog'|trans }}</a>
   </li>
   <li role="presentation"{% if active == "producer_playlists" %} class="active"{% endif %}>
-      <a href="{{ path('oktothek_channel_playlists', {'uniqID': series.uniqID}) }}">Playlisten</a></li>
+      <a href="{{ path('oktothek_channel_playlists', {'uniqID': series.uniqID}) }}">{{ 'oktothek_producer_header_playlist'|trans }}</a></li>
   <li role="presentation"{% if active == "producer_episodes" %} class="active"{% endif %}>
-      <a href="{{ path('oktothek_channel_episodes', {'uniqID': series.uniqID}) }}">Folgen</a>
+      <a href="{{ path('oktothek_channel_episodes', {'uniqID': series.uniqID}) }}">{{ 'oktothek_producer_header_episode'|trans }}</a>
   </li>
   <li role="presentation"{% if active == "producer_live" %} class="active"{% endif %}>
-      <a href="{{ path('oktothek_channel_now_live', {'uniqID': series.uniqID}) }}">Live</a>
+      <a href="{{ path('oktothek_channel_now_live', {'uniqID': series.uniqID}) }}">{{ 'oktothek_producer_header_live'|trans }}</a>
   </li>
 </ul>

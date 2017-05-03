@@ -8,7 +8,7 @@
                 {{'oktothek_tv_current_short'|trans({'%series%': current[0].series_name}) }}
             {% endif %}
         </h1>
-        <span class="time">Seit {{ current[0].airdate|date('H:i')}}</span>
+        <time datetime="{{ current[0].airdate|date('Y-m-d H:i')}}">{{ 'oktothek_tv_current_time'|trans({'%time%': current[0].airdate|date('H:i')}) }}</time>
         <p class="description">{{ current[0].description }}</p>
     </header>
     <h2>Nächste Sendungen</h2>
