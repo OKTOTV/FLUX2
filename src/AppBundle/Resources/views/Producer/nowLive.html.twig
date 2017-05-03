@@ -8,7 +8,7 @@
 {% block body_main %}
 
 {% include 'AppBundle::Producer/producerHeader.html.twig' with {'active': 'producer_live', 'series': series} %}
-<section class="tabs-content">
+<section class="tabs-content live">
 <p class="subheadline">{{ 'oktothek.series_producer_live_text'|trans }}</p>
 {{ form(form) }}
 </section>

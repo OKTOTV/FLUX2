@@ -137,41 +137,41 @@ body.playlists .description-overlay .description-wrapper .more {
 }
 
 /* Edit Playlists */
-body.edit-playlists #playlist_items {
+#playlist_items {
 	margin-bottom:40px;
 }
-body.edit-playlists #playlist_items .row {
+#playlist_items .row {
 	margin-bottom:1px;
 	padding-top:15px;
 	padding-bottom:15px;
 }
-body.edit-playlists #playlist_items .list-group-item {
+#playlist_items .list-group-item {
 	padding:4px;
 	margin-left:4px;
 }
-body.edit-playlists #playlist_items .list-group {
+#playlist_items .list-group {
     float:left;
 	margin-bottom:0;
 }
-body.edit-playlists #playlist_items .list-group-item {
+#playlist_items .list-group-item {
 	display:inline;
 }
-body.edit-playlists #playlist_items .col-md-1 {
+#playlist_items .col-md-1 {
 	padding-left:0;
 	text-align:right;
 }
-body.edit-playlists #playlist_items h3 {
+#playlist_items h3 {
 	margin:0;
 }
-body.edit-playlists #playlist_items p {
+#playlist_items p {
 	margin-top:2px;
 }
-body.edit-playlists #playlist_items a.list-group-item span {
+#playlist_items a.list-group-item span {
 	vertical-align:middle;
 	text-align:center;
 	top:0;
 }
-body.edit-playlists form label {
+body.edit-playlists form label, body.producer form label {
     display:block;
 }
 body.edit-playlists form fieldset {
@@ -187,13 +187,13 @@ body.edit-playlists form .form-group.search .twitter-typeahead {
 body.edit-playlists form .form-group.search input {
     width:100%;
 }
-body.edit-playlists .form-group.search .icon-search {
+body.edit-playlists .form-group.search .icon-search, body.producer .form-group.search .icon-search {
     width:50px;
     height:35px;
     display:inline-block;
     float:left;
 }
-body.edit-playlists .form-group.search .icon-search span {
+body.edit-playlists .form-group.search .icon-search span, body.producer .form-group.search .icon-search span {
     display:inline-block;
     width:100%;
     height:100%;
@@ -201,22 +201,24 @@ body.edit-playlists .form-group.search .icon-search span {
     vertical-align:center;
     text-align:center;
 }
-body.edit-playlists .tt-menu {
-    margin-left:-50px;
-    width:315px;
-    padding:15px 10px 15px 60px;
+body.producer .col-lg-2, body.producer .col-md-2, body.producer .col-sm-3, body.producer .col-xs-4 {
+    padding-left:0;
 }
-body.edit-playlists .tt-menu .row {
+.tt-menu {
+    margin-left:-50px;
+    padding-left:60px;
+}
+.tt-menu .row {
     padding-bottom:10px;
 }
-body.edit-playlists .tt-menu .col-xs-12, body.edit-playlists .tt-menu .col-sm-4, body.edit-playlists .tt-menu .col-md-4 {
-    padding-right:0;
-    padding-left:15px;
-}
-body.edit-playlists .tt-menu .col-xs-12, body.edit-playlists .tt-menu .col-sm-8, body.edit-playlists .tt-menu .col-md-8 {
+.tt-menu .col-xs-12, .tt-menu .col-sm-4, .tt-menu .col-md-4 {
+    padding-right:0px;
     padding-left:0px;
 }
-body.edit-playlists .tt-menu img {
+.tt-menu .col-xs-12, .tt-menu .col-sm-8, .tt-menu .col-md-8 {
+    padding-left:0px;
+}
+.tt-menu img {
     width:120px;
     height:auto;
     margin-bottom: 10px;
@@ -274,14 +276,14 @@ body.edit-playlists .delete-playlist {
     body.playlists #button_down {
         display:block;
     }
-    body.edit-playlists .tt-menu img {
+    .tt-menu img {
         width:100%;
         height:auto;
     }
-    body.edit-playlists .tt-menu .col-xs-12, body.edit-playlists .tt-menu .col-sm-8, body.edit-playlists .tt-menu .col-md-8 {
+    .tt-menu .col-xs-12, .tt-menu .col-sm-8, .tt-menu .col-md-8 {
         padding-left:15px;
     }
-    body.edit-playlists .tt-menu .col-xs-12, body.edit-playlists .tt-menu .col-sm-4, body.edit-playlists .tt-menu .col-md-4 {
+    .tt-menu .col-xs-12, .tt-menu .col-sm-4, .tt-menu .col-md-4 {
         padding-right:0;
         padding-left:5px;
     }
@@ -293,14 +295,14 @@ body.edit-playlists .delete-playlist {
         margin-right:-5px;
         margin-left:-5px;
     }
-    body.edit-playlists form .form-group.search input {
+    input#episode_search {
         width:265px;
     }
     body.edit-playlists form .form-group.search > div {
         width:315px;
         margin:0 -15px 0 auto;
     }
-    body.edit-playlists #playlist_items .list-group {
+    #playlist_items .list-group {
 	    float:right;
     }
 }

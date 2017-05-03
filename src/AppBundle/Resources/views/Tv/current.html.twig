@@ -16,7 +16,7 @@
     {% for next in current|slice(1) %}
         <article class="row pin">
             <div class="panel-time">
-                <time datetime="{{ next.airdate|date('Y-m-d H:i')}}">{{ next.airdate|date('H:i')}}</time>
+                <span class="time">{{ next.airdate|date('H:i')}}</span>
             </div>
             <div class="panel-content">
                 <h4 class="name">

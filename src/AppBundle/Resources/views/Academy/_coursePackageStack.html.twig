@@ -1,6 +1,6 @@
 <div class="row">
     {% for coursepackage in coursepackages %}
-        <a href="{{ path('oktothek_academy_show_coursepackage', {'slug': coursepackage.slug}) }}" title="{{ coursepackage.name }}">
+        <!-- <a href="{{ path('oktothek_academy_show_coursepackage', {'slug': coursepackage.slug}) }}" title="{{ coursepackage.name }}">
             <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pin" data-placement="right" title="{{ coursepackage.name }}">
                 <figure class="academy-pin pin">
                     <div class="image-container">
@@ -19,6 +19,53 @@
                     </figcaption>
                 </figure>
             </article>
-        </a>
+        </a> -->
+        
+        
+        
+        <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pin" data-placement="right" title="#" id="course{{coursepackage.id}}">
+            <figure class="academy-pin pin">
+                <div class="image-container">
+                    <img src="{{ coursepackage.image|thumb(135,240) }}" class="img-responsive" alt="{{ coursepackage.name }}"/>
+                    <div class="preview-button">
+                        <div class="preview-content">
+                            <div class="bg-opacity"> </div>
+                            <a role="button" data-toggle="collapse" href="#collapseDetail{{coursepackage.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursepackage.id}}">{{ 'oktothek_academy_quickview'|trans }}</a>
+                           </div>
+                       <div class="preview-icon"><a role="button" data-toggle="collapse" href="#collapseDetail{{coursepackage.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursepackage.id}}"><div class="pin-icon"><span> </span></div></a></div>
+                    </div>
+                </div>
+                <figcaption>
+                    <h3><a href="{{ path('oktothek_academy_show_coursepackage', {'slug': coursepackage.slug}) }}" title="{{ coursepackage.name }}">{{ coursepackage.name }}</a></h3>
+                    <p><span class="price">
+                        {{ 'oktothek_academy_misc_info'|trans({
+                            '%price%': coursepackage.price|number_format(2, ',', '.'),
+                            '%price_reduced%': coursepackage.priceReduced|number_format(2, ',', '.')
+                        })|raw }}
+                    </span></p>
+                </figcaption>
+            </figure>
+
+            <!-- Schnellansicht Details Start -->
+        <div class="collapse preview collapseWindow" data-placement="right" id="collapseDetail{{coursepackage.id}}">
+            <div class="collapse-header"> </div>
+            <div class="col-md-12 collapse-content">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                        <h3>{{ coursepackage.name }}</h3>
+                            <p>Kurzbeschreibung</p>
+                            <p><a href="{{ path('oktothek_academy_show_coursepackage', {'slug': coursepackage.slug}) }}" class="more">{{ 'oktothek_academy_show_details'|trans({'%coursetype%': coursepackage.name }) }}</a></p>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                            <h4>Kurse</h4>
+                            <ul class="timetable">
+                                
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+        </div>
+        <!-- Schnellansicht Details Ende -->
+        </article>
     {% endfor %}
 </div>

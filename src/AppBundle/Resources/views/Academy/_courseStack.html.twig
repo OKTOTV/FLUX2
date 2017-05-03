@@ -13,10 +13,8 @@
                     </div>
                 </div>
                 <figcaption>
-                    <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="{{ 'oktothek_academy_hover_title'|trans({'%coursetype%': coursetype.title}) }}">
-                        <h3>{{ coursetype.title }}</h3>
-                        <p><span class="price">{{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.')})|raw }}</span></p>
-                    </a>
+                    <h3><a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.id}) }}" title="{{ 'oktothek_academy_hover_title'|trans({'%coursetype%': coursetype.title}) }}">{{ coursetype.title }}</a></h3>
+                    <p><span class="price">{{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.')})|raw }}</span></p>
                 </figcaption>
             </figure>
 

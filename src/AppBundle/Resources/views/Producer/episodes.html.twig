@@ -16,16 +16,17 @@
 </div>
 <ul class="list-group">
     {% for episode in episodes %}
-    <li class="row pin">
-        <a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="list-group-item">
+    <li class="row">
+        <figure class="list-group-item">
             <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 pin">
-                <img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" />
+                <a href="#"><img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" /></a>
             </div>
-            <div class="col-md-10 col-lg-10 col-sm-9 col-xs-12">
-                <h3 class="list-group-item-heading">{{ episode.name }}</h3>
-                <p class="list-group-item-text">{{ episode.description }}</p>
-            </div>
-        </a>
+            <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-12">
+                <h3><a href="#">{{ episode.name }}</a></h3>
+                <p>{{ episode.description }}</p>
+                <p><a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="btn btn-default">Folgenstatistik</a></p>
+            </figcaption>
+        </figure>
     </li>
     {% endfor %}
 </ul>
