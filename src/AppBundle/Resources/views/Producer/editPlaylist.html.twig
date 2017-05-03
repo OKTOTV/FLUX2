@@ -63,7 +63,8 @@
     <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $(document).on("click", '.moveup', function() {
+            $(document).on("click", '.moveup', function( event ) {
+                event.preventDefault();
                 var row = $(this).parents('.row');
                 if (row.prev().length) {
                     row.slideUp(function() {
@@ -74,7 +75,8 @@
                 }
             });
 
-            $(document).on("click", ".movedown", function() {
+            $(document).on("click", ".movedown", function( event ) {
+                event.preventDefault();
                 var row = $(this).parents('.row');
                 if (row.next().length) {
                     row.slideUp(function() {
@@ -85,7 +87,8 @@
                 }
             });
 
-            $(document).on("click", '.remove', function() {
+            $(document).on("click", '.remove', function( event ) {
+                event.preventDefault();
                 var row = $(this).parents('.row');
                 row.hide('slow', function() {
                     row.remove();
@@ -136,7 +139,7 @@
                         '</div>'
                     ].join('\n'),
                     suggestion: function(data) {
-                        return '<div class="row"><div class="col-md-3"><img src="'+data.thumb+'" /></div><div class="col-md-9"><p>'+data.name+'</p></div></div>';
+                        return '<div class="row"><div class="col-md-4"><img src="'+data.thumb+'" /></div><div class="col-md-8"><p>'+data.name+'</p></div></div>';
                     }
                 }
             }).bind('typeahead:select', function(ev, suggestion) {

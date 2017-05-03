@@ -10,7 +10,7 @@
 <div class="container planet_container">
     <div id="top"></div>
     <section id="univers">
-        <!--<header><h1>Oktoversum</h1></header>-->
+        <h1 class="sr-only">Oktoversum</h1>
         <div id="planets">
             <!-- 1 -->
             <div class="cloud9-item color1 clearfix">
@@ -30,7 +30,7 @@
                  <nav class="subnav-item1 nav sub-right">
                     <button type="button" class="close visible-xs-block visible-sm-block" aria-label="Schließen"><span aria-hidden="true">&times;</span></button>
                     <ul>
-                        <li><div class="dot"><hr></div><a href="https://flux2.okto.tv/de/oktothek/series/5819f4e14361a"><span class="icon"></span>PraktikantInnenblog</a></li>
+                        <li><div class="dot"><hr></div><a href="https://flux2.okto.tv/de/series/5819f4e14361a"><span class="icon"></span>PraktikantInnenblog</a></li>
                         <li><div class="dot"><hr></div><a href="mailto:promo@okto.tv"><span class="icon glyphicon glyphicon-camera"></span>Bewirb dich per mail!</a></li>
                         {#<li><div class="dot"><hr></div><span class="icon"></span><a href="#">Link</a></li>#}
                     </ul>
@@ -97,8 +97,8 @@
                 <nav class="subnav-item4 nav sub-left">
                     <button type="button" class="close visible-xs-block visible-sm-block" aria-label="Schließen"><span aria-hidden="true">&times;</span></button>
                     <ul>
-                        <li><div class="dot"><hr></div><a href="https://flux2.okto.tv/de/academy/">Jetzt Kurse buchen<span class="icon glyphicon glyphicon-education"></span></a></li>
-                        <li><div class="dot"><hr></div><a href="https://flux2.okto.tv/de/academy/5">Komm zum Infoabend!<span class="icon"></span></a></li>
+                        <li><div class="dot"><hr></div><a href="https://flux2.okto.tv/de/workshops/">Jetzt Kurse buchen<span class="icon glyphicon glyphicon-education"></span></a></li>
+                        <li><div class="dot"><hr></div><a href="https://flux2.okto.tv/de/workshops/5">Komm zum Infoabend!<span class="icon"></span></a></li>
                         {#<li><div class="dot"><hr></div><span class="icon"></span><a href="#">Link</a></li>#}
                     </ul>
                 </nav>
@@ -140,7 +140,7 @@
 </div>
 <video autoplay loop id="participate_video" poster="{{ asset('bundles/app/images/sternenhimmel.jpg') }}">
         <source src="{{ asset('bundles/app/videos/sternenhimmel.mp4') }}" type="video/mp4">
-        <!--<source src="{{ asset('bundles/app/videos/sternenhimmel.ogg') }}" type="video/ogg">-->
+        <source src="{{ asset('bundles/app/videos/sternenhimmel.ogg') }}" type="video/ogg">
     </video>
 {% endblock %}
 {% block javascripts %}
