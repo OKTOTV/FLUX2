@@ -98,6 +98,8 @@ swiftmailer:
 
 bprs_user:
     class: %bprs_user.class%
+    register_header: "Registierung auf OKTO abschließen"
+    iforgot_header:  "Passwort auf OKTO zurücksetzen"
     mail:
         commandline_host: %bprs_user.host%
         adress:           %bprs_user.mailadress%
