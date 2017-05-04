@@ -58,4 +58,7 @@ body.episode #ButtonPlaylist, body.episode #ButtonShare {
     body.episode p.misc {
 	    margin-bottom:10px;
     }
+    .tags .col-lg-1 {
+        width: auto;
+    }
 }
