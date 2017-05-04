@@ -65,6 +65,7 @@ bold,
 strong,
 header .navbar .nav > li > a, 
 header .navbar .nav.navbar-right > li > a, 
+.carousel-caption h3,
 #dropdownMenuTags, 
 .oktothek .participart figcaption, 
 .pin figcaption h3, 
@@ -383,7 +384,7 @@ select:active:focus {
 }
 
 @media (min-width: 768px) {
-	header .navbar .nav.navbar-right > li > a {
+	header .navbar .nav.navbar-right > li > a, .carousel-caption h3 {
 	    font-family: HelveticaNeueLTStd-Roman, Helvetica, sans-serif;
 	    font-weight: normal;
 	    font-style: normal;
