@@ -26,7 +26,7 @@
                             {{ 'oktothek_tag_more_results'|trans|raw }} <span class="icon small-arrow-right"></span>
                         </a>
                         <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">
-                            {{ 'oktothek_tag_more_results'|trans|raw }} <span class="icon small-arrow-right"></span>
+                            {{ 'oktothek_tag_more_episode_results'|trans|raw }} <span class="icon small-arrow-right"></span>
                         </a>
                     {% endif %}
                 </section>
@@ -38,7 +38,7 @@
                     {% include "AppBundle::Tag/seriesTag.html.twig" with {'seriess': seriess} %}
                     {% if seriess|length > 5 %}
                         <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">
-                            {{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
+                            {{ 'oktothek_tag_more_series_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
                         </a>
                         <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">
                             {{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
@@ -53,7 +53,7 @@
                     {% include "AppBundle::Tag/playlistTag.html.twig" with {'playlists': playlists} %}
                     {% if seriess|length > 5 %}
                         <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">
-                            {{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
+                            {{ 'oktothek_tag_more_playlist_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
                         </a>
                         <a href="{{ path('oktothek_tag_playlists_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">
                             {{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span>
@@ -67,7 +67,7 @@
                     <h2>{{ 'oktothek_tag_posts_header'|trans }}</h2>
                     {% include "AppBundle::Tag/postsTag.html.twig" with {'posts': tag.posts} %}
                     {% if posts|length > 3 %}
-                        <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
+                        <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">{{ 'oktothek_tag_more_post_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
                         <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
                     {% endif %}
                 </section>
@@ -78,7 +78,7 @@
                     <h2>{{ 'oktothek_tag_pages_header'|trans }}</h2>
                     {% include "AppBundle::Tag/pagesTag.html.twig" with {'pages': tag.pages} %}
                     {% if pages|length > 6 %}
-                        <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
+                        <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">{{ 'oktothek_tag_more_page_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
                         <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
                     {% endif %}
                 </section>

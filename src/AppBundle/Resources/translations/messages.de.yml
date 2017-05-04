@@ -188,18 +188,18 @@ oktothek.playlist_index_new_playlist:   <span class="glyphicon glyphicon-plus"><
 oktothek.playlist_show:                 Playlist %playlist%
 
 ### edit
-oktothek.playlist_edit_header:          Wiedergabeliste bearbeiten
-oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Playliste löschen
+oktothek.playlist_edit_header:          Playlist bearbeiten
+oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Playlist löschen
 oktothek.playlist_create_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Playliste anlegen
 oktothek.playlist_update_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
 oktothek.playlist_name_label:           Titel
 oktothek.playlist_description_label:    Beschreibung
-oktothek.playlist_items_label:          Clips
-oktothek.playlist_search_label:         Episodensuche
+oktothek.playlist_items_label:          Folgen
+oktothek.playlist_search_label:         Folgensuche
 oktothek.error_edit_playlist:           Die Playlist konnte nicht gespeichert werden. Bitte überprüfe die Formularfelder
 oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
 oktothek.success_delete_playlist:       Wiedergabeliste erfolgreich gelöscht
-oktothek.playlist_delete_info:          Nicht zufrieden mit der Playliste? Hier kannst Du sie wieder löschen.
+oktothek.playlist_delete_info:          Nicht zufrieden mit der Playlist? Hier kannst Du sie wieder löschen.
 
 ### show.html.twig
 oktothek.playlist_show_next_video:      "Nächstes Video"
@@ -238,7 +238,7 @@ oktothek_comment_cP_answer:             "Auf Kommentar antworten"
 oktothek.tag_index_header:              Tags
 oktothek_tag_pages_header:              Seiten
 oktothek_tag_header:                    "%title%"
-oktothek_tag_episode_header:            Episoden
+oktothek_tag_episode_header:            Folgen
 oktothek_tag_series_header:             Sendereihen
 oktothek_tag_playlists_header:          Playlisten
 oktothek_tag_posts_header:              Posts
@@ -246,6 +246,11 @@ oktothek_tag_pages_header:              Seiten
 oktothek_tag_placeholder:               Katzen, YOLO and more
 oktothek.tag_new_button:                <span class="glyphicon glyphicon-plus"></span> Neuen Tag anlegen
 oktothek_tag_more_results:              Mehr Anzeigen <span class="icon">+</span>
+oktothek_tag_more_episode_results:      'Mehr <span class="sr-only">Folgen </span>anzeigen'
+oktothek_tag_more_series_results:       'Mehr <span class="sr-only">Sendereihen </span>anzeigen'
+oktothek_tag_more_playlist_results:     'Mehr <span class="sr-only">Playlisten </span>anzeigen'
+oktothek_tag_more_post_results:         'Mehr <span class="sr-only">Posts </span>anzeigen'
+oktothek_tag_more_page_results:         'Mehr <span class="sr-only">Seiten </span>anzeigen'
 
 # backend new tag
 oktothek.tag_text_label:               Tagtext
@@ -333,6 +338,7 @@ oktothek_tv_weedays_format:             "%day%, %date%"
 # AppBundle/Resources/views/Tv/current.html.twig
 oktothek_tv_current_long:               "%series% - %episode%"
 oktothek_tv_current_short:              "%series%"
+oktothek_tv_current_time:               "Seit %time%"
 ## participate
 oktothek_participate_title:             Mitmachen
 
@@ -373,6 +379,7 @@ oktothek.series_episodes_onlineStart_filter: Datum
 oktothek.series_reachmes_header:        Mehr Infos über %series% gibt es hier!
 oktothek.series_show_blog:              Zum Blog
 oktothek.series_more_blog_entries:      Mehr Blogeinträge
+oktothek.series_playlist_header:        "Vom Sendungsteam empfohlen"
 
 # /src/AppBundle/Resources/views/Series/episodeStackOpen.html.twig
 oktothek_series_episodeStack_show_more: 'Mehr Videos anzeigen <span class="glyphicon glyphicon-menu-right"></span>'
@@ -408,6 +415,7 @@ oktothek.success_book_SOFORT_course:    Vielen Dank! Sie erhalten in kürze eine
 oktothek.book_sofort_button:            Mit SOFORTÜberweisung bezahlen
 oktothek.attendee_create_button:        Per Überweisung oder Bar bezahlen
 oktothek.register_attendee_button:      Kostenlos Registrieren
+oktothek.error_sofort_book_course:      "Beim Bezahlvorgang ist ein Fehler aufgetreten. Bitte versuche es noch einmal."
 oktothek.error_book_course:             Bitte fülle alle Felder aus, um dich für den Workshop anzumelden
 oktothek.success_register_course:       Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Registrierungsbestätigung
 
@@ -639,7 +647,7 @@ markdown_images_info: |
 
 # user
 ## subscriptions
-oktothek.user_update_subscription_header:   Benachrichtigungseinstellungen für %series%
+oktothek.user_update_subscription_header:   Aboeinstellungen für %series%
 oktothek_abonnement_livestream_label:       Bei Livestreams benachrichtigen
 oktothek_abonnement_new_episode_label:      Bei neuen Episoden benachrichtigen
 oktothek_abonnement_new_post_label:         Bei neuen Beiträgen benachrichtigen
@@ -678,8 +686,9 @@ oktothek.favorite_index_filter_firstranAt:  Ausstrahlungsdatum
 oktothek.favorite_index_filter_series:      Sendereihe
 
 ## channels
-oktothek.user_channels_header:              Meine Abonnements
+oktothek.user_channels_header:              Meine Abos
 oktothek_user_channels_title:               Meine Abonnements
+oktothek_user_channels_series_header:       "Abonnierte Sendereihen"
 oktothek.user_channels_filter:              <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
 oktothek_user_channel_filter_name:          Name
 oktothek_user_channel_filter_updatedAt:     Zuletzt aktualisiert
@@ -755,7 +764,7 @@ oktothek_default_share_title_mail:          "Link via E-Mail teilen"
 oktothek_episodeStack_more_results_title:   "Alle Videos anzeigen"
 
 # oktothek episode thumb
-oktothek_episode_thumb_default_title:       "Episode vom %date%"
+oktothek_episode_thumb_default_title:       "Folge von %date%"
 oktothek_episode_thumb_series_title:        "Zu Sendereihe %series%"
 oktothek_episode_thumb_title:               "Zu %episode%"
 oktothek_episode_thumb_img:                 "Posterframe von %episode%"
@@ -774,9 +783,16 @@ oktothek.series_producer_reachmes:          Soziale Medien und Kontaktmöglichke
 oktothek.series_producer_episodes:          Verfügbare Episoden
 oktothek.series_producer_playlists:         Verfügbare Playlisten
 
+# /src/AppBundle/views/Producer/producerHeader.html.twig
+oktothek_producer_header_general:           "Allgemein"
+oktothek_producer_header_blog:              "Blog"
+oktothek_producer_header_playlist:          "Playlisten"
+oktothek_producer_header_episode:           "Episoden"
+oktothek_producer_header_live:              "Live"
+
 # producer live
 oktothek.series_producer_live_text:         Du bist Live on Air? Lass es deine Fans wissen!
-oktothek_channel_live_confirm_label:        Bestätigen
+oktothek_channel_live_confirm_label:        "Jetzt Live!"
 oktothek.notificate_live_button:            Benachrichtigung Senden
 oktothek.error_notificate_livestream:       Benachrichtigung konnte nicht gesendet werden
 
@@ -784,7 +800,8 @@ oktothek.error_notificate_livestream:       Benachrichtigung konnte nicht gesend
 oktothek.series_producer_blog_text:         Hier kannst du für deine Sendereihe bloggen! Poste news und updates zu Episoden, Dinge hinter den Kulissen und vieles mehr!
 oktothek.series_producer_new_blogpost:      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Blogeintrag anlegen
 ## producer episodes
-oktothek.series_producer_episode_text:      Hier hast du Übersicht zu all deinen Episoden dieser Sendereihe. Statistiken, runterladen und Episodenstatus sind hier jederzeit für dich einsehbar.
+oktothek.series_producer_episode_text:      "Hier hast du Übersicht zu all deinen Folgen dieser Sendereihe. Statistiken, runterladen und Folgenstatus sind hier jederzeit für dich einsehbar."
+oktothek_producer_episodes_statistik:       "Folgenstatistik"
 
 ## producer episode
 oktothek.series_producer_episode_favorites: Favoriten

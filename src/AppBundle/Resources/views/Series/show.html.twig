@@ -101,7 +101,7 @@
     {% if series.playlists is not empty %}
         <section class="container series-playlists">
             <div id="anchor_playlists"></div>
-            <h2>Playlisten</h2>
+            <h2>{{ 'oktothek.series_playlist_header'|trans}}</h2>
             {% include 'AppBundle::Playlist/_stack.html.twig' with { 'playlists': series.playlists, 'pager_url': path('oktothek_show_series_playlists', {'uniqID': series.uniqID}) } %}
         </section>
     {% endif %}

@@ -19,12 +19,12 @@
     <li class="row">
         <figure class="list-group-item">
             <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 pin">
-                <a href="#"><img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" /></a>
+                <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}"><img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" /></a>
             </div>
             <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-12">
-                <h3><a href="#">{{ episode.name }}</a></h3>
+                <h3><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">{{ episode.name }}</a></h3>
                 <p>{{ episode.description }}</p>
-                <p><a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="btn btn-default">Folgenstatistik</a></p>
+                <p><a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="btn btn-default">{{ 'oktothek_producer_episodes_statistik'|trans }}</a></p>
             </figcaption>
         </figure>
     </li>
