@@ -15,7 +15,11 @@ body.episode article time[pubdate="pubdate"], body.playlists article time[pubdat
 	width:20px;
 }
 body.episode ul.misc li {
-    display:inline;
+    float:left;
+    display: block;
+}
+body.episode .backend + li {
+    clear:left;
 }
 body.episode ul.misc li.favorite-icon {
     padding-right:7px;
@@ -38,6 +42,13 @@ body.episode #ButtonPlaylist, body.episode #ButtonShare {
     padding-right:8px;
 }
 @media (min-width: 768px) {
+    body.episode ul.misc li {
+        display:inline;
+        float: none;
+    }
+    body.episode .backend + li {
+        clear:none;
+    }
     body.episode ul.misc li.favorite-icon {
 	    padding-right:20px;
     }
