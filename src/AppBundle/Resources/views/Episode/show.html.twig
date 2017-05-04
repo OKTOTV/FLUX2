@@ -103,7 +103,7 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
-    {% if episode.canBeOnline %}
+    {% if episode.canBeOnline and episode.video is not empty %}
         {{ player(episode)|raw }}
     {% endif %}
     <script type="text/javascript">
