@@ -46,7 +46,7 @@
                 <p class="description">
                     {{ episode.description|converturls|nl2br }}
                 </p>
-                <ul class="misc">
+                <ul class="misc clearfix"">
                     {% if app.user is empty %}
                         <li class="favorite-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length}}</li>
                     {% else %}
