@@ -53,7 +53,8 @@ class SeriesController extends Controller
             throw new NotFoundHttpException();
         }
         $posts = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $series);
-        return ['series' => $series, 'teasers' => $posts];
+        $newest_episode = $this->getDoctrine()->getManager()->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series, 1)[0];
+        return ['series' => $series, 'teasers' => $posts, 'newest_episode' => $newest_episode];
     }
 
     /**
