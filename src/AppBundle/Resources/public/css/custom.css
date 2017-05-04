@@ -2925,11 +2925,13 @@ figcaption  {
 	width:200px;
 	cursor:pointer;
 }
-a.tag:before {
-    margin-left:5px;
+a.tag::before {
     content:'#';
 }
-a.tag:first-child:before {
+a.tag {
+    margin-right:4px;
+}
+a.tag:first-child::before {
      margin-left:0px;
 }
 p.tags {
