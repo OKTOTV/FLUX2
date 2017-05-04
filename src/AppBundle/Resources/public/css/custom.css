@@ -3117,6 +3117,12 @@ a.more.right {
     }
 }
 
+/* Alert */
+.alert {
+    position: relative;
+    z-index: 1003;
+}
+
 
 /* Content allgemein */
 .playlists div.player-container {
