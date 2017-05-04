@@ -23,7 +23,7 @@
                     {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': tag.episodes} %}
                     {% if episodes|length > 5 %}
                         <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">
-                            {{ 'oktothek_tag_more_results'|trans|raw }} <span class="icon small-arrow-right"></span>
+                            {{ 'oktothek_tag_more_episode_results'|trans|raw }} <span class="icon small-arrow-right"></span>
                         </a>
                         <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">
                             {{ 'oktothek_tag_more_episode_results'|trans|raw }} <span class="icon small-arrow-right"></span>
