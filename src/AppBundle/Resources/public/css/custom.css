@@ -26,10 +26,9 @@
 */
 
 
-/* 
-!!!!!! Freischalten wenn Online !!!!!!!
-@import must be at top of file, otherwise CSS will not work  
-@import url("//hello.myfonts.net/count/313a85");*/
+
+/*@import must be at top of file, otherwise CSS will not work  */
+@import url("//hello.myfonts.net/count/313a85");
 
   
 @font-face {font-family: 'HelveticaNeueLTStd-Lt';src: url('../fonts/313A85_0_0.eot');src: url('../fonts/313A85_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/313A85_0_0.woff2') format('woff2'),url('../fonts/313A85_0_0.woff') format('woff'),url('../fonts/313A85_0_0.ttf') format('truetype');}
@@ -66,6 +65,7 @@ bold,
 strong,
 header .navbar .nav > li > a, 
 header .navbar .nav.navbar-right > li > a, 
+.carousel-caption h3,
 #dropdownMenuTags, 
 .oktothek .participart figcaption, 
 .pin figcaption h3, 
@@ -384,7 +384,7 @@ select:active:focus {
 }
 
 @media (min-width: 768px) {
-	header .navbar .nav.navbar-right > li > a {
+	header .navbar .nav.navbar-right > li > a, .carousel-caption h3 {
 	    font-family: HelveticaNeueLTStd-Roman, Helvetica, sans-serif;
 	    font-weight: normal;
 	    font-style: normal;
@@ -882,6 +882,7 @@ button.list-group-item-danger,
 .color5 a,
 .livestream .description,
 .livestream .schedule li a .time,
+.livestream .schedule li .time,
 .btn-default.dropdown-toggle,
 .collapsePlaylist li button.btn-default,
 .collapsePlaylist li button.btn-default.active,
@@ -905,7 +906,8 @@ button.input-group-addon:hover,
 button.input-group-addon:focus,
 .post a.tag:hover,
 .post a.tag:focus,
-.blog aside a.more {
+.blog aside a.more,
+.visible-xs-block .pager li > a {
 	color:#ffffff;
 }
 *::-moz-selection {
@@ -928,7 +930,9 @@ header .collapseShare a.btn,
 .pagination > li.active > a, 
 .pagination > li.active > span,
 .pagination > li > a:hover,
-.pagination > li > a:focus {
+.pagination > li > a:focus,
+.visible-xs-block .pager li > a:hover, 
+.visible-xs-block .pager li > a:focus{
 	color:#000000;
 }
 .pin figcaption p a, 
@@ -948,6 +952,7 @@ header .collapseShare a.btn,
 #playlist_items .color5 a p,
 .container.tags a,
 .livestream .schedule a h4,
+.livestream .schedule h4,
 .livestream .next-episode-schedule h4,
 body.producer li.list-group-item,
 body.producer ul.list-group .pin a p,
@@ -1060,7 +1065,10 @@ body.tagpage .content-bg,
 .tabs-content .pagination > .disabled > span:focus, 
 .tabs-content .pagination > .disabled > span:hover,
 .tabs-content .pagination > li > a, 
-.tabs-content .pagination > li > span {
+.tabs-content .pagination > li > span,
+.visible-xs-block .pager .disabled > a, .visible-xs-block .pager .disabled > a:focus, .visible-xs-block .pager .disabled > a:hover, .visible-xs-block .pager .disabled > span,
+.visible-xs-block .pager li > a, 
+.visible-xs-block .pager li > a {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
@@ -1084,7 +1092,9 @@ body.producer .form-group.search .icon-search,
 .pagination > li.active > a, 
 .pagination > li.active > span,
 .pagination > li > a:hover,
-.pagination > li > a:focus  {
+.pagination > li > a:focus,
+.visible-xs-block .pager li > a:focus, 
+.visible-xs-block .pager li > a:hover {
 	background-color:#ffffff;
 }
 article.pin figure.pin,
@@ -1422,7 +1432,12 @@ button.btn-default#ButtonShare_mobil,
 .caret,
 div.list-group.tags span.label.label-default.remove,
 .subscriptions .btn-default.edit,
-.subscriptions .btn-default.edit:hover {
+.subscriptions .btn-default.edit:hover,
+.visible-xs-block .pager li > a,
+.visible-xs-block .pager .disabled > a, 
+.visible-xs-block .pager .disabled > a:focus, 
+.visible-xs-block .pager .disabled > a:hover, 
+.visible-xs-block .pager .disabled > span {
 	border:none;
 }
 .triangle {
@@ -1461,7 +1476,12 @@ header .btn,
 .pagination > li:last-child > a, 
 .pagination > li:last-child > span,
 .alert,
-div.list-group.tags span.label.label-default.remove {
+div.list-group.tags span.label.label-default.remove,
+.visible-xs-block .pager li > a,
+.visible-xs-block .pager .disabled > a, 
+.visible-xs-block .pager .disabled > a:focus, 
+.visible-xs-block .pager .disabled > a:hover, 
+.visible-xs-block .pager .disabled > span {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -2069,7 +2089,6 @@ header .navbar-fixed-top #mainmenu-container {
 	width:100%;
 	overflow:hidden;
 	position:relative;
-	z-index:2;
 	margin-top:0px;
 	height:auto;
 }
@@ -2206,10 +2225,14 @@ header + .container-fluid {
 	header .navbar-content {
 		margin-top:0px;
 		margin-left:60px;
+        height:140px;
 	}
 	header .navbar-fixed-top #mainmenu-container {
-		height:90px;
+		/*height:90px;*/
 		margin-top:0;
+	}
+    header .navbar-fixed-top #mainmenu-container .dropdown-menu {
+		z-index: 1001;
 	}
 	
 	header .navbar-fixed-top #search-container.navbar-collapse {
@@ -2222,7 +2245,7 @@ header + .container-fluid {
 	}
 	header .search-tagnav-container {
 		position:absolute;
-	    z-index:50;
+        z-index: 2;
 		top:86px;
 		width:auto;
 		left:50%;
@@ -3092,6 +3115,12 @@ a.more.right {
         width:315px;
         padding:15px 10px;
     }
+}
+
+/* Alert */
+.alert {
+    position: relative;
+    z-index: 1003;
 }
 
 

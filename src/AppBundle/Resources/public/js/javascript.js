@@ -75,17 +75,25 @@ $(document).ready(function(){
         Customize_responsiveMenu();
     }
     
+    //var thememenu = false;
     //Header Dropdown Menu
-    $('header .dropdown-toggle').on('mouseenter', function() {
+    /*$('header .dropdown-toggle').on('click', function() {
+        if (!$(this).parents('.dropdown').hasClass('open')) {
+            thememenu = true;
+        } else if ($(this).parents('.dropdown').hasClass('open')) {
+            thememenu = false;
+        }
+    })*/
+    /*$('header .dropdown-toggle').on('click', function() {
         if (Winwidth >= 768 && !$(this).parents('.dropdown').hasClass('open')) {
             $(this).parent().find('.dropdown-toggle').dropdown('toggle');
         }
     })
     $('header .dropdown').on('mouseleave', function() {
-        if (Winwidth >= 768 && $(this).hasClass('open')) {
+        if (Winwidth >= 768 && $(this).hasClass('open') && thememenu == false) {
             $(this).find('.dropdown-toggle').dropdown('toggle');
         }
-    })
+    })*/
 	 
 	 function openIcon(el, icon, status) {
 		 if (status == "open") {
