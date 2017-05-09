@@ -65,6 +65,9 @@
 
                 <dt>{{ 'oktolab_media.episode_info_uniqID'|trans}}</dt>
                 <dd>{{ episode.uniqID }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_duration'|trans }}</dt>
+                <dd>{{ episode.duration|duration}}</dd>
             </dl>
 
             <h4>{{ 'oktolab_media_media_for_episode_header'|trans }}</h4>
@@ -84,6 +87,10 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <h2>Logbuch</h2>
+        {% render(controller('BprsLogbookBundle:Default:pager', {'reference': episode.uniqID})) %}
+    </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -100,4 +107,33 @@
             });
         </script>
     {% endif %}
+
+    <script>
+        // AJAX pagination
+
+        var updateView = function(e, link) {
+            e.preventDefault();
+            var link = $(link);
+            $.ajax({
+                url: link.attr('href'),
+                context: document.body
+            }).success(function(data) {
+                $(link.parents('.episode-pager')).replaceWith(data);
+            });
+        }
+
+        $( document ).on('click', '.pagination > li > a', function(e){
+            updateView(e, this);
+        });
+
+        $( document ).on('click', '.sortable', function(e){
+            updateView(e, this);
+        });
+        $( document ).on('click', '.asc', function(e){
+            updateView(e, this);
+        });
+        $( document ).on('click', '.desc', function(e){
+            updateView(e, this);
+        });
+    </script>
 {% endblock %}
