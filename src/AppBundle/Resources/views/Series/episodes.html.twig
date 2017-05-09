@@ -20,7 +20,7 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="filter_menu">
                         <li {% if episodes.isSorted('e.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.series_episodes_name_filter'|trans, 'e.name') }}</li>
-                        <li {% if episodes.isSorted('e.onlineStart') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.series_episodes_onlineStart_filter'|trans, 'e.onlineStart') }}</li>
+                        <li {% if episodes.isSorted('e.firstranAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.series_episodes_onlineStart_filter'|trans, 'e.firstranAt') }}</li>
                     </ul>
                 </div>
             </div>
