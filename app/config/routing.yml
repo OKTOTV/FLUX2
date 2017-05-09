@@ -53,3 +53,8 @@ bprs_commandline:
     resource: .
     type: bprs_commandline
     prefix: /{_locale}/backend
+
+bprs_logbook:
+    resource: "@BprsLogbookBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
