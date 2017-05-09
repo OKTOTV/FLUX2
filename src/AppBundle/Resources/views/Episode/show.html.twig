@@ -42,7 +42,13 @@
                     <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name }}">{{ episode.series.name }}</a>
                 </p>
                 <h1 class="name">{{ episode.name }}</h1>
-                <div class="time">online seit {{ episode.onlineStart|date('D, d.m.Y')}}</div>
+                <div class="time">
+                    {{ 'oktothek.episode_show_firstRanAt'|trans({
+                        '%day%': 'oktothek.episode_show_firstRanAt_day_choice'|transchoice(episode.firstRanAt|default(episode.onlineStart)|date('N')),
+                        '%date%': episode.firstRanAt|default(episode.onlineStart)|date('oktothek.episode_show_firstRanAt_dateformat'|trans)
+                        })
+                    }}
+                </div>
                 <p class="description">
                     {{ episode.description|converturls|nl2br }}
                 </p>
