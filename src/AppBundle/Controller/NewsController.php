@@ -25,9 +25,16 @@ class NewsController extends Controller
     public function newsAction(Request $request)
     {
         $page = $request->query->get('page', 1);
+        $results = $request->query->get('results', 5);
+
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findAllActivePosts(0, true), $page, 5);
+
+        $posts = $paginator->paginate(
+            $em->getRepository('AppBundle:Post')->findAllActivePosts(0, true),
+            $page,
+            $results
+        );
 
         return ['posts' => $posts];
     }
