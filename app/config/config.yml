@@ -32,7 +32,7 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        name:         "FLUX2"
+        name:         "OKTO"
         version:      "Alpha"
         junksize:     "%bprs_asset.junksize%"
         intake_url:   "http://intake.okto.tv"
