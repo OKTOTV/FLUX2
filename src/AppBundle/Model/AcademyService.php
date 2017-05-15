@@ -29,13 +29,6 @@ class AcademyService
 
     public function bookCourseSOFORT($attendee, $course)
     {
-        $this->mailer->sendMail(
-            $this->notification_mail,
-            'AppBundle:Academy:mailNotificationAttendee.html.twig',
-            ['attendee' => $attendee, 'course' => $course],
-            'Neuer Teilnehmer'
-        );
-
         $Sofortueberweisung = null;
         if ($attendee->getReducedEligible()) {
             $Sofortueberweisung = $this->sofort->getSofortueberweisung($course->getCoursetype()->getPriceReduced());
