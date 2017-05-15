@@ -28,7 +28,14 @@ class CourseType extends AbstractType
                 ])
             ->add('trainer', TextType::class, ['label' => 'oktothek.backend_course_trainer_label'])
             ->add('max_attendees', IntegerType::class, ['label' => 'oktothek.backend_course_trainer_maxAttendees_label'])
-            ->add('is_active', CheckboxType::class, ['label' => 'oktothek.backend_course_isActive_label'])
+            ->add(
+                'is_active',
+                CheckboxType::class,
+                [
+                    'label' => 'oktothek.backend_course_isActive_label',
+                    'required' => false
+                ]
+            )
             ->add('dates', CollectionType::class, [
                 'entry_type' => CoursedateType::class,
                 'allow_add' => true,
