@@ -58,7 +58,7 @@
     <section class="container">
         <h2>{{ 'oktothek_academy_sCt_timetable'|trans }}</h2>
         <ul class="timetable">
-        {% for course in coursetype.courses if course.isActive %}
+        {% for course in coursetype.courses %}
             <li>
                 <p>
                     {% for date in course.dates %}

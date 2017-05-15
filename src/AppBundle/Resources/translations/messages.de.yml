@@ -277,11 +277,12 @@ oktothek.tag_pager_posts_header:       "Alle Posts zu #%tag%"
 oktothek.tag_pager_series_header:      "Alle Serien zu #%tag%"
 
 ## academy
-oktothek_academy_header:                Workshops
+oktothek_academy_header:                "Workshops"
 oktothek_academy_misc_info:             €&thinsp;%price% / ermäßigt* €&thinsp;%price_reduced%
-oktothek_academy_course_free:           Dieser Kurs ist Kostenlos
-oktothek_academy_courses:               Kursangebote
-oktothek_academy_b2b:                   Angebote für Gruppen
+oktothek_academy_misc_info_free:        "Kostenlos"
+oktothek_academy_course_free:           "Dieser Kurs ist Kostenlos"
+oktothek_academy_courses:               "Kursangebote"
+oktothek_academy_b2b:                   "Angebote für Gruppen"
 oktothek_academy_b2b_paragraph: >
     Ob B2B-KundInnen, Kindergartengruppen, Schulkinder, SeniorInnen - wir gehen mit unseren Angeboten ganz auf die individuellen Bedürfnisse unserer KundInnen
     ein: Medientrainings für Menschen, die beruflich öfter mal vor der Kamera stehen, Workshops für Schulklassen, private Kindergruppen, die einen Kindergeburtstag
@@ -328,6 +329,21 @@ oktothek_academy_sCS_facebook_title:    "Kurs auf Facebook teilen"
 oktothek_academy_sCS_twitter_title:     "Kurs tweeten"
 oktothek_academy_sCS_googlep_title:     "Kurs auf Google+ teilen"
 oktothek_academy_sCS_mail_title:        "Kurs via E-Mail teilen"
+
+## mailPaidCourse.html.twig:
+oktothek_academy_mail_paidcourse_thanks: "Die Zahlungsbestätigung senden wir dir in Kürze an deine E-Mail-Adresse."
+oktothek_academy_mail_paidcourse_subject: 'OKTO Kursanmeldung "%course%"'
+oktothek_academy_mail_paidcourse_header_default: "OKTO Kursanmeldung"
+oktothek_academy_mail_paidcourse_dates:  "%start% - %end%"
+
+## mailNotificationAttendee.html.twig:
+oktothek_academy_mail_notification_attendee_name:           "Vorname: %name%"
+oktothek_academy_mail_notification_attendee_surname:        "Nachname: %name%"
+oktothek_academy_mail_notification_attendee_email:          "E-Mail: %email%"
+oktothek_academy_mail_notification_attendee_tel:            "Telefonnummer: %tel%"
+oktothek_academy_mail_notification_attendee_reduced:        "ermäßigt: JA"
+oktothek_academy_mail_notification_attendee_notreduced:     "ermäßigt: NEIN"
+oktothek_academy_mail_notification_attendee_coursetitle:    "%name% (%current%/%max%)"
 
 ## tv
 oktothek_tv_title:                      TV
@@ -483,23 +499,26 @@ oktothek.backend_coursedate_end_label:  Terminende
 # Attendee
 # AppBundle/Resources/views/Backend/Attendee/show.html.twig
 oktothek.backend_attendee_show_back_to_index: '<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zum Teilnehmerindex'
-oktothek_attendee_name_label:           Vorname
-oktothek_attendee_surname_label:        Nachname
-oktothek_attendee_email_label:          E-Mail
-oktothek_attendee_tel_label:            Telefonnummer
-oktothek_attendee_reduced_label:        ermäßigt
-attendee_info_course:                   Kurs
+oktothek_attendee_name_label:           "Vorname"
+oktothek_attendee_surname_label:        "Nachname"
+oktothek_attendee_email_label:          "E-Mail"
+oktothek_attendee_tel_label:            "Telefonnummer"
+oktothek_attendee_reduced_label:        "Ermäßigt"
+oktothek_attendee_present_label:        "Anwesend"
+attendee_info_course:                   "Kurs"
 
-attendee_info_name:           Vorname
-attendee_info_surname:        Nachname
-attendee_info_email:          Mailadresse
-attendee_info_tel:            Telefonnummer
-attendee_info_reduced:        Preisstufe
-attendee_info_info:           Notiz
-attendee_info_reduced_choice: "{0} Vollpreis|{1} Ermäßigter Preis"
-attendee_info_transactionId:  Transaktions ID
-attendee_info_paymentStatus:  Zahlungsstatus
-attendee_info_updatedAt:      Zuletzt geändert
+attendee_info_name:                     "Vorname"
+attendee_info_surname:                  "Nachname"
+attendee_info_email:                    "Mailadresse"
+attendee_info_tel:                      "Telefonnummer"
+attendee_info_reduced:                  "Preisstufe"
+attendee_info_info:                     "Notiz"
+attendee_info_reduced_choice:           "{0} Vollpreis|{1} Ermäßigter Preis"
+attendee_info_transactionId:            "Transaktions ID"
+attendee_info_paymentStatus:            "Zahlungsstatus"
+attendee_info_updatedAt:                "Zuletzt geändert"
+attendee_info_present:                  "Anwesend"
+attendee_info_present_choice:           "{0} NEIN | {1} JA"
 oktothek_academy_open_transaction:      "Online Zahlung (offen)"
 oktothek_academy_closed_transaction:    "Online Zahlung (bezahlt)"
 oktothek_academy_refund_transaction:    "Rückerstatted"

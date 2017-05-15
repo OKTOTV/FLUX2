@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <ul style="list-style-type:none">
+            <li>
+                <a href="{{ url('oktothek_backend_show_attendee', {'attendee': attendee.id}) }}">
+                    {{ 'oktothek_academy_mail_notification_attendee_name'|trans({'%name%': attendee.name}) }}
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('oktothek_backend_show_attendee', {'attendee': attendee.id}) }}">
+                    {{ 'oktothek_academy_mail_notification_attendee_surname'|trans({'%name%': attendee.surname}) }}
+                </a>
+            </li>
+            <li>
+                {{ 'oktothek_academy_mail_notification_attendee_email'|trans({'%email%': attendee.email}) }}
+            </li>
+            <li>
+                {{ 'oktothek_academy_mail_notification_attendee_tel'|trans({'%tel%': attendee.tel}) }}
+            </li>
+            <li>
+                {% if attendee.reducedEligible %}
+                    {{ 'oktothek_academy_mail_notification_attendee_reduced'|trans }}
+                {% else %}
+                    {{ 'oktothek_academy_mail_notification_attendee_notreduced'|trans }}
+                {% endif %}
+            </li>
+        </ul>
+        <ul style="list-style-type:none">
+            {% for course in attendee.courses %}
+            <li>
+                <a href="{{ url('oktothek_backend_show_course', {'course': course.id}) }}">
+                    {{ 'oktothek_academy_mail_notification_attendee_coursetitle'|trans({
+                        '%name%': course.coursetype,
+                        '%current%': course.attendees|length,
+                        '%max%': course.maxAttendees
+                        })
+                    }}
+                </a>
+                <ul>
+                    {% for date in course.dates %}
+                        <li>
+                            {{
+                            'oktothek_academy_mail_paidcourse_dates'|trans({
+                                '%start%': date.courseStart|date('Y.m.d H:i'),
+                                '%end%': date.courseEnd|date('H:i')
+                                })
+                            }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

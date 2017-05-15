@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form\Course;
+namespace AppBundle\Form\Backend;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -44,6 +44,11 @@ class AttendeeType extends AbstractType
                     'label' => 'oktothek_attendee_reduced_label',
                     'required' => false
                 ])
+            ->add('present', CheckboxType::class,
+                [
+                    'label' => 'oktothek_attendee_present_label',
+                    'required' => false
+                ])
             ->add('info', TextareaType::class,
                 [
                     'label' => 'oktothek_attendee_info_label',
@@ -62,6 +67,6 @@ class AttendeeType extends AbstractType
 
     public function getName()
     {
-        return 'appbundle_attendee';
+        return 'appbundle_attendee_backend';
     }
 }

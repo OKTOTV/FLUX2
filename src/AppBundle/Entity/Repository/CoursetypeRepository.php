@@ -16,12 +16,16 @@ class CoursetypeRepository extends EntityRepository
     {
         $query = $this->getEntityManager()
             ->createQuery(
-                'SELECT c,i FROM AppBundle:Course\Coursetype c
-                LEFT JOIN c.image i
-                WHERE c.is_active = true
-                AND c.highlight = false
-                AND SIZE(c.courses) != 0
-            ');
+                'SELECT ct,c,d,i FROM AppBundle:Course\Coursetype ct
+                LEFT JOIN ct.image i
+                LEFT JOIN ct.courses c
+                LEFT JOIN c.dates d
+                WHERE ct.is_active = true
+                AND ct.highlight = false
+                AND SIZE(ct.courses) != 0
+                AND c.max_attendees > SIZE(c.attendees)
+                AND c.deadline > :now'
+            )->setParameter('now', new \DateTime());
 
         if ($query_only) {
             return $query;
@@ -29,16 +33,27 @@ class CoursetypeRepository extends EntityRepository
         return $query->getResult();
     }
 
+    /**
+     * returns coursetypes that are:
+     * active
+     * highlighted
+     * courses have free seats
+     * courses are in the future
+     */
     public function findHighlightedCoursetypes($query_only = false)
     {
         $query = $this->getEntityManager()
             ->createQuery(
-                'SELECT c,i FROM AppBundle:Course\Coursetype c
-                LEFT JOIN c.image i
-                WHERE c.is_active = true
-                AND c.highlight = true
-                AND SIZE(c.courses) != 0'
-            );
+                'SELECT ct,c,d,i FROM AppBundle:Course\Coursetype ct
+                LEFT JOIN ct.image i
+                LEFT JOIN ct.courses c
+                LEFT JOIN c.dates d
+                WHERE ct.is_active = true
+                AND ct.highlight = true
+                AND SIZE(ct.courses) != 0
+                AND SIZE(c.attendees) < c.max_attendees
+                AND c.deadline > :now'
+            )->setParameter('now', new \DateTime());
 
         if ($query_only) {
             return $query;
@@ -51,14 +66,20 @@ class CoursetypeRepository extends EntityRepository
     {
         $query = $this->getEntityManager()
             ->createQuery(
-                'SELECT c,i FROM AppBundle:Course\Coursetype c
-                LEFT JOIN c.image i
-                WHERE c.is_active = true
+                'SELECT ct,c,d,i FROM AppBundle:Course\Coursetype ct
+                LEFT JOIN ct.courses c
+                LEFT JOIN c.dates d
+                LEFT JOIN ct.image i
+                WHERE ct.is_active = true
                 AND (
-                    c.slug = :coursetype OR
-                    c.id = :coursetype
-                )'
-            )->setParameter('coursetype', $coursetype);
+                    ct.slug = :coursetype OR
+                    ct.id = :coursetype
+                )
+                AND SIZE(c.attendees) < c.max_attendees
+                AND c.deadline > :now'
+            )
+            ->setParameter('coursetype', $coursetype)
+            ->setParameter('now', new \Datetime());
 
         return $query->getOneOrNullResult();
     }

@@ -58,7 +58,11 @@ services:
 
     oktothek_academy:
         class: AppBundle\Model\AcademyService
-        arguments: [ "@bprs_sofort", "@doctrine.orm.entity_manager", "@router"]
+        arguments: [ "@bprs_sofort", "@doctrine.orm.entity_manager", "@router", "@bprs_user.mailer", "%academy_notification_mail%"]
+
+    oktothek_academy_course:
+        class: AppBundle\Model\CourseService
+        arguments: [ "@doctrine.orm.entity_manager"]
 
     oktothek_slide:
         class: AppBundle\Model\SliderService
