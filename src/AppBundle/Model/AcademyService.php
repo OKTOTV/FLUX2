@@ -27,6 +27,9 @@ class AcademyService
         $this->notification_mail = $notification_mail;
     }
 
+    /**
+     * opens SOFORT transaction, prepares success url redirection
+     */
     public function bookCourseSOFORT($attendee, $course)
     {
         $Sofortueberweisung = null;
@@ -54,6 +57,23 @@ class AcademyService
         return false;
     }
 
+    /**
+     * Attendee paid successfully. Set status and send email
+     */
+    public function completedPayment($attendee, $course = false)
+    {
+        $em = $this->em;
+        $attendee->setPaymentStatus(AcademyService::ACADEMY_CLOSED_TRANSACTION);
+        $em->persist($attendee);
+        $em->flush();
+
+        $this->sendBookingSuccessMail($attendee);
+        $this->sendNotificationMail($attendee, $course);
+    }
+
+    /**
+     * attendee registered for a free course
+     */
     public function registerCourse($attendee, $course, $sendMail = true)
     {
         $em = $this->em;
@@ -77,19 +97,6 @@ class AcademyService
             $this->sendBookingSuccessMail($attendee);
         }
         $this->sendNotificationMail($attendee, $course);
-    }
-
-    /**
-     * Attendee paid successfully. Set status and send email
-     */
-    public function completedPayment($attendee, $course = false)
-    {
-        $em = $this->em;
-        $attendee->setPaymentStatus(AcademyService::ACADEMY_CLOSED_TRANSACTION);
-        $em->persist($attendee);
-        $em->flush();
-
-        $this->sendBookingSuccessMail($attendee);
     }
 
     /**
