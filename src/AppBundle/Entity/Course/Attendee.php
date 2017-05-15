@@ -98,7 +98,7 @@ class Attendee
     /**
      * @var boolean
      * if the attendee was present at the course or not.
-     * @ORM\Column(name="present", type="boolean", options={"default" = false})
+     * @ORM\Column(name="present", type="boolean", options={"default" = false}, nullable=true)
      */
     private $present;
 
@@ -239,6 +239,7 @@ class Attendee
         $this->uniqID = uniqID();
         $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->updatedAt = new \DateTime();
+        $this->present = false;
     }
 
     /**
