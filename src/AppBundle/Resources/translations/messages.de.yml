@@ -319,6 +319,7 @@ oktothek_academy_sCp_timetable:         "Termine"
 
 ### showCoursetype.html.twig:
 oktothek_academy_sCt_facts:             "%duration%, Kosten %price%"
+oktothek_academy_sCt_facts_free:        "%duration%, Kostenlos"
 oktothek_academy_sCt_timetable:         "Termine"
 oktothek_academy_sCt_header_details:    "Details zu %coursetype%"
 oktothek_academy_sCt_book_title:        "Kurs %title% buchen"
