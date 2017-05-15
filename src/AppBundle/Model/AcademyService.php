@@ -15,16 +15,27 @@ class AcademyService
     private $sofort;
     private $em;
     private $router;
+    private $mailer;
+    private $notification_mail;
 
-    public function __construct($sofort, $entity_manager, $router)
+    public function __construct($sofort, $entity_manager, $router, $mailer, $notification_mail)
     {
         $this->sofort = $sofort;
         $this->em = $entity_manager;
         $this->router = $router;
+        $this->mailer = $mailer;
+        $this->notification_mail = $notification_mail;
     }
 
     public function bookCourseSOFORT($attendee, $course)
     {
+        $this->mailer->sendMail(
+            $this->notification_mail,
+            'AppBundle:Academy:mailNotificationAttendee.html.twig',
+            ['attendee' => $attendee, 'course' => $course],
+            'Neuer Teilnehmer'
+        );
+
         $Sofortueberweisung = null;
         if ($attendee->getReducedEligible()) {
             $Sofortueberweisung = $this->sofort->getSofortueberweisung($course->getCoursetype()->getPriceReduced());
@@ -50,6 +61,18 @@ class AcademyService
         return false;
     }
 
+    public function registerCourse($attendee, $course, $sendMail = true)
+    {
+        $em = $this->em;
+        $em->persist($attendee);
+        $em->persist($course);
+        $em->flush();
+        if ($sendMail) {
+            $this->sendRegisterSuccessMail($attendee);
+        }
+        $this->sendNotificationMail($attendee, $course);
+    }
+
     public function bookCourse($attendee, $course, $sendMail = true, $status = AcademyService::ACADEMY_MONEY)
     {
         $em = $this->em;
@@ -60,34 +83,19 @@ class AcademyService
         if ($sendMail) {
             $this->sendBookingSuccessMail($attendee);
         }
+        $this->sendNotificationMail($attendee, $course);
     }
 
-    public function attendeePayedWithMoney($attendee)
-    {
-        $em = $this->em;
-        $attendee->setPaymentStatus(AcademyService::ACADEMY_MONEY_CLOSED);
-        $em->persist($attendee);
-        $em->flush();
-        $this->sendPayedMoneySuccessMail($attendee);
-    }
-
-    public function registerCourse($attendee, $course, $sendMail = true)
-    {
-        $em = $this->em;
-        $em->persist($attendee);
-        $em->persist($course);
-        $em->flush();
-        if ($sendMail) {
-            $this->sendRegisterSuccessMail($attendee);
-        }
-    }
-
-    public function completedPayment($attendee)
+    /**
+     * Attendee paid successfully. Set status and send email
+     */
+    public function completedPayment($attendee, $course = false)
     {
         $em = $this->em;
         $attendee->setPaymentStatus(AcademyService::ACADEMY_CLOSED_TRANSACTION);
         $em->persist($attendee);
         $em->flush();
+
         $this->sendBookingSuccessMail($attendee);
     }
 
@@ -160,21 +168,45 @@ class AcademyService
     }
 
     private function sendMovedAttendeeMail($attendee, $fromCourse, $toCourse) {
-        //TODO: add mailer and send mail
+        //TODO: send mail
     }
 
-    private function sendBookingSuccessMail($attendee)
+    private function sendBookingSuccessMail($attendee, $course = false)
     {
-        //TODO: add mailer and send a mail
+        if (!$course) {
+            $course = $attendee->getCourses()[0];
+        }
+        $this->mailer->sendMail(
+            $attendee->getEmail(),
+            'AppBundle:Academy:mailPaidCourse.html.twig',
+            ['attendee' => $attendee, 'course' => $course],
+            'OKTO Kursanmeldung'
+        );
     }
 
-    private function sendRegisterSuccessMail($attendee)
+    private function sendRegisterSuccessMail($attendee, $course = false)
     {
-        //TODO: add mailer and send a mail
+        if (!$course) {
+            $course = $attendee->getCourses()[0];
+        }
+        $this->mailer->sendMail(
+            $attendee->getEmail(),
+            'AppBundle:Academy:mailFreeCourse.html.twig',
+            ['attendee' => $attendee, 'course' => $course],
+            'OKTO Kursanmeldung'
+        );
     }
 
-    private function sendPayedMoneySuccessMail($attendee)
+    /**
+     * sends internal mail when an attendee registered of paid a course!
+     */
+    private function sendNotificationMail($attendee, $course = false)
     {
-        //TODO: add mailder and send a mail
+        $this->mailer->sendMail(
+            $this->notification_mail,
+            'AppBundle:Academy:mailNotification.html.twig',
+            ['attendee' => $attendee, 'course' => $course],
+            'Neuer Kursteilnehmer'
+        );
     }
 }

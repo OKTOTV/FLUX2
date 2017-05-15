@@ -78,3 +78,4 @@ parameters:
         promo:
             local:
                 directory: '%kernel.root_dir%/../web/uploads/promo'
+    academy_notification_mail:  "mailadress@mail.mail"

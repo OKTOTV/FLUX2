@@ -3,6 +3,9 @@
     <p class="misc">
         <a href="{{ path('oktothek_channel_playlist_new', {'uniqID': series.uniqID})}}" class="btn btn-default">{{'oktothek.series_producer_new_playlist'|trans|raw }}</a>
         <a href="{{ path('oktothek_series_blog_post', {'uniqID': series.uniqID}) }}" class="btn btn-default">{{'oktothek.series_producer_new_blogpost'|trans|raw }}</a>
+        {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('oktolab_series_show', {'series': series.uniqID}) }}" class="btn btn-default">{{ 'oktothek.series_show_in_backend'|trans }}</a>
+        {% endif %}
     </p>
 </header>
 <ul class="nav nav-tabs nav-justified">

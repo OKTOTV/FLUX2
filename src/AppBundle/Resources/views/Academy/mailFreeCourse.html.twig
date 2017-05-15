@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% if course is not empty %}
+                {{ 'oktothek_academy_mail_paidcourse_subject'|trans({'%course%': course}) }}
+            {% else %}
+                {{ 'oktothek_academy_mail_paidcourse_header_default'|trans }}
+            {% endif %}
+        </title>
+    </head>
+
+    <body style="background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:20px;padding-left:5%;padding-right:5%;line-height:27px;letter-spacing:0.6px;">
+        <p style=""><img src="{{ absolute_url(asset('bundles/app/images/okto_logo.png')) }}" width="40" height="66" alt="OKTO Community TV GmbH"/></p>
+        <h1 style="font-size: 32px;font-weight: normal;padding-top:20px;padding-bottom:30px;line-height:36px;">Vielen Dank f&uuml;r deine Buchung, wir freuen uns auf einen spannenden Kurs!</h1>
+        <h2 style="font-size: 26px;font-weight: normal;padding-top:20px;padding-bottom:30px;line-height:26px;">
+            {{ course.coursetype.title }}
+        </h2>
+        <ul style="list-style-type:none">
+            {% for date in course.dates %}
+                <li>
+                    {{
+                    'oktothek_academy_mail_paidcourse_dates'|trans({
+                        '%start%': date.courseStart|date('Y.m.d H:i'),
+                        '%end%': date.courseEnd|date('H:i')
+                        })
+                    }}
+                </li>
+            {% endfor %}
+        </ul>
+        <div style="font-size:14px;line-height:22px;">
+        <p style="padding-top:30px;">
+        Freundliche Gr&uuml;&szlig;e,<br>
+        dein OKTO Team
+        </p>
+        <p>
+            *************************************<br>
+            OKTO Community TV GmbH<br>
+            www.okto.tv<br>
+            *************************************
+        </p>
+        <p>
+            T +43 1 786 2442 -22<br>
+            F +43 1 786 2442 -18
+        </p>
+
+        <p>---------------------------------<br>
+            OKTO<br>
+            Community TV-GmbH<br>
+            Goldschlagstra&szlig;e 172<br>
+            1140 Wien, &Ouml;sterreich
+        </p>
+    </div>
+    </body>
+</html>
