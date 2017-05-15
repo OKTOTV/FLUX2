@@ -50,7 +50,7 @@
                     }}
                 </div>
                 <p class="description">
-                    {{ episode.description|converturls|nl2br }}
+                    {{ episode.description|converturls|nl2br|episodeComment|raw }}
                 </p>
                 <ul class="misc clearfix"">
                     {% if app.user is empty %}
@@ -251,6 +251,12 @@
                 }
             })
         });
+
+        $(document).on('click', '.skipper', function(e) {
+            e.preventDefault();
+            console.log($(this).data('second'));
+            jwplayer('player').seek($(this).data('second'));
+        })
     </script>
 {% endblock %}
 {% block stylesheets %}

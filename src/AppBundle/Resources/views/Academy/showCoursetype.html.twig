@@ -18,12 +18,20 @@
                 <div class="content-opacity">
                     <h1>{{ coursetype.title }}</h1>
                     <p class="facts">
-                    {{ 'oktothek_academy_sCt_facts'|trans(
-                        {
-                            '%duration%': 'oktothek_academy_duration_choice'|transchoice(coursetype.courses[0].dates|hours),
-                            '%price%': 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.') })
-                        })|raw
-                     }}
+                        {% if coursetype.price <= 0 %}
+                            {{
+                                'oktothek_academy_sCt_facts_free'|trans({
+                                    '%duration%': 'oktothek_academy_duration_choice'|transchoice(coursetype.courses[0].dates|hours)
+                                })
+                            }}
+                        {% else %}
+                            {{ 'oktothek_academy_sCt_facts'|trans(
+                                {
+                                    '%duration%': 'oktothek_academy_duration_choice'|transchoice(coursetype.courses[0].dates|hours),
+                                    '%price%': 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.') })
+                                })|raw
+                             }}
+                     {% endif %}
                  </p>
                     <p class="description">{{ coursetype.teaser }}</p>
                     <p class="misc">
