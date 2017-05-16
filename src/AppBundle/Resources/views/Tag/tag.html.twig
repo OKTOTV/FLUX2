@@ -20,7 +20,7 @@
             {% if episodes is not empty %}
                 <section class="inc-pins">
                     <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
-                    {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': tag.episodes} %}
+                    {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': episodes} %}
                     {% if episodes|length > 5 %}
                         <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">
                             {{ 'oktothek_tag_more_episode_results'|trans|raw }} <span class="icon small-arrow-right"></span>
@@ -65,7 +65,7 @@
                 <section class="inc-posts">
                     <div id="anchor_posts"></div>
                     <h2>{{ 'oktothek_tag_posts_header'|trans }}</h2>
-                    {% include "AppBundle::Tag/postsTag.html.twig" with {'posts': tag.posts} %}
+                    {% include "AppBundle::Tag/postsTag.html.twig" with {'posts': posts} %}
                     {% if posts|length > 3 %}
                         <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">{{ 'oktothek_tag_more_post_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
                         <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
@@ -76,7 +76,7 @@
                 <section class="inc-pages">
                     <div id="anchor_pages"></div>
                     <h2>{{ 'oktothek_tag_pages_header'|trans }}</h2>
-                    {% include "AppBundle::Tag/pagesTag.html.twig" with {'pages': tag.pages} %}
+                    {% include "AppBundle::Tag/pagesTag.html.twig" with {'pages': pages} %}
                     {% if pages|length > 6 %}
                         <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="pull-right more hidden-xs">{{ 'oktothek_tag_more_page_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
                         <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="right more visible-xs-block">{{ 'oktothek_tag_more_results'|trans|raw }}  <span class="icon small-arrow-right"></span></a>
