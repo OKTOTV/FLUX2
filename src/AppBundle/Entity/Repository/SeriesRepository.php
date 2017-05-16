@@ -35,7 +35,7 @@ class SeriesRepository extends BaseSeriesRepository
                 AND e.isActive = 1
                 AND s.isActive = 1
                 AND (e.onlineStart < :online_start OR e.onlineStart IS NULL)
-                ORDER BY e.onlineStart DESC'
+                ORDER BY e.firstranAt DESC'
             )
             ->setParameter('tag_id', $tag->getId())
             ->setParameter('online_start', new \DateTime())
@@ -70,7 +70,7 @@ class SeriesRepository extends BaseSeriesRepository
                 AND e.isActive = 1
                 AND s.isActive = 1
                 AND (e.onlineStart < :now OR e.onlineStart IS NULL)
-                ORDER BY e.onlineStart DESC'
+                ORDER BY e.firstranAt DESC'
             )
             ->setParameter('series_id', $series->getId())
             ->setParameter('now', new \DateTime())
@@ -85,7 +85,8 @@ class SeriesRepository extends BaseSeriesRepository
                 "SELECT e FROM AppBundle:Episode e
                 WHERE e.series = :series_id
                 AND (e.onlineStart < :online_start OR e.onlineStart IS NULL)
-                AND e.isActive = 1"
+                AND e.isActive = 1
+                ORDER BY e.firstranAt DESC"
             )->setParameter('series_id', $series->getId())
             ->setParameter('online_start', new \DateTime());
 
