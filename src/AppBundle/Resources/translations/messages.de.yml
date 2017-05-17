@@ -859,6 +859,6 @@ flux2.login.remember_me_label:              Remember me
 
 # app/Resources/OktoMediaBundle/views/Episode/show.html.twig
 oktothek.backend_episode_publish:           '<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Veröffentlichen'
-oktothek.episode_show_firstRanAt:           "Erstausstrahlung am %day%, %date%"
+oktothek.episode_show_firstRanAt:           "Folge von %day%, %date%"
 oktothek.episode_show_firstRanAt_dateformat: "d.m.Y"
 oktothek.episode_show_firstRanAt_day_choice: "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
