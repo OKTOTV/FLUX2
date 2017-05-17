@@ -19,14 +19,16 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class SlideController extends Controller
 {
     /**
-     * @Route("/index", name="oktothek_backend_slide_index", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Route("/index", name="oktothek_backend_slide_index")
      * @Template()
      */
-    public function indexAction($page)
+    public function indexAction(Request $request)
     {
+        $page = $request->query->get('page', 1);
+        $results = $request->query->get('results', 10);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $slides = $paginator->paginate($em->getRepository('AppBundle:Slide')->findAllSlidesQuery(), $page, 10);
+        $slides = $paginator->paginate($em->getRepository('AppBundle:Slide')->findAllSlidesQuery(), $page, $results);
 
         return ['slides' => $slides];
     }
