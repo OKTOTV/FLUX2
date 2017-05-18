@@ -25,13 +25,22 @@
                         {% endfor %}
                     </p>
                     <header class="page-header">
-                        <h3><a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug, 'uniqID': series.uniqID})}}">{{ teasers[0].name }}</a></h3>
+                        <h3>
+                            <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug, 'uniqID': series.uniqID})}}">
+                                {{ teasers[0].name }}
+                            </a>
+                        </h3>
                     </header>
                     <p>
                         {{ teasers[0].teaser|nl2br }}
                     </p>
                     <p class="misc">
-                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}">
+                            <span class="share-btn-text">
+                                {{ 'oktothek_share_header'|trans }}
+                            </span>
+                            <span class="visible-xs-inline glyphicon glyphicon-share-alt"></span>
+                        </button>
                     </p>
                 </div>
             {% include "AppBundle:Series/Blog:_shareCollapse.html.twig" with {'post': teasers[0]} %}
@@ -46,7 +55,14 @@
             <ul>
                 {% for teaser in teasers %}
                     <li>
-                        <span class="time">{{ teaser.updatedAt|date('D, d.m.Y')}}</span>
+                        <span class="time">
+                            {{
+                                'oktothek_series_teaser_date'|trans({
+                                    '%day%': 'oktothek_series_teaser_day_choice'|transchoice(teaser.createdAt|date('N')),
+                                    '%date%': teaser.createdAt|date('oktothek_series_teaser_date_format'|trans)
+                                })
+                            }}
+                        </span>
                         <p>
                             <a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a>
                         </p>

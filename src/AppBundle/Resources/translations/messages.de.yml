@@ -411,6 +411,11 @@ oktothek.series_playlists_createdAt_filter: Datum
 oktothek.series_blog_header:            "%series%'s Blog"
 oktothek.series_back_to_root:           Zur Sendereihe
 
+# src/Resources/views/Series/snippetBlog.html.twig
+oktothek_series_teaser_date:            "%day%, %date%"
+oktothek_series_teaser_day_choice:      "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} Sa|{7} So"
+oktothek_series_teaser_date_format:     "d.m.Y"
+
 ## series share
 oktothek_series.share_header:           Teilen
 oktothek_series.share_fb:               Facebook
