@@ -23,9 +23,7 @@
         <article class="row post">
             {% if text_only == false %}
                 <figure class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': post.slug, 'uniqID': series.webtitle})}}">
                         <img src="{{ post.assets[0]|thumb(220,390) }}" class="img img-responsive" alt="{{ post.name }}"/>
-                    </a>
                 </figure>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             {% else %}
@@ -58,12 +56,19 @@
     <div class="aside-inner clearfix">
         <ul>
             {% for teaser in teasers %}
-                <li>
-                    <time pubdate="pubdate" datetime="{{ teaser.updatedAt|date('d.m.Y')}}">{{ teaser.updatedAt|date('D, d.m.Y')}}</time>
-                    <p>
-                        <a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a>
-                    </p>
-                </li>
+            <li>
+                <span class="time">
+                    {{
+                        'oktothek_series_teaser_date'|trans({
+                            '%day%': 'oktothek_series_teaser_day_choice'|transchoice(teaser.createdAt|date('N')),
+                            '%date%': teaser.createdAt|date('oktothek_series_teaser_date_format'|trans)
+                        })
+                    }}
+                </span>
+                <p>
+                    <a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a>
+                </p>
+            </li>
             {% endfor %}
         </ul>
     </div>
