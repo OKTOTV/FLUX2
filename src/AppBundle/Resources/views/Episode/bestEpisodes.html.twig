@@ -1,6 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
-{% block title %}{{ name|default('OKTO')~' | '~  'oktothek.user_favorites_header'|trans }}{% endblock %}
+{% block title %}{{ 'oktothek.user_favorites_header'|trans~' | '~name|default('OKTO') }}{% endblock %}
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}

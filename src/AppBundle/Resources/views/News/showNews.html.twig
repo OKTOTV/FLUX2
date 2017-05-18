@@ -1,5 +1,5 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
-{% block title %}{{ name|default('OKTO')~' | '~post.name }}{% endblock %}
+{% block title %}{{ post.name~' | '~name|default('OKTO') }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'news', 'dropdown': ''} %}

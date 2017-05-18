@@ -1,5 +1,8 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 {% import 'AppBundle::Playlist/playlistitem_macro.html.twig' as playlistMacro %}
+
+{% block title %}Playlist bearbeiten | Okto{% endblock %}
+
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}

@@ -18,7 +18,7 @@
 {% endif %}
 {% endblock %}
 
-{% block title %}{{ name|default('OKTO')~' | '~ episode.name }}{% endblock %}
+{% block title %}{{ episode.name ~' | '~ name|default('OKTO') }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}

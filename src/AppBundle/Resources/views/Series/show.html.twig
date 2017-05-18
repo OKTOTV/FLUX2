@@ -6,6 +6,8 @@
     <meta property="og:image" content="{{ series.posterframe|thumb(720,1280) }}" />
 {% endblock %}
 
+{% block title %}{{ series.name ~' | '~ name|default('OKTO') }}{% endblock %}
+
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
