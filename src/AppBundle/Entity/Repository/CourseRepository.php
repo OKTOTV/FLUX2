@@ -24,10 +24,11 @@ class CourseRepository extends EntityRepository
         $date = new \DateTime();
         $query = $this->getEntityManager()
             ->createQuery(
-                'SELECT c FROM AppBundle:Course\Course c
+                'SELECT c,d FROM AppBundle:Course\Course c
                 LEFT JOIN c.dates d
                 WHERE c.is_active = true
-                AND d.courseStart > :now'
+                AND c.deadline > :now
+                AND c.max_attendees > SIZE(c.attendees)'
             )
             ->setParameter('now', $date->format('Y-m-d'));
 
@@ -46,9 +47,9 @@ class CourseRepository extends EntityRepository
                 LEFT JOIN c.dates d
                 WHERE c.coursetype = :coursetype
                 AND c.is_active = true
-                AND d.courseStart > :now
-                AND c.max_attendees > (SELECT COUNT(a) FROM AppBundle:Course\Attendee a LEFT JOIN a.courses ac where ac.id = c.id)"
-                )
+                AND c.deadline > :now
+                AND c.max_attendees > SIZE(c.attendees)"
+            )
             ->setParameter('now', new \DateTime())
             ->setParameter('coursetype', $coursetype->getId());
 

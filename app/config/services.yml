@@ -58,7 +58,11 @@ services:
 
     oktothek_academy:
         class: AppBundle\Model\AcademyService
-        arguments: [ "@bprs_sofort", "@doctrine.orm.entity_manager", "@router"]
+        arguments: [ "@bprs_sofort", "@doctrine.orm.entity_manager", "@router", "@bprs_user.mailer", "%academy_notification_mail%"]
+
+    oktothek_academy_course:
+        class: AppBundle\Model\CourseService
+        arguments: [ "@doctrine.orm.entity_manager"]
 
     oktothek_slide:
         class: AppBundle\Model\SliderService
@@ -93,6 +97,12 @@ services:
     oktothek.twig_episode_extension:
         class: AppBundle\Twig\EpisodeExtension
         arguments: [ "@oktothek.episode_repository"]
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    oktothek.twig_comment_extension:
+        class:  AppBundle\Twig\CommentExtension
         public: false
         tags:
             - { name: twig.extension }

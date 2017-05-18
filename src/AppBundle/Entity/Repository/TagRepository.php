@@ -8,12 +8,22 @@ class TagRepository extends OktoTagRepository
 {
     public function findEpisodesWithTag(Tag $tag, $number = 6, $query_only = false, $episode_class = "AppBundle:Episode") {
         $query = $this->getEntityManager()
-            ->createQuery('SELECT e FROM '.$episode_class.' e JOIN e.tags t WHERE t.id = :tag_id ORDER BY e.firstranAt  DESC')
-            ->setParameter('tag_id', $tag->getId());
+            ->createQuery(
+                'SELECT e FROM '.$episode_class.' e
+                JOIN e.tags t
+                WHERE e.isActive = 1
+                AND t.id = :tag_id
+                AND e.onlineStart <= :now
+                AND (e.onlineEnd >= :now OR e.onlineEnd IS NULL)
+                ORDER BY e.firstranAt DESC'
+            )
+            ->setParameter('tag_id', $tag->getId())
+            ->setParameter('now', new \DateTime());
 
         if ($query_only) {
             return $query;
         }
+        return $query->getResult();
         return $query->setMaxResults($number)->getResult();
     }
 

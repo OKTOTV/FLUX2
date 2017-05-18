@@ -95,6 +95,12 @@ class Attendee
      */
     private $info;
 
+    /**
+     * @var boolean
+     * if the attendee was present at the course or not.
+     * @ORM\Column(name="present", type="boolean", options={"default" = false}, nullable=true)
+     */
+    private $present;
 
     public function __toString()
     {
@@ -233,6 +239,7 @@ class Attendee
         $this->uniqID = uniqID();
         $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->updatedAt = new \DateTime();
+        $this->present = false;
     }
 
     /**
@@ -360,6 +367,27 @@ class Attendee
     public function setInfo($info)
     {
         $this->info = $info;
+        return $this;
+    }
+
+    public function getPresent()
+    {
+        return $this->present;
+    }
+
+    public function isPresent()
+    {
+        return $this->present;
+    }
+
+    public function wasPresent()
+    {
+        return $this->present;
+    }
+
+    public function setPresent($present)
+    {
+        $this->present = $present;
         return $this;
     }
 }

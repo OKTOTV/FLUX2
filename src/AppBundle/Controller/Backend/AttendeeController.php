@@ -11,7 +11,7 @@ use AppBundle\Entity\Course\Course;
 use AppBundle\Entity\Course\Attendee;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use AppBundle\Form\Backend\MoveAttendeeType;
-use AppBundle\Form\Course\AttendeeType;
+use AppBundle\Form\Backend\AttendeeType;
 use AppBundle\Form\Course\AttendeePaymentType;
 use AppBundle\Model\AcademyService;
 

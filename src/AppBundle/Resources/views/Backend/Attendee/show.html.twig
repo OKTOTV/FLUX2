@@ -39,6 +39,14 @@
     <table class="table table-bordered">
         <tbody>
             <tr>
+                <td>
+                    {{ 'attendee_info_present'|trans }}
+                </td>
+                <td>
+                    {{ 'attendee_info_present_choice'|transchoice(attendee.present)}}
+                </td>
+            </tr>
+            <tr>
                 <td>{{ 'attendee_info_name'|trans }}</td>
                 <td>{{ attendee.name }}</td>
             </tr>

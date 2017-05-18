@@ -30,6 +30,7 @@ class AcademyController extends Controller
     public function showAction()
     {
         $em = $this->getDoctrine()->getManager();
+
         $coursetypes = $em->getRepository('AppBundle:Course\Coursetype')->findActiveCoursetypes();
         $highlights = $em->getRepository('AppBundle:Course\Coursetype')->findHighlightedCoursetypes();
         $coursepackages = $em->getRepository('AppBundle:Course\Coursepackage')->findActiveCoursepackages();

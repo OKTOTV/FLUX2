@@ -122,9 +122,8 @@ class CourseController extends Controller
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($course);
-                $em->flush();
+                $course_service = $this->get('oktothek_academy_course');
+                $course_service->persistCourse($course);
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_course');
 
                 return $this->redirect($this->generateUrl('oktothek_backend_courses'));
@@ -154,21 +153,20 @@ class CourseController extends Controller
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
+                $course_service = $this->get('oktothek_academy_course');
                 if ($form->get('submit')->isClicked()) {
                     foreach ($old_dates as $date) {
                         if (false === $course->getDates()->contains($date)) {
                             $em->remove($date);
                         }
                     }
-                    $em->persist($course);
-                    $em->flush();
+                    $course_service->persistCourse($course);
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_course');
                     return $this->redirect($this->generateUrl('oktothek_backend_show_coursetype', ['coursetype' => $course->getCoursetype()->getId()]));
                 } else { //delete post
                     // TODO: service -> send mail to attendees, etc
                     $coursetype = $course->getCoursetype();
-                    $em->remove($course);
-                    $em->flush();
+                    $course_service->deleteCourse($course);
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_course');
                     return $this->redirect($this->generateUrl('oktothek_backend_show_coursetype', ['coursetype' => $coursetype->getId()]));
                 }

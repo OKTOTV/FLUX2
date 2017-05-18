@@ -38,7 +38,7 @@ class SlideRepository extends EntityRepository
     public function findAllSlidesQuery()
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT s FROM AppBundle:Slide s LEFT JOIN s.asset a');
+            ->createQuery('SELECT s FROM AppBundle:Slide s LEFT JOIN s.asset a ORDER BY s.onlineAt DESC');
     }
 
     public function findSlide($slide)

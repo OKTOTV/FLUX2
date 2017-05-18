@@ -57,6 +57,11 @@ class Course
     private $dates;
 
     /**
+     * @ORM\Column(name="deadline", type="datetime", nullable=true)
+     */
+    private $deadline;
+
+    /**
      * @ORM\Column(name="is_active", type="boolean", options={"default"=false})
      */
     private $is_active;
@@ -307,8 +312,8 @@ class Course
     }
 
     /**
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
      */
     public function setUpdatedAt()
     {
@@ -322,5 +327,16 @@ class Course
             return true;
         }
         return false;
+    }
+
+    public function getDeadline()
+    {
+        return $this->deadline;
+    }
+
+    public function setDeadline($deadline)
+    {
+        $this->deadline = $deadline;
+        return $this;
     }
 }
