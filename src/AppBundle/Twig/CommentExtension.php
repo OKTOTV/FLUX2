@@ -4,7 +4,7 @@ namespace AppBundle\Twig;
 
 class CommentExtension extends \Twig_Extension
 {
-
+    private $url;
 
     public function getFilters() {
         return array(
@@ -16,10 +16,10 @@ class CommentExtension extends \Twig_Extension
      * replaces all d?:d? timestamps with a <a href="" class="skipper">d?:d?</a>
      * in a comment
      */
-    public function episodeCommentFilter($comment)
+    public function episodeCommentFilter($comment, $url = '#')
     {
         $pattern = '((\d{1,2}:)?\d{1,2}:\d{2}?)'; // timestamp like 3:10:45, 06:40:3, 1:35
-
+        $this->url = $url;
         $commentFiltered = preg_replace_callback($pattern, [$this, 'callbackSkipReplace'], $comment);
         return $commentFiltered;
     }
@@ -35,8 +35,8 @@ class CommentExtension extends \Twig_Extension
         } else {
             $seconds = $timestamp_parts[1] + 60 * $timestamp_parts[0];
         }
-        $url = "#";
-        return sprintf('<a href="%s" class="skipper" data-second="%s">%s</a>',$url, $seconds, $matches[0]);
+
+        return sprintf('<a href="%s" class="skipper" data-second="%s">%s</a>', $this->url, $seconds, $matches[0]);
     }
 
     public function getName() {

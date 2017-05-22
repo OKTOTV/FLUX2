@@ -30,7 +30,11 @@ class EpisodeController extends Controller
         }
         $this->get('bprs_analytics')->trackInfo($request, $episode->getUniqID());
         $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
-        return ['episode' => $episode, 'next' => $next];
+        return [
+            'episode' => $episode,
+            'next' => $next,
+            'start' => $request->query->get('start', false)
+        ];
     }
 
     /**
