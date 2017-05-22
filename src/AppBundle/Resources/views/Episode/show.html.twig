@@ -115,6 +115,11 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
+            // start playing if the starttime is given
+            {% if start %}
+                jwplayer('player').seek({{start}});
+            {% endif %}
+
             // add/remove from favorites
             $('#favorite').click(function(e){
                 e.preventDefault();
