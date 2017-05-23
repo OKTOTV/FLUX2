@@ -93,4 +93,21 @@ class CommentController extends Controller
 
         return ['comments' => $comments, 'uniqID' => $uniqID];
     }
+
+    /**
+     * @Route("/episode/{uniqID}", name="oktothek_episode_comment_pager")
+     * @Template()
+     */
+    public function episodeCommentPagerAction(Request $request, $uniqID)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT c FROM AppBundle:Comment c WHERE c.referer = :uniqID AND c.parent IS NULL ORDER BY c.createdAt DESC";
+        $query = $em->createQuery($dql);
+        $query->setParameter('uniqID', $uniqID);
+        $paginator = $this->get('knp_paginator');
+        $comments = $paginator->paginate($query, $request->query->get('page', 1), 5);
+        $comments->setUsedRoute('oktothek_episode_comment_pager', ['uniqID' => $uniqID]);
+
+        return ['comments' => $comments, 'uniqID' => $uniqID];
+    }
 }
