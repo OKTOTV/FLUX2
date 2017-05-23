@@ -497,6 +497,11 @@ oktothek.backend_course_coursetype_label: Kurstyp
 oktothek.backend_course_trainer_maxAttendees_label: Teilnehmeranzahl
 oktothek.backend_course_isActive_label: Aktiv
 oktothek.backend_course_dates_label:    Termine
+oktothek.backend_course_attendee_name:  Teilnehmer
+oktothek.backend_course_attendee_status: Status
+oktothek.backend_course_attendee_present: Anwesenheit
+oktothek.bakcend_course_attendee_present_choice: "{0} Nicht Anwesend| {1} Anwesend" 
+
 
 
 # Coursedate
