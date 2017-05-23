@@ -50,7 +50,7 @@
                     }}
                 </div>
                 <p class="description">
-                    {{ episode.description|converturls|nl2br|episodeComment|raw }}
+                    {{ episode.description|converturls|nl2br|episodeComment(episode.uniqID)|raw }}
                 </p>
                 <ul class="misc clearfix"">
                     {% if app.user is empty %}
@@ -84,7 +84,7 @@
         <!-- Kommentare -->
         <section class="comments comment-pager">
             <div class="container">
-                {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
+                {{ render(controller("AppBundle:Comment:episodeCommentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
             </div>
         </section>
         <!-- Ende Kommentare -->
