@@ -57,13 +57,22 @@
         <div class="col-md-8">
             <table class="table table-bordered">
                 <thead>
-                    <tr><th>Teilnehmer</th><th>Status</th></tr>
+                    <tr>
+                        <th>{{ 'oktothek.backend_course_attendee_name'|trans }}</th>
+                        <th>{{ 'oktothek.backend_course_attendee_status'|trans }}</th>
+                        <th>
+                            {{ 'oktothek.backend_course_attendee_present'|trans}}
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
                     {% for attendee in course.attendees %}
                         <tr>
                             <td><a href="{{ path('oktothek_backend_show_attendee', {'attendee': attendee.id })}}">{{ attendee }}</a></td>
                             <td>{{ attendee.paymentStatus|trans }}</td>
+                            <td>
+                                {{ 'oktothek.bakcend_course_attendee_present_choice'|transchoice(attendee.present)}}
+                            </td>
                         </tr>
                     {% endfor %}
                     {% if course.attendees is empty %}
