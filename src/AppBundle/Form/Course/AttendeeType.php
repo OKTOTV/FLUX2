@@ -9,6 +9,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Intl\Intl;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class AttendeeType extends AbstractType
 {
@@ -29,6 +32,27 @@ class AttendeeType extends AbstractType
                     'label' => 'oktothek_attendee_surname_label',
                     'attr' => ['placeholder' => 'oktothek_attende_surname_placeholder']
                 ])
+            ->add('adress', TextType::class, [
+                'label' => 'oktothek_attendee_adress_label',
+                'attr' => ['placeholder' => 'oktothek_attendee_adress_placeholder']
+            ])
+            ->add('zipcode', TextType::class, [
+                'label' => 'oktothek_attendee_plz_label',
+                'attr' => ['placeholder' => 'oktothek_attendee_plz_placeholder']
+            ])
+            ->add('city', TextType::class, [
+                'label' => 'oktothek_attendee_city_label',
+                'attr' => ['placeholder' => 'oktothek_attendee_city_placeholder']
+            ])
+            ->add('country', CountryType::class, [
+                'label' => 'oktothek_attendee_country_label',
+                'placeholder' => 'oktothek_attendee_country_placeholder',
+                'preferred_choices' => [
+                    Intl::getRegionBundle()->getCountryNames()['AT'] => 'AT',
+                    Intl::getRegionBundle()->getCountryNames()['DE'] => 'DE',
+                    Intl::getRegionBundle()->getCountryNames()['CH'] => 'CH'
+                ]
+            ])
             ->add('email', EmailType::class,
                 [
                     'label' => 'oktothek_attendee_email_label',
@@ -41,9 +65,14 @@ class AttendeeType extends AbstractType
                 ])
             ->add('reducedEligible', CheckboxType::class,
                 [
-                    'label' => 'oktothek_attendee_reduced_label',
+                    'label' => 'oktothek_attendee_bookCourse_reduced_label',
                     'required' => false
                 ])
+            ->add('agb', CheckboxType::class, [
+                'label' => 'oktothek_attendee_agb_label',
+                'mapped' => false,
+                'constraints' => [new Assert\IsTrue()]
+            ])
             ->add('info', TextareaType::class,
                 [
                     'label' => 'oktothek_attendee_info_label',

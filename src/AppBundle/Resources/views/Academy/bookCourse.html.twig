@@ -25,8 +25,23 @@
         <p>{{ 'oktothek_academy_misc_info'|trans({'%price%': course.coursetype.price|number_format(2, ',', '.'), '%price_reduced%': course.coursetype.priceReduced|number_format(2, ',', '.')})|raw }}</p>
     {% endif %}
     {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.surname) }}
+        {{ form_row(form.adress) }}
+        {{ form_row(form.zipcode) }}
+        {{ form_row(form.city) }}
+        {{ form_row(form.country) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.tel) }}
+        {{ form_row(form.reducedEligible) }}
+        {{ form_row(form.agb) }}
+            {% include 'AppBundle:Academy:agb.html.twig' %}
+        {{ form_row(form.info) }}
+
     {{ form_end(form) }}
     <p><small>{{ 'oktothek_academy_show_footnote'|trans }}</small></p>
+
     </section>
 </div>
 {% endblock %}
