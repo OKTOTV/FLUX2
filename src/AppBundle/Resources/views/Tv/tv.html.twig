@@ -36,7 +36,7 @@
                         data: {'identifier': "tv", 'value': 'start'}
                     });
                     if (keepsWatchingInterval == null) {
-                        keepsWatchingInterval = setInterval("keepsWatching()", 300000);
+                        keepsWatchingInterval = setInterval("keepsWatching()", 600000); {# track every 10 minutes #}
                     }
                 };
             }).on('pause', function(event) {
