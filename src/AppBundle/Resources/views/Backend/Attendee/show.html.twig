@@ -82,6 +82,39 @@
                 <td>{{ 'attendee_info_updatedAt'|trans }}</td>
                 <td>{{ attendee.updatedAt|date('H:i d.m.Y') }}</td>
             </tr>
+            <tr>
+                <td>
+                    {{ 'attendee_info_adress'|trans }}
+                </td>
+                <td>
+                    {{ attendee.adress }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ 'attendee_info_zipcode'|trans }}
+                </td>
+                <td>
+                    {{ attendee.zipcode }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ 'attendee_info_city'|trans }}
+                </td>
+                <td>
+                    {{ attendee.city }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ 'attendee_info_country'|trans }}
+                </td>
+                <td>
+                    {{ attendee.countryname }}
+                </td>
+            </tr>
+
             {% if attendee.courses is not empty %}
                 {% for course in attendee.courses %}
                 <tr>

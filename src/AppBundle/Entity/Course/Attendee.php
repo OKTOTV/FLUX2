@@ -4,6 +4,7 @@ namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Intl\Intl;
 
 /**
  * Attendee
@@ -101,6 +102,34 @@ class Attendee
      * @ORM\Column(name="present", type="boolean", options={"default" = false}, nullable=true)
      */
     private $present;
+
+    /**
+     * @ORM\Column(name="adress", type="string", length=200, nullable=true)
+     * @Assert\Length(max=200)
+     * @Assert\NotBlank()
+     */
+    private $adress;
+
+    /**
+     * @ORM\Column(name="zipcode", type="string", length=20, nullable=true)
+     * @Assert\Length(max=20)
+     * @Assert\NotBlank()
+     */
+    private $zipcode;
+
+    /**
+     * @ORM\Column(name="city", type="string", length=120, nullable=true)
+     * @Assert\Length(max=120)
+     * @Assert\NotBlank()
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(name="country", type="string", length=20, nullable=true)
+     * @Assert\Length(max=20)
+     * @Assert\NotBlank()
+     */
+    private $country;
 
     public function __toString()
     {
@@ -389,5 +418,54 @@ class Attendee
     {
         $this->present = $present;
         return $this;
+    }
+
+    public function getAdress()
+    {
+        return $this->adress;
+    }
+
+    public function setAdress($adress)
+    {
+        $this->adress = $adress;
+        return $this;
+    }
+
+    public function setZipcode($zipcode)
+    {
+        $this->zipcode = $zipcode;
+        return $this;
+    }
+
+    public function getZipcode()
+    {
+        return $this->zipcode;
+    }
+
+    public function setCountry($country)
+    {
+        $this->country = $country;
+        return $this;
+    }
+
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    public function setCity($city)
+    {
+        $this->city = $city;
+        return $this;
+    }
+
+     public function getCountryname()
+    {
+        return Intl::getRegionBundle()->getCountryName($this->getCountry());
     }
 }

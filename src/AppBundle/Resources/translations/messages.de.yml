@@ -305,6 +305,52 @@ oktothek_academy_timetable_time_format: "H:i"
 
 ### bookCourse.html.twig
 oktothek_academy_bC_dates:              "Termine"
+oktothek_academy_agb:   |
+    ## OKTO COMMUNITY TV-GMBH Geschäftsbedingungen für Schulungen
+    Jänner 2015
+    <ol>
+        <li>Anmeldung<br />
+        Anmeldungen für öffentlich zugängliche Schulungen haben ab dem Bekanntmachungstermin ausschließlich durch persönliche Anmeldung, E-Mail, Telefon oder Fax zu erfolgen. Anmeldeberechtigt sind Person die das 14. Lebensjahr bereits vollendet haben. Mit der Einzahlung des Unkostenbeitrages ist die Anmeldung verpflichtend. Bei der Anmeldung sind zumindest Vor- und Zuname, sowie die E-Mail Adresse anzugeben.
+        Bei kostenlosen Kursen wird ebenfalls eine Voranmeldung vorausgesetzt. Anmeldeschluss ist grundsätzlich sieben Werktage vor Kursbeginn, außer bei gesondert angegebenen Terminen.
+        Die verfügbaren Kursplätze werden nach der Reihenfolge der Zahlungseingänge vergeben.
+        </li>
+
+        <li>Unkostenbeitrag<br />
+        Die jeweils aktuelle Übersicht über die Kurskosten ist auf der Homepage zu finden. Die Preise verstehen sich inklusive 10% MWST.
+        Die Bezahlung kann bar und per Zahlschein oder Onlinebanking vorgenommen werden, eine Bezahlung direkt bei den KursleiterInnen ist jedoch nicht möglich. Der Zahlungsein- gang des Kursbeitrags bei der Community TV GmbH hat spätestens zwei Wochen nach Erhalt der Anmeldebstätigung zu erfolgen. Danach behält sich die Community TV GmbH das Recht vor, den Kursplatz weiterzugeben. Hierbei werden zukünftige OKTO-ProduzentInnen bevorzugt behandelt.
+        Auf Anfrage des Kurspersonals ist ein Zahlungsnachweis vorzuweisen. Bei Absage eines Kurses wird der Kursbeitrag in voller Höhe von der Community TV GmbH refundiert oder für einen späteren Kursbesuch gutgeschrieben. Bei Nichtbesuchen eines Kurses wird der volle Betrag verrechnet.
+        </li>
+
+        <li>Kursbedingungen<br />
+        Die Community TV-GmbH behält sich vor, Kurse, bei der die Mindestanzahl an KursteilnehmerInnen nicht erreicht wird, abzusagen. Kursplätze sind nicht übertragbar.
+        </li>
+
+        <li>Abmeldung<br />
+        In der Regel ist eine Abmeldung schriftlich spätestens bis sieben Werktagen vor Kursbeginn möglich. Danach wird grundsätzlich der gesamte Kursbeitrag verrechnet.
+        </li>
+
+        <li>Haftung<br />
+        Die Community TV-GmbH hat alle in Publikationen und Internetseiten bereitgestellten Informationen nach bestem Wissen und Gewissen erstellt. Es wird jedoch keine Haftung für die Aktualität, Richtigkeit und Vollständigkeit der bereit gestellten Informationen übernommen.
+        Weiters übernimmt die Community TV-GmbH keine Haftung für Schäden an oder den Verlust von persönlichen Gegenständen der KursteilnehmerInnen. Im Übrigen ist jede Haftung der Community TV-GmbH ausgeschlossen, die über die zwingenden Bestimmungen des gesetzlichen Schadenersatzrechts hinausgeht.
+        </li>
+
+        <li>Schadenersatz<br />
+        Inventar, Räumlichkeiten, Medien und Geräte der Community TV-GmbH sind schonend zu verwenden bzw. zu behandeln. Sollte dies nicht der Fall sein, hat der/die KursteilehmerIn Schadenersatz zu leisten.
+        </li>
+
+        <li>Datenschutz<br />
+        Mit der Anmeldung erteilen die KursteilnehmerInnen die datenschutzrechtliche Zustimmung zur elektronischen Verarbeitung der Angaben zur Person für alle zum Betrieb der Community TV-GmbH gehörenden erforderlichen Vorgänge. Die die KursteilnehmerInnen betreffenden Daten dienen ausschließlich dem Betriebszweck der Community TV-GmbH und werden vertraulich behandelt. Sie werden nur in dem für die Community TV-GmbH unbedingt erforderlichen Umfang verarbeitet und solange gespeichert, wie dies für die Erfüllung der Verwaltungsaufgaben der Community TV-GmbH erforderlich ist. Es erfolgt keine Weitergabe der die KursteilnehmerInnen betreffenden Daten an Dritte. Personenbezogene Auswertungen werden nicht erstellt.
+        </li>
+
+        <li>Urheberrecht<br />
+        Die KursteilnehmerInnen erklären sich damit einverstanden, dass die von ihnen während oder im Zusammenhang mit dem Besuch der Angebote der Community TV-GmbH gemachten Aufnahmen entschädigungslos ohne zeitliche oder räumliche Einschränkung mittels jedes derzeitigen oder zukünftigen technischen Verfahrens ausgewertet und aus- gestrahlt werden dürfen.
+        </li>
+
+        <li>Schulungszertifikate<br />
+        Auf Wunsch stellt die Community TV-GmbH im Namen des Senders OKTO Teilnahmezertifikate aus.
+        </li>
+    </ol>
+
 
 ### show.html.twig
 oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"
@@ -445,6 +491,16 @@ oktothek_attende_name_placeholder:      Max
 oktothek_attende_surname_placeholder:   Musterfrau
 oktothek_attende_mail_placeholder:      max@musterfrau.at
 oktothek_attende_tel_placeholder:       +43 123 456 789
+oktothek_attendee_adress_label:         "Adresse"
+oktothek_attendee_adress_placeholder:   "Musterstraße 12/3"
+oktothek_attendee_plz_label:            "Postleitzahl"
+oktothek_attendee_plz_placeholder:      "1234"
+oktothek_attendee_country_label:        "Land"
+oktothek_attendee_country_placeholder:  "Land wählen"
+oktothek_attendee_agb_label:            "Ich habe die AGB gelesen und bin mit ihnen einverstanden"
+oktothek_attendee_bookCourse_reduced_label: "Ermäßigt*"
+oktothek_attendee_city_label:        "Ort"
+oktothek_attendee_city_placeholder:  "Musterstadt"
 
 # Coursepackage
 oktothek.backend_edit_coursepackage_header: "Kurspaket bearbeiten"
@@ -500,7 +556,7 @@ oktothek.backend_course_dates_label:    Termine
 oktothek.backend_course_attendee_name:  Teilnehmer
 oktothek.backend_course_attendee_status: Status
 oktothek.backend_course_attendee_present: Anwesenheit
-oktothek.bakcend_course_attendee_present_choice: "{0} Nicht Anwesend| {1} Anwesend" 
+oktothek.bakcend_course_attendee_present_choice: "{0} Nicht Anwesend| {1} Anwesend"
 
 
 
@@ -530,6 +586,10 @@ attendee_info_paymentStatus:            "Zahlungsstatus"
 attendee_info_updatedAt:                "Zuletzt geändert"
 attendee_info_present:                  "Anwesend"
 attendee_info_present_choice:           "{0} NEIN | {1} JA"
+attendee_info_adress:                   "Adresse"
+attendee_info_zipcode:                  "Postleitzahl"
+attendee_info_city:                     "Ort"
+attendee_info_country:                  "Land"
 oktothek_academy_open_transaction:      "Online Zahlung (offen)"
 oktothek_academy_closed_transaction:    "Online Zahlung (bezahlt)"
 oktothek_academy_refund_transaction:    "Rückerstatted"
