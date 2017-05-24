@@ -335,16 +335,15 @@ oktothek_academy_agb:   |
         </li>
 
         <li>Schadenersatz<br />
-        Inventar, Räumlichkeiten, Medien und Geräte der Community TV-GmbH sind schonend zu verwenden bzw. zu behandeln. Sollte dies nicht der Fall sein, hat der/die Kursteileh- merIn Schadenersatz zu leisten.
+        Inventar, Räumlichkeiten, Medien und Geräte der Community TV-GmbH sind schonend zu verwenden bzw. zu behandeln. Sollte dies nicht der Fall sein, hat der/die KursteilehmerIn Schadenersatz zu leisten.
         </li>
 
         <li>Datenschutz<br />
-        Mit der Anmeldung erteilen die KursteilnehmerInnen die datenschutzrechtliche Zustim-
-        mung zur elektronischen Verarbeitung der Angaben zur Person für alle zum Betrieb der Community TV-GmbH gehörenden erforderlichen Vorgänge. Die die KursteilnehmerInnen betreffenden Daten dienen ausschließlich dem Betriebszweck der Community TV-GmbH und werden vertraulich behandelt. Sie werden nur in dem für die Community TV-GmbH unbedingt erforderlichen Umfang verarbeitet und solange gespeichert, wie dies für die Erfüllung der Verwaltungsaufgaben der Community TV-GmbH erforderlich ist. Es erfolgt keine Weitergabe der die KursteilnehmerInnen betreffenden Daten an Dritte. Personenbe- zogene Auswertungen werden nicht erstellt.
+        Mit der Anmeldung erteilen die KursteilnehmerInnen die datenschutzrechtliche Zustimmung zur elektronischen Verarbeitung der Angaben zur Person für alle zum Betrieb der Community TV-GmbH gehörenden erforderlichen Vorgänge. Die die KursteilnehmerInnen betreffenden Daten dienen ausschließlich dem Betriebszweck der Community TV-GmbH und werden vertraulich behandelt. Sie werden nur in dem für die Community TV-GmbH unbedingt erforderlichen Umfang verarbeitet und solange gespeichert, wie dies für die Erfüllung der Verwaltungsaufgaben der Community TV-GmbH erforderlich ist. Es erfolgt keine Weitergabe der die KursteilnehmerInnen betreffenden Daten an Dritte. Personenbezogene Auswertungen werden nicht erstellt.
         </li>
 
         <li>Urheberrecht<br />
-        Die KursteilnehmerInnen erklären sich damit einverstanden, dass die von ihnen während oder im Zusammenhang mit dem Besuch der Angebote der Community TV-GmbH ge- machten Aufnahmen entschädigungslos ohne zeitliche oder räumliche Einschränkung mittels jedes derzeitigen oder zukünftigen technischen Verfahrens ausgewertet und aus- gestrahlt werden dürfen.
+        Die KursteilnehmerInnen erklären sich damit einverstanden, dass die von ihnen während oder im Zusammenhang mit dem Besuch der Angebote der Community TV-GmbH gemachten Aufnahmen entschädigungslos ohne zeitliche oder räumliche Einschränkung mittels jedes derzeitigen oder zukünftigen technischen Verfahrens ausgewertet und aus- gestrahlt werden dürfen.
         </li>
 
         <li>Schulungszertifikate<br />
@@ -587,6 +586,10 @@ attendee_info_paymentStatus:            "Zahlungsstatus"
 attendee_info_updatedAt:                "Zuletzt geändert"
 attendee_info_present:                  "Anwesend"
 attendee_info_present_choice:           "{0} NEIN | {1} JA"
+attendee_info_adress:                   "Adresse"
+attendee_info_zipcode:                  "Postleitzahl"
+attendee_info_city:                     "Ort"
+attendee_info_country:                  "Land"
 oktothek_academy_open_transaction:      "Online Zahlung (offen)"
 oktothek_academy_closed_transaction:    "Online Zahlung (bezahlt)"
 oktothek_academy_refund_transaction:    "Rückerstatted"

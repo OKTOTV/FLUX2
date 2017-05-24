@@ -4,6 +4,7 @@ namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Intl\Intl;
 
 /**
  * Attendee
@@ -461,5 +462,10 @@ class Attendee
     {
         $this->city = $city;
         return $this;
+    }
+
+     public function getCountryname()
+    {
+        return Intl::getRegionBundle()->getCountryName($this->getCountry());
     }
 }

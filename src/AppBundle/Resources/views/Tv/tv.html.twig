@@ -22,12 +22,35 @@
         $(document).ready(function(event){
             setInterval("updateCurrent()", 10000);
 
+            var keepsWatchingInterval = null;
+
             var playerInstance = jwplayer("player");
             playerInstance.setup({
                 file: "{{ okto_streamurl }}",
                 image: "{{ asset('bundles/app/images/placeholder/Logo'~random(6)~'.png') }}"
-            });
+            }).on('play', function(event){
+                console.log(event.oldstate);
+                if (event.oldstate == "buffering" || event.oldstate == "paused") { {# fire statistics #}
+                    $.ajax({
+                        url: "{{ url('bprs_analytics_write_log')}}",
+                        data: {'identifier': "tv", 'value': 'start'}
+                    });
+                    if (keepsWatchingInterval == null) {
+                        keepsWatchingInterval = setInterval("keepsWatching()", 300000);
+                    }
+                };
+            }).on('pause', function(event) {
+                clearInterval(keepsWatchingInterval);
+                keepsWatchingInterval = null;
+            })
         });
+
+        function keepsWatching() {
+            $.ajax({
+                url: "{{ url('bprs_analytics_write_log')}}",
+                data: {'identifier': "tv", 'value': 'running'}
+            });
+        }
 
         function updateCurrent() {
             $.ajax({
