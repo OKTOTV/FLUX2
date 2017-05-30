@@ -56,7 +56,7 @@
                     {% if app.user is empty %}
                         <li class="favorite-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length}}</li>
                     {% else %}
-                        {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_USER') %}
                             <li><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a></li>
                         {% endif %}
                         <li class="favorite-icon"><button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> {{ episode.users|length}}</button></li>

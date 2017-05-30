@@ -879,6 +879,7 @@ oktothek_producer_header_blog:              "Blog"
 oktothek_producer_header_playlist:          "Playlisten"
 oktothek_producer_header_episode:           "Episoden"
 oktothek_producer_header_live:              "Live"
+oktothek.series_show_in_backend:            "Im Backend anzeigen"
 
 # producer live
 oktothek.series_producer_live_text:         Du bist Live on Air? Lass es deine Fans wissen!
