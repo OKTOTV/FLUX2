@@ -466,7 +466,7 @@ oktothek_series_teaser_date_format:     "d.m.Y"
 oktothek_series.share_header:           "Teilen"
 oktothek_series.share_fb:               "Facebook"
 oktothek_series.share_tw:               "Twitter"
-oktothek_series.share_gp:               "Google"+
+oktothek_series.share_gp:               "Google+"
 oktothek_series.share_pint:             "Pinterest"
 
 ## series backend
