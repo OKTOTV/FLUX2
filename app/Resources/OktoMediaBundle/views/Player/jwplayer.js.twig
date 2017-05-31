@@ -46,7 +46,6 @@
             var percentage = Math.floor(event.position*100 / event.duration);
 
             if ( percentage == 20 ) {
-                console.log('reached 20%');
                 $.ajax({
                     url: "{{ url('bprs_analytics_write_log')}}",
                     data: {'identifier': "{{ episode.uniqID}}", 'value': percentage+'%'}

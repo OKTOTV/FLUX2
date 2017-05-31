@@ -463,80 +463,80 @@ oktothek_series_teaser_day_choice:      "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} 
 oktothek_series_teaser_date_format:     "d.m.Y"
 
 ## series share
-oktothek_series.share_header:           Teilen
-oktothek_series.share_fb:               Facebook
-oktothek_series.share_tw:               Twitter
-oktothek_series.share_gp:               Google+
-oktothek_series.share_pint:             Pinterest
+oktothek_series.share_header:           "Teilen"
+oktothek_series.share_fb:               "Facebook"
+oktothek_series.share_tw:               "Twitter"
+oktothek_series.share_gp:               "Google+"
+oktothek_series.share_pint:             "Pinterest"
 
 ## series backend
 # /app/Resources/OktoMediaBundle/views/Series/show.html.twig
 oktothek.series_show_frontend:          '<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Zum Frontend'
-
+oktothek.series_show_added_users:       "Zugewiesene Benutzer"
 
 # my channels and backend
-oktothek_series_my_channels_header:     Meine Sendereihen
-oktothek_series_my_channels_empty:      Du bist derzeit keinen Sendereihen in der Oktothek zugewiesen!
+oktothek_series_my_channels_header:     "Meine Sendereihen"
+oktothek_series_my_channels_empty:      "Du bist derzeit keinen Sendereihen in der Oktothek zugewiesen!"
 ## academy
 
-oktothek.success_book_SOFORT_course:    Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Buchungsbestätigung
-oktothek.book_sofort_button:            Mit SOFORTÜberweisung bezahlen
-oktothek.attendee_create_button:        Per Überweisung oder Bar bezahlen
-oktothek.register_attendee_button:      Kostenlos Registrieren
+oktothek.success_book_SOFORT_course:    "Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Buchungsbestätigung"
+oktothek.book_sofort_button:            "Mit SOFORTÜberweisung bezahlen"
+oktothek.attendee_create_button:        "Per Überweisung oder Bar bezahlen"
+oktothek.register_attendee_button:      "Kostenlos Registrieren"
 oktothek.error_sofort_book_course:      "Beim Bezahlvorgang ist ein Fehler aufgetreten. Bitte versuche es noch einmal."
-oktothek.error_book_course:             Bitte fülle alle Felder aus, um dich für den Workshop anzumelden
-oktothek.success_register_course:       Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Registrierungsbestätigung
+oktothek.error_book_course:             "Bitte fülle alle Felder aus, um dich für den Workshop anzumelden"
+oktothek.success_register_course:       "Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Registrierungsbestätigung"
 
-oktothek_attende_name_placeholder:      Max
-oktothek_attende_surname_placeholder:   Musterfrau
-oktothek_attende_mail_placeholder:      max@musterfrau.at
-oktothek_attende_tel_placeholder:       +43 123 456 789
-oktothek_attendee_adress_label:         "Adresse"
-oktothek_attendee_adress_placeholder:   "Musterstraße 12/3"
-oktothek_attendee_plz_label:            "Postleitzahl"
-oktothek_attendee_plz_placeholder:      "1234"
-oktothek_attendee_country_label:        "Land"
-oktothek_attendee_country_placeholder:  "Land wählen"
-oktothek_attendee_agb_label:            "Ich habe die AGB gelesen und bin mit ihnen einverstanden"
+oktothek_attende_name_placeholder:          "Max"
+oktothek_attende_surname_placeholder:       "Musterfrau"
+oktothek_attende_mail_placeholder:          "max@musterfrau.at"
+oktothek_attende_tel_placeholder:           "+43 123 456 789"
+oktothek_attendee_adress_label:             "Adresse"
+oktothek_attendee_adress_placeholder:       "Musterstraße 12/3"
+oktothek_attendee_plz_label:                "Postleitzahl"
+oktothek_attendee_plz_placeholder:          "1234"
+oktothek_attendee_country_label:            "Land"
+oktothek_attendee_country_placeholder:      "Land wählen"
+oktothek_attendee_agb_label:                "Ich habe die AGB gelesen und bin mit ihnen einverstanden"
 oktothek_attendee_bookCourse_reduced_label: "Ermäßigt*"
-oktothek_attendee_city_label:        "Ort"
-oktothek_attendee_city_placeholder:  "Musterstadt"
+oktothek_attendee_city_label:               "Ort"
+oktothek_attendee_city_placeholder:         "Musterstadt"
 
 # Coursepackage
-oktothek.backend_edit_coursepackage_header: "Kurspaket bearbeiten"
-oktothek.backend_coursepackage_name_label: Name
-oktothek.backend_coursepackage_description_label: Beschreibung
-oktothek.backend_coursepackage_coursetypes_label: Kurstypen
-oktothek.coursepackage_create_button:      <span class="glyphicon glyphicon-floppy-disk"></span> Speichern
-oktothek.backend_new_coursepackage_header: Neues Kurspaket
-oktothek.backend_coursepackage_price_label: Vollpreis
-oktothek.backend_coursepackage_priceReduced_label: Reduzierter Preis
-oktothek.backend_coursepackage_image_label: "Bild"
-oktothek.success_create_coursepackage:      Kurspaket erfolgreich angelegt
-oktothek.backend_course_isActive_choice:    "{0} Nicht öffentlich|{1} Öffentlich"
-oktothek_backend_edit_coursepackage:        Kurspaket bearbeiten
-oktothek.coursepackage_delete_button:       <span class="glyphicon glyphicon-trash"></span> Kurspaket löschen
-oktothek.coursepackage_edit_button:         <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
-oktothek_academy_coursepackage_select_label: Kursauswahl
-oktothek_academy_coursepackage_select_choice: "{1} Jänner|{2} Februar|{3} März|{4} April|{5} Mai|{6} Juni|{7} Juli|{8} August|{9} September|{10} Oktober|{11} November|{12} Dezember"
-oktothek.success_edit_coursepackage:        "Kurspaket erfolgreich aktualisiert"
+oktothek.backend_edit_coursepackage_header:             "Kurspaket bearbeiten"
+oktothek.backend_coursepackage_name_label:              "Name"
+oktothek.backend_coursepackage_description_label:       "Beschreibung"
+oktothek.backend_coursepackage_coursetypes_label:       "Kurstypen"
+oktothek.coursepackage_create_button:                   '<span class="glyphicon glyphicon-floppy-disk"></span> Speichern'
+oktothek.backend_new_coursepackage_header:              "Neues Kurspaket"
+oktothek.backend_coursepackage_price_label:             "Vollpreis"
+oktothek.backend_coursepackage_priceReduced_label:      "Reduzierter Preis"
+oktothek.backend_coursepackage_image_label:             "Bild"
+oktothek.success_create_coursepackage:                  "Kurspaket erfolgreich angelegt"
+oktothek.backend_course_isActive_choice:                "{0} Nicht öffentlich|{1} Öffentlich"
+oktothek_backend_edit_coursepackage:                    "Kurspaket bearbeiten"
+oktothek.coursepackage_delete_button:                   '<span class="glyphicon glyphicon-trash"></span> Kurspaket löschen'
+oktothek.coursepackage_edit_button:                     '<span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern'
+oktothek_academy_coursepackage_select_label:            "Kursauswahl"
+oktothek_academy_coursepackage_select_choice:           "{1} Jänner|{2} Februar|{3} März|{4} April|{5} Mai|{6} Juni|{7} Juli|{8} August|{9} September|{10} Oktober|{11} November|{12} Dezember"
+oktothek.success_edit_coursepackage:                    "Kurspaket erfolgreich aktualisiert"
 
 # /src/AppBundle/Resources/views/Backend/Coursepackage/show.html.twig
-oktothek.backend_academy_show_coursepackage_no_desc:   "Kein Beschreibungstext vorhanden"
+oktothek.backend_academy_show_coursepackage_no_desc:     "Kein Beschreibungstext vorhanden"
 oktothek.backend_academy_show_coursepackage_coursetypes: "Kurstypen"
 
 # Coursetype
-oktothek.backend_coursetype_title_label: Titel
-oktothek.backend_coursetype_teaser_label: Teasertext
-oktothek.backend_coursetype_description_label: Beschreibung
-oktothek.backend_coursetype_price_label:    Vollpreis
-oktothek.backend_coursetype_priceReduced_label: Ermäßigter Preis
-oktothek.backend_coursetype_highlight_label: Hervorgehoben
-oktothek.backend_coursetype_isActive_label: Aktiv
-oktothek.backend_coursetype_image_label: Bild
-oktothek.backend_coursetype_assets_label: Kursunterlagen
-oktothek_backend_coursetype_isActive_info: Aktiv
-oktothek_backend_courstype_isActive_choice: "{0} Nein|{1} Ja"
+oktothek.backend_coursetype_title_label:        "Titel"
+oktothek.backend_coursetype_teaser_label:       "Teasertext"
+oktothek.backend_coursetype_description_label:  "Beschreibung"
+oktothek.backend_coursetype_price_label:        "Vollpreis"
+oktothek.backend_coursetype_priceReduced_label: "Ermäßigter Preis"
+oktothek.backend_coursetype_highlight_label:    "Hervorgehoben"
+oktothek.backend_coursetype_isActive_label:     "Aktiv"
+oktothek.backend_coursetype_image_label:        "Bild"
+oktothek.backend_coursetype_assets_label:       "Kursunterlagen"
+oktothek_backend_coursetype_isActive_info:      "Aktiv"
+oktothek_backend_courstype_isActive_choice:     "{0} Nein|{1} Ja"
 
 
 # AppBundle/Resources/views/Backend/Course/showCourse.html.twig
@@ -545,17 +545,17 @@ oktothek_backend_course_type:               "Kurstyp"
 oktothek_backend_course_maxAttendees:       "Maximale Teilnehmer"
 oktothek_backend_course_currentAttendees:   "Derzeit Angemeldet"
 
-oktothek.error_create_course:           Der Kurs konnte nicht angelegt werden
-oktothek.success_create_course:         Kurs erfolgreich angelegt
-oktothek.success_delete_course:         Kurs erfolgreich gelöscht
-oktothek.backend_course_trainer_label:  Trainer
-oktothek.backend_course_coursetype_label: Kurstyp
-oktothek.backend_course_trainer_maxAttendees_label: Teilnehmeranzahl
-oktothek.backend_course_isActive_label: Aktiv
-oktothek.backend_course_dates_label:    Termine
-oktothek.backend_course_attendee_name:  Teilnehmer
-oktothek.backend_course_attendee_status: Status
-oktothek.backend_course_attendee_present: Anwesenheit
+oktothek.error_create_course:                   "Der Kurs konnte nicht angelegt werden"
+oktothek.success_create_course:                 "Kurs erfolgreich angelegt"
+oktothek.success_delete_course:                 "Kurs erfolgreich gelöscht"
+oktothek.backend_course_trainer_label:          "Trainer"
+oktothek.backend_course_coursetype_label:       "Kurstyp"
+oktothek.backend_course_trainer_maxAttendees_label: "Teilnehmeranzahl"
+oktothek.backend_course_isActive_label:         "Aktiv"
+oktothek.backend_course_dates_label:            "Termine"
+oktothek.backend_course_attendee_name:          "Teilnehmer"
+oktothek.backend_course_attendee_status:         "Status"
+oktothek.backend_course_attendee_present:        "Anwesenheit"
 oktothek.bakcend_course_attendee_present_choice: "{0} Nicht Anwesend| {1} Anwesend"
 
 
@@ -879,6 +879,7 @@ oktothek_producer_header_blog:              "Blog"
 oktothek_producer_header_playlist:          "Playlisten"
 oktothek_producer_header_episode:           "Episoden"
 oktothek_producer_header_live:              "Live"
+oktothek.series_show_in_backend:            "Im Backend anzeigen"
 
 # producer live
 oktothek.series_producer_live_text:         Du bist Live on Air? Lass es deine Fans wissen!
