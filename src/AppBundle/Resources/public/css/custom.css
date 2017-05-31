@@ -1067,8 +1067,8 @@ body.tagpage .content-bg,
 .tabs-content .pagination > li > a, 
 .tabs-content .pagination > li > span,
 .visible-xs-block .pager .disabled > a, .visible-xs-block .pager .disabled > a:focus, .visible-xs-block .pager .disabled > a:hover, .visible-xs-block .pager .disabled > span,
-.visible-xs-block .pager li > a, 
-.visible-xs-block .pager li > a {
+.producer .visible-xs-block .pager li > a, 
+.producer .visible-xs-block .pager li > a {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
@@ -1138,7 +1138,9 @@ body.tagpage li.empty .icon-player,
 .pagination > li > span,
 .alert,
 [data-tooltip]::after,
-.oktothek .participart-list li figcaption span { /* Dunkelgrau */
+.oktothek .participart-list li figcaption span,
+.visible-xs-block .pager li > a, 
+.visible-xs-block .pager li > a { /* Dunkelgrau */
 	background-color:#112022;
 }
 article.pin figure.pin:hover,
@@ -2925,11 +2927,13 @@ figcaption  {
 	width:200px;
 	cursor:pointer;
 }
-a.tag:before {
-    margin-left:5px;
+a.tag::before {
     content:'#';
 }
-a.tag:first-child:before {
+a.tag {
+    margin-right:4px;
+}
+a.tag:first-child::before {
      margin-left:0px;
 }
 p.tags {

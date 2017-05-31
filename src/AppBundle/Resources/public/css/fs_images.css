@@ -298,7 +298,8 @@ body.playlists .fs-image-misc-mobile {
 	}
     h2#button_down {
         vertical-align:bottom;
-        margin-top:-8px;
+        /*margin-top:-8px;*/
+        margin-top:-1px;
         margin-bottom:40px;
         position: relative;
 	}
