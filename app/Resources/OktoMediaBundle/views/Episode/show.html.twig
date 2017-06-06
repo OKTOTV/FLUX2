@@ -14,6 +14,7 @@
             <ul class="dropdown-menu">
                 <li><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">{{ 'oktothek.episode_show_in_frontend'|trans|raw }}</a></li>
                 <li><a href="{{ path('oktolab_episode_edit', {'episode': episode.uniqID}) }}">{{ 'oktolab_media.episode_edit_button'|trans|raw }}</a></li>
+                <li><a href="#" id="set_posterframe">{{ 'okto_media.set_currentposition_asposterframe'|trans|raw }}</a></li>
                 <li><a href="{{ path('oktothek_backend_slide_from_episode', {'uniqID': episode.uniqID})}}">{{ 'oktothek_backend_slide_from_episode'|trans|raw }}</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="{{ path('oktolab_media_export_episode', {'uniqID': episode.uniqID}) }}">{{ 'oktolab_media.show_episode_export'|trans|raw }}</a></li>
@@ -103,6 +104,15 @@
                 playerInstance.setup({
                     sources: [{% for media in episode.media %}{file: "{{ media.asset|path }}", label: "{{ media.quality }}", type: "mp4"}{% if not loop.last %},{% endif %}{% endfor %}],
                     image: "{{ episode.posterframe|path }}"
+                });
+
+                $('#set_posterframe').click(function(e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: "{{ path('oktolab_episode_extractposterframe', {'uniqID': episode.uniqID}) }}",
+                        data: {'position': playerInstance.getPosition()},
+                        type: 'GET'
+                    });
                 });
             });
         </script>

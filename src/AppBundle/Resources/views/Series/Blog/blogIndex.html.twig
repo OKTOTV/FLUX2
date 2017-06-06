@@ -35,10 +35,19 @@
     <div class="aside-inner clearfix">
         <ul>
         {% for teaser in teasers %}
-            <li>
-                <span class="time">{{ teaser.updatedAt|date('D, d.m.Y')}}</span>
-                <p><a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a></p>
-            </li>
+        <li>
+            <span class="time">
+                {{
+                    'oktothek_series_teaser_date'|trans({
+                        '%day%': 'oktothek_series_teaser_day_choice'|transchoice(teaser.createdAt|date('N')),
+                        '%date%': teaser.createdAt|date('oktothek_series_teaser_date_format'|trans)
+                    })
+                }}
+            </span>
+            <p>
+                <a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a>
+            </p>
+        </li>
         {% endfor %}
         </ul>
     </div>

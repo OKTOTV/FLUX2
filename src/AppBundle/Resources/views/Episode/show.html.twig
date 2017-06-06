@@ -50,14 +50,14 @@
                     }}
                 </div>
                 <p class="description">
-                    {{ episode.description|converturls|nl2br|episodeComment|raw }}
+                    {{ episode.description|converturls|nl2br|episodeComment(episode.uniqID)|raw }}
                 </p>
                 <ul class="misc clearfix">
                     {% if app.user is empty %}
                         <li class="favorite-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length}}</li>
                     {% else %}
-                        {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_ADMIN') %}
-                            <li class="backend"><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a></li>
+                        {% if is_granted('ROLE_USER') %}
+                            <li><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a></li>
                         {% endif %}
                         <li class="favorite-icon"><button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> {{ episode.users|length}}</button></li>
                         {% set in_abo = false %}
@@ -84,7 +84,7 @@
         <!-- Kommentare -->
         <section class="comments comment-pager">
             <div class="container">
-                {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
+                {{ render(controller("AppBundle:Comment:episodeCommentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
             </div>
         </section>
         <!-- Ende Kommentare -->
@@ -114,6 +114,11 @@
     {% endif %}
     <script type="text/javascript">
         $(document).ready(function(){
+
+            // start playing if the starttime is given
+            {% if start %}
+                jwplayer('player').seek({{start}});
+            {% endif %}
 
             // add/remove from favorites
             $('#favorite').click(function(e){
@@ -254,7 +259,6 @@
 
         $(document).on('click', '.skipper', function(e) {
             e.preventDefault();
-            console.log($(this).data('second'));
             jwplayer('player').seek($(this).data('second'));
         })
     </script>

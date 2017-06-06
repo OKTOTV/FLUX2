@@ -103,6 +103,7 @@ services:
 
     oktothek.twig_comment_extension:
         class:  AppBundle\Twig\CommentExtension
+        arguments: [ "@router"]
         public: false
         tags:
             - { name: twig.extension }

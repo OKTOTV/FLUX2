@@ -20,7 +20,7 @@ use AppBundle\Form\PostType;
 class EpisodeController extends Controller
 {
     /**
-     * @Route("/episode/{uniqID}", name="oktothek_backend_publish_episode")
+     * @Route("/episode/publish/{uniqID}", name="oktothek_backend_publish_episode")
      * @Template()
      */
     public function publishAction(Episode $episode)
@@ -32,5 +32,14 @@ class EpisodeController extends Controller
             $this->get('session')->getFlashBag()->add('info', 'oktothek.info_publish_episode');
         }
         return $this->redirect($this->generateUrl('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]));
+    }
+
+    /**
+     * @Route("/episode/statistic/{uniqID}", name="oktothek_backend_statistic_episode")
+     * @Template()
+     */
+    public function statisticAction(Request $request, Episode $episode)
+    {
+        # code...
     }
 }

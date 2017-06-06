@@ -28,6 +28,7 @@
                     </a>
                 </li>
                 <li role="separator" class="divider"></li>
+                <li><a href="{{ path('oktolab_series_edit_tags', { 'series': series.uniqID }) }}">{{ 'okto_media.series_edit_tag_button'|trans|raw }}</a></li>
                 <li>
                     <a href="{{ path('okto_media_series_tag_publicate', {'uniqID': series.uniqID})}}">
                         {{ 'okto_media_series_show_publicate_tag_button'|trans|raw }}
@@ -82,7 +83,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h2>Zugewiesene Benutzer</h2>
+            <h2>{{ 'oktothek.series_show_added_users'|trans }}</h2>
             <div class="list-group">
                 {% for user in series.users %}
                 <a href="" class="list-group-item">{{ user.username }} ({{ user.email }})</a>

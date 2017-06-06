@@ -61,6 +61,7 @@ class AcademyController extends Controller
      * @Route("/book/{course}", name="oktothek_academy_book_course")
      * @Method({"GET", "POST"})
      * @Template()
+     * TODO: add new viewinformation if course is already full!
      */
     public function bookCourseAction(Request $request, Course $course)
     {

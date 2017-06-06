@@ -37,7 +37,7 @@
                                 <a href="{{ path('oktothek_my_channels') }}">{{ 'oktothek.menu_my_channels'|trans|raw }}</a>
                             </li>
                         {% endif %}
-                        {% if is_granted('ROLE_OKTOLAB_BACKEND') or is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
                             <li {% if selected == "oktothek_backend" %}class="active"{% endif %}>
                                 <a href="{{ path('backend') }}">{{ 'oktothek.menu_backend'|trans|raw }}</a>
                             </li>
@@ -70,8 +70,11 @@
                     <li>
                     {#% <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-tooltip="{{ 'oktothek.menu_user_notifications_title'|trans }}"> %#}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            {% if app.user.notifications is not empty %}{{ 'oktothek.menu_user_notifications'|trans|raw }}
-                            {% else %}{{ 'oktothek.menu_user_notifications_empty'|trans|raw }} <span class="visible-xs-inline">{{ 'oktothek.menu_notification_xs'|trans }}</span> {% endif %}
+                            {% if app.user.notifications is not empty %}
+                                {{ 'oktothek.menu_user_notifications'|trans|raw }}
+                            {% else %}
+                                {{ 'oktothek.menu_user_notifications_empty'|trans|raw }} <span class="visible-xs-inline">{{ 'oktothek.menu_notification_xs'|trans }}</span>
+                            {% endif %}
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><div class="triangle"></div></li>
