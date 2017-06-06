@@ -916,9 +916,12 @@ oktothek.series_producer_analytic_20:       %80 Bindung
 oktothek.series_producer_analytic_end:       %100 Bindung
 
 ## producer playlists
-oktothek.series_producer_playlists_text:    Hier findest du alle Playlisten zu dieser Sendereihe. Du kannst Playlisten anlegen, bearbeiten und löschen. Aktive Playlisten erscheinen auf deinem Kanal.
-oktothek.series_producer_new_playlist:      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Playliste anlegen
-oktothek.producer_new_playlist_header:      Playliste für Sendereihe anlegen
+oktothek.series_producer_playlists_text:    "Hier findest du alle Playlisten zu dieser Sendereihe. Du kannst Playlisten anlegen, bearbeiten und löschen. Aktive Playlisten erscheinen auf deinem Kanal."
+oktothek.series_producer_new_playlist:      '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Playliste anlegen'
+oktothek.producer_new_playlist_header:      "Playliste für Sendereihe anlegen"
+
+# AppBundle/Resources/views/Producer/newPlaylist.html.twig
+oktothek_producer_new_playlist_title:       "Neue Playlist erstellen | Okto"
 
 # newsletter
 oktothek.newsletter_header:                 Newsletter
