@@ -1,6 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
-{% block title %}Playlist editieren | Sendereihenbereich | Okto{% endblock %}
+{% block title %}{{ 'oktothek_producer_edit_playlist_title'|trans({'%playlist%': form.vars.value.title})}}{% endblock %}
 
 {% import 'AppBundle::Playlist/playlistitem_macro.html.twig' as playlistMacro %}
 {% block nav_head%}

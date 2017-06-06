@@ -900,7 +900,7 @@ oktothek_producer_blogposts_title:          "Blog der Sendereihe %series% | Send
 oktothek_producer_blog_title:               "Neuer Blogeintrag | Sendereihenbereich | Okto"
 
 # AppBundle/Resources/views/Producer/editBlog.html.twig
-oktothek_producer_editBlog_title:           "Blogeintrag  %post% editieren | Sendereihenbereich | Okto"
+oktothek_producer_editBlog_title:           "Blogeintrag %post% editieren | Sendereihenbereich | Okto"
 
 oktothek.series_producer_blog_text:         Hier kannst du für deine Sendereihe bloggen! Poste news und updates zu Episoden, Dinge hinter den Kulissen und vieles mehr!
 oktothek.series_producer_new_blogpost:      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Blogeintrag anlegen
@@ -931,6 +931,9 @@ oktothek.producer_new_playlist_header:      "Playliste für Sendereihe anlegen"
 
 # AppBundle/Resources/views/Producer/newPlaylist.html.twig
 oktothek_producer_new_playlist_title:       "Neue Playlist erstellen | Okto"
+
+# AppBundle/Resources/view/Producer/editPlaylist.html.twig
+oktothek_producer_edit_playlist_title:      "Playlist %playlist% editieren | Sendereihenbereich | Okto"
 
 # newsletter
 oktothek.newsletter_header:                 Newsletter
