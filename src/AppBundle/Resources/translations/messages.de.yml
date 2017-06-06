@@ -191,7 +191,8 @@ oktothek.playlist_index_filter_updatedAt: Letzte Aktualisierung
 oktothek.playlist_index_new_playlist:   <span class="glyphicon glyphicon-plus"></span> Playlist anlegen
 oktothek.playlist_show:                 Playlist %playlist%
 
-### edit
+### AppBundle/Resources/views/Playlist/edit.html.twig
+oktothek.playlist_edit_title:           "Playlist %playlist% bearbeiten | Okto"
 oktothek.playlist_edit_header:          Playlist bearbeiten
 oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Playlist löschen
 oktothek.playlist_create_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Playliste anlegen
