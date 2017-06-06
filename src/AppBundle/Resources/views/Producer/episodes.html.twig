@@ -1,6 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
-{% block title %}Folgen&uuml;bersicht | Sendereihenbereich | Okto{% endblock %}
+{% block title %}{{ 'oktothek_series_producer_episodes_title'|trans({'%series%': series.name}) }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}

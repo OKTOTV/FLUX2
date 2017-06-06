@@ -1,6 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
-{% block title %}Sendereihenbereich | Okto{% endblock %}
+{% block title %}{{ 'oktothek_producer_producer_title'|trans({'%series%':series.name})}}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
@@ -50,14 +50,14 @@
                 <p class="list-group-item-text"><strong>{{ 'oktothek.series_producer_last_updated'|trans }}</strong>: {{ series.updatedAt|date('d.m.Y') }}</p>
             </li>
             <li href="" class="list-group-item">
-                <p class="list-group-item-text"><strong class="list-group-item-heading">{{ 'oktothek.series_producer_abonnements'|trans }}</strong>: 
+                <p class="list-group-item-text"><strong class="list-group-item-heading">{{ 'oktothek.series_producer_abonnements'|trans }}</strong>:
                 {{ series.abonnements|length }}</p>
             </li>
             <li href="" class="list-group-item">
                 <p class="list-group-item-text"><strong>{{ 'oktothek.series_producer_episodes'|trans }}</strong>: {{ series.episodes|length }}</p>
             </li>
             <li href="" class="list-group-item">
-                <p class="list-group-item-text"><strong class="list-group-item-heading">{{ 'oktothek.series_producer_playlists'|trans }}</strong>: 
+                <p class="list-group-item-text"><strong class="list-group-item-heading">{{ 'oktothek.series_producer_playlists'|trans }}</strong>:
                 {{ series.playlists|length }}</p>
             </li>
         </ul>

@@ -449,6 +449,9 @@ oktothek.series_show_blog:              Zum Blog
 oktothek.series_more_blog_entries:      Mehr Blogeinträge
 oktothek.series_playlist_header:        "Vom Sendungsteam empfohlen"
 
+# Series/blogShow.html.twig
+oktothek_series_blogShow_title:         "%blogpost% | Okto"
+
 # /src/AppBundle/Resources/views/Series/episodeStackOpen.html.twig
 oktothek_series_episodeStack_show_more: 'Mehr Videos anzeigen <span class="glyphicon glyphicon-menu-right"></span>'
 
@@ -870,6 +873,8 @@ oktothek_episode_thumb_day_choice:          "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|
 oktothek_episode_thumb_date_format:         "d.m.Y"
 
 # producer
+oktothek_producer_userChannels_title:       "Sendereihenbereich | Okto"
+oktothek_producer_producer_title:           "Sendereihe %series% | Sendereihenbereich | Okto"
 oktothek.series_producer_text:              Hier findest du allgemeine Informationen und Statistiken zu deiner Sendereihe.
 oktothek.series_producer_description:       Sendereihenbeschreibung
 oktothek.series_producer_last_updated:      Letztes Update
@@ -909,6 +914,9 @@ oktothek.series_producer_episode_text:      "Hier hast du Übersicht zu all dein
 oktothek_producer_episodes_statistik:       "Folgenstatistik"
 
 ## producer episode
+# AppBundle/Resources/views/Producer/episode.html.twig
+oktothek_series_producer_episode_title:     "Folgenstatistik und Download | Sendereihenbereich | Okto"
+oktothek_series_producer_episodes_title:     "Folgenübersicht der Sendereihe %series% | Sendereihenbereich | Okto"
 oktothek.series_producer_episode_favorites: Favoriten
 oktothek.series_producer_episode_tags:      Tags
 oktothek.series_producer_episode_files:     Dateien
@@ -925,16 +933,18 @@ oktothek.series_producer_analytic_20:       %80 Bindung
 oktothek.series_producer_analytic_end:       %100 Bindung
 
 ## producer playlists
+oktothek_producer_playlists_title:          "Playlistübersicht der Sendereihe %series% | Okto"
 oktothek.series_producer_playlists_text:    "Hier findest du alle Playlisten zu dieser Sendereihe. Du kannst Playlisten anlegen, bearbeiten und löschen. Aktive Playlisten erscheinen auf deinem Kanal."
 oktothek.series_producer_new_playlist:      '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Playliste anlegen'
 oktothek.producer_new_playlist_header:      "Playliste für Sendereihe anlegen"
 
 # AppBundle/Resources/views/Producer/newPlaylist.html.twig
-oktothek_producer_new_playlist_title:       "Neue Playlist erstellen | Okto"
+oktothek_producer_new_playlist_title:       "Neue Playlist anlegen | Sendereihenbereich | Okto"
 
 # AppBundle/Resources/view/Producer/editPlaylist.html.twig
 oktothek_producer_edit_playlist_title:      "Playlist %playlist% editieren | Sendereihenbereich | Okto"
 
+oktothek_producer_nowLive_title:            "Live-Benachrichtigungen | Sendereihenbereich | Okto"
 # newsletter
 oktothek.newsletter_header:                 Newsletter
 oktothek.newsletter_mail_placeholder:       E-Mail
