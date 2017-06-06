@@ -1,6 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
-{% block title %}Veranstaltungen, TV-Tipps und Neuigkeiten von Okto TV | Okto{% endblock %}
+{% block title %}{{ 'oktothek_news_index_title'|trans }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'news', 'dropdown': ''} %}

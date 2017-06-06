@@ -112,6 +112,9 @@ oktothek_default_footer_yt_title:       "Okto auf Youtube"
 oktothek_default_footer_partner:        "Partner"
 
 ## news post
+# AppBundle/Resources/views/News/news.html.twig
+oktothek_news_index_title:              "TV-Tipps und Neuigkeiten aus der Community | Okto"
+
 ## form labels
 oktothek.post_name_label:               Titel
 oktothek.post_description_label:        Text
