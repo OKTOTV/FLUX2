@@ -66,6 +66,7 @@ oktothek.episode_stack_collapse_title:  "Mehr Videos anzeigen"
 oktothek.newest_episodes_header:        Neueste Clips
 oktothek.best_episodes_header:          Beliebteste Clips
 ## register
+oktothek.user_register_title:           "Der Community beitreten | Okto"
 oktothek.user_name_label:               Benutzername
 oktothek.user_name_placeholder:         Username. Ist öffentlich zugänglich.
 oktothek.user_email_label:              Email
