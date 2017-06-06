@@ -1,5 +1,8 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 {% import 'AppBundle::Playlist/playlistitem_macro.html.twig' as playlistMacro %}
+
+{% block title %}{{ 'oktothek.playlist_edit_title'|trans({'%playlist%': form.vars.value.name}) }}{% endblock %}
+
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
@@ -80,7 +83,7 @@
                         });
                     });
                 }
-            }); 
+            });
 
             $(document).on("click", ".movedown", function( event ) {
                 event.preventDefault();

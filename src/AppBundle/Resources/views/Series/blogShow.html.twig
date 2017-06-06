@@ -1,5 +1,7 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
+{% block title %}{{ 'oktothek_series_blogShow_title'|trans({'%blogpost%': post.name})}}{% endblock %}
+
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}

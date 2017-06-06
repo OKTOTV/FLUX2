@@ -6,6 +6,8 @@
     <meta property="og:image" content="{{ series.posterframe|thumb(720,1280) }}" />
 {% endblock %}
 
+{% block title %}{{ series.name ~' | '~ name|default('OKTO') }}{% endblock %}
+
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
@@ -37,9 +39,9 @@
                         <button type="button" class="btn btn-default hidden-xs" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
                         {% if app.user is not empty %}
                             {% if in_abo %}
-                                <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
+                                <button type="button" class="btn btn-default subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
                             {% else %}
-                                <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+                                <button type="button" class="btn btn-default subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
                             {% endif %}
                         {% endif %}
                         </p>
@@ -50,9 +52,9 @@
         <div class="fs-image-misc-mobile">
             {% if app.user is not empty %}
                 {% if in_abo %}
-                    <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
+                    <button type="button" class="btn btn-default subscribe" title="{{ series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button>
                 {% else %}
-                    <button type="button" class="btn btn-default" id="subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
+                    <button type="button" class="btn btn-default subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
                 {% endif %}
             {% endif %}
             <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare_mobil" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
@@ -129,14 +131,14 @@
         });
         $(document).ready(function(){
             // subscribe/unsubscribe
-            $('#subscribe').click(function(e){
+            $('.subscribe').click(function(e){
                 e.preventDefault();
                 $.ajax({
                     url: "{{ path('user_update_subscription') }}",
                     data: { 'uniqID': '{{ series.uniqID }}'},
                     type: 'POST',
                     success: function(data) {
-                        var button = $('#subscribe');
+                        var button = $('.subscribe');
                         if (button.attr('data-subscribed') == '1') {
                             console.log('now unsubscribed');
                             button.attr('data-subscribed', '0');

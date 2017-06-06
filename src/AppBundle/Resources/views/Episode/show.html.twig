@@ -18,7 +18,7 @@
 {% endif %}
 {% endblock %}
 
-{% block title %}{{ name|default('OKTO')~' | '~ episode.name }}{% endblock %}
+{% block title %}{{ episode.name ~' | '~ name|default('OKTO') }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
@@ -52,7 +52,7 @@
                 <p class="description">
                     {{ episode.description|converturls|nl2br|episodeComment(episode.uniqID)|raw }}
                 </p>
-                <ul class="misc clearfix"">
+                <ul class="misc clearfix">
                     {% if app.user is empty %}
                         <li class="favorite-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length}}</li>
                     {% else %}

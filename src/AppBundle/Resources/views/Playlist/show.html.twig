@@ -1,7 +1,7 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
 {% block title %}
-    {{ name|default('OKTO')~' | '~'oktothek.playlist_show'|trans({'%playlist%': playlist.name}) }}
+    {{ 'oktothek.playlist_show'|trans({'%playlist%': playlist.name})~' | '~name|default('OKTO') }}
 {% endblock %}
 {% block nav_head %}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
