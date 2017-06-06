@@ -277,7 +277,7 @@ oktothek.tag_pager_posts_header:       "Alle Posts zu #%tag%"
 oktothek.tag_pager_series_header:      "Alle Serien zu #%tag%"
 
 ## academy
-oktothek_academy_header:                "Workshops"
+oktothek_academy_header:                "Kurse und Workshops für FernsehmacherInnen | Okto"
 oktothek_academy_misc_info:             €&thinsp;%price% / ermäßigt* €&thinsp;%price_reduced%
 oktothek_academy_misc_info_free:        "Kostenlos"
 oktothek_academy_course_free:           "Dieser Kurs ist Kostenlos"
@@ -393,7 +393,7 @@ oktothek_academy_mail_notification_attendee_notreduced:     "ermäßigt: NEIN"
 oktothek_academy_mail_notification_attendee_coursetitle:    "%name% (%current%/%max%)"
 
 ## tv
-oktothek_tv_title:                      "Livestream und TV-Programm"
+oktothek_tv_title:                      "Livestream und TV-Programm | Okto"
 oktothek_tv_weekdays_choice:            "{1} Montag |{2} Dienstag |{3} Mittwoch|{4} Donnerstag|{5} Freitag|{6} Samstag|{7} Sonntag"
 oktothek_tv_weekdays_short_choice:      "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek_tv_weedays_format:             "%day%, %date%"
@@ -403,7 +403,7 @@ oktothek_tv_current_long:               "%series% - %episode%"
 oktothek_tv_current_short:              "%series%"
 oktothek_tv_current_time:               "Seit %time%"
 ## participate
-oktothek_participate_title:             Mitmachen
+oktothek_participate_title:             "Informationen für alle die mitmachen wollen | Okto"
 
 ## backend
 oktothek.backend_header:                Administrationsbereich
