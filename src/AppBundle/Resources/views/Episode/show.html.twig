@@ -29,7 +29,7 @@
 {% block body %}
     <div id="top"></div>
     <div class="container-fluid">
-        <section class="container" itemscope itemtype="http://schema.org/Movie">
+        <section class="container" itemscope itemtype="http://schema.org/Episode">
             <div class="player_container" itemprop="video">
                 <figure id="player">
                     {% if episode.video is empty %}
@@ -39,7 +39,7 @@
                 </figure>
             </div>
             <article>
-                <p class="series" itemscope itemtype="http://schema.org/CreativeWork" itemprop="isPartOf">
+                <p class="series" itemscope itemtype="http://schema.org/partOfSeries" itemprop="partOfSeries">
                     <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name }}" itemprop="url"><span itemprop="name">{{ episode.series.name }}</span></a>
                 </p>
                 <h1 class="name" itemprop="headline">{{ episode.name }}</h1>
