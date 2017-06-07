@@ -56,8 +56,10 @@ body.newsarchiv aside .box, body.news aside .box {
 .news .filter-news {
     margin-bottom:40px;
 }
-.post img.img-responsive, body.news img.img-responsive {
+.post img.img-responsive, body.news img.img-responsive, iframe {
     width:100%;
+}
+.post img.img-responsive, body.news img.img-responsive {
     height:auto;
 }
 body.series.blog .page-header {
