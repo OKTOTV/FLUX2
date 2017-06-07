@@ -16,10 +16,10 @@
             <img src="{{ episode.posterframe(true)|thumb(158,282) }}" class="img-responsive" alt="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episode.name|default('oktothek_episode_thumb_default_name'|trans({'%date%': episode.firstRanAt|date('oktothek_episode_thumb_date_format'|trans)})) }) }}" itemprop="image"/>
         </a>
         <div class="pin-icon" title="{{ 'oktothek_episode_thumb_likes_title_choice'|transchoice(episode.users|length) }}"
-    itemscope itemtype="http://schema.org/AggregateRating" itemprop="aggregateRating"><span class="glyphicon glyphicon-heart"></span> <span itemprop="ratingCount">{{ episode.users|length }}</span></div>
+    itemscope itemtype="http://schema.org/AggregateRating" itemprop="aggregateRating"><span class="glyphicon glyphicon-heart"></span> <span itemprop="ratingValue">{{ episode.users|length }}</span></div>
         <figcaption>
             <h3 itemscope itemtype="http://schema.org/CreativeWork" itemprop="isPartOf">
-                <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ 'oktothek_episode_thumb_series_title'|trans({'%series%': episode.series.name}) }}" itemprop="url">{{ episode.series.name }}</a>
+                <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ 'oktothek_episode_thumb_series_title'|trans({'%series%': episode.series.name}) }}" itemprop="url"><span itemprop="name">{{ episode.series.name }}</span></a>
             </h3>
             <p itemprop="name">
                 <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ 'oktothek_episode_thumb_title'|trans({'%episode%': episodetitle}) }}" itemprop="url">
