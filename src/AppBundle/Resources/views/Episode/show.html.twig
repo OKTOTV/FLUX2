@@ -1,5 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 {% block metas %}
+<meta name="description" content="{{ episode.description }}">
 <meta property="og:url" content="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID })}}" />
 <meta property="og:title" content="{{ episode.name }}" />
 <meta property="og:description" content="{{ episode.description }}" />
