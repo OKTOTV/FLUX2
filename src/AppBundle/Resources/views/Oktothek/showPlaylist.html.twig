@@ -1,5 +1,7 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
+{% block title %}{{ playlist.name ~' | '~ name|default('OKTO') }}{% endblock %}
+
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}

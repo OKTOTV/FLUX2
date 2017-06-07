@@ -1,6 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
-{% block title %}{{ name|default('OKTO')~' | '~ 'oktothek_user_playlists_title'|trans({'%user%': user.username}) }}{% endblock %}
+{% block title %}{{ 'oktothek_user_playlists_title'|trans({'%user%': user.username})~' | '~ name|default('OKTO') }}{% endblock %}
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'playlists', 'dropdown': 'user_menu'} %}
 {% endblock %}
