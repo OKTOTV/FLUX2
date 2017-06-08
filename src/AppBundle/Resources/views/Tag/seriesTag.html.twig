@@ -1,14 +1,14 @@
 <div class="row">
     {% for series in seriess %}
         {% if loop.first %}
-            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ series.description }}">
+            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ series.description }}" itemscope itemtype="http://schema.org/Series">
                 <figure class="series-pin pin">
-                    <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}">
-                        <img src="{{ series.posterframe|thumb(309,550) }}" class="img-responsive" alt="{{ series.name }}"/>
+                    <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}" itemprop="thumbnailUrl">
+                        <img src="{{ series.posterframe|thumb(309,550) }}" class="img-responsive" alt="{{ series.name }}" itemprop="image" />
                     </a>
                     <figcaption>
-                        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}">
-                            <h3>{{ series.name }}</h3>
+                        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}" itemprop="url">
+                            <h3 itemprop="name">{{ series.name }}</h3>
                         </a>
                     </figcaption>
                 </figure>
