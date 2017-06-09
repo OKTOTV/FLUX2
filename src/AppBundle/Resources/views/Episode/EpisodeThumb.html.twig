@@ -10,10 +10,11 @@
     {% set episodetitle = episode.name %}
 {% endif %}
 
-<li class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ episode.description }}" itemscope itemtype="http://schema.org/Episode">
+<li class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ episode.description }}" itemscope itemtype="http://schema.org/VideoObject">
     <figure class="episode-pin pin">
         <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episodetitle}) }}">
-            <meta itemprop="thumbnailUrl" content="{{ episode.posterframe(true)|thumb(158,282) }}" />
+            <meta itemprop="thumbnailUrl" content="{{ episode.name|default('oktothek_episode_thumb_default_name'|trans({'%date%': episode.firstRanAt|date('oktothek_episode_thumb_date_format'|trans)}) ) }}" />
+            <meta itemprop="uploadDate" content="" />
             <img src="{{ episode.posterframe(true)|thumb(158,282) }}" class="img-responsive" alt="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episode.name|default('oktothek_episode_thumb_default_name'|trans({'%date%': episode.firstRanAt|date('oktothek_episode_thumb_date_format'|trans)})) }) }}"/>
         </a>
         <div class="pin-icon" title="{{ 'oktothek_episode_thumb_likes_title_choice'|transchoice(episode.users|length) }}"><span class="glyphicon glyphicon-heart"></span>{{ episode.users|length }}</div>

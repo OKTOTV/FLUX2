@@ -29,7 +29,10 @@
             <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump">Hier!</span></h2>
             <article class="container">
                 <h4 class="aligncenter subheadline">{{ 'oktothek_default_participate_sub'|trans }}</h4>
-                <div class="aligncenter button_container"><a href="{{ path('bprs_user_login') }}" class="btn btn-default but-full"><span class="passive">{{'oktothek_default_participate_login'|trans }}</span><span class="active">und sei dabei!</span></a></div>
+                <div class="aligncenter button_container" itemscope itemtype="http://schema.org/RegisterAction">
+                <meta itemprop="name" content="{{ 'oktothek_default_participate'|trans }}" />
+                <meta itemprop="description" content="{{ 'oktothek_default_participate_sub'|trans }} {{ 'oktothek_default_participate_view_clips_title'|trans }} {{ 'oktothek_default_participate_5_steps_title'|trans }} {{ 'oktothek_default_participate_equipment_title'|trans}} {{ 'oktothek_default_participate_upload_title'|trans}}" />
+                <a href="{{ path('bprs_user_login') }}" class="btn btn-default but-full" itemprop="object"><span class="passive">{{'oktothek_default_participate_login'|trans }}</span><span class="active">und sei dabei!</span></a></div>
                 <ul class="participart-list clearfix">
                   <li><a href="#show_clips" class="anchor"><figure data-target="#view_clips">
                     <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
