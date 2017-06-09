@@ -10,7 +10,9 @@
     {% set episodetitle = episode.name %}
 {% endif %}
 
-<li class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ episode.description }}">
+<li class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ episode.description }}" itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <meta itemprop="position" content="1" />
+    <meta itemprop="url" content="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" />
     <figure class="episode-pin pin" itemscope itemtype="http://schema.org/Episode">
         <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episodetitle}) }}">
             <meta itemprop="thumbnailUrl" content="{{ episode.posterframe(true)|thumb(158,282) }}" />
