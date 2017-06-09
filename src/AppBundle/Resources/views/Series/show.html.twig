@@ -22,6 +22,7 @@
     {% endfor %}
 {% endif %}
     <div id="top"></div>
+    <div itemscope itemtype="http://schema.org/CreativeWorkSeries">
     <section class="series-content fs-image-content">
         <div class="series-ident fs-image-ident description-overlay">
             <figure class="episode-posterframe fs-image">
@@ -31,9 +32,9 @@
                         <div class="bg-opacity"></div>
                     </div>
                     <div class="content-opacity">
-                        <h1>{{ series.name }}</h1>
+                        <h1 itemprop="headline">{{ series.name }}</h1>
                         <p class="facts"></p>
-                        <p class="description">
+                        <p class="description" itemprop="description">
                             {{ series.description }}</p>
                         <p class="more clear-fix"><a class="more pull-right" href="#">weiterlesen</a></p>
                         <p class="misc">
@@ -61,24 +62,24 @@
             <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare_mobil" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
         </div>
     </section>
-    <section class="container episode-description">
+    <section class="container episode-description" itemscope itemtype="http://schema.org/hasPart">
         <!-- Start Collapse Share-->
         {% include 'AppBundle:Oktothek:snippetSeriesShare.html.twig' with {'series': series} %}
         <!-- End Modal Window Share-->
         <!-- Start Aktuelle Episode -->
         <header class="page-header"><h2 id="button_down">Aktuelle Folge <span class="icon participant-arrow-down"> </span></h2></header>
-        <article class="row">
+        <article class="row" itemscope itemtype="http://schema.org/Episode">
             <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
                 <a href="{{ path('oktothek_show_episode', {'uniqID': newest_episode.uniqID})}}">
-                    <img src="{{ newest_episode.posterframe|path() }}" alt="{{ newest_episode.description }}" />
+                    <img src="{{ newest_episode.posterframe|path() }}" alt="{{ newest_episode.description }}" itemprop="image" />
                 </a>
             </figure>
             <div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
                 <div>
-                    <h3>{{ newest_episode.name }}</h3>
-                    <p class="description">{{ newest_episode.description }}</p>
+                    <h3 itemprop="name">{{ newest_episode.name }}</h3>
+                    <p class="description" itemprop="description">{{ newest_episode.description }}</p>
                 </div>
-                <a href="{{ path('oktothek_show_episode', {'uniqID': newest_episode.uniqID})}}" class="more pull-right">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
+                <a href="{{ path('oktothek_show_episode', {'uniqID': newest_episode.uniqID})}}" class="more pull-right" itemprop="url">Zur Folge <span class="icon small-arrow-right">&nbsp;</span></a>
             </div>
         </article>
         <!-- Ende Serienbeschreibung -->
@@ -108,6 +109,7 @@
             {% include 'AppBundle::Playlist/_stack.html.twig' with { 'playlists': series.playlists, 'pager_url': path('oktothek_show_series_playlists', {'uniqID': series.uniqID}) } %}
         </section>
     {% endif %}
+    </div>
 {% endblock %}
 
 {% block javascripts %}

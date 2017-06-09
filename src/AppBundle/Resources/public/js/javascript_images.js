@@ -172,8 +172,12 @@ $(document).ready(function(){
 		}  else if ($('body').hasClass('academy')) {
 			var offset = $('section.academy-description').offset();
 		}
-		if (offset) {
-		    $("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
+        if (offset) {
+            if ($( window ).height() > 730)
+                $("html, body").animate({scrollTop : (offset.top - $('header .navbar').height()) + "px"}, "slow");
+            else 
+                $("html, body").animate({scrollTop : offset.top + "px"}, "slow");
+                                         
 		    $( this ).find('span').css('display','none');
 		}
 	});

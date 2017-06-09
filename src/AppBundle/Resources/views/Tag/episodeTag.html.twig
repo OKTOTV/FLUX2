@@ -1,15 +1,15 @@
 <div class="row clip-tags">
 {% for episode in episodes|slice(0,5) %}
     {% if loop.first %}
-        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ episode.description }}">
+        <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ episode.description }}" itemscope itemtype="http://schema.org/Episode">
             <figure class="episode-pin pin">
                 <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.name }} ansehen">
-                    <img src="{{ episode.posterframe(true)|path() }}" class="img-responsive" alt="{{ episode.name }} - {{ episode.series.name|default('') }}"/>
+                    <img src="{{ episode.posterframe(true)|path() }}" class="img-responsive" alt="{{ episode.name }} - {{ episode.series.name|default('') }}" itemprop="image"/>
                 </a>
-                <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
+                <div class="pin-icon" itemscope itemtype="http://schema.org/AggregateRating" itemprop="aggregateRating"><span class="glyphicon glyphicon-heart"></span> <span itemprop="ratingValue">{{ episode.users|length }}</span></div>
                 <figcaption>
-                    <h3><a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name|default('') }}">{{ episode.series.name }}</a></h3>
-                    <p><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.name }} ansehen">{{ episode.name }}</a></p>
+                    <h3 itemscope itemtype="http://schema.org/partOfSeries" itemprop="partOfSeries"><a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name|default('') }}" itemprop="url"><span itemprop="name">{{ episode.series.name }}</span></a></h3>
+                    <p><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.name }} ansehen" itemprop="url"><span itemprop="name">{{ episode.name }}</span></a></p>
                 </figcaption>
             </figure>
         </article>
