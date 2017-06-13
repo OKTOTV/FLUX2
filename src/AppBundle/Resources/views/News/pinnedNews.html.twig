@@ -2,11 +2,12 @@
     <div id="anchor_news"></div>
     <h2>{{ 'oktothek_news_pinned_header'|trans }}</h2>
     {% for post in posts %}
-        <article class="row pin" title="{{ post.name }}" itemscope itemtype="http://schema.org/NewsArticle">
+        <article class="row pin" title="{{ post.name }}" itemscope="itemscope" itemtype="http://schema.org/NewsArticle">
             <a href="{{ path('oktothek_show_news', {'slug': post.slug})}}" title="{{ post.name }}">
                 <figure class="col-md-3 col-lg-3 col-sm-6 col-xs-12 pin">
                     {% if post.assets is defined %}
                         {% if post.assets[0]|isImage() %}
+                            <meta itemprop="image" content="{{ post.assets[0]|thumb(200, 263) }}" />
                             <img src="{{ post.assets[0]|thumb(200, 263) }}" alt="{{ post.name }}" />
                         {% endif %}
                     {% endif %}
@@ -19,12 +20,16 @@
                 {% endfor %}
                 </p>
                 <h3 itemprop="headline"><a href="{{ path('oktothek_show_news', {'slug': post.slug})}}" title="{{ post.name }}">{{ post.name }}</a></h3>
-                <p itemprop="description">{{ post.teaser|nl2br }}</p>
-                <meta itemprop="author" content="Okto Marketing" />
-                <meta itemprop="publisher" content="Okto Marketing" />
-                <meta itemprop="datePublished" content="" />
-                <meta itemprop="image" content="{{ post.assets[0]|thumb(200, 263) }}" />
-                <meta itemprop="mainEntityOfPage" content="{{ path('oktothek_show_news', {'slug': post.slug})}}" />
+                <p itemprop="description">
+                    {{ post.teaser|nl2br }}
+                    <meta itemprop="author" content="Okto Marketing" />
+                    <meta itemprop="datePublished" content="{{ post.onlineAt|date('Y-m-d')}}" />
+                    <meta itemprop="mainEntityOfPage" content="{{ path('oktothek_show_news', {'slug': post.slug})}}" />
+                    <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher" content="Okto Community TV">
+                        <meta itemprop="name" content="Okto Community TV">
+                        <meta itemprop="logo" content="{{ asset('bundles/app/images/okto_logo.png')}}">
+                    </span>
+                </p>
             </div>
         </article>
     {% endfor %}
