@@ -1,7 +1,7 @@
 {# Here is an example Menu. You'll want to overwrite this in app/Resources/BprsStyleBundle/views/menu.html.twig #}
 {% block menu %}
     <div class="collapse navbar-collapse" id="mainmenu-container" role="menu">
-        <ul class="nav navbar-nav mainmenu">
+        <ul class="nav navbar-nav mainmenu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
             <li {% if selected == "oktothek" %}class="active"{% endif %}>
                 <a href="{{ path('homepage') }}">{{ 'oktothek.menu_oktothek'|trans }}</a>
             </li>
@@ -16,7 +16,7 @@
             </li>
         </ul>
         {# example for an login area #}
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
             <li {% if selected == "upload" %}class="active"{% endif %}><a href="{{ intake_url|default('#') }}" target="_blank" data-tooltip="{{ 'oktothek.menu_upload_title'|trans }}"><span class="icon icon-upload"></span> <span class="link">{{ 'oktothek.menu_upload'|trans }}</span></a></li>
             {% if is_granted('ROLE_OKTOLAB_USER') or is_granted('ROLE_OKTOLAB_PRODUCER') %}
                 <li {% if dropdown == "user_menu" %}class="dropdown active"{% else %}class="dropdown"{% endif %}>
