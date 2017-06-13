@@ -1138,7 +1138,7 @@ body.tagpage li.empty .icon-player,
 .pagination > li > span,
 .alert,
 [data-tooltip]::after,
-.oktothek .participart-list li figcaption span,
+/*.oktothek .participart-list li figcaption span,*/
 .visible-xs-block .pager li > a, 
 .visible-xs-block .pager li > a { /* Dunkelgrau */
 	background-color:#112022;
