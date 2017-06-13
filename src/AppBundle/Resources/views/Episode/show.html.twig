@@ -28,8 +28,8 @@
 {% set body_class = "episode" %}
 {% block body %}
     <div id="top"></div>
-    <div class="container-fluid">
-        <section class="container" itemscope itemtype="http://schema.org/Episode">
+    <div class="container-fluid" itemscope itemtype="http://schema.org/Episode">
+        <section class="container">
             <div class="player_container" itemprop="video">
                 <figure id="player">
                     {% if episode.video is empty %}
@@ -39,7 +39,7 @@
                 </figure>
             </div>
             <article>
-                <p class="series" itemscope itemtype="http://schema.org/partOfSeries" itemprop="partOfSeries">
+                <p class="series" itemscope="itemscope" itemtype="http://schema.org/CreativeWorkSeries" itemprop="partOfSeries">
                     <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name }}" itemprop="url"><span itemprop="name">{{ episode.series.name }}</span></a>
                 </p>
                 <h1 class="name" itemprop="headline">{{ episode.name }}</h1>
@@ -55,12 +55,12 @@
                 </p>
                 <ul class="misc clearfix">
                     {% if app.user is empty %}
-                        <li class="favorite-icon" itemscope itemtype="http://schema.org/AggregateRating" itemprop="aggregateRating"><span class="glyphicon glyphicon-heart"></span> <span itemprop="ratingValue">{{ episode.users|length}}</span></li>
+                        <li class="favorite-icon"><span class="glyphicon glyphicon-heart"></span> <span>{{ episode.users|length}}</span></li>
                     {% else %}
                         {% if is_granted('ROLE_USER') %}
                             <li><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a></li>
                         {% endif %}
-                        <li class="favorite-icon" itemscope itemtype="http://schema.org/AggregateRating" itemprop="aggregateRating"><button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> <span itemprop="ratingValue">{{ episode.users|length}}</span></button></li>
+                        <li class="favorite-icon"><button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> <span>{{ episode.users|length}}</span></button></li>
                         {% set in_abo = false %}
                         {% for abonnement in app.user.abonnements if abonnement.series.uniqID == episode.series.uniqID %}
                             {% set in_abo = true %}
@@ -94,7 +94,7 @@
                 <h2>{{ 'oktothek.episode_tag_header'|trans }}</h2>
                 <ul class="row">
                     {% for tag in episode.tags %}
-                        <li class="col-xs-6 col-sm-3 col-md-2 col-lg-1"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
+                        <li class="col-xs-6 col-sm-3 col-md-2 col-lg-1" itemprop="keywords"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug})}}">{{ tag.text}}</a>
                     {% endfor %}
                 </ul>
             </section>
