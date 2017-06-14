@@ -1,8 +1,8 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 {% block metas %}
-<meta name="description" content="">
+    <meta name="description" content="">
 {% endblock %}
-{% block title %}{{ 'oktothek_academy_header'|trans~' | '~name|default('OKTO') }}{% endblock %}
+{% block title %}{{ 'oktothek_academy_header'|trans }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'academy', 'dropdown': ''} %}
@@ -23,7 +23,7 @@
         <h2>{{ 'oktothek_academy_show_coursepackages'|trans }}</h2>
         {% include "AppBundle:Academy:_coursepackageStack.html.twig" with {'coursepackages': coursepackages} %}
     </section>
-    
+
     #}
 
     <!-- Start Kursauflistung -->
