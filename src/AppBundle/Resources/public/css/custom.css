@@ -2959,9 +2959,14 @@ div.list-group.tags span.label.label-default.remove::before {
     width: 100%;
     text-align: center;
 }
+.clip_overview p.subheadline {
+    margin-top:20px;
+}
 @media (min-width: 768px) {
     .pager-row .dropdown {
         text-align: left;
+        margin-top:20px;
+        margin-bottom:20px;
     }
     .pager-row > div:first-child {
         margin-bottom: 0px;

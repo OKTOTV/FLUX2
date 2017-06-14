@@ -185,7 +185,7 @@ oktothek.page_edit_header:              Seite bearbeiten
 ## playlist
 ### index
 oktothek.playlist_index_header:         Playlisten
-oktothek.playlist_index_description:    Über %count% Playlisten warten darauf, von dir entdeckt zu werden
+oktothek.playlist_index_description:    Über %count% Playlisten warten darauf, von dir entdeckt zu werden.
 oktothek.playlist_index_filter:         <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
 oktothek.playlist_index_filter_name:    Name
 oktothek.playlist_index_filter_createdAt: Erstellt
