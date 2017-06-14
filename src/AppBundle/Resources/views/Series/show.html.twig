@@ -88,7 +88,7 @@
     {% if teasers is not empty %}
         <section class="blog">
             <div id="anchor_blog"></div>
-            <div class="container">
+            <div class="container" itemscope itemtype="http://schema.org/Blog">
                 <h2>{{ 'oktothek_series_blog_header'|trans }}</h2>
                 {% include 'AppBundle::Series/snippetBlog.html.twig' with {'teasers': teasers, 'uniqID': series.uniqID} %}
             </div>

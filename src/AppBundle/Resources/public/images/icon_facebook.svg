@@ -1,1 +1,15 @@
-<svg id="Ebene_2" data-name="Ebene 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#3e5294;}</style></defs><title>icon_facebook</title><rect class="cls-1" width="40" height="40"/><path class="cls-2" d="M40,0H0V40H40V0ZM19.86,33.52V23H16.32V19h3.54V16c0-3.49,2.13-5.39,5.25-5.39a29.86,29.86,0,0,1,3.15.15v3.65H26.1c-1.7,0-2,.81-2,2V19h4L27.59,23h-3.5V33.52H19.86Z" transform="translate(0.01 0.01)"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Ebene_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#3E5294;}
+	.st1{fill:#FFFFFF;}
+</style>
+<title>icon_facebook</title>
+<path class="st0" d="M40,0H0v40h40V0z"/>
+<g>
+	<path class="st1" d="M17.6,31.3h4.2V20.8h3.5l0.5-4h-4v-2.6c0-1.2,0.3-2,2-2H26V8.6c-1-0.1-2.1-0.2-3.2-0.2c-3.1,0-5.2,1.9-5.2,5.4
+		v3h-3.5v4h3.5C17.6,20.8,17.6,31.3,17.6,31.3z"/>
+</g>
+</svg>
