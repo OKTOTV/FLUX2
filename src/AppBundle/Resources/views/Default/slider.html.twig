@@ -9,18 +9,25 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     {% for slide in slides %}
-        <article class="item {% if loop.index0 == 0 %}active{% endif %}">
+        <article class="item {% if loop.index0 == 0 %}active{% endif %}" itemscope="itemscope" itemtype="http://schema.org/NewsArticle">
         <figure>
-            <a href="{{ slide.link }}"><img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%"></a>
+            <a href="{{ slide.link }}"><img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%"><meta itemprop="image" content="{{ slide.asset|thumb(720,1280)}}" /></a>
                 <figcaption class="carousel-caption">
                     <div class="container-bg-opacity">
                         <div class="bg-opacity"></div>
                     </div>
                     <a href="{{ slide.link }}">
                     <div class="content-opacity">
-                        <p class="type">{{ 'oktothek.slide_type_choice'|transchoice(slide.slidetype) }}</p>
-                        <h3>{{ slide.name }}</h3>
-                        <p class="slide-content subheadline hidden-xs">{{ slide.description }}</p>
+                        <meta itemprop="datePublished" content="{{ slide.onlineAt|date('Y-m-d')}}" />
+                        <meta itemprop="mainEntityOfPage" content="{{ slide.link }}" />
+                        <p class="type" itemprop="about">{{ 'oktothek.slide_type_choice'|transchoice(slide.slidetype) }}</p>
+                        <h3 itemprop="headline">{{ slide.name }}</h3>
+                        <p class="slide-content subheadline hidden-xs" itemprop="description">{{ slide.description }}</p>
+                        <meta itemprop="author" content="Okto Marketing" />
+                        <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
+                            <meta itemprop="name" content="Okto Community TV">
+                            <meta itemprop="logo" content="{{ asset('bundles/app/images/okto_logo.png')}}">
+                        </span>
                     </div>
                     </a>
                 </figcaption>

@@ -1,14 +1,15 @@
 <h2>{{ 'oktothek.episode_comment_header'|transchoice(comments.getTotalItemCount)|raw }}</h2>
 <!-- Kommentar -->
-<div class="row">
+<div class="row" itemscope itemtype="http://schema.org/Comment">
+    <meta itemprop="commentCount" content="{{ comments.getTotalItemCount }}">
     <div class="navigation">
         {{ knp_pagination_render(comments) }}
     </div>
     {% for comment in comments %}
     <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div class="avatar2"></div></div>
-    <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
-        <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': comment.user.username, '%date%': comment.createdAt|date('D, d.m.Y H:i')})|raw }}</div>
-        <div class="comment-text">
+    <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment" itemprop="comment">
+        <div class="author" itemprop="author">{{ 'oktothek.comment_author'|trans({'%name%': comment.user.username, '%date%': comment.createdAt|date('D, d.m.Y H:i')})|raw }}</div>
+        <div class="comment-text" itemprop="text">
             {% if comment.removed %}
                 <p>{{ 'oktothek.comment_pager_comment_removed'|trans }}</p>
             {% else %}
@@ -25,9 +26,9 @@
                     {% for answer in comment.children %}
                     <div class="row">
                         <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div></div></div>
-                        <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 answer">
-                            <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': answer.user.username, '%date%': answer.createdAt|date('d.m.Y H:i')})|raw }}</div>
-                            <div class="comment-text">
+                        <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 answer" itemprop="comment">
+                            <div class="author" itemprop="author">{{ 'oktothek.comment_author'|trans({'%name%': answer.user.username, '%date%': answer.createdAt|date('d.m.Y H:i')})|raw }}</div>
+                            <div class="comment-text" itemprop="text">
                                 <p>{{ answer.text|striptags('<a>')|nl2br|raw }}</p>
                             </div>
                         </div>

@@ -6,15 +6,15 @@
         <h3>{{ 'oktothek_series.share_header'|trans }}</h3>
         <div class="row">
 	        <form class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><input type="text" value="" class="form-control" id="sharingurl"></form>
-            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 share-buttons">
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 share-buttons" itemscope="itemscope" itemtype="http://schema.org/ShareAction">
                 <ul class="socialnetworks">
                     {% set share_url = url('oktothek_show_series', {'uniqID': series.uniqID}) %}
-                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ series.name|url_encode }}" class="icon-facebook" target="_blank"><span>{{ 'oktothek_series.share_fb'|trans }}</span></a></li>
-                    <li><a href="https://twitter.com/intent/tweet?url={{ share_url }}" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>{{ 'oktothek_series.share_tw'|trans }}</span></a></li>
-                    <li><a href="https://plus.google.com/share?url={{ share_url }}" class="icon-googleplus" target="_blank" title="Okto auf Google Plus"><span>{{ 'oktothek_series.share_gp'|trans }}</span></a></li>
-                    <li><a href="https://pinterest.com/pin/create/link/?url={{ share_url }}&media={{ series.posterframe|thumb(720,1280)}}" class="icon-pinterest" target="_blank" title="Okto auf Pinterest"><span>{{ 'oktothek_series.share_pint'|trans }}</span></a></li>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ series.name|url_encode }}" class="icon-facebook" target="_blank" title="Sendereihe auf Facebook teilen"><span itemprop="recipient">{{ 'oktothek_series.share_fb'|trans }}</span></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url={{ share_url }}" class="icon-twitter" target="_blank" title="Sendereihe auf Twitter teilen"><span itemprop="recipient">{{ 'oktothek_series.share_tw'|trans }}</span></a></li>
+                    <li><a href="https://plus.google.com/share?url={{ share_url }}" class="icon-googleplus" target="_blank" title="Sendereihe auf Google Plus teilen"><span itemprop="recipient">{{ 'oktothek_series.share_gp'|trans }}</span></a></li>
+                    <li><a href="https://pinterest.com/pin/create/link/?url={{ share_url }}&media={{ series.posterframe|thumb(720,1280)}}" class="icon-pinterest" target="_blank" title="Sendereihe auf Pinterest teilen"><span itemprop="recipient">{{ 'oktothek_series.share_pint'|trans }}</span></a></li>
                 </ul>
-                <a href="mailto:?to=&subject={{ series.name }}&body={{ share_url }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
+                <a href="mailto:?to=&subject={{ series.name }}&body={{ share_url }}" class="btn btn-default" itemprop="recipient">{{ 'oktothek_share_email'|trans }}</a>
             </div>
         </div>
     </div>

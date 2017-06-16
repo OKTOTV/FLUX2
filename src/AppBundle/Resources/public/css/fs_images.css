@@ -194,6 +194,7 @@ body.playlists .fs-image-misc-mobile {
 .series-posterframe div {
     padding:5px;
     margin-bottom: 20px;
+    margin-top:20px;
 }
 .series .infos {
     text-align: center;
@@ -340,6 +341,9 @@ body.playlists .fs-image-misc-mobile {
     .carousel-indicators li {
         width: 14px;
         height: 14px;
+    }
+    .series-posterframe div {
+        margin-top:0;
     }
 }
 /* Animationen */

@@ -8,7 +8,7 @@
 {% set body_class = "tagpage fullscreen-background" %}
 {%- block body -%}
     <div id="top"></div>
-        <div class="container-fluid">
+        <div class="container-fluid" itemscope="itemscope" itemtype="http://schema.org/SearchResultsPage">
             <div class="bg-bleur"></div>
             <header>
                 <h1>{{ 'oktothek_results_header'|trans({'%searchphrase%': searchphrase}) }}</h1>
