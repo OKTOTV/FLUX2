@@ -96,7 +96,7 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="https://content.jwplatform.com/libraries/qecJHTsP.js"></script>
+    <script src="{{ playerUrl() }}"></script>
     {% if episode.video is not empty %}
         <script type="text/javascript">
             $(document).ready(function(){
