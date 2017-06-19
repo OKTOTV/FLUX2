@@ -853,6 +853,9 @@ oktothek_share_pint:                        Pinterest
 oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420&nbsp;x&nbsp;315px eingebettet."
 oktothek_share_embed:                       Einbetten
 
+## Resources/views/Default/slider.html.twig
+oktothek_author_of_slides:                  "Okto Marketing"
+
 ## _share.html.twig
 oktothek_default_share_title_fb:            "Link auf Facebook teilen"
 oktothek_default_share_title_tw:            "Link tweeten"
