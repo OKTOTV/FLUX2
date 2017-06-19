@@ -22,7 +22,7 @@
                 <h3 itemprop="headline"><a href="{{ path('oktothek_show_news', {'slug': post.slug})}}" title="{{ post.name }}">{{ post.name }}</a></h3>
                 <p itemprop="description">
                     {{ post.teaser|nl2br }}
-                    <meta itemprop="author" content="Okto Marketing" />
+                    <meta itemprop="author" content="{{ 'oktothek_author_of_slides'|trans }}" />
                     <meta itemprop="datePublished" content="{{ post.onlineAt|date('Y-m-d')}}" />
                     <meta itemprop="mainEntityOfPage" content="{{ path('oktothek_show_news', {'slug': post.slug})}}" />
                     <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
