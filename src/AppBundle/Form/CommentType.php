@@ -9,12 +9,16 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CommentType extends AbstractType
 {
+    private $additionalName;
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $this->additionalName = $options['block_prefix'];
+
         $builder
             ->add('text', TextareaType::class, ['attr' => ['placeholder' => 'oktothek.comment_placeholder_text']])
         ;
@@ -26,7 +30,8 @@ class CommentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Comment'
+            'data_class' => 'AppBundle\Entity\Comment',
+            'block_prefix' => ''
         ));
     }
 
@@ -35,6 +40,6 @@ class CommentType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_comment';
+        return 'appbundle_comment'.$this->additionalName;
     }
 }
