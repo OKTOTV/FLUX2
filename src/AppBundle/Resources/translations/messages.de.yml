@@ -487,6 +487,7 @@ oktothek.series_show_added_users:       "Zugewiesene Benutzer"
 # my channels and backend
 oktothek_series_my_channels_header:     "Meine Sendereihen"
 oktothek_series_my_channels_empty:      "Du bist derzeit keinen Sendereihen in der Oktothek zugewiesen!"
+oktothek.channels_show_more:            "Mehr anzeigen"
 ## academy
 
 oktothek.success_book_SOFORT_course:    "Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Buchungsbestätigung"
@@ -778,16 +779,16 @@ oktothek.user_playlist_header:              Playlisten von %user%
 oktothek_user_playlists_title:              Playlisten von %user%
 
 ## favorites
-oktothek.user_favorites_header:             Meine Favoriten
-oktothek_user_favorites_title:              Meine Favoriten
+oktothek.user_favorites_header:             "Favoriten von %user%"
+oktothek_user_favorites_title:              "Favoriten von %user% | OKTO"
 oktothek.user_favorites_filter:             <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
 oktothek.favorite_index_filter_name:        Name
 oktothek.favorite_index_filter_firstranAt:  Ausstrahlungsdatum
 oktothek.favorite_index_filter_series:      Sendereihe
 
 ## channels
-oktothek.user_channels_header:              Meine Abos
-oktothek_user_channels_title:               Meine Abonnements
+oktothek.user_channels_header:              "Abos von %user%"
+oktothek_user_channels_title:               "Abos von %user% | OKTO"
 oktothek_user_channels_series_header:       "Abonnierte Sendereihen"
 oktothek.user_channels_filter:              <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
 oktothek_user_channel_filter_name:          Name
