@@ -2182,7 +2182,7 @@ header .icon.icon-login {
 	width:12px;
 	height:14px;
 }
-header .icon.icon-transmitter {
+header .icon.icon-transmitter, header .icon.icon-transmitter-active {
 	width:18px;
 	height:18px;
 }
