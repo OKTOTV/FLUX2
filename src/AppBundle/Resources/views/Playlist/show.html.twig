@@ -10,7 +10,7 @@
 
 {% set body_class = "playlists" %}
 {% block body %}
-    <div itemscope itemtype="http://schema.org/Collection">
+    <div itemscope="itemscope" itemtype="http://schema.org/VideoGallery">
     <section class="container">
         <div id="button_down"><span class="icon playlists-arrow-down" style="display: inline;">{{ 'oktothek.playlist_show_next_video'|trans }}</span></div>
         <div class="player-container row description-overlay">
@@ -59,7 +59,7 @@
 		  <article>
 		      <p class="series"><a href="#" title=""></a></p>
 		        <h2 class="name"></h2>
-			    <span class="time">online seit <span class="date"></span></time>
+			    <span class="time">online seit <span class="date"></span></span>
 		        <p class="description"></p>
                 <p><a href="#" class="episodelink">Folgendetails</a></p>
             </article>
@@ -74,13 +74,16 @@
 				        <div class="col-md-2 col-lg-2 col-sm-3 col-xs-4 pin">
                             <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}" title="Episode {{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }} ansehen">
 					           <div class="mini-player"><span class="glyphicon glyphicon-play"> </span></div>
+                            <meta itemprop="thumbnailUrl" content="{{ playlistItem.episode.posterframe|thumb(135,240) }}" />
+                            <meta itemprop="datePublished" content="{{ playlistItem.episode.onlineStart|date('Y-m-d')}}" />
                             <img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive" alt="{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}"/>
                             </a>
                         </div>
                         <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-8">
                             <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}" title="Episode {{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }} ansehen">
-                                <h3 data-link="{{ path('oktothek_show_series', {'uniqID': playlistItem.episode.series.uniqID}) }}" itemscope itemtype="http://schema.org/partOfSeries" itemprop="partOfSeries" itemprop="name">{{ playlistItem.episode.series.name|default('') }}</h3>
+                                <h3 data-link="{{ path('oktothek_show_series', {'uniqID': playlistItem.episode.series.uniqID}) }}" itemscope="itemscope" itemtype="http://schema.org/CreativeWorkSeries" itemprop="partOfSeries"><span itemprop="name">{{ playlistItem.episode.series.name|default('') }}</span></h3>
                                 <p data-date="{{ playlistItem.episode.onlineStart|date('d.m.Y')}}" itemprop="name">{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</p>
+                                <meta itemprop="url" content="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}">
                             </a>
                         </figcaption>
                     </figure>

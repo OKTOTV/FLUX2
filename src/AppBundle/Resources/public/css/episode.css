@@ -1,5 +1,27 @@
 @charset "UTF-8";
 /* CSS Document */
+
+
+@keyframes new-playlist { 
+  0% { 
+    color: #d1418f;
+  } 
+  70% { 
+    color: #d1418f;
+  }
+  100% { 
+    color: #fcce14;
+  }
+}
+
+.newplaylist button + span {
+   animation: new-playlist;
+   animation-timing-function: linear;
+   animation-duration: 4s;
+   animation-iteration-count: initial;
+}
+
+
 body.episode article {
     position:relative;
 }
