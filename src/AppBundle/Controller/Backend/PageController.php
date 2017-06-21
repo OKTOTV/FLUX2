@@ -19,14 +19,18 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class PageController extends Controller
 {
     /**
-     * @Route("/", name="oktothek_backend_page_index", requirements={"page": "\d+"}, defaults={"page": 1})
+     * @Route("/", name="oktothek_backend_page_index")
      * @Template()
      */
-    public function indexAction($page)
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $pages = $paginator->paginate($em->getRepository('AppBundle:Page')->findPagesQuery(), $page, 5);
+        $pages = $paginator->paginate(
+            $em->getRepository('AppBundle:Page')->findPagesQuery(),
+            $request->query->get('page', 1),
+            $request->query->get('results', 5)
+        );
 
         return ['pages' => $pages];
     }

@@ -9,11 +9,13 @@
                 title: "{{ episode.name }}",
                 sources: [
                     {% for media in episode.media %}
-                        {
-                            file: "{{ media.asset|link }}",
-                            label: "{{ media.quality }}",
-                            type: "mp4"
-                        }{% if not loop.last %},{% endif %}
+                        {% if media.public %}
+                            {
+                                file: "{{ media.asset|link }}",
+                                label: "{{ media.quality }}",
+                                type: "mp4"
+                            }{% if not loop.last %},{% endif %}
+                        {% endif %}
                     {% endfor %}
                 ],
                 tracks: [

@@ -13,6 +13,11 @@
                 <p>{{ 'oktothek.comment_pager_comment_removed'|trans }}</p>
             {% else %}
                 <p>{{ comment.text|striptags('</a>')|nl2br|episodeComment(uniqID)|raw }}</p>
+                {% if comment.user == app.user %}
+                    {# <a href="{{ path('oktothek_edit_comment', {'comment': comment.id}) }}">
+                        {{ 'oktothek_comment_edit'|trans }}
+                    </a> #}
+                {% endif %}
             {% endif %}
         </div>
         <!-- Antwort Container -->
@@ -29,21 +34,26 @@
                             <div class="author">{{ 'oktothek.comment_author'|trans({'%name%': answer.user.username, '%date%': answer.createdAt|date('d.m.Y H:i')})|raw }}</div>
                             <div class="comment-text">
                                 <p>{{ answer.text|striptags('<a>')|nl2br|episodeComment(uniqID)|raw }}</p>
+                                {% if comment.user == app.user %}
+                                    {# <a href="{{ path('oktothek_edit_comment', {'comment': comment.id}) }}">
+                                        {{ 'oktothek_comment_edit'|trans }}
+                                    </a> #}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                     {% endfor %}
                     <!-- Ende Antwort -->
-                    {% if is_granted('ROLE_USER') %}
-                    <div class="row comment-form">
-                        <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
-                            {{ render(controller('AppBundle:Comment:answerComment', {'comment': comment.Id}))}}
-                        </div>
-                    </div>
-                    {% endif %}
                 </div>
             </div>
             <!-- Ende Antwort Container -->
+        {% endif %}
+        {% if is_granted('ROLE_USER') %}
+            <div class="row comment-form">
+                <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
+                    {{ render(controller('AppBundle:Comment:answerComment', {'comment': comment.Id}))}}
+                </div>
+            </div>
         {% endif %}
     </div>
         {% endfor %}
@@ -52,7 +62,7 @@
 {% if is_granted('ROLE_USER') %}
     <div class="row comment-form">
         <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
-                {{ render(controller('AppBundle:Comment:commentEpisode', {'uniqID': uniqID}))}}
+            {{ render(controller('AppBundle:Comment:commentEpisode', {'uniqID': uniqID}))}}
         </div>
     </div>
 {% else %}

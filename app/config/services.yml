@@ -87,6 +87,12 @@ services:
             - { name: security.voter }
         public: false
 
+    oktothek_comment_voter:
+        class:  AppBundle\Security\CommentVoter
+        tags:
+            - { name: security.voter}
+        public: false
+
 # TWIG Extension
     oktothek.twig_extension:
         class: AppBundle\Twig\AcademyExtension
