@@ -48,7 +48,7 @@
             </div>
             <!-- Ende Antwort Container -->
         {% endif %}
-        {% if is_granted('ROLE_USER') %}
+        {% if is_granted('ROLE_OKTOLAB_USER') %}
             <div class="row comment-form">
                 <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
                     {{ render(controller('AppBundle:Comment:answerComment', {'comment': comment.Id}))}}
@@ -59,7 +59,7 @@
         {% endfor %}
 </div>
     <!-- Ende Kommentar -->
-{% if is_granted('ROLE_USER') %}
+{% if is_granted('ROLE_OKTOLAB_USER') %}
     <div class="row comment-form">
         <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
             {{ render(controller('AppBundle:Comment:commentEpisode', {'uniqID': uniqID}))}}
