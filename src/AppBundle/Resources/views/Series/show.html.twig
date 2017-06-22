@@ -26,7 +26,7 @@
     <section class="series-content fs-image-content">
         <div class="series-ident fs-image-ident description-overlay">
             <figure class="episode-posterframe fs-image">
-                <div style="background-image:url({{ series.posterframe|thumb(720,1280) }});"></div>
+                <div style="background-image:url({{ series.posterframe|thumb(900,1600) }});"></div>
                 <figcaption class="current-episode description-wrapper">
                     <div class="container-bg-opacity">
                         <div class="bg-opacity"></div>
@@ -45,6 +45,9 @@
                             {% else %}
                                 <button type="button" class="btn btn-default subscribe" title="{{ series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button>
                             {% endif %}
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') %}
+                            <a href="{{ path('oktolab_series_show', {'series': series.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.series_show_in_backend'|trans }}</a>
                         {% endif %}
                         </p>
                     </div>
