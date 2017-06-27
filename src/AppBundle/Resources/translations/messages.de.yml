@@ -794,6 +794,10 @@ oktothek.user_channels_filter:              <span class="glyphicon glyphicon-sor
 oktothek_user_channel_filter_name:          Name
 oktothek_user_channel_filter_updatedAt:     Zuletzt aktualisiert
 
+## abonnements
+oktothek_user_abonnements_title:            "Deine Abonnements | OKTO"
+oktothek_user_abonnements_header:           "Deine Abonnements"
+
 # slider
 ## show
 oktothek.slide_type_choice:                 "{0} Episode|{1} News"
