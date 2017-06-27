@@ -215,8 +215,9 @@
                     },
                     type: 'POST',
                     success: function(data) {
-                        $('.playlists').append(item);
+                        $('.playlists').append(item)
                         playlist.val('');
+                        $('.playlists li:last-child').slideDown('fast');
                         $('.playlists li:last-child').addClass('newplaylist');
                     }
                 });
