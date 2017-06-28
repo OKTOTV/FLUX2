@@ -2,7 +2,7 @@
 <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
     <div class="author" itemprop="author">
         {{ 'oktothek.comment_author'|trans({
-            '%name%': comment.user.username,
+            '%name%': '<a href="'~url('oktothek_show_user', {'username': user.username})~'">'~comment.user.username~'</a>',
             '%date%': 'oktothek.comment_author_date'|trans({
                 '%day%': 'oktothek.comment_author_day_choice'|transchoice(comment.createdAt|date('N')),
                 '%date%': comment.createdAt|date('oktothek.comment_author_date_format'|trans)

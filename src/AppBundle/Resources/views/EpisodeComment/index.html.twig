@@ -21,7 +21,7 @@
             <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
                 <div class="author" itemprop="author">
                     {{ 'oktothek.comment_author'|trans({
-                        '%name%': comment.user.username,
+                        '%name%': '<a href="'~url('oktothek_show_user', {'username': comment.user.username})~'">'~comment.user.username~'</a>',
                         '%date%': 'oktothek.comment_author_date'|trans({
                             '%day%': 'oktothek.comment_author_day_choice'|transchoice(comment.createdAt|date('N')),
                             '%date%': comment.createdAt|date('oktothek.comment_author_date_format'|trans)
@@ -43,7 +43,7 @@
                             {{ 'oktothek_comment_edit'|trans }}
                         </a>
                     {% endif %}
-                    <a href="{{ path('oktothek_episode_comment_answer', {'uniqID': episode.uniqID, 'parent': comment.id})}}">{{ 'oktothek_comment_answer'|trans }}</a>
+                    <a href="{{ path('oktothek_episode_comment_answer', {'uniqID': episode.uniqID, 'parent': comment.id})}}" class="answer_comment">{{ 'oktothek_comment_answer'|trans }}</a>
                 </div>
                 {% else %}
                     <div class="comment-answer">
@@ -52,7 +52,7 @@
                                 {{ 'oktothek_comment_edit'|trans }}
                             </a>
                         {% endif %}
-                        <a href="{{ path('oktothek_episode_comment_answer', {'uniqID': episode.uniqID, 'parent': comment.id})}}">Antworten</a>
+                        <a href="{{ path('oktothek_episode_comment_answer', {'uniqID': episode.uniqID, 'parent': comment.id})}}" class="answer_comment">{{ 'oktothek_comment_answer'|trans }}</a>
                         <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}" title="{{ 'oktothek_comment_cP_answer'|trans }}">{{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}</a>
                         <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
 
