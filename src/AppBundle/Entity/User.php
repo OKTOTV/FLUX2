@@ -10,6 +10,7 @@ use AppBundle\Entity\Episode;
 use AppBundle\Entity\Comment;
 use AppBundle\Entity\Abonnement;
 use AppBundle\Entity\Notification;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
@@ -40,21 +41,12 @@ class User extends BaseUser
     private $abonnements;
 
     /**
-     * @ORM\OneToMany(targetEntity="Notification", mappedBy="user")
-     */
-    private $notifications;
-
-    /**
     * @ORM\Column(name="uniqID", type="string", length=13)
     */
     private $uniqID;
 
     /**
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="user")
-     */
-    private $comments;
-
-    /**
+     * series producers own
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Series", inversedBy="users")
      * @ORM\JoinTable(name="users_series")
      */
@@ -65,12 +57,17 @@ class User extends BaseUser
      */
     private $files;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\EpisodeComment", mappedBy="user")
+     */
+    private $episode_comments;
+
     public function __construct() {
         parent::__construct();
-        $this->abonnements = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->playlists = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->abonnements = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
+        $this->playlists = new ArrayCollection();
+        $this->comments = new ArrayCollection();
         $this->uniqID = uniqID();
     }
 
@@ -169,39 +166,6 @@ class User extends BaseUser
     }
 
     /**
-     * Add comments
-     *
-     * @param \AppBundle\Entity\Comment $comments
-     * @return User
-     */
-    public function addComment(Comment $comments)
-    {
-        $this->comments[] = $comments;
-
-        return $this;
-    }
-
-    /**
-     * Remove comments
-     *
-     * @param \AppBundle\Entity\Comment $comments
-     */
-    public function removeComment(Comment $comments)
-    {
-        $this->comments->removeElement($comments);
-    }
-
-    /**
-     * Get comments
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
-
-    /**
      * Add abonnements
      *
      * @param \AppBundle\Entity\Abonnements $abonnements
@@ -232,39 +196,6 @@ class User extends BaseUser
     public function getAbonnements()
     {
         return $this->abonnements;
-    }
-
-    /**
-     * Add notifications
-     *
-     * @param \AppBundle\Entity\Notification $notifications
-     * @return User
-     */
-    public function addNotification(Notification $notification)
-    {
-        $this->notifications[] = $notification;
-        $notification->setUser($this);
-        return $this;
-    }
-
-    /**
-     * Remove notifications
-     *
-     * @param \AppBundle\Entity\Notification $notifications
-     */
-    public function removeNotification(Notification $notifications)
-    {
-        $this->notifications->removeElement($notifications);
-    }
-
-    /**
-     * Get notifications
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getNotifications()
-    {
-        return $this->notifications;
     }
 
     /**

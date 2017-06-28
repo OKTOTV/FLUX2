@@ -66,6 +66,11 @@ class Course
      */
     private $is_active;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CourseComment", mappedBy="course")
+     */
+    private $comments;
+
     public function __construct() {
         $this->dates = new \Doctrine\Common\Collections\ArrayCollection();
     }

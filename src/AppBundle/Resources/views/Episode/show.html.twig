@@ -83,11 +83,7 @@
             </article>
         </section>
         <!-- Kommentare -->
-        <section class="comments comment-pager">
-            <div class="container">
-                {{ render(controller("AppBundle:Comment:episodeCommentPager", {'uniqID': episode.uniqID, 'page': 1})) }}
-            </div>
-        </section>
+        {{ render(controller("AppBundle:EpisodeComment:index", {'uniqID': episode.uniqID})) }}
         <!-- Ende Kommentare -->
         {% if episode.tags is not empty %}
             <section class="container tags">
@@ -166,6 +162,24 @@
                         }
                     }
                 })
+            });
+
+            // Comments
+            $('#appbundle_episode_comment_submit').click(function(e){
+                if ($('#appbundle_episode_comment_text').val().length) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: "{{ url('oktothek_episode_comment_create', {'episode': episode.Id})}}",
+                        type: 'post',
+                        dataType: 'json',
+                        data: $($(this).parents('form[name="appbundle_episode_comment"]')[0]).serialize(),
+                    }).complete(function(data) {
+                        $('#appbundle_episode_comment_text').val('');
+                        if (data.status = 200) {
+                            $(data.responseText).hide().prependTo('.commentbox').slideDown();
+                        }
+                    });
+                }
             });
         });
 
