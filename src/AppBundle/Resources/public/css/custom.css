@@ -290,9 +290,12 @@ div.list-group.tags span.label.label-default.remove {
 	text-transform:uppercase;
 }
 
+header .search-tagnav-position li a, .episode .tags a, #episode-tag option {
+    text-transform: lowercase;
+}
+
 .btn.btn-top, 
 .checkbox label,
-#episode-tag option, 
 #slider h3, 
 header .navbar-nav.themes a, 
 .playlists .btn.circle, 
@@ -3420,4 +3423,7 @@ body.episode a.backend {
         display: inline;
         margin-bottom:0;
     }
+}
+.notshow {
+    display: none;
 }
