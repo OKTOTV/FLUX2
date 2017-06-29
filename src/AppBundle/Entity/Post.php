@@ -42,8 +42,8 @@ class Post
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Length(max=550)
-     * @ORM\Column(name="description", type="string", length=600)
+     * @Assert\Length(max=2500)
+     * @ORM\Column(name="description", type="text", length=2600)
      */
     private $description;
 

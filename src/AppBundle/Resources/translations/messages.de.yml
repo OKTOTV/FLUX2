@@ -244,6 +244,9 @@ oktothek.comment_send_button:           "Kommentar senden"
 oktothek_comment_edit:                  "Bearbeiten"
 oktothek_comment_answer:                "Antworten"
 
+oktothek.comment_update_success:        "Kommentar erfolgreich bearbeitet"
+oktothek.comment_update_button:         "Aktualisieren"
+
 ## AppBundle/Resources/views/PostComment/index.html.twig
 oktothek.post_comment_header:           "Kommentare"
 

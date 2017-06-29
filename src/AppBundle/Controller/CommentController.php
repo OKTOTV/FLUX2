@@ -94,30 +94,30 @@ class CommentController extends Controller
         return ['comments' => $comments, 'uniqID' => $uniqID];
     }
 
-    /**
-     * @Route("/edit/{comment}", name="oktothek_edit_comment")
-     * @Template()
-     */
-    public function editCommentAction(Request $request, Comment $comment)
-    {
-        $this->denyAccessUnlessGranted('user_edit', $comment); //symfony voter
-        $commentForm = $this->createForm(CommentType::class, $comment, ['action' => $this->generateUrl('oktothek_edit_comment', ['comment' => $comment->getId()])]);
-        $commentForm->add('submit', SubmitType::class, ['label' => 'oktothek.comment_update_button', 'attr' => ['class' => 'btn btn-primary']]);
-
-        if ($request->getMethod() == "POST") {
-            $commentForm->handleRequest($request);
-            if ($commentForm->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($comment);
-                $em->flush();
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_update_success');
-                return $this->redirect($request->headers->get('referer'));
-            }
-            $this->get('session')->getFlashBag()->add('error', 'oktothek.comment_update_error');
-            return $this->redirect($request->headers->get('referer'));
-        }
-        return ['commentForm' => $commentForm->createView()];
-    }
+    // /**
+    //  * @Route("/edit/{comment}", name="oktothek_edit_comment")
+    //  * @Template()
+    //  */
+    // public function editCommentAction(Request $request, Comment $comment)
+    // {
+    //     $this->denyAccessUnlessGranted('user_edit', $comment); //symfony voter
+    //     $commentForm = $this->createForm(CommentType::class, $comment, ['action' => $this->generateUrl('oktothek_edit_comment', ['comment' => $comment->getId()])]);
+    //     $commentForm->add('submit', SubmitType::class, ['label' => 'oktothek.comment_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+    //
+    //     if ($request->getMethod() == "POST") {
+    //         $commentForm->handleRequest($request);
+    //         if ($commentForm->isValid()) {
+    //             $em = $this->getDoctrine()->getManager();
+    //             $em->persist($comment);
+    //             $em->flush();
+    //             $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_update_success');
+    //             return $this->redirect($request->headers->get('referer'));
+    //         }
+    //         $this->get('session')->getFlashBag()->add('error', 'oktothek.comment_update_error');
+    //         return $this->redirect($request->headers->get('referer'));
+    //     }
+    //     return ['commentForm' => $commentForm->createView()];
+    // }
 
     /**
      * @Route("/{uniqID}/{page}", name="oktothek_comment_pager", requirements={"page": "\d+"}, defaults={"page":1})

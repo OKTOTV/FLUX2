@@ -123,4 +123,9 @@ class Comment
     {
         return $this->removed;
     }
+
+    public function canBeEdited()
+    {
+        return $this->createdAt > new \DateTime('-7 days');
+    }
 }
