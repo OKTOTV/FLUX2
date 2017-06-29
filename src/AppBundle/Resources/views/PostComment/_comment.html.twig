@@ -1,0 +1,19 @@
+<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div class="avatar2"></div></div>
+<div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
+    <div class="author" itemprop="author">
+        {{ 'oktothek.comment_author'|trans({
+            '%name%': '<a href="'~url('oktothek_show_user', {'username': comment.user.username})~'">'~comment.user.username~'</a>',
+            '%date%': 'oktothek.comment_author_date'|trans({
+                '%day%': 'oktothek.comment_author_day_choice'|transchoice(comment.createdAt|date('N')),
+                '%date%': comment.createdAt|date('oktothek.comment_author_date_format'|trans)
+            })
+        })|raw }}
+    </div>
+    <div class="comment-text">
+        {% if comment.removed %}
+            <p>{{ 'oktothek.comment_pager_comment_removed'|trans }}</p>
+        {% else %}
+            <p>{{ comment.text|nl2br }}</p>
+        {% endif %}
+    </div>
+</div>

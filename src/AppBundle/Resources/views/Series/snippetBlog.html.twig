@@ -29,7 +29,7 @@
                     </p>
                     <header class="page-header">
                         <h3 itemprop="headline">
-                            <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug, 'uniqID': series.uniqID})}}">
+                            <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug})}}">
                                 {{ teasers[0].name }}
                             </a>
                         </h3>
@@ -48,10 +48,6 @@
                 </div>
             {% include "AppBundle:Series/Blog:_shareCollapse.html.twig" with {'post': teasers[0]} %}
         </article>
-
-        <div class="comments comment-pager">
-            {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': teasers[0].uniqID, 'page': 1})) }}
-        </div>
     </div>
     <aside class="col-md-3 col-lg-3 col-sm-3 hidden-xs">
         <div class="aside-inner clearfix">

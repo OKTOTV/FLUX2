@@ -23,7 +23,7 @@
     <div class="row">
         <div class="news-pin">
             {% for post in posts %}
-                {% include 'AppBundle:News:_newsRow.html.twig' with {'post': post, 'newsloop': loop.index } %}
+                {% include 'AppBundle:Series/Blog:_postRow.html.twig' with {'post': post, 'newsloop': loop.index } %}
             {% endfor %}
         </div>
     </div>
@@ -45,7 +45,7 @@
                 }}
             </span>
             <p>
-                <a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a>
+                <a href="{{ path('oktothek_show_series_blogpost', {'slug': teaser.slug})}}">{{ teaser.name }}</a>
             </p>
         </li>
         {% endfor %}

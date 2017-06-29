@@ -68,38 +68,26 @@
                 </li>
                 {% if is_granted('ROLE_OKTOLAB_USER') %}
                     <li>
-                    {#% <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-tooltip="{{ 'oktothek.menu_user_notifications_title'|trans }}"> %#}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="icon icon-transmitter"></span>
+                            <span class="visible-xs-inline">Benachrichtigung</span>
                             {% if app.user.notifications is not empty %}
                                 {{ 'oktothek.menu_user_notifications'|trans|raw }}
                             {% else %}
                                 {{ 'oktothek.menu_user_notifications_empty'|trans|raw }} <span class="visible-xs-inline">{{ 'oktothek.menu_notification_xs'|trans }}</span>
                             {% endif %}
                         </a>
-                        {# <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu" role="menu">
                             <li><div class="triangle"></div></li>
-                            {% for notification in app.user.notifications %}
-                                {% if notification.type == constant('AppBundle\\Entity\\Notification::NEW_EPISODE') %}
-                                    <li>
-                                        <a href="{{ path('user_notification', {'notification': notification.id })}}">
-                                            {{ 'oktothek.notification_message_episode'|trans({'%series%': notification.episode.series|default(notification.series)})|raw }}
-                                        </a>
-                                    </li>
-                                {% elseif notification.type == constant('AppBundle\\Entity\\Notification::NEW_POST')%}
-                                    <li>
-                                        <a href="{{ path('user_notification', {'notification': notification.id })}}">
-                                            {{ 'oktothek.notification_message_post'|trans({'%series%': notification.post.series|default(notification.series)})|raw }}
-                                        </a>
-                                    </li>
-                                {% else %}
-                                    <li>
-                                        <a href="{{ path('user_notification', {'notification': notification.id })}}">
-                                            {{ 'oktothek.notification_livestream'|trans({'%series%': notification.series})|raw }}
-                                        </a>
-                                    </li>
-                                {% endif %}
+                            {% for notification in newestNotifications(app.user) %}
+                                <li>
+                                    <a href="{{ path('bprs_user_notification_follow', {'notification': notification.id})}}">
+                                        {{ notification.message|trans(notification.values(true)) }}
+                                    </a>
+                                </li>
+
                             {% endfor %}
-                            {% if app.user.notifications is empty %}
+                            {% if newestNotifications(app.user) is empty %}
                             <li class="notifications">
                                 <p>{{ 'oktothek.menu_user_no_notifications'|trans}}</p>
                             </li>
@@ -107,7 +95,7 @@
                             <li class="notifications">
                                 <p><a href="{{ path('oktothek_user_abonnements') }}">{{ 'oktothek.menu_user_settings_notifications'|trans}}</a></p>
                             </li>
-                        </ul> #}
+                        </ul>
                     </li>
                 {% endif %}
             {% else %}

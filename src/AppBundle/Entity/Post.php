@@ -108,6 +108,11 @@ class Post
      */
     private $series;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PostComment", mappedBy="post")
+     */
+    private $comments;
+
     public function __construct() {
         $this->uniqID = uniqid();
         $this->pinned = false;
@@ -449,5 +454,40 @@ class Post
     public function getSeries()
     {
         return $this->series;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \AppBundle\Entity\PostComment $comment
+     * @return Post
+     */
+    public function addComment(\AppBundle\Entity\PostComment $comment)
+    {
+        $this->comments[] = $comment;
+        $comment->setPost($this);
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \AppBundle\Entity\PostComment $comment
+     */
+    public function removeComment(\AppBundle\Entity\PostComment $comment)
+    {
+        $this->comments->removeElement($comment);
+        $comment->setPost(null);
+        return $this;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }
