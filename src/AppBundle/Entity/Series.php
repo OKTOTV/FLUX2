@@ -39,11 +39,6 @@ class Series extends OktoSeries
     protected $files;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="managed_series", cascade={"remove"})
-     */
-    protected $channelmanager;
-
-    /**
      * Add abonnements
      *
      * @param \AppBundle\Entity\Abonnements $abonnements
