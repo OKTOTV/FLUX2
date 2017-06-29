@@ -51,6 +51,21 @@ class Abonnement
     private $send_mails;
 
     /**
+     * @ORM\Column(name="new_comment_on_episode", type="boolean", options={"default"=false})
+     */
+    private $newCommentOnEpisode;
+
+    /**
+     * @ORM\Column(name="new_comment_on_blogpost", type="boolean", options={"default"=false})
+     */
+    private $newCommentOnBlogPost;
+
+    /**
+     * @ORM\Column(name="encodedEpisode", type="boolean", options={"default"=false})
+     */
+    private $encodedEpisode;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="abonnements")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
@@ -245,5 +260,74 @@ class Abonnement
     public function getSendMails()
     {
         return $this->send_mails;
+    }
+
+    /**
+     * Set newCommentOnEpisode
+     *
+     * @param boolean $newCommentOnEpisode
+     * @return Abonnement
+     */
+    public function setNewCommentOnEpisode($newCommentOnEpisode)
+    {
+        $this->newCommentOnEpisode = $newCommentOnEpisode;
+
+        return $this;
+    }
+
+    /**
+     * Get newCommentOnEpisode
+     *
+     * @return boolean 
+     */
+    public function getNewCommentOnEpisode()
+    {
+        return $this->newCommentOnEpisode;
+    }
+
+    /**
+     * Set newCommentOnBlogPost
+     *
+     * @param boolean $newCommentOnBlogPost
+     * @return Abonnement
+     */
+    public function setNewCommentOnBlogPost($newCommentOnBlogPost)
+    {
+        $this->newCommentOnBlogPost = $newCommentOnBlogPost;
+
+        return $this;
+    }
+
+    /**
+     * Get newCommentOnBlogPost
+     *
+     * @return boolean 
+     */
+    public function getNewCommentOnBlogPost()
+    {
+        return $this->newCommentOnBlogPost;
+    }
+
+    /**
+     * Set encodedEpisode
+     *
+     * @param boolean $encodedEpisode
+     * @return Abonnement
+     */
+    public function setEncodedEpisode($encodedEpisode)
+    {
+        $this->encodedEpisode = $encodedEpisode;
+
+        return $this;
+    }
+
+    /**
+     * Get encodedEpisode
+     *
+     * @return boolean 
+     */
+    public function getEncodedEpisode()
+    {
+        return $this->encodedEpisode;
     }
 }

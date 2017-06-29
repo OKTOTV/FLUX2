@@ -15,7 +15,7 @@ class DeleteEpisodeEventListener {
 
     public function onEpisodeDelete(DeleteEpisodeEvent $event)
     {
-        $comments = $this->em->getRepository('AppBundle:Comment')->findBy(['referer' => $event->getEpisode()->getUniqID()]);
+        $comments = $this->em->getRepository('AppBundle:EpisodeComment')->findBy(['uniqID' => $event->getEpisode()->getUniqID()]);
         foreach ($comments as $comment) {
             $this->em->remove($comment);
         }

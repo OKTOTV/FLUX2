@@ -34,10 +34,6 @@ services:
         class: AppBundle\Model\UserService
         arguments: [ "@doctrine.orm.entity_manager"]
 
-    oktothek_notification_service:
-        class: AppBundle\Model\NotificationService
-        arguments: [ "@doctrine.orm.entity_manager", "@bprs_user.mailer", "@translator", %livestream_template%, %new_post_template%, %new_episode_template% ]
-
     oktothek_coursepackage:
         class: AppBundle\Model\CoursepackageService
         arguments: [ "@form.factory", "@oktothek_academy", "@doctrine.orm.entity_manager" ]
@@ -171,3 +167,9 @@ services:
         tags:
             - { name: kernel.event_listener, event: bprs_asset.pre_create, method: onPrePersist }
             - { name: kernel.event_listener, event: bprs_asset.pre_delete, method: onPreDelete }
+
+    oktothek_notification_service:
+        class: AppBundle\Event\NotificationListener
+        arguments: [ "@bprs_user.notification", "@doctrine.orm.entity_manager", "@router", %livestream_template%, %new_post_template%, %new_episode_template% ]
+        tags:
+            - { name: kernel.event_listener, event: oktolab_media.finalized_episode, method: onFinalizedEpisode }

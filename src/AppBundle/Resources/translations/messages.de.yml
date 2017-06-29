@@ -35,7 +35,9 @@ oktothek.menu_user_notifications_empty: <span class="icon icon-transmitter"></sp
 oktothek.menu_user_no_notifications:    "Im Moment sind keine Benachrichtigungen vorhanden."
 oktothek.menu_user_settings_notifications: "Hier kannst du deine Abos verwalten."
 oktothek.notification_message_episode:  "%series% hat eine neue Episode veröffentlicht"
+oktothek.notification_message_episode_new_comment: "Neuer Kommentar zu deiner Episode"
 oktothek.notification_message_post:     "%series% hat einen neuen Beitrag veröffentlicht"
+oktothek.notification_message_post_new_comment: "Neuer Kommentar zu deinem Beitrag"
 oktothek.notification_livestream:       "%series% ist jetzt Live"
 oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"></span>
 oktothek.menu_tag_dropdown:             'Themen <span class="caret">'
@@ -767,8 +769,12 @@ oktothek.user_update_subscription_header:   Aboeinstellungen für %series%
 oktothek_abonnement_livestream_label:       Bei Livestreams benachrichtigen
 oktothek_abonnement_new_episode_label:      Bei neuen Episoden benachrichtigen
 oktothek_abonnement_new_post_label:         Bei neuen Beiträgen benachrichtigen
+oktothek_abonnement_new_comment_on_episode_label: Bei Kommentaren zu Episoden benachrichtigen
+oktothek_abonnement_new_comment_on_blogpost_label: Bei Kommentaren zu Blogposts benachrichtigen
+oktothek_abonnement_encodedEpisode_label:   Wenn eine Episode umgerechnet und finalisiert wurde
 oktothek_abonnement_send_mails_label:       Benachrichtigungen auch als Email senden
 oktothek.user_update_abonnement_button:     Einstellungen aktualisieren
+oktothek_update_abonnement_back_link:       Zurück zu Aboeinstellungen
 user_edit_subscription:                     Benachrichtigungseinstellungen
 oktothek_abonnement_empty:                  "Noch keine Abonnements vorhanden"
 

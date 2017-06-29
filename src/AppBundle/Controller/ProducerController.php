@@ -77,7 +77,7 @@ class ProducerController extends Controller
                 $em->persist($series);
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_post');
-                $this->get('oktothek_notification_service')->createNewPostNotifications($post);
+                $this->get('oktothek_notification_service')->onNewPost($post);
                 return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_post');
@@ -304,7 +304,7 @@ class ProducerController extends Controller
         if ($request->getMethod() == "POST") {
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $this->get('oktothek_notification_service')->createLivestreamNotifications($series);
+                $this->get('oktothek_notification_service')->onLivestream($series);
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_notificate_livestream');
                 return $this->redirect($this->generateUrl('oktothek_channel', ['uniqID' => $series->getUniqID()]));
             }

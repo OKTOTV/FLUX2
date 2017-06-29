@@ -12,42 +12,51 @@ use Doctrine\ORM\EntityRepository;
  */
 class AbonnementRepository extends EntityRepository
 {
-    public function findNewEpisodeNotificationsForUser($user)
-    {
-        return $this->findNewEpisodeNotificationsForUser($user)->getResult();
-    }
-
-    public function findNewEpisodeNotificationsForUserQuery($user)
+    public function findAbonnementsForNewEpisode($series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT n FROM AppBundle:Notification n WHERE n.user = :user_id AND n.newEpisode = 1 ORDER BY n.createdAt DESC')
-            ->setParameter('user_id', $user->getId())
-            ->setMaxResults(3);
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.newEpisode = 1')
+            ->setParameter('id', $series->getId())
+            ->getResult();
     }
 
-    public function findNewPostNotificationsForUser($user)
-    {
-        return $this->findNewPostNotificationsForUser($user)->getResult();
-    }
-
-    public function findNewPostNotificationsForUserQuery($user)
+    public function findAbonnementsForNewPost($series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT n FROM AppBundle:Notification n WHERE n.user = :user_id AND n.newPost = 1 ORDER BY n.createdAt DESC')
-            ->setParameter('user_id', $user->getId())
-            ->setMaxResults(3);
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.newPost = 1')
+            ->setParameter('id', $series->getId())
+            ->getResult();
     }
 
-    public function findLivestreamNotificationsForUser($user)
-    {
-        return $this->findLivestreamNotificationsForUser($user)->getResult();
-    }
-
-    public function findLivestreamNotificationsForUserQuery($user)
+    public function findAbonnementsForLivestream($series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT n FROM AppBundle:Notification n WHERE n.user = :user_id AND n.livestream = 1 ORDER BY n.createdAt DESC')
-            ->setParameter('user_id', $user->getId())
-            ->setMaxResults(3);
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.livestream = 1')
+            ->setParameter('id', $series->getId())
+            ->getResult();
+    }
+
+    public function findAbonnementsForNewBlogpostComment($series)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.newCommentOnBlogPost = 1')
+            ->setParameter('id', $series->getId())
+            ->getResult();
+    }
+
+    public function findAbonnementsForNewEpisodeComment($series)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.newCommentOnEpisode = 1')
+            ->setParameter('id', $series->getId())
+            ->getResult();
+    }
+
+    public function findAbonnementsForEncodedEpisode($series)
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.encodedEpisode = 1')
+            ->setParameter('id', $series->getId())
+            ->getResult();
     }
 }

@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Abonnement;
 use AppBundle\Form\AbonnementType;
+use AppBundle\Form\OktoAbonnementType;
 use AppBundle\Entity\Notification;
 use AppBundle\Entity\User;
 
@@ -122,7 +123,12 @@ class UserController extends Controller
     {
         $this->denyAccessUnlessGranted('view', $abonnement); //symfony voter
 
-        $form = $this->createForm(new AbonnementType(), $abonnement);
+        $form = null;
+        if ($this->get('security.context')->isGranted('ROLE_USER')) {
+            $form = $this->createForm(new OktoAbonnementType(), $abonnement);
+        } else {
+            $form = $this->createForm(new AbonnementType(), $abonnement);
+        }
         $form->add('submit', 'submit', ['label' => 'oktothek.user_update_abonnement_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
