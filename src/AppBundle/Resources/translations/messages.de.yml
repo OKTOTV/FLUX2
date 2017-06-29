@@ -39,6 +39,7 @@ oktothek.notification_message_episode_new_comment:  "Neuer Kommentar zu deiner E
 oktothek.notification_message_post:                 "%series% hat einen neuen Beitrag veröffentlicht"
 oktothek.notification_message_post_new_comment:     "Neuer Kommentar zu deinem Beitrag"
 oktothek.notification_message_livestream:           "%series% ist jetzt Live"
+oktothek.notification_message_finalized_episode:    "Eine Episode von %series% wurde finalisiert"
 oktothek.searchfiled_submit:                        '<span class="glyphicon glyphicon-search"></span>'
 oktothek.menu_tag_dropdown:                         'Themen <span class="caret">'
 oktothek.menu_best_tags:                            "Beliebteste Themen"

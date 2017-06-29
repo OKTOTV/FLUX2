@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Event;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * creates and sends notifications for given events.
@@ -15,8 +16,10 @@ class NotificationListener
     private $router;
     private $new_comment_onBlogpost_template;
     private $new_comment_onEpisode_template;
+    private $finalized_episode_template;
+    private $mailerhost;
 
-    public function __construct($notificationService, $em, $router, $livestream_template, $new_post_template, $new_episode_template, $new_comment_onBlogpost_template, $new_comment_onEpisode_template)
+    public function __construct($notificationService, $em, $router, $mailerhost, $livestream_template, $new_post_template, $new_episode_template, $new_comment_onBlogpost_template, $new_comment_onEpisode_template, $finalized_episode_template)
     {
         $this->notificationService = $notificationService;
         $this->em = $em;
@@ -26,6 +29,8 @@ class NotificationListener
         $this->router = $router;
         $this->new_comment_onBlogpost_template = $new_comment_onBlogpost_template;
         $this->new_comment_onEpisode_template = $new_comment_onEpisode_template;
+        $this->finalized_episode_template = $finalized_episode_template;
+        $this->mailerhost = $mailerhost;
     }
 
     public function onNewEpisode($episode)
@@ -177,31 +182,30 @@ class NotificationListener
 
     public function onFinalizedEpisode($event)
     {
-        $episode = $event->getEpisode();
-        $abonnements = $this->em->getRepository('AppBundle:Abonnement')->findBy(['series' => $episode->getSeries()->getId()]);
+        $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $event->getUniqID()]);
+        $abonnements = $this->em->getRepository('AppBundle:Abonnement')->findAbonnementsForFinalizedEpisode($episode->getSeries());
         foreach ($abonnements as $abonnement) {
-            if ($abonnement->getEncodedEpisode()) {
-                if ($abonnement->getSendMails()) {
-                    $this->notificationService->addNewNotification(
-                        $abonnement->getUser(),
-                        $this->router->generate('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]),
-                        'oktothek.notification_message_finalized_episode',
-                        [],
-                        $this->new_episode_template,
-                        'oktothek.notification_message_finalized_episode',
-                        [
-                            'notification' => $abonnement,
-                            'episode' => $episode
-                        ]
-                    );
-                } else {
-                    $this->notificationService->addNewNotification(
-                        $abonnement->getUser(),
-                        $this->router->generate('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]),
-                        'oktothek.notification_message_finalized_episode',
-                        []
-                    );
-                }
+            if ($abonnement->getSendMails()) {
+                $this->router->getContext()->setHost($this->mailerhost);
+                $this->notificationService->addNewNotification(
+                    $abonnement->getUser(),
+                    $this->router->generate('oktolab_episode_show', ['uniqID' => $episode->getUniqID()], RouterInterface::ABSOLUTE_URL),
+                    'oktothek.notification_message_finalized_episode',
+                    ['%series%' => $episode->getSeries()->getName()],
+                    $this->finalized_episode_template,
+                    'oktothek.notification_message_finalized_episode',
+                    [
+                        'notification' => $abonnement,
+                        'episode' => $episode
+                    ]
+                );
+            } else {
+                $this->notificationService->addNewNotification(
+                    $abonnement->getUser(),
+                    $this->router->generate('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]),
+                    'oktothek.notification_message_finalized_episode',
+                    []
+                );
             }
         }
     }

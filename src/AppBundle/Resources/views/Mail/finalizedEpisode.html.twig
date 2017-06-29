@@ -1,0 +1,4 @@
+<h1>Hi {{ notification.user}}!</h1>
+<p>
+    Für <a href="{{ url('oktothek_show_series', {'uniqID': episode.series.uniqID})}}">{{ episode.series }}</a> wurde eine Folge finalisiert. <a href="{{ url('oktolab_episode_show', {'uniqID': episode.uniqID, '_locale': 'de' })}}">Schau doch mal rein!</a>
+</p>

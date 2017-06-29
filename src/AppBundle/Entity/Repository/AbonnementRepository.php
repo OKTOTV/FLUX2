@@ -52,7 +52,7 @@ class AbonnementRepository extends EntityRepository
             ->getResult();
     }
 
-    public function findAbonnementsForEncodedEpisode($series)
+    public function findAbonnementsForFinalizedEpisode($series)
     {
         return $this->getEntityManager()
             ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.encodedEpisode = 1')
