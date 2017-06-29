@@ -13,8 +13,10 @@ class NotificationListener
     private $new_post_template;
     private $em;
     private $router;
+    private $new_comment_onBlogpost_template;
+    private $new_comment_onEpisode_template;
 
-    public function __construct($notificationService, $em, $router, $livestream_template, $new_post_template, $new_episode_template)
+    public function __construct($notificationService, $em, $router, $livestream_template, $new_post_template, $new_episode_template, $new_comment_onBlogpost_template, $new_comment_onEpisode_template)
     {
         $this->notificationService = $notificationService;
         $this->em = $em;
@@ -22,6 +24,8 @@ class NotificationListener
         $this->new_post_template = $new_post_template;
         $this->new_episode_template = $new_episode_template;
         $this->router = $router;
+        $this->new_comment_onBlogpost_template = $new_comment_onBlogpost_template;
+        $this->new_comment_onEpisode_template = $new_comment_onEpisode_template;
     }
 
     public function onNewEpisode($episode)
@@ -34,8 +38,12 @@ class NotificationListener
                     $this->router->generate('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]),
                     'oktothek.notification_message_episode',
                     ['%series%' => $episode->getSeries()->getName()],
-                    $this->$new_episode_template,
-                    'oktothek.notification_message_episode'
+                    $this->new_episode_template,
+                    'oktothek.notification_message_episode',
+                    [
+                        'episode' => $episode,
+                        'notification' => $abonnement
+                    ]
                 );
             } else {
                 $this->notificationService->addNewNotification(
@@ -59,8 +67,12 @@ class NotificationListener
                         $this->router->generate('oktothek_show_series_blogpost', ['slug' => $post->getSlug()]),
                         'oktothek.notification_message_post',
                         ['%series%' => $post->getSeries()->getName()],
-                        $this->$new_episode_template,
-                        'oktothek.notification_message_post'
+                        $this->new_post_template,
+                        'oktothek.notification_message_post',
+                        [
+                            'notification' => $abonnement,
+                            'post' => $post
+                        ]
                     );
                 } else {
                     $this->notificationService->addNewNotification(
@@ -85,8 +97,11 @@ class NotificationListener
                         $this->router->generate('tv'),
                         'oktothek.notification_message_livestream',
                         ['%series%' => $series->getName()],
-                        $this->$new_episode_template,
-                        'oktothek.notification_message_livestream'
+                        $this->livestream_template,
+                        'oktothek.notification_message_livestream',
+                        [
+                            'notification' => $abonnement
+                        ]
                     );
                 } else {
                     $this->notificationService->addNewNotification(
@@ -111,8 +126,12 @@ class NotificationListener
                         $this->router->generate('oktothek_show_series_blogpost', ['slug' => $post->getSlug()]),
                         'oktothek.notification_message_post_new_comment',
                         [],
-                        $this->$new_episode_template,
-                        'oktothek.notification_message_post_new_comment'
+                        $this->new_comment_onBlogpost_template,
+                        'oktothek.notification_message_post_new_comment',
+                        [
+                            'notification' => $abonnement,
+                            'post' => $post
+                        ]
                     );
                 } else {
                     $this->notificationService->addNewNotification(
@@ -137,8 +156,12 @@ class NotificationListener
                         $this->router->generate('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]),
                         'oktothek.notification_message_episode_new_comment',
                         ['%series%' => $episode->getSeries()->getName()],
-                        $this->$new_episode_template,
-                        'oktothek.notification_message_episode_new_comment'
+                        $this->new_comment_onEpisode_template,
+                        'oktothek.notification_message_episode_new_comment',
+                        [
+                            'notification' => $abonnement,
+                            'episode' => $episode
+                        ]
                     );
                 } else {
                     $this->notificationService->addNewNotification(
@@ -164,8 +187,12 @@ class NotificationListener
                         $this->router->generate('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]),
                         'oktothek.notification_message_finalized_episode',
                         [],
-                        $this->$new_episode_template,
-                        'oktothek.notification_message_finalized_episode'
+                        $this->new_episode_template,
+                        'oktothek.notification_message_finalized_episode',
+                        [
+                            'notification' => $abonnement,
+                            'episode' => $episode
+                        ]
                     );
                 } else {
                     $this->notificationService->addNewNotification(

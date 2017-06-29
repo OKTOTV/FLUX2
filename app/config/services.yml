@@ -2,6 +2,8 @@ parameters:
     livestream_template:    "AppBundle::Mail/livestream.html.twig"
     new_post_template:      "AppBundle::Mail/new_post.html.twig"
     new_episode_template:   "AppBundle::Mail/new_episode.html.twig"
+    new_comment_onBlogpost_template: "AppBundle::Mail/commentBlogpost.html.twig"
+    new_comment_onEpisode_template: "AppBundle::Mail/commentEpisode.html.twig"
     newsletter.api_key:            "%mailchimp_api_key%"
 
 services:
@@ -170,6 +172,6 @@ services:
 
     oktothek_notification_service:
         class: AppBundle\Event\NotificationListener
-        arguments: [ "@bprs_user.notification", "@doctrine.orm.entity_manager", "@router", %livestream_template%, %new_post_template%, %new_episode_template% ]
+        arguments: [ "@bprs_user.notification", "@doctrine.orm.entity_manager", "@router", %livestream_template%, %new_post_template%, %new_episode_template%, %new_comment_onBlogpost_template%, %new_comment_onEpisode_template% ]
         tags:
             - { name: kernel.event_listener, event: oktolab_media.finalized_episode, method: onFinalizedEpisode }
