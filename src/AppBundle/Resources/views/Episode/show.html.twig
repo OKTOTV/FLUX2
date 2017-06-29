@@ -181,18 +181,17 @@
                     });
                 }
             });
+        });
 
-            $('.answer_comment').click(function(e){
-                e.preventDefault();
-                var parent = $(this).parent();
-                $(this).hide();
-                $.ajax({
-                    url: $(this).attr("href"),
+        $(document).on('click', '.answer_comment', function(e){
+            e.preventDefault();
+            var parent = $(this).parent();
+            $(this).hide();
+            $.ajax({
+                url: $(this).attr("href"),
 
-                }).success(function(data) {
-                    $(data).hide().appendTo($(parent)).slideDown();
-                    // $(parent).append(data);
-                });
+            }).success(function(data) {
+                $(data).hide().appendTo($(parent)).slideDown();
             });
         });
 
