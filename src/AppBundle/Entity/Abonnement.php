@@ -46,7 +46,7 @@ class Abonnement
     private $newPost;
 
     /**
-     * @ORM\Column(name="send_mails", type="boolean", options={"default"= false})
+     * @ORM\Column(name="send_mails", type="boolean", options={"default"=false})
      */
     private $send_mails;
 

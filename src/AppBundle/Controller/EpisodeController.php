@@ -28,12 +28,22 @@ class EpisodeController extends Controller
         if (!$episode->canBeOnline()) {
             throw $this->createNotFoundException();
         }
+
         $this->get('bprs_analytics')->trackInfo($request, $episode->getUniqID());
+
+        $em = $this->getDoctrine()->getManager();
+        $comments = $this->get('knp_paginator')->paginate(
+            $em->getRepository('AppBundle:EpisodeComment')->findComments(0, true),
+            $request->query->get('page', 1),
+            $request->query->get('results', 10)
+        );
+
         $next = $this->getDoctrine()->getRepository('AppBundle:Episode')->findNextEpisode($episode);
         return [
             'episode' => $episode,
             'next' => $next,
-            'start' => $request->query->get('start', false)
+            'start' => $request->query->get('start', false),
+            'comments' => $comments
         ];
     }
 

@@ -76,7 +76,7 @@
                                 {{ 'oktothek.menu_user_notifications_empty'|trans|raw }} <span class="visible-xs-inline">{{ 'oktothek.menu_notification_xs'|trans }}</span>
                             {% endif %}
                         </a>
-                        <ul class="dropdown-menu" role="menu">
+                        {# <ul class="dropdown-menu" role="menu">
                             <li><div class="triangle"></div></li>
                             {% for notification in app.user.notifications %}
                                 {% if notification.type == constant('AppBundle\\Entity\\Notification::NEW_EPISODE') %}
@@ -107,7 +107,7 @@
                             <li class="notifications">
                                 <p><a href="{{ path('oktothek_user_abonnements') }}">{{ 'oktothek.menu_user_settings_notifications'|trans}}</a></p>
                             </li>
-                        </ul>
+                        </ul> #}
                     </li>
                 {% endif %}
             {% else %}

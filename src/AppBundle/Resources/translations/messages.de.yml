@@ -230,13 +230,20 @@ oktothek.episode_show_in_backend:       Im Backend anzeigen
 oktothek.episode_show_in_frontend:      '<span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Zum Frontend'
 
 ## comment
-oktothek.comment_author:                %name% am <span class="time">%date%</span>
+oktothek.comment_author:                '%name% am <span class="time">%date%</span>'
+oktothek.comment_author_date:           "%day%, %date%"
+oktothek.comment_author_date_format:    "d.m.Y H:i"
+oktothek.comment_author_day_choice:     "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} Sa|{7} So"
 oktothek.comment_reply_choice:          '{0} Antworten |{1} Eine Antwort |]1,Inf[ %count% Antworten'
-oktothek.comment_reply_button:          Antwort senden
-oktothek.comment_create_button:         Kommentar senden
-oktothek.comment_placeholder_text:      Dein Kommentar...
-oktothek.comment_create_success:        Dein Kommentar wurde erfolgreich gepostet
-oktothek.comment_create_error:          Dein Kommentar konnte nicht gepostet werden
+oktothek.comment_reply_button:          "Antwort senden"
+oktothek.comment_create_button:         "Kommentar senden"
+oktothek.comment_placeholder_text:      "Dein Kommentar..."
+oktothek.comment_create_success:        "Dein Kommentar wurde erfolgreich gepostet"
+oktothek.comment_create_error:          "Dein Kommentar konnte nicht gepostet werden"
+oktothek.comment_send_button:           "Kommentar senden"
+oktothek_comment_edit:                  "Bearbeiten"
+oktothek_comment_answer:                "Antworten"
+
 
 ### commentPager.html.twig
 oktothek_comment_cP_login_title:        "Zum Kommentieren anmelden"
