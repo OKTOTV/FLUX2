@@ -18,7 +18,7 @@
         </header>
         <div class="container content-bg">
             {% if episodes is not empty %}
-                <section class="inc-pins">
+                <section class="inc-pins" itemscope="itemscope" itemtype="http://schema.org/ItemList">
                     <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
                     {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': episodes} %}
                     {% if episodes|length > 5 %}

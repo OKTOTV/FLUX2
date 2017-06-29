@@ -290,9 +290,12 @@ div.list-group.tags span.label.label-default.remove {
 	text-transform:uppercase;
 }
 
+header .search-tagnav-position li a, .episode .tags a, #episode-tag option {
+    text-transform: lowercase;
+}
+
 .btn.btn-top, 
 .checkbox label,
-#episode-tag option, 
 #slider h3, 
 header .navbar-nav.themes a, 
 .playlists .btn.circle, 
@@ -994,6 +997,7 @@ button.list-group-item,
 .btn, 
 .pin-icon .choosen, 
 .episode .series a, 
+.episode .list-group.playlists,
 a, 
 a.more,
 .icon.participant-arrow-down,
@@ -2182,7 +2186,7 @@ header .icon.icon-login {
 	width:12px;
 	height:14px;
 }
-header .icon.icon-transmitter {
+header .icon.icon-transmitter, header .icon.icon-transmitter-active {
 	width:18px;
 	height:18px;
 }
@@ -3419,4 +3423,7 @@ body.episode a.backend {
         display: inline;
         margin-bottom:0;
     }
+}
+.notshow {
+    display: none;
 }

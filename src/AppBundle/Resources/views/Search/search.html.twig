@@ -11,7 +11,7 @@
         <div class="dropdown hidden-xs" role="navigation">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuTags" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{ 'oktothek.menu_tag_dropdown'|trans|raw}}</span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuTags">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuTags" itemscope="itemscope" itemtype="http://schema.org/WebPage">
                 {{ render(controller('AppBundle:Tag:menuTags')) }}
             </ul>
         </div>

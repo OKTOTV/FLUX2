@@ -8,7 +8,7 @@
             {% endif %}
         {% endif %}
 
-        <article class="row post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+        <article class="row post" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
             {% if text_only == false %}
                 <figure class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug, 'uniqID': series.uniqID})}}" itemprop="url">
@@ -21,7 +21,11 @@
             {% endif %}
                     <meta itemprop="datePublished" content="{{ teasers[0].createdAt|date('Y-m-d')}}" />
                     <meta itemprop="image" content="{{ teasers[0].assets[0]|thumb(220,390) }}">
-                    <meta itemprop="author" content="">
+                    <meta itemprop="author" content="{{ series.name }} Team">
+                    <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
+                        <meta itemprop="name" content="Okto Community TV">
+                        <meta itemprop="logo" content="{{ asset('bundles/app/images/okto_logo.png')}}">
+                    </span>
                     <p class="tags">
                         {% for tag in teasers[0].tags %}
                             <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}" class="tag">{{ tag.text }}</a>

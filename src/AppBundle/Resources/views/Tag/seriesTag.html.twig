@@ -1,13 +1,15 @@
 <div class="row">
     {% for series in seriess %}
         {% if loop.first %}
-            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ series.description }}" itemscope itemtype="http://schema.org/Series">
+            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ series.description }}" itemscope="itemscope" itemtype="http://schema.org/Series">
                 <figure class="series-pin pin">
-                    <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}" itemprop="thumbnailUrl">
+                    <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}">
+                        <meta itemprop="thumbnailUrl" content="{{ series.posterframe|thumb(309,550) }}" />
+                        <meta itemprop="url" content="{{ url|default(path('oktothek_show_series', {'uniqID': series.uniqID})) }}" />
                         <img src="{{ series.posterframe|thumb(309,550) }}" class="img-responsive" alt="{{ series.name }}" itemprop="image" />
                     </a>
                     <figcaption>
-                        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}" itemprop="url">
+                        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}" title="{{ series.name }}">
                             <h3 itemprop="name">{{ series.name }}</h3>
                         </a>
                     </figcaption>

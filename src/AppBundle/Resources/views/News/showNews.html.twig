@@ -7,7 +7,7 @@
 
 {% set body_class = "news" %}
 {% block body %}
-    <div class="container">
+    <div class="container" itemscope="itemscope" itemtype="http://schema.org/NewsArticle">
         <div class="row">
             <div class="col-md-8 news-container">
                 {% include 'AppBundle::News/post.html.twig' %}

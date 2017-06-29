@@ -3,6 +3,7 @@
     {% if post.assets is empty %} {# no assets#}
     {% elseif post.assets|length == 1 %} {# one photo or video #}
         {% if post.assets[0].mimetype == 'image/jpeg' or post.assets[0].mimetype == 'image/png' %}
+            <meta itemprop="image" content="{{ post.assets[0]|path() }}" />
             <img src="{{ post.assets[0]|path() }}" class="img img-responsive" />
         {% else %}
             <a href="{{ post.assets[0]|path() }}" >{{ post.assets[0].name }}</a> {# something to download #}
@@ -42,11 +43,17 @@
     {% endif %}
     </figure>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <p>{% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}" class="tag">{{ tag.text }}</a>{% endfor %}</p>
+        <meta itemprop="author" content="{{ 'oktothek_author_of_slides'|trans }}" />
+        <meta itemprop="datePublished" content="{{ post.onlineAt|date('Y-m-d')}}" />
+        <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
+            <meta itemprop="name" content="Okto Community TV">
+            <meta itemprop="logo" content="{{ asset('bundles/app/images/okto_logo.png')}}">
+        </span>
+        <p>{% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}" class="tag" itemprop="keywords">{{ tag.text }}</a>{% endfor %}</p>
         <header class="page-header">
-            <h3><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
+            <h3 itemprop="headline"><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
         </header>
-        {{ post.description|markdown() }}
+        <span itemprop="description">{{ post.description|markdown() }}</span>
         <p class="misc">
             <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
         </p>
