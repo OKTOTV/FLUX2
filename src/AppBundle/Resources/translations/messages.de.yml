@@ -442,11 +442,14 @@ oktothek.backend_index_sort_createdAt:  '<span class="glyphicon glyphicon-calend
 oktothek.backend_show_comment_drop:     'Aktionen<span class="caret"></span>'
 oktothek.backend_show_comment_back_to_backend: '<span class="glyphicon glyphicon-arrow-left"></span> Administrationsbereich'
 oktothek.backend_show_comment_back_to_index: '<span class="glyphicon glyphicon-list"></span> Kommentar Index'
-oktothek.backend_show_referer:          'Suche Episode mit Referenz'
+oktothek.backend_comment_show_news:     '<span class="glyphicon glyphicon-eye"></span> Newsbeitrag ansehen'
+oktothek.backend_comment_show_blogpost: '<span class="glyphicon glyphicon-eye"></span> Sendereihenpost ansehen'
+oktothek.backend_comment_show_episode: '<span class="glyphicon glyphicon-eye"></span> Episode ansehen'
 oktothek.backend_show_comment_remove:   '<span class="glyphicon glyphicon-warning-sign"></span> Kommentar entfernen'
 
 ### comment remove.html.twig
 oktothek.backend_comment_remove_label:  'Kommentar sperren'
+oktothek.success_update_comment:        'Kommentar erfolgreich aktualisiert'
 
 ## Comment commentPager.html.twig
 oktothek.comment_pager_comment_removed: "Dieses Kommentar wurde entfernt"

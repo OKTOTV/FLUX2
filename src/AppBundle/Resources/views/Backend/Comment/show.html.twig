@@ -13,8 +13,16 @@
             </button>
             <ul class="dropdown-menu">
                 <li><a href="{{ path('backend') }}">{{ 'oktothek.backend_show_comment_back_to_backend'|trans|raw }}</a></li>
+                {% if comment.post is defined %}
+                    {% if comment.post.series is empty %} {# news #}
+                        <li><a href="{{ path('oktothek_show_news', {'slug': comment.post.slug}) }}">{{ 'oktothek.backend_comment_show_news'|trans|raw}}</a></li>
+                    {% else %} {# series blogpost #}
+                        <li><a href="{{ path('oktothek_show_series_blogpost', {'slug': comment.post.slug}) }}">{{ 'oktothek.backend_comment_show_blogpost'|trans|raw}}</a></li>
+                    {% endif %}
+                {% elseif comment.episode is defined %}
+                    <li><a href="{{ path('oktothek_show_episode', {'uniqID': comment.episode.uniqID}) }}">{{ 'oktothek.backend_comment_show_episode'|trans|raw}}</a></li>
+                {% endif %}
                 <li><a href="{{ path('oktolab_backend_comment_index') }}">{{ 'oktothek.backend_show_comment_back_to_index'|trans|raw }}</a></li>
-                <li><a href="{{ path('oktothek_show_episode', {'uniqID': comment.referer}) }}">{{ 'oktothek.backend_show_referer'|trans|raw}}</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="{{ path('oktothek_backend_comment_remove', {'comment': comment.id}) }}">{{ 'oktothek.backend_show_comment_remove'|trans|raw }}</a></li>
             </ul>
