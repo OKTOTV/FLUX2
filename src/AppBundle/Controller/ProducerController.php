@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,6 +13,7 @@ use AppBundle\Entity\Series;
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\Post;
 use AppBundle\Entity\Playlist;
+use AppBundle\Entity\Abonnement;
 use AppBundle\Form\Series\PostType;
 use AppBundle\Form\PlaylistUserType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -73,6 +75,11 @@ class ProducerController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $abonnement = $em->getRepository('AppBundle:Abonnement')->findAbonnementForUserAndSeries($this->getUser(), $series);
+        if (!$abonnement) {
+            $abonnement = new Abonnement();
+            $abonnement->setSeries($series);
+            $abonnement->setUser($this->getUser());
+        }
         $abonnement->setNewCommentOnEpisode($request->query->get('episode_comment', false));
         $abonnement->setNewCommentOnBlogPost($request->query->get('blogpost_comment', false));
         $em->persist($abonnement);
