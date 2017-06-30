@@ -15,7 +15,7 @@ class CommentRepository extends EntityRepository
     public function findComments($results = 10, $query_only = false)
     {
         $query = $this->getEntityManager()
-            ->createQuery('SELECT c, u FROM AppBundle:Comment c LEFT JOIN c.user u ORDER BY c.createdAt DESC');
+            ->createQuery('SELECT c FROM AppBundle:Comment c ORDER BY c.createdAt DESC');
 
         if ($query_only) {
             return $query;

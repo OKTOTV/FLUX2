@@ -6,7 +6,7 @@
     <div class="collapse-content">
         <h3>Teilen</h3>
         <div class="row">
-            <form class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><input type="text" value="{{ url('oktothek_series_blog_show', {'slug': post.slug, 'webtitle': series.webtitle})}}" class="form-control"></form>
+            <form class="col-lg-6 col-md-6 col-sm-12 col-xs-12"><input type="text" value="{{ url('oktothek_show_series_blogpost', {'slug': post.slug})}}" class="form-control"></form>
             <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 share-buttons" itemscope="itemscope" itemtype="http://schema.org/ShareAction">
                 <ul class="socialnetworks">
                     <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="auf Facebook teilen"><span itemprop="recipient">{{ 'oktothek_series.share_fb'|trans }}</span></a></li>

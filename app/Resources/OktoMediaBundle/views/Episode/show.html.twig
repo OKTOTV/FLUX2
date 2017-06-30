@@ -1,5 +1,13 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
-
+{% block title %}
+        {{
+            'oktothek.episode_title'|trans({
+                '%episode%': episode.name|default(
+                    'oktothek.episode_title_fallback'|trans({'%uniqID%': episode.uniqID})
+                )
+            })
+        }}
+{% endblock %}
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'delorian', 'dropdown': ''} %}
 {% endblock %}

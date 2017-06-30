@@ -20,7 +20,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             {% endif %}
                     <meta itemprop="datePublished" content="{{ teasers[0].createdAt|date('Y-m-d')}}" />
-                    <meta itemprop="image" content="{{ teasers[0].assets[0]|thumb(220,390) }}">
+                    {# <meta itemprop="image" content="{{ teasers[0].assets[0]|thumb(220,390) }}"> #}
                     <meta itemprop="author" content="{{ series.name }} Team">
                     <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
                         <meta itemprop="name" content="Okto Community TV">
@@ -33,7 +33,7 @@
                     </p>
                     <header class="page-header">
                         <h3 itemprop="headline">
-                            <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug, 'uniqID': series.uniqID})}}">
+                            <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug})}}">
                                 {{ teasers[0].name }}
                             </a>
                         </h3>
@@ -52,10 +52,6 @@
                 </div>
             {% include "AppBundle:Series/Blog:_shareCollapse.html.twig" with {'post': teasers[0]} %}
         </article>
-
-        <div class="comments comment-pager">
-            {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': teasers[0].uniqID, 'page': 1})) }}
-        </div>
     </div>
     <aside class="col-md-3 col-lg-3 col-sm-3 hidden-xs">
         <div class="aside-inner clearfix">

@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
-class AbonnementType extends AbstractType {
+class OktoAbonnementType extends AbstractType {
 
     /**
      * @param FormBuilderInterface $builder
@@ -29,6 +29,21 @@ class AbonnementType extends AbstractType {
             ->add('newPost', CheckboxType::class,
                 [
                     'label' => 'oktothek_abonnement_new_post_label',
+                    'required' => false
+                ])
+            ->add('newCommentOnEpisode', CheckboxType::class,
+                [
+                    'label' => 'oktothek_abonnement_new_comment_on_episode_label',
+                    'required' => false
+                ])
+            ->add('newCommentOnBlogPost', CheckboxType::class,
+                [
+                    'label' => 'oktothek_abonnement_new_comment_on_blogpost_label',
+                    'required' => false
+                ])
+            ->add('encodedEpisode', CheckboxType::class,
+                [
+                    'label' => 'oktothek_abonnement_encodedEpisode_label',
                     'required' => false
                 ])
             ->add('send_mails', CheckboxType::class,

@@ -18,49 +18,54 @@ oktothek_layout_search:                 "Suche ein-/ausblenden"
 oktothek_more_results:                  "Alles Anzeigen"
 
 ## menu
-oktothek.menu_oktothek:                 Oktothek
-oktothek.menu_tv:                       TV
-oktothek.menu_participate:              Mitmachen
-oktothek.menu_academy:                  Workshops
-oktothek.menu_upload:                   Hochladen
-oktothek.menu_upload_title:             "Produktion hochladen"
-oktothek.menu_backend:                  <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend
-oktothek.menu_user_playlists:           <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Playlisten
-oktothek.menu_user_channels:            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Abos
-oktothek.menu_user_favorites:           <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoriten
-oktothek.menu_my_channels:              <span class="glyphicon glyphicon-film" aria-hidden="true"></span> Meine Sendereihen
-oktothek.menu_user_logout:              <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Abmelden
-oktothek.menu_user_notifications:       <span class="icon icon-transmitter-active"></span>
-oktothek.menu_user_notifications_empty: <span class="icon icon-transmitter"></span>
-oktothek.menu_user_no_notifications:    "Im Moment sind keine Benachrichtigungen vorhanden."
-oktothek.menu_user_settings_notifications: "Hier kannst du deine Abos verwalten."
-oktothek.notification_message_episode:  "%series% hat eine neue Episode veröffentlicht"
-oktothek.notification_message_post:     "%series% hat einen neuen Beitrag veröffentlicht"
-oktothek.notification_livestream:       "%series% ist jetzt Live"
-oktothek.searchfiled_submit:            <span class="glyphicon glyphicon-search"></span>
-oktothek.menu_tag_dropdown:             'Themen <span class="caret">'
-oktothek.menu_best_tags:                "Beliebteste Themen"
-oktothek.menu_notification_xs:          "Benachrichtigung"
-oktothek.menu_user_notifications_title: "Benachrichtigungen"
+oktothek.menu_oktothek:                             "Oktothek"
+oktothek.menu_tv:                                   "TV"
+oktothek.menu_participate:                          "Mitmachen"
+oktothek.menu_academy:                              "Workshops"
+oktothek.menu_upload:                               "Hochladen"
+oktothek.menu_upload_title:                         "Produktion hochladen"
+oktothek.menu_backend:                              '<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend'
+oktothek.menu_user_playlists:                       '<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Playlisten'
+oktothek.menu_user_channels:                        '<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Abos'
+oktothek.menu_user_favorites:                       '<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favoriten'
+oktothek.menu_my_channels:                          '<span class="glyphicon glyphicon-film" aria-hidden="true"></span> Meine Sendereihen'
+oktothek.menu_user_logout:                          '<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Abmelden'
+oktothek.menu_user_notifications:                   '<span class="icon icon-transmitter-active"></span>'
+oktothek.menu_user_notifications_empty:             '<span class="icon icon-transmitter"></span>'
+oktothek.menu_user_no_notifications:                "Keine neuen Benachrichtigungen"
+oktothek.menu_user_settings_notifications:          "Hier kannst du deine Abos verwalten."
+oktothek.menu_user_set_all_notifications_to_read:   "Markiere alle als gelesen"
+oktothek.menu_user_show_all_notifications:          "Alle anzeigen"
+oktothek.notification_message_episode:              "%series% hat eine neue Episode veröffentlicht"
+oktothek.notification_message_episode_new_comment:  "Neuer Kommentar zu deiner Episode"
+oktothek.notification_message_post:                 "%series% hat einen neuen Beitrag veröffentlicht"
+oktothek.notification_message_post_new_comment:     "Neuer Kommentar zu deinem Beitrag"
+oktothek.notification_message_livestream:           "%series% ist jetzt Live"
+oktothek.notification_message_finalized_episode:    "Eine Episode von %series% wurde finalisiert"
+oktothek.searchfiled_submit:                        '<span class="glyphicon glyphicon-search"></span>'
+oktothek.menu_tag_dropdown:                         'Themen <span class="caret">'
+oktothek.menu_best_tags:                            "Beliebteste Themen"
+oktothek.menu_notification_xs:                      "Benachrichtigung"
+oktothek.menu_user_notifications_title:             "Benachrichtigungen"
 
 ## Search
 ### results.html.twig
 oktothek_search_courses_header:         "Workshops"
 
 ## oktothek index
-oktothek.participate_header:            Mitmachen
-oktothek.newest_videos:                 Brandneu in der Oktothek
-oktothek.newest_videos_sub:             Hier kannst du dir die aktuellsten Videos unserer OktonautInnen ansehen.
-oktothek.newest_videos_show_more:       Mehr Videos anzeigen <span class='icon'>+</span>
-oktothek.newest_videos_show_less:       Weniger Videos anzeigen <span class='icon'>-</span>
-oktothek.best_videos:                   Beliebteste Clips
-oktothek.best_videos_sub:               Die meistgefragten Videos der Okto Community findest du hier.
+oktothek.participate_header:            "Mitmachen"
+oktothek.newest_videos:                 "Brandneu in der Oktothek"
+oktothek.newest_videos_sub:             "Hier kannst du dir die aktuellsten Videos unserer OktonautInnen ansehen."
+oktothek.newest_videos_show_more:       "Mehr Videos anzeigen <span class='icon'>+</span>"
+oktothek.newest_videos_show_less:       "Weniger Videos anzeigen <span class='icon'>-</span>"
+oktothek.best_videos:                   "Beliebteste Clips"
+oktothek.best_videos_sub:               "Die meistgefragten Videos der Okto Community findest du hier."
 
 oktothek.newest_playlists:              "Aktuelle Playlisten"
 oktothek.newest_playlists_sub:          "Tipps von einem anderen Stern."
-oktothek.newest_playlists_show_more:    Mehr Playlisten anzeigen <span class="icon">+</span>
-oktothek.newest_playlists_show_less:    Weniger Playlisten anzeigen <span class="icon">-</span>
-oktothek.newest_news_show_more:         Mehr News anzeigen
+oktothek.newest_playlists_show_more:    'Mehr Playlisten anzeigen <span class="icon">+</span>'
+oktothek.newest_playlists_show_less:    'Weniger Playlisten anzeigen <span class="icon">-</span>'
+oktothek.newest_news_show_more:         "Mehr News anzeigen"
 oktothek.episode_stack_collapse_title:  "Mehr Videos anzeigen"
 
 oktothek.newest_episodes_title:         "Neueste Clips in der Oktothek | Okto"
@@ -69,36 +74,36 @@ oktothek.best_episodes_title:           "Beliebteste Clips in der Oktothek | Okt
 oktothek.best_episodes_header:          "Beliebteste Clips"
 ## register
 oktothek.user_register_title:           "Der Community beitreten | Okto"
-oktothek.user_name_label:               Benutzername
-oktothek.user_name_placeholder:         Username. Ist öffentlich zugänglich.
-oktothek.user_email_label:              Email
-oktothek.user_email_placeholder:        Deine Email. Bleibt privat und wird zum registrieren verwendet
-oktothek.register_user_button:          Account anlegen
-oktothek.error_create_account:          Beim Anlegen des Accounts ist ein Fehler aufgetreten. Bitte versuche es zu einem späteren Zeitpunkt noch einmal oder kontaktiere uns unter support@okto.tv #Account konnte nicht angelegt werden
-oktothek.success_create_account:        Account wurde angelegt. Schau in dein Postfach!
-oktothek.login_register:                Neuen Account anlegen
+oktothek.user_name_label:               "Benutzername"
+oktothek.user_name_placeholder:         "Username. Ist öffentlich zugänglich."
+oktothek.user_email_label:              "Email"
+oktothek.user_email_placeholder:        "Deine Email. Bleibt privat und wird zum registrieren verwendet"
+oktothek.register_user_button:          "Account anlegen"
+oktothek.error_create_account:          "Beim Anlegen des Accounts ist ein Fehler aufgetreten. Bitte versuche es zu einem späteren Zeitpunkt noch einmal oder kontaktiere uns unter support@okto.tv"
+oktothek.success_create_account:        "Account wurde angelegt. Schau in dein Postfach!"
+oktothek.login_register:                "Neuen Account anlegen"
 
 ## search and results
-oktothek_results_header:                Suchergebnisse für "%searchphrase%"
+oktothek_results_header:                'Suchergebnisse für "%searchphrase%"'
 oktothek.searchfield_placeholder:       "Suche Videos, Leute und Infos"
 oktothek.searchfield_label:             "Suche"
 
 ## Default
 ### oktothek.html.twig
-oktothek_default_welcome:               "Willkommen %user%!"
-oktothek_default_sub_welcome:           "Viele neue Videos und Möglichkeiten warten auf dich."
-oktothek_default_participate:           "Mitmachen"
-oktothek_default_participate_sub:       "Du platzt vor Ideen? Dann bist du bei uns richtig!"
-oktothek_default_participate_login:     "Melde Dich an!"
-oktothek_default_participate_view_clips: "Clips ansehen"
-oktothek_default_participate_view_clips_title: "Eintauchen in die Oktothek und Videos ansehen."
-oktothek_default_participate_5_steps:   "5 Schritte zur eigenen Sendung"
-oktothek_default_participate_5_steps_title: "Wie werde ich zum/zur SendungsmacherIn? Von der Couch ins TV-Studio."
-oktothek_default_participate_equipment: "Equipment &<br />Verleih"
-oktothek_default_participate_equipment_title: "Hier kannst du dir das Equipment für deinen nächsten Dreh ausborgen."
-oktothek_default_participate_upload:    "Produktion hochladen"
-oktothek_default_participate_upload_title: "Dein Video ist bereit zum Herzeigen? Du kannst es hier hochladen."
-oktothek_default_useless_fancy_button:  "Hier!"
+oktothek_default_welcome:                       "Willkommen %user%!"
+oktothek_default_sub_welcome:                   "Viele neue Videos und Möglichkeiten warten auf dich."
+oktothek_default_participate:                   "Mitmachen"
+oktothek_default_participate_sub:               "Du platzt vor Ideen? Dann bist du bei uns richtig!"
+oktothek_default_participate_login:             "Melde Dich an!"
+oktothek_default_participate_view_clips:        "Clips ansehen"
+oktothek_default_participate_view_clips_title:  "Eintauchen in die Oktothek und Videos ansehen."
+oktothek_default_participate_5_steps:           "5 Schritte zur eigenen Sendung"
+oktothek_default_participate_5_steps_title:     "Wie werde ich zum/zur SendungsmacherIn? Von der Couch ins TV-Studio."
+oktothek_default_participate_equipment:         "Equipment &<br />Verleih"
+oktothek_default_participate_equipment_title:   "Hier kannst du dir das Equipment für deinen nächsten Dreh ausborgen."
+oktothek_default_participate_upload:            "Produktion hochladen"
+oktothek_default_participate_upload_title:      "Dein Video ist bereit zum Herzeigen? Du kannst es hier hochladen."
+oktothek_default_useless_fancy_button:          "Hier!"
 
 ### footer.html.twig
 oktothek_default_footer_back_to_top:    'Nach oben <span class="icon icon-top"></span>'
@@ -118,84 +123,84 @@ oktothek_default_footer_partner:        "Partner"
 oktothek_news_index_title:              "TV-Tipps und Neuigkeiten aus der Community | Okto"
 
 ## form labels
-oktothek.post_name_label:               Titel
-oktothek.post_description_label:        Text
-oktothek.post_isActive_label:           Ist Aktiv
-oktothek.post_onlineAt_label:           Online Ab
-oktothek.post_assets_label:             Anhänge
-oktothek_news_pinned_header:            Neuigkeiten aus dem Oktoversum
-oktothek_post_edit_button:              Post bearbeiten
-oktothek.post_teaser_label:             Teasertext
-oktothek.post_pinned_label:             An Startseite Pinnen
-oktothek.error_create_post:             Newsbeitrag konnte nicht angelegt werden
-oktothek.post_preview_back_button:      <span class="glyphicon glyphicon-chevron-left"></span> Zurück
+oktothek.post_name_label:               "Titel"
+oktothek.post_description_label:        "Text"
+oktothek.post_isActive_label:           "Ist Aktiv"
+oktothek.post_onlineAt_label:           "Online Ab"
+oktothek.post_assets_label:             "Anhänge"
+oktothek_news_pinned_header:            "Neuigkeiten aus dem Oktoversum"
+oktothek_post_edit_button:              "Post bearbeiten"
+oktothek.post_teaser_label:             "Teasertext"
+oktothek.post_pinned_label:             "An Startseite Pinnen"
+oktothek.error_create_post:             "Newsbeitrag konnte nicht angelegt werden"
+oktothek.post_preview_back_button:      '<span class="glyphicon glyphicon-chevron-left"></span> Zurück'
 ## form placeholder
-oktothek.post_onlineAt_placeholder:     TT.MM.JJJJ HH:MM
+oktothek.post_onlineAt_placeholder:     "TT.MM.JJJJ HH:MM"
 
 ## post create
-oktothek.post_create_header:            Neuer Post
-oktothek.post_create_button:            Veröffentlichen
+oktothek.post_create_header:            "Neuer Post"
+oktothek.post_create_button:            "Veröffentlichen"
 
 ## post edit
-oktothek.post_edit_header:              Post bearbeiten
-oktothek.post_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
-oktothek.post_delete_button:            <span class="glyphicon glyphicon-trash"></span> Post löschen
-oktothek.success_edit_post:             Newsbeitrag erfolgreich bearbeitet
+oktothek.post_edit_header:              "Post bearbeiten"
+oktothek.post_update_button:            '<span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern'
+oktothek.post_delete_button:            '<span class="glyphicon glyphicon-trash"></span> Post löschen'
+oktothek.success_edit_post:             "Newsbeitrag erfolgreich bearbeitet"
 
 ## post index
-oktothek.create_new_post_button:        Neuen Beitrag anlegen
-oktothek.post_show_more:                Mehr dazu anzeigen
+oktothek.create_new_post_button:        "Neuen Beitrag anlegen"
+oktothek.post_show_more:                "Mehr dazu anzeigen"
 
-oktothek.success_create_post:           Post erfolgreich angelegt
-oktothek.success_update_post:           Eintrag erfolgreich aktualisiert
- oktothek.success_delete_post  :           Post erfolgreich gelöscht
+oktothek.success_create_post:           "Post erfolgreich angelegt"
+oktothek.success_update_post:           "Eintrag erfolgreich aktualisiert"
+ oktothek.success_delete_post  :           "Post erfolgreich gelöscht"
 
 # AppBundle/Resources/views/Oktothek/snippedEpisodeShare.html.twig
-oktothek.snippedEpisodeShare_title_fb: "Auf Facebook teilen"
-oktothek.snippedEpisodeShare_title_tw: "Auf Twitter teilen"
-oktothek.snippedEpisodeShare_title_gp: "Auf Google+ teilen"
-oktothek.snippedEpisodeShare_title_pin: "Auf Pinterest teilen"
-oktothek.snippedEpisodeShare_title_mail: "Als E-Mail teilen"
+oktothek.snippedEpisodeShare_title_fb:      "Auf Facebook teilen"
+oktothek.snippedEpisodeShare_title_tw:      "Auf Twitter teilen"
+oktothek.snippedEpisodeShare_title_gp:      "Auf Google+ teilen"
+oktothek.snippedEpisodeShare_title_pin:     "Auf Pinterest teilen"
+oktothek.snippedEpisodeShare_title_mail:    "Als E-Mail teilen"
 
 ## page
 ### index page
-oktothek.backend_page_header:           Seiten
-oktothek_backend_page_new:              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neue Seite
+oktothek.backend_page_header:           "Seiten"
+oktothek_backend_page_new:              '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neue Seite'
 
 ### new page
-oktothek.page_create_header:            Neue Seite anlegen
-oktothek.page_create_back_to_index:     Zurück zur übersicht
-oktothek.page_title_label:              Pageheader
-oktothek.page_text_label:               Seiteninhalt
-oktothek.page_isActive_label:           Seite Aktiv
-oktothek.page_create_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Speichern
-oktothek.page_preview_button:           Vorschau <span class="glyphicon glyphicon-chevron-right"></span>
+oktothek.page_create_header:            "Neue Seite anlegen"
+oktothek.page_create_back_to_index:     "Zurück zur übersicht"
+oktothek.page_title_label:              "Pageheader"
+oktothek.page_text_label:               "Seiteninhalt"
+oktothek.page_isActive_label:           "Seite Aktiv"
+oktothek.page_create_button:            '<span class="glyphicon glyphicon-floppy-disk"></span> Speichern'
+oktothek.page_preview_button:           'Vorschau <span class="glyphicon glyphicon-chevron-right"></span>'
 
-oktothek.success_create_page:           Seite erfolgreich angelegt
-oktothek.success_delete_page:           Seite erfolgreich gelöscht
-oktothek.page_create_new_button:        <span class="glyphicon glyphicon-plus"></span> Seite anlegen
-oktothek.page_edit_button:              <span class="glyphicon glyphicon-edit"></span> Seite bearbeiten
-oktothek.page_update_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern
-oktothek.page_delete_button:            <span class="glyphicon glyphicon-trash"></span> Seite löschen
+oktothek.success_create_page:           "Seite erfolgreich angelegt"
+oktothek.success_delete_page:           "Seite erfolgreich gelöscht"
+oktothek.page_create_new_button:        '<span class="glyphicon glyphicon-plus"></span> Seite anlegen'
+oktothek.page_edit_button:              '<span class="glyphicon glyphicon-edit"></span> Seite bearbeiten'
+oktothek.page_update_button:            '<span class="glyphicon glyphicon-floppy-disk"></span> Änderungen Speichern'
+oktothek.page_delete_button:            '<span class="glyphicon glyphicon-trash"></span> Seite löschen'
 
 ### edit page
-oktothek.success_edit_page:             Seite erfolgreich aktualisiert
-oktothek.page_edit_header:              Seite bearbeiten
+oktothek.success_edit_page:             "Seite erfolgreich aktualisiert"
+oktothek.page_edit_header:              "Seite bearbeiten"
 
 ## playlist
 ### index
-oktothek.playlist_index_header:         Playlisten
-oktothek.playlist_index_description:    Über %count% Playlisten warten darauf, von dir entdeckt zu werden.
-oktothek.playlist_index_filter:         <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
-oktothek.playlist_index_filter_name:    Name
-oktothek.playlist_index_filter_createdAt: Erstellt
-oktothek.playlist_index_filter_updatedAt: Letzte Aktualisierung
-oktothek.playlist_index_new_playlist:   <span class="glyphicon glyphicon-plus"></span> Playlist anlegen
-oktothek.playlist_show:                 Playlist %playlist%
+oktothek.playlist_index_header:             "Playlisten"
+oktothek.playlist_index_description:        "Über %count% Playlisten warten darauf, von dir entdeckt zu werden."
+oktothek.playlist_index_filter:             '<span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>'
+oktothek.playlist_index_filter_name:        "Name"
+oktothek.playlist_index_filter_createdAt:   "Erstellt"
+oktothek.playlist_index_filter_updatedAt:   "Letzte Aktualisierung"
+oktothek.playlist_index_new_playlist:       '<span class="glyphicon glyphicon-plus"></span> Playlist anlegen'
+oktothek.playlist_show:                     "Playlist %playlist%"
 
 ### AppBundle/Resources/views/Playlist/edit.html.twig
 oktothek.playlist_edit_title:           "Playlist %playlist% bearbeiten | Okto"
-oktothek.playlist_edit_header:          Playlist bearbeiten
+oktothek.playlist_edit_header:          "Playlist bearbeiten"
 oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Playlist löschen
 oktothek.playlist_create_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Playliste anlegen
 oktothek.playlist_update_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
@@ -228,6 +233,8 @@ oktothek.episode_tag_header:            Tags
 oktothek.success_publish_episode:       Episode veröffentlichen
 oktothek.episode_show_in_backend:       Im Backend anzeigen
 oktothek.episode_show_in_frontend:      '<span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Zum Frontend'
+oktothek.episode_title:                 "Backend %episode% | OKTO"
+oktothek.episode_title_fallback:        "Episode %uniqID%"
 
 ## comment
 oktothek.comment_author:                '%name% am <span class="time">%date%</span>'
@@ -244,6 +251,13 @@ oktothek.comment_send_button:           "Kommentar senden"
 oktothek_comment_edit:                  "Bearbeiten"
 oktothek_comment_answer:                "Antworten"
 
+oktothek.comment_update_success:        "Kommentar erfolgreich bearbeitet"
+oktothek.comment_delete_success:        "Kommentar erfolgreich gelöscht"
+oktothek.comment_update_button:         "Aktualisieren"
+oktothek.comment_delete_button:         "Löschen"
+
+## AppBundle/Resources/views/PostComment/index.html.twig
+oktothek.post_comment_header:           "Kommentare"
 
 ### commentPager.html.twig
 oktothek_comment_cP_login_title:        "Zum Kommentieren anmelden"
@@ -437,11 +451,14 @@ oktothek.backend_index_sort_createdAt:  '<span class="glyphicon glyphicon-calend
 oktothek.backend_show_comment_drop:     'Aktionen<span class="caret"></span>'
 oktothek.backend_show_comment_back_to_backend: '<span class="glyphicon glyphicon-arrow-left"></span> Administrationsbereich'
 oktothek.backend_show_comment_back_to_index: '<span class="glyphicon glyphicon-list"></span> Kommentar Index'
-oktothek.backend_show_referer:          'Suche Episode mit Referenz'
+oktothek.backend_comment_show_news:     '<span class="glyphicon glyphicon-eye"></span> Newsbeitrag ansehen'
+oktothek.backend_comment_show_blogpost: '<span class="glyphicon glyphicon-eye"></span> Sendereihenpost ansehen'
+oktothek.backend_comment_show_episode: '<span class="glyphicon glyphicon-eye"></span> Episode ansehen'
 oktothek.backend_show_comment_remove:   '<span class="glyphicon glyphicon-warning-sign"></span> Kommentar entfernen'
 
 ### comment remove.html.twig
 oktothek.backend_comment_remove_label:  'Kommentar sperren'
+oktothek.success_update_comment:        'Kommentar erfolgreich aktualisiert'
 
 ## Comment commentPager.html.twig
 oktothek.comment_pager_comment_removed: "Dieses Kommentar wurde entfernt"
@@ -759,8 +776,12 @@ oktothek.user_update_subscription_header:   Aboeinstellungen für %series%
 oktothek_abonnement_livestream_label:       Bei Livestreams benachrichtigen
 oktothek_abonnement_new_episode_label:      Bei neuen Episoden benachrichtigen
 oktothek_abonnement_new_post_label:         Bei neuen Beiträgen benachrichtigen
+oktothek_abonnement_new_comment_on_episode_label: Bei Kommentaren zu Episoden benachrichtigen
+oktothek_abonnement_new_comment_on_blogpost_label: Bei Kommentaren zu Blogposts benachrichtigen
+oktothek_abonnement_encodedEpisode_label:   Wenn eine Episode umgerechnet und finalisiert wurde
 oktothek_abonnement_send_mails_label:       Benachrichtigungen auch als Email senden
 oktothek.user_update_abonnement_button:     Einstellungen aktualisieren
+oktothek_update_abonnement_back_link:       Zurück zu Aboeinstellungen
 user_edit_subscription:                     Benachrichtigungseinstellungen
 oktothek_abonnement_empty:                  "Noch keine Abonnements vorhanden"
 
@@ -909,10 +930,11 @@ oktothek_producer_header_live:              "Live"
 oktothek.series_show_in_backend:            "Im Backend anzeigen"
 
 # producer live
-oktothek.series_producer_live_text:         Du bist Live on Air? Lass es deine Fans wissen!
+oktothek.series_producer_live_text:         "Du bist Live on Air? Lass es deine Fans wissen!"
 oktothek_channel_live_confirm_label:        "Jetzt Live!"
-oktothek.notificate_live_button:            Benachrichtigung Senden
-oktothek.error_notificate_livestream:       Benachrichtigung konnte nicht gesendet werden
+oktothek.notificate_live_button:            "Benachrichtigung Senden"
+oktothek.error_notificate_livestream:       "Benachrichtigung konnte nicht gesendet werden"
+oktothek.success_notificate_livestream:     "Deine Abonnenten wurden erfolgreich benachrichtigt!"
 
 ## producer blog
 # AppBundle/Resources/views/Producer/blogposts.html.twig

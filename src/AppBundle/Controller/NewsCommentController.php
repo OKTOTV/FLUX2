@@ -8,60 +8,61 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use AppBundle\Entity\Episode;
-use AppBundle\Entity\EpisodeComment;
-use AppBundle\Form\EpisodeCommentType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use AppBundle\Entity\Post;
+use AppBundle\Entity\PostComment;
+use AppBundle\Form\PostCommentType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
- * Episode controller.
+ * Post controller.
  *
- * @Route("/oktothek/episode_comments")
+ * @Route("/oktothek/news_comments")
  */
-class EpisodeCommentController extends Controller
+class NewsCommentController extends Controller
 {
     /**
-     * @Route("/{uniqID}", name="oktothek_episode_comments")
+     * @Route("/{slug}", name="oktothek_news_comments")
+     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
      * @Template()
      */
-    public function indexAction(Request $request, $uniqID)
+    public function indexAction(Request $request, Post $post)
     {
-        $episode = $this->get('oktolab_media')->getEpisode($uniqID);
         $em = $this->getDoctrine()->getManager();
         $comments = $this->get('knp_paginator')->paginate(
-            $em->getRepository('AppBundle:EpisodeComment')->findCommentsForEpisode($episode, 0, true),
+            $em->getRepository('AppBundle:PostComment')->findCommentsForPost($post, 0, true),
             $request->query->get('page', 1),
             $request->query->get('results', 5)
         );
-        $comments->setUsedRoute('oktothek_episode_comments', ['uniqID' => $episode->getUniqID()]);
-        // $comments->setParam('series', $series->getId());
+        $comments->setUsedRoute('oktothek_news_comments', ['uniqID' => $post->getUniqID()]);
 
-        return ['comments' => $comments, 'episode' => $episode];
+        return ['comments' => $comments, 'post' => $post];
     }
 
     /**
      * @Security("has_role('ROLE_OKTOLAB_USER')")
-     * @Route("/{episode}/create", name="oktothek_episode_comment_create")
+     * @Route("/{post}/create", name="oktothek_news_comment_create")
+     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
      * @Template()
      */
-    public function newCommentAction(Request $request, Episode $episode)
+    public function newCommentAction(Request $request, Post $post)
     {
-        $comment = new EpisodeComment();
+        $comment = new PostComment();
         $user = $this->get('security.context')->getToken()->getUser();
         $comment->setUser($user);
-        $episode->addComment($comment);
+        $post->addComment($comment);
 
         $form = $this->createForm(
-            EpisodeCommentType::class,
+            PostCommentType::class,
             $comment,
-            ['action' => $this->generateUrl('oktothek_episode_comment_create', ['episode' => $episode->getId()])]
+            ['action' => $this->generateUrl('oktothek_news_comment_create', ['post' => $post->getId()])]
         );
         $form->add(
             'submit',
             SubmitType::class,
             [
                 'label' => 'oktothek.comment_send_button',
-                'attr' => ['class' => 'btn btn-link']
+                'attr' => ['class' => 'btn btn-default']
             ]
         );
 
@@ -70,42 +71,41 @@ class EpisodeCommentController extends Controller
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($comment);
-                $em->persist($episode);
+                $em->persist($post);
                 $em->flush();
-                $this->get('oktothek_notification_service')->onCommentOnEpisode($episode);
                 if ($request->isXmlHttpRequest()) {
-                    return $this->render("AppBundle::EpisodeComment/_comment.html.twig", ['comment' => $comment]);
+                    return $this->render("AppBundle::PostComment/_comment.html.twig", ['comment' => $comment]);
                 }
-                return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
+                return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $post->getSlug()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_comment');
             }
         }
 
-        return ['form' => $form->createView(), 'episode' => $episode];
+        return ['form' => $form->createView(), 'post' => $post];
     }
 
     /**
      * @Security("has_role('ROLE_OKTOLAB_USER')")
-     * @Route("/{uniqID}/{parent}/answer", name="oktothek_episode_comment_answer")
+     * @Route("/{slug}/{parent}/answer", name="oktothek_news_comment_answer")
+     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
      * @Template()
      */
-    public function answerCommentAction(Request $request, $uniqID, EpisodeComment $parent)
+    public function answerCommentAction(Request $request, Post $post, PostComment $parent)
     {
-        $episode = $this->get('oktolab_media')->getEpisode($uniqID);
-        $comment = new EpisodeComment();
+        $comment = new PostComment();
 
         $form = $this->createForm(
-            EpisodeCommentType::class,
+            PostCommentType::class,
             $comment,
-            ['action' => $this->generateUrl('oktothek_episode_comment_answer', ['uniqID' => $episode->getUniqID(), 'parent' => $parent->getId()])]
+            ['action' => $this->generateUrl('oktothek_news_comment_answer', ['slug' => $post->getSlug(), 'parent' => $parent->getId()])]
         );
         $form->add(
             'submit',
             SubmitType::class,
             [
                 'label' => 'oktothek.comment_send_button',
-                'attr' => ['class' => 'btn btn-link']
+                'attr' => ['class' => 'btn btn-default answer']
             ]
         );
 
@@ -115,31 +115,33 @@ class EpisodeCommentController extends Controller
                 $user = $this->get('security.context')->getToken()->getUser();
                 $comment->setUser($user);
                 $parent->addChild($comment);
-                $episode->addComment($comment);
+                $post->addComment($comment);
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($episode);
+                $em->persist($post);
                 $em->persist($parent);
                 $em->flush();
-                $this->get('oktothek_notification_service')->onCommentOnEpisode($episode);
-                return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
+                if ($request->isXmlHttpRequest()) {
+                    return $this->render("AppBundle::NewsComment/_answer.html.twig", ['comment' => $comment]);
+                }
+                return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $post->getSlug()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_comment');
             }
         }
         if ($request->isXmlHttpRequest()) {
-            return $this->render("AppBundle::EpisodeComment/_form.html.twig", ['form' => $form->createView()]);
+            return $this->render("AppBundle::PostComment/_form.html.twig", ['form' => $form->createView()]);
         }
-        return ['form' => $form->createView(), 'comment' => $parent, 'episode' => $episode];
+        return ['form' => $form->createView(), 'comment' => $parent, 'post' => $post];
     }
 
     /**
-     * @Route("/edit/{comment}", name="oktothek_episode_comment_edit")
+     * @Route("/edit/{comment}", name="oktothek_news_comment_edit")
      * @Template()
      */
-    public function editCommentAction(Request $request, EpisodeComment $comment)
+    public function editCommentAction(Request $request, PostComment $comment)
     {
         $this->denyAccessUnlessGranted('user_edit', $comment); //symfony voter
-        $commentForm = $this->createForm(EpisodeCommentType::class, $comment, ['action' => $this->generateUrl('oktothek_episode_comment_edit', ['comment' => $comment->getId()])]);
+        $commentForm = $this->createForm(PostCommentType::class, $comment, ['action' => $this->generateUrl('oktothek_news_comment_edit', ['comment' => $comment->getId()])]);
         $commentForm->add('submit', SubmitType::class, ['label' => 'oktothek.comment_update_button', 'attr' => ['class' => 'btn btn-primary']]);
         $commentForm->add('delete', SubmitType::class, ['label' => 'oktothek.comment_delete_button', 'attr' => ['class' => 'btn btn-link']]);
 
@@ -151,19 +153,18 @@ class EpisodeCommentController extends Controller
                     $em->persist($comment);
                     $em->flush();
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_update_success');
-                    return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $comment()->getEpisode()->getUniqID()]));
+                    return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $comment->getPost()->getSlug()]));
                 } elseif ($commentForm->get('delete')->isClicked()) {
-                    $episode = $comment->getEpisode();
-                    $episode->removeComment($comment);
-                    // $em->persist($episode);
+                    $post = $comment->getPost();
+                    $post->removeComment($comment);
                     $em->remove($comment);
                     $em->flush();
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_delete_success');
-                    return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
+                    return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $post->getSlug()]));
                 }
             }
             $this->get('session')->getFlashBag()->add('error', 'oktothek.comment_update_error');
-            return $this->redirect($request->headers->get('referer'));
+            return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $comment->getPost()->getSlug()]));
         }
         return ['form' => $commentForm->createView()];
     }

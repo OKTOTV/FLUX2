@@ -62,6 +62,11 @@ class User extends BaseUser
      */
     private $episode_comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PostComment", mappedBy="user")
+     */
+    private $post_comments;
+
     public function __construct() {
         parent::__construct();
         $this->abonnements = new ArrayCollection();

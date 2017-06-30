@@ -1,6 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
-{% block title %}{{ 'oktothek_user_channels_title'|trans~' | '~name|default('OKTO')}}{% endblock %}
+{% block title %}{{ 'oktothek_user_channels_title'|trans({'%user%': app.user.username})}}{% endblock %}
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'channels', 'dropdown': 'user_menu'} %}
 {% endblock %}
@@ -10,7 +10,7 @@
     <header class="page-header">
         <h1>{{ 'oktothek.user_update_subscription_header'|trans({'%series%': series}) }}</h1>
         <p>
-            <a href="{{ path('oktothek_user_channels', {'username': app.user.username})}}" class="more pull-left"><span class="icon"><span class="glyphicon glyphicon-menu-left"></span></span>{{ 'oktothek_user_channels_title'|trans }}</a>
+            <a href="{{ path('oktothek_user_abonnements') }}" class="more pull-left"><span class="icon"><span class="glyphicon glyphicon-menu-left"></span></span>{{ 'oktothek_update_abonnement_back_link'|trans({'%user%': app.user.username}) }}</a>
         </p>
     </header>
     <section>

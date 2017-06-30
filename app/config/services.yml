@@ -1,7 +1,4 @@
 parameters:
-    livestream_template:    "AppBundle::Mail/livestream.html.twig"
-    new_post_template:      "AppBundle::Mail/new_post.html.twig"
-    new_episode_template:   "AppBundle::Mail/new_episode.html.twig"
     newsletter.api_key:            "%mailchimp_api_key%"
 
 services:
@@ -33,10 +30,6 @@ services:
     user_service:
         class: AppBundle\Model\UserService
         arguments: [ "@doctrine.orm.entity_manager"]
-
-    oktothek_notification_service:
-        class: AppBundle\Model\NotificationService
-        arguments: [ "@doctrine.orm.entity_manager", "@bprs_user.mailer", "@translator", %livestream_template%, %new_post_template%, %new_episode_template% ]
 
     oktothek_coursepackage:
         class: AppBundle\Model\CoursepackageService
@@ -171,3 +164,9 @@ services:
         tags:
             - { name: kernel.event_listener, event: bprs_asset.pre_create, method: onPrePersist }
             - { name: kernel.event_listener, event: bprs_asset.pre_delete, method: onPreDelete }
+
+    oktothek_notification_service:
+        class: AppBundle\Event\NotificationListener
+        arguments: [ "@bprs_user.notification", "@doctrine.orm.entity_manager", "@router", %bprs_user.mail.commandline_host% ]
+        tags:
+            - { name: kernel.event_listener, event: oktolab_media.finalized_episode, method: onFinalizedEpisode }

@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Comment
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CommentRepository")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\HasLifecycleCallbacks()
@@ -122,5 +122,10 @@ class Comment
     public function isRemoved()
     {
         return $this->removed;
+    }
+
+    public function canBeEdited()
+    {
+        return $this->createdAt > new \DateTime('-7 days');
     }
 }

@@ -9,12 +9,11 @@
 {% block body_main %}
 <div class="blog col-md-8 col-lg-8 col-sm-12 col-xs-12" itemscope="itemscope" itemtype="http://schema.org/Blog">
     <header class="page-header">
-        <h1>{{ series.name}}</h1>
+        <h1>{{ post.series.name}}</h1>
         <p>
-            <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID }) }}" class="more pull-left"><span class="icon"><span class="glyphicon glyphicon-menu-left"></span></span>{{ 'oktothek.series_back_to_root'|trans }}</a>
+            <a href="{{ path('oktothek_show_series', {'uniqID': post.series.uniqID }) }}" class="more pull-left"><span class="icon"><span class="glyphicon glyphicon-menu-left"></span></span>{{ 'oktothek.series_back_to_root'|trans }}</a>
         </p>
     </header>
-    <section>
         {% set text_only = true %}
         {% if post.assets is not empty %}
             {% if post.assets[0]|isImage %}
@@ -32,8 +31,8 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             {% endif %}
                     <meta itemprop="datePublished" content="{{ post.createdAt|date('Y-m-d')}}" />
-                    <meta itemprop="image" content="{{ post.assets[0]|thumb(220,390) }}">
-                    <meta itemprop="author" content="{{ series.name }} Team">
+                    {# <meta itemprop="image" content="{{ post.assets[0]|thumb(220,390) }}"> #}
+                    <meta itemprop="author" content="{{ post.series.name }} Team">
                     <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
                         <meta itemprop="name" content="Okto Community TV">
                         <meta itemprop="logo" content="{{ asset('bundles/app/images/okto_logo.png')}}">
@@ -44,7 +43,7 @@
                         {% endfor %}
                     </p>
                     <header class="page-header">
-                        <h3 itemprop="headline"><a href="{{ path( 'oktothek_show_series_blogpost', {'slug': post.slug, 'uniqID': series.uniqID})}}" itemprop="name">{{ post.name }}</a></h3>
+                        <h3 itemprop="headline"><a href="{{ path( 'oktothek_show_series_blogpost', {'slug': post.slug})}}" itemprop="name">{{ post.name }}</a></h3>
                     </header>
                     <p itemprop="description">
                         {{ post.description|markdown }}
@@ -56,10 +55,9 @@
             {% include "AppBundle:Series/Blog:_shareCollapse.html.twig" %}
         </article>
 
-    </section>
-    <section class="comments comment-pager">
-        {{ render(controller("AppBundle:Comment:commentPager", {'uniqID': post.uniqID, 'page': 1})) }}
-    </section>
+    <!-- Kommentare -->
+    {{ render(controller("AppBundle:PostComment:index", {'slug': post.slug})) }}
+    <!-- Ende Kommentare -->
 </div>
 <aside class="col-md-4 col-lg-4 hidden-sm hidden-xs">
     <div class="aside-inner clearfix">
@@ -75,7 +73,7 @@
                     }}
                 </span>
                 <p>
-                    <a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}">{{ teaser.name }}</a>
+                    <a href="{{ path('oktothek_show_series_blogpost', {'slug': teaser.slug})}}">{{ teaser.name }}</a>
                 </p>
             </li>
             {% endfor %}
@@ -86,6 +84,48 @@
 {% block javascripts %}
     {{ parent() }}
 	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+    <script type="text/javascript">
+        // Comments
+        $('#appbundle_post_comment_submit').click(function(e){
+            if ($('#appbundle_post_comment_text').val().length) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ url('oktothek_post_comment_create', {'post': post.id})}}",
+                    type: 'post',
+                    dataType: 'json',
+                    data: $($(this).parents('form[name="appbundle_post_comment"]')[0]).serialize(),
+                }).complete(function(data) {
+                    $('#appbundle_post_comment_text').val('');
+                    if (data.status = 200) {
+                        $(data.responseText).hide().prependTo('.commentbox').slideDown();
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', '.answer_comment', function(e){
+            e.preventDefault();
+            var parent = $(this).parent()[0];
+            $(this).hide();
+            $.ajax({
+                url: $(this).attr("href"),
+            }).success(function(data) {
+                $(data).hide().appendTo($(parent)).slideDown();
+            });
+        });
+
+        // AJAX pagination
+        $( document ).on('click', '.pagination > li > a', function(e){
+            e.preventDefault();
+            var link = $(this);
+            $.ajax({
+                url: link.attr('href'),
+                context: document.body
+            }).success(function(data) {
+                $(link.parents('.comment-pager')).replaceWith(data);
+            });
+        });
+    </script>
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}
