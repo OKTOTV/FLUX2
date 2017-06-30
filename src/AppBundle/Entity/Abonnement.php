@@ -86,8 +86,11 @@ class Abonnement
     {
         $this->livestream = true;
         $this->newEpisode = true;
-        $this->newPost    = false;
+        $this->newPost    = true;
         $this->send_mails  = false;
+        $this->newCommentOnEpisode = false;
+        $this->newCommentOnBlogPost = false;
+        $this->encodedEpisode = false;
     }
 
     public function __toString()
@@ -278,7 +281,7 @@ class Abonnement
     /**
      * Get newCommentOnEpisode
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getNewCommentOnEpisode()
     {
@@ -301,7 +304,7 @@ class Abonnement
     /**
      * Get newCommentOnBlogPost
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getNewCommentOnBlogPost()
     {
@@ -324,7 +327,7 @@ class Abonnement
     /**
      * Get encodedEpisode
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEncodedEpisode()
     {
