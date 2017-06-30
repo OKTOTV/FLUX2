@@ -143,15 +143,25 @@ class NewsCommentController extends Controller
         $this->denyAccessUnlessGranted('user_edit', $comment); //symfony voter
         $commentForm = $this->createForm(PostCommentType::class, $comment, ['action' => $this->generateUrl('oktothek_news_comment_edit', ['comment' => $comment->getId()])]);
         $commentForm->add('submit', SubmitType::class, ['label' => 'oktothek.comment_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $commentForm->add('delete', SubmitType::class, ['label' => 'oktothek.comment_delete_button', 'attr' => ['class' => 'btn btn-link']]);
 
         if ($request->getMethod() == "POST") {
             $commentForm->handleRequest($request);
             if ($commentForm->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($comment);
-                $em->flush();
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_update_success');
-                return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $comment->getPost()->getSlug()]));
+                if ($commentForm->get('submit')->isClicked()) {
+                    $em->persist($comment);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_update_success');
+                    return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $comment->getPost()->getSlug()]));
+                } elseif ($commentForm->get('delete')->isClicked()) {
+                    $post = $comment->getPost();
+                    $post->removeComment($comment);
+                    $em->remove($comment);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_delete_success');
+                    return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $post->getSlug()]));
+                }
             }
             $this->get('session')->getFlashBag()->add('error', 'oktothek.comment_update_error');
             return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $comment->getPost()->getSlug()]));
