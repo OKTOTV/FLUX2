@@ -98,7 +98,7 @@ swiftmailer:
     # spool:     { type: memory }
     spool:
         type: file
-        path: '%kernel.cache_dir%/spool'
+        path: '%kernel.root_dir%/spool'
 
 bprs_user:
     class: %bprs_user.class%
