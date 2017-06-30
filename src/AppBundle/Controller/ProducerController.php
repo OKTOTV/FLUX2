@@ -46,7 +46,38 @@ class ProducerController extends Controller
     public function producerAction(Series $series)
     {
         $this->denyAccessUnlessGranted('view_channel', $series);
-        return ['series' => $series];
+        $em = $this->getDoctrine()->getManager();
+        $newest_episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series, 3);
+        $newest_posts = $em->getRepository('AppBundle:Post')->findNewestPosts(1, $series);
+        $newest_episode_comments = [];
+        if ($newest_episodes) {
+            $newest_episode_comments = $em->getRepository('AppBundle:EpisodeComment')->findCommentsForEpisode($newest_episodes[0], 3);
+        }
+        $newest_blogpost_comments = [];
+        if ($newest_posts) {
+            $newest_blogpost_comments = $em->getRepository('AppBundle:PostComment')->findCommentsForPost($newest_posts[0], 3);
+        }
+        return [
+            'series' => $series,
+            'newest_episodes' => $newest_episodes,
+            'newest_posts' => $newest_posts,
+            'newest_episode_comments' => $newest_episode_comments,
+            'newest_blogpost_comments' => $newest_blogpost_comments
+        ];
+    }
+
+    /**
+     * @Route("/channel/{uniqID}/updateNotificationSettings", name="oktothek_channel_update_settings")
+     */
+    public function updateNotificationSettings(Request $request, Series $series)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $abonnement = $em->getRepository('AppBundle:Abonnement')->findAbonnementForUserAndSeries($this->getUser(), $series);
+        $abonnement->setNewCommentOnEpisode($request->query->get('episode_comment', false));
+        $abonnement->setNewCommentOnBlogPost($request->query->get('blogpost_comment', false));
+        $em->persist($abonnement);
+        $em->flush();
+        return new Response();
     }
 
     /**
