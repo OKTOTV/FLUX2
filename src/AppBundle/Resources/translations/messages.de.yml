@@ -32,9 +32,10 @@ oktothek.menu_my_channels:                          '<span class="glyphicon glyp
 oktothek.menu_user_logout:                          '<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Abmelden'
 oktothek.menu_user_notifications:                   '<span class="icon icon-transmitter-active"></span>'
 oktothek.menu_user_notifications_empty:             '<span class="icon icon-transmitter"></span>'
-oktothek.menu_user_no_notifications:                "Im Moment sind keine Benachrichtigungen vorhanden."
+oktothek.menu_user_no_notifications:                "Keine neuen Benachrichtigungen"
 oktothek.menu_user_settings_notifications:          "Hier kannst du deine Abos verwalten."
 oktothek.menu_user_set_all_notifications_to_read:   "Markiere alle als gelesen"
+oktothek.menu_user_show_all_notifications:          "Alle anzeigen"
 oktothek.notification_message_episode:              "%series% hat eine neue Episode veröffentlicht"
 oktothek.notification_message_episode_new_comment:  "Neuer Kommentar zu deiner Episode"
 oktothek.notification_message_post:                 "%series% hat einen neuen Beitrag veröffentlicht"

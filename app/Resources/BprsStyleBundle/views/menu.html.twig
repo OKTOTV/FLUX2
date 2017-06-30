@@ -103,6 +103,13 @@
                             {% endif %}
                             <li class="notifications">
                                 <p>
+                                    <a href="{{ path('bprs_user_notifications') }}">
+                                        {{ 'oktothek.menu_user_show_all_notifications'|trans }}
+                                    </a>
+                                </p>
+                            </li>
+                            <li class="notifications">
+                                <p>
                                     <a href="{{ path('oktothek_user_abonnements') }}">
                                         {{ 'oktothek.menu_user_settings_notifications'|trans}}
                                     </a>
