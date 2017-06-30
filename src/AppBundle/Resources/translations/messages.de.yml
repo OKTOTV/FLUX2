@@ -252,7 +252,9 @@ oktothek_comment_edit:                  "Bearbeiten"
 oktothek_comment_answer:                "Antworten"
 
 oktothek.comment_update_success:        "Kommentar erfolgreich bearbeitet"
+oktothek.comment_delete_success:        "Kommentar erfolgreich gelöscht"
 oktothek.comment_update_button:         "Aktualisieren"
+oktothek.comment_delete_button:         "Löschen"
 
 ## AppBundle/Resources/views/PostComment/index.html.twig
 oktothek.post_comment_header:           "Kommentare"
