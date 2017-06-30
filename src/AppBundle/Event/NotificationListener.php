@@ -168,6 +168,10 @@ class NotificationListener
         }
     }
 
+    /**
+     * will be triggered mainly through a background worker. swiftmailer memory spool won't trigger.
+     * use file spooling and a cronjob
+     */
     public function onFinalizedEpisode($event)
     {
         $episode = $this->em->getRepository('AppBundle:Episode')->findOneBy(['uniqID' => $event->getUniqID()]);
