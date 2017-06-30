@@ -149,40 +149,13 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/notification/{notification}", name="user_notification")
+     * @Route("/notification/clear_all", name="user_notification_clear_all")
      */
-    public function showNotificationAction(Notification $notification)
+    public function clearAllNotificationAction()
     {
-        // TODO: notification voter!
         $em = $this->getDoctrine()->getManager();
-        $em->remove($notification);
-        $em->flush();
-        switch ($notification->getType()) {
-            case Notification::NEW_POST:
-                return $this->redirect(
-                    $this->generateUrl(
-                        'oktothek_show_series_blogpost',
-                        [
-                            'uniqID' => $notification->getPost()->getSeries()->getUniqID(),
-                            'slug' => $notification->getPost()->getSlug()
-                        ]
-                    )
-                );
-                break;
-            case Notification::NEW_EPISODE:
-                return $this->redirect(
-                    $this->generateUrl(
-                        'oktothek_show_episode',
-                        [
-                            'uniqID' => $notification->getEpisode()->getUniqID()
-                        ]
-                    )
-                );
-                break;
-            case Notification::LIVESTREAM:
-                return $this->redirect($this->generateUrl('tv'));
-                break;
-        }
+        $em->getRepository('BprsUserBundle:Notification')->setAllNotificationToReadForUser($this->getUser());
+        return $this->redirect($this->generateUrl('homepage'));
     }
 
     /**

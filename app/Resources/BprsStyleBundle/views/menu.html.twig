@@ -67,9 +67,10 @@
                     </ul>
                 </li>
                 {% if is_granted('ROLE_OKTOLAB_USER') %}
+                    {% set notifications = newestNotifications(app.user) %}
                     <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            {% if newestNotifications(app.user) is empty %}
+                            {% if notifications is empty %}
                                 {{ 'oktothek.menu_user_notifications_empty'|trans|raw }}
                                 <span class="visible-xs-inline">{{ 'oktothek.menu_notification_xs'|trans }}</span>
                             {% else %}
@@ -79,21 +80,33 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><div class="triangle"></div></li>
-                            {% for notification in newestNotifications(app.user) %}
+                            {% if notifications is not empty %}
+                                <li class="notifications">
+                                    <p>
+                                        <a href="{{ path('user_notification_clear_all')}}">
+                                            {{ 'oktothek.menu_user_set_all_notifications_to_read'|trans }}
+                                        </a>
+                                    </p>
+                                </li>
+                            {% endif %}
+                            {% for notification in notifications %}
                                 <li>
                                     <a href="{{ path('bprs_user_notification_follow', {'notification': notification.id})}}">
                                         {{ notification.message|trans(notification.values(true)) }}
                                     </a>
                                 </li>
-
                             {% endfor %}
-                            {% if newestNotifications(app.user) is empty %}
-                            <li class="notifications">
-                                <p>{{ 'oktothek.menu_user_no_notifications'|trans}}</p>
-                            </li>
+                            {% if notifications is empty %}
+                                <li class="notifications">
+                                    <p>{{ 'oktothek.menu_user_no_notifications'|trans}}</p>
+                                </li>
                             {% endif %}
                             <li class="notifications">
-                                <p><a href="{{ path('oktothek_user_abonnements') }}">{{ 'oktothek.menu_user_settings_notifications'|trans}}</a></p>
+                                <p>
+                                    <a href="{{ path('oktothek_user_abonnements') }}">
+                                        {{ 'oktothek.menu_user_settings_notifications'|trans}}
+                                    </a>
+                                </p>
                             </li>
                         </ul>
                     </li>
