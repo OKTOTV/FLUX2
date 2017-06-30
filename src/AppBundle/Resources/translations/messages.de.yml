@@ -231,6 +231,8 @@ oktothek.episode_tag_header:            Tags
 oktothek.success_publish_episode:       Episode veröffentlichen
 oktothek.episode_show_in_backend:       Im Backend anzeigen
 oktothek.episode_show_in_frontend:      '<span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Zum Frontend'
+oktothek.episode_title:                 "Backend %episode% | OKTO"
+oktothek.episode_title_fallback:        "Episode %uniqID%"
 
 ## comment
 oktothek.comment_author:                '%name% am <span class="time">%date%</span>'
