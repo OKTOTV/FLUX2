@@ -140,17 +140,27 @@ class PostCommentController extends Controller
     public function editCommentAction(Request $request, PostComment $comment)
     {
         $this->denyAccessUnlessGranted('user_edit', $comment); //symfony voter
-        $commentForm = $this->createForm(PostCommentType::class, $comment, ['action' => $this->generateUrl('oktothek_edit_comment', ['comment' => $comment->getId()])]);
+        $commentForm = $this->createForm(PostCommentType::class, $comment, ['action' => $this->generateUrl('oktothek_post_comment_edit', ['comment' => $comment->getId()])]);
         $commentForm->add('submit', SubmitType::class, ['label' => 'oktothek.comment_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $commentForm->add('delete', SubmitType::class, ['label' => 'oktothek.comment_delete_button', 'attr' => ['class' => 'btn btn-link']]);
 
         if ($request->getMethod() == "POST") {
             $commentForm->handleRequest($request);
             if ($commentForm->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($comment);
-                $em->flush();
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_update_success');
-                return $this->redirect($request->headers->get('referer'));
+                if ($commentForm->get('submit')->isClicked()) {
+                    $em->persist($comment);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_update_success');
+                    return $this->redirect($this->generateUrl('oktothek_show_series_blogpost', ['slug' => $comment->getPost()->getSlug()]));
+                } elseif ($commentForm->get('delete')->isClicked()) {
+                    $post = $comment->getPost();
+                    $post->removeComment($comment);
+                    $em->remove($comment);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_delete_success');
+                    return $this->redirect($this->generateUrl('oktothek_show_series_blogpost', ['slug' => $post->getSlug()]));
+                }
             }
             $this->get('session')->getFlashBag()->add('error', 'oktothek.comment_update_error');
             return $this->redirect($request->headers->get('referer'));
