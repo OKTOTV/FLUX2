@@ -63,9 +63,9 @@ class AbonnementRepository extends EntityRepository
     public function findAbonnementForUserAndSeries($user, $series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a FROM AppBundle:Abonnement aWHERE a.series = :series_id AND a.user = :user_id')
+            ->createQuery('SELECT a FROM AppBundle:Abonnement a WHERE a.series = :series_id AND a.user = :user_id')
             ->setParameter('series_id', $series->getId())
-            ->setParameter('user_id', $series->getId())
-            ->getOneOrNoneResult();
+            ->setParameter('user_id', $user->getId())
+            ->getOneOrNullResult();
     }
 }
