@@ -67,6 +67,11 @@ class User extends BaseUser
      */
     private $post_comments;
 
+    /**
+     * @ORM\Column(name="greeted", type="boolean", options={"default" : false}, nullable=true)
+     */
+    private $greeted;
+
     public function __construct() {
         parent::__construct();
         $this->abonnements = new ArrayCollection();
@@ -268,5 +273,15 @@ class User extends BaseUser
     public function getFiles()
     {
         return $this->files;
+    }
+
+    public function getGreeted()
+    {
+        return $this->greeted;
+    }
+
+    public function setGreeted($greeted)
+    {
+        return $this->greeted = $greeted;
     }
 }

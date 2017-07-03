@@ -12,9 +12,10 @@ class EpisodeExtension extends \Twig_Extension
     }
 
     public function getFunctions() {
-        return array(
-            new \Twig_SimpleFunction('bestEpisodes', array($this, 'bestEpisodesFunction'))
-        );
+        return [
+            new \Twig_SimpleFunction('bestEpisodes', [$this, 'bestEpisodesFunction']),
+            new \Twig_SimpleFunction('newestEpisodes', [$this, 'newestEpisodesFunction'])
+        ];
     }
 
     public function bestEpisodesFunction($count = 8)
