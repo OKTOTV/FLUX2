@@ -1,9 +1,9 @@
 <div class="newsletter">
-    {{ form_start(form) }}
+    {{ form_start(newsletterform, {'id': 'form_person_edit'}) }}
         <div class="input-group">
             <label for="form_email" class="sr-only">{{ 'oktothek.newsletter_label'|trans }}</label>
-            {{ form_widget(form.email) }}
-            {{ form_row(form.submit, {'attr': {'class': 'input-group-addon'}}) }}
+            {{ form_widget(newsletterform.email) }}
+            {{ form_row(newsletterform.submit, {'attr': {'class': 'input-group-addon'}}) }}
         </div>
-    {{ form_end(form) }}
+    {{ form_end(newsletterform) }}
 </div>
