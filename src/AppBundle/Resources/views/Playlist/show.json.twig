@@ -14,6 +14,15 @@
                         }{% if not loop.last %},{% endif %}
 
                 {% endfor %}
+            ],
+            tracks: [
+                {% for caption in playlistItem.episode.captions %}
+                {
+                    file: "{{ url('oktolab_media_caption_for_episode', {'uniqID': caption.uniqID}) }}",
+                    label: "{{ caption.label }}",
+                    kind: "{{ caption.kind }}"
+                }{% if not loop.last %},{% endif %}
+                {% endfor %}
             ]
         }{% if not loop.last %},{% endif %}
     {% endfor %}
