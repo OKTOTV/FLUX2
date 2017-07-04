@@ -20,7 +20,7 @@ class EpisodeExtension extends \Twig_Extension
 
     public function bestEpisodesFunction($count = 8)
     {
-        $episodes = $this->repo->findBestEpisodes($count);
+        $episodes = $this->repo->findTrendingEpisodes($count);//findBestEpisodes($count);
         return $episodes;
     }
 

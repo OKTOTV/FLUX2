@@ -63,6 +63,35 @@ class EpisodeRepository extends BaseEpisodeRepository
         return $query->setMaxResults($numberEpisodes)->getResult();
     }
 
+    /**
+     * returns episodes with most clicks in the last x days days.
+     */
+    public function findTrendingEpisodes($numberEpisodes = 8, $query_only = false)
+    {
+        $query = $this->getEntityManager()->createQuery(
+            "SELECT e, s, p, COUNT(l) AS HIDDEN viewCount FROM AppBundle:Episode e
+            JOIN e.series s
+            JOIN e.posterframe p
+            JOIN BprsAnalyticsBundle:Logstate l WITH l.identifier = e.uniqID
+            WHERE e.isActive = 1
+            AND s.isActive = 1
+            AND e.onlineStart < :now
+            AND l.value = :value
+            AND l.timestamp > :range
+            GROUP By e
+            ORDER BY viewCount DESC"
+        )
+        ->setParameter('now', new \DateTime())
+        ->setParameter('value', '20%')
+        ->setParameter('range', new \DateTime('-7 days'));
+
+        if ($query_only) {
+            return $query;
+        }
+
+        return $query->setMaxResults($numberEpisodes)->getResult();
+    }
+
     public function findEpisodesForSeries($series, $query_only = false)
     {
         $query = $this->getEntityManager()->createQuery(

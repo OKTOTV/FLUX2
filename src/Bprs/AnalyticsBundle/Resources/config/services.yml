@@ -1,7 +1,7 @@
 services:
     bprs_analytics:
         class:  Bprs\AnalyticsBundle\Model\AnalyticsService
-        arguments: [ "@doctrine.orm.entity_manager" ]
+        arguments: [ "@doctrine.orm.entity_manager", "@event_dispatcher" ]
 
     bprs_analytics_listener:
         class:  Bprs\AnalyticsBundle\Event\AnalyticsListener

@@ -29,10 +29,16 @@ class Episode extends OktoEpisode {
      */
     private $comments;
 
+    /**
+     * @ORM\Column(name="views", type="integer", options={"defaults" = 0}, nullable=true)
+     */
+    private $views;
+
     public function __construct()
     {
         parent::__construct();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->views = 0;
     }
 
     /**
@@ -162,5 +168,16 @@ class Episode extends OktoEpisode {
     public function getComments()
     {
         return $this->comments;
+    }
+
+    public function getViews()
+    {
+        return $this->views;
+    }
+
+    public function setViews($views)
+    {
+        $this->views = $views;
+        return $this;
     }
 }
