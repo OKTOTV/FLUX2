@@ -5,15 +5,18 @@ namespace Bprs\AnalyticsBundle\Model;
 use Bprs\AnalyticsBundle\Entity\Logstate;
 use Bprs\AnalyticsBundle\Entity\Info;
 use Symfony\Component\HttpFoundation\Request;
+use Bprs\AnalyticsBundle\Event\LogstateEvent;
 
 
 class AnalyticsService {
 
     private $em;
+    private $dispatcher;
 
-    public function __construct($em)
+    public function __construct($em, $dispatcher)
     {
         $this->em = $em;
+        $this->dispatcher = $dispatcher;
     }
 
     /**
@@ -36,7 +39,13 @@ class AnalyticsService {
 
             $this->em->persist($logstate);
             $this->em->flush();
+            $event = new LogstateEvent($logstate);
+            if ($value) {
+                $this->dispatcher->dispatch($value, $event);
+            }
+            return true;
         }
+        return false;
     }
 
     public function getLogstatesInTime($values, $from = '-2 weeks', $to = 'now')

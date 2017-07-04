@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Validator\Constraints\Email;
@@ -24,7 +25,7 @@ class NewsletterController extends Controller {
     public function subscribeAction(Request $request, $newsletter)
     {
         $data = ['email' => ''];
-        $form = $this->createFormBuilder($data)
+        $form = $this->get('form.factory')->createNamedBuilder('newsletterform', FormType::class, $data, array())//$this->createFormBuilder($data)
             ->setAction($this->generateUrl('oktothek_newsletter', ['newsletter' => $newsletter]))
             ->add('email', EmailType::class, ['constraints' => [new Email(['checkMX' => true]), new NotBlank()], 'attr' => ['placeholder' => 'oktothek.newsletter_mail_placeholder']])
             ->add('submit', SubmitType::class, ['label' => "oktothek.newsletter_subscribe_submit"])
@@ -47,7 +48,7 @@ class NewsletterController extends Controller {
                 return $this->redirect($request->headers->get('referer'));
             }
         }
-        return ['form' => $form->createView()];
+        return ['newsletterform' => $form->createView()];
     }
 
 

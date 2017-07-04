@@ -324,7 +324,7 @@ fos_elastica:
                     serializer:
                         groups: [okto]
                     mappings:
-                        slug: { boost: 8, analyzer: my_analyzer }
+                        text: { boost: 8, analyzer: episode_analyzer }
                     persistence:
                         driver: orm
                         model: AppBundle\Entity\Tag

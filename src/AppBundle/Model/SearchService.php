@@ -99,11 +99,11 @@ class SearchService
         return $this->episodeFinder->find($boolQuery, $numberResults);
     }
 
-    public function searchTags($searchphrase, $numberResults = 3)
+    public function searchTags($searchphrase, $numberResults = 5)
     {
         $fieldQuery = new \Elastica\Query\Match();
-        $fieldQuery->setFieldQuery('slug', $searchphrase);
-        $fieldQuery->setFieldParam('slug', 'analyzer', 'my_analyzer');
+        $fieldQuery->setFieldQuery('text', $searchphrase);
+        $fieldQuery->setFieldParam('text', 'analyzer', 'episode_analyzer');
         return $this->tagFinder->find($fieldQuery, $numberResults);
     }
 }

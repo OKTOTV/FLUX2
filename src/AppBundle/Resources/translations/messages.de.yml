@@ -82,6 +82,32 @@ oktothek.register_user_button:          "Account anlegen"
 oktothek.error_create_account:          "Beim Anlegen des Accounts ist ein Fehler aufgetreten. Bitte versuche es zu einem späteren Zeitpunkt noch einmal oder kontaktiere uns unter support@okto.tv"
 oktothek.success_create_account:        "Account wurde angelegt. Schau in dein Postfach!"
 oktothek.login_register:                "Neuen Account anlegen"
+oktothek_user_welcome_subject:          "Willkommen im Oktoversum!"
+oktothek_user_welcome_header:           "Willkommen im Oktoversum!"
+oktothek_user_welcome_first_par:        |
+    "Vielen Dank für deinen Beitritt in die Okto-Community. Es erwartet dich eine intergalaktische Reise mit vielen interaktiven Features."
+
+oktothek_user_welcome_second_par:       |
+    "In unserer Oktothek warten die neusten Clips, beliebte Videos, aktuelle Playlisten und Newsbeiträge von dir entdeckt zu werden. Durch das Erstellen eines Benutzer-Accounts hast du die Möglichkeit deine eigenen Interessenschwerpunkte hervorzuheben."
+
+oktothek_user_welcome_features_header:  "Die Features im Überblick:"
+oktothek_user_welcome_feature_discuss:  "Anschauen und mitdiskutieren"
+oktothek_user_welcome_feature_discuss_par: |
+    "Abonniere deine Lieblingssendungen, damit du über die neusten Aktivitäten informiert bist. Verfasse Kommentare zu einzelnen Episoden und trete in einen Diskurs mit der Community. Erstelle deine eigenen Playlisten mit Folgenhighlights aus unterschiedlichen Sendungen."
+
+oktothek_user_welcome_feature_like_and_share: "Liken und Teilen"
+oktothek_user_welcome_feature_like_and_share_par: |
+    "Like deine Lieblingsfolgen und teile Clips oder Playlisten auf Facebook, Twitter, Google+, Pinterest oder per E-Mail. Du kannst die Videos auch direkt in die sozialen Netzwerke einbetten."
+
+oktothek_user_welcome_feature_diy:      "Selber machen"
+oktothek_user_welcome_feature_diy_par:  |
+    "Du hast eine eigene Idee und möchtest deinen selbstproduzierten Clip im TV ausstrahlen? Dann nutze das Okto-Intake auf unserer Homepage zum Hochladen deiner eigenproduzierten Videos."
+
+oktothek_user_welcome_feature_diy_par_2: |
+    "Wir bieten ebenfalls unterschiedliche Medienworkshops an, damit du dein Know-How erweitern kannst. Das komplette Kursangebot ist online ersichtlich und kannst dich direkt über die Homepage für unsere Workshops anmelden."
+
+oktothek_user_welcome_support_mail:     "Bei Fragen oder Problemen schreibe uns eine E-Mail an %email%."
+oktothek_user_welcome_greetings:        "Beste Grüße,<br />dein OKTO Team"
 
 ## search and results
 oktothek_results_header:                'Suchergebnisse für "%searchphrase%"'
@@ -960,10 +986,11 @@ oktothek_producer_episodes_statistik:       "Folgenstatistik"
 # AppBundle/Resources/views/Producer/episode.html.twig
 oktothek_series_producer_episode_title:     "Folgenstatistik und Download | Sendereihenbereich | Okto"
 oktothek_series_producer_episodes_title:     "Folgenübersicht der Sendereihe %series% | Sendereihenbereich | Okto"
-oktothek.series_producer_episode_favorites: Favoriten
-oktothek.series_producer_episode_tags:      Tags
-oktothek.series_producer_episode_files:     Dateien
-oktothek.series_producer_episode_download:  <span class="glyphicon glyphicon-download" aria-hidden="true"></span> %file%
+oktothek.series_producer_episode_favorites: "Favoriten"
+oktothek.series_producer_episode_views:     "Geschätzte Wiedergaben insgesamt"
+oktothek.series_producer_episode_tags:      "Tags"
+oktothek.series_producer_episode_files:     "Dateien"
+oktothek.series_producer_episode_download:  '<span class="glyphicon glyphicon-download" aria-hidden="true"></span> %file%'
 
 oktothek.series_producer_analytic_2weeks_header: Die letzten 14 Tage
 oktothek.series_producer_analytic_48hours_header: Die letzten 48 Stunden
@@ -1006,3 +1033,7 @@ oktothek.backend_episode_publish:           '<span class="glyphicon glyphicon-bu
 oktothek.episode_show_firstRanAt:           "Folge von %day%, %date%"
 oktothek.episode_show_firstRanAt_dateformat: "d.m.Y"
 oktothek.episode_show_firstRanAt_day_choice: "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
+oktothek.episode_info_views:                "Views"
+
+# app/Resources/OktoMediaBundle/views/Episode/index.html.twig
+oktothek.episode_index_views:               "Views"
