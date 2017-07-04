@@ -986,10 +986,11 @@ oktothek_producer_episodes_statistik:       "Folgenstatistik"
 # AppBundle/Resources/views/Producer/episode.html.twig
 oktothek_series_producer_episode_title:     "Folgenstatistik und Download | Sendereihenbereich | Okto"
 oktothek_series_producer_episodes_title:     "Folgenübersicht der Sendereihe %series% | Sendereihenbereich | Okto"
-oktothek.series_producer_episode_favorites: Favoriten
-oktothek.series_producer_episode_tags:      Tags
-oktothek.series_producer_episode_files:     Dateien
-oktothek.series_producer_episode_download:  <span class="glyphicon glyphicon-download" aria-hidden="true"></span> %file%
+oktothek.series_producer_episode_favorites: "Favoriten"
+oktothek.series_producer_episode_views:     "Geschätzte Wiedergaben insgesamt"
+oktothek.series_producer_episode_tags:      "Tags"
+oktothek.series_producer_episode_files:     "Dateien"
+oktothek.series_producer_episode_download:  '<span class="glyphicon glyphicon-download" aria-hidden="true"></span> %file%'
 
 oktothek.series_producer_analytic_2weeks_header: Die letzten 14 Tage
 oktothek.series_producer_analytic_48hours_header: Die letzten 48 Stunden
@@ -1032,3 +1033,4 @@ oktothek.backend_episode_publish:           '<span class="glyphicon glyphicon-bu
 oktothek.episode_show_firstRanAt:           "Folge von %day%, %date%"
 oktothek.episode_show_firstRanAt_dateformat: "d.m.Y"
 oktothek.episode_show_firstRanAt_day_choice: "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
+oktothek.episode_info_views:                "Views"
