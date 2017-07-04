@@ -40,7 +40,9 @@ class AnalyticsService {
             $this->em->persist($logstate);
             $this->em->flush();
             $event = new LogstateEvent($logstate);
-            $this->dispatcher->dispatch($value, $event);
+            if ($value) {
+                $this->dispatcher->dispatch($value, $event);
+            }
             return true;
         }
         return false;
