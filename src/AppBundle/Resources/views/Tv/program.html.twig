@@ -24,8 +24,21 @@
                       <span class="time">{{ show.airdate|date('H:i') }}</span><h4>{% if show.name %}{{ show.series_name }} - {{ show.name }}{% else %}{{ show.series_name }}{% endif %}</h4></a>
                   </div>
                   <div id="collapse{{ loop.index0 }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="item4">
-                      <div class="description">{{ show.description }}</div>
-                      {#<div class="posterframe"><img scr="#" alt=""></div>#}
+                      <div class="description">
+                          {{ show.description }}
+                          {% if show.repetitions is not empty %}
+                              <ul class="list-inline">
+                                  <li style="padding-left:0px">
+                                      {{ 'oktothek_tv_program_repetition'|trans}}
+                                  </li>
+                                  {% for repetition in show.repetitions %}
+                                  <li>
+                                      {{ repetition|date('oktothek_tv_program_repetition_dateformat'|trans)}}
+                                  </li>
+                                  {% endfor %}
+                             </ul>
+                          {% endif %}
+                      </div>
                   </div>
               </li>
         {% endfor %}
