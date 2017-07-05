@@ -11,7 +11,7 @@
     {% for slide in slides %}
         <article class="item {% if loop.index0 == 0 %}active{% endif %}" itemscope="itemscope" itemtype="http://schema.org/NewsArticle">
         <figure>
-            <a href="{{ slide.link }}"><img src="{{ slide.asset|thumb(720,1280)}}" alt="{{ slide.name }}" style="width:100%"><meta itemprop="image" content="{{ slide.asset|thumb(720,1280)}}" /></a>
+            <a href="{{ slide.link }}"><img src="{{ slide.asset|thumb(900,1600)}}" alt="{{ slide.name }}" style="width:100%"><meta itemprop="image" content="{{ slide.asset|thumb(720,1280)}}" /></a>
                 <figcaption class="carousel-caption">
                     <div class="container-bg-opacity">
                         <div class="bg-opacity"></div>

@@ -125,6 +125,8 @@
             });
 
             $('#tag_search').typeahead(null, {
+                minLength: 3,
+                limit: 8,
                 name: 'episodes',
                 source: episodes,
                 templates: {
