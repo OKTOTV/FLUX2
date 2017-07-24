@@ -5,7 +5,7 @@
 <title>Unbenanntes Dokument</title>
 </head>
 
-<body style="background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:16px;padding-left:5%;padding-right:5%;line-height:27px;letter-spacing:0.6px;">
+<body style="background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:16px;font-weight:300;padding-left:5%;padding-right:5%;line-height:27px;letter-spacing:0.6px;">
     <style>
         img.thumbnail {
             width: 100%;
@@ -52,20 +52,22 @@
                     {% set episodes = newestEpisodes(4) %}
                     <tr>
                         {% for episode in episodes|slice(0,2) %}
-                            <td style="padding:15px;" width="50%" valign="top">
-                                <a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID})}}"><img src="{{ absolute_url(episode.posterframe(true)|thumb(152,270))}}" width="270" height="152" alt="" class="thumbnail"/></a><br>
-                                <h3 style="margin:0;padding:0;text-transform:uppercase;"><a href="{{ url('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" style="color:#ffffff;text-decoration:none;">{{ episode.series.name }}</a></h3>
-                                <p style="margin:0;padding:0;"><a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID})}}" style="color:#ffffff;text-decoration:none;">{{ episode.name }}</a></p>
+                            <td width="50%" valign="top">
+                                <div style="padding:15px;" >
+                                    <a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID})}}"><img src="{{ absolute_url(episode.posterframe(true)|thumb(152,270))}}" width="270" height="152" alt="" class="thumbnail"/></a><br>
+                                    <h3 style="margin-top:4px;margin-bottom:0px;padding:0;text-transform:uppercase;"><a href="{{ url('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" style="color:#ffffff;text-decoration:none;">{{ episode.series.name }}</a></h3>
+                                    <p style="margin:0;padding:0;font-weight:normal;"><a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID})}}" style="color:#ffffff;text-decoration:none;">{{ episode.name }}</a></p>
                                 </div>
                             </td>
                         {% endfor %}
                     </tr>
                     <tr>
                         {% for episode in episodes|slice(2,2) %}
-                            <td style="padding:15px;" width="50%" valign="top">
-                                <img src="{{ absolute_url(episode.posterframe(true)|thumb(152,270))}}" width="270" height="152" alt="" class="thumbnail"/><br>
-                                <h3 style="margin:0;padding:0;text-transform:uppercase;"><a href="{{ url('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" style="color:#ffffff;text-decoration:none;">{{ episode.series.name }}</a></h3>
-                                <p style="margin:0;padding:0;"><a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID})}}" style="color:#ffffff;text-decoration:none;">{{ episode.name }}</a></p>
+                            <td width="50%" valign="top">
+                                <div style="padding:15px;" >
+                                    <img src="{{ absolute_url(episode.posterframe(true)|thumb(152,270))}}" width="270" height="152" alt="" class="thumbnail"/><br>
+                                    <h3 style="margin-top:4px;margin-bottom:0px;padding:0;text-transform:uppercase;"><a href="{{ url('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" style="color:#ffffff;text-decoration:none;">{{ episode.series.name }}</a></h3>
+                                    <p style="margin:0;padding:0;font-weight:normal;"><a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID})}}" style="color:#ffffff;text-decoration:none;">{{ episode.name }}</a></p>
                                 </div>
                             </td>
                         {% endfor %}
@@ -110,7 +112,7 @@
                </table>
                <div style="margin-left:auto;margin-right:auto;max-width:600px;">
                     <p>{{ 'oktothek_user_welcome_support_mail'|trans({'%email%': '<a href="mailto:feedback@okto.tv" style="color:#fcce14;">feedback@okto.tv</a>'})|raw }}</p>
-                    <p style="padding-top:30px;">
+                    <p style="padding-top:30px;text-align:center;">
                         {{ 'oktothek_user_welcome_greetings'|trans|raw }}
                     </p>
                 </div>
