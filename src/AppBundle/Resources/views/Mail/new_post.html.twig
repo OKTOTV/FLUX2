@@ -1,6 +1,6 @@
 <h1>Hi {{ notification.user}}!</h1>
 <p>
-    <a href="{{ url('oktothek_show_series', {'uniqID': notification.post.series.uniqID}) }}">
-        {{ notification.post.series }}
-    </a> hat einen neuen Blogeintrag verfasst. <a href="{{ url('oktothek_show_series_blogpost', {'uniqID': notification.post.series.uniqID, 'slug': notification.post.slug })}}">Schau doch mal rein!</a>
+    <a href="{{ url('oktothek_show_series', {'uniqID': post.series.uniqID}) }}">
+        {{ post.series }}
+    </a> hat einen neuen Blogeintrag verfasst. <a href="{{ url('oktothek_show_series_blogpost', {'slug': post.slug })}}">Schau doch mal rein!</a>
 </p>

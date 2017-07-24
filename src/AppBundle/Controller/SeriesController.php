@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use AppBundle\Entity\Post;
 use AppBundle\Entity\Series;
 
 /**
@@ -17,6 +19,18 @@ use AppBundle\Entity\Series;
  */
 class SeriesController extends Controller
 {
+    /**
+     * @Route("/post/{slug}.{_format}", name="oktothek_show_series_blogpost", defaults={"_format": "html"})
+     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
+     * @Method("GET")
+     * @Template()
+     */
+    public function blogShowAction(Post $post)
+    {
+        $teaser = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $post->getSeries());
+        return ['post' => $post, 'teasers' => $teaser];
+    }
+
     /**
      * @Route("/{uniqID}/episodes_with_tags_ajax", name="oktothek_series_episodes_with_tags_ajax")
      * @Method({"POST", "GET"})
@@ -58,30 +72,22 @@ class SeriesController extends Controller
     }
 
     /**
-     * @Route("/{uniqID}/blog.{_format}", name="oktothek_show_series_blog", defaults={"_format": "html", "page": "1"}, requirements={"page": "\d+"})
-     * @Method("GET")
-     * @Template("AppBundle::Series/Blog/blogIndex.html.twig")
-     */
-    public function blogIndexAction(Series $series, $page)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $paginator = $this->get('knp_paginator');
-        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series), $page, 5);
-        $teaser = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $series);
-        return ['series' => $series, 'posts' => $posts, 'teasers' => $teaser];
-    }
-
-    /**
-     * @Route("/{uniqID}/post/{slug}.{_format}", name="oktothek_show_series_blogpost", defaults={"_format": "html"})
-     * @Route("/{webtitle}/post/{slug}.{_format}", name="oktothek_series_blog_show", defaults={"_format": "html"})
+     * @Route("/{uniqID}/blog.{_format}", name="oktothek_show_series_blog", defaults={"_format": "html"})
      * @Method("GET")
      * @Template()
      */
-    public function blogShowAction(Series $series, $slug)
+    public function blogIndexAction(Request $request, Series $series)
     {
-        $post = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findOneBy(['slug' => $slug]);
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $posts = $paginator->paginate(
+            $em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series),
+            $request->query->get('page', 1),
+            $request->query->get('results', 5)
+        );
+
         $teaser = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $series);
-        return ['series' => $series, 'post' => $post, 'teasers' => $teaser];
+        return ['series' => $series, 'posts' => $posts, 'teasers' => $teaser];
     }
 
     /**

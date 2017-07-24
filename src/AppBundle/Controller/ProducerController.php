@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,6 +13,7 @@ use AppBundle\Entity\Series;
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\Post;
 use AppBundle\Entity\Playlist;
+use AppBundle\Entity\Abonnement;
 use AppBundle\Form\Series\PostType;
 use AppBundle\Form\PlaylistUserType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -46,7 +48,43 @@ class ProducerController extends Controller
     public function producerAction(Series $series)
     {
         $this->denyAccessUnlessGranted('view_channel', $series);
-        return ['series' => $series];
+        $em = $this->getDoctrine()->getManager();
+        $newest_episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series, 3);
+        $newest_posts = $em->getRepository('AppBundle:Post')->findNewestPosts(1, $series);
+        $newest_episode_comments = [];
+        if ($newest_episodes) {
+            $newest_episode_comments = $em->getRepository('AppBundle:EpisodeComment')->findCommentsForEpisode($newest_episodes[0], 3);
+        }
+        $newest_blogpost_comments = [];
+        if ($newest_posts) {
+            $newest_blogpost_comments = $em->getRepository('AppBundle:PostComment')->findCommentsForPost($newest_posts[0], 3);
+        }
+        return [
+            'series' => $series,
+            'newest_episodes' => $newest_episodes,
+            'newest_posts' => $newest_posts,
+            'newest_episode_comments' => $newest_episode_comments,
+            'newest_blogpost_comments' => $newest_blogpost_comments
+        ];
+    }
+
+    /**
+     * @Route("/channel/{uniqID}/updateNotificationSettings", name="oktothek_channel_update_settings")
+     */
+    public function updateNotificationSettings(Request $request, Series $series)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $abonnement = $em->getRepository('AppBundle:Abonnement')->findAbonnementForUserAndSeries($this->getUser(), $series);
+        if (!$abonnement) {
+            $abonnement = new Abonnement();
+            $abonnement->setSeries($series);
+            $abonnement->setUser($this->getUser());
+        }
+        $abonnement->setNewCommentOnEpisode($request->query->get('episode_comment', false));
+        $abonnement->setNewCommentOnBlogPost($request->query->get('blogpost_comment', false));
+        $em->persist($abonnement);
+        $em->flush();
+        return new Response();
     }
 
     /**
@@ -77,7 +115,7 @@ class ProducerController extends Controller
                 $em->persist($series);
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_post');
-                $this->get('oktothek_notification_service')->createNewPostNotifications($post);
+                $this->get('oktothek_notification_service')->onNewPost($post);
                 return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_post');
@@ -304,7 +342,7 @@ class ProducerController extends Controller
         if ($request->getMethod() == "POST") {
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $this->get('oktothek_notification_service')->createLivestreamNotifications($series);
+                $this->get('oktothek_notification_service')->onLivestream($series);
                 $this->get('session')->getFlashBag()->add('success', 'oktothek.success_notificate_livestream');
                 return $this->redirect($this->generateUrl('oktothek_channel', ['uniqID' => $series->getUniqID()]));
             }

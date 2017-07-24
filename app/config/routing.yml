@@ -29,6 +29,7 @@ series_redirect:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+    defaults:  { _locale: de } #new
     prefix: /{_locale}
     requirements:
         _locale: de|en
@@ -53,8 +54,10 @@ bprs_commandline:
     resource: .
     type: bprs_commandline
     prefix: /{_locale}/backend
+    defaults:  { _locale: de } #new
 
 bprs_logbook:
     resource: "@BprsLogbookBundle/Controller/"
     type:     annotation
     prefix:   /{_locale}
+    defaults:  { _locale: de } #new

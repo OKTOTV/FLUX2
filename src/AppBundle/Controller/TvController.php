@@ -45,7 +45,6 @@ class TvController extends Controller
         }
 
         $shows = $this->get('oktothek_tv')->getShows($start, $end);
-
         return ['shows' => $shows, 'datetime' => $start, 'date' => $start];
     }
 

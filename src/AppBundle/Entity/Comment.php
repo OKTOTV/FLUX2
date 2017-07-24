@@ -8,8 +8,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Comment
  *
- * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CommentRepository")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\HasLifecycleCallbacks()
  */
 class Comment
@@ -34,28 +35,6 @@ class Comment
      * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Comment", inversedBy="children")
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
-     */
-    private $parent;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Comment", mappedBy="parent", cascade={"remove"})
-     */
-    private $children;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
-
-    /**
-     * @ORM\Column(name="referer", type="string", length=13)
-     */
-    private $referer;
 
     /**
      * @ORM\Column(name="removed", type="boolean", options={"default": false})
@@ -94,68 +73,12 @@ class Comment
     }
 
     /**
-     * Set parent
-     *
-     * @param \AppBundle\Entity\Category $parent
-     * @return Comment
-     */
-    public function setParent(\AppBundle\Entity\Comment $parent = null)
-    {
-        $this->parent = $parent;
-
-        return $this;
-    }
-
-    /**
-     * Get parent
-     *
-     * @return \AppBundle\Entity\Category
-     */
-    public function getParent()
-    {
-        return $this->parent;
-    }
-
-    /**
-     * Add children
-     *
-     * @param \AppBundle\Entity\Comment $children
-     * @return Comment
-     */
-    public function addChild(\AppBundle\Entity\Comment $children)
-    {
-        $this->children[] = $children;
-
-        return $this;
-    }
-
-    /**
-     * Remove children
-     *
-     * @param \AppBundle\Entity\Comment $children
-     */
-    public function removeChild(\AppBundle\Entity\Comment $children)
-    {
-        $this->children->removeElement($children);
-    }
-
-    /**
-     * Get children
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getChildren()
-    {
-        return $this->children;
-    }
-
-    /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param $user
      * @return Comment
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser($user = null)
     {
         $this->user = $user;
 
@@ -165,7 +88,7 @@ class Comment
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User
+     * @return user
      */
     public function getUser()
     {
@@ -180,29 +103,6 @@ class Comment
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set referer
-     *
-     * @param string $referer
-     * @return Comment
-     */
-    public function setReferer($referer)
-    {
-        $this->referer = $referer;
-
-        return $this;
-    }
-
-    /**
-     * Get referer
-     *
-     * @return string
-     */
-    public function getReferer()
-    {
-        return $this->referer;
     }
 
     public function getRemoved()
@@ -222,5 +122,10 @@ class Comment
     public function isRemoved()
     {
         return $this->removed;
+    }
+
+    public function canBeEdited()
+    {
+        return $this->createdAt > new \DateTime('-7 days');
     }
 }

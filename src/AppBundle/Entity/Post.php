@@ -42,8 +42,8 @@ class Post
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Length(max=550)
-     * @ORM\Column(name="description", type="string", length=600)
+     * @Assert\Length(max=2500)
+     * @ORM\Column(name="description", type="text", length=2600)
      */
     private $description;
 
@@ -107,6 +107,11 @@ class Post
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id")
      */
     private $series;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\PostComment", mappedBy="post")
+     */
+    private $comments;
 
     public function __construct() {
         $this->uniqID = uniqid();
@@ -449,5 +454,40 @@ class Post
     public function getSeries()
     {
         return $this->series;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \AppBundle\Entity\PostComment $comment
+     * @return Post
+     */
+    public function addComment(\AppBundle\Entity\PostComment $comment)
+    {
+        $this->comments[] = $comment;
+        $comment->setPost($this);
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \AppBundle\Entity\PostComment $comment
+     */
+    public function removeComment(\AppBundle\Entity\PostComment $comment)
+    {
+        $this->comments->removeElement($comment);
+        $comment->setPost(null);
+        return $this;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }

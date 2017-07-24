@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Abonnement;
 use AppBundle\Form\AbonnementType;
+use AppBundle\Form\OktoAbonnementType;
 use AppBundle\Entity\Notification;
 use AppBundle\Entity\User;
 
@@ -122,7 +123,12 @@ class UserController extends Controller
     {
         $this->denyAccessUnlessGranted('view', $abonnement); //symfony voter
 
-        $form = $this->createForm(new AbonnementType(), $abonnement);
+        $form = null;
+        if ($this->get('security.context')->isGranted('ROLE_USER')) {
+            $form = $this->createForm(new OktoAbonnementType(), $abonnement);
+        } else {
+            $form = $this->createForm(new AbonnementType(), $abonnement);
+        }
         $form->add('submit', 'submit', ['label' => 'oktothek.user_update_abonnement_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
@@ -143,40 +149,13 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/notification/{notification}", name="user_notification")
+     * @Route("/notification/clear_all", name="user_notification_clear_all")
      */
-    public function showNotificationAction(Notification $notification)
+    public function clearAllNotificationAction()
     {
-        // TODO: notification voter!
         $em = $this->getDoctrine()->getManager();
-        $em->remove($notification);
-        $em->flush();
-        switch ($notification->getType()) {
-            case Notification::NEW_POST:
-                return $this->redirect(
-                    $this->generateUrl(
-                        'oktothek_show_series_blogpost',
-                        [
-                            'uniqID' => $notification->getPost()->getSeries()->getUniqID(),
-                            'slug' => $notification->getPost()->getSlug()
-                        ]
-                    )
-                );
-                break;
-            case Notification::NEW_EPISODE:
-                return $this->redirect(
-                    $this->generateUrl(
-                        'oktothek_show_episode',
-                        [
-                            'uniqID' => $notification->getEpisode()->getUniqID()
-                        ]
-                    )
-                );
-                break;
-            case Notification::LIVESTREAM:
-                return $this->redirect($this->generateUrl('tv'));
-                break;
-        }
+        $em->getRepository('BprsUserBundle:Notification')->setAllNotificationToReadForUser($this->getUser());
+        return $this->redirect($this->generateUrl('homepage'));
     }
 
     /**

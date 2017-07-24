@@ -1,0 +1,4 @@
+<h1>Hi {{ notification.user}}!</h1>
+<p>
+    <a href="{{ url('oktothek_show_series', {'uniqID': notification.series.uniqID})}}">{{ notification.series }}</a> hat einen neuen Kommentar zu einem <a href="{{ url('oktothek_show_series_blogpost', {'slug': post.slug}) }}">Blogeintrag!</a>
+</p>

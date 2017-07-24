@@ -21,7 +21,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $episode_repo = $em->getRepository('AppBundle:Episode');
-        $best_episodes = $episode_repo->findBestEpisodes();
+        $best_episodes = $episode_repo->findTrendingEpisodes();//findBestEpisodes();
         $newest_episodes = $episode_repo->findNewestEpisodes();
         $newest_playlists = $em->getRepository('AppBundle:Playlist')->findNewestPlaylists();
         return [

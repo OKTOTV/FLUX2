@@ -3,6 +3,7 @@
     $(document).ready(function() {
         var playerInstance = jwplayer("{{ player_id }}");
         playerInstance.setup({
+            playbackRateControls: true,
             logo:   {{ origin(episode)|raw }},
             playlist: [{
                 image: "{{ episode.posterframe|thumb(720,1280) }}",

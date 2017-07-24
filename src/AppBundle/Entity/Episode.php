@@ -24,10 +24,21 @@ class Episode extends OktoEpisode {
      */
     private $playlistitems;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\EpisodeComment", mappedBy="episode")
+     */
+    private $comments;
+
+    /**
+     * @ORM\Column(name="views", type="integer", options={"defaults" = 0}, nullable=true)
+     */
+    private $views;
+
     public function __construct()
     {
         parent::__construct();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->views = 0;
     }
 
     /**
@@ -89,5 +100,84 @@ class Episode extends OktoEpisode {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Add playlistitems
+     *
+     * @param \Oktolab\MediaBundle\Entity\Playlistitem $playlistitems
+     * @return Episode
+     */
+    public function addPlaylistitem(\Oktolab\MediaBundle\Entity\Playlistitem $playlistitems)
+    {
+        $this->playlistitems[] = $playlistitems;
+
+        return $this;
+    }
+
+    /**
+     * Remove playlistitems
+     *
+     * @param \Oktolab\MediaBundle\Entity\Playlistitem $playlistitems
+     */
+    public function removePlaylistitem(\Oktolab\MediaBundle\Entity\Playlistitem $playlistitems)
+    {
+        $this->playlistitems->removeElement($playlistitems);
+    }
+
+    /**
+     * Get playlistitems
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlaylistitems()
+    {
+        return $this->playlistitems;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \AppBundle\Entity\EpisodeComment $comment
+     * @return Episode
+     */
+    public function addComment(\AppBundle\Entity\EpisodeComment $comment)
+    {
+        $this->comments[] = $comment;
+        $comment->setEpisode($this);
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \AppBundle\Entity\EpisodeComment $comment
+     */
+    public function removeComment(\AppBundle\Entity\EpisodeComment $comment)
+    {
+        $this->comments->removeElement($comment);
+        $comment->setEpisode(null);
+        return $this;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    public function getViews()
+    {
+        return $this->views;
+    }
+
+    public function setViews($views)
+    {
+        $this->views = $views;
+        return $this;
     }
 }

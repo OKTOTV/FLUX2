@@ -15,10 +15,60 @@
 
 <div class="row">
     <main class="col-md-8">
-        <canvas id="analytics-latest-episode" width="400" height="200" style="backgroundColor:white"></canvas>
+        <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }}<button class="btn btn-default updateNotifications" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>
+        {% for episodecomment in newest_episode_comments %}
+            <div class="row">
+                {% include "AppBundle::PostComment/_comment.html.twig" with {'comment': episodecomment} %}
+            </div>
+        {% endfor %}
+        <h3>{{ 'oktothek.series_producer_newest_blogpost_comments'|trans }}<button class="btn btn-default updateNotifications" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>
+        {% for blogpostcomment in newest_blogpost_comments %}
+            <div class="row">
+                {% include "AppBundle::PostComment/_comment.html.twig" with {'comment': blogpostcomment} %}
+            </div>
+        {% endfor %}
+        <h3>{{ 'oktothek.series_producer_newest_episodes'|trans }}</h3>
+        {% for episode in newest_episodes %}
+            <div class="row">
+                <figure class="list-group-item">
+                    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 pin">
+                        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}"><img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" /></a>
+                    </div>
+                    <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-12">
+                        <h3><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">{{ episode.name }}</a></h3>
+                        <p>{{ episode.description }}</p>
+                        <p><a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="btn btn-default">{{ 'oktothek_producer_episodes_statistik'|trans }}</a></p>
+                    </figcaption>
+                </figure>
+            </div>
+        {% endfor %}
+        <h3>{{ 'oktothek.series_producer_newest_blogposts'|trans }}</h3>
+        {% for post in newest_posts %}
+            {% set text_only = true %}
+            {% if post.assets is not empty %}
+                {% if post.assets[0]|isImage %}
+                    {% set text_only = false %}
+                {% endif %}
+            {% endif %}
+            <div class="row">
+                <figure class="list-group-item">
+                    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 pin">
+                        {% if text_only == false %}
+                            <a href="{{ path('oktothek_series_edit_blog_post', {'uniqID': series.uniqID, 'post': post.id})}}">
+                                <img src="{{ post.assets[0]|thumb(135,240) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-12">
+                        <h3><a href="{{ path('oktothek_series_edit_blog_post', {'uniqID': series.uniqID, 'post': post.id})}}">{{ post.name }}</a></h3>
+                        <p>{{ post.teaser }}</p>
+                    </figcaption>
+                </figure>
+            </div>
+        {% endfor %}
     </main>
     <aside class="col-md-4">
-        <img src="{{ series.posterframe|thumb(720,1280)}}" class="img img-responsive" />
+        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID})}}"><img src="{{ series.posterframe|thumb(720,1280)}}" class="img img-responsive" /></a>
         <ul class="list-group">
             <li href="" class="list-group-item description">
                 <h3 class="list-group-item-heading">{{ 'oktothek.series_producer_description'|trans }}</h3>
@@ -64,6 +114,32 @@
     </aside>
 </div>
 </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.updateNotifications').click(function(){
+                var flag = $(this).attr('data-send');
+                if (flag == "1") {
+                    $(this).attr('data-send', "0");
+                    $(this).removeClass('active');
+                } else {
+                    $(this).attr('data-send', "1");
+                    $(this).addClass('active');
+                }
+                $.ajax({
+                    'url': "{{ url('oktothek_channel_update_settings', {'uniqID': series.uniqID})}}",
+                    'data': {
+                        'episode_comment': $('#episode_comment').attr('data-send'),
+                        'blogpost_comment': $('#blog_comment').attr('data-send')
+                    }
+                }).success(function(data){
+
+                });
+            });
+        });
+    </script>
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}

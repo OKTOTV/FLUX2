@@ -18,19 +18,23 @@ class AbonnementType extends AbstractType {
         $builder
             ->add('livestream', CheckboxType::class,
                 [
-                    'label' => 'oktothek_abonnement_livestream_label'
+                    'label' => 'oktothek_abonnement_livestream_label',
+                    'required' => false
                 ])
             ->add('newEpisode', CheckboxType::class,
                 [
-                    'label' => 'oktothek_abonnement_new_episode_label'
+                    'label' => 'oktothek_abonnement_new_episode_label',
+                    'required' => false
                 ])
             ->add('newPost', CheckboxType::class,
                 [
-                    'label' => 'oktothek_abonnement_new_post_label'
+                    'label' => 'oktothek_abonnement_new_post_label',
+                    'required' => false
                 ])
             ->add('send_mails', CheckboxType::class,
                 [
-                    'label' => 'oktothek_abonnement_send_mails_label'
+                    'label' => 'oktothek_abonnement_send_mails_label',
+                    'required' => false
                 ])
         ;
     }

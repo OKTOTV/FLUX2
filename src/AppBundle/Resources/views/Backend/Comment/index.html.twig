@@ -13,9 +13,6 @@
                 {{ 'oktothek.backend_index_sort_drop'|trans|raw }}
             </button>
             <ul class="dropdown-menu">
-                <li {% if comments.isSorted('u.username') %}class="active"{% endif %}>
-                    {{ knp_pagination_sortable(comments, 'oktothek.backend_index_sort_user'|trans, 'u.username') }}
-                </li>
                 <li {% if comments.isSorted('c.createdAt') %}class="active"{% endif %}>
                     {{ knp_pagination_sortable(comments, 'oktothek.backend_index_sort_createdAt'|trans, 'c.createdAt') }}
                 </li>
