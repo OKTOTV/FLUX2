@@ -8,7 +8,11 @@ $(document).ready(function(){
 	});
 	
 	$('.playlists #ButtonShare').click(function() {
-		scrollToAnchor($('.playlist_container'));
+		scrollToAnchor($('.collapse-container'));
+	});
+    
+    $('.playlists #ButtonShareMobil').click(function() {
+		scrollToAnchor($('.collapse-container'));
 	});
     
     $('.academy .fs-image-ident #ButtonShare').click(function() {
