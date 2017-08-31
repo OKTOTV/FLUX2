@@ -22,7 +22,7 @@ class PageType extends AbstractType
             ->add('title', TextType::class, ['label' => 'oktothek.page_title_label'])
             ->add('text', TextareaType::class, ['label' => 'oktothek.page_text_label', 'attr' => ['rows' => 35]])
             ->add('tags', TagType::class)
-            ->add('isActive', CheckboxType::class, ['label' => 'oktothek.page_isActive_label'])
+            ->add('isActive', CheckboxType::class, ['required' => false, 'label' => 'oktothek.page_isActive_label'])
             ;
     }
 
