@@ -70,8 +70,10 @@ oktothek.episode_stack_collapse_title:  "Mehr Videos anzeigen"
 
 oktothek.newest_episodes_title:         "Neueste Clips in der Oktothek | Okto"
 oktothek.newest_episodes_header:        "Neueste Clips"
-oktothek.best_episodes_title:           "Trending Clips in der Oktothek | Okto"
-oktothek.best_episodes_header:          "Trending Clips"
+oktothek.best_episodes_title:           "Beliebteste Clips in der Oktothek | Okto"
+oktothek.best_episodes_header:          "Beliebteste Clips"
+oktothek.trending_episodes_title:       "Trending Clips in der Oktothek | Okto"
+oktothek.trending_episodes_header:      "Trending Clips"
 ## register
 oktothek.user_register_title:           "Der Community beitreten | Okto"
 oktothek.user_name_label:               "Benutzername"
