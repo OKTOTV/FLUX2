@@ -16,7 +16,7 @@
             {{ knp_pagination_render(episodes) }}
         </div>
     </div>
-    <h2 class="sr-only">Episoden</h2>
+    <h2 class="sr-only">{{ 'oktothek.trending_episodes_header'|trans }}</h2>
     <ul class="row" itemscope="itemscope" itemtype="http://schema.org/ItemList">
         {% for episode in episodes %}
             {% include 'AppBundle:Episode:EpisodeThumb.html.twig' %}

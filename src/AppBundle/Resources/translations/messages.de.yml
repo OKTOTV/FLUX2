@@ -61,6 +61,9 @@ oktothek.newest_videos_show_less:       "Weniger Videos anzeigen <span class='ic
 oktothek.best_videos:                   "Trending Clips"
 oktothek.best_videos_sub:               "Die meistgefragten Videos der Okto Community findest du hier."
 
+oktothek.trending_videos:               "Trending Clips"
+oktothek.trending_videos_sub:           "Die meistgefragten Videos der Okto Community findest du hier."
+
 oktothek.newest_playlists:              "Aktuelle Playlisten"
 oktothek.newest_playlists_sub:          "Tipps von einem anderen Stern."
 oktothek.newest_playlists_show_more:    'Mehr Playlisten anzeigen <span class="icon">+</span>'
