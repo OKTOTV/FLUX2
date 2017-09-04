@@ -115,8 +115,12 @@ oktothek.searchfield_label:             "Suche"
 
 ## Default
 ### oktothek.html.twig
+oktothek_default_meta_description:              "Okto macht Platz für dich und deine Ideen. Wir bieten dir die optimale Unterstützung für die Entwicklung deiner Sendungsidee und bieten dir auf unserer Homepage die ultimative Plattform für die Verbreitung deiner Clips. Melde dich an, diskutiere, teile, lerne - mach mit und werde Teil unserer Community!"
 oktothek_default_welcome:                       "Willkommen %user%!"
 oktothek_default_sub_welcome:                   "Viele neue Videos und Möglichkeiten warten auf dich."
+
+### participate.html.twig
+oktothek_default_participate_meta_description:  "Werde Oktonaut! Alle Möglichkeiten bei Okto mitzumachen findest du hier."
 oktothek_default_participate:                   "Mitmachen"
 oktothek_default_participate_sub:               "Du platzt vor Ideen? Dann bist du bei uns richtig!"
 oktothek_default_participate_login:             "Melde Dich an!"
@@ -406,6 +410,7 @@ oktothek_academy_agb:   |
 
 
 ### show.html.twig
+oktothek_academy_show_meta_description: "Okto bietet ein grundlegendes und umfassendes Kursprogramm, um Fernsehmachen zu lernen - von Videojournalismus über Studioproduktion bis zu Mobile Reporting. Hier kannst du dich für unsere Workshops anmelden."
 oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"
 oktothek_academy_show_footnote:          "* Ermäßigte Preise für StudentInnen, Zivildiener, Menschen mit geringem Einkommen."
 oktothek_academy_show_stay_informed:    "Informiert bleiben"
@@ -446,6 +451,8 @@ oktothek_academy_mail_notification_attendee_notreduced:     "ermäßigt: NEIN"
 oktothek_academy_mail_notification_attendee_coursetitle:    "%name% (%current%/%max%)"
 
 ## tv
+### tv.html.twig
+oktothek_tv_meta_description:           "Der Live-Stream und die Programmübersicht von Österreichs größtem Community-Sender."
 oktothek_tv_title:                      "Livestream und TV-Programm | Okto"
 oktothek_tv_weekdays_choice:            "{1} Montag |{2} Dienstag |{3} Mittwoch|{4} Donnerstag|{5} Freitag|{6} Samstag|{7} Sonntag"
 oktothek_tv_weekdays_short_choice:      "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
