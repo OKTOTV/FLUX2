@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="fs-image-misc-mobile">
-            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen"><span class="hidden-xs">Teilen</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShareMobil" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen"><span class="hidden-xs">Teilen</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
                 <div class="playlist-minimized">
                     <button class="btn btn-default circle"><span>i</span></button>
                 </div>
@@ -52,7 +52,7 @@
 	            </div>
                 {% endif %}
         </div>
-        {% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}
+        <div class="collapse-container">{% include 'AppBundle:Oktothek:snippetPlaylistShare.html.twig' %}</div>
     </section>
     <section class="container">
         <div class="description-container row">
