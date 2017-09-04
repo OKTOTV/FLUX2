@@ -71,15 +71,16 @@
             {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': newest_episodes, 'pager_url': path('oktothek_newest_episodes')} %}
         </section>
 
-        {# render favorites #}
+        {# render trending episodes #}
         <section class="favorite-videos container" itemscope="itemscope" itemtype="http://schema.org/Thing">
             <div id="anchor_favorite_videos"></div>
-            <h2>{{ 'oktothek.best_videos'|trans }}</h2>
+            <h2>{{ 'oktothek.trending_videos'|trans }}</h2>
             <p class="subheadline" itemprop="description">
-                {{ 'oktothek.best_videos_sub'|trans}}
+                {{ 'oktothek.trending_videos_sub'|trans}}
             </p>
-            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes, 'pager_url': path('oktothek_best_episodes')} %}
+            {% include 'AppBundle:Default:EpisodeStack.html.twig' with {'episodes': best_episodes, 'pager_url': path('oktothek_trending_episodes')} %}
         </section>
+
         {# render newest playlists #}
         <section class="newest-playlists container" itemscope="itemscope" itemtype="http://schema.org/Thing">
             <div id="anchor_playlists"></div>

@@ -141,6 +141,8 @@ oktolab_media:
             video_bitrate: 3000000
             crf_rate:   23
             preset:     "veryslow"
+            video_framerate: "25" #"30000/1001"
+            audio_bitrate:   128000
         720p:
             name: 720p
             sortNumber: 1
@@ -157,8 +159,8 @@ oktolab_media:
             video_height: 1080
             adapter: "video"
             video_bitrate: 8000000
-            crf_rate:   23
-            preset:     "veryslow"
+            crf_rate:   22
+            preset:     "slower"
         UHD:
             name: UHD
             sortNumber: 3
