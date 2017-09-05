@@ -23,15 +23,20 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class TagController extends Controller
 {
     /**
-     * @Route("/{page}", name="oktothek_tag_index", defaults={"page" = 1}, requirements={"page" = "\d+"})
+     * @Route("/", name="oktothek_tag_index")
      * @Method("GET")
      * @Template()
      */
-    public function indexAction($page = 1)
+    public function indexAction(Request $request)
     {
         $paginator = $this->get('knp_paginator');
         $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Tag');
-        $tags = $paginator->paginate($repo->findAll(), $page, 10);
+        $tags = $paginator->paginate(
+            $repo->findAll(),
+            $request->query->get('page', 1),
+            $request->query->get('results', 10)
+        );
+
         return ['tags' => $tags];
     }
 
@@ -40,10 +45,15 @@ class TagController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function popularTagsAction()
+    public function popularTagsAction(Request $request)
     {
+        $paginator = $this->get('knp_paginator');
         $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Tag');
-        $tags = $repo->findHighlightedTags();
+        $tags = $paginator->paginate(
+            $repo->findHighlightedTags(0, true),
+            $request->query->get('page', 1),
+            $request->query->get('results', 10)
+        );
 
         return ['tags' => $tags];
     }
@@ -85,7 +95,7 @@ class TagController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $tagCollection = new TagCollection();
-        $tagCollection->setTags($em->getRepository('AppBundle:Tag')->findHighlightedTags());
+        $tagCollection->setTags($em->getRepository('AppBundle:Tag')->findHighlightedTags(200));
         $form = $this->createForm(TagCollectionType::class, $tagCollection);
         $form->add('submit', SubmitType::class, ['label' => 'oktothek.tag_popular_update_button', 'attr' => ['class' => 'btn btn-primary']]);
 
@@ -98,6 +108,7 @@ class TagController extends Controller
                     $em->persist($tag);
                 }
                 $tagCollection = $form->getData();
+                // die(var_dump(count($tagCollection->getTags())));
                 foreach ($tagCollection->getTags() as $tag) {
                     $tag->setHighlight(true);
                     $em->persist($tag);

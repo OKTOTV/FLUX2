@@ -67,7 +67,8 @@
     <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $(document).on("click", '.moveup', function() {
+            $(document).on("click", '.moveup', function(e) {
+                e.preventDefault();
                 var row = $(this).parents('.row');
                 if (row.prev().length) {
                     row.slideUp(function() {
@@ -78,7 +79,8 @@
                 }
             });
 
-            $(document).on("click", ".movedown", function() {
+            $(document).on("click", ".movedown", function(e) {
+                e.preventDefault();
                 var row = $(this).parents('.row');
                 if (row.next().length) {
                     row.slideUp(function() {
@@ -89,7 +91,8 @@
                 }
             });
 
-            $(document).on("click", '.remove', function() {
+            $(document).on("click", '.remove', function(e) {
+                e.preventDefault();
                 var row = $(this).parents('.row');
                 row.hide('slow', function() {
                     row.remove();
@@ -129,6 +132,7 @@
                 limit: 8,
                 name: 'episodes',
                 source: episodes,
+                display: 'name',
                 templates: {
                     empty: [
                         '<div class="empty-message">',
@@ -140,7 +144,6 @@
                     }
                 }
             }).bind('typeahead:select', function(ev, suggestion) {
-                console.log(suggestion);
                 addInput(suggestion);
             });
         });

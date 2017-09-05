@@ -537,6 +537,15 @@ oktothek_series.share_tw:               "Twitter"
 oktothek_series.share_gp:               "Google+"
 oktothek_series.share_pint:             "Pinterest"
 
+## series reachme
+# Series/reachmeStack.html.twig
+oktothek_series_reachmestack_fb:          "Facebook"
+oktothek_series_reachmestack_tw:          "Twitter"
+oktothek_series_reachmestack_inst:        "Instagram"
+oktothek_series_reachmestack_gp:          "Google+"
+oktothek_series_reachmestack_link:        "Sendungsblog"
+oktothek_series_reachmestack_other:       "Link"
+
 ## series backend
 # /app/Resources/OktoMediaBundle/views/Series/show.html.twig
 oktothek.series_show_frontend:          '<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Zum Frontend'
