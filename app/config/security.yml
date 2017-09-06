@@ -65,6 +65,7 @@ security:
                 secret: '%secret%'
                 httponly: false
                 secure: '%secure_cookie%'
+            switch_user: { role: ROLE_ADMIN }
 
     access_control:
         - { path: /backend, roles: ROLE_USER }
