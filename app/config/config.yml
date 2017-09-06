@@ -196,7 +196,7 @@ bprs_command_line:
 bprs_asset:
     class:  AppBundle\Entity\Asset
     filesystem_map: oneup_flysystem.mount_manager
-    worker_queue: %worker_queue%
+    worker_queue: %asset_worker_queue%
     thumb_filesystem: posterframe
     404:      "%bprs_asset_404%"
     adapters: "%bprs_asset_adapters%"
