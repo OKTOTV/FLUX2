@@ -31,6 +31,7 @@ parameters:
     bprs_asset.junksize: 200000
     php_path: "/path/to/php"
     worker_queue: "flux2"
+    asset_worker_queue: "bprs_asset"
     redis_backend: 'localhost:6379'
 
     customer_id:    123456
