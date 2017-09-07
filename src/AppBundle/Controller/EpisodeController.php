@@ -101,4 +101,27 @@ class EpisodeController extends Controller
         $episodes = $paginator->paginate($query, $page, $number);
         return ['episodes' => $episodes];
     }
+
+    /**
+     * @Route(
+     *    "/trending_episodes.{_format}",
+     *    name="oktothek_trending_episodes",
+     *    defaults={"_format": "html"}
+     * )
+     * @Template()
+     */
+    public function trendingEpisodesAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->getRepository('AppBundle:Episode')->findTrendingEpisodes(0, true);
+        $paginator = $this->get('knp_paginator');
+        $episodes = $paginator->paginate(
+            $query,
+            $request->query->get('page', 1),
+            $request->query->get('results', 12),
+            ['distinct' => false]
+        );
+
+        return ['episodes' => $episodes];
+    }
 }

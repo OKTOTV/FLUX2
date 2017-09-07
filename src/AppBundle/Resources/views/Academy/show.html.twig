@@ -1,6 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 {% block metas %}
-    <meta name="description" content="Okto bietet ein grundlegendes und umfassendes Kursprogramm, um Fernsehmachen zu lernen - von Videojournalismus über Studioproduktion bis zu Mobile Reporting. Hier kannst du dich für unsere Workshops anmelden.">
+    <meta name="description" content="{{ 'oktothek_academy_show_meta_description'|trans }}">
 {% endblock %}
 {% block title %}{{ 'oktothek_academy_header'|trans }}{% endblock %}
 
@@ -18,13 +18,6 @@
         {% include "AppBundle:Academy:_courseStack.html.twig" with {'coursetypes': highlights} %}
     </section>
     <!-- Ende Highlights -->
-
-{#    <section>
-        <h2>{{ 'oktothek_academy_show_coursepackages'|trans }}</h2>
-        {% include "AppBundle:Academy:_coursepackageStack.html.twig" with {'coursepackages': coursepackages} %}
-    </section>
-
-    #}
 
     <!-- Start Kursauflistung -->
     <section class="courses">

@@ -61,6 +61,9 @@ oktothek.newest_videos_show_less:       "Weniger Videos anzeigen <span class='ic
 oktothek.best_videos:                   "Trending Clips"
 oktothek.best_videos_sub:               "Die meistgefragten Videos der Okto Community findest du hier."
 
+oktothek.trending_videos:               "Trending Clips"
+oktothek.trending_videos_sub:           "Die meistgefragten Videos der Okto Community findest du hier."
+
 oktothek.newest_playlists:              "Aktuelle Playlisten"
 oktothek.newest_playlists_sub:          "Tipps von einem anderen Stern."
 oktothek.newest_playlists_show_more:    'Mehr Playlisten anzeigen <span class="icon">+</span>'
@@ -70,8 +73,10 @@ oktothek.episode_stack_collapse_title:  "Mehr Videos anzeigen"
 
 oktothek.newest_episodes_title:         "Neueste Clips in der Oktothek | Okto"
 oktothek.newest_episodes_header:        "Neueste Clips"
-oktothek.best_episodes_title:           "Trending Clips in der Oktothek | Okto"
-oktothek.best_episodes_header:          "Trending Clips"
+oktothek.best_episodes_title:           "Beliebteste Clips in der Oktothek | Okto"
+oktothek.best_episodes_header:          "Beliebteste Clips"
+oktothek.trending_episodes_title:       "Trending Clips in der Oktothek | Okto"
+oktothek.trending_episodes_header:      "Trending Clips"
 ## register
 oktothek.user_register_title:           "Der Community beitreten | Okto"
 oktothek.user_name_label:               "Benutzername"
@@ -110,8 +115,12 @@ oktothek.searchfield_label:             "Suche"
 
 ## Default
 ### oktothek.html.twig
+oktothek_default_meta_description:              "Okto macht Platz für dich und deine Ideen. Wir bieten dir die optimale Unterstützung für die Entwicklung deiner Sendungsidee und bieten dir auf unserer Homepage die ultimative Plattform für die Verbreitung deiner Clips. Melde dich an, diskutiere, teile, lerne - mach mit und werde Teil unserer Community!"
 oktothek_default_welcome:                       "Willkommen %user%!"
 oktothek_default_sub_welcome:                   "Viele neue Videos und Möglichkeiten warten auf dich."
+
+### participate.html.twig
+oktothek_default_participate_meta_description:  "Werde Oktonaut! Alle Möglichkeiten bei Okto mitzumachen findest du hier."
 oktothek_default_participate:                   "Mitmachen"
 oktothek_default_participate_sub:               "Du platzt vor Ideen? Dann bist du bei uns richtig!"
 oktothek_default_participate_login:             "Melde Dich an!"
@@ -401,6 +410,7 @@ oktothek_academy_agb:   |
 
 
 ### show.html.twig
+oktothek_academy_show_meta_description: "Okto bietet ein grundlegendes und umfassendes Kursprogramm, um Fernsehmachen zu lernen - von Videojournalismus über Studioproduktion bis zu Mobile Reporting. Hier kannst du dich für unsere Workshops anmelden."
 oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"
 oktothek_academy_show_footnote:          "* Ermäßigte Preise für StudentInnen, Zivildiener, Menschen mit geringem Einkommen."
 oktothek_academy_show_stay_informed:    "Informiert bleiben"
@@ -441,6 +451,8 @@ oktothek_academy_mail_notification_attendee_notreduced:     "ermäßigt: NEIN"
 oktothek_academy_mail_notification_attendee_coursetitle:    "%name% (%current%/%max%)"
 
 ## tv
+### tv.html.twig
+oktothek_tv_meta_description:           "Der Live-Stream und die Programmübersicht von Österreichs größtem Community-Sender."
 oktothek_tv_title:                      "Livestream und TV-Programm | Okto"
 oktothek_tv_weekdays_choice:            "{1} Montag |{2} Dienstag |{3} Mittwoch|{4} Donnerstag|{5} Freitag|{6} Samstag|{7} Sonntag"
 oktothek_tv_weekdays_short_choice:      "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
@@ -524,6 +536,15 @@ oktothek_series.share_fb:               "Facebook"
 oktothek_series.share_tw:               "Twitter"
 oktothek_series.share_gp:               "Google+"
 oktothek_series.share_pint:             "Pinterest"
+
+## series reachme
+# Series/reachmeStack.html.twig
+oktothek_series_reachmestack_fb:          "Facebook"
+oktothek_series_reachmestack_tw:          "Twitter"
+oktothek_series_reachmestack_inst:        "Instagram"
+oktothek_series_reachmestack_gp:          "Google+"
+oktothek_series_reachmestack_link:        "Sendungsblog"
+oktothek_series_reachmestack_other:       "Link"
 
 ## series backend
 # /app/Resources/OktoMediaBundle/views/Series/show.html.twig

@@ -95,7 +95,8 @@ swiftmailer:
     host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
-    # spool:     { type: memory }
+    port:      "%mailer_port%"
+    encryption: "%mailer_encryption%"
     spool:
         type: file
         path: '%kernel.root_dir%/spool'
@@ -141,6 +142,8 @@ oktolab_media:
             video_bitrate: 3000000
             crf_rate:   23
             preset:     "veryslow"
+            video_framerate: "25" #"30000/1001"
+            audio_bitrate:   128000
         720p:
             name: 720p
             sortNumber: 1
@@ -157,8 +160,8 @@ oktolab_media:
             video_height: 1080
             adapter: "video"
             video_bitrate: 8000000
-            crf_rate:   23
-            preset:     "veryslow"
+            crf_rate:   22
+            preset:     "slower"
         UHD:
             name: UHD
             sortNumber: 3
@@ -193,7 +196,7 @@ bprs_command_line:
 bprs_asset:
     class:  AppBundle\Entity\Asset
     filesystem_map: oneup_flysystem.mount_manager
-    worker_queue: %worker_queue%
+    worker_queue: %asset_worker_queue%
     thumb_filesystem: posterframe
     404:      "%bprs_asset_404%"
     adapters: "%bprs_asset_adapters%"

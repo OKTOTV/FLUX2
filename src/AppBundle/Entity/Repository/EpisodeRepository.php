@@ -26,7 +26,7 @@ class EpisodeRepository extends BaseEpisodeRepository
     {
         $query = $this->getEntityManager()
             ->createQuery(
-                'SELECT e FROM AppBundle:Episode e
+                'SELECT e, p FROM AppBundle:Episode e
                 LEFT JOIN e.posterframe p
                 LEFT JOIN e.series s
                 WHERE e.isActive = 1
@@ -69,27 +69,57 @@ class EpisodeRepository extends BaseEpisodeRepository
     public function findTrendingEpisodes($numberEpisodes = 8, $query_only = false)
     {
         $query = $this->getEntityManager()->createQuery(
-            "SELECT e, s, p, COUNT(l) AS HIDDEN viewCount FROM AppBundle:Episode e
+            "SELECT e, COUNT(l) AS HIDDEN viewCount
+            FROM AppBundle:Episode e
             JOIN e.series s
-            JOIN e.posterframe p
             JOIN BprsAnalyticsBundle:Logstate l WITH l.identifier = e.uniqID
             WHERE e.isActive = 1
             AND s.isActive = 1
             AND e.onlineStart < :now
             AND l.value = :value
             AND l.timestamp > :range
-            GROUP By e
+            GROUP By e.id
             ORDER BY viewCount DESC"
-        )
-        ->setParameter('now', new \DateTime())
-        ->setParameter('value', '20%')
-        ->setParameter('range', new \DateTime('-7 days'));
+            )->setParameter('now', new \DateTime())
+            ->setParameter('value', '20%')
+            ->setParameter('range', new \DateTime('-7 days'));
 
         if ($query_only) {
+            $query->setHint('knp_paginator.count', 60);
             return $query;
         }
 
-        return $query->setMaxResults($numberEpisodes)->getResult();
+        $query = $this->getEntityManager()->createQuery(
+            "SELECT e.id, COUNT(l) AS HIDDEN viewCount
+            FROM AppBundle:Episode e
+            JOIN e.series s
+            JOIN BprsAnalyticsBundle:Logstate l WITH l.identifier = e.uniqID
+            WHERE e.isActive = 1
+            AND s.isActive = 1
+            AND e.onlineStart < :now
+            AND l.value = :value
+            AND l.timestamp > :range
+            GROUP By e.id
+            ORDER BY viewCount DESC"
+            )->setParameter('now', new \DateTime())
+            ->setParameter('value', '20%')
+            ->setParameter('range', new \DateTime('-7 days'));
+
+        $ids = $query
+            ->setMaxResults($numberEpisodes)
+            ->getScalarResult();
+
+        $episodes = [];
+        foreach (array_column($ids, "id") as $id) {
+            $episodes[] = $this->getEntityManager()->createQuery(
+                    "SELECT e, p, s FROM AppBundle:Episode e
+                    LEFT JOIN e.series s
+                    LEFT JOIN e.posterframe p
+                    WHERE e.id = :id"
+                )->setParameter('id', $id)->getSingleResult();
+        }
+
+        return $episodes;
     }
 
     public function findEpisodesForSeries($series, $query_only = false)
