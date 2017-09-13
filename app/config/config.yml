@@ -126,6 +126,7 @@ bprs_user:
 oktolab_media:
     encoding_filesystem: cache
     worker_queue: %worker_queue%
+    sprite_worker_queue: %sprite_worker_queue%
     episode_class: AppBundle\Entity\Episode
     series_class: AppBundle\Entity\Series
     asset_class: AppBundle\Entity\Asset
@@ -195,7 +196,7 @@ bprs_command_line:
 bprs_asset:
     class:  AppBundle\Entity\Asset
     filesystem_map: oneup_flysystem.mount_manager
-    worker_queue: %worker_queue%
+    worker_queue: %bprs_asset_worker_queue%
     thumb_filesystem: posterframe
     404:      "%bprs_asset_404%"
     adapters: "%bprs_asset_adapters%"
@@ -218,6 +219,9 @@ oneup_flysystem:
         promo:
             adapter: promo
             mount: promo
+        sprite:
+            adapter: sprite
+            mount: sprite
 
 oneup_uploader:
     chunks:
@@ -246,6 +250,11 @@ oneup_uploader:
                 type: flysystem
                 filesystem: oneup_flysystem.gallery_filesystem
         promo:
+            frontend: blueimp
+            storage:
+                type: flysystem
+                filesystem: oneup_flysystem.promo_filesystem
+        sprite:
             frontend: blueimp
             storage:
                 type: flysystem

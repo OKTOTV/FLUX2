@@ -29,6 +29,8 @@ parameters:
     bprs_asset.junksize: 200000
     php_path: "/path/to/php"
     worker_queue: "flux2"
+    bprs_asset_worker_queue: "flux2_asset"
+    sprite_worker_queue: "flux2_sprite"
     redis_backend: 'localhost:6379'
 
     customer_id:    123456
@@ -78,4 +80,8 @@ parameters:
         promo:
             local:
                 directory: '%kernel.root_dir%/../web/uploads/promo'
+        sprite:
+            local:
+                directory: '%kernel.root_dir%/../web/uploads/sprite'
+
     academy_notification_mail:  "mailadress@mail.mail"
