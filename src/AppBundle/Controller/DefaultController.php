@@ -42,6 +42,11 @@ class DefaultController extends Controller
                 'oktothek_show_episode',
                 ['uniqID' => $request->query->get('v')]
             ));
+        } elseif ($request->query->get('s')) {
+            return $this->redirect($this->generateUrl(
+                'oktothek_show_series',
+                ['uniqID' => $request->query->get('s')]
+            ));
         } elseif ($request->query->get('p')) {
             return $this->redirect($this->generateUrl(
                 'oktothek_show_playlist',

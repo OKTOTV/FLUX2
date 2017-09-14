@@ -33,11 +33,30 @@
                 {% endif %}
             </ul>
         </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'okto_media.episode_show_files'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    {% if episode.video is not empty %}
+                        <a href="{{ path('bprs_asset_show', {'filekey': episode.video.filekey}) }}">{{ 'okto_media.episode_show_files_video'|trans }}</a>
+                    {% endif %}
+                    {% if episode.posterframe is not empty %}
+                    <a href="{{ path('bprs_asset_show', {'filekey': episode.posterframe.filekey}) }}">{{ 'okto_media.episode_show_files_posterframe'|trans }}</a>
+                    {% endif %}
+                    {% if episode.sprite is not empty %}
+                        <a href="{{ path('bprs_asset_show', {'filekey': episode.sprite.filekey}) }}" >{{ 'okto_media.episode_show_files_sprite'|trans }}</a>
+                    {% endif %}
+                </li>
+
+            </ul>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-7">
             {% if episode.video is not empty %}
-                <div id="video">
+                <div id="player">
                 </div>
             {% elseif episode.posterframe is not empty %}
                 <img src="{{ episode.posterframe|path }}" class="img-responsive"/>
@@ -107,15 +126,12 @@
 
 {% block javascripts %}
     {{ parent() }}
+    {{ player(episode)|raw }}
     <script src="{{ playerUrl() }}"></script>
     {% if episode.video is not empty %}
         <script type="text/javascript">
             $(document).ready(function(){
-                var playerInstance = jwplayer("video");
-                playerInstance.setup({
-                    sources: [{% for media in episode.media %}{file: "{{ media.asset|path }}", label: "{{ media.quality }}", type: "mp4"}{% if not loop.last %},{% endif %}{% endfor %}],
-                    image: "{{ episode.posterframe|path }}"
-                });
+                var playerInstance = jwplayer("player");
 
                 $('#set_posterframe').click(function(e) {
                     e.preventDefault();
@@ -128,7 +144,6 @@
             });
         </script>
     {% endif %}
-
     <script>
         // AJAX pagination
 
