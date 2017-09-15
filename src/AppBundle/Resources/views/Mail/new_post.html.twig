@@ -1,9 +1,9 @@
-<body style="background-image:url(space.jpg);background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:16px;padding-left:5%;padding-right:5%;line-height:24px;letter-spacing:0.6px;">
+<body style="background-image:url({{ absolute_url(asset('bundles/app/images/welcome_mail/space.jpg'))}});background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:16px;padding-left:5%;padding-right:5%;line-height:24px;letter-spacing:0.6px;">
     <table style="" border="0" width="100%">
        <tr>
            <td>
               <div style="max-width:600px;margin-left:auto;margin-right:auto;">
-                  <p style=""><img src="logo_okto_tv.gif" width="40" height="66" alt="OKTO Community TV GmbH"/></p>
+                  <p style=""><img src="{{ absolute_url(asset('bundles/app/images/welcome_mail/logo_okto_tv.gif'))}}" width="40" height="66" alt="OKTO Community TV GmbH"/></p>
                   <div style="padding-top:20px;font-size:20px;font-weight:300;line-height: 27px;text-align: center">
                       <h1 style="font-size: 32px;font-weight:normal;line-height:36px;">Liebe/r {{ notification.user}}!</h1>
                       <p>Die Sendung <a href="{{ url('oktothek_show_series', {'uniqID': post.series.uniqID}) }}" style="color:#fcce14;text-decoration:none;">{{ post.series }}</a> hat einen neuen Blogeintrag verfasst. Schau dir die neusten Aktivitäten an.</p>
