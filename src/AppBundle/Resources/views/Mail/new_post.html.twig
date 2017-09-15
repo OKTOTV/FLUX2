@@ -1,6 +1,30 @@
-<h1>Hi {{ notification.user}}!</h1>
-<p>
-    <a href="{{ url('oktothek_show_series', {'uniqID': post.series.uniqID}) }}">
-        {{ post.series }}
-    </a> hat einen neuen Blogeintrag verfasst. <a href="{{ url('oktothek_show_series_blogpost', {'slug': post.slug })}}">Schau doch mal rein!</a>
-</p>
+<body style="background-image:url(space.jpg);background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:16px;padding-left:5%;padding-right:5%;line-height:24px;letter-spacing:0.6px;">
+    <table style="" border="0" width="100%">
+       <tr>
+           <td>
+              <div style="max-width:600px;margin-left:auto;margin-right:auto;">
+                  <p style=""><img src="logo_okto_tv.gif" width="40" height="66" alt="OKTO Community TV GmbH"/></p>
+                  <div style="padding-top:20px;font-size:20px;font-weight:300;line-height: 27px;text-align: center">
+                      <h1 style="font-size: 32px;font-weight:normal;line-height:36px;">Hallo {{ notification.user}}!</h1>
+                      <p>Die Sendung <a href="{{ url('oktothek_show_series', {'uniqID': post.series.uniqID}) }}" style="color:#fcce14;text-decoration:none;">{{ post.series }}</a> bei OKTO hat einen neuen Blogeintrag verfasst. Schau dir die neusten Aktivitäten an.</p>
+                  </div>
+               </div>
+           </td>
+       </tr>
+    </table>
+    <table border="0" width="100%">
+        <tr> 
+            <td>
+                <div style="background-color:#333333;font-weight:300;margin-left:auto;margin-right:auto;max-width:600px;">
+                    <p ><img src="59b924501981f_thumbnail_220x390_1.jpg" alt="" style="width: 100%; height: auto"/><!-- Imagesource bitte mit dem aktuellen Blogimage verknüpfen. Wenn es keines gibt, dann das Sendereihenplatzhalterbild verwenden.--></p>
+                   <h1 style="font-size: 32px;font-weight:normal;padding-bottom:20px;padding-left:30px;padding-right:30px;line-height:36px;text-align:center;">Power Snack</h1>
+                    <p style="padding-bottom:30px;padding-left:30px;padding-right:30px;font-size:20px;font-weight:300;line-height: 27px;text-align: center">
+                       So startet das OKTO Team den Tag!
+                    </p>
+                  <p style="padding-bottom:50px;text-align:center"><a href="{{ url('oktothek_show_series_blogpost', {'slug': post.slug })}}" style="background-color:#fcce14;padding-top:15px;padding-left:30px;padding-bottom:15px;padding-right:30px;border-radius:25px;-moz-border-radius:25px;-webkit-border-radius:25px;border-radius:25px;color:#000000;text-decoration:none;text-transform:uppercase;">Blog lesen</a></p>
+              </div>
+                <div style="margin-left:auto;margin-right:auto;margin-top:40px;margin-bottom:60px;max-width:600px;font-size:12px;line-height:16px;color:#dcdcdc;">Du bekommst das Email weil du dich bei Okto registriert hast. <a href="#" style="color:#fcce14;text-decoration:none;">Benachrichtigung abstellen</a></div><!-- Den Link zur jeweiligen Aboseite zeigen lassen, wenn das geht. Wenn nicht, zur Loginseite. -->
+            </td>
+        </tr>
+    </table>  
+</body>
