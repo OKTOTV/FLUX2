@@ -25,5 +25,7 @@
     <a href="{{ collapse_link|default('#'~collapse_id) }}" data-collapseid="#{{collapse_id}}" class="pull-right more hidden-xs" data-lesstrans="{{collapse_link_text_less|default('oktothek.newest_videos_show_less'|trans)|raw }}" data-moretrans="{{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw }}" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title'|trans) }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}">
         {{ collapse_link_text|default('oktothek.newest_videos_show_more'|trans)|raw}}
     </a>
-    <a href="{{ collapse_link|default('#'~collapse_id) }}" data-collapseid="#{{collapse_id}}" class="more right visible-xs-block" data-lesstrans="<span class='icon'>-</span>" data-moretrans="<span class='icon'>+</span>" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title'|trans) }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}"><span class="icon">+</span></a>
+    <a href="{{ collapse_link|default('#'~collapse_id) }}" data-collapseid="#{{collapse_id}}" class="more right visible-xs-block" data-lesstrans="<span class='icon'>-</span>" data-moretrans="<span class='icon'>+</span>" title="{{ collapse_title|default('oktothek.episode_stack_collapse_title'|trans) }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{collapse_id}}">
+        <span class="icon">+</span>
+    </a>
 {% endif %}

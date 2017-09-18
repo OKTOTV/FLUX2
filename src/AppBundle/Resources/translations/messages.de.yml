@@ -119,6 +119,11 @@ oktothek_default_meta_description:              "Okto macht Platz für dich und 
 oktothek_default_welcome:                       "Willkommen %user%!"
 oktothek_default_sub_welcome:                   "Viele neue Videos und Möglichkeiten warten auf dich."
 
+oktothek.your_abos:                             "Deine Abos"
+oktothek.your_abos_show_more:                   "Mehr Videos aus den Abos <span class='icon'>+</span>"
+
+oktothek.your_abos_blogposts:                   "News von den Blogs"
+
 ### participate.html.twig
 oktothek_default_participate_meta_description:  "Werde Oktonaut! Alle Möglichkeiten bei Okto mitzumachen findest du hier."
 oktothek_default_participate:                   "Mitmachen"
@@ -524,6 +529,9 @@ oktothek.series_playlists_createdAt_filter: Datum
 ## series blog
 oktothek.series_blog_header:            "%series%'s Blog"
 oktothek.series_back_to_root:           Zur Sendereihe
+
+# src/Resources/views/Series/Blog/_blogpostStack.html.twig
+oktothek_series_blogpost_stack_creator: '<a href="%link%">von %creator%</a>'
 
 # src/Resources/views/Series/snippetBlog.html.twig
 oktothek_series_teaser_date:            "%day%, %date%"

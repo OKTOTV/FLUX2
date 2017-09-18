@@ -38,21 +38,13 @@ class PlaylistController extends Controller
     }
 
     /**
-     * @Route("/show/{uniqID}/{page}.{_format}", name="oktothek_show_playlist", requirements={"page": "\d+"}, defaults={"page": 1, "_format": "html"})
+     * @Route("/show/{uniqID}.{_format}", name="oktothek_show_playlist", defaults={"_format": "html"})
      * @ ParamConverter("playlist", class="MediaBundle:Playlist", options={"mapping": {"playlist": "uniqID"}})
      * @Template()
      */
     public function showAction(Playlist $playlist, $page)
     {
         return ['playlist' => $playlist];
-
-        $em = $this->getDoctrine()->getManager();
-        $dql = "SELECT i FROM MediaBundle:Playlistitems i JOIN i.episode WHERE i.playlist = :playlist";
-        $query = $em->createQuery($dql);
-        $query->setParameter('playlist', $playlist->getId());
-        $paginator = $this->get('knp_paginator');
-        $items = $paginator->paginate($query, $page, 10);
-        return ['playlist' => $playlist, 'items' => $items];
     }
 
     /**

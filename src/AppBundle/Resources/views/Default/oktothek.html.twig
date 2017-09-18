@@ -63,6 +63,29 @@
             </article>
             {% endif %}
         </section>
+
+        {% if is_granted('ROLE_OKTOLAB_USER') %}
+            <section class="container">
+                <h2>{{ 'oktothek.your_abos'|trans }}</h2>
+                {%
+                    include 'AppBundle:Default:EpisodeStack.html.twig' with {
+                        'episodes': newestEpisodesInAbonnement(app.user),
+                        'pager_url': path('oktothek_user_abonnements'),
+                        'collapse_link_text': 'oktothek.your_abos_show_more'|trans
+                    }
+                %}
+            </section>
+
+            <section class="container">
+                <h2>{{ 'oktothek.your_abos_blogposts'|trans }}</h2>
+                {%
+                    include 'AppBundle:Series/Blog:_blogpostStack.html.twig' with {
+                        'posts': newestPostsInAbonnement(app.user)
+                    }
+                %}
+            </section>
+        {% endif %}
+
         {# render newest episodes #}
         <section class="newest-videos container" id="show_clips" itemscope="itemscope" itemtype="http://schema.org/ItemList">
             <div id="anchor_newest_videos"></div>
