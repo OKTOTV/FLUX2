@@ -116,8 +116,8 @@ oktothek.searchfield_label:             "Suche"
 ## Default
 ### oktothek.html.twig
 oktothek_default_meta_description:              "Okto macht Platz für dich und deine Ideen. Wir bieten dir die optimale Unterstützung für die Entwicklung deiner Sendungsidee und bieten dir auf unserer Homepage die ultimative Plattform für die Verbreitung deiner Clips. Melde dich an, diskutiere, teile, lerne - mach mit und werde Teil unserer Community!"
-oktothek_default_welcome:                       "Willkommen %user%!"
-oktothek_default_sub_welcome:                   "Viele neue Videos und Möglichkeiten warten auf dich."
+oktothek_default_welcome:                       "Willkommen Wunderlandbewohnerin!"
+oktothek_default_sub_welcome:                   "Unsere neusten und beliebtesten Clips, sowie spannende Newsbeitrage darauf von dir entdeckt zu werden. Gestalte das Programm nach deinen Vorlieben in einer Playlist oder teile deine Lieblingssendungen mit der restlichen Welt."
 
 oktothek.your_abos:                             "Deine Abos"
 oktothek.your_abos_show_more:                   "Mehr Videos aus den Abos <span class='icon'>+</span>"

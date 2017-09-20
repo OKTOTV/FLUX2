@@ -24,8 +24,8 @@
             <div id="anchor_participart"></div>
             <meta itemprop="headline" content="{{ 'oktothek_default_participate'|trans }}">
             {% if is_granted('ROLE_OKTOLAB_USER') %}
-            <h2 id="button_down" itemprop="name">{{ 'oktothek_default_welcome'|trans({'%user%': app.user.username}) }}<span class="icon participant-arrow-down">{{ 'oktothek_default_useless_fancy_button'|trans }}</span></h2>
-            <article class="container"><p class="aligncenter subheadline">{{ 'oktothek_default_sub_welcome'|trans }}</p></article>
+            <h2 id="button_down" itemprop="name">{{ 'oktothek_default_welcome'|trans }}<span class="icon participant-arrow-down">{{ 'oktothek_default_useless_fancy_button'|trans }}</span></h2>
+            <article class="container"><p class="aligncenter subheadline col-md-8 col-md-offset-2">{{ 'oktothek_default_sub_welcome'|trans }}</p></article>
             {% else %}
             <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump">Hier!</span></h2>
             <article class="container">
@@ -76,7 +76,7 @@
                 %}
             </section>
 
-            <section class="container">
+            <section class="container abo-blogs">
                 <h2>{{ 'oktothek.your_abos_blogposts'|trans }}</h2>
                 {%
                     include 'AppBundle:Series/Blog:_blogpostStack.html.twig' with {
@@ -84,6 +84,9 @@
                     }
                 %}
             </section>
+            {#<section class="container">
+                <p class="aligncenter subheadline col-md-8 col-md-offset-2">Das Oktoversum hat noch mehr zu bieten! Wie du alle interaktiven Features richtig nutzen kannst, erfährst du hier</p>
+            </section>#}
         {% endif %}
 
         {# render newest episodes #}

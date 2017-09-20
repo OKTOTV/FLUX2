@@ -1,21 +1,23 @@
 <ul class="row">
     {% for post in posts %}
-        <li class="cold-md-6 col-lg-6 col-xs-12" title="{{ post.name }}" itemscope="itemscope" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-            <figure>
+        <li class="col-md-6 col-lg-6 col-sm-12 col-xs-12" title="{{ post.name }}" itemscope="itemscope" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+            <figure class="row blog-pin">
+                <div class="col-md-6 col-sm-6 col-xs-12">
                 <a href="{{ path('oktothek_show_series_blogpost', {'slug': post.slug}) }}">
                     {% if post.assets is not empty %}
                         {% if post.assets[0]|isImage %}
-                            <img src="{{ post.assets[0]|thumb(220,220) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                            <img src="{{ post.assets[0]|thumb(362,362) }}" class="img img-responsive" alt="{{ post.name }}"/>
                         {% else %}
-                            <img src="{{ post.series.posterframe|thumb(220,220) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                            <img src="{{ post.series.posterframe|thumb(362,362) }}" class="img img-responsive" alt="{{ post.name }}"/>
                         {% endif %}
                     {% else %}
-                        <img src="{{ post.series.posterframe|thumb(220,220) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                        <img src="{{ post.series.posterframe|thumb(362,362) }}" class="img img-responsive" alt="{{ post.name }}"/>
                     {% endif %}
                 </a>
-                <figcaption>
+                </div>
+                <figcaption class="col-md-6 col-sm-6 col-xs-12">
                     {% for tag in post.tags %}
-                        <a href="{{ path('oktothek_tag_show', {'slug': tag.slug}) }}">{{ tag.text}}</a>
+                        <a href="{{ path('oktothek_tag_show', {'slug': tag.slug}) }}" class="tag">{{ tag.text}}</a>
                     {% endfor %}
                     <h3><a href="{{ path('oktothek_show_series_blogpost', {'slug': post.slug}) }}">{{ post.name }}</a></h3>
                     <p>
