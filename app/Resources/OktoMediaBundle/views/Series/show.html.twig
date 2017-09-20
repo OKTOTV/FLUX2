@@ -86,7 +86,7 @@
             <h2>{{ 'oktothek.series_show_added_users'|trans }}</h2>
             <div class="list-group">
                 {% for user in series.users %}
-                <a href="" class="list-group-item">{{ user.username }} ({{ user.email }})</a>
+                <a href="mailto:{{ user.email}}" class="list-group-item">{{ user.username }} ({{ user.email }})</a>
                 {% endfor %}
                 <a href="{{ path('oktolab_series_edit_user', {'series': series.uniqID}) }}" class="list-group-item">{{ 'oktothek.series_add_user'|trans|raw }}</a>
             </div>
