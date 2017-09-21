@@ -8,11 +8,11 @@
                       <h1 style="font-size: 32px;font-weight:normal;line-height:36px;">{{ 'oktothek.notific_mail.new_post_user'|trans({'%user%': notification.user}) }}</h1>
                       <p>
                           {{
-                            'oktothek.notific_mail.new_post'|trans({
-                                '%series_link%':    url('oktothek_show_series', {'uniqID': post.series.uniqID}),
-                                '%series%':         post.series.name,
-                                '%post_link%':      url('oktothek_show_series_blogpost', {'slug': post.slug })
-                            })
+                                'oktothek.notific_mail.new_post'|trans({
+                                    '%series_link%':    url('oktothek_show_series', {'uniqID': post.series.uniqID}),
+                                    '%series%':         post.series.name,
+                                    '%post_link%':      url('oktothek_show_series_blogpost', {'slug': post.slug })
+                                })|raw
                           }}
                       </p>
                   </div>
@@ -27,12 +27,12 @@
                     <p>
                         <a href="{{ url('oktothek_show_series_blogpost', {'slug': post.slug })}}">
                             {% if post.assets is empty %}
-                                <img src="{{ absolut_url(post.series.posterframe|thumb(390,220)) }}" style="width: 100%; height: auto" />
+                                <img src="{{ absolute_url(post.series.posterframe|thumb(220,390)) }}" style="width: 100%; height: auto" />
                             {% else %}
-                                {% if post.assets[0]|IsImage %}
-                                    <img src="{{ absolut_url(post.assets[0]|thumb(390,220)) }}" style="width: 100%; height: auto" />
+                                {% if post.assets[0]|isImage %}
+                                    <img src="{{ absolute_url(post.assets[0]|thumb(220,390)) }}" style="width: 100%; height: auto" />
                                 {% else %}
-                                    <img src="{{ absolut_url(post.series.posterframe|thumb(390,220)) }}" style="width: 100%; height: auto" />
+                                    <img src="{{ absolute_url(post.series.posterframe|thumb(220,390)) }}" style="width: 100%; height: auto" />
                                 {% endif %}
                             {% endif %}
                         </a>
@@ -48,11 +48,11 @@
                     {{
                         'oktothek.notific_mail.new_post_abo_settings'|trans(
                             {
-                                'series_link': url('oktothek_show_series', {'uniqID': episode.series.uniqID}),
-                                'series':   episode.series.name,
-                                'abo_link': url('user_update_abonnement', {'abonnement': abonnement.id})
+                                '%series_link%': url('oktothek_show_series', {'uniqID': post.series.uniqID}),
+                                '%series%':   post.series.name,
+                                '%abo_link%': url('user_update_abonnement', {'abonnement': abonnement.id})
                             }
-                        )
+                        )|raw
                     }}
                 </div>
             </td>
