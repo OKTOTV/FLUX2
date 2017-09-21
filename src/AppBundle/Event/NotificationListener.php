@@ -34,6 +34,7 @@ class NotificationListener
                     "AppBundle::Mail/new_episode.html.twig",
                     'oktothek.notification_message_episode',
                     [
+                        'abonnement' => $abonnement,
                         'episode' => $episode,
                         'notification' => $abonnement
                     ]
@@ -63,6 +64,7 @@ class NotificationListener
                         "AppBundle::Mail/new_post.html.twig",
                         'oktothek.notification_message_post',
                         [
+                            'abonnement' => $abonnement,
                             'notification' => $abonnement,
                             'post' => $post
                         ]

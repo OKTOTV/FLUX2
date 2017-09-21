@@ -36,17 +36,31 @@ oktothek.menu_user_no_notifications:                "Keine neuen Benachrichtigun
 oktothek.menu_user_settings_notifications:          "Hier kannst du deine Abos verwalten."
 oktothek.menu_user_set_all_notifications_to_read:   "Markiere alle als gelesen"
 oktothek.menu_user_show_all_notifications:          "Alle anzeigen"
-oktothek.notification_message_episode:              "%series% hat eine neue Episode veröffentlicht"
-oktothek.notification_message_episode_new_comment:  "Neuer Kommentar zu deiner Episode"
-oktothek.notification_message_post:                 "%series% hat einen neuen Beitrag veröffentlicht"
-oktothek.notification_message_post_new_comment:     "Neuer Kommentar zu deinem Beitrag"
-oktothek.notification_message_livestream:           "%series% ist jetzt Live"
-oktothek.notification_message_finalized_episode:    "Eine Episode von %series% wurde finalisiert"
 oktothek.searchfiled_submit:                        '<span class="glyphicon glyphicon-search"></span>'
 oktothek.menu_tag_dropdown:                         'Themen <span class="caret">'
 oktothek.menu_best_tags:                            "Beliebteste Themen"
 oktothek.menu_notification_xs:                      "Benachrichtigung"
 oktothek.menu_user_notifications_title:             "Benachrichtigungen"
+
+# notifications (and mails)
+oktothek.notification_message_episode:              "Neue Episode von %series%"
+oktothek.notification_message_episode_new_comment:  "Neuer Kommentar zu deiner Episode"
+oktothek.notification_message_post:                 "Neuer Blogpost von %series%"
+oktothek.notification_message_post_new_comment:     "Neuer Kommentar zu deinem Beitrag"
+oktothek.notification_message_livestream:           "%series% ist jetzt Live"
+oktothek.notification_message_finalized_episode:    "Finalisierte Episode von %series%"
+
+# src/AppBundle/Resources/views/Mail/new_post.html.twig
+oktothek.notific_mail.new_post_user:                "Liebe/r %user%!"
+oktothek.notific_mail.new_post:                     'Die Sendereihe <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> hat einen <a href="%post_link%" style="color:#fcce14;text-decoration:none;">neuen Blogeintrag</a> verfasst.'
+oktothek.notific_mail.new_post_abo_settings:        'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
+
+# src/AppBundle/Resources/views/Mail/new_episode.html.twig
+oktothek.notific_mail.new_episode:                  'Die Sendereihe <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> hat eine <a href="%episode_link%" style="color:#fcce14;text-decoration:none;">neue Folge</a> online gestellt.'
+oktothek.notific_mail.new_episode_release:          'Folge vom %day%, %date%'
+oktothek.notific_mail.new_episode_day_choice:       "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
+oktothek.notific_mail.new_episode_date:             "d.m.Y"
+oktothek.notific_mail.new_episode_abo_settings:     'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
 
 ## Search
 ### results.html.twig
@@ -85,7 +99,7 @@ oktothek.user_email_label:              "Email"
 oktothek.user_email_placeholder:        "Deine Email. Bleibt privat und wird zum registrieren verwendet"
 oktothek.register_user_button:          "Account anlegen"
 oktothek.error_create_account:          "Beim Anlegen des Accounts ist ein Fehler aufgetreten. Bitte versuche es zu einem späteren Zeitpunkt noch einmal oder kontaktiere uns unter support@okto.tv"
-oktothek.success_create_account:        "Account wurde angelegt. Schau in dein Postfach!"
+oktothek.success_create_account:        "Dein Account wurde erfolgreich angelegt. Schaue in dein Postfach und bestätige deine E-Mail-Adresse, um deine Anmeldung zu vervollständigen."
 oktothek.login_register:                "Neuen Account anlegen"
 oktothek_user_welcome_subject:          "Willkommen im Oktoversum!"
 oktothek_user_welcome_header:           "Willkommen im Oktoversum!"

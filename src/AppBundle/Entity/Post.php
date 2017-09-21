@@ -48,6 +48,8 @@ class Post
     private $description;
 
    /**
+    * @Assert\NotBlank()
+    * @Assert\Length(max=230)
     * @ORM\Column(name="teaser", type="string", length=230, nullable=true)
     */
     private $teaser;

@@ -65,7 +65,7 @@
                         {% for episode in episodes|slice(2,2) %}
                             <td width="50%" valign="top">
                                 <div style="padding:15px;" >
-                                    <img src="{{ absolute_url(episode.posterframe(true)|thumb(152,270))}}" width="270" height="152" alt="" class="thumbnail"/><br>
+                                    <a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID})}}"><img src="{{ absolute_url(episode.posterframe(true)|thumb(152,270))}}" width="270" height="152" alt="" class="thumbnail"/></a><br>
                                     <h3 style="margin-top:4px;margin-bottom:0px;padding:0;text-transform:uppercase;"><a href="{{ url('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" style="color:#ffffff;text-decoration:none;">{{ episode.series.name }}</a></h3>
                                     <p style="margin:0;padding:0;font-weight:normal;"><a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID})}}" style="color:#ffffff;text-decoration:none;">{{ episode.name }}</a></p>
                                 </div>
