@@ -25,7 +25,7 @@ class EpisodeService {
             $episode->setOnlineStart(new \Datetime());
             $this->em->persist($episode);
             $this->em->flush();
-            $this->notificator->createNewEpisodeNotifications($episode);
+            $this->notificator->onNewEpisode($episode);
             return true;
         }
         // can't publish episode if not ready

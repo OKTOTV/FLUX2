@@ -12,7 +12,8 @@
                             {{
                                 'oktothek.notific_mail.new_episode'|trans(
                                     {
-                                        '%series_link%': url('oktothek_show_series', {'uniqID': episode.series.uniqID}),
+                                        '%series_link%':  url('oktothek_show_series', {'uniqID': episode.series.uniqID}),
+                                        '%series%':       episode.series.name,
                                         '%episode_link%': url('oktothek_show_episode', {'uniqID': episode.uniqID})
                                     }
                                 )|raw
@@ -29,22 +30,20 @@
                 <div style="background-color:#333333;font-weight:300;margin-left:auto;margin-right:auto;max-width:600px;">
                     <p>
                         <a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">
-                            <img src="{{ absolute_url(episode.posterframe(true)|thumb(1280,720)) }}" alt="" style="width: 100%; height: auto"/>
+                            <img src="{{ absolute_url(episode.posterframe(true)|thumb(220,390)) }}" alt="" style="width: 100%; height: auto"/>
                         </a>
                     </p>
                     <h1 style="font-size: 32px;font-weight:normal;padding-bottom:0px;padding-left:30px;padding-right:30px;margin-bottom:5px;line-height:36px;text-align:center;">
-                        <a href="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">
-                            {{
-                                episode.name|default(
-                                    'oktothek.notific_mail.new_episode_release'|trans(
-                                        {
-                                            '%day%': 'oktothek.notific_mail.new_episode_day_choice'|transchoice(episode.firstranAt|date('N')),
-                                            '%date%': episode.firstranAt|date('oktothek.notific_mail.new_episode_date'|trans)
-                                        }
-                                    )
+                        {{
+                            episode.name|default(
+                                'oktothek.notific_mail.new_episode_release'|trans(
+                                    {
+                                        '%day%': 'oktothek.notific_mail.new_episode_day_choice'|transchoice(episode.firstranAt|date('N')),
+                                        '%date%': episode.firstranAt|date('oktothek.notific_mail.new_episode_date'|trans)
+                                    }
                                 )
-                            }}
-                        </a>
+                            )
+                        }}
                     </h1>
                     <p style="padding-bottom:30px;padding-left:30px;padding-right:30px;font-size:20px;font-weight:300;line-height: 27px;text-align: center">
                        {{ episode.description }}
