@@ -18,6 +18,7 @@
                 <section class="inc-pins" itemscope="itemscope" itemtype="http://schema.org/ItemList">
                     <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
                     {% include "AppBundle::Tag/episodeTag.html.twig" with {'episodes': episodes} %}
+                    <a href="{{ path('oktothek_detailed_search', {'phrase': searchphrase})}}">{{ 'oktothek_search_show_more_episode_results'|trans }}</a>
                 </section>
             {% endif %}
             {% if seriess is not empty %}

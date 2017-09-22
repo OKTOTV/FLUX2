@@ -64,6 +64,20 @@ class SearchController extends Controller
     }
 
     /**
+     * @Route("/all/episodes.{_format}", name="oktothek_detailed_search", defaults={"_format": "html"})
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function searchResultsForEpisodesAction(Request $request)
+    {
+        $results = $this->get('oktothek_search')->searchEpisodes($request->query->get('phrase'), true, 120);
+        $paginator = $this->get('knp_paginator');
+
+        $episodes = $paginator->paginate($results, $request->query->get('page', 1), $request->query->get('limit', 12));
+        return ['episodes' => $episodes, 'phrase' => $request->query->get('phrase')];
+    }
+
+    /**
      * @Route("/episodes/{query}", name="oktothek_search_episodes")
      * @Method({"GET"})
      */
