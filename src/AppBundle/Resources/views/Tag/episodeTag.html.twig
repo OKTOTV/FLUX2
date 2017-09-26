@@ -8,7 +8,7 @@
                 <meta itemprop="thumbnailUrl" content="{{ episode.posterframe(true)|thumb(158,282) }}" />
                 <meta itemprop="datePublished" content="{{ episode.firstranAt|date('Y-m-d')}}" />
                 <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.name }} ansehen">
-                    <img src="{{ episode.posterframe(true)|path() }}" class="img-responsive" alt="{{ episode.name }} - {{ episode.series.name|default('') }}" itemprop="image"/>
+                    <img src="{{ episode.posterframe(true)|thumb(309,550) }}" class="img-responsive" alt="{{ episode.name }} - {{ episode.series.name|default('') }}" itemprop="image"/>
                 </a>
                 <div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ episode.users|length }}</div>
                 <figcaption>

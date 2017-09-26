@@ -15,7 +15,7 @@ class AbonnementRepository extends EntityRepository
     public function findAbonnementsForNewEpisode($series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.newEpisode = 1')
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE u.isActive = 1 AND a.series = :id AND a.newEpisode = 1')
             ->setParameter('id', $series->getId())
             ->getResult();
     }
@@ -23,7 +23,7 @@ class AbonnementRepository extends EntityRepository
     public function findAbonnementsForNewPost($series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.newPost = 1')
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE u.isActive = 1 AND a.series = :id AND a.newPost = 1')
             ->setParameter('id', $series->getId())
             ->getResult();
     }
@@ -31,7 +31,7 @@ class AbonnementRepository extends EntityRepository
     public function findAbonnementsForLivestream($series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.livestream = 1')
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE u.isActive = 1 AND a.series = :id AND a.livestream = 1')
             ->setParameter('id', $series->getId())
             ->getResult();
     }
@@ -39,7 +39,7 @@ class AbonnementRepository extends EntityRepository
     public function findAbonnementsForNewBlogpostComment($series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.newCommentOnBlogPost = 1')
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE u.isActive = 1 AND a.series = :id AND a.newCommentOnBlogPost = 1')
             ->setParameter('id', $series->getId())
             ->getResult();
     }
@@ -47,7 +47,7 @@ class AbonnementRepository extends EntityRepository
     public function findAbonnementsForNewEpisodeComment($series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.newCommentOnEpisode = 1')
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE u.isActive = 1 AND a.series = :id AND a.newCommentOnEpisode = 1')
             ->setParameter('id', $series->getId())
             ->getResult();
     }
@@ -55,7 +55,7 @@ class AbonnementRepository extends EntityRepository
     public function findAbonnementsForFinalizedEpisode($series)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE a.series = :id AND a.encodedEpisode = 1')
+            ->createQuery('SELECT a, u FROM AppBundle:Abonnement a LEFT JOIN a.user u WHERE u.isActive = 1 AND a.series = :id AND a.encodedEpisode = 1')
             ->setParameter('id', $series->getId())
             ->getResult();
     }
