@@ -74,7 +74,7 @@
         <article class="row" itemscope itemtype="http://schema.org/Episode">
             <figure class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">
                 <a href="{{ path('oktothek_show_episode', {'uniqID': newest_episode.uniqID})}}">
-                    <img src="{{ newest_episode.posterframe|path() }}" alt="{{ newest_episode.description }}" itemprop="image" />
+                    <img src="{{ newest_episode.posterframe(true)|thumb(720,1280) }}" alt="{{ newest_episode.description }}" itemprop="image" />
                 </a>
             </figure>
             <div class="series-posterframe col-lg-6 col-md-6 col-sm-12 col-xs-12 pin">

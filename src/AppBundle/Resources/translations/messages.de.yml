@@ -66,9 +66,15 @@ oktothek.notific_mail.new_episode_abo_settings:     'Du kannst deine Benachricht
 ### results.html.twig
 oktothek_search_courses_header:         "Workshops"
 oktothek_search_show_more_episode_results: "Mehr Episoden anzeigen"
+oktothek_search_show_more_series_results:  "Mehr Sendereihen anzeigen"
 
+### searchResultsForEpisodes.html.twig
 oktothek_search_episodes_results:           "Episoden mit '%phrase%' | OKTO"
 oktothek_search_episodes_results_header:    "Episoden mit '%phrase%'"
+
+### searchResultsForSeries.html.twig
+oktothek_search_series_results:           "Sendereihen mit '%phrase%' | OKTO"
+oktothek_search_series_results_header:    "Sendereihen mit '%phrase%'"
 
 ## oktothek index
 oktothek.participate_header:            "Mitmachen"
