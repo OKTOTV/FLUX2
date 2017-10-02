@@ -8,7 +8,7 @@
                     </p>
                     <div style="padding-top:20px;font-size:20px;font-weight:300;line-height: 27px;text-align: center">
                     <h1 style="font-size: 32px;font-weight:normal;line-height:36px;">{{ 'oktothek.notific_mail.new_post_user'|trans({'%user%': notification.user}) }}</h1>
-                        <p>Die Sendung <a href="{{ url('oktothek_show_series', {'uniqID': notification.series.uniqID})}}">{{ notification.series }}</a> hat einen neuen Kommentar zu einem Blogpost. Schau doch mal rein und diskutiere mit.</p>
+                        <p>Die Sendung <a href="{{ url('oktothek_show_series', {'uniqID': notification.series.uniqID})}}" style="color:#fcce14;text-decoration:none;">{{ notification.series }}</a> hat einen neuen Kommentar zu einem Blogpost. Schau doch mal rein und diskutiere mit.</p>
                   </div>
                </div>
            </td>
