@@ -80,7 +80,10 @@ body.oktothek .news .col-md-3.pin, body.oktothek .news .col-lg-3.pin, body.oktot
 	padding-left:5px;
 	padding-right:5px;
 }
-body.oktothek .news .row.pin figure.pin {
+body.oktothek .blog-pin figcaption.col-md-6, body.oktothek .blog-pin figcaption.col-sm-6, body.oktothek .blog-pin figcaption.col-xs-6 {
+    padding:10px;
+}
+body.oktothek .news .row.pin figure.pin, body.oktothek .blog-pin .col-md-6, body.oktothek .blog-pin .col-sm-6, body.oktothek .blog-pin .col-xs-6  {
 	padding-left:0px;
 	padding-right:0px;
 }
@@ -88,6 +91,15 @@ body.oktothek .news article.pin {
 	margin-bottom:2px;
 	padding-top:15px;
 	padding-bottom:15px;
+}
+body.oktothek .blog-pin.row {
+    margin-left:-10px;
+    margin-right:-10px;
+    margin-bottom:30px;
+}
+body.oktothek .blog-pin .img-responsive {
+    width: 100%;
+    height: auto;
 }
 body.oktothek .news article.row {
 	margin-right:0px;

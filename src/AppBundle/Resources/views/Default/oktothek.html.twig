@@ -24,8 +24,8 @@
             <div id="anchor_participart"></div>
             <meta itemprop="headline" content="{{ 'oktothek_default_participate'|trans }}">
             {% if is_granted('ROLE_OKTOLAB_USER') %}
-            <h2 id="button_down" itemprop="name">{{ 'oktothek_default_welcome'|trans({'%user%': app.user.username}) }}<span class="icon participant-arrow-down">{{ 'oktothek_default_useless_fancy_button'|trans }}</span></h2>
-            <article class="container"><p class="aligncenter subheadline">{{ 'oktothek_default_sub_welcome'|trans }}</p></article>
+            <h2 id="button_down" itemprop="name">{{ 'oktothek_default_welcome'|trans({'%username%': app.user.username }) }}<span class="icon participant-arrow-down">{{ 'oktothek_default_useless_fancy_button'|trans }}</span></h2>
+            <article class="container"><p class="aligncenter subheadline col-md-8 col-md-offset-2">{{ 'oktothek_default_sub_welcome'|trans }}</p></article>
             {% else %}
             <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump">Hier!</span></h2>
             <article class="container">
@@ -63,6 +63,33 @@
             </article>
             {% endif %}
         </section>
+
+        {% if is_granted('ROLE_OKTOLAB_USER') %}
+            {% if app.user.abonnements|length > 1 %}
+            <section class="container">
+                <h2>{{ 'oktothek.your_abos'|trans }}</h2>
+                {%
+                    include 'AppBundle:Default:EpisodeStack.html.twig' with {
+                        'episodes': newestEpisodesInAbonnement(app.user),
+                        'pager_url': path('oktothek_user_abonnements'),
+                        'collapse_link_text': 'oktothek.your_abos_show_more'|trans
+                    }
+                %}
+            </section>
+
+            <section class="container abo-blogs">
+                <h2>{{ 'oktothek.your_abos_blogposts'|trans }}</h2>
+                {%
+                    include 'AppBundle:Series/Blog:_blogpostStack.html.twig' with {
+                        'posts': newestPostsInAbonnement(app.user)
+                    }
+                %}
+            </section>
+            {% else %}
+                {# waiting for default message or call to action #}
+            {% endif %}
+        {% endif %}
+
         {# render newest episodes #}
         <section class="newest-videos container" id="show_clips" itemscope="itemscope" itemtype="http://schema.org/ItemList">
             <div id="anchor_newest_videos"></div>

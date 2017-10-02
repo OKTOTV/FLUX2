@@ -18,9 +18,9 @@
             "tracks": [
                 {% if playlistItem.episode.sprite is not empty %}
                     {
-                        file: "{{ url('oktolab_media_sprite_for_episode', {'uniqID': episode.uniqID}) }}",
-                        kind: "{{ constant('Oktolab\\MediaBundle\\Entity\\Caption::OKTOLAB_CAPTIONKIND_THUMB') }}"
-                    },
+                        "file": "{{ url('oktolab_media_sprite_for_episode', {'uniqID': playlistItem.episode.uniqID}) }}",
+                        "kind": "{{ constant('Oktolab\\MediaBundle\\Entity\\Caption::OKTOLAB_CAPTIONKIND_THUMB') }}"
+                    }{% if playlistItem.episode.captions is not empty %},{% endif %}
                 {% endif %}
                 {% for caption in playlistItem.episode.captions %}
                 {

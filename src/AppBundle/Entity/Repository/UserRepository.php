@@ -62,6 +62,55 @@ class UserRepository extends BaseRepository
         return $query->setMaxResults($number)->getResult();
     }
 
+    /**
+     * returns all episodes from users abonnements starting with the newest
+     */
+    public function findNewestEpisodesInUserAbonnements($user, $number = 8, $query_only = false)
+    {
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery(
+                "SELECT e, p, s FROM AppBundle:Episode e
+                LEFT JOIN e.series s
+                LEFT JOIN e.posterframe p
+                WHERE e.series IN (
+                    SELECT IDENTITY (a.series) FROM AppBundle:Abonnement a WHERE a.user = :user_id
+                )
+                AND e.isActive = 1
+                AND e.onlineStart < :now
+                ORDER BY e.firstranAt DESC"
+            )
+            ->setParameter('user_id', $user->getId())
+            ->setParameter('now', new \DateTime());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($number)->getResult();
+    }
+
+    /**
+     * returns all posts from users abonnements starting with the newest
+     */
+    public function findNewestPostsInUserAbonnements($user, $number = 4, $query_only = false)
+    {
+        $query = $this->getEntityManager()->createQuery(
+            "SELECT p FROM AppBundle:Post p
+            WHERE p.series IN (
+                SELECT IDENTITY (a.series) FROM AppBundle:Abonnement a WHERE a.user = :user_id
+            )
+            AND p.isActive = 1
+            AND p.onlineAt < :now
+            ORDER BY p.createdAt DESC"
+            )
+            ->setParameter('user_id', $user->getId())
+            ->setParameter('now', new \DateTime());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($number)->getResult();
+    }
 
 // TODO: check abonnementService and simplify this
 

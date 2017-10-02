@@ -106,6 +106,11 @@ class SearchService
         $fieldQuery->setFieldParam('text', 'analyzer', 'episode_analyzer');
         return $this->tagFinder->find($fieldQuery, $numberResults);
     }
+
+    public function getEpisodeFinder()
+    {
+        return $this->episodeFinder;
+    }
 }
 
  ?>

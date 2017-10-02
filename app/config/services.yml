@@ -93,6 +93,13 @@ services:
         tags:
             - { name: twig.extension }
 
+    oktothek.twig_user_extension:
+        class: AppBundle\Twig\UserExtension
+        arguments: [ "@oktothek.user_repository"]
+        public: false
+        tags:
+            - { name: twig.extension }
+
     oktothek.twig_episode_extension:
         class: AppBundle\Twig\EpisodeExtension
         arguments: [ "@oktothek.episode_repository"]
@@ -107,12 +114,18 @@ services:
         tags:
             - { name: twig.extension }
 
-# Playlist form
+    oktothek.user_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory:    [ "@doctrine.orm.entity_manager", getRepository ]
+        arguments:  [ "AppBundle:User"]
+
     oktothek.episode_repository:
         class: Doctrine\ORM\EntityRepository
         factory:    [ "@doctrine.orm.entity_manager", getRepository ]
         arguments:  [ %oktolab_media.episode_class% ]
 
+
+# Playlist form
     oktothek.playlistitem_type:
         class: AppBundle\Form\PlaylistItemType
         arguments: [ "@oktothek.episode_repository" ]
