@@ -72,7 +72,7 @@ class EpisodeCommentController extends Controller
                 $em->persist($comment);
                 $em->persist($episode);
                 $em->flush();
-                $this->get('oktothek_notification_service')->onCommentOnEpisode($episode);
+                $this->get('oktothek_notification_service')->onCommentOnEpisode($comment);
                 if ($request->isXmlHttpRequest()) {
                     return $this->render("AppBundle::EpisodeComment/_comment.html.twig", ['comment' => $comment]);
                 }

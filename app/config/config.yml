@@ -301,7 +301,7 @@ fos_elastica:
                 episode:
                     serializer:
                         groups: [search]
-                    mappings:
+                    properties:
                         name:        { boost: 8, analyzer: episode_analyzer }
                         description: { analyzer: episode_analyzer }
                         series_search:      { boost: 3, analyzer: episode_analyzer }
@@ -314,7 +314,7 @@ fos_elastica:
                 series:
                     serializer:
                         groups: [search]
-                    mappings:
+                    properties:
                         name:        { boost: 8, analyzer: episode_analyzer }
                         description: { analyzer: episode_analyzer }
                     persistence:
@@ -335,7 +335,7 @@ fos_elastica:
                 tag:
                     serializer:
                         groups: [okto]
-                    mappings:
+                    properties:
                         text: { boost: 8, analyzer: episode_analyzer }
                     persistence:
                         driver: orm
@@ -346,7 +346,7 @@ fos_elastica:
                 coursetype:
                     serializer:
                         groups: [search]
-                    mappings:
+                    properties:
                         title:  { boost: 8, analyzer: my_analyzer }
                     persistence:
                         driver: orm

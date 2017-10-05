@@ -110,28 +110,29 @@ class NotificationListener
         }
     }
 
-    public function onCommentBlogpost($post)
+    public function onCommentBlogpost($comment)
     {
-        $abonnements = $this->em->getRepository('AppBundle:Abonnement')->findAbonnementsForNewBlogpostComment($post->getSeries());
+        $abonnements = $this->em->getRepository('AppBundle:Abonnement')->findAbonnementsForNewBlogpostComment($comment->getPost()->getSeries());
         foreach ($abonnements as $abonnement) {
             if ($abonnement->getNewCommentOnBlogPost()) {
                 if ($abonnement->getSendMails()) {
                     $this->notificationService->addNewNotification(
                         $abonnement->getUser(),
-                        $this->router->generate('oktothek_show_series_blogpost', ['slug' => $post->getSlug()]),
+                        $this->router->generate('oktothek_show_series_blogpost', ['slug' => $comment->getPost()->getSlug()]),
                         'oktothek.notification_message_post_new_comment',
                         [],
                         "AppBundle::Mail/commentBlogpost.html.twig",
                         'oktothek.notification_message_post_new_comment',
                         [
                             'notification' => $abonnement,
-                            'post' => $post
+                            'post' => $comment->getPost(),
+                            'comment' => $comment
                         ]
                     );
                 } else {
                     $this->notificationService->addNewNotification(
                         $abonnement->getUser(),
-                        $this->router->generate('oktothek_show_series_blogpost', ['slug' => $post->getSlug()]),
+                        $this->router->generate('oktothek_show_series_blogpost', ['slug' => $comment->getPost()->getSlug()]),
                         'oktothek.notification_message_post_new_comment',
                         []
                     );
@@ -140,30 +141,30 @@ class NotificationListener
         }
     }
 
-    public function onCommentOnEpisode($episode)
+    public function onCommentOnEpisode($comment)
     {
-        $abonnements = $this->em->getRepository('AppBundle:Abonnement')->findAbonnementsForNewEpisodeComment($episode->getSeries());
+        $abonnements = $this->em->getRepository('AppBundle:Abonnement')->findAbonnementsForNewEpisodeComment($comment->getEpisode()->getSeries());
         foreach ($abonnements as $abonnement) {
             if ($abonnement->getNewCommentOnEpisode()) {
                 if ($abonnement->getSendMails()) {
                     $this->notificationService->addNewNotification(
                         $abonnement->getUser(),
-                        $this->router->generate('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]),
+                        $this->router->generate('oktothek_show_episode', ['uniqID' => $comment->getEpisode()->getUniqID()]),
                         'oktothek.notification_message_episode_new_comment',
-                        ['%series%' => $episode->getSeries()->getName()],
+                        ['%series%' => $comment->getEpisode()->getSeries()->getName()],
                         "AppBundle::Mail/commentEpisode.html.twig",
                         'oktothek.notification_message_episode_new_comment',
                         [
                             'notification' => $abonnement,
-                            'episode' => $episode
+                            'comment' => $comment
                         ]
                     );
                 } else {
                     $this->notificationService->addNewNotification(
                         $abonnement->getUser(),
-                        $this->router->generate('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]),
+                        $this->router->generate('oktothek_show_episode', ['uniqID' => $comment->getEpisode()->getUniqID()]),
                         'oktothek.notification_message_episode_new_comment',
-                        ['%series%' => $episode->getSeries()->getName()]
+                        ['%series%' => $comment->getEpisode()->getSeries()->getName()]
                     );
                 }
             }

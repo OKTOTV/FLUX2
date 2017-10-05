@@ -1,14 +1,23 @@
-<body style="background-image:url({{ absolute_url(asset('bundles/app/images/welcome_mail/space.jpg'))}});background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:16px;padding-left:5%;padding-right:5%;line-height:24px;letter-spacing:0.6px;">
+<body style="background-image:url({{ absolute_url(asset('bundles/app/images/commentBlogpost/space.jpg')) }});background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:16px;padding-left:5%;padding-right:5%;line-height:24px;letter-spacing:0.6px;">
     <table style="" border="0" width="100%">
        <tr>
            <td>
               <div style="max-width:600px;margin-left:auto;margin-right:auto;">
-                    <p style="">
-                        <img src="{{ absolute_url(asset('bundles/app/images/welcome_mail/logo_okto_tv.gif'))}}" width="40" height="66" alt="OKTO Community TV GmbH"/>
-                    </p>
+                    <p style=""><img src="{{ absolute_url(asset('bundles/app/images/commentBlogpost/logo_okto_tv.gif')) }}" width="40" height="66" alt="OKTO Community TV GmbH"/></p>
                     <div style="padding-top:20px;font-size:20px;font-weight:300;line-height: 27px;text-align: center">
-                    <h1 style="font-size: 32px;font-weight:normal;line-height:36px;">{{ 'oktothek.notific_mail.new_post_user'|trans({'%user%': notification.user}) }}</h1>
-                        <p>Die Sendung <a href="{{ url('oktothek_show_series', {'uniqID': notification.series.uniqID})}}" style="color:#fcce14;text-decoration:none;">{{ notification.series }}</a> hat einen neuen Kommentar zu einem Blogpost. Schau doch mal rein und diskutiere mit.</p>
+                    <h1 style="font-size: 32px;font-weight:normal;line-height:36px;">
+                        {{ 'oktothek.notific_mail.comm_blogpost_user'|trans({'%user%': notification.user}) }}
+                    </h1>
+                    <p>
+                        {{
+                            'oktothek.notific_mail.comm_blogpost_message'|trans(
+                                {
+                                    '%series_link%': url("oktothek_show_series", {'uniqID': post.series.uniqID}),
+                                    '%series_name%': post.series.name
+                                }
+                            )|raw
+                        }}
+                    </p>
                   </div>
                </div>
            </td>
@@ -19,14 +28,40 @@
             <td>
                 <div style="background-color:#333333;font-weight:300;margin-left:auto;margin-right:auto;max-width:600px;">
                     <p>
-                        <p ><img src="59ba3aac1ed49.jpg" alt="" style="width: 100%; height: auto"/></p> <!-- Bild Blog, Größe wie bei Email für Episode -->
+                        {% if post.assets is not empty and post.assets[0]|isImage %}
+                            <img src="{{ absolute_url(post.assets[0]|thumb(220,390)) }}" style="width: 100%; height: auto" />
+                        {% else %}
+                            <img src="{{ absolute_url(post.series.posterframe|thumb(220,390)) }}" style="width: 100%; height: auto" />
+                        {% endif %}
                     </p>
-                    <h1 style="font-size: 32px;font-weight:normal;padding-bottom:0px;padding-left:30px;padding-right:30px;margin-bottom:5px;line-height:36px;text-align:center;">Kurs</h1> <!-- Blogtitel -->
-                    <p style="padding-bottom:20px;padding-top:0px;padding-left:30px;padding-right:30px;margin-top:0;text-align:center;">Starting soon: Kamera- und Interviewtechnik 1.1</p> <!-- Blogtheasertext -->
-                </div>
-                <div style="background-image:url({{ absolute_url(asset('bundles/app/images/section_border_small.png'))}});background-repeat: no-repeat;background-position: center;width:100%;height: 20px;"></div>
-                  <p style="padding-top:30px;padding-bottom:50px;text-align:center"><a href="{{ url('oktothek_show_series_blogpost', {'slug': post.slug}) }}" style="background-color:#fcce14;padding-top:15px;padding-left:30px;padding-bottom:15px;padding-right:30px;border-radius:25px;-moz-border-radius:25px;-webkit-border-radius:25px;border-radius:25px;color:#000000;text-decoration:none;text-transform:uppercase;">Mitdiskutieren</a></p>
+                    <h1 style="font-size: 32px;font-weight:normal;padding-bottom:0px;padding-left:30px;padding-right:30px;margin-bottom:5px;line-height:36px;text-align:center;">
+                        {{ post.name }}
+                    </h1>
+                    <p style="padding-bottom:20px;padding-top:0px;padding-left:30px;padding-right:30px;margin-top:0;text-align:center;">
+                        {{ post.teaser }}
+                    </p>
+                    <div style="background-image:url({{ absolute_url(asset('bundles/app/images/commentBlogpost/section_border_small.png'))}});background-repeat: no-repeat;background-position: center;width:100%;height: 40px;"></div>
+                    <p style="padding-bottom:30px;padding-left:30px;padding-right:30px;font-size:20px;font-weight:300;line-height: 27px;text-align: center;">
+                    <img src="{{ absolute_url(asset('bundles/app/images/commentBlogpost/bubble.png')) }}" width="52" height="36" alt=""/>
+                        {{ comment.text }}
+                    </p>
+                    <div style="background-image:url({{ absolute_url(asset('bundles/app/images/commentBlogpost/section_border_small.png'))}});background-repeat: no-repeat;background-position: center;width:100%;height: 20px;"></div>
+                  <p style="padding-top:30px;padding-bottom:50px;text-align:center">
+                      <a href="{{ url('oktothek_show_series_blogpost', {'slug': post.slug}) }}" style="background-color:#fcce14;padding-top:15px;padding-left:30px;padding-bottom:15px;padding-right:30px;border-radius:25px;-moz-border-radius:25px;-webkit-border-radius:25px;border-radius:25px;color:#000000;text-decoration:none;text-transform:uppercase;">
+                          {{ 'oktothek.notific_mail.comm_blogpost_discuss'|trans }}
+                      </a>
+                  </p>
               </div>
+                <div style="margin-left:auto;margin-right:auto;margin-top:40px;margin-bottom:60px;max-width:600px;font-size:12px;line-height:16px;color:#dcdcdc;">
+                    {{
+                        'oktothek.notific_mail.comm_blogpost_abo_settings'|trans(
+                            {
+                                '%series_link%': url('oktothek_show_series', {'uniqID': post.series.uniqID}),
+                                '%series%':   post.series.name,
+                                '%abo_link%': url('user_update_abonnement', {'abonnement': notification.id})
+                            })|raw
+                    }}
+                </div>
             </td>
         </tr>
     </table>
