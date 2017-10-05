@@ -110,28 +110,29 @@ class NotificationListener
         }
     }
 
-    public function onCommentBlogpost($post)
+    public function onCommentBlogpost($comment)
     {
-        $abonnements = $this->em->getRepository('AppBundle:Abonnement')->findAbonnementsForNewBlogpostComment($post->getSeries());
+        $abonnements = $this->em->getRepository('AppBundle:Abonnement')->findAbonnementsForNewBlogpostComment($comment->getPost()->getSeries());
         foreach ($abonnements as $abonnement) {
             if ($abonnement->getNewCommentOnBlogPost()) {
                 if ($abonnement->getSendMails()) {
                     $this->notificationService->addNewNotification(
                         $abonnement->getUser(),
-                        $this->router->generate('oktothek_show_series_blogpost', ['slug' => $post->getSlug()]),
+                        $this->router->generate('oktothek_show_series_blogpost', ['slug' => $comment->getPost()->getSlug()]),
                         'oktothek.notification_message_post_new_comment',
                         [],
                         "AppBundle::Mail/commentBlogpost.html.twig",
                         'oktothek.notification_message_post_new_comment',
                         [
                             'notification' => $abonnement,
-                            'post' => $post
+                            'post' => $comment->getPost(),
+                            'comment' => $comment
                         ]
                     );
                 } else {
                     $this->notificationService->addNewNotification(
                         $abonnement->getUser(),
-                        $this->router->generate('oktothek_show_series_blogpost', ['slug' => $post->getSlug()]),
+                        $this->router->generate('oktothek_show_series_blogpost', ['slug' => $comment->getPost()->getSlug()]),
                         'oktothek.notification_message_post_new_comment',
                         []
                     );
