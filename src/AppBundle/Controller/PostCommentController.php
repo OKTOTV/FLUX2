@@ -73,7 +73,7 @@ class PostCommentController extends Controller
                 $em->persist($comment);
                 $em->persist($post);
                 $em->flush();
-                $this->get('oktothek_notification_service')->onCommentBlogpost($post);
+                $this->get('oktothek_notification_service')->onCommentBlogpost($comment);
                 if ($request->isXmlHttpRequest()) {
                     return $this->render("AppBundle::PostComment/_comment.html.twig", ['comment' => $comment]);
                 }
@@ -121,7 +121,7 @@ class PostCommentController extends Controller
                 $em->persist($post);
                 $em->persist($parent);
                 $em->flush();
-                $this->get('oktothek_notification_service')->onCommentBlogpost($post);
+                $this->get('oktothek_notification_service')->onCommentBlogpost($comment);
                 return $this->redirect($this->generateUrl('oktothek_show_series_blogpost', ['slug' => $post->getSlug()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_comment');
