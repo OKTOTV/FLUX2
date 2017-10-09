@@ -12,7 +12,13 @@
 </ul>
 
     <div class="page-header">
-        <p>{{ 'oktolab_media.episodes_index_total'|trans({'%episodes%': episodes.getTotalItemCount})}}</p>
+        <p>
+            {% if app.request.query.get('inactive_only') == 0 %}
+                {{ 'oktolab_media.episodes_index_total'|trans({'%episodes%': episodes.getTotalItemCount}) }}
+            {% else %}
+                {{ 'oktolab_media.episodes_index_inactive_total'|trans({'%episodes%': episodes.getTotalItemCount}) }}
+            {% endif %}
+        </p>
         <!-- Single button -->
         <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,8 +26,23 @@
             </button>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="{{ path('oktolab_episode_new') }}">{{ 'oktolab_media.episode_index_new'|trans|raw }}</a>
+                    <a href="{{ path('oktolab_episode_new') }}">
+                        {{ 'oktolab_media.episode_index_new'|trans|raw }}
+                    </a>
                 </li>
+                {% if app.request.query.get('inactive_only') == 0 %}
+                    <li>
+                        <a href="{{ path('oktolab_episode_index', {'inactive_only': '1'}) }}">
+                            {{ 'oktolab_media.episode_index_show_inactive'|trans|raw }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('oktolab_episode_index') }}">
+                            {{ 'oktolab_media.episode_index_show_all'|trans|raw }}
+                        </a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <div class="btn-group">

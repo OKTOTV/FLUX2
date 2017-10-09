@@ -179,8 +179,8 @@ oktolab_media:
         logo: "bundles/app/images/player/logo.png"
 
 okto_media:
-    tag_class: "AppBundle\Entity\Tag"
-    user_class: %bprs_user.class%
+    tag_class: "AppBundle\\Entity\\Tag"
+    user_class: "%bprs_user.class%"
 
 jms_serializer:
     metadata:
