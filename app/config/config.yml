@@ -172,6 +172,29 @@ oktolab_media:
             video_bitrate: 15000000
             crf_rate:   23
             preset:     "veryslow"
+
+        # monoscopic clips
+        SD:
+            stereomode: 1
+            name: "SD"
+            sortNumber: 0
+            video_width: 1920
+            video_height: 960
+            adapter:    "video"
+            video_bitrate: 7500000
+            crf_rate:   23
+            video_framerate: "25"
+        HD:
+            stereomode:  1
+            name: "HD"
+            sortNumber: 1
+            video_width: 3840
+            video_height: 1920
+            adapter:    "video"
+            video_bitrate: 8000000
+            crf_rate:  23
+            video_framerate: "25"
+
     player_url: "%player_url%"
     origin:
         margin: 12

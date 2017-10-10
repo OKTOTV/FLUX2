@@ -94,6 +94,9 @@
                 <dt>{{ 'oktolab_media.episode_info_uniqID'|trans}}</dt>
                 <dd>{{ episode.uniqID }}</dd>
 
+                <dt>{{ 'oktolab_media.episode_info_stereomode'|trans }}</dt>
+                <dd>{{ 'oktolab_media.stereomode_choice'|transchoice(episode.stereomode)}}</dd>
+
                 <dt>{{ 'oktolab_media.episode_info_duration'|trans }}</dt>
                 <dd>{{ episode.duration|duration}}</dd>
 

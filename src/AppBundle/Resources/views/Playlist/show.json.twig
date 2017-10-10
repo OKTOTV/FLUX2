@@ -4,6 +4,13 @@
         {
             "image": "{{ playlistItem.episode.posterframe|thumb(720,1280)}}",
             "title": "{{ playlistItem.episode.name }}",
+            {% if episode.stereomode == 1 %}
+                "stereomode": "monoscopic",
+            {% elseif episode.stereomode == 2 %}
+                "stereomode": "stereoscopicTopBottom",
+            {% elseif episode.stereomode == 3 %}
+                "stereomode": "stereoscopicLeftRight",
+            {% endif %}
             "sources": [
                 {% for media in playlistItem.episode.media %}
 
