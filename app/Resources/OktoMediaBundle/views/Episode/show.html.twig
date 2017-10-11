@@ -14,7 +14,6 @@
 
 {% block body_main %}
     <div class="page-header">
-        <h1>{{ episode.name }}</h1>
         <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ 'oktolab_media.episode_show_actions'|trans|raw }}
@@ -55,6 +54,7 @@
     </div>
     <div class="row">
         <div class="col-md-7">
+            <h4>{{ episode.name }}</h4>
             {% if episode.video is not empty %}
                 <div id="player">
                 </div>
@@ -93,6 +93,9 @@
 
                 <dt>{{ 'oktolab_media.episode_info_uniqID'|trans}}</dt>
                 <dd>{{ episode.uniqID }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_stereomode'|trans }}</dt>
+                <dd>{{ 'oktolab_media.stereomode_choice'|transchoice(episode.stereomode)}}</dd>
 
                 <dt>{{ 'oktolab_media.episode_info_duration'|trans }}</dt>
                 <dd>{{ episode.duration|duration}}</dd>
