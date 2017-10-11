@@ -184,6 +184,7 @@ oktolab_media:
             video_bitrate: 7500000
             crf_rate:   23
             video_framerate: "25"
+            preset:     "medium"
         HD:
             stereomode:  1
             name: "HD"
@@ -194,6 +195,7 @@ oktolab_media:
             video_bitrate: 8000000
             crf_rate:  23
             video_framerate: "25"
+            preset:     "medium"
 
     player_url: "%player_url%"
     origin:
