@@ -25,7 +25,13 @@
                 <li><a href="{{ path('oktothek_backend_slide_from_episode', {'uniqID': episode.uniqID})}}">{{ 'oktothek_backend_slide_from_episode'|trans|raw }}</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="{{ path('oktolab_media_export_episode', {'uniqID': episode.uniqID}) }}">{{ 'oktolab_media.show_episode_export'|trans|raw }}</a></li>
+                {% if episode.keychain %}
+                    <li><a href="{{ path('oktolab_media_reimport_episode', {'uniqID': episode.uniqID }) }}" id="reimport_episode">{{ 'oktolab_media.reimport_episode'|trans|raw }}</a></li>
+                    <li><a href="{{ path('oktolab_media_reimport_episode', {'uniqID': episode.uniqID, 'overwrite': 1 }) }}" id="reimport_episode_overwrite">{{ 'oktolab_media.reimport_episode_overwrite'|trans|raw }}</a></li>
+                {% endif %}
+                <li role="separator" class="divider"></li>
                 <li><a href="{{ path('oktolab_episode_encode', {'uniqID': episode.uniqID}) }}">{{ 'oktolab_media.show_episode_add_to_encode_queue'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktolab_episode_encode', {'uniqID': episode.uniqID, 'first': 1}) }}">{{ 'oktolab_media.show_episode_add_to_encode_queue_next'|trans|raw }}</a></li>
                 {% if episode.technicalStatus >= 50 and episode.isActive == false %}
                     <li role="separator" class="divider"></li>
                     <li><a href="{{ path('oktothek_backend_publish_episode', {'uniqID': episode.uniqID })}}">{{ 'oktothek.backend_episode_publish'|trans|raw }}</a></li>
