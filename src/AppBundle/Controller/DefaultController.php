@@ -64,6 +64,15 @@ class DefaultController extends Controller
     {
         return [];
     }
+    
+    /**
+     * @Route("/help", name="help")
+     * @Template()
+     */
+    public function helpAction()
+    {
+        return [];
+    }
 
     /**
     * @Route(

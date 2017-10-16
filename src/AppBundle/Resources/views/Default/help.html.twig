@@ -1,0 +1,235 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block metas %}
+<meta name="description" content="Wie erstelle ich einen Account und welche Vorteile bringt es Teil Okto-Community zu sein? Hier findest du die Antworten! Alle Features des Oktoversums, wie zum Beispiel das Erstellen und Teilen von Playlists, das Verwalten deiner Abos oder das Teilen von Videos in deine sozialen Netzwerke oder werden in diesem Bereich genau erklärt.">
+{% endblock %}
+{% block title %}So funktioniert das Oktoversum{#{ 'oktothek_participate_title'|trans }#}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'participate', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "help" %}
+{% block body %}
+    <div id="top"></div>
+    <header class="page-header">
+        <h1 itemprop="headline">Willkommen im Oktoversum!</h1>
+    </header>
+    <div class="container-fluid">
+        <section class="container">
+            <p class="subheadline">Die neuesten Clips, beliebte Videos, aktuelle Playlisten und Newsbeiträge warten darauf, von euch entdeckt zu werden. Durch das Erstellen eines Accounts habt ihr die Möglichkeit eure eigenen Interessenschwerpunkte hervorzuheben und euch so ein individuelles Programm zusammenzustellen.</p>
+        </section>
+        <section class="container">
+            <p class="subheadline">Welche Möglichkeiten du noch hast, siehst du hier:</p>
+            <div id="player">
+            <iframe width="1140" height="650" src="https://okto.tv/de/oktothek/episode/59c262a776b6f/embed" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+        <section class="features">
+            <p class="subheadline">Wie es funktioniert, möchten wir dir hier zeigen:</p>
+            <div id="help-experience-container">
+                <h2 id="help-experience-h2">Erleben</h2>
+                <p class="subheadline">Auf unserer Startseite hast du einen Überblick über</p>
+                <div id="linecontainer-1">
+                    <div class="part-container">
+                        <div class="part1">
+                            <div class="line line1"></div>
+                        </div>
+                        <div class="part2">
+                            <div>
+                                <div class="line line1"></div>
+                                <div class="line line2"></div>
+                                <div class="line line3"></div>
+                                <div class="line line4"></div>
+                                <div class="line line5"></div>
+                                <div class="line line6"></div>
+                                <div class="line line7"></div>
+                                <div class="line line8"></div>
+                                <div class="line line9"></div>
+                            </div>
+                        </div>
+                        <div class="part3">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <ul class="row help-experience">
+                        <li class="col-md-4 col-sm-6 col-xs-12"><figure><a href="#"><img src="{{ asset('bundles/app/images/help/newsbereich.jpg')}}" alt="Newsbereich, Startseite Oktothek"/><figcaption><h3>Newsbeitr&auml;ge</h3></figcaption></a></figure></li>
+                        <li class="col-md-4 col-sm-6 col-xs-12"><figure><a href="#"><img src="{{ asset('bundles/app/images/help/neueste_und_trendige_videos.jpg')}}" alt="Trending Clips Bereich und Neueste Clips, Startseite Oktothek"/><figcaption><h3>Die neuesten und beliebtesten Videos</h3></figcaption></a></figure></li>
+                        <li class="col-md-4 col-sm-6 col-xs-12"><figure><a href="#"><img src="{{ asset('bundles/app/images/help/playlisten.jpg')}}" alt="Playlisten, Startseite Oktothek"/><figcaption><h3>und Playlisten</h3></figcaption></a></figure></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="help-participate-container">
+                <h2>Mitmachen</h2>
+                <p class="subheadline">Die Episoden und Sendereihenseite bietet auch einiges</p>
+                <div id="linecontainer-2">
+                    <div class="part1">
+                    </div>
+                    <div class="part2">
+                        <div>
+                            <div class="line line1">
+                                <svg id="arc_1" data-name="arc 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33.63 76.04"><defs><style>.cls-1{fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:83 83;}</style></defs><title>achtelkreis_gross_oben_rl</title><path class="cls-1" d="M213.46,75.81a105.67,105.67,0,0,0-31.07-75" transform="translate(-181.32 0.23)"/></svg>
+                            </div>
+                            <div class="line line2">
+                                <svg id="arc_2" data-name="arc 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113 113"><defs><style>.cls-2{fill:none;stroke:#fcce14;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:351 351;}</style></defs><title>viertelkreis_oben_rechts_gross</title><path class="cls-2" d="M113.54,1.74A111.5,111.5,0,0,0,2,113.24" transform="translate(-0.54 -0.24)"/></svg>
+                            </div>
+                            <div class="line line3">
+                                <svg id="arc_3" data-name="arc 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.5 107.5"><defs><style>.cls-3{fill:none;stroke:#13fffd;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:166.5 166.5;}</style></defs><title>viertelkreis_mittel_unten_rechts</title><path class="cls-3" d="M213.54,0a106,106,0,0,1-106,106" transform="translate(-107.54 0.01)"/></svg>
+                            </div>
+                            <div class="line line4">
+                                <svg id="arc_4" data-name="arc 4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203 101.5"><defs><style>.cls-4{fill:none;stroke:#d1418e;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:314 314;}</style></defs><title>halbkreis_pink_unten</title><path class="cls-4" d="M201.54,0a100,100,0,0,1-100,100A100,100,0,0,1,1.54,0" transform="translate(-0.04 0.01)"/></svg>
+                            </div>
+                            <div class="line line5">
+                                <svg id="arc_5" data-name="arc 5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.22 79.9"><defs><style>.cls-5{fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:88 88;}</style></defs><title>achtelkreis_oben_rechts_gross</title><path class="cls-5" d="M225.54,113.5a111.15,111.15,0,0,0-32.66-78.84" transform="translate(-191.83 -33.6)"/></svg>
+                            </div>
+                            <div class="line line6">
+                                <svg id="arc_6" data-name="arc 6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.5 107.5"><defs><style>.cls-6{fill:none;stroke:#fcce14;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:166.5 166.5;}</style></defs><title>viertelkreis_mittel_oben_rechts</title><path class="cls-6" d="M213.54,107.49a106,106,0,0,0-106-106" transform="translate(-107.54 0.01)"/></svg>
+                            </div>
+                            <div class="line line7">
+                                <svg id="arc_7" data-name="arc 7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203 101.5"><defs><style>.cls-7{fill:none;stroke:#13fffd;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:314 314;}</style></defs><title>halbkreis_pink</title><path class="cls-7" d="M201.54,101.49a100,100,0,0,0-200,0" transform="translate(-0.04 0.01)"/></svg>
+                            </div>
+                            <div class="line line8">
+                                <svg id="arc_8" data-name="arc 8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.5 107.5"><defs><style>.cls-8{fill:none;stroke:#91e31c;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:166.5 166.5;}</style></defs><title>viertelkreis_mittel_unten_rechts</title><path class="cls-8" d="M213.54,0a106,106,0,0,1-106,106" transform="translate(-107.54 0.01)"/></svg>
+                            </div>
+                            <div class="line line9">
+                                <svg id="arc_9" data-name="arc 9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203 101.5"><defs><style>.cls-9{fill:none;stroke:#d1418e;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:314 314;}</style></defs><title>halbkreis_pink_unten</title><path class="cls-9" d="M201.54,0a100,100,0,0,1-100,100A100,100,0,0,1,1.54,0" transform="translate(-0.04 0.01)"/></svg>
+                            </div>
+                            <div class="line line10">
+                                <svg id="arc_10" data-name="arc 10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.12 84.54"><defs><style>.cls-10{fill:none;stroke:#fcce14;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:92.5 92.5;}</style></defs><title>achtelkreis_gross_unten_ll</title><path class="cls-10" d="M36.12,83.32A117.63,117.63,0,0,1,1.56-.16" transform="translate(-0.06 0.17)"/></svg>
+                            </div>
+                            <div class="line line11">
+                                <svg id="arc_11" data-name="arc 11" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203 101.5"><defs><style>.cls-11{fill:none;stroke:#d1418e;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:314 314;}</style></defs><title>halbkreis_pink</title><path class="cls-11" d="M201.54,101.49a100,100,0,0,0-200,0" transform="translate(-0.04 0.01)"/></svg>
+                            </div>
+                            <div class="line line12">
+                                <svg id="arc_12" data-name="arc 12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.5 107.5"><defs><style>.cls-12{fill:none;stroke:#91e31c;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:166.5 166.5;}</style></defs><title>viertelkreis_mittel_links</title><path class="cls-12" d="M107.54,1.49a106,106,0,0,0-106,106" transform="translate(-0.04 0.01)"/></svg>
+                            </div>
+                            <div class="line line13">
+                                <svg id="arc_13" data-name="arc 13" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.53 37.15"><defs><style>.cls-13{fill:none;stroke:#fcce14;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:92.5 92.5;}</style></defs><title>achtelkreis_gross_oben_lr</title><path class="cls-13" d="M119.8,1.74A117.63,117.63,0,0,0,36.33,36.34" transform="translate(-35.27 -0.24)"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="part3">
+                        <div class="line line2">
+                            <div></div>
+                        </div>
+                        <div class="line line2_top"></div>
+                        <div class="line line1">
+                            <svg id="arc_0" data-name="arc 0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.5 107.5"><defs><style>.cls-0{fill:none;stroke:#91e31c;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:166.5 166.5;}</style></defs><title>viertelkreis_mittel_unten_links</title><path class="cls-0" d="M107.54,106A106,106,0,0,1,1.54,0" transform="translate(-0.04 0.01)"/></svg>
+                        </div>
+                    </div>    
+                </div>
+                <div class="container">
+                    <ul class="row help-participate">
+                        <li>
+                            <figure>
+                                <span><image xlink:href="{{ asset('bundles/app/images/help/icon_like.svg')}}" src="{{ asset('bundles/app/images/help/icon_like.png')}}" alt="Button Lieblingsfolgen liken, Episode Oktothek" width="56" height="54" /></span>
+                                <figcaption><div class="triangle"></div><div>Like deine Lieblingsfolgen und teile Clips oder Playlisten auf Facebook, Twitter, Google+, Pinterest oder per E-Mail.</div></figcaption>
+                            </figure>
+                            <div id="circle1_outer">
+                                <svg id="circle_1" data-name="circle 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160.94 82.75"><defs><style>.cls-1a,.cls-1b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-1a{stroke:#95c124;}.cls-1b{stroke:#d24290;}</style></defs><title>circle1</title><path class="cls-1a" d="M1.88,83A81.06,81.06,0,0,1,83.08,2.1" transform="translate(-0.38 -0.59)"/><path class="cls-1b" d="M9.35,83.35a75.24,75.24,0,1,1,150.47-.25" transform="translate(-0.38 -0.59)"/></svg>
+                            </div>
+                        </li>
+                        <li>
+                            <figure>
+                                <span><image xlink:href="{{ asset('bundles/app/images/help/icon_abbonieren.svg')}}" src="{{ asset('bundles/app/images/help/icon_abbonieren.png')}}" alt="Button Lieblingssendungen abbonieren, Episode Oktothek" width="101" height="29" /></span>
+                                <figcaption><div>Abonniere deine Lieblingssendungen, damit du über die neusten Aktivitäten informiert bist.</div><div class="triangle"></div></figcaption>
+                            </figure>
+                            <div id="circle2_outer">
+                                <svg id="circle_2" data-name="circle 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.35 161.61"><defs><style>.cls-c2a,.cls-c2b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-c2a{stroke:#d24290;}.cls-c2b{stroke:#fdcf19;}</style></defs><title>circle2</title><path class="cls-c2a" d="M160.33,81A79.18,79.18,0,1,1,2,81.27" transform="translate(-0.48 -0.2)"/><path class="cls-c2b" d="M160.33,81a79.18,79.18,0,0,0-79-79.31" transform="translate(-0.48 -0.2)"/></svg>
+                            </div>
+                        </li>
+                        <li>
+                            <figure>
+                                <span><image xlink:href="{{ asset('bundles/app/images/help/icon_hinzufuegen.svg')}}" src="{{ asset('bundles/app/images/help/icon_hinzufuegen.png')}}" alt="Button: zu Playlisten hinzu fügen, Episode Oktothek" width="101" height="29" /></span>
+                                <figcaption><div class="triangle"></div><div>Erstelle deine eigenen Playlisten mit Folgenhighlights aus unterschiedlichen Sendungen.</div></figcaption>
+                            </figure>
+                            <div id="circle3_outer">
+                                <svg id="circle_3" data-name="circle 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140.92 161.17"><defs><style>.cls-c3a,.cls-c3b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-c3a{stroke:#fdcf19;}.cls-c3b{stroke:#6fc7d8;}</style></defs><title>circle3</title><path class="cls-c3a" d="M21.95,27.67A80.24,80.24,0,0,1,80.28,2" transform="translate(-20.85 -0.5)"/><path class="cls-c3b" d="M160.26,80.15a78.77,78.77,0,0,1-77.5,80" transform="translate(-20.85 -0.5)"/></svg>
+                            </div>
+                        </li>
+                        <li>
+                            <figure>
+                                <span><image xlink:href="{{ asset('bundles/app/images/help/icon_teilen.svg')}}" src="{{ asset('bundles/app/images/help/icon_teilen.png')}}" alt="Button Videos in sozialen Netzwerken teilen, Oktothek" width="101" height="29" /></span>
+                                <figcaption><div>Du kannst die Videos auch direkt in die sozialen Netzwerke einbetten.</div><div class="triangle"></div></figcaption>
+                            </figure>
+                            <div id="circle4_outer">
+                                <svg id="circle_1" data-name="circle 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.19 83.16"><defs><style>.cls-c4a,.cls-c4b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-c4a{stroke:#6fc7d8;}.cls-c4b{stroke:#d24290;}</style></defs><title>circle4</title><path class="cls-c4a" d="M160.08,78.34A80.36,80.36,0,0,1,81,160" transform="translate(-0.4 -78.32)"/><path class="cls-c4b" d="M155,78.34A76.57,76.57,0,0,1,1.9,78.6" transform="translate(-0.4 -78.32)"/></svg>
+                            </div>
+                        </li>
+                        <li>
+                            <figure>
+                                <span><image xlink:href="{{ asset('bundles/app/images/help/icon_comments.svg')}}" src="{{ asset('bundles/app/images/help/icon_comments.png')}}" alt="Button Kommentare zu Videos verfassen, Episode Oktothek" width="131" height="131" /></span>
+                                <figcaption><div class="triangle"></div><div>Verfasse Kommentare zu einzelnen Episoden und trete in einen Diskurs mit der Community.</div></figcaption>
+                            </figure>
+                            <div id="circle5_outer">
+                                <svg id="circle_1" data-name="circle 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.13 83.45"><defs><style>.cls-c5a,.cls-c5b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-c5a{stroke:#fdcf19;}.cls-c5b{stroke:#6fc7d8;}</style></defs><title>circle5</title><path class="cls-c5a" d="M79.35,1.79a81.38,81.38,0,0,1,80.81,81.94" transform="translate(-0.53 -0.29)"/><path class="cls-c5b" d="M2,83.49a75.53,75.53,0,1,1,151.06.23" transform="translate(-0.53 -0.29)"/></svg>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="help-action-container">
+                <h2>Aktiv werden</h2>
+                <div id="linecontainer-3">
+                    <div class="part1">
+                        <div class="line line1"></div>
+                    </div>
+                    <div class="part2">
+                        <div>
+                            <div class="line line1"></div>
+                            <div class="line line2"></div>
+                            <div class="line line3"></div>
+                            <div class="line line4"></div>
+                            <div class="line line5"></div>
+                            <div class="line line6"></div>
+                        </div>
+                    </div>
+                    <div class="part3">
+                    </div>    
+                </div>
+                <div class="container">
+                    <ul class="row help-action">
+                        <li class="col-md-6 col-sm-12">
+                            <figure><a href="#"><img src="{{ asset('bundles/app/images/help/intake.png')}}" alt="Intake Startseite"/><div class="menu-text">Hochladen</div></a>
+                                <figcaption>
+                                    <h3><a href="#">Intake</a></h3>
+                                    <p>Du hast eine eigene Idee und möchtest deinen selbstproduzierten Clip im TV ausstrahlen? Dann nutze das Okto-Intake auf unserer Homepage zum Hochladen deiner eigenproduzierten Videos.</p>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="col-md-6 col-sm-12">
+                            <figure><a href="#"><img src="{{ asset('bundles/app/images/help/workshops.jpg')}}" alt="Workshops Startseite"/><div class="menu-text">Workshops</div></a>
+                                <figcaption><h3><a href="#">Workshops</a></h3>
+                                    <p>Wir bieten ebenfalls unterschiedliche Medienworkshops an, damit du dein Knowhow erweitern kannst. Das komplette Kursangebot ist online ersichtlich. Du kannst dich direkt über unsere Homepage für die Workshops anmelden, egal ob von zu Hause oder unterwegs mit dem Handy.</p>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <p>
+                Als nichtkommerzielles Unternehmen ist es für uns selbstverständlich, dass eure Daten weder gespeichert noch an Dritte weitergegeben werden, ihr aber dennoch die Vorteile einer zeitgemäßen Anbindung an Facebook & Co. genießen könnt.
+            </p>
+            <p>
+                Bei Fragen oder Problemen schreibe uns eine E-Mail an <a href="mailto:support@okto.tv">support@okto.tv</a>.
+            </p>
+            <p>
+                Und jetzt: Viel Spaß im Oktoversum!
+            </p>
+        </section>
+    </div>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/help.css') }}" rel="stylesheet" />
+    <!--[if lt IE 9 ]>
+        <link href="{{ asset('bundles/app/css/help-ie9.css') }}" rel="stylesheet" type="text/css">
+    <![endif]-->
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/app/js/vivus.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/javascript_help.js') }}"></script>
+{% endblock %}
