@@ -1,0 +1,101 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#linecontainer-1 .part1 .line1 {
+    background-color:#fcce14;
+    top:6px;
+}
+#linecontainer-1 .part2 .line1 {
+    width: 30%;
+    background-color:#fcce14;
+    top:6px;
+    left:0;
+}
+#linecontainer-1 .part2 .line2 {
+    width: 53%;
+    background-color:#d1418f;
+    top:12px;
+    left:0;;
+}
+#linecontainer-1 .part2 .line3 {
+    width: 12%;
+    background-color:#ffffff;
+    top:6px;
+    left:37%;
+}
+#linecontainer-1 .part2 .line4 {
+    width: 12%;
+    background-color:#13fffd;
+    top:6px;
+    left:49%;
+}
+#linecontainer-1 .part2 .line5 {
+    width: 7%;
+    background-color:#91e31c;
+    top:0;
+    left:48%;
+}
+#linecontainer-1 .part2 .line6 {
+    width: 41%;
+    background-color:#fcce14;
+    top:0;
+    left:55%;
+}
+#linecontainer-1 .part2 .line7 {
+    width: 12%;
+    background-color:#ffffff;
+    top:6px;
+    left:72%;
+}
+#linecontainer-1 .part2 .line8 {
+    width: 7%;
+    background-color:#13fffd;
+    top:6px;
+    left:86%;
+}
+#linecontainer-1 .part2 .line9 {
+    width: 12%;
+    background-color:#d1418f;
+    top:12px;
+    left:78%;
+}
+#linecontainer-3 .part1 .line1 {
+    background-color:#13fffd;
+    top:6px;
+}
+#linecontainer-3 .part2 .line1 {
+    width: 15%;
+    background-color:#13fffd;
+    top:6px;
+    left:0;
+}
+#linecontainer-3 .part2 .line2 {
+    width: 12%;
+    background-color:#ffffff;
+    top:12px;
+    left:0px;
+}
+#linecontainer-3 .part2 .line3 {
+    width: 24%;
+    background-color:#91e31c;
+    top:0px;
+    left:10%;
+}
+#linecontainer-3 .part2 .line4 {
+    width: 41%;
+    background-color:#fcce14;
+    top:6px;
+    left:15%;
+}
+#linecontainer-3 .part2 .line5 {
+    width: 12%;
+    background-color:#d1418f;
+    top:12px;
+    left:52%;
+}
+#linecontainer-3 .part2 .line6 {
+    width: 40%;
+    background-color:#ffffff;
+    top:6px;
+    left:56%;
+}
