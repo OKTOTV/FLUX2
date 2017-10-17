@@ -133,75 +133,13 @@ oktolab_media:
     asset_class: AppBundle\Entity\Asset
     keep_original: false
     serializing_schema: 'okto'
-    resolutions:
-        360p:
-            name: 360p
-            sortNumber: 0
-            video_width: 640
-            video_height: 360
-            adapter: "video"
-            video_bitrate: 3000000
-            crf_rate:   23
-            preset:     "veryslow"
-            video_framerate: "25" #"30000/1001"
-            audio_bitrate:   128000
-        720p:
-            name: 720p
-            sortNumber: 1
-            video_width: 1280
-            video_height: 720
-            adapter: "video"
-            video_bitrate: 5000000
-            crf_rate:   23
-            preset:     "veryslow"
-        1080p:
-            name: 1080p
-            sortNumber: 2
-            video_width: 1920
-            video_height: 1080
-            adapter: "video"
-            video_bitrate: 8000000
-            crf_rate:   22
-            preset:     "slower"
-        UHD:
-            name: UHD
-            sortNumber: 3
-            video_width: 3840
-            video_height: 2160
-            adapter: "video"
-            video_bitrate: 15000000
-            crf_rate:   23
-            preset:     "veryslow"
-
-        # monoscopic clips
-        SD:
-            stereomode: 1
-            name: "SD"
-            sortNumber: 0
-            video_width: 1920
-            video_height: 960
-            adapter:    "video"
-            video_bitrate: 7500000
-            crf_rate:   23
-            video_framerate: "25"
-            preset:     "medium"
-        HD:
-            stereomode:  1
-            name: "HD"
-            sortNumber: 1
-            video_width: 3840
-            video_height: 1920
-            adapter:    "video"
-            video_bitrate: 8000000
-            crf_rate:  23
-            video_framerate: "25"
-            preset:     "medium"
+    resolutions: "%oktolab_encoding_resolutions%"
 
     player_url: "%player_url%"
     origin:
-        margin: 12
+        margin: 8
         position: "top-left"
-        logo: "bundles/app/images/player/logo.png"
+        logo: "bundles/app/images/player/logo_ostern.svg"
 
 okto_media:
     tag_class: "AppBundle\\Entity\\Tag"
