@@ -136,7 +136,7 @@ oktolab_media:
     resolutions: "%oktolab_encoding_resolutions%"
 
     player_url: "%player_url%"
-    origin: "%oktolab_origin_config"
+    origin: "%oktolab_origin_config%"
 
 okto_media:
     tag_class: "AppBundle\\Entity\\Tag"
