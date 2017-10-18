@@ -42,7 +42,7 @@ class PlaylistController extends Controller
      * @ ParamConverter("playlist", class="MediaBundle:Playlist", options={"mapping": {"playlist": "uniqID"}})
      * @Template()
      */
-    public function showAction(Playlist $playlist, $page)
+    public function showAction(Playlist $playlist)
     {
         return ['playlist' => $playlist];
     }
