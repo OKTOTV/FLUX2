@@ -136,7 +136,6 @@
 {% block javascripts %}
     {{ parent() }}
     {{ player(episode)|raw }}
-    <script src="{{ playerUrl() }}"></script>
     {% if episode.video is not empty %}
         <script type="text/javascript">
             $(document).ready(function(){
