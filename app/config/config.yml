@@ -139,7 +139,7 @@ oktolab_media:
     origin:
         margin: 8
         position: "top-left"
-        logo: "bundles/app/images/player/logo_ostern.svg"
+        logo: "bundles/app/images/player/logo.svg"
 
 okto_media:
     tag_class: "AppBundle\\Entity\\Tag"
