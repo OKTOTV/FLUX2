@@ -151,3 +151,9 @@ parameters:
             crf_rate:  23
             video_framerate: "25"
             preset:     "medium"
+
+    oktolab_origin_config:
+        margin: 2
+        position: "top-left"
+        logo: "bundles/app/images/player/logo.svg"
+        url:  "https://www.okto.tv"
