@@ -152,7 +152,10 @@ button.btn-default#ButtonShare .visible-xs-inline,
 button.btn-default#ButtonShare_mobil .visible-xs-inline,
 .playlists #StartPlaylist_small.btn span.glyphicon,
 .series.blog header.page-header .pull-left .icon,
-.subscriptions header.page-header .pull-left .icon {
+.subscriptions header.page-header .pull-left .icon,
+body.help .help-participate figcaption,
+body.help .help-action figcaption,
+body.help section:last-child {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -291,7 +294,8 @@ label,
 .more figure.episode-pin,
 .post .misc a,
 body.tagpage .pages .list-group-item a,
-div.list-group.tags span.label.label-default.remove {
+div.list-group.tags span.label.label-default.remove,
+body.help .help-action li .menu-text {
 	text-transform:uppercase;
 }
 
@@ -350,7 +354,10 @@ a.pull-left.more,
 #playlist_items a:hover,
 #playlist_items a:focus,
 .producer figcaption h3 a:hover,
-.producer figcaption h3 a:focus {
+.producer figcaption h3 a:focus,
+body.help .help-experience a:hover,
+body.help .help-action h3 a:hover,
+body.help .help-action li a:hover .menu-text{
 	text-decoration:none;
 }
 body.episode .description a,
@@ -916,7 +923,10 @@ button.input-group-addon:focus,
 .post a.tag:hover,
 .post a.tag:focus,
 .blog aside a.more,
-.visible-xs-block .pager li > a {
+.visible-xs-block .pager li > a,
+body.help .help-experience a h3,
+body.help .help-action h3 a,
+body.help .help-action li a .menu-text {
 	color:#ffffff;
 }
 *::-moz-selection {
@@ -1035,7 +1045,10 @@ body.tagpage .pages .list-group-item a:focus,
 #playlist_items a:focus p,
 .producer figcaption h3 a:hover,
 .producer figcaption h3 a:focus,
-.producer figcaption h3 a:active /*Gelb*/ {
+.producer figcaption h3 a:active,
+body.help .help-experience a:hover h3,
+body.help .help-action h3 a:hover,
+body.help .help-action li a:hover .menu-text /*Gelb*/ {
 	color: #fcce14;
 }
 .alert-danger,
@@ -1153,7 +1166,9 @@ body.tagpage li.empty .icon-player,
 [data-tooltip]::after,
 /*.oktothek .participart-list li figcaption span,*/
 .visible-xs-block .pager li > a, 
-.visible-xs-block .pager li > a { /* Dunkelgrau */
+.visible-xs-block .pager li > a,
+body.help .help-participate li:nth-child(2n+1) figcaption div:last-child,
+body.help .help-participate li:nth-child(2n) figcaption div:first-child { /* Dunkelgrau */
 	background-color:#112022;
 }
 article.pin figure.pin:hover,
@@ -1470,6 +1485,7 @@ body.tagpage .empty .triangle {
   border-right: 0 solid transparent;
   border-bottom: 15px solid transparent;
 }
+
 .livestream .next-episode-schedule .panel-time, 
 .livestream #current_show .row.pin .panel-content {
     border-bottom:2px solid #000000;
@@ -1553,6 +1569,14 @@ a:focus.pull-left {
         border-top:dotted 1px #5a6769;
     }
 }
+@media (min-width: 992px) {
+    body.help .help-participate li:nth-child(2n) figcaption div.triangle {
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 20px solid #112022;
+      border-bottom:0;
+    }
+}
 
 /* Hintergründe */
 /* Spacelayout */
@@ -1561,7 +1585,15 @@ hr {
 	background-position:left center;
 	background-image:url(../images/hr_bg.png);
 }
-section, .participart article, .edit-playlists form fieldset, .newsarchiv article, .series.blog .blog-entry, body.producer aside .description, .login fieldset, footer nav, .livestream #current_show header  {
+section, 
+.participart article, 
+.edit-playlists form fieldset, 
+.newsarchiv article, 
+.series.blog .blog-entry, 
+body.producer aside .description, 
+.login fieldset, footer nav, 
+.livestream #current_show header, 
+body.help section.features  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border_small.png);
@@ -1734,7 +1766,8 @@ body.oktothek a.btn.login:active {
 	background-repeat:no-repeat;
 	background-position:top left;
 }
-.playlists .edit, .subscriptions .edit .icon {
+.playlists .edit, 
+.subscriptions .edit .icon {
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-image:url(../images/icon_edit.png);
@@ -1744,11 +1777,15 @@ body.oktothek a.btn.login:active {
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
-.playlists .edit:hover, .subscriptions .edit:hover .icon {
+.playlists .edit:hover, 
+.subscriptions .edit:hover .icon {
 	background-image:url(../images/icon_edit_hover.png);
     background-image:url(../images/icon_edit_hover.svg), none;
 }
-.bg-bleur, .fs-image div, .more figure.episode-pin, body.oktothek .participart {
+.bg-bleur, 
+.fs-image div, 
+.more figure.episode-pin,
+body.oktothek .participart {
 	/*background-image:url(../images/dummy_bleur_bg.jpg);*/
 	background-repeat:no-repeat;
 	background-position:center top;
@@ -1759,6 +1796,7 @@ body.oktothek a.btn.login:active {
 }
 section:last-child, 
 section.playlist_container,
+body.help section,
 .edit-playlists form fieldset:last-child,
 .newsarchiv article:last-child,
 body.playlists section:first-child,
@@ -1780,7 +1818,14 @@ body.playlists section:first-child,
     }
 }
 @media (min-width: 768px) {
-    section, .participart article, .edit-playlists form fieldset, .newsarchiv article, .series.blog .blog-entry, body.producer aside .description, .login fieldset, footer nav, .livestream #current_show header  {
+    section, .participart article, 
+    .edit-playlists form fieldset, 
+    .newsarchiv article, 
+    .series.blog .blog-entry, 
+    body.producer aside .description, 
+    .login fieldset, footer nav, 
+    .livestream #current_show header,
+    body.help section.features  {
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
 	    background-image:url(../images/section_border.png);
@@ -2338,7 +2383,7 @@ body.page section ul, body.news section ul {
 .page h2 {
 	margin-top:50px;
 }
-h1, h2 {
+h1, h2, body.help .help-experience h3, body.help .help-action h3 {
 	text-align:center;
 }
 h1.name {
@@ -2347,13 +2392,13 @@ h1.name {
 h1, footer .networks h3 {
 	margin-top:0;
 }
-body.tagpage h1 {
+body.tagpage h1, body.help .help-experience h3 {
 	margin-top:20px;
 }
 h1.name, h2.name {
 	margin-bottom:4px;
 }
-h2, h1, .subscriptions header.page-header h1 {
+h2, h1, .subscriptions header.page-header h1, body.help .help-action h3 {
 	margin-bottom:20px;
 }
 header.page-header h1 {
@@ -2368,6 +2413,14 @@ h2:first-child {
 figcaption h3 {
 	margin:0;
 }
+body.help h2 {
+    margin-top: 100px;
+    margin-bottom:20px;
+}
+body.help .help-action-container h2 {
+    margin-bottom:100px;
+}
+
 @media (min-width: 768px) {
     h2, h1 {
 	    margin-bottom:50px;
