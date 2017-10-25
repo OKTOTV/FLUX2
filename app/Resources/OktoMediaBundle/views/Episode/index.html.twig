@@ -12,7 +12,13 @@
 </ul>
 
     <div class="page-header">
-        <p>{{ 'oktolab_media.episodes_index_total'|trans({'%episodes%': episodes.getTotalItemCount})}}</p>
+        <p>
+            {% if app.request.query.get('inactive_only') == 0 %}
+                {{ 'oktolab_media.episodes_index_total'|trans({'%episodes%': episodes.getTotalItemCount}) }}
+            {% else %}
+                {{ 'oktolab_media.episodes_index_inactive_total'|trans({'%episodes%': episodes.getTotalItemCount}) }}
+            {% endif %}
+        </p>
         <!-- Single button -->
         <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,8 +26,23 @@
             </button>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="{{ path('oktolab_episode_new') }}">{{ 'oktolab_media.episode_index_new'|trans|raw }}</a>
+                    <a href="{{ path('oktolab_episode_new') }}">
+                        {{ 'oktolab_media.episode_index_new'|trans|raw }}
+                    </a>
                 </li>
+                {% if app.request.query.get('inactive_only') == 0 %}
+                    <li>
+                        <a href="{{ path('oktolab_episode_index', {'inactive_only': '1'}) }}">
+                            {{ 'oktolab_media.episode_index_show_inactive'|trans|raw }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('oktolab_episode_index') }}">
+                            {{ 'oktolab_media.episode_index_show_all'|trans|raw }}
+                        </a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <div class="btn-group">
@@ -37,6 +58,7 @@
             <li{% if episodes.isSorted('s.name') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'Series', 's.name') }}</li>
             <li{% if episodes.isSorted('e.duration') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktolab_media.episode_index_duration'|trans, 'e.duration') }}</li>
             <li{% if episodes.isSorted('e.isActive') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktolab_media.episode_index_isActive'|trans, 'e.isActive') }}</li>
+            <li{% if episodes.isSorted('e.stereomode')%} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktolab_media.episode_index_stereomode'|trans, 'e.stereomode') }}</li>
             <li{% if episodes.isSorted('e.views') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.episode_index_views'|trans, 'e.views') }}</li>
           </ul>
         </div>
@@ -79,6 +101,8 @@
                                         {{ episode.description|nl2br }}
                                     {% endif %}
                                 </dd>
+                                <dt>{{ 'oktolab_media.episode_index_stereomode'|trans }}</dt>
+                                <dd>{{ 'oktolab_media.stereomode_choice'|transchoice(episode.stereomode) }}</dd>
                                 <dt>
                                     {{ 'oktolab_media.episode_index_duration'|trans }}
                                 </dt>
