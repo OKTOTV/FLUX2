@@ -28,6 +28,9 @@ $(document).ready(function(){
         var offset_action_h2 = $('#help-action-container h2').offset();
         var offset_action = $('#linecontainer-3').offset();
         
+        winHeight = $( window ).height();
+        winWidth = $( window ).width();
+        
         if (show_features == false && $(window).scrollTop() > (offset_experience.top - winHeight)) {
             if (winWidth >= 1214) {
                 var vivus0 = new Vivus('arc_0', {start : 'manual'});
@@ -47,8 +50,6 @@ $(document).ready(function(){
             var vivus13 = new Vivus('arc_13', {start : 'manual'});
         }
         
-        winHeight = $( window ).height();
-        winWidth = $( window ).width();
         
         //console.log('Window:' + winHeight + " : " + offset_experience.top);
         
