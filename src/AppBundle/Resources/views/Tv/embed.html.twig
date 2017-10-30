@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
+        <script src="{{ playerUrl() }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function(event){
+                setInterval("updateCurrent()", 120000);
+
+                var keepsWatchingInterval = null;
+
+                var playerInstance = jwplayer("player");
+                playerInstance.setup({
+                    file: "{{ okto_streamurl }}",
+                    image: "{{ asset('bundles/app/images/placeholder/Logo'~random(6)~'.png') }}"
+                }).on('play', function(event){
+                    console.log(event.oldstate);
+                    if (event.oldstate == "buffering" || event.oldstate == "paused") { {# fire statistics #}
+                        $.ajax({
+                            url: "{{ url('bprs_analytics_write_log')}}",
+                            data: {'identifier': "tv", 'value': 'start'}
+                        });
+                        if (keepsWatchingInterval == null) {
+                            keepsWatchingInterval = setInterval("keepsWatching()", 600000); {# track every 10 minutes #}
+                        }
+                    };
+                }).on('pause', function(event) {
+                    clearInterval(keepsWatchingInterval);
+                    keepsWatchingInterval = null;
+                })
+            });
+
+            function keepsWatching() {
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': "tv", 'value': 'running'}
+                });
+            }
+            </script>
+        <title>{{ 'oktothek_tv_title'|trans }}</title>
+    </head>
+    <body>
+        <figure id="player">
+        </figure>
+    </body>
+</hmtl>
