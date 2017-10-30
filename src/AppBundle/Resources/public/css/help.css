@@ -179,6 +179,9 @@ body.help .help-participate figure span {
     text-align: center;
     margin: 0 auto;
 }
+body.help #help-participate-container .container {
+    display: table;
+}
 body.help .help-experience img {
     width: 270px;
     height: 270px;
@@ -640,6 +643,11 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     #linecontainer-2 {
         display: table;
     }
+    body.help .help-participate.row {
+        position: absolute;
+        left:50%;
+        margin-left:-470px;
+    }
     .row.help-participate {
         display: table-row;
     }
@@ -693,6 +701,9 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     }
 }
 @media (min-width: 1200px) {
+    body.help .help-participate.row {
+        margin-left:-570px;
+    }
     #linecontainer-2 .part3 .line1 {
         background-image:none;
     }
@@ -766,6 +777,10 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     }
 }
 @media (min-width: 1214px) {
+    #linecontainer-2.part1 > div {
+        min-width:10px;
+        width: 100%;
+    }
     #linecontainer-2 .part3 .line1 {
         width:107.5px;
         height: auto;
