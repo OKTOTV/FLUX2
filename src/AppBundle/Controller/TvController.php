@@ -28,6 +28,15 @@ class TvController extends Controller
     }
 
     /**
+     * @Route("/embed", name="tv_embed")
+     * @Template()
+     */
+    public function embedAction()
+    {
+        return [];
+    }
+
+    /**
      * @Route("/program/{date}.{_format}", defaults={"date": "now", "_format": "html"}, name="oktothek_tv_program_for_date")
      * @Template
      */
