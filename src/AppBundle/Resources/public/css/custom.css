@@ -3151,7 +3151,9 @@ a.more.right {
     width:320px;
     margin:0 auto;
 }
-.login form button[type="submit"], .subscriptions form button[type="submit"], .live form button[type="submit"] {
+.login form button[type="submit"]:not(header .login form button[type="submit"]), 
+.subscriptions form button[type="submit"]:not(header .subscriptions form button[type="submit"]), 
+.live form button[type="submit"]:not(header .live form button[type="submit"]) {
     display: block;
     margin:40px auto 20px auto;
 }
