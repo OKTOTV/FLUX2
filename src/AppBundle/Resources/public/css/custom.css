@@ -578,8 +578,12 @@ header .navbar-inverse .navbar-toggle:focus .icon-bar {
 .dropdown-menu li.divider, .progress {
 	background-color: #212b2c;
 }
-.more-clips select option {
-    background-color:#112022;
+.more-clips select option,
+.dropdown-menu > li, 
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:active,
+.dropdown-menu > li > a:focus {
+	background-color: #112022;
 }
 
 /* Border */
@@ -742,12 +746,6 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
     header #search-container #form_search_submit.btn:focus,
     header #search-container #form_search_submit.btn:active {
 		color: #ffffff;
-	}
-	.dropdown-menu > li, 
-	.dropdown-menu > li > a:hover, 
-	.dropdown-menu > li > a:active,
-    .dropdown-menu > li > a:focus {
-		background-color: #112022;
 	}
 	/* Backgroundcolor */
 	header .navbar-collapse, 
@@ -2519,8 +2517,9 @@ button.btn.dropdown-toggle, header button.btn.dropdown-toggle {
     position:relative;
 }
 .dropdown-menu {
-    padding:10px;
 	width:220px;
+    margin-bottom:0;
+    padding-bottom: 0;
 }
 .clip_overview section button.btn.dropdown-toggle, .clip_overview section .dropdown-menu {
     width:200px;
@@ -2623,6 +2622,9 @@ footer .open .dropdown-menu {
     .open .dropdown-menu .dropdown-header, .open .dropdown-menu > li > a {
     	padding: 5px 15px;
 	}
+    .dropdown-menu {
+        padding:10px;
+    }
     .dropdown-menu li {
 		padding-left:0;
 	}
@@ -3024,8 +3026,10 @@ div.list-group.tags span.label.label-default.remove::before {
     margin-bottom: 30px;
 }
 .pager-row .dropdown {
-    width: 100%;
+    width: 200px;
     text-align: center;
+    margin-left:auto;
+    margin-right:auto;
 }
 .clip_overview p.subheadline {
     margin-top:20px;
@@ -3035,6 +3039,8 @@ div.list-group.tags span.label.label-default.remove::before {
         text-align: left;
         margin-top:20px;
         margin-bottom:20px;
+        margin-left:0;
+        margin-right:0;
     }
     .pager-row > div:first-child {
         margin-bottom: 0px;
