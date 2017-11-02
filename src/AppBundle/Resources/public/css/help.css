@@ -603,7 +603,7 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     body.help .help-action li img {
         width: 390px;
         height: 390px;
-        margin-top:-19px;
+        margin-top:1px;
         margin-left:44px;
     }
     body.help .help-action .menu-text {
