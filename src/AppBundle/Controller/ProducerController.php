@@ -289,7 +289,7 @@ class ProducerController extends Controller
         $this->denyAccessUnlessGranted('view_channel', $series);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series), $page, 8);
+        $posts = $paginator->paginate($em->getRepository('AppBundle:Post')->findPostsForSeries($series, true), $page, 8);
         return ['posts' => $posts, 'series' => $series];
     }
 
