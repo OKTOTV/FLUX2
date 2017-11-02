@@ -127,7 +127,8 @@ class EpisodeRepository extends BaseEpisodeRepository
         $query = $this->getEntityManager()->createQuery(
                     "SELECT e, p FROM AppBundle:Episode e
                     LEFT JOIN e.posterframe p
-                    WHERE e.series = :series"
+                    WHERE e.series = :series
+                    ORDER BY e.firstranAt DESC"
                 )
                 ->setParameter('series', $series->getId());
 
