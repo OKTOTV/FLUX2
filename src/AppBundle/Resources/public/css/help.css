@@ -191,6 +191,9 @@ body.help .help-experience img {
 body.help .help-action li:first-child img {
     margin-left:1px;
 }
+body.help #help-participate-container .subheadline {
+        margin-bottom: 40px;
+    }
 body.help .help-participate figure {
     margin:0;
     padding:0;
@@ -285,7 +288,7 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     background-color:#fcce14;
     top:6px;
     width:0%;
-    animation: linewidth100 0.25s linear forwards;
+    animation: linewidth100 0.12s linear forwards;
     animation-play-state: paused;
 }
 #linecontainer-1 .part2 .line1 {
@@ -293,72 +296,72 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     background-color:#fcce14;
     top:6px;
     left:0;
-    animation: linewidth30 0.3s linear forwards;
-    animation-delay: 0.25s;
+    animation: linewidth30 0.15s linear forwards;
+    animation-delay: 0.12s;
 }
 #linecontainer-1 .part2 .line2 {
     width: 0%;
     background-color:#d1418f;
     top:12px;
     left:0;
-    animation: linewidth53 0.25s linear forwards;
-    animation-delay: 0.55s;
+    animation: linewidth53 0.12s linear forwards;
+    animation-delay: 0.37s;
 }
 #linecontainer-1 .part2 .line3 {
     width: 0%;
     background-color:#ffffff;
     top:6px;
     left:37%;
-    animation: linewidth12 0.25s linear forwards;
-    animation-delay: 0.8s;
+    animation: linewidth12 0.12s linear forwards;
+    animation-delay: 0.49s;
 }
 #linecontainer-1 .part2 .line4 {
     width: 0%;
     background-color:#13fffd;
     top:6px;
     left:49%;
-    animation: linewidth12 0.25s linear forwards;
-    animation-delay: 1.05s;
+    animation: linewidth12 0.12s linear forwards;
+    animation-delay: 0.61s;
 }
 #linecontainer-1 .part2 .line5 {
     width: 0%;
     background-color:#91e31c;
     top:0;
     left:48%;
-    animation: linewidth7 0.05s linear forwards;
-    animation-delay: 1.3s;
+    animation: linewidth7 0.025s linear forwards;
+    animation-delay: 0.73s;
 }
 #linecontainer-1 .part2 .line6 {
     width: 0%;
     background-color:#fcce14;
     top:0;
     left:55%;
-    animation: linewidth41 0.5s linear forwards;
-    animation-delay: 1.35s;
+    animation: linewidth41 0.25s linear forwards;
+    animation-delay: 0.75s;
 }
 #linecontainer-1 .part2 .line7 {
     width: 0%;
     background-color:#ffffff;
     top:6px;
     left:72%;
-    animation: linewidth12 0.2s linear forwards;
-    animation-delay: 1.4s;
+    animation: linewidth12 0.1s linear forwards;
+    animation-delay: 1.0s;
 }
 #linecontainer-1 .part2 .line8 {
     width: 0%;
     background-color:#13fffd;
     top:6px;
     left:86%;
-    animation: linewidth7 0.05s linear forwards;
-    animation-delay: 1.6s;
+    animation: linewidth7 0.025s linear forwards;
+    animation-delay: 1.1s;
 }
 #linecontainer-1 .part2 .line9 {
     width: 0%;
     background-color:#d1418f;
     top:12px;
     left:78%;
-    animation: linewidth12 0.2s linear forwards;
-    animation-delay: 1.65s;
+    animation: linewidth12 0.1s linear forwards;
+    animation-delay: 1.0s;
 }
 
 #linecontainer-2 .part2 .line2,
@@ -474,55 +477,55 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     background-color:#13fffd;
     top:6px;
     width:0%;
-    animation: linewidth100 0.25s linear forwards;
+    animation: linewidth100 0.125s linear forwards;
 }
 #linecontainer-3 .part2 .line1 {
     width: 0%;
     background-color:#13fffd;
     top:6px;
     left:0;
-    animation: linewidth15 0.25s linear forwards;
-    animation-delay: 0.25s;
+    animation: linewidth15 0.125s linear forwards;
+    animation-delay: 0.125s;
 }
 #linecontainer-3 .part2 .line2 {
     width: 0%;
     background-color:#ffffff;
     top:12px;
     left:0px;
-    animation: linewidth12 0.1s linear forwards;
-    animation-delay: 0.5s;
+    animation: linewidth12 0.05s linear forwards;
+    animation-delay: 0.05s;
 }
 #linecontainer-3 .part2 .line3 {
     width: 0%;
     background-color:#91e31c;
     top:0px;
     left:10%;
-    animation: linewidth24 0.2s linear forwards;
-    animation-delay: 0.6s;
+    animation: linewidth24 0.1s linear forwards;
+    animation-delay: 0.3s;
 }
 #linecontainer-3 .part2 .line4 {
     width: 0%;
     background-color:#fcce14;
     top:6px;
     left:15%;
-    animation: linewidth41 0.5s linear forwards;
-    animation-delay: 0.8s;
+    animation: linewidth41 0.25s linear forwards;
+    animation-delay: 0.4s;
 }
 #linecontainer-3 .part2 .line5 {
     width: 0%;
     background-color:#d1418f;
     top:12px;
     left:52%;
-    animation: linewidth12 0.1s linear forwards;
-    animation-delay: 1.3s;
+    animation: linewidth12 0.05s linear forwards;
+    animation-delay: 0.65s;
 }
 #linecontainer-3 .part2 .line6 {
     width: 0%;
     background-color:#ffffff;
     top:6px;
     left:56%;
-    animation: linewidth41 0.5s linear forwards;
-    animation-delay: 1.4s;
+    animation: linewidth41 0.25s linear forwards;
+    animation-delay: 0.7s;
 }
 
 #circle1_outer, #circle2_outer, #circle3_outer, #circle4_outer, #circle5_outer {
@@ -600,7 +603,7 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     body.help .help-action li img {
         width: 390px;
         height: 390px;
-        margin-top:1px;
+        margin-top:-19px;
         margin-left:44px;
     }
     body.help .help-action .menu-text {
