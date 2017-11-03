@@ -3191,6 +3191,9 @@ a.more.right {
     position: absolute;
     width: 1px;
 }
+.login #oktothek_register, .login .form-signin {
+    text-align: center;
+}
 .tt-menu {
     width:280px;
     padding:15px 10px;
