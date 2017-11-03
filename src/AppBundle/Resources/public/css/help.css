@@ -127,6 +127,9 @@ body.help .help-experience a, body.help .help-action li a {
 body.help .help-action li figcaption a {
     display: inline;
 }
+header.page-header + .container-fluid {
+	margin-top:0px;
+}
 body.help section.features {
     min-height: 4000px;
 }
