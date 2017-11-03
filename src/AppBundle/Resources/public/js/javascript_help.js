@@ -20,7 +20,9 @@ $(document).ready(function(){
     $('#help-action-container h2').css('display','none');
     $('.help-action li').css('display','none');
     
+    
     $(window).on("scroll", function(){
+        var offset_features = $('.features').offset();
         var offset_experience_h2 = $('#help-experience-container h2').offset();
         var offset_experience = $('#linecontainer-1').offset();
         var offset_participate_h2 = $('#help-participate-container h2').offset();
@@ -30,6 +32,12 @@ $(document).ready(function(){
         
         winHeight = $( window ).height();
         winWidth = $( window ).width();
+        
+        if ($(window).scrollTop() >= (offset_features.top - winHeight) && (winWidth >= 992)) {
+            $('#link-new-account').fadeIn();
+        } else if($(window).scrollTop() < (offset_features.top - winHeight) || (winWidth < 992)) {
+            $('#link-new-account').fadeOut();
+        }
         
         if (show_features == false && $(window).scrollTop() > (offset_experience.top - winHeight)) {
             if (winWidth >= 1214) {
@@ -140,7 +148,7 @@ $(document).ready(function(){
                     }
                     if (winWidth >= 992) {
                         $('.help-action li').eq(0).delay( 600 ).fadeIn(300);
-                        $('.help-action li').eq(1).delay( 1200 ).fadeIn(300);
+                        $('.help-action li').eq(1).delay( 1000 ).fadeIn(300);
                     } else {
                         $('.help-action li').eq(0).delay( 400 ).fadeIn(300);
                         $('.help-action li').eq(1).delay( 800 ).fadeIn(300);

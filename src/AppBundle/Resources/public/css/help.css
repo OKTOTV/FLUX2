@@ -162,6 +162,9 @@ body.help .help-action li:first-child figure {
 body.help .help-action .menu-text {
     display: none;
 }
+body.help .subheadline {
+    margin-bottom: 40px;
+}
 
 body.help #player {
     margin-top:60px;
@@ -580,6 +583,10 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     animation-play-state: paused;
 }
 
+body.help #link-new-account {
+    display: none;
+}
+
 
 @media (min-width: 768px) {
     iframe {
@@ -704,6 +711,28 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     }
     body.help .help-action li:first-child figure {
         margin-bottom: 0px;
+    }
+    body.help #link-new-account {
+        position: fixed;
+        width:160px;
+        top:50%;
+        right: 0;
+        z-index: 999;
+        margin-top:-50px;
+    }
+    body.help #link-new-account a {
+        display: block;
+        margin: 20px 10px 20px 20px;
+        padding-right: 25px;
+    }
+     body.help #link-new-account a span {
+        display: block;
+        position: absolute;
+        right: 0;
+        top:50%;
+        width: 28px;
+        height: 22px;
+        margin-top:-11px;
     }
 }
 @media (min-width: 1200px) {

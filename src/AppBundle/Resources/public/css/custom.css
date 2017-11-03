@@ -241,7 +241,8 @@ form .tt-menu,
 body.producer ul.list-group .pin a p,
 .icon.participant-arrow-down,
 .icon.playlists-arrow-down,
-div.list-group.tags span.label.label-default.remove {
+div.list-group.tags span.label.label-default.remove,
+body.help #link-new-account a {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -357,7 +358,8 @@ a.pull-left.more,
 .producer figcaption h3 a:focus,
 body.help .help-experience a:hover,
 body.help .help-action h3 a:hover,
-body.help .help-action li a:hover .menu-text{
+body.help .help-action li a:hover .menu-text,
+body.help #link-new-account a {
 	text-decoration:none;
 }
 body.episode .description a,
@@ -949,7 +951,7 @@ header .collapseShare a.btn,
 .pagination > li > a:hover,
 .pagination > li > a:focus,
 .visible-xs-block .pager li > a:hover, 
-.visible-xs-block .pager li > a:focus{
+.visible-xs-block .pager li > a:focus {
 	color:#000000;
 }
 .pin figcaption p a, 
@@ -1591,6 +1593,7 @@ section,
 body.producer aside .description, 
 .login fieldset, footer nav, 
 .livestream #current_show header, 
+body.help section.initiation,
 body.help section.features  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
@@ -1780,6 +1783,12 @@ body.oktothek a.btn.login:active {
 	background-image:url(../images/icon_edit_hover.png);
     background-image:url(../images/icon_edit_hover.svg), none;
 }
+
+body.help #link-new-account span {
+    background-image:url(../images/icon_right_arrow.png);
+    background-image:url(../images/icon_right_arrow.svg), none;
+    background-repeat:no-repeat;
+}
 .bg-bleur, 
 .fs-image div, 
 .more figure.episode-pin,
@@ -1823,6 +1832,7 @@ body.playlists section:first-child,
     body.producer aside .description, 
     .login fieldset, footer nav, 
     .livestream #current_show header,
+    body.help section.initiation,
     body.help section.features  {
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
