@@ -3426,6 +3426,7 @@ footer .networks {
 @media (min-width: 768px) {
 	footer .nav > li, footer .nav > li > a, footer .partner li {
 		display:inline;
+        float: none;
 	}
     footer .nav > li, footer .partner li {
 	    width:auto;
@@ -3433,9 +3434,14 @@ footer .networks {
     footer .nav > li:nth-child(2n+1), footer .partner li:nth-child(2n+1) {
         clear:none;
     }
+    footer nav ul {
+        text-align: center;
+    }
+    
     footer nav {
 	    padding-top:50px;
 	    margin-bottom:0;
+        text-align: center;
     }
 	footer .partner li {
 		margin-left:40px;
@@ -3444,7 +3450,7 @@ footer .networks {
         margin-left:0;
     }
     footer nav, footer section.partner {
-	    height:130px;
+	    height:170px;
     }
 	footer .partner li:first-child {
 		margin-left:0px;
