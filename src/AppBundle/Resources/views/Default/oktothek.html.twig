@@ -26,7 +26,7 @@
             {% if is_granted('ROLE_OKTOLAB_USER') %}
             <h2 id="button_down" itemprop="name">{{ 'oktothek_default_welcome'|trans({'%username%': app.user.username }) }}<span class="icon participant-arrow-down">{{ 'oktothek_default_useless_fancy_button'|trans }}</span></h2>
             <article class="container"><p class="aligncenter subheadline col-md-8 col-md-offset-2">{{ 'oktothek_default_sub_welcome'|trans }}</p>
-            <p class="aligncenter subheadline col-md-8 col-md-offset-2">Wie funktioniert das Oktoversum?<br><a href="{{ path('help') }}">Hier findest du einen hilfreichen Überblick der gesamten Features.</a></p></article>
+            <p class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 helptext"><span>Wie funktioniert das Oktoversum?</span><br>Hier findest du einen hilfreichen Überblick der gesamten Features.<br><a href="{{ path('help') }}">Überblick ansehen</a></p></article>
             {% else %}
             <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump">Hier!</span></h2>
             <article class="container">

@@ -91,7 +91,8 @@ h3,
 .playlists .btn.circle, 
 .edit-playlists form label,
 .livestream .schedule li h4, 
-.livestream .next-episode-schedule h4 {
+.livestream .next-episode-schedule h4,
+.helptext span {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -242,7 +243,8 @@ body.producer ul.list-group .pin a p,
 .icon.participant-arrow-down,
 .icon.playlists-arrow-down,
 div.list-group.tags span.label.label-default.remove,
-body.help #link-new-account a {
+body.help #link-new-account a,
+.helptext a {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -296,7 +298,9 @@ label,
 .post .misc a,
 body.tagpage .pages .list-group-item a,
 div.list-group.tags span.label.label-default.remove,
-body.help .help-action li .menu-text {
+body.help .help-action li .menu-text,
+.helptext span, 
+.helptext a {
 	text-transform:uppercase;
 }
 
@@ -1711,6 +1715,12 @@ body.oktothek a.btn.login {
     -moz-background-size: 50% 50%;
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
+}
+body.oktothek .helptext {
+    background-image:url(../images/help_circle.png);
+    background-image:url(../images/help_circle.svg), none;
+    background-repeat:no-repeat;
+    background-position:left center;
 }
 body.oktothek a.btn.login:hover, 
 body.oktothek a.btn.login:focus, 
