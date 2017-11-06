@@ -394,6 +394,9 @@ oktothek_academy_b2b_more:              'Kontakt <a href="mailto:%email%?subject
 oktothe_academy_book_course_header:     "%coursetype% buchen"
 oktothek_academy_book_course:           Kurs buchen
 
+### _coursePackageStack.html.twig
+oktothek_academy_coursepackagestack_short_description: "Kurzbeschreibung"
+
 ### _courseStack.html.twig
 oktothek_academy_quickview:             "Schnellansicht"
 oktothek_academy_hover_title:           "%coursetype% ansehen"
@@ -977,6 +980,9 @@ oktothek_share_inst:                        Instagram
 oktothek_share_pint:                        Pinterest
 oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420&nbsp;x&nbsp;315px eingebettet."
 oktothek_share_embed:                       Einbetten
+
+## register.html.twig
+oktothek_register_header:                   "Registrieren"
 
 ## Resources/views/Default/slider.html.twig
 oktothek_author_of_slides:                  "Okto Marketing"
