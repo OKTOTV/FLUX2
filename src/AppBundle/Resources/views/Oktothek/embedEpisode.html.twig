@@ -2,7 +2,23 @@
 <html>
 <head>
     <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
-    {{ player(episode,"player",false,true)|raw }}
+    {{ player(episode, "player", false, withtitle)|raw }}
+    {% if start %}
+        <script type="text/javascript">
+            $(document).ready(function(){
+                // jump to starttime if given
+                var init = false;
+                var player = jwplayer('player');
+                player.on('play', function(){
+                    if (init == false) {
+                        player.seek({{start}});
+                        init = true;
+                    }
+                });
+
+            });
+        </script>
+    {% endif %}
 <title>{{ episode.name|default(name|default(''))}}</title>
 </head>
 <body>
