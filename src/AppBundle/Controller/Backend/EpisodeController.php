@@ -53,7 +53,7 @@ class EpisodeController extends Controller
     {
         $results = [];
         $em = $this->getDoctrine()->getManager();
-        $q = $em->createQuery("SELECT e from AppBundle:Episode e");
+        $q = $em->createQuery("SELECT uniqID, name, s FROM AppBundle:Episode e LEFT JOIN e.series s");
         $iterableResult = $q->iterate();
         $analytics = $this->get('bprs_analytics');
         while (($row = $iterableResult->next()) !== false) {
