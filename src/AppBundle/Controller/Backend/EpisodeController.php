@@ -57,12 +57,12 @@ class EpisodeController extends Controller
         $iterableResult = $q->iterate();
         $analytics = $this->get('bprs_analytics');
         while (($row = $iterableResult->next()) !== false) {
-            $results[$row[0]->getUniqID()]['start'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => 'start'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['20'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '20%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['40'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '40%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['60'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '60%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['80'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '80%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['end'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => 'end'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['start'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => 'start'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['20'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '20%'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['40'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '40%'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['60'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '60%'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['80'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '80%'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['end'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => 'end'], $request->query->get('starttime'), $request->query->get('endtime')));
             $results[$row[0]->getUniqID()]['episode'] = $row[0]->getName();
             $results[$row[0]->getUniqID()]['series'] = $row[0]->getSeries()->getName();
             $em->detach($row[0]);

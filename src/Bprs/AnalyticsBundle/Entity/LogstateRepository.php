@@ -33,7 +33,6 @@ class LogstateRepository extends EntityRepository
 
     public function getLogstatesInTime(array $values, $from = '-1 day', $to = 'now')
     {
-
         $from = new \Datetime($from);
         $to = new \Datetime($to);
 
@@ -55,5 +54,29 @@ class LogstateRepository extends EntityRepository
         }
 
         return $queryBuilder->getQuery()->getResult();
+    }
+
+    public function getCountOfLogstatesInTime(array $values, $from = '-1 day', $to = 'now')
+    {
+        $from = new \Datetime($from);
+        $to = new \Datetime($to);
+
+        $queryBuilder = $this->getEntityManager()->createQueryBuilder();
+        $queryBuilder->select('count(l.id)')
+            ->from('BprsAnalyticsBundle:Logstate', 'l')
+            ->where($queryBuilder->expr()->andX(
+                $queryBuilder->expr()->gte('l.timestamp', ':start_time'),
+                $queryBuilder->expr()->lte('l.timestamp', ':end_time')
+                )
+            );
+        $queryBuilder->setParameter('start_time', $from);
+        $queryBuilder->setParameter('end_time', $to);
+
+        foreach ($values as $key => $value) {
+            $queryBuilder->andWhere($queryBuilder->expr()->eq('l.'.$key, ':'.$key));
+            $queryBuilder->setParameter($key, $value);
+        }
+
+        return $queryBuilder->getQuery()->getSingleScalarResult();
     }
 }
