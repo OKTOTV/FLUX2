@@ -53,6 +53,11 @@ class AnalyticsService {
         return $this->em->getRepository('BprsAnalyticsBundle:Logstate')->getLogstatesInTime($values, $from, $to);
     }
 
+    public function getCountOfLogstatesInTime($values, $from = '-2 weeks', $to = 'now')
+    {
+        return $this->em->getRepository('BprsAnalyticsBundle:Logstate')->getCountOfLogstatesInTime($values, $from, $to);
+    }
+
     /**
      * groups timestamp ordered logstates in a given timeinterval.
      * @return an array with datetimes => $logstates;
