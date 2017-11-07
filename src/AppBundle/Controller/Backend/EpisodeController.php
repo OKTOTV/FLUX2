@@ -52,17 +52,20 @@ class EpisodeController extends Controller
     public function exportClicksInTimerangeAction(Request $request)
     {
         $results = [];
-        $episodes = $this->get('oktolab_media')->getEpisodeRepository()->findAll();
+        $em = $this->getDoctrine()->getManager();
+        $q = $em->createQuery("SELECT e from AppBundle:Episode e");
+        $iterableResult = $q->iterate();
         $analytics = $this->get('bprs_analytics');
-        foreach($episodes as $episode) {
-            $results[$episode->getUniqID()]['start'] = count($analytics->getLogstatesInTime(['identifier' => $episode->getUniqID(), 'value' => 'start'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$episode->getUniqID()]['20'] = count($analytics->getLogstatesInTime(['identifier' => $episode->getUniqID(), 'value' => '20%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$episode->getUniqID()]['40'] = count($analytics->getLogstatesInTime(['identifier' => $episode->getUniqID(), 'value' => '40%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$episode->getUniqID()]['60'] = count($analytics->getLogstatesInTime(['identifier' => $episode->getUniqID(), 'value' => '60%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$episode->getUniqID()]['80'] = count($analytics->getLogstatesInTime(['identifier' => $episode->getUniqID(), 'value' => '80%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$episode->getUniqID()]['end'] = count($analytics->getLogstatesInTime(['identifier' => $episode->getUniqID(), 'value' => 'end'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$episode->getUniqID()]['episode'] = $episode->getName();
-            $results[$episode->getUniqID()]['series'] = $episode->getSeries()->getName();
+        while (($row = $iterableResult->next()) !== false) {
+            $results[$row[0]->getUniqID()]['start'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => 'start'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['20'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '20%'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['40'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '40%'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['60'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '60%'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['80'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '80%'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['end'] = count($analytics->getLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => 'end'], $request->query->get('starttime'), $request->query->get('endtime')));
+            $results[$row[0]->getUniqID()]['episode'] = $row[0]->getName();
+            $results[$row[0]->getUniqID()]['series'] = $row[0]->getSeries()->getName();
+            $em->detach($row[0]);
         }
 
         $delimiter = ';';
