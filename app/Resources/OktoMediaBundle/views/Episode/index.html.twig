@@ -30,6 +30,11 @@
                         {{ 'oktolab_media.episode_index_new'|trans|raw }}
                     </a>
                 </li>
+                <li>
+                    <a href="{{ path('oktothek_backend_export_episode_statistics', {'starttime': '-3 months'|date('Y-m-d'), 'endtime': 'now'|date('Y-m-d')})}}">
+                        {{ 'oktothek_export_episode_statistics'|trans|raw }}
+                    </a>
+                </li>
                 {% if app.request.query.get('inactive_only') == 0 %}
                     <li>
                         <a href="{{ path('oktolab_episode_index', {'inactive_only': '1'}) }}">
