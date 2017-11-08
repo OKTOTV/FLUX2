@@ -53,14 +53,18 @@ class EpisodeController extends Controller
     {
         $results = [];
         $em = $this->getDoctrine()->getManager();
-        $q = $em->createQuery("SELECT e, s FROM AppBundle:Episode e LEFT JOIN e.series s");
+        $q = $em->createQuery("SELECT e.name as episodename, e.views, e.uniqID, s.name as seriesname FROM AppBundle:Episode e LEFT JOIN e.series s");
         $iterableResult = $q->iterate();
         $analytics = $this->get('bprs_analytics');
+        $i = 0;
         while (($row = $iterableResult->next()) !== false) {
-            $results[$row[0]->getUniqID()]['episode'] = $row[0]->getName();
-            $results[$row[0]->getUniqID()]['series'] = $row[0]->getSeries()->getName();
-            $results[$row[0]->getUniqID()]['clicks'] = $row[0]->getViews();
-            $em->detach($row[0]);
+            $results[$row[$i]['uniqID']]['episode'] = $row[$i]['episodename'];
+            $results[$row[$i]['uniqID']]['series'] = $row[$i]['seriesname'];
+            $results[$row[$i]['uniqID']]['clicks'] = $row[$i]['views'];
+            $results[$row[$i]['uniqID']]['20'] = $analytics->getCountOfLogstatesInTime(["value" => "20%", "identifier" => $row[$i]['uniqID']]);
+            // $em->detach($row);
+            $em->clear();
+            $i++;
         }
 
         $delimiter = ';';
