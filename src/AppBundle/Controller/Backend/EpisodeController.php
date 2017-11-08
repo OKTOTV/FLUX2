@@ -55,14 +55,37 @@ class EpisodeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $q = $em->createQuery("SELECT e.name as episodename, e.views, e.uniqID, s.name as seriesname FROM AppBundle:Episode e LEFT JOIN e.series s");
         $iterableResult = $q->iterate();
-        $analytics = $this->get('bprs_analytics');
+        $logstates = $this->get('bprs_analytics')->getLogstatesInTime([]);
         $i = 0;
         while (($row = $iterableResult->next()) !== false) {
             $results[$row[$i]['uniqID']]['episode'] = $row[$i]['episodename'];
             $results[$row[$i]['uniqID']]['series'] = $row[$i]['seriesname'];
             $results[$row[$i]['uniqID']]['clicks'] = $row[$i]['views'];
-            $results[$row[$i]['uniqID']]['20'] = $analytics->getCountOfLogstatesInTime(["value" => "20%", "identifier" => $row[$i]['uniqID']]);
-            // $em->detach($row);
+            $twenty_percent = 0;
+            $fourty_percent = 0;
+            $sixty_percent = 0;
+            $eighty_percent = 0;
+            $end = 0;
+            foreach ($logstates as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    if ($logstate->getValue() == '20%') {
+                        $twenty_percent++;
+                    } elseif ($logstate->getValue() == "40%") {
+                        $fourty_percent++;
+                    } elseif ($logstate->getValue() == "60%") {
+                        $sixty_percent++;
+                    } elseif ($logstate->getValue() == "80%") {
+                        $eighty_percent++;
+                    } elseif ($logstate->getValue() == "end") {
+                        $end++;
+                    }
+                }
+            }
+            $results[$row[$i]['uniqID']]['20'] = $twenty_percent;
+            $results[$row[$i]['uniqID']]['40'] = $fourty_percent;
+            $results[$row[$i]['uniqID']]['60'] = $sixty_percent;
+            $results[$row[$i]['uniqID']]['80'] = $eighty_percent;
+            $results[$row[$i]['uniqID']]['end'] = $end;
             $em->clear();
             $i++;
         }
@@ -75,7 +98,12 @@ class EpisodeController extends Controller
                         'Sendereihe',
                         'Folge',
                         'UniqID',
-                        'Klicks'
+                        'Klicks',
+                        '20%',
+                        '40%',
+                        '60%',
+                        '80%',
+                        '100%'
                     ),
                     $delimiter
                 );
@@ -86,7 +114,12 @@ class EpisodeController extends Controller
                         $info["series"],
                         $info["episode"],
                         $uniqID,
-                        $info["clicks"]
+                        $info["clicks"],
+                        $info["20"],
+                        $info["40"],
+                        $info["60"],
+                        $info["80"],
+                        $info["end"]
                     ],
                     $delimiter
                 );
