@@ -57,14 +57,9 @@ class EpisodeController extends Controller
         $iterableResult = $q->iterate();
         $analytics = $this->get('bprs_analytics');
         while (($row = $iterableResult->next()) !== false) {
-            $results[$row[0]->getUniqID()]['start'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => 'start'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['20'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '20%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['40'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '40%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['60'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '60%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['80'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => '80%'], $request->query->get('starttime'), $request->query->get('endtime')));
-            $results[$row[0]->getUniqID()]['end'] = count($analytics->getCountOfLogstatesInTime(['identifier' => $row[0]->getUniqID(), 'value' => 'end'], $request->query->get('starttime'), $request->query->get('endtime')));
             $results[$row[0]->getUniqID()]['episode'] = $row[0]->getName();
             $results[$row[0]->getUniqID()]['series'] = $row[0]->getSeries()->getName();
+            $results[$row[0]->getUniqID()]['clicks'] = $row[0]->getViews();
             $em->detach($row[0]);
         }
 
@@ -76,12 +71,7 @@ class EpisodeController extends Controller
                         'Sendereihe',
                         'Folge',
                         'UniqID',
-                        'Klicks für Start',
-                        '20% gesehen',
-                        '40% gesehen',
-                        '60% gesehen',
-                        '80% gesehen',
-                        'Bis zum Schluss gesehen (100%)',
+                        'Klicks'
                     ),
                     $delimiter
                 );
@@ -92,12 +82,7 @@ class EpisodeController extends Controller
                         $info["series"],
                         $info["episode"],
                         $uniqID,
-                        $info["start"],
-                        $info["20"],
-                        $info["40"],
-                        $info["60"],
-                        $info["80"],
-                        $info["end"]
+                        $info["clicks"]
                     ],
                     $delimiter
                 );
