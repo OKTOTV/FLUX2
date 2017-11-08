@@ -25,7 +25,8 @@
             <meta itemprop="headline" content="{{ 'oktothek_default_participate'|trans }}">
             {% if is_granted('ROLE_OKTOLAB_USER') %}
             <h2 id="button_down" itemprop="name">{{ 'oktothek_default_welcome'|trans({'%username%': app.user.username }) }}<span class="icon participant-arrow-down">{{ 'oktothek_default_useless_fancy_button'|trans }}</span></h2>
-            <article class="container"><p class="aligncenter subheadline col-md-8 col-md-offset-2">{{ 'oktothek_default_sub_welcome'|trans }}</p></article>
+            <article class="container"><p class="aligncenter subheadline col-md-8 col-md-offset-2">{{ 'oktothek_default_sub_welcome'|trans }}</p>
+            <p class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 helptext"><span>Wie funktioniert das Oktoversum?</span><br>Hier findest du einen hilfreichen Überblick der gesamten Features.<br><a href="{{ path('help') }}">Überblick ansehen</a></p></article>
             {% else %}
             <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump">Hier!</span></h2>
             <article class="container">
@@ -33,7 +34,7 @@
                 <div class="aligncenter button_container" itemscope="itemscope" itemtype="http://schema.org/RegisterAction">
                 <meta itemprop="name" content="{{ 'oktothek_default_participate'|trans }}" />
                 <meta itemprop="description" content="{{ 'oktothek_default_participate_sub'|trans }} {{ 'oktothek_default_participate_view_clips_title'|trans }} Mitdiskutieren und Playlisten erstellen." />
-                <a href="{{ path('bprs_user_login') }}" class="btn btn-default but-full" itemprop="object"><span class="passive">{{'oktothek_default_participate_login'|trans }}</span><span class="active">und sei dabei!</span></a></div>
+                <a href="{{ path('help') }}" class="btn btn-default but-full" itemprop="object"><span class="passive">{{'oktothek_default_participate_login'|trans }}</span><span class="active">und sei dabei!</span></a></div>
                 <ul class="participart-list clearfix">
                   <li><a href="#show_clips" class="anchor" itemprop="significantLink"><figure data-target="#view_clips">
                     <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">

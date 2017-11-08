@@ -11,21 +11,26 @@
 {% set body_class = "help" %}
 {% block body %}
     <div id="top"></div>
+    <div id="link-new-account">
+    <a href="{{ path('register') }}">Hier kannst du einen neuen Account anlegen <span></span></a>
+    </div>
     <header class="page-header">
         <h1 itemprop="headline">Willkommen im Oktoversum!</h1>
     </header>
     <div class="container-fluid">
-        <section class="container">
-            <p class="subheadline">Die neuesten Clips, beliebte Videos, aktuelle Playlisten und Newsbeiträge warten darauf, von euch entdeckt zu werden. Durch das Erstellen eines Accounts habt ihr die Möglichkeit eure eigenen Interessenschwerpunkte hervorzuheben und euch so ein individuelles Programm zusammenzustellen.</p>
+        <section class="container initiation">
+            <p class="subheadline">Die neuesten Clips, beliebte Videos, aktuelle Playlisten und Newsbeiträge warten darauf, von dir entdeckt zu werden. Durch das Erstellen eines Accounts hast du die Möglichkeit deine eigenen Interessenschwerpunkte hervorzuheben und dir so ein individuelles Programm zusammenzustellen.</p>
+            <p class="subheadline">Bist du neu im Oktoversum? Hier kannst du dich ganz einfach registrieren:</p>
+            <p class="subheadline" id="register-button"><a href="{{ path('register') }}" class="btn btn-default but-full">{{ 'oktothek.login_register'|trans }}</a></p>
         </section>
         <section class="container">
-            <p class="subheadline">Welche Möglichkeiten du noch hast, siehst du hier:</p>
+            <p class="subheadline">Welche Möglichkeiten du damit hast, siehst du hier:</p>
             <div id="player">
-            <iframe width="1140" height="650" src="https://okto.tv/de/oktothek/episode/59c262a776b6f/embed" frameborder="0" allowfullscreen></iframe>
+                <iframe width="1140" height="650" src="https://okto.tv/de/oktothek/episode/59c262a776b6f/embed" frameborder="0" allowfullscreen></iframe>
             </div>
         </section>
         <section class="features">
-            <p class="subheadline">Wie es funktioniert, möchten wir dir hier zeigen:</p>
+            <p class="subheadline">Wie es genau funktioniert, möchten wir dir hier zeigen:</p>
             <div id="help-experience-container">
                 <h2 id="help-experience-h2">Erleben</h2>
                 <p class="subheadline">Auf unserer Startseite hast du einen Überblick über</p>
@@ -133,7 +138,10 @@
                         <li>
                             <figure>
                                 <span><image xlink:href="{{ asset('bundles/app/images/help/icon_abbonieren.svg')}}" src="{{ asset('bundles/app/images/help/icon_abbonieren.png')}}" alt="Button Lieblingssendungen abbonieren, Episode Oktothek" width="101" height="29" /></span>
-                                <figcaption><div>Abonniere deine Lieblingssendungen, damit du über die neusten Aktivitäten informiert bist.</div><div class="triangle"></div></figcaption>
+                                <figcaption>
+                                    <div>Abonniere deine Lieblingssendungen, damit du über die neusten Aktivitäten informiert bist.</div>
+                                    <div class="triangle"></div>
+                                </figcaption>
                             </figure>
                             <div id="circle2_outer">
                                 <svg id="circle_2" data-name="circle 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.35 161.61"><defs><style>.cls-c2a,.cls-c2b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-c2a{stroke:#d24290;}.cls-c2b{stroke:#fdcf19;}</style></defs><title>circle2</title><path class="cls-c2a" d="M160.33,81A79.18,79.18,0,1,1,2,81.27" transform="translate(-0.48 -0.2)"/><path class="cls-c2b" d="M160.33,81a79.18,79.18,0,0,0-79-79.31" transform="translate(-0.48 -0.2)"/></svg>
@@ -199,7 +207,7 @@
                             </figure>
                         </li>
                         <li class="col-md-6 col-sm-12">
-                            <figure><a href="https://okto.tv/de/workshops/">Workshops<img src="{{ asset('bundles/app/images/help/workshops.jpg')}}" alt="Workshops Startseite"/><div class="menu-text">Workshops</div></a>
+                            <figure><a href="https://okto.tv/de/workshops/"><img src="{{ asset('bundles/app/images/help/workshops.jpg')}}" alt="Workshops Startseite"/><div class="menu-text">Workshops</div></a>
                                 <figcaption><h3><a href="https://okto.tv/de/workshops/">Workshops</a></h3>
                                     <p>Wir bieten ebenfalls unterschiedliche Medienworkshops an, damit du dein Knowhow erweitern kannst. Das komplette Kursangebot ist online ersichtlich. Du kannst dich direkt über unsere Homepage für die Workshops anmelden, egal ob von zu Hause oder unterwegs mit dem Handy.</p>
                                 </figcaption>
@@ -211,7 +219,7 @@
         </section>
         <section class="container">
             <p>
-                Als nichtkommerzielles Unternehmen ist es für uns selbstverständlich, dass eure Daten weder gespeichert noch an Dritte weitergegeben werden, ihr aber dennoch die Vorteile einer zeitgemäßen Anbindung an Facebook & Co. genießen könnt.
+                Als nichtkommerzielles Unternehmen ist es für uns selbstverständlich, dass deine Daten weder gespeichert noch an Dritte weitergegeben werden, du aber dennoch die Vorteile einer zeitgemäßen Anbindung an Facebook & Co. genießen kannst.
             </p>
             <p>
                 Bei Fragen oder Problemen schreibe uns eine E-Mail an <a href="mailto:support@okto.tv">support@okto.tv</a>.

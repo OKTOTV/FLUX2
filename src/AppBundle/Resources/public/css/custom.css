@@ -91,7 +91,8 @@ h3,
 .playlists .btn.circle, 
 .edit-playlists form label,
 .livestream .schedule li h4, 
-.livestream .next-episode-schedule h4 {
+.livestream .next-episode-schedule h4,
+.helptext span {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -241,7 +242,9 @@ form .tt-menu,
 body.producer ul.list-group .pin a p,
 .icon.participant-arrow-down,
 .icon.playlists-arrow-down,
-div.list-group.tags span.label.label-default.remove {
+div.list-group.tags span.label.label-default.remove,
+body.help #link-new-account a,
+.helptext a {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -295,7 +298,9 @@ label,
 .post .misc a,
 body.tagpage .pages .list-group-item a,
 div.list-group.tags span.label.label-default.remove,
-body.help .help-action li .menu-text {
+body.help .help-action li .menu-text,
+.helptext span, 
+.helptext a {
 	text-transform:uppercase;
 }
 
@@ -357,7 +362,8 @@ a.pull-left.more,
 .producer figcaption h3 a:focus,
 body.help .help-experience a:hover,
 body.help .help-action h3 a:hover,
-body.help .help-action li a:hover .menu-text{
+body.help .help-action li a:hover .menu-text,
+body.help #link-new-account a {
 	text-decoration:none;
 }
 body.episode .description a,
@@ -949,7 +955,7 @@ header .collapseShare a.btn,
 .pagination > li > a:hover,
 .pagination > li > a:focus,
 .visible-xs-block .pager li > a:hover, 
-.visible-xs-block .pager li > a:focus{
+.visible-xs-block .pager li > a:focus {
 	color:#000000;
 }
 .pin figcaption p a, 
@@ -1591,6 +1597,7 @@ section,
 body.producer aside .description, 
 .login fieldset, footer nav, 
 .livestream #current_show header, 
+body.help section.initiation,
 body.help section.features  {
 	background-repeat:no-repeat;
 	background-position:bottom center;
@@ -1709,6 +1716,12 @@ body.oktothek a.btn.login {
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
+body.oktothek .helptext {
+    background-image:url(../images/help_circle.png);
+    background-image:url(../images/help_circle.svg), none;
+    background-repeat:no-repeat;
+    background-position:left center;
+}
 body.oktothek a.btn.login:hover, 
 body.oktothek a.btn.login:focus, 
 body.oktothek a.btn.login:active {
@@ -1780,6 +1793,12 @@ body.oktothek a.btn.login:active {
 	background-image:url(../images/icon_edit_hover.png);
     background-image:url(../images/icon_edit_hover.svg), none;
 }
+
+body.help #link-new-account span {
+    background-image:url(../images/icon_right_arrow.png);
+    background-image:url(../images/icon_right_arrow.svg), none;
+    background-repeat:no-repeat;
+}
 .bg-bleur, 
 .fs-image div, 
 .more figure.episode-pin,
@@ -1823,6 +1842,7 @@ body.playlists section:first-child,
     body.producer aside .description, 
     .login fieldset, footer nav, 
     .livestream #current_show header,
+    body.help section.initiation,
     body.help section.features  {
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
@@ -3181,6 +3201,9 @@ a.more.right {
     position: absolute;
     width: 1px;
 }
+.login #oktothek_register, .login .form-signin {
+    text-align: center;
+}
 .tt-menu {
     width:280px;
     padding:15px 10px;
@@ -3413,6 +3436,7 @@ footer .networks {
 @media (min-width: 768px) {
 	footer .nav > li, footer .nav > li > a, footer .partner li {
 		display:inline;
+        float: none;
 	}
     footer .nav > li, footer .partner li {
 	    width:auto;
@@ -3420,9 +3444,14 @@ footer .networks {
     footer .nav > li:nth-child(2n+1), footer .partner li:nth-child(2n+1) {
         clear:none;
     }
+    footer nav ul {
+        text-align: center;
+    }
+    
     footer nav {
 	    padding-top:50px;
 	    margin-bottom:0;
+        text-align: center;
     }
 	footer .partner li {
 		margin-left:40px;
@@ -3431,7 +3460,7 @@ footer .networks {
         margin-left:0;
     }
     footer nav, footer section.partner {
-	    height:130px;
+	    height:170px;
     }
 	footer .partner li:first-child {
 		margin-left:0px;

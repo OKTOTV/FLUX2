@@ -20,7 +20,9 @@ $(document).ready(function(){
     $('#help-action-container h2').css('display','none');
     $('.help-action li').css('display','none');
     
+    
     $(window).on("scroll", function(){
+        var offset_features = $('.features').offset();
         var offset_experience_h2 = $('#help-experience-container h2').offset();
         var offset_experience = $('#linecontainer-1').offset();
         var offset_participate_h2 = $('#help-participate-container h2').offset();
@@ -30,6 +32,12 @@ $(document).ready(function(){
         
         winHeight = $( window ).height();
         winWidth = $( window ).width();
+        
+        if ($(window).scrollTop() >= (offset_features.top - winHeight) && (winWidth >= 992)) {
+            $('#link-new-account').fadeIn();
+        } else if($(window).scrollTop() < (offset_features.top - winHeight) || (winWidth < 992)) {
+            $('#link-new-account').fadeOut();
+        }
         
         if (show_features == false && $(window).scrollTop() > (offset_experience.top - winHeight)) {
             if (winWidth >= 1214) {
@@ -59,72 +67,72 @@ $(document).ready(function(){
         if ($(window).scrollTop() > (offset_experience.top - winHeight)) {
             if (show_features == false) {
    
-                $('#help-experience-h2').delay( 750 ).fadeIn(300,function(){                                             // Animation Bereich Erleben
-                    $('#help-experience-container .subheadline').delay( 600 ).fadeIn(300, function() {
+                $('#help-experience-h2').delay( 200 ).fadeIn(300,function(){                                             // Animation Bereich Erleben
+                    $('#help-experience-container .subheadline').delay( 200 ).fadeIn(300, function() {
                             setTimeout(function(){
                             for (i=0; i<$('#linecontainer-1 .line').length; i++) {
                                 $('#linecontainer-1 .line').eq(i).css('webkitAnimationPlayState', "running");
                             }
                                 if (winWidth >= 992) {
-                                    $('.help-experience li').eq(0).delay( 400 ).fadeIn(300);
-                                    $('.help-experience li').eq(1).delay( 1000 ).fadeIn(300);
-                                    $('.help-experience li').eq(2).delay( 1800 ).fadeIn(300);
+                                    $('.help-experience li').eq(0).delay( 200 ).fadeIn(300);
+                                    $('.help-experience li').eq(1).delay( 500 ).fadeIn(300);
+                                    $('.help-experience li').eq(2).delay( 900 ).fadeIn(300);
                                 } else {
-                                    $('.help-experience li').eq(0).delay( 1200 ).fadeIn(300);
-                                    $('.help-experience li').eq(1).delay( 1800 ).fadeIn(300);
-                                    $('.help-experience li').eq(2).delay( 2600 ).fadeIn(300);
+                                    $('.help-experience li').eq(0).delay( 600 ).fadeIn(300);
+                                    $('.help-experience li').eq(1).delay( 900 ).fadeIn(300);
+                                    $('.help-experience li').eq(2).delay( 1300 ).fadeIn(300);
                                 }
                         }, 500);
                     });
                 });
 
-            $('#help-participate-container h2').delay( 6000 ).fadeIn(300, function() {                                  // Animation Bereich Mitmachen
-                $('#help-participate-container .subheadline').delay( 600 ).fadeIn(300, function() {
+            $('#help-participate-container h2').delay( 3500 ).fadeIn(300, function() {                                  // Animation Bereich Mitmachen
+                $('#help-participate-container .subheadline').delay( 300 ).fadeIn(300, function() {
                     $('#linecontainer-2 .line2_top').css('webkitAnimationPlayState', "running");
                     
                     if (winWidth >= 992) {
                         setTimeout(function(){
-                        if (winWidth >= 1214) { vivus0.play(5); }
+                        if (winWidth >= 1214) { vivus0.play(6); }
                         setTimeout(function(){
-                            vivus1.play(5);
+                            vivus1.play(6);
                             setTimeout(function(){
                                 $('.help-participate li:nth-child(5) figure').fadeIn(300);
-                                vivus2.play(5);
+                                vivus2.play(6);
                                 setTimeout(function(){
                                     $('.help-participate li:nth-child(4) figure').fadeIn(300);
-                                    vivus3.play(5, function() {
-                                        vivus5.play(5);
-                                        vivus6.play(5);
+                                    vivus3.play(6, function() {
+                                        vivus5.play(6);
+                                        vivus6.play(6);
                                         $('.help-participate li:nth-child(3) figure').fadeIn(300);
-                                        vivus7.play(5, function() {
-                                            vivus8.play(5);
+                                        vivus7.play(6, function() {
+                                            vivus8.play(6);
                                             $('.help-participate li:nth-child(2) figure').fadeIn(300);
-                                            vivus9.play(5, function() {
-                                                vivus10.play(5, function() {
+                                            vivus9.play(6, function() {
+                                                vivus10.play(6, function() {
                                                     $('.help-participate li:nth-child(1) figure').fadeIn(300);
-                                                        vivus11.play(5, function() {
-                                                        vivus12.play(5);
-                                                        vivus13.play(5);
+                                                        vivus11.play(6, function() {
+                                                            vivus12.play(6);
+                                                            vivus13.play(6);
                                                     });
                                                 });
                                             });
                                         });
                                     });
-                                    vivus4.play(5);  
-                                }, 200);
-                            }, 200);
-                        }, 300);
-                        }, 500);
+                                    vivus4.play(6);  
+                                }, 100);
+                            }, 100);
+                        }, 150);
+                        }, 250);
                     } else {
                         $('.help-participate li:nth-child(1) figure').fadeIn(300, function() {
                             $('#circle1_outer').fadeIn(200);
-                            $('.help-participate li:nth-child(2) figure').delay( 400 ).fadeIn(300, function() {
+                            $('.help-participate li:nth-child(2) figure').delay( 200 ).fadeIn(300, function() {
                                 $('#circle2_outer').fadeIn(200);
-                                $('.help-participate li:nth-child(3) figure').delay( 400 ).fadeIn(300, function() {
+                                $('.help-participate li:nth-child(3) figure').delay( 200 ).fadeIn(300, function() {
                                     $('#circle3_outer').fadeIn(200);
-                                    $('.help-participate li:nth-child(4) figure').delay( 400 ).fadeIn(300, function() {
+                                    $('.help-participate li:nth-child(4) figure').delay( 200 ).fadeIn(300, function() {
                                         $('#circle4_outer').fadeIn(200);
-                                        $('.help-participate li:nth-child(5) figure').delay( 400 ).fadeIn(300);
+                                        $('.help-participate li:nth-child(5) figure').delay( 200 ).fadeIn(300);
                                         $('#circle5_outer').fadeIn(200);
                                     });
                                 });
@@ -133,19 +141,19 @@ $(document).ready(function(){
                     }
                 });
             });
-            $('#help-action-container h2').delay( 12000 ).fadeIn(100, function() {
+            $('#help-action-container h2').delay( 8000 ).fadeIn(300, function() {
                 setTimeout(function(){
                     for (i=0; i<$('#linecontainer-3 .line').length; i++) {
                         $('#linecontainer-3 .line').eq(i).css('webkitAnimationPlayState', "running");
                     }
                     if (winWidth >= 992) {
-                        $('.help-action li').eq(0).delay( 750 ).fadeIn(300);
-                        $('.help-action li').eq(1).delay( 1500 ).fadeIn(300);
+                        $('.help-action li').eq(0).delay( 600 ).fadeIn(300);
+                        $('.help-action li').eq(1).delay( 1000 ).fadeIn(300);
                     } else {
-                        $('.help-action li').eq(0).delay( 1750 ).fadeIn(300);
-                        $('.help-action li').eq(1).delay( 2500 ).fadeIn(300);
+                        $('.help-action li').eq(0).delay( 400 ).fadeIn(300);
+                        $('.help-action li').eq(1).delay( 800 ).fadeIn(300);
                     }
-                }, 500);
+                }, 400);
             });
             }
             show_features = true;

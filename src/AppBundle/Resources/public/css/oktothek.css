@@ -203,6 +203,10 @@ body.oktothek section.container.news {
     padding-right:5px;
     padding-left:5px;
 }
+body.oktothek .helptext {
+    padding-left:60px;
+    text-align: left;
+}
 @media (min-width: 768px) {
     body.oktothek .participart {
 	    margin-bottom:60px;

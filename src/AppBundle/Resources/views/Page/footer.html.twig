@@ -7,9 +7,20 @@
             <li></li>
         </ul>
     </li>#}
-    <li {% if slug|default('') == 'homepage' %}class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
-    <li {% if slug|default('') == 'oktothek_news' %}class="active"{% endif %}><a href="{{ path('oktothek_news')}}">News</a></li>
     {% for page in pages %}
         <li {% if slug|default('') == page.slug %}class="active"{% endif %}><a href="{{ path('oktothek_page_show', {'page': page.slug}) }}">{{ page.title }}</a></li>
     {% endfor %}
+</ul>
+<ul class="nav" role="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+    {#<li class="dropdown languages">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span> SPRACHEN</a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('homepage', {'_locale': 'de'}) }}">Deutsch</a></li>
+            <li><a href="{{ path('homepage', {'_locale': 'en'}) }}">English</a></li>
+            <li></li>
+        </ul>
+    </li>#}
+    <li {% if slug|default('') == 'homepage' %}class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
+    <li {% if slug|default('') == 'oktothek_news' %}class="active"{% endif %}><a href="{{ path('oktothek_news')}}">News</a></li>
+    <li {% if slug|default('') == 'help' %}class="active"{% endif %}><a href="{{ path('help')}}">Hilfe</a></li>
 </ul>
