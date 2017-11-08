@@ -1606,7 +1606,8 @@ body.help section.features  {
 .icon-views {
 	background-repeat:no-repeat;
 	background-position:center center;
-	background-image:url(../images/icon_views.png);
+    background-image:url(../images/icon_views.png);
+    background-image:url(../images/icon_views.svg), none;
 }
 /*.icon-preview {
 	background-repeat:no-repeat;
@@ -2802,7 +2803,9 @@ article.post figure  {
 }
 .pin .pin-icon .glyphicon {
 	display:block;
-	margin-bottom:3px;
+	margin:0 auto 4px auto;
+    width:15px;
+	height: 10px;
 }
 article.pin:nth-child(2n+1),
 li.pin:nth-child(2n+1) {
