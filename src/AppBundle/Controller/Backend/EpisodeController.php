@@ -55,7 +55,11 @@ class EpisodeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $q = $em->createQuery("SELECT e.name as episodename, e.views, e.uniqID, s.name as seriesname FROM AppBundle:Episode e LEFT JOIN e.series s");
         $iterableResult = $q->iterate();
-        $logstates = $this->get('bprs_analytics')->getLogstatesInTime([]);
+        $logstates = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '20%']);
+        $logstates40 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '40%']);
+        $logstates60 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '60%']);
+        $logstates80 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '80%']);
+        $logstatesEnd = $this->get('bprs_analytics')->getLogstatesInTime(['value' => 'end']);
         $i = 0;
         while (($row = $iterableResult->next()) !== false) {
             $results[$row[$i]['uniqID']]['episode'] = $row[$i]['episodename'];
@@ -68,17 +72,32 @@ class EpisodeController extends Controller
             $end = 0;
             foreach ($logstates as $logstate) {
                 if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
-                    if ($logstate->getValue() == '20%') {
-                        $twenty_percent++;
-                    } elseif ($logstate->getValue() == "40%") {
-                        $fourty_percent++;
-                    } elseif ($logstate->getValue() == "60%") {
-                        $sixty_percent++;
-                    } elseif ($logstate->getValue() == "80%") {
-                        $eighty_percent++;
-                    } elseif ($logstate->getValue() == "end") {
-                        $end++;
-                    }
+                    $twenty_percent++;
+                    unset($logstate);
+                }
+            }
+            foreach ($logstates40 as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $fourty_percent++;
+                    unset($logstate);
+                }
+            }
+            foreach ($logstates60 as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $sixty_percent++;
+                    unset($logstate);
+                }
+            }
+            foreach ($logstates80 as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $eighty_percent++;
+                    unset($logstate);
+                }
+            }
+            foreach ($logstatesEnd as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $end++;
+                    unset($logstate);
                 }
             }
             $results[$row[$i]['uniqID']]['20'] = $twenty_percent;
