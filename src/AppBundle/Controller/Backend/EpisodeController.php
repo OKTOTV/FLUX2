@@ -55,11 +55,11 @@ class EpisodeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $q = $em->createQuery("SELECT e.name as episodename, e.views, e.uniqID, s.name as seriesname FROM AppBundle:Episode e LEFT JOIN e.series s");
         $iterableResult = $q->iterate();
-        $logstates = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '20%']);
-        $logstates40 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '40%']);
-        $logstates60 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '60%']);
-        $logstates80 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '80%']);
-        $logstatesEnd = $this->get('bprs_analytics')->getLogstatesInTime(['value' => 'end']);
+        $logstates = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '20%'], $request->query->get('startdate', '-2 weeks'));
+        $logstates40 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '40%'], $request->query->get('startdate', '-2 weeks'));
+        $logstates60 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '60%'], $request->query->get('startdate', '-2 weeks'));
+        $logstates80 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '80%'], $request->query->get('startdate', '-2 weeks'));
+        $logstatesEnd = $this->get('bprs_analytics')->getLogstatesInTime(['value' => 'end'], $request->query->get('startdate', '-2 weeks'));
         $i = 0;
         while (($row = $iterableResult->next()) !== false) {
             $results[$row[$i]['uniqID']]['episode'] = $row[$i]['episodename'];
