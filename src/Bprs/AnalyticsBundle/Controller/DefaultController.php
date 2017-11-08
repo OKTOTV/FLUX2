@@ -22,17 +22,4 @@ class DefaultController extends Controller
         $this->get('bprs_analytics')->trackInfo($request, $request->get('identifier', null), $request->get('value', null));
         return new Response();
     }
-
-    /**
-     * @Route("/read_log.{_format}", name="bprs_analytics_for_values", defaults={"_format": "html"})
-     * @Template()
-     */
-    // public function logstateForValuesAction(Request $request)
-    // {
-    //     $values = $request->get('values');
-    //     $interval = $request->query->get('interval', '+1 day');
-    //     $logstates = $this->get('bprs_analytics')->getLogstatesInTimeForValues($values, '-2 weeks');
-    //     $logstates = $this->get('bprs_analytics')->groupLogstatesByTimeInterval($logstates, $interval);
-    //     return ['logstates' => $logstates];
-    // }
 }

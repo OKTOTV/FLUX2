@@ -81,7 +81,7 @@ class SeriesController extends Controller
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
         $posts = $paginator->paginate(
-            $em->getRepository('AppBundle:Post')->findPostsForSeriesQuery($series),
+            $em->getRepository('AppBundle:Post')->findActivePostsForSeries($series, true),
             $request->query->get('page', 1),
             $request->query->get('results', 5)
         );

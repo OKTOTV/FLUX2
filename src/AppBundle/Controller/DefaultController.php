@@ -64,14 +64,17 @@ class DefaultController extends Controller
     {
         return [];
     }
-    
+
     /**
      * @Route("/help", name="help")
      * @Template()
      */
     public function helpAction()
     {
-        return [];
+        $episode = $this->get('oktolab_media')->getEpisode(
+            $this->getParameter('okto_help_uniqID')
+        );
+        return ['episode' => $episode];
     }
 
     /**

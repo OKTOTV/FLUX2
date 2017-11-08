@@ -63,16 +63,37 @@ class PostRepository extends EntityRepository
         return $query->setMaxResults($number)->getResult();
     }
 
-    public function findPostsForSeries($series)
+    public function findPostsForSeries($series, $query_only = false)
     {
-        return $this->findPostsForSeriesQuery($series)->getResult();
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM AppBundle:Post p
+                WHERE p.series = :id
+                ORDER BY p.createdAt DESC')
+            ->setParameter('id', $series->getId());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getResult();
     }
 
-    public function findPostsForSeriesQuery($series)
+    public function findActivePostsForSeries($series, $query_only = false)
     {
-        return $this->getEntityManager()
-            ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.series = :id')
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM AppBundle:Post p
+                WHERE p.series = :id
+                AND p.isActive = true
+                ORDER BY p.createdAt DESC')
             ->setParameter('id', $series->getId());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getResult();
     }
 
     public function findNewestPosts($number = 5, $series = false, $query_only = false )

@@ -3,14 +3,15 @@
 namespace AppBundle\Controller\Backend;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Episode;
-use AppBundle\Entity\Post;
-use AppBundle\Form\PostType;
+use Doctrine\ORM\Query\ResultSetMapping;
+
 /**
  * Series backend controller.
  *
@@ -34,12 +35,64 @@ class EpisodeController extends Controller
         return $this->redirect($this->generateUrl('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]));
     }
 
+    // /**
+    //  * @Route("/episode/statistic/{uniqID}", name="oktothek_backend_statistic_episode")
+    //  * @Template()
+    //  */
+    // public function statisticAction(Request $request, Episode $episode)
+    // {
+    //     # code...
+    // }
+
     /**
-     * @Route("/episode/statistic/{uniqID}", name="oktothek_backend_statistic_episode")
+     * quick and dirty way to export statistics for all episodes
+     * @Route("/episode/statistic/export", name="oktothek_backend_export_episode_statistics")
      * @Template()
      */
-    public function statisticAction(Request $request, Episode $episode)
+    public function exportClicksInTimerangeAction(Request $request)
     {
-        # code...
+        $results = [];
+        $em = $this->getDoctrine()->getManager();
+        $q = $em->createQuery("SELECT e, s FROM AppBundle:Episode e LEFT JOIN e.series s");
+        $iterableResult = $q->iterate();
+        $analytics = $this->get('bprs_analytics');
+        while (($row = $iterableResult->next()) !== false) {
+            $results[$row[0]->getUniqID()]['episode'] = $row[0]->getName();
+            $results[$row[0]->getUniqID()]['series'] = $row[0]->getSeries()->getName();
+            $results[$row[0]->getUniqID()]['clicks'] = $row[0]->getViews();
+            $em->detach($row[0]);
+        }
+
+        $delimiter = ';';
+        $response = new StreamedResponse(function() use($results, $delimiter) {
+            $handle = fopen('php://output', 'r+');
+                fputcsv($handle,
+                    array(
+                        'Sendereihe',
+                        'Folge',
+                        'UniqID',
+                        'Klicks'
+                    ),
+                    $delimiter
+                );
+
+            foreach ($results as $uniqID => $info) {
+                fputcsv($handle,
+                    [
+                        $info["series"],
+                        $info["episode"],
+                        $uniqID,
+                        $info["clicks"]
+                    ],
+                    $delimiter
+                );
+            }
+            fclose($handle);
+        });
+
+        $response->headers->set('Content-Type', 'application/force-download');
+        $response->headers->set('Content-Disposition','attachment; filename="episode_statistics.csv"');
+
+        return $response;
     }
 }

@@ -46,9 +46,13 @@ class OktothekController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function embedEpisodeAction(Episode $episode)
+    public function embedEpisodeAction(Request $request, Episode $episode)
     {
-        return ['episode' => $episode];
+        return [
+            'episode' => $episode,
+            'start' => $request->query->get('start', false),
+            'withtitle' => filter_var($request->query->get('title', true), FILTER_VALIDATE_BOOLEAN)
+        ];
     }
 
     /**

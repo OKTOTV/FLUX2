@@ -13,6 +13,8 @@ oktothek.error_default_message:         "Vielleicht kann dir die Suche weiter he
 # layout.html.twig
 oktothek_layout_navigation:             "Navigation ein-/ausblenden"
 oktothek_layout_search:                 "Suche ein-/ausblenden"
+oktothek_layout_flashmessage_close:     "Schließen"
+
 
 # oktothek
 oktothek_more_results:                  "Alles Anzeigen"
@@ -391,6 +393,9 @@ oktothek_academy_b2b_paragraph: >
 oktothek_academy_b2b_more:              'Kontakt <a href="mailto:%email%?subject=B2B%20Kursangebote%20bei%20OKTO">%email%</a>'
 oktothe_academy_book_course_header:     "%coursetype% buchen"
 oktothek_academy_book_course:           Kurs buchen
+
+### _coursePackageStack.html.twig
+oktothek_academy_coursepackagestack_short_description: "Kurzbeschreibung"
 
 ### _courseStack.html.twig
 oktothek_academy_quickview:             "Schnellansicht"
@@ -976,6 +981,9 @@ oktothek_share_pint:                        Pinterest
 oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420&nbsp;x&nbsp;315px eingebettet."
 oktothek_share_embed:                       Einbetten
 
+## register.html.twig
+oktothek_register_header:                   "Registrieren"
+
 ## Resources/views/Default/slider.html.twig
 oktothek_author_of_slides:                  "Okto Marketing"
 
@@ -1098,6 +1106,7 @@ oktothek.episode_show_firstRanAt:           "Folge von %day%, %date%"
 oktothek.episode_show_firstRanAt_dateformat: "d.m.Y"
 oktothek.episode_show_firstRanAt_day_choice: "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek.episode_info_views:                "Views"
+oktothek_export_episode_statistics:         '<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Episodenstatistik'
 
 # app/Resources/OktoMediaBundle/views/Episode/index.html.twig
 oktothek.episode_index_views:               "Views"

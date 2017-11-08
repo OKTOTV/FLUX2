@@ -122,7 +122,7 @@
                         <div class="line line1">
                             <svg id="arc_0" data-name="arc 0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.5 107.5"><defs><style>.cls-0{fill:none;stroke:#91e31c;stroke-miterlimit:10;stroke-width:3px;stroke-dasharray:166.5 166.5;}</style></defs><title>viertelkreis_mittel_unten_links</title><path class="cls-0" d="M107.54,106A106,106,0,0,1,1.54,0" transform="translate(-0.04 0.01)"/></svg>
                         </div>
-                    </div>    
+                    </div>
                 </div>
                 <div class="container">
                     <ul class="row help-participate">
@@ -194,7 +194,7 @@
                         </div>
                     </div>
                     <div class="part3">
-                    </div>    
+                    </div>
                 </div>
                 <div class="container">
                     <ul class="row help-action">
@@ -239,6 +239,7 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
+    {{ player(episode)|raw }}
     <script src="{{ asset('bundles/app/js/vivus.min.js') }}"></script>
     <script src="{{ asset('bundles/app/js/javascript_help.js') }}"></script>
 {% endblock %}
