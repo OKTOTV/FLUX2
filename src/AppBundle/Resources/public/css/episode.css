@@ -44,7 +44,7 @@ body.episode .backend + li {
     clear:left;
 }
 body.episode ul.misc li.favorite-icon {
-    padding-right:7px;
+    padding-right:10px;
 }
 body.episode .misc a, body.episode .misc span.views {
 	margin-right:10px;
@@ -58,10 +58,26 @@ body.episode ul.misc {
 }
 body.episode #favorite {
     padding-left:2px;
+    padding-right:2px;
 }
-body.episode #ButtonPlaylist, body.episode #ButtonShare {
+body.episode .icon-views {
+    display: inline-block;
+    height: 12px;
+    width: 17px;
+}
+body.episode .next-but.view-icon {
+    padding-top:10px;
+    padding-right:8px;
+}
+body.episode #ButtonPlaylist {
     padding-left:8px;
     padding-right:8px;
+}
+body.episode #ButtonShare {
+    padding-left:12px;
+    padding-right:8px;
+    padding-top:0;
+    margin-top:-1px;
 }
 @media (min-width: 768px) {
     body.episode ul.misc li {
@@ -71,8 +87,22 @@ body.episode #ButtonPlaylist, body.episode #ButtonShare {
     body.episode .backend + li {
         clear:none;
     }
-    body.episode ul.misc li.favorite-icon {
+    body.episode ul.misc li.view-icon {
 	    padding-right:20px;
+        padding-top:3px;
+        vertical-align:middle;
+    }
+    body.episode ul.misc li.favorite-icon {
+        vertical-align: middle;
+    }
+    body.episode #favorite.btn {
+        padding-right:0px;
+    }
+    body.episode #ButtonShare {
+        padding-left:8px;
+        padding-right:8px;
+        padding-top:8px;
+        margin-top:0px;
     }
     body.episode .misc {
 	    padding-bottom:20px;
