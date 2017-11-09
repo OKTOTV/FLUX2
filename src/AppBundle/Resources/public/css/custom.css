@@ -244,7 +244,8 @@ body.producer ul.list-group .pin a p,
 .icon.playlists-arrow-down,
 div.list-group.tags span.label.label-default.remove,
 body.help #link-new-account a,
-.helptext a {
+.helptext a,
+.episode .view-icon span {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
