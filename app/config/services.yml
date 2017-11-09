@@ -102,7 +102,7 @@ services:
 
     oktothek.twig_episode_extension:
         class: AppBundle\Twig\EpisodeExtension
-        arguments: [ "@oktothek.episode_repository"]
+        arguments: [ "@oktothek.episode_repository", "@translator" ]
         public: false
         tags:
             - { name: twig.extension }
