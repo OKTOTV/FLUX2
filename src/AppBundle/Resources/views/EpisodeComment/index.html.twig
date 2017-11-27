@@ -38,7 +38,7 @@
                 <!-- Antwort Container -->
                 {% if comment.children is empty %}
                 <div class="comment-answer">
-                    {% if comment.user == app.user %}
+                    {% if comment.user.id == app.user.id %}
                         <a href="{{ path('oktothek_episode_comment_edit', {'comment': comment.id}) }}">
                             {{ 'oktothek_comment_edit'|trans }}
                         </a>
@@ -47,7 +47,7 @@
                 </div>
                 {% else %}
                     <div class="comment-answer">
-                        {% if comment.user == app.user %}
+                        {% if comment.user.id == app.user.id %}
                             <a href="{{ path('oktothek_episode_comment_edit', {'comment': comment.id}) }}">
                                 {{ 'oktothek_comment_edit'|trans }}
                             </a>

@@ -546,6 +546,10 @@ oktothek.success_update_comment:        'Kommentar erfolgreich aktualisiert'
 ## Comment commentPager.html.twig
 oktothek.comment_pager_comment_removed: "Dieses Kommentar wurde entfernt"
 
+# EpisodeExtension.php
+oktothek.episode_views_thousand:        "%views%K"
+oktothek.episode_views_million:         "%views%M" # ;) if i ever need this
+
 ## series
 oktothek_series_blog_header:            Blog
 oktothek_series_episodes_all:           Alle Folgen
