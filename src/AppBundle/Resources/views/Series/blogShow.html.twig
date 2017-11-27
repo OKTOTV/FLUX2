@@ -41,7 +41,7 @@
                         {% endfor %}
                     </p>
                     <header class="page-header">
-                        <h3 itemprop="headline"><a href="{{ path( 'oktothek_show_series_blogpost', {'slug': post.slug})}}" itemprop="name">{{ post.name }}</a></h3>
+                        <h3 itemprop="headline">{{ post.name }}</h3>
                     </header>
                     <p itemprop="description">
                         {{ post.description|markdown }}
