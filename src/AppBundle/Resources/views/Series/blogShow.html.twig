@@ -43,9 +43,9 @@
                     <header class="page-header">
                         <h3 itemprop="headline">{{ post.name }}</h3>
                     </header>
-                    <p itemprop="description">
+                    <div itemprop="description">
                         {{ post.description|markdown }}
-                    </p>
+                    </div>
                     <p class="misc">
                         <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
                     </p>
