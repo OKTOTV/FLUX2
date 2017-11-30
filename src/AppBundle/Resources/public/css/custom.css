@@ -1394,6 +1394,7 @@ a:focus .more.right .icon,
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
 .btn-primary.but-full:hover,
+#appbundle_episode_comment .btn-link,
 .livestream #nav-programm .icon,
 .more figure.episode-pin a,
 .subscriptions .edit .icon { /* Gelb */
@@ -1534,7 +1535,8 @@ header .misc .btn,
 header .collapseShare .btn,
 .livestream #nav-programm .icon,
 .more figure.episode-pin a,
-.subscriptions .edit .icon {
+.subscriptions .edit .icon,
+#appbundle_episode_comment .btn-link {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -2907,6 +2909,10 @@ figcaption  {
 .comment-pager .row {
     margin-left:-15px;
 }
+section.comments {
+    padding-right:15px;
+    padding-left:15px;
+}
 .comments textarea {
 	margin-bottom:20px;
 }
@@ -2927,6 +2933,15 @@ figcaption  {
 }
 .comment-answer {
 	margin-right:-20px;
+}
+.comment-answer a::after {
+    content: '\00b7';
+}
+.comment-answer a:last-child::after {
+    content: '';
+}
+.comment-answer #appbundle_episode_comment {
+    margin-top:20px;
 }
 .comment-answer .answer-text .row {
     padding-bottom:20px;
@@ -2957,6 +2972,10 @@ figcaption  {
 .comment-form fieldset {
     text-align: center;
 }
+form #appbundle_episode_comment_submit {
+    margin-top: -20px;
+    margin-bottom:40px;
+}
 /*#appbundle_comment_submit {
     margin:0 auto;
 }*/
@@ -2973,6 +2992,10 @@ figcaption  {
     .comment-pager .row {
         margin-left:0;
     }
+    section.comments {
+        padding-right:0px;
+        padding-left:0px;
+    }    
     .comment time, .comment .time { /* .comment time Löschen wenn ausgebessert */
         line-height: normal;
     }
@@ -2996,7 +3019,7 @@ figcaption  {
     }
     .comment-form fieldset {
         text-align: left;
-    }
+     }
 }
 
 /* Tags */
