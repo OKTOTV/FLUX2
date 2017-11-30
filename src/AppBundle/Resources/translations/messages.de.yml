@@ -566,7 +566,7 @@ oktothek.series_playlist_header:        "Vom Sendungsteam empfohlen"
 oktothek_series_blogShow_title:         "%blogpost% | OKTO"
 
 # /src/AppBundle/Resources/views/Series/episodeStackOpen.html.twig
-oktothek_series_episodeStack_show_more: 'Mehr Videos anzeigen <span class="glyphicon glyphicon-menu-right"></span>'
+oktothek_series_episodeStack_show_more: 'Mehr Videos anzeigen'
 
 ## series playlists
 oktothek_series_playlists_title:        %series% Playlisten
