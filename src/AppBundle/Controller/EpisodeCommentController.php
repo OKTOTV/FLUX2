@@ -120,7 +120,7 @@ class EpisodeCommentController extends Controller
                 $em->persist($episode);
                 $em->persist($parent);
                 $em->flush();
-                $this->get('oktothek_notification_service')->onCommentOnEpisode($episode);
+                $this->get('oktothek_notification_service')->onCommentOnEpisode($comment);
                 return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_comment');
