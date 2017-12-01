@@ -521,7 +521,9 @@ header .navbar-inverse .navbar-nav > a:hover,
 header .navbar-inverse .navbar-nav > li > a:hover, 
 header .navbar-inverse .navbar-nav > li > a:focus,
 .carousel-caption .type,
-header .notifications a { /* Gelb */
+header .notifications a,
+header .focusable a,
+header .focusable:focus { /* Gelb */
 	color: #fcce14;
 }
 
@@ -2112,6 +2114,30 @@ header .navbar-brand .brandimage span {
 header .navbar-brand {
 	padding:8px 0;
 	height:50px;
+}
+/* Barrierefreiheit */
+.focusable {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    display: block;
+    padding:10px 20px;
+}
+.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    width: auto;
+    top:0;
+}
+.focusable:focus + .container-fluid {
+    padding-top:30px;
 }
 /* Hauptmenü */
 header .navbar .nav > li {
