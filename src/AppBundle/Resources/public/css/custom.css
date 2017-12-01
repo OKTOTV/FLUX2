@@ -1822,6 +1822,7 @@ body.oktothek .participart {
 }
 section:last-child, 
 section.playlist_container,
+body.producer section,
 body.help section,
 .edit-playlists form fieldset:last-child,
 .newsarchiv article:last-child,
