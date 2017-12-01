@@ -41,6 +41,10 @@ body.producer .list-group-item .pin {
 body.producer .row {
     padding-bottom:40px;
 }
+body.producer .tabs-content .row {
+    margin-right:0;
+    margin-left:0;
+}
 body.producer .row.pin {
     padding-bottom:40px;
 }

@@ -888,6 +888,7 @@ a .pin-icon,
 .btn-primary.focus:active, 
 .btn-primary.focus:focus, 
 .btn-primary.active.focus, 
+body.producer .btn-default.active,
 a.list-group-item-danger, 
 button.list-group-item-danger, 
 #playlist_items a h3, 
@@ -1102,8 +1103,9 @@ body.tagpage .content-bg,
 .tabs-content .pagination > li > a, 
 .tabs-content .pagination > li > span,
 .visible-xs-block .pager .disabled > a, .visible-xs-block .pager .disabled > a:focus, .visible-xs-block .pager .disabled > a:hover, .visible-xs-block .pager .disabled > span,
-.producer .visible-xs-block .pager li > a, 
-.producer .visible-xs-block .pager li > a {
+body.producer .visible-xs-block .pager li > a, 
+body.producer .visible-xs-block .pager li > a,
+body.producer .tools {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
@@ -1256,6 +1258,7 @@ body.livestream .schedule .panel-default {
 .btn-primary.active:hover, 
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
+body.producer .btn-default.active,
 .input-group-addon,
 .more figure.episode-pin a { /* Gelb */
 	background-color:#fcce14;
@@ -1396,6 +1399,7 @@ a:focus .more.right .icon,
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
 .btn-primary.but-full:hover,
+body.producer .btn-default.active,
 #appbundle_episode_comment .btn-link,
 .livestream #nav-programm .icon,
 .more figure.episode-pin a,
