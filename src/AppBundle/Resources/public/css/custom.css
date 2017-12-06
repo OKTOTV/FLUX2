@@ -79,7 +79,6 @@ footer h3,
 .comments .comment-answer, 
 #episode-tag, 
 .infos h3, 
-.blog aside p a, 
 .blog h3,
 .blog-pin figcaption h3,
 .academy .pin .preview-content a, 
@@ -156,7 +155,8 @@ button.btn-default#ButtonShare_mobil .visible-xs-inline,
 .subscriptions header.page-header .pull-left .icon,
 body.help .help-participate figcaption,
 body.help .help-action figcaption,
-body.help section:last-child {
+body.help section:last-child,
+body.livestream .description{
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -178,6 +178,7 @@ body.oktothek .participart [data-tooltip]::after,
 article figcaption h3, 
 footer h3, 
 #anchor-menu .panel-title, 
+a.tag, 
 .newsarchiv h2, 
 .post h3, 
 .post .label, 
@@ -188,16 +189,15 @@ footer h3,
 .comments h2, 
 .carousel-caption .type, 
 #episode-tag option, 
-.blog aside p a, 
 .blog h3, 
 .academy .pin .pin-icon .glyphicon, 
 .courses h4, 
 .academy .preview .timetable p, 
 a.more, 
 header .navbar-nav.themes a, 
-.livestream .schedule li h4, 
-.livestream .next-episode-schedule h4,
-.livestream .navbar-nav a.btn span, 
+body.livestream .schedule li h4, 
+body.livestream .next-episode-schedule h4,
+body.livestream .navbar-nav a.btn span, 
 .pin-icon {
 	font-size:14px;
 	letter-spacing:0.25px;
@@ -218,7 +218,6 @@ header .nav,
 .blog-pin figcaption p, 
 .btn, 
 .pin .pin-icon .glyphicon, 
-a.tag, 
 .nav-justified,
 .playlists .author,
 footer h3, 
@@ -245,7 +244,9 @@ body.producer ul.list-group .pin a p,
 div.list-group.tags span.label.label-default.remove,
 body.help #link-new-account a,
 .helptext a,
-.episode .view-icon span {
+.episode .view-icon span,
+body.livestream h5,
+.livestream .schedule .repeats li {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -275,7 +276,6 @@ a.less,
 .carousel-caption .type, 
 .pin figcaption h3, 
 .blog-pin figcaption h3,
-a.tag, 
 footer h3, 
 .input-group-addon, 
 .collapseShare h3, 
@@ -301,11 +301,15 @@ body.tagpage .pages .list-group-item a,
 div.list-group.tags span.label.label-default.remove,
 body.help .help-action li .menu-text,
 .helptext span, 
-.helptext a {
+.helptext a,
+body.livestream h5 {
 	text-transform:uppercase;
 }
 
-header .search-tagnav-position li a, .episode .tags a, #episode-tag option {
+header .search-tagnav-position li a, 
+.episode .tags a, 
+#episode-tag option, 
+a.tag  {
     text-transform: lowercase;
 }
 
@@ -519,7 +523,9 @@ header .navbar-inverse .navbar-nav > a:hover,
 header .navbar-inverse .navbar-nav > li > a:hover, 
 header .navbar-inverse .navbar-nav > li > a:focus,
 .carousel-caption .type,
-header .notifications a { /* Gelb */
+header .notifications a,
+header .focusable a,
+header .focusable:focus { /* Gelb */
 	color: #fcce14;
 }
 
@@ -884,6 +890,7 @@ a .pin-icon,
 .btn-primary.focus:active, 
 .btn-primary.focus:focus, 
 .btn-primary.active.focus, 
+body.producer .btn-default.active,
 a.list-group-item-danger, 
 button.list-group-item-danger, 
 #playlist_items a h3, 
@@ -904,6 +911,8 @@ button.list-group-item-danger,
 .livestream .description,
 .livestream .schedule li a .time,
 .livestream .schedule li .time,
+.blog aside a.more:hover,
+.blog aside a.more:focus,
 .btn-default.dropdown-toggle,
 .collapsePlaylist li button.btn-default,
 .collapsePlaylist li button.btn-default.active,
@@ -927,7 +936,6 @@ button.input-group-addon:hover,
 button.input-group-addon:focus,
 .post a.tag:hover,
 .post a.tag:focus,
-.blog aside a.more,
 .visible-xs-block .pager li > a,
 body.help .help-experience a h3,
 body.help .help-action h3 a,
@@ -983,7 +991,8 @@ header .collapseShare a.btn,
 body.producer li.list-group-item,
 body.producer ul.list-group .pin a p,
 .pagination li.disabled span,
-body.tagpage .pages .list-group-item a { /* Hellgrau */
+body.tagpage .pages .list-group-item a,
+.livestream .schedule .repeats li { /* Hellgrau */
 	color:#dcdcdc;
 }
 a.tag, 
@@ -1035,10 +1044,9 @@ a.more,
 .pin figcaption a:hover p, 
 .pin figcaption a:focus p, 
 .pin a:hover figcaption p, 
-.blog aside a.more:hover,
-.blog aside a.more:focus,
 .container.tags a:hover,
 .container.tags a:focus,
+.blog aside a.more,
 body.livestream .schedule li a:hover h4,
 body.livestream .schedule li a:focus h4,
 body.participate .close,
@@ -1097,8 +1105,9 @@ body.tagpage .content-bg,
 .tabs-content .pagination > li > a, 
 .tabs-content .pagination > li > span,
 .visible-xs-block .pager .disabled > a, .visible-xs-block .pager .disabled > a:focus, .visible-xs-block .pager .disabled > a:hover, .visible-xs-block .pager .disabled > span,
-.producer .visible-xs-block .pager li > a, 
-.producer .visible-xs-block .pager li > a {
+body.producer .visible-xs-block .pager li > a, 
+body.producer .visible-xs-block .pager li > a,
+body.producer .tools {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
@@ -1251,6 +1260,7 @@ body.livestream .schedule .panel-default {
 .btn-primary.active:hover, 
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
+body.producer .btn-default.active,
 .input-group-addon,
 .more figure.episode-pin a { /* Gelb */
 	background-color:#fcce14;
@@ -1391,6 +1401,8 @@ a:focus .more.right .icon,
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
 .btn-primary.but-full:hover,
+body.producer .btn-default.active,
+#appbundle_episode_comment .btn-link,
 .livestream #nav-programm .icon,
 .more figure.episode-pin a,
 .subscriptions .edit .icon { /* Gelb */
@@ -1531,7 +1543,8 @@ header .misc .btn,
 header .collapseShare .btn,
 .livestream #nav-programm .icon,
 .more figure.episode-pin a,
-.subscriptions .edit .icon {
+.subscriptions .edit .icon,
+#appbundle_episode_comment .btn-link {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -1815,6 +1828,7 @@ body.oktothek .participart {
 }
 section:last-child, 
 section.playlist_container,
+body.producer section,
 body.help section,
 .edit-playlists form fieldset:last-child,
 .newsarchiv article:last-child,
@@ -2107,6 +2121,30 @@ header .navbar-brand .brandimage span {
 header .navbar-brand {
 	padding:8px 0;
 	height:50px;
+}
+/* Barrierefreiheit */
+.focusable {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    display: block;
+    padding:10px 20px;
+}
+.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    width: auto;
+    top:0;
+}
+.focusable:focus + .container-fluid {
+    padding-top:30px;
 }
 /* Hauptmenü */
 header .navbar .nav > li {
@@ -2645,7 +2683,7 @@ footer .open .dropdown-menu {
     	padding: 5px 15px;
 	}
     .dropdown-menu {
-        padding:10px;
+        padding:0px;
     }
     .dropdown-menu li {
 		padding-left:0;
@@ -2904,6 +2942,10 @@ figcaption  {
 .comment-pager .row {
     margin-left:-15px;
 }
+section.comments {
+    padding-right:15px;
+    padding-left:15px;
+}
 .comments textarea {
 	margin-bottom:20px;
 }
@@ -2924,6 +2966,15 @@ figcaption  {
 }
 .comment-answer {
 	margin-right:-20px;
+}
+.comment-answer a::after {
+    content: '\00b7';
+}
+.comment-answer a:last-child::after {
+    content: '';
+}
+.comment-answer #appbundle_episode_comment {
+    margin-top:20px;
 }
 .comment-answer .answer-text .row {
     padding-bottom:20px;
@@ -2954,6 +3005,10 @@ figcaption  {
 .comment-form fieldset {
     text-align: center;
 }
+form #appbundle_episode_comment_submit {
+    margin-top: -20px;
+    margin-bottom:40px;
+}
 /*#appbundle_comment_submit {
     margin:0 auto;
 }*/
@@ -2970,6 +3025,10 @@ figcaption  {
     .comment-pager .row {
         margin-left:0;
     }
+    section.comments {
+        padding-right:0px;
+        padding-left:0px;
+    }    
     .comment time, .comment .time { /* .comment time Löschen wenn ausgebessert */
         line-height: normal;
     }
@@ -2993,7 +3052,7 @@ figcaption  {
     }
     .comment-form fieldset {
         text-align: left;
-    }
+     }
 }
 
 /* Tags */

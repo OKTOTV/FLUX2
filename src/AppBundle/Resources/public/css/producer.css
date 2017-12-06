@@ -35,11 +35,24 @@ body.producer aside ul.socialnetworks li div {
     margin-left:50px;
     padding-top:10px;
 }
+body.producer .statistic .list-group-item {
+    padding-right:0;
+    padding-left:0;
+    width: 100%;
+}
 body.producer .list-group-item .pin {
     padding-bottom:15px;
 }
+body.producer .statistic .list-group-item .pin, body.producer .statistic .list-group-item figcaption {
+    padding-left:0px;
+    padding-right:0px;
+}
 body.producer .row {
     padding-bottom:40px;
+}
+body.producer .tabs-content .row {
+    margin-right:0;
+    margin-left:0;
 }
 body.producer .row.pin {
     padding-bottom:40px;
@@ -130,8 +143,11 @@ body.producer .newsarchiv .post .page-header > h3 {
         width: auto;
     }
     body.producer .list-group-item .pin {
-        padding-left:0;
         padding-bottom:0;
+    }
+    body.producer .statistic .list-group-item .pin, body.producer .statistic .list-group-item figcaption {
+        padding-left:0px;
+        padding-right:15px;
     }
     body.producer .nav-tabs.nav-justified > li > a {
         text-align: center;

@@ -70,13 +70,13 @@ oktothek.notific_mail.comm_episode_message:         'Die Sendung <a href="%serie
 oktothek.notific_mail.comm_episode_timestamp:       "Folge von %day%, %date%"
 oktothek.notific_mail.comm_episode_day_choice:      "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek.notific_mail.comm_episode_date_format:     "d.m.Y"
-oktothek.notific_mail.comm_episode_discuss:         "Mitdiskutieren"
+oktothek.notific_mail.comm_episode_discuss:         "Antworten"
 oktothek.notific_mail.comm_episode_abo_settings:    'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
 
 # src/AppBundle/Resources/views/Mail/commentBlogpost.html.twig
 oktothek.notific_mail.comm_blogpost_user:           "Liebe/r %user%!"
 oktothek.notific_mail.comm_blogpost_message:        'Die Sendung <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series_name%</a> hat einen neuen Kommentar zu einem Blogpost. Schau doch mal rein und diskutiere mit.'
-oktothek.notific_mail.comm_blogpost_discuss:        "Mitdiskutieren"
+oktothek.notific_mail.comm_blogpost_discuss:        "Antworten"
 oktothek.notific_mail.comm_blogpost_abo_settings:   'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
 
 ## Search
@@ -506,8 +506,8 @@ oktothek_tv_title:                      "Livestream und TV-Programm | OKTO"
 oktothek_tv_weekdays_choice:            "{1} Montag |{2} Dienstag |{3} Mittwoch|{4} Donnerstag|{5} Freitag|{6} Samstag|{7} Sonntag"
 oktothek_tv_weekdays_short_choice:      "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek_tv_weedays_format:             "%day%, %date%"
-oktothek_tv_program_repetition:         "Wiederholungen:"
-oktothek_tv_program_repetition_dateformat: "H:i d.m.Y"
+oktothek_tv_program_repetition:         "Wiederholungen am"
+oktothek_tv_program_repetition_dateformat: "D, d.m.Y, H:i "
 
 # AppBundle/Resources/views/Tv/current.html.twig
 oktothek_tv_current_long:               "%series% - %episode%"
@@ -566,7 +566,7 @@ oktothek.series_playlist_header:        "Vom Sendungsteam empfohlen"
 oktothek_series_blogShow_title:         "%blogpost% | OKTO"
 
 # /src/AppBundle/Resources/views/Series/episodeStackOpen.html.twig
-oktothek_series_episodeStack_show_more: 'Mehr Videos anzeigen <span class="glyphicon glyphicon-menu-right"></span>'
+oktothek_series_episodeStack_show_more: 'Mehr Videos anzeigen'
 
 ## series playlists
 oktothek_series_playlists_title:        %series% Playlisten

@@ -6,12 +6,12 @@
                 <a href="{{ path('oktothek_show_series_blogpost', {'slug': post.slug}) }}">
                     {% if post.assets is not empty %}
                         {% if post.assets[0]|isImage %}
-                            <img src="{{ post.assets[0]|thumb(362,362) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                            <img src="{{ post.assets[0]|thumb(539,539) }}" class="img img-responsive" alt="{{ post.name }}"/>
                         {% else %}
-                            <img src="{{ post.series.posterframe|thumb(362,362) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                            <img src="{{ post.series.posterframe|thumb(539,539) }}" class="img img-responsive" alt="{{ post.name }}"/>
                         {% endif %}
                     {% else %}
-                        <img src="{{ post.series.posterframe|thumb(362,362) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                        <img src="{{ post.series.posterframe|thumb(539,539) }}" class="img img-responsive" alt="{{ post.name }}"/>
                     {% endif %}
                 </a>
                 </div>

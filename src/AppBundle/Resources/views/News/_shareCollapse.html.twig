@@ -28,7 +28,7 @@
                         </a>
                     </li>
                 </ul>
-                <a href="mailto:?to=&subject={{ post.name }}&body={{ url('oktothek_show_news', {'slug': post.slug}) }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
+                <a href="mailto:?to=&subject={{ post.name|url_encode }}&body={{ url('oktothek_show_news', {'slug': post.slug}) }}" class="btn btn-default">{{ 'oktothek_share_email'|trans }}</a>
            </div>
        </div>
    </div>
