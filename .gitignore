@@ -52,3 +52,9 @@ app/data.db3
 app/cache/.gitkeep
 
 app/SymfonyRequirements.php
+
+# Symonfy 4
+.env,
+/public/bundles/,
+/var/,
+/vendor/
