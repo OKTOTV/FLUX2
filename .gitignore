@@ -54,7 +54,8 @@ app/cache/.gitkeep
 app/SymfonyRequirements.php
 
 # Symonfy 4
-.env,
-/public/bundles/,
-/var/,
+.env
+/public/bundles/
+/public/uploads/
+/var/
 /vendor/
