@@ -1,0 +1,111 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ 'oktothek.playlist_show'|trans({'%playlist%': playlist.name})~' | '~name|default('OKTO') }}
+{% endblock %}
+{% block nav_head %}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+
+{% set body_class = "playlists" %}
+{% block body %}
+    <div itemscope="itemscope" itemtype="http://schema.org/VideoGallery">
+    <section class="container">
+        <div id="button_down"><span class="icon playlists-arrow-down" style="display: inline;">{{ 'oktothek.playlist_show_next_video'|trans }}</span></div>
+        <div class="player-container row description-overlay">
+            <figure itemprop="video">
+                <div id="player"></div>
+            </figure>
+            <header class="description-wrapper">
+                <div class="container-bg-opacity">
+                    <div class="bg-opacity"></div>
+                </div>
+                <div class="content-opacity">
+                    <button class="btn transparent pull-right btn-close"><span class="icon-close" aria-hidden="true" style="display: block;">×</span></button>
+                    <h1 itemprop="headline">{{ playlist.name }}</h1>
+                    <p class="author" itemprop="author">Erstellt von {{ playlist.user }}</p>
+                    <p class="description" itemprop="description">{{ playlist.description }}</p>
+                    <p class="more clear-fix"><button id="StartPlaylist_small" class="btn btn-default visible-xs-inline"><span class="glyphicon glyphicon-play"> </span></button> <a class="more pull-right" href="#">weiterlesen</a></p>
+                    <p class="misc hidden-xs"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> Playliste starten</button> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button></p>
+                </div>
+            </header>
+		    <div class="playlist-buttons hidden-xs">
+                <div class="playlist-minimized">
+                    <button class="btn btn-default circle"><span>i</span></button>
+                </div>
+		        {% if app.user == playlist.user %}
+		        <div>
+                    <a href="{{ path('oktothek_edit_playlist', {'uniqID': playlist.uniqID}) }}" class="btn btn-default circle edit"> </a>
+	            </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="fs-image-misc-mobile">
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShareMobil" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen"><span class="hidden-xs">Teilen</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
+                <div class="playlist-minimized">
+                    <button class="btn btn-default circle"><span>i</span></button>
+                </div>
+		        {% if app.user == playlist.user %}
+		        <div class="edit-playlist">
+                    <a href="{{ path('oktothek_edit_playlist', {'uniqID': playlist.uniqID}) }}" class="btn btn-default circle edit"> </a>
+	            </div>
+                {% endif %}
+        </div>
+        <div class="collapse-container">{% include 'AppBundle:oktothek:snippetPlaylistShare.html.twig' %}</div>
+    </section>
+    <section class="container">
+        <div class="description-container row">
+		  <article>
+		      <p class="series"><a href="#" title=""></a></p>
+		        <h2 class="name"></h2>
+			    <span class="time">online seit <span class="date"></span></span>
+		        <p class="description"></p>
+                <p><a href="#" class="episodelink">Folgendetails</a></p>
+            </article>
+        </div>
+    </section>
+    <section class="container playlist_container">
+        <ul class="list-group" itemscope itemtype="http://schema.org/hasPart">
+            {% for playlistItem in playlist.items %}
+            <li class="list-group-item clearfix" itemscope itemtype="http://schema.org/Episode">
+                <article title="{{ playlistItem.episode.description }}" class="pin">
+                    <figure class="row">
+				        <div class="col-md-2 col-lg-2 col-sm-3 col-xs-4 pin">
+                            <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}" title="Episode {{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }} ansehen">
+					           <div class="mini-player"><span class="glyphicon glyphicon-play"> </span></div>
+                            <meta itemprop="thumbnailUrl" content="{{ playlistItem.episode.posterframe|thumb(135,240) }}" />
+                            <meta itemprop="datePublished" content="{{ playlistItem.episode.onlineStart|date('Y-m-d')}}" />
+                            <img src="{{ playlistItem.episode.posterframe|thumb(135,240) }}" class="img-responsive" alt="{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}"/>
+                            </a>
+                        </div>
+                        <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-8">
+                            <a href="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}" class="playme" data-list="{{loop.index0}}" title="Episode {{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }} ansehen">
+                                <h3 data-link="{{ path('oktothek_show_series', {'uniqID': playlistItem.episode.series.uniqID}) }}" itemscope="itemscope" itemtype="http://schema.org/CreativeWorkSeries" itemprop="partOfSeries"><span itemprop="name">{{ playlistItem.episode.series.name|default('') }}</span></h3>
+                                <p data-date="{{ playlistItem.episode.onlineStart|date('d.m.Y')}}" itemprop="name">{{ playlistItem.episode.name|default('oktothek_episode_thumb_default_title'|trans({'%date%': playlistItem.episode.onlineStart|date('d.m.Y')})) }}</p>
+                                <meta itemprop="url" content="{{ path('oktothek_show_episode', {'uniqID': playlistItem.episode.uniqID})}}">
+                            </a>
+                        </figcaption>
+                    </figure>
+                </article>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+{{ playlist(playlist)|raw }}
+<script src="{{ asset('bundles/app/js/javascript_playlists.js')}}"></script>
+<script src="{{ asset('bundles/app/js/javascript_images.js')}}"></script>
+<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/playlists.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/fs_images.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+{% endblock %}

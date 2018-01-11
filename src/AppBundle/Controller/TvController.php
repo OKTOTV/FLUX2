@@ -20,7 +20,7 @@ class TvController extends Controller
      * @Route("/", name="tv")
      * @Template
      */
-    public function tvAction()
+    public function TvAction()
     {
         $current = $this->get('oktothek_tv')->getCurrent(false, 2);
         $date = new \DateTime();

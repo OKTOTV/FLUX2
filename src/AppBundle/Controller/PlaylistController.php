@@ -109,7 +109,7 @@ class PlaylistController extends Controller
             $playlistID = $request->request->get('uniqID');
             $episodeID = $request->request->get('episodeID');
             $action = $request->request->get('action');
-            $user = $this->get('security.context')->getToken()->getUser();
+            $user = $this->getUser();
             if ($action == "add") {
                 $this->get('oktothek_playlist_service')->addToPlaylist($episodeID, $playlistID, $user);
             } else {

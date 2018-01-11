@@ -1,0 +1,31 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ 'oktothek_search_episodes_results'|trans({'%phrase%': phrase}) }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "clip_overview" %}
+{% block body_main %}
+<main>
+    <section class="container">
+        <header>
+            <h1>{{ 'oktothek_search_episodes_results_header'|trans({'%phrase%': phrase}) }}</h1>
+        </header>
+        <div class="row pager-row">
+            <div class="navigation">
+                {{ knp_pagination_render(episodes) }}
+            </div>
+        </div>
+        <h2 class="sr-only">Episoden</h2>
+        <ul class="row">
+            {% for episode in episodes %}
+                {% include 'AppBundle:episode:EpisodeThumb.html.twig' %}
+            {% endfor %}
+        </ul>
+        <div class="navigation">
+            {{ knp_pagination_render(episodes) }}
+        </div>
+    </section>
+</main>
+{% endblock %}

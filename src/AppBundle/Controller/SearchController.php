@@ -49,7 +49,7 @@ class SearchController extends Controller
                 $playlists = $search->searchPlaylists($data['search']);
                 $coursetypes = $search->searchCourseTypes($data['search']);
 
-                return $this->render('AppBundle::Search/results.html.twig', [
+                return $this->render('AppBundle::search/results.html.twig', [
                     'episodes' => $episodes,
                     'seriess' => $series,
                     'playlists' => $playlists,

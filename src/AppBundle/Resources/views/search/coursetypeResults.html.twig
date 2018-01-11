@@ -1,0 +1,26 @@
+<div class="row clip-tags">
+    {% for coursetype in coursetypes %}
+        {% if loop.first %}
+            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ coursetype.description }}">
+                <figure class="series-pin pin">
+                    <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.slug}) }}" title="{{ coursetype.title }}">
+                        <img src="{{ coursetype.image|thumb(309,550) }}" class="img-responsive" alt="{{ coursetype.title }}"/>
+                    </a>
+                    <figcaption>
+                        <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.slug}) }}" title="{{ coursetype.title }}">
+                            <h3>{{ coursetype.title }}</h3>
+                        </a>
+                    </figcaption>
+                </figure>
+            </article>
+            <ul class="col-md-6 col-lg-6 col-sm-12 col-xs-12 small-pins">
+        {% else %}
+            {% include "AppBundle::search/coursetypeThumb.html.twig" %}
+        {% endif %}
+    {% endfor %}
+    {% set numberofcoursetypes = 5 - seriess|slice(0,5)|length %}
+    {% for i in 0..numberofcoursetypes if i > 0 %}
+        <li class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></li>
+    {% endfor %}
+    </div>
+</div>

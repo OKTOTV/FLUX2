@@ -11,12 +11,17 @@ bprs_asset:
         video:
             url: '%env(video_url)%'
             path: '%env(video_path)%'
+            remote: true
         gallery:
             url: '%env(gallery_url)%'
             path: '%env(gallery_path)%'
         cache:
             url: '%env(cache_url)%'
-            path: %env(cache_path)%
+            path: '%env(cache_path)%'
         promo:
             url: '%env(promo_url)%'
             path: '%env(promo_path)%'
+        sprite:
+            url: 'https://s3.eu-central-1.amazonaws.com/flux2-okto-tv/sprites'
+            path: 'https://s3.eu-central-1.amazonaws.com/flux2-okto-tv/sprites'
+            remote: true

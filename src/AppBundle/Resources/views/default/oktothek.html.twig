@@ -1,0 +1,143 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block metas %}
+<meta name="description" content="{{ 'oktothek_default_meta_description'|trans }}">
+{% endblock %}
+{% block title %}Okto Community TV{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "fullscreen-images oktothek" %}
+{% block body %}
+
+    {# top slider, search and channels #}
+    <div id="top"></div>
+    <div id="slider">
+        <div class="preloader"></div>
+        {{ render(controller('AppBundle:Default:slider', {'number': 5})) }}
+    </div>
+    {# top slider, search and channels END #}
+    {# rest of the page #}
+    <div id="oktothek">
+        <section class="participart bg-fullscreen">
+            <div id="anchor_participart"></div>
+            <meta itemprop="headline" content="{{ 'oktothek_default_participate'|trans }}">
+            {% if is_granted('ROLE_OKTOLAB_USER') %}
+            <h2 id="button_down" itemprop="name">{{ 'oktothek_default_welcome'|trans({'%username%': app.user.username }) }}<span class="icon participant-arrow-down">{{ 'oktothek_default_useless_fancy_button'|trans }}</span></h2>
+            <article class="container"><p class="aligncenter subheadline col-md-8 col-md-offset-2">{{ 'oktothek_default_sub_welcome'|trans }}</p>
+            <p class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 helptext"><span>Wie funktioniert das Oktoversum?</span><br>Hier findest du einen hilfreichen Überblick der gesamten Features.<br><a href="{{ path('help') }}">Überblick ansehen</a></p></article>
+            {% else %}
+            <h2 id="button_down">{{ 'oktothek_default_participate'|trans }} <span class="icon participant-arrow-down jump">Hier!</span></h2>
+            <article class="container">
+                <h4 class="aligncenter subheadline" itemprop="description">{{ 'oktothek_default_participate_sub'|trans }}</h4>
+                <div class="aligncenter button_container" itemscope="itemscope" itemtype="http://schema.org/RegisterAction">
+                <meta itemprop="name" content="{{ 'oktothek_default_participate'|trans }}" />
+                <meta itemprop="description" content="{{ 'oktothek_default_participate_sub'|trans }} {{ 'oktothek_default_participate_view_clips_title'|trans }} Mitdiskutieren und Playlisten erstellen." />
+                <a href="{{ path('help') }}" class="btn btn-default but-full" itemprop="object"><span class="passive">{{'oktothek_default_participate_login'|trans }}</span><span class="active">und sei dabei!</span></a></div>
+                <ul class="participart-list clearfix">
+                  <li><a href="#show_clips" class="anchor" itemprop="significantLink"><figure data-target="#view_clips">
+                    <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
+                        <image xlink:href="{{ asset('bundles/app/images/figure_oktonaut.svg')}}" src="{{ asset('bundles/app/images/figure_oktonaut.png')}}" alt="{{ 'oktothek_default_participate_view_clips'|trans }}" width="100" height="100" style="width:100%;height:auto;" />
+                    </svg><figcaption><span>{{ 'oktothek_default_participate_view_clips'|trans }}</span><p class="sr-only"><span>{{ 'oktothek_default_participate_view_clips_title'|trans }}</span></p></figcaption></figure></a></li>
+                  <li><a href="https://www.okto.tv/de/oktothek/episode/59075661cab7d" itemprop="significantLink"><figure data-target="#5_steps">
+                    <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
+                        <image xlink:href="{{ asset('bundles/app/images/figure_ideas.svg')}}" src="{{ asset('bundles/app/images/figure_ideas.png')}}" alt="{{ 'oktothek_default_participate_5_steps'|trans }}" width="100" height="100" />
+                    </svg><figcaption><span>{{ 'oktothek_default_participate_5_steps'|trans }}</span><p class="sr-only"><span>{{ 'oktothek_default_participate_5_steps_title'|trans }}</span></p></figcaption></figure></a></li>
+                  <li><a href="https://www.okto.tv/de/page/equipment_und_verleih" itemprop="significantLink"><figure data-target="#equipment">
+                    <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
+                        <image xlink:href="{{ asset('bundles/app/images/figure_camera.svg')}}" src="{{ asset('bundles/app/images/figure_camera.png')}}" alt="{{ 'oktothek_default_participate_equipment'|trans|raw }}" width="100" height="100" />
+                    </svg><figcaption><span>{{ 'oktothek_default_participate_equipment'|trans|raw }}</span><p class="sr-only"><span>{{ 'oktothek_default_participate_equipment_title'|trans}}</span></p></figcaption></figure></a></li>
+                  <li><a href="http://intake.okto.tv/" target="_blank" itemprop="significantLink"><figure data-target="#upload">
+                    <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
+                        <image xlink:href="{{ asset('bundles/app/images/figure_upload.svg')}}" src="{{ asset('bundles/app/images/figure_upload.png')}}" alt="{{ 'oktothek_default_participate_upload'|trans }}" width="100" height="100" />
+                    </svg><figcaption><span>{{ 'oktothek_default_participate_upload'|trans }}</span><p class="sr-only"><span>{{ 'oktothek_default_participate_upload_title'|trans}}</span></p></figcaption></figure></a></li>
+                </ul>
+                <div class="shorttext">
+                    <ul>
+                        <li id="view_clips">{{ 'oktothek_default_participate_view_clips_title'|trans }}</li>
+                        <li id="5_steps">{{ 'oktothek_default_participate_5_steps_title'|trans }}</li>
+                        <li id="equipment">{{ 'oktothek_default_participate_equipment_title'|trans}}</li>
+                        <li id="upload">{{ 'oktothek_default_participate_upload_title'|trans}}</li>
+                    </ul>
+                </div>
+            </article>
+            {% endif %}
+        </section>
+
+        {% if is_granted('ROLE_OKTOLAB_USER') %}
+            {% if app.user.abonnements|length > 1 %}
+            <section class="container">
+                <h2>{{ 'oktothek.your_abos'|trans }}</h2>
+                {%
+                    include 'AppBundle:default:EpisodeStack.html.twig' with {
+                        'episodes': newestEpisodesInAbonnement(app.user),
+                        'pager_url': path('oktothek_user_abonnements'),
+                        'collapse_link_text': 'oktothek.your_abos_show_more'|trans
+                    }
+                %}
+            </section>
+
+            <section class="container abo-blogs">
+                <h2>{{ 'oktothek.your_abos_blogposts'|trans }}</h2>
+                {%
+                    include 'AppBundle:series/Blog:_blogpostStack.html.twig' with {
+                        'posts': newestPostsInAbonnement(app.user)
+                    }
+                %}
+            </section>
+            {% else %}
+                {# waiting for default message or call to action #}
+            {% endif %}
+        {% endif %}
+
+        {# render newest episodes #}
+        <section class="newest-videos container" id="show_clips" itemscope="itemscope" itemtype="http://schema.org/ItemList">
+            <div id="anchor_newest_videos"></div>
+            <h2>{{ 'oktothek.newest_videos'|trans }}</h2>
+            <p class="subheadline" itemprop="description">{{ 'oktothek.newest_videos_sub'|trans}}</p>
+            {% include 'AppBundle:default:EpisodeStack.html.twig' with {'episodes': newest_episodes, 'pager_url': path('oktothek_newest_episodes')} %}
+        </section>
+
+        {# render trending episodes #}
+        <section class="favorite-videos container" itemscope="itemscope" itemtype="http://schema.org/Thing">
+            <div id="anchor_favorite_videos"></div>
+            <h2>{{ 'oktothek.trending_videos'|trans }}</h2>
+            <p class="subheadline" itemprop="description">
+                {{ 'oktothek.trending_videos_sub'|trans}}
+            </p>
+            {% include 'AppBundle:default:EpisodeStack.html.twig' with {'episodes': best_episodes, 'pager_url': path('oktothek_trending_episodes')} %}
+        </section>
+
+        {# render newest playlists #}
+        <section class="newest-playlists container" itemscope="itemscope" itemtype="http://schema.org/Thing">
+            <div id="anchor_playlists"></div>
+            <h2>{{ 'oktothek.newest_playlists'|trans }}</h2>
+            {% if is_granted('ROLE_OKTOLAB_USER') %}
+                <p class="subheadline">{{ 'oktothek.newest_playlists_sub'|trans}}</p>
+            {% else %}
+                <p class="subheadline" itemprop="description">{{ 'oktothek_default_login_teaser'|trans }}</p>
+                <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default login">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
+            {% endif %}
+            {% include 'AppBundle:default/Playlist:PlaylistStack.html.twig' with {'playlists': newest_playlists} %}
+        </section>
+        {# render news pins #}
+        {{ render(controller('AppBundle:News:pinnedNews')) }}
+    </div>
+    {# rest of the page END #}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{ asset('bundles/app/js/javascript_images.js')}}"></script>
+    <script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/fs_images.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/news.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/oktothek.css') }}" rel="stylesheet" />
+{% endblock %}

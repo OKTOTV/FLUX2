@@ -40,9 +40,14 @@ oneup_flysystem:
         posterframe:
             local:
                 directory: '%kernel.root_dir%/../../public/uploads/posterframes'  # add me to .env and .env.dist
+        #video:
+        #    local:
+        #        directory: '%kernel.root_dir%/../../public/uploads/videos'    # add me to .env and .env.dist
         video:
-            local:
-                directory: '%kernel.root_dir%/../../public/uploads/videos'    # add me to .env and .env.dist
+            awss3v3:
+                client: oktothek.s3_client
+                bucket: flux2-okto-tv
+                prefix: uploads
         cache:
             local:
                 directory: '%kernel.root_dir%/../../public/uploads/cache' # add me to .env and .env.dist
@@ -53,8 +58,12 @@ oneup_flysystem:
             local:
                 directory: '%kernel.root_dir%/../../public/uploads/promo' # add me to .env and .env.dist
         sprite:
-            local:
-                directory: '%kernel.root_dir%/../../public/uploads/sprite'    # add me to .env and .env.dist
+            awss3v3:
+                client: oktothek.s3_client
+                bucket: flux2-okto-tv
+                prefix: sprites    
+            #local:
+            #    directory: '%kernel.root_dir%/../../public/uploads/sprite'    # add me to .env and .env.dist
     filesystems:
         posterframe:
             adapter: posterframe

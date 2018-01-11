@@ -1,0 +1,21 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ 'oktothek_producer_nowLive_title'|trans }}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
+{% endblock %}
+
+{% set body_class = "producer" %}
+{% block body_main %}
+
+{% include 'AppBundle::producer/producerHeader.html.twig' with {'active': 'producer_live', 'series': series} %}
+<section class="tabs-content live">
+<p class="subheadline">{{ 'oktothek.series_producer_live_text'|trans }}</p>
+{{ form(form) }}
+</section>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
+{% endblock %}

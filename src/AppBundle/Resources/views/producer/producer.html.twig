@@ -1,0 +1,147 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ 'oktothek_producer_producer_title'|trans({'%series%':series.name})}}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
+{% endblock %}
+
+{% set body_class = "producer" %}
+{% block body_main %}
+
+{% include 'AppBundle::producer/producerHeader.html.twig' with {'active': 'producer_info', 'series': series} %}
+<section class="tabs-content">
+<p class="subheadline">{{ 'oktothek.series_producer_text'|trans }}</p>
+
+<div class="row">
+    <main class="col-md-8">
+        <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }}<button class="btn btn-default updateNotifications" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>
+        {% for episodecomment in newest_episode_comments %}
+            <div class="row">
+                {% include "AppBundle::post_comment/_comment.html.twig" with {'comment': episodecomment} %}
+            </div>
+        {% endfor %}
+        <h3>{{ 'oktothek.series_producer_newest_blogpost_comments'|trans }}<button class="btn btn-default updateNotifications" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>
+        {% for blogpostcomment in newest_blogpost_comments %}
+            <div class="row">
+                {% include "AppBundle::post_comment/_comment.html.twig" with {'comment': blogpostcomment} %}
+            </div>
+        {% endfor %}
+        <h3>{{ 'oktothek.series_producer_newest_episodes'|trans }}</h3>
+        {% for episode in newest_episodes %}
+            <div class="row">
+                <figure class="list-group-item">
+                    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 pin">
+                        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}"><img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" /></a>
+                    </div>
+                    <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-12">
+                        <h3><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">{{ episode.name }}</a></h3>
+                        <p>{{ episode.description }}</p>
+                        <p><a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="btn btn-default">{{ 'oktothek_producer_episodes_statistik'|trans }}</a></p>
+                    </figcaption>
+                </figure>
+            </div>
+        {% endfor %}
+        <h3>{{ 'oktothek.series_producer_newest_blogposts'|trans }}</h3>
+        {% for post in newest_posts %}
+            {% set text_only = true %}
+            {% if post.assets is not empty %}
+                {% if post.assets[0]|isImage %}
+                    {% set text_only = false %}
+                {% endif %}
+            {% endif %}
+            <div class="row">
+                <figure class="list-group-item">
+                    <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 pin">
+                        {% if text_only == false %}
+                            <a href="{{ path('oktothek_series_edit_blog_post', {'uniqID': series.uniqID, 'post': post.id})}}">
+                                <img src="{{ post.assets[0]|thumb(135,240) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-12">
+                        <h3><a href="{{ path('oktothek_series_edit_blog_post', {'uniqID': series.uniqID, 'post': post.id})}}">{{ post.name }}</a></h3>
+                        <p>{{ post.teaser }}</p>
+                    </figcaption>
+                </figure>
+            </div>
+        {% endfor %}
+    </main>
+    <aside class="col-md-4">
+        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID})}}"><img src="{{ series.posterframe|thumb(720,1280)}}" class="img img-responsive" /></a>
+        <ul class="list-group">
+            <li href="" class="list-group-item description">
+                <h3 class="list-group-item-heading">{{ 'oktothek.series_producer_description'|trans }}</h3>
+                <p class="list-group-item-text">{{ series.description }}</p>
+            </li>
+            <li href="" class="list-group-item description">
+                <h3 class="list-group-item-heading">{{ 'oktothek.series_producer_reachmes'|trans }}</h3>
+                <p class="list-group-item-text">
+                    <ul class="socialnetworks">
+                        {% for reachme in series.reachmes %}
+                            {% if constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_MAIL') == reachme.type %}
+                                <li><strong>Kontakt:</strong>: {{ reachme.uri }}</li>
+                            {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_FB') == reachme.type %}
+                                <li><a href="{{ reachme.uri }}" class="icon-facebook" target="_blank"><span>Facebook</span></a> <div>{{ reachme.uri }}</div></li>
+                            {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_TWITTER') == reachme.type %}
+                                <li><a href="{{ reachme.uri }}" class="icon-twitter" target="_blank"><span>Twitter</span></a> <div>{{ reachme.uri }}</div></li>
+                            {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_INST') == reachme.type %}
+                                <li><a href="{{ reachme.uri }}" class="icon-instagram" target="_blank"><span>Instagram</span></a> <div>{{ reachme.uri }}</div></li>
+                            {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_GP') == reachme.type %}
+                                <li><a href="{{ reachme.uri }}" class="icon-google+" target="_blank"><span>Google+</span></a> <div>{{ reachme.uri }}</div></li>
+                            {% else %}
+                                <li>{{ 'reachme_type_transchoice'|transchoice(reachme.type) }} - {{ reachme.uri }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </p>
+            </li>
+            <li href="" class="list-group-item">
+                <p class="list-group-item-text"><strong>{{ 'oktothek.series_producer_last_updated'|trans }}</strong>: {{ series.updatedAt|date('d.m.Y') }}</p>
+            </li>
+            <li href="" class="list-group-item">
+                <p class="list-group-item-text"><strong class="list-group-item-heading">{{ 'oktothek.series_producer_abonnements'|trans }}</strong>:
+                {{ series.abonnements|length }}</p>
+            </li>
+            <li href="" class="list-group-item">
+                <p class="list-group-item-text"><strong>{{ 'oktothek.series_producer_episodes'|trans }}</strong>: {{ series.episodes|length }}</p>
+            </li>
+            <li href="" class="list-group-item">
+                <p class="list-group-item-text"><strong class="list-group-item-heading">{{ 'oktothek.series_producer_playlists'|trans }}</strong>:
+                {{ series.playlists|length }}</p>
+            </li>
+        </ul>
+    </aside>
+</div>
+</section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.updateNotifications').click(function(){
+                var flag = $(this).attr('data-send');
+                if (flag == "1") {
+                    $(this).attr('data-send', "0");
+                    $(this).removeClass('active');
+                } else {
+                    $(this).attr('data-send', "1");
+                    $(this).addClass('active');
+                }
+                $.ajax({
+                    'url': "{{ url('oktothek_channel_update_settings', {'uniqID': series.uniqID})}}",
+                    'data': {
+                        'episode_comment': $('#episode_comment').attr('data-send'),
+                        'blogpost_comment': $('#blog_comment').attr('data-send')
+                    }
+                }).success(function(data){
+
+                });
+            });
+        });
+    </script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
+{% endblock %}

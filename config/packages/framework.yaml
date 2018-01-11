@@ -1,6 +1,6 @@
 framework:
     templating: { engines: ['twig'] }
-    translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["de"] }
     secret: '%env(APP_SECRET)%'
     default_locale: de
     csrf_protection: ~

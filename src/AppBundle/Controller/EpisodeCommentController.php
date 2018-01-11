@@ -74,7 +74,7 @@ class EpisodeCommentController extends Controller
                 $em->flush();
                 $this->get('oktothek_notification_service')->onCommentOnEpisode($comment);
                 if ($request->isXmlHttpRequest()) {
-                    return $this->render("AppBundle::Episode_Comment/_comment.html.twig", ['comment' => $comment]);
+                    return $this->render("AppBundle::episode_comment/_comment.html.twig", ['comment' => $comment]);
                 }
                 return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
             } else {
@@ -127,7 +127,7 @@ class EpisodeCommentController extends Controller
             }
         }
         if ($request->isXmlHttpRequest()) {
-            return $this->render("AppBundle::Episode_Comment/_form.html.twig", ['form' => $form->createView()]);
+            return $this->render("AppBundle::episode_comment/_form.html.twig", ['form' => $form->createView()]);
         }
         return ['form' => $form->createView(), 'comment' => $parent, 'episode' => $episode];
     }

@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12 news-pin">
+
+        {% set text_only = true %}
+        {% if teasers[0].assets is not empty %}
+            {% if teasers[0].assets[0]|isImage %}
+                {% set text_only = false %}
+            {% endif %}
+        {% endif %}
+
+        <article class="row post" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            {% if text_only == false %}
+                <figure class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug, 'uniqID': series.uniqID})}}" itemprop="url">
+                        <img src="{{ teasers[0].assets[0]|thumb(220,390) }}" class="img img-responsive" alt="{{ teasers[0].name }}" itemprop="image"/>
+                    </a>
+                </figure>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            {% else %}
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            {% endif %}
+                    <meta itemprop="datePublished" content="{{ teasers[0].createdAt|date('Y-m-d')}}" />
+                    <meta itemprop="author" content="{{ series.name }} Team">
+                    <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
+                        <meta itemprop="name" content="Okto Community TV">
+                        <meta itemprop="logo" content="{{ asset('bundles/app/images/okto_logo.png')}}">
+                    </span>
+                    <p class="tags">
+                        {% for tag in teasers[0].tags %}
+                            <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}" class="tag">{{ tag.text }}</a>
+                        {% endfor %}
+                    </p>
+                    <header class="page-header">
+                        <h3 itemprop="headline">
+                            <a href="{{ path( 'oktothek_show_series_blogpost', {'slug': teasers[0].slug})}}">
+                                {{ teasers[0].name }}
+                            </a>
+                        </h3>
+                    </header>
+                    <p itemprop="description">
+                        {{ teasers[0].teaser|nl2br }}
+                    </p>
+                    <p class="misc">
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShareBlog" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}">
+                            <span class="share-btn-text">
+                                {{ 'oktothek_share_header'|trans }}
+                            </span>
+                            <span class="visible-xs-inline glyphicon glyphicon-share-alt"></span>
+                        </button>
+                    </p>
+                </div>
+            {% include "AppBundle:series/Blog:_shareCollapse.html.twig" with {'post': teasers[0]} %}
+        </article>
+    </div>
+    <aside class="col-md-3 col-lg-3 col-sm-3 hidden-xs">
+        <div class="aside-inner clearfix">
+            <ul>
+                {% for teaser in teasers %}
+                    <li>
+                        <span class="time">
+                            {{
+                                'oktothek_series_teaser_date'|trans({
+                                    '%day%': 'oktothek_series_teaser_day_choice'|transchoice(teaser.createdAt|date('N')),
+                                    '%date%': teaser.createdAt|date('oktothek_series_teaser_date_format'|trans)
+                                })
+                            }}
+                        </span>
+                        <p>
+                            <a href="{{ path('oktothek_show_series_blogpost', {'uniqID': series.uniqID, 'slug': teaser.slug})}}"><span>{{ teaser.name }}</span></a>
+                        </p>
+                    </li>
+                {% endfor %}
+                <li>
+                    <p>
+                        <a href="{{ path('oktothek_show_series_blog', {'uniqID': series.uniqID})}}" class="more">{{ 'oktothek.series_show_blog'|trans }}</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </aside>
+</div>

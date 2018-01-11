@@ -88,7 +88,7 @@ class TagController extends Controller
 
     /**
      * @Route("/{slug}/episodes/{page}", name="oktothek_tag_episode_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
-     * @Template("AppBundle::Tag/Pager/episodeTagPager.html.twig")
+     * @Template("AppBundle::tag/Pager/episodeTagPager.html.twig")
      */
     public function episodeTagPagerAction($slug, $page)
     {
@@ -101,7 +101,7 @@ class TagController extends Controller
 
     /**
      * @Route("/{slug}/series/{page}", name="oktothek_tag_series_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
-     * @Template("AppBundle::Tag/Pager/seriesTagPager.html.twig")
+     * @Template("AppBundle::tag/Pager/seriesTagPager.html.twig")
      */
     public function seriesTagPagerAction($slug, $page)
     {
@@ -114,7 +114,7 @@ class TagController extends Controller
 
     /**
      * @Route("/{slug}/posts/{page}", name="oktothek_tag_posts_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
-     * @Template("AppBundle::Tag/Pager/postsTagPager.html.twig")
+     * @Template("AppBundle::tag/Pager/postsTagPager.html.twig")
      */
     public function postsTagPagerAction($slug, $page)
     {
@@ -127,7 +127,7 @@ class TagController extends Controller
 
     /**
      * @Route("/{slug}/pages/{page}", name="oktothek_tag_pages_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
-     * @Template("AppBundle::Tag/Pager/pagesTagPager.html.twig")
+     * @Template("AppBundle::tag/Pager/pagesTagPager.html.twig")
      */
     public function pagesTagPagerAction($slug, $page)
     {
@@ -140,7 +140,7 @@ class TagController extends Controller
 
     /**
      * @Route("/{slug}/playlists/{page}", name="oktothek_tag_playlists_page", defaults={"page" = "1"}, requirements={"page" = "\d+"})
-     * @Template("AppBundle::Tag/Pager/playlistsTagPager.html.twig")
+     * @Template("AppBundle::tag/Pager/playlistsTagPager.html.twig")
      */
     public function playlistsTagPagerAction($slug, $page)
     {

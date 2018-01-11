@@ -1,0 +1,134 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ 'oktothek_series_blogShow_title'|trans({'%blogpost%': post.name})}}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+{% set body_class = "series blog news" %}
+{% block body_main %}
+<div class="blog col-md-8 col-lg-8 col-sm-12 col-xs-12" itemscope="itemscope" itemtype="http://schema.org/Blog">
+    <header class="page-header">
+        <h1>{{ post.series.name}}</h1>
+        <p>
+            <a href="{{ path('oktothek_show_series', {'uniqID': post.series.uniqID }) }}" class="more pull-left"><span class="icon"><span class="glyphicon glyphicon-menu-left"></span></span>{{ 'oktothek.series_back_to_root'|trans }}</a>
+        </p>
+    </header>
+        {% set text_only = true %}
+        {% if post.assets is not empty %}
+            {% if post.assets[0]|isImage %}
+                {% set text_only = false %}
+            {% endif %}
+        {% endif %}
+
+        <article class="row post" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            {% if text_only == false %}
+                <figure class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <img src="{{ post.assets[0]|thumb(220,390) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                </figure>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            {% else %}
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            {% endif %}
+                    <meta itemprop="datePublished" content="{{ post.createdAt|date('Y-m-d')}}" />
+                    {# <meta itemprop="image" content="{{ post.assets[0]|thumb(220,390) }}"> #}
+                    <meta itemprop="author" content="{{ post.series.name }} Team">
+                    <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
+                        <meta itemprop="name" content="Okto Community TV">
+                        <meta itemprop="logo" content="{{ asset('bundles/app/images/okto_logo.png')}}">
+                    </span>
+                    <p class="tags">
+                        {% for tag in post.tags %}
+                            <a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}" class="tag" itemprop="keywords">{{ tag.text }}</a>
+                        {% endfor %}
+                    </p>
+                    <header class="page-header">
+                        <h3 itemprop="headline"><a href="{{ path( 'oktothek_show_series_blogpost', {'slug': post.slug})}}" itemprop="name">{{ post.name }}</a></h3>
+                    </header>
+                    <p itemprop="description">
+                        {{ post.description|markdown }}
+                    </p>
+                    <p class="misc">
+                        <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
+                    </p>
+                </div>
+            {% include "AppBundle:series/Blog:_shareCollapse.html.twig" %}
+        </article>
+
+    <!-- Kommentare -->
+    {{ render(controller("AppBundle:PostComment:index", {'slug': post.slug})) }}
+    <!-- Ende Kommentare -->
+</div>
+<aside class="col-md-4 col-lg-4 hidden-sm hidden-xs">
+    <div class="aside-inner clearfix">
+        <ul>
+            {% for teaser in teasers %}
+            <li>
+                <span class="time">
+                    {{
+                        'oktothek_series_teaser_date'|trans({
+                            '%day%': 'oktothek_series_teaser_day_choice'|transchoice(teaser.createdAt|date('N')),
+                            '%date%': teaser.createdAt|date('oktothek_series_teaser_date_format'|trans)
+                        })
+                    }}
+                </span>
+                <p>
+                    <a href="{{ path('oktothek_show_series_blogpost', {'slug': teaser.slug})}}">{{ teaser.name }}</a>
+                </p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</aside>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+    <script type="text/javascript">
+        // Comments
+        $('#appbundle_post_comment_submit').click(function(e){
+            if ($('#appbundle_post_comment_text').val().length) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ url('oktothek_post_comment_create', {'post': post.id})}}",
+                    type: 'post',
+                    dataType: 'json',
+                    data: $($(this).parents('form[name="appbundle_post_comment"]')[0]).serialize(),
+                }).complete(function(data) {
+                    $('#appbundle_post_comment_text').val('');
+                    if (data.status = 200) {
+                        $(data.responseText).hide().prependTo('.commentbox').slideDown();
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', '.answer_comment', function(e){
+            e.preventDefault();
+            var parent = $(this).parent()[0];
+            $(this).hide();
+            $.ajax({
+                url: $(this).attr("href"),
+            }).success(function(data) {
+                $(data).hide().appendTo($(parent)).slideDown();
+            });
+        });
+
+        // AJAX pagination
+        $( document ).on('click', '.pagination > li > a', function(e){
+            e.preventDefault();
+            var link = $(this);
+            $.ajax({
+                url: link.attr('href'),
+                context: document.body
+            }).success(function(data) {
+                $(link.parents('.comment-pager')).replaceWith(data);
+            });
+        });
+    </script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+	<link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/news.css') }}" rel="stylesheet" />
+{% endblock %}

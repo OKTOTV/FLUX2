@@ -1,0 +1,5 @@
+<div class="row">
+{% for series in seriess %}
+    {% include "AppBundle:default/Series:SeriesThumb.html.twig" with {'url': path('oktothek_channel', {'uniqID': series.uniqID})} %}
+{% endfor %}
+</div>

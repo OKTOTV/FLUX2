@@ -1,0 +1,161 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ 'oktothek_producer_new_playlist_title'|trans }}{% endblock %}
+
+{% import 'AppBundle::playlist/playlistitem_macro.html.twig' as playlistMacro %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "producer" %}
+{% block body_main %}
+
+{% include 'AppBundle::producer/producerHeader.html.twig' with {'active': 'producer_playlists', 'series': series} %}
+<section class="tabs-content">
+<p class="subheadline">{{ 'oktothek.series_producer_blog_text'|trans }}</p>
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        </fieldset>
+        <fieldset>
+        <div class="form-group search">
+            <div>
+                <label for="episode_search">{{ 'oktothek.playlist_search_label'|trans }}</label>
+                <div class="icon-search"><span class="glyphicon glyphicon-search"></span></div><input type="text" class="form-control" id="episode_search" data-prototype="{{ playlistMacro.playlistitem_macro(form.items.vars.prototype)|e('html_attr') }}"/>
+            </div>
+        </div>
+
+        {{ form_label(form.items) }}
+        <ul id="playlist_items">
+            {% for item in form.items %}
+            <li class="row">
+                <div class="col-md-2 col-xs-2">
+                    <img src="{{ item.vars.value.episode.posterframe(true)|thumb(135,240)}}" class="img img-responsive" />
+                </div>
+                <div class="col-md-9 col-xs-8">
+                    <a href="{{ path('oktothek_show_episode', {'uniqID': item.vars.value.episode.uniqID})}}">
+                        <h3>{{ item.vars.value.episode.series.name|default('') }}</h3>
+                        <p>
+                            <!-- {{ item.vars.value.episode.description }}<br> -->
+                            {{ item.vars.value.episode.name }}
+                        </p>
+                        </a>
+                </div>
+                <div class="col-md-1 col-xs-2">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-danger remove"><span class="glyphicon glyphicon-remove"></span></a>
+                    </div>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item moveup"><span class="glyphicon glyphicon-chevron-up"></span></a><a href="#" class="list-group-item movedown"><span class="glyphicon glyphicon-chevron-down"></span></a>
+                    </div>
+                </div>
+                <div class="hidden">
+                    {{ form_row(item)}}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% do form.items.setRendered %}
+        {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bprsstyle/js/typeahead.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on("click", '.moveup', function( event ) {
+                event.preventDefault();
+                var row = $(this).parents('.row');
+                if (row.prev().length) {
+                    row.slideUp(function() {
+                        row.insertBefore(row.prev()).slideDown(function() {
+                            updateSortNumber();
+                        });
+                    });
+                }
+            });
+
+            $(document).on("click", ".movedown", function( event ) {
+                event.preventDefault();
+                var row = $(this).parents('.row');
+                if (row.next().length) {
+                    row.slideUp(function() {
+                        row.insertAfter(row.next()).slideDown(function() {
+                            updateSortNumber();
+                        });
+                    });
+                }
+            });
+
+            $(document).on("click", '.remove', function( event ) {
+                event.preventDefault();
+                var row = $(this).parents('.row');
+                row.hide('slow', function() {
+                    row.remove();
+                });
+            })
+
+
+            function updateSortNumber() {
+                $('#playlist_items .row :input[type="number"]').each(function(i, row) {
+                    // console.log(row);
+                    $(row).val(i);
+                    // $(row).find(':input[type="number"]').val(i);
+                });
+            }
+
+            function addInput(suggestion) {
+                var input = $('#episode_search');
+                input.typeahead('val', "");
+                var form = input.data('prototype');
+                number = $('#playlist_items > .row').length + 1;
+                form = form.replace(/__name__/g, number);
+                form = form.replace(/__thumb__/g, suggestion.thumb);
+                form = form.replace(/__header__/g, suggestion.name);
+                form = form.replace(/__desc__/g, suggestion.desc);
+                form = $(form);
+                form.find(':input[type="text"]').val(suggestion.uniqID);
+                form.find(':input[type="number"]').val(number);
+                console.log(form);
+                $('#playlist_items').append(form);
+            }
+
+            var episodes = new Bloodhound({
+              datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+              queryTokenizer: Bloodhound.tokenizers.whitespace,
+              remote: {
+                url: '{{ url('oktothek_search_episodes', {'query': "QUERY"}) }}',
+                wildcard: 'QUERY'
+              }
+            });
+
+            $('#episode_search').typeahead(null, {
+                minLength: 3,
+                limit: 8,
+                name: 'episodes',
+                source: episodes,
+                display: 'name',
+                templates: {
+                    empty: [
+                        '<div class="empty-message">',
+                        'nichts zu finden!',
+                        '</div>'
+                    ].join('\n'),
+                    suggestion: function(data) {
+                        return '<div class="row"><div class="col-md-4"><img src="'+data.thumb+'" /></div><div class="col-md-8"><p>'+data.name+'</p></div></div>';
+                    }
+                }
+            }).bind('typeahead:select', function(ev, suggestion) {
+                // console.log(suggestion);
+                addInput(suggestion);
+            });
+        });
+    </script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/playlists.css') }}" rel="stylesheet" />
+{% endblock %}

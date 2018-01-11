@@ -1,0 +1,43 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ 'oktothek_series_producer_episodes_title'|trans({'%series%': series.name}) }}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'producer', 'dropdown': 'user_menu'} %}
+{% endblock %}
+{% set body_class = "producer" %}
+{% block body_main %}
+
+{% include 'AppBundle::producer/producerHeader.html.twig' with {'active': 'producer_episodes', 'series': series} %}
+<section class="tabs-content">
+<p class="subheadline">{{ 'oktothek.series_producer_episode_text'|trans }}</p>
+
+
+<div class="navigation">
+    {{ knp_pagination_render(episodes) }}
+</div>
+<ul class="list-group">
+    {% for episode in episodes %}
+    <li class="row">
+        <figure class="list-group-item">
+            <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 pin">
+                <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}"><img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" /></a>
+            </div>
+            <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-12">
+                <h3><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">{{ episode.name }}</a></h3>
+                <p>{{ episode.description }}</p>
+                <p><a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID})}}" class="btn btn-default">{{ 'oktothek_producer_episodes_statistik'|trans }}</a></p>
+            </figcaption>
+        </figure>
+    </li>
+    {% endfor %}
+</ul>
+<div class="navigation">
+    {{ knp_pagination_render(episodes) }}
+</div>
+</section>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
+{% endblock %}

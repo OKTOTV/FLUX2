@@ -1,0 +1,97 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ 'oktothek_academy_header'|trans }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'academy', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "academy fullscreen-images" %}
+{% block body %}
+    <div id="top"></div>
+    <section class="academy-content fs-image-content">
+        <div class="academy-ident fs-image-ident description-overlay">
+            <figure class="academy-image fs-image"><div style="background-image:url({{ coursetype.image|link }});"></div>
+            <figcaption class="current-course description-wrapper">
+                <div class="container-bg-opacity">
+                    <div class="bg-opacity"></div>
+                </div>
+                <div class="content-opacity">
+                    <h1>{{ coursetype.title }}</h1>
+                    <p class="facts">
+                        {% if coursetype.price <= 0 %}
+                            {{
+                                'oktothek_academy_sCt_facts_free'|trans({
+                                    '%duration%': 'oktothek_academy_duration_choice'|transchoice(coursetype.courses[0].dates|hours)
+                                })
+                            }}
+                        {% else %}
+                            {{ 'oktothek_academy_sCt_facts'|trans(
+                                {
+                                    '%duration%': 'oktothek_academy_duration_choice'|transchoice(coursetype.courses[0].dates|hours),
+                                    '%price%': 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.') })
+                                })|raw
+                             }}
+                     {% endif %}
+                 </p>
+                    <p class="description">{{ coursetype.teaser }}</p>
+                    <p class="misc">
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}">{{ 'oktothek_share_header'|trans }}</button>
+                    </p>
+                </div>
+            </figcaption>
+            </figure>
+        </div>
+        <div class="fs-image-misc-mobile">
+            <p class="misc"><button type="button" class="btn btn-default" data-toggle="collapse" data-target=".collapseShare" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare_mobil" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button></p>
+            <p>
+            {{ 'oktothek_academy_sCt_facts'|trans(
+                {
+                    '%duration%': 'oktothek_academy_duration_choice'|transchoice(coursetype.courses[0].dates|hours),
+                    '%price%': 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.') })
+                })|raw
+             }}
+         </p>
+        </div>
+    </section>
+    <section class="container academy-description">
+        <!-- Start Collapse Share-->
+        {% include 'AppBundle:academy:snippetCoursetypeShare.html.twig' with {'coursetype': coursetype} %}
+        <!-- End Modal Window Share-->
+        <header class="page-header">
+            <h2 id="button_down">{{ 'oktothek_academy_sCt_header_details'|trans({'%coursetype%': coursetype.title}) }}<span class="icon participant-arrow-down"> </span></h2>
+        </header>
+
+        <article class="description">{{ coursetype.description|markdown }}</article>
+    </section>
+    <section class="container">
+        <h2>{{ 'oktothek_academy_sCt_timetable'|trans }}</h2>
+        <ul class="timetable">
+        {% for course in coursetype.courses %}
+            <li>
+                <p>
+                    {% for date in course.dates %}
+                    <span>{{ 'oktothek_academy_timetable_date'|trans({'%day%': 'oktothek_academy_timetable_days_choice'|transchoice(date.courseStart|date('N')), '%date%': date.courseStart|date('oktothek_academy_timetable_date_format'|trans)})}}</span>
+                    {{ 'oktothek_academy_timetable_time'|trans({'start': date.courseStart|date('oktothek_academy_timetable_time_format'|trans), 'end': date.courseEnd|date('oktothek_academy_timetable_time_format'|trans)}) }}
+                    {% endfor %}
+                </p>
+                <p class="booking">
+                    <a href="{{ path('oktothek_academy_book_course', {'course': course.id})}}" class="btn btn-default" title="{{ 'oktothek_academy_sCp_book_title'|trans({'%title%': coursetype})}}">{{'oktothek_academy_book_course'|trans }}</a>
+                </p>
+            </li>
+        {% endfor %}
+        </ul>
+        <p><small>{{ 'oktothek_academy_show_footnote'|trans }}</small></p>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/app/js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{ asset('bundles/app/js/javascript_images.js') }}"></script>
+	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/academy.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bundles/app/css/fs_images.css') }}" rel="stylesheet" />
+	<link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+{% endblock %}

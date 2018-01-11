@@ -10,6 +10,7 @@
         "friendsofsymfony/elastica-bundle": "^5.0",
         "jms/serializer-bundle": "^2.3",
         "knplabs/knp-markdown-bundle": "^1.5",
+        "league/flysystem-aws-s3-v3": "^1.0@dev",
         "okto/media-bundle": "dev-master",
         "oktolab/media-bundle": "dev-master",
         "oneup/flysystem-bundle": "^3.0",

@@ -1,0 +1,40 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ 'oktothek_user_favorites_title'|trans({'%user%': user.username}) }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'favorites', 'dropdown': 'user_menu'} %}
+{% endblock %}
+
+{% set body_class = "clip_overview" %}
+{% block body_main %}
+    <header class="page-header">
+        <h1>{{ 'oktothek.user_favorites_header'|trans({'%user%': user.username}) }}</h1>
+    </header>
+    <section>
+        <div class="row pager-row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    {{ 'oktothek.user_favorites_filter'|trans|raw }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                        <li {% if favorites.isSorted('f.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(favorites, 'oktothek.favorite_index_filter_name'|trans, 'f.name') }}</li>
+                        <li {% if favorites.isSorted('f.firstranAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(favorites, 'oktothek.favorite_index_filter_firstranAt'|trans, 'f.firstranAt') }}</li>
+                        <li {% if favorites.isSorted('s.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(favorites, 'oktothek.favorite_index_filter_series'|trans, 's.name') }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hidden-xs hidden-sm col-md-6 col-lg-6 navigation">
+                {{ knp_pagination_render(favorites) }}
+            </div>
+        </div>
+        <ul class="row">
+        {% for episode in favorites %}
+            {% include 'AppBundle:episode:EpisodeThumb.html.twig' %}
+        {% endfor %}
+        </ul>
+        <div class="navigation row">
+            {{ knp_pagination_render(favorites) }}
+        </div>
+    </section>
+{% endblock %}
