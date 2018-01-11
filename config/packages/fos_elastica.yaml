@@ -1,0 +1,127 @@
+fos_elastica:
+    serializer:
+        serializer: jms_serializer.serializer
+    clients:
+        default: { host: localhost, port: 9200 }
+        # logger: true
+    indexes:
+        episode:
+            client: default
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            episode_analyzer:
+                                type: custom
+                                tokenizer: lowercase
+                                filter: [snowball, my_ngram]
+                        filter:
+                            my_ngram:
+                                type: edgeNGram
+                                min_gram: 3
+                                max_gram: 20
+            types:
+                episode:
+                    serializer:
+                        groups: [search]
+                    properties:
+                        name: { analyzer: episode_analyzer }
+                        description: { analyzer: episode_analyzer }
+                        series_search:      { boost: 3, analyzer: episode_analyzer }
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Episode
+                        provider: ~
+                        listener: ~
+                        finder: ~
+        series:
+            types:
+                series:
+                    serializer:
+                        groups: [search]
+                    properties:
+                        name:        { boost: 8, analyzer: series_analyzer }
+                        description: { analyzer: series_analyzer }
+                    persistence:
+                        driver: orm
+                        model:  AppBundle\Entity\Series
+                        provider: ~
+                        listener: ~
+                        finder: ~
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            series_analyzer:
+                                type: custom
+                                tokenizer: lowercase
+                                filter: [snowball, my_ngram]
+                        filter:
+                            my_ngram:
+                                type: edgeNGram
+                                min_gram: 3
+                                max_gram: 20
+        playlist:
+            types:
+                playlist:
+                    serializer:
+                        groups: [search]
+                    persistence:
+                        driver: orm
+                        model:  AppBundle\Entity\Playlist
+                        provider: ~
+                        listener: ~
+                        finder: ~
+        tag:
+            client: default
+            types:
+                tag:
+                    serializer:
+                        groups: [okto]
+                    properties:
+                        text: { boost: 8, analyzer: tag_analyzer }
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Tag
+                        provider: ~
+                        listener: ~
+                    #     finder: ~
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            tag_analyzer:
+                                type: custom
+                                tokenizer: lowercase
+                                filter: [snowball, my_ngram]
+                        filter:
+                            my_ngram:
+                                type: edgeNGram
+                                min_gram: 3
+                                max_gram: 20
+        coursetype:
+            types:
+                coursetype:
+                    serializer:
+                        groups: [search]
+                    properties:
+                        title:  { boost: 8, analyzer: coursetype_analyzer }
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Course\Coursetype
+                        provider: ~
+                        listener: ~
+                        finder: ~
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            coursetype_analyzer:
+                                type: custom
+                                tokenizer: standard
+                                filter: [my_ngram]
+                        filter:
+                            my_ngram:
+                                type: edgeNGram
+                                min_gram: 3
+                                max_gram: 20

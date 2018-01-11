@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% block metas %}{% endblock %}
+        <base href="{{ app.request.getSchemeAndHttpHost() }}/">
+        <title>{% block title %}{{ name|default() }}{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="shortcut icon" href="{{ asset('bundles/bprsstyle/img/favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ asset('bundles/bprsstyle/img/apple-touch-icon.png') }}">
+    </head>
+    <body class="{{ body_class|default('') }}" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+        {% block javascripts %}
+            <script src="{{ asset('bundles/bprsstyle/js/jquery2.1.4.js') }}"></script>
+            <script src="{{ asset('bundles/bprsstyle/js/bootstrap.min.js') }}"></script>
+            <!--[if lt IE 9]>
+            <script>
+                document.createElement('header');
+                document.createElement('figure');
+                document.createElement('nav');
+                document.createElement('section');
+                document.createElement('article');
+                document.createElement('aside');
+                document.createElement('footer');
+                document.createElement('time');
+            </script>
+            <![endif]-->
+            <script src="{{ asset('bundles/app/js/javascript.js') }}"></script>
+        {% endblock %}
+        {% block header %}{% endblock %}
+        {% block messages %}{% endblock %}
+        <main class="container-fluid">
+            {% block body %}{% endblock %}
+            {% block footer %}{% endblock %}
+        </main>
+        {% block javascript_footer %}
+        {% endblock %}
+    </body>
+</html>

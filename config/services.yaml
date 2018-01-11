@@ -1,0 +1,209 @@
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: 'en'
+    newsletter.api_key:            "%env(mailchimp_api_key)%"
+    okto_help_uniqID:              "%env(okto_help_uniqID)%"
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: true       # Allows optimizing the container by removing unused services; this also means
+                            # fetching services directly from the container via $container->get() won't work.
+                            # The best practice is to be explicit about your dependencies anyway.
+
+    oktothek_post_service:
+        class: AppBundle\Model\PostService
+        arguments: [ "@doctrine.orm.entity_manager", "@bprs.asset_helper"]
+
+    oktothek_playlist_service:
+        class:  AppBundle\Model\PlaylistService
+        arguments: [ "@doctrine.orm.entity_manager", "@oktolab_media" ]
+
+    oktothek_episode:
+        class:  AppBundle\Model\EpisodeService
+        arguments:  [ "@bprs_logbook", "@oktothek_notification_service", "@doctrine.orm.entity_manager" ]
+
+    gedmo.listener.sluggable:
+        class: Gedmo\Sluggable\SluggableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+    mediabundle_user:
+        class: MediaBundle\Form\UserType
+        arguments: [ "@oktothek_user.repository" ]
+        tags:
+            - { name: form.type, alias: mediabundle_user }
+
+    user_service:
+        class: AppBundle\Model\UserService
+        arguments: [ "@doctrine.orm.entity_manager"]
+        public: true
+
+    oktothek_coursepackage:
+        class: AppBundle\Model\CoursepackageService
+        arguments: [ "@form.factory", "@oktothek_academy", "@doctrine.orm.entity_manager" ]
+
+    oktothek_tv:
+        class: AppBundle\Model\TvService
+        arguments: [ "%env(program_url)%" ]
+
+    # Asset repository
+    oktothek_user.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: [ "@doctrine.orm.entity_manager", getRepository ]
+        arguments:  [ AppBundle\Entity\User ]
+
+    oktothek_search:
+        class: AppBundle\Model\SearchService
+        arguments: [ "@fos_elastica.finder.episode.episode", "@fos_elastica.finder.series.series", "@fos_elastica.finder.playlist.playlist", "@fos_elastica.finder.coursetype.coursetype", "@fos_elastica.finder.tag.tag" ]
+
+    oktothek_academy:
+        class: AppBundle\Model\AcademyService
+        arguments: [ "@bprs_sofort", "@doctrine.orm.entity_manager", "@router", "@bprs_user.mailer", "%env(academy_notification_mail)%"]
+
+    oktothek_academy_course:
+        class: AppBundle\Model\CourseService
+        arguments: [ "@doctrine.orm.entity_manager"]
+
+    oktothek_slide:
+        class: AppBundle\Model\SliderService
+        arguments: [ "@bprs.asset_helper", "@doctrine.orm.entity_manager", "@router"]
+
+    oktothek.tag_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory:  [ "@doctrine.orm.entity_manager", getRepository ]
+        arguments:  [ AppBundle\Entity\Tag ]
+
+# voter
+    oktothek_subscription_voter:
+        class: AppBundle\Security\SubscriptionVoter
+        tags:
+            - { name: security.voter }
+        # small performance boost
+        public: false
+
+    oktothek_series_post_voter:
+        class:  AppBundle\Security\SeriesPostVoter
+        tags:
+            - { name: security.voter }
+        public: false
+
+    oktothek_comment_voter:
+        class:  AppBundle\Security\CommentVoter
+        tags:
+            - { name: security.voter}
+        public: false
+
+# TWIG Extension
+    oktothek.twig_extension:
+        class: AppBundle\Twig\AcademyExtension
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    oktothek.twig_user_extension:
+        class: AppBundle\Twig\UserExtension
+        arguments: [ "@oktothek.user_repository"]
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    oktothek.twig_episode_extension:
+        class: AppBundle\Twig\EpisodeExtension
+        arguments: [ "@oktothek.episode_repository", "@translator" ]
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    oktothek.twig_comment_extension:
+        class:  AppBundle\Twig\CommentExtension
+        arguments: [ "@router"]
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    oktothek.user_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory:    [ "@doctrine.orm.entity_manager", getRepository ]
+        arguments:  [ "AppBundle:User"]
+
+    oktothek.episode_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory:    [ "@doctrine.orm.entity_manager", getRepository ]
+        arguments:  [ "%oktolab_media.episode_class%" ]
+
+
+# Playlist form
+    oktothek.playlistitem_type:
+        class: AppBundle\Form\PlaylistItemType
+        arguments: [ "@oktothek.episode_repository" ]
+        tags:
+            - { name: form.type, alias: appbundle_playlist_item }
+
+    oktothek.tag_collection_type:
+        class: AppBundle\Form\TagCollectionType
+        arguments:  [ "@oktothek.tag_repository" ]
+        tags:
+            - { name: form.type, alias: appbundle_tag_collection }
+
+# newsletter
+    oktothek_newsletter:
+        class:  AppBundle\Model\NewsletterService
+        arguments:  [ "%newsletter.api_key%" ]
+
+# producer
+    oktothek_producer_analytics:
+        class:  AppBundle\Model\ProducerService
+        arguments:  [ "@bprs_analytics"]
+
+    oktothek.s3_client:
+        class: Aws\S3\S3Client
+        arguments:
+            -
+                version: 'latest' # or 'latest'
+                region: "eu-central-1" # 'eu-central-1' for example
+                credentials:
+                    key: "%env(oktothek_aws_key)%"
+                    secret: "%env(oktothek_aws_secret)%"
+
+# event listener
+    oktothek.comment_remove_on_episode_delete:
+        class: AppBundle\Event\DeleteEpisodeEventListener
+        arguments:  [ "@doctrine.orm.entity_manager" ]
+        tags:
+            - { name: kernel.event_listener, event: oktolab_media.delete_episode, method: onEpisodeDelete }
+
+    oktothek.series_listener:
+        class: AppBundle\Event\SeriesEventListener
+        arguments: [ "@doctrine.orm.entity_manager" ]
+        tags:
+            - { name: kernel.event_listener, event: oktolab_media.delete_series, method: preSeriesDelete }
+
+    oktothek.asset_listener:
+        class: AppBundle\Event\AssetEventListener
+        arguments: [ "@security.token_storage", "@doctrine.orm.entity_manager" ]
+        tags:
+            - { name: kernel.event_listener, event: bprs_asset.pre_create, method: onPrePersist }
+            - { name: kernel.event_listener, event: bprs_asset.pre_delete, method: onPreDelete }
+
+    oktothek_notification_service:
+        class: AppBundle\Event\NotificationListener
+        arguments: [ "@bprs_user.notification", "@doctrine.orm.entity_manager", "@router", "%bprs_user.mail.commandline_host%" ]
+        tags:
+            - { name: kernel.event_listener, event: oktolab_media.finalized_episode, method: onFinalizedEpisode }
+
+    oktothek_user_listener:
+        class: AppBundle\Event\UserEventListener
+        arguments: [ "@doctrine.orm.entity_manager", "@bprs_user.mailer", "@translator" ]
+        tags:
+            - { name: kernel.event_listener, event: bprs_user.post_password_reset, method: onPostPasswordReset }
+
+    oktothek_episode_logstate_event_listener:
+        class: AppBundle\Event\EpisodeLogstateEventListener
+        arguments: [ "@doctrine.orm.entity_manager" ]
+        tags:
+            - { name: kernel.event_listener, event: start, method: onEpisodeStart }

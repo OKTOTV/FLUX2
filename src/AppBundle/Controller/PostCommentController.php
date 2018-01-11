@@ -23,12 +23,12 @@ class PostCommentController extends Controller
 {
     /**
      * @Route("/{slug}", name="oktothek_post_comments")
-     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
      * @Template()
      */
-    public function indexAction(Request $request, Post $post)
+    public function indexAction(Request $request, $slug)
     {
         $em = $this->getDoctrine()->getManager();
+        $post = $em->getRepository('AppBundle:Post')->findOneBy(['slug' => $slug]);
         $comments = $this->get('knp_paginator')->paginate(
             $em->getRepository('AppBundle:PostComment')->findCommentsForPost($post, 0, true),
             $request->query->get('page', 1),
@@ -42,13 +42,12 @@ class PostCommentController extends Controller
     /**
      * @Security("has_role('ROLE_OKTOLAB_USER')")
      * @Route("/{post}/create", name="oktothek_post_comment_create")
-     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
      * @Template()
      */
     public function newCommentAction(Request $request, Post $post)
     {
         $comment = new PostComment();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->getUser();
         $comment->setUser($user);
         $post->addComment($comment);
 
@@ -88,12 +87,12 @@ class PostCommentController extends Controller
 
     /**
      * @Security("has_role('ROLE_OKTOLAB_USER')")
-     * @Route("/{slug}/{parent}/answer", name="oktothek_post_comment_answer")
-     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
+     * @Route("/{parent}/answer", name="oktothek_post_comment_answer")
      * @Template()
      */
-    public function answerCommentAction(Request $request, Post $post, PostComment $parent)
+    public function answerCommentAction(Request $request, PostComment $parent)
     {
+        $post = $parent->getPost();
         $comment = new PostComment();
 
         $form = $this->createForm(
@@ -113,7 +112,7 @@ class PostCommentController extends Controller
         if ($request->getMethod() == "POST") {
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $user = $this->get('security.context')->getToken()->getUser();
+                $user = $this->getUser();
                 $comment->setUser($user);
                 $parent->addChild($comment);
                 $post->addComment($comment);
@@ -128,7 +127,7 @@ class PostCommentController extends Controller
             }
         }
         if ($request->isXmlHttpRequest()) {
-            return $this->render("AppBundle::PostComment/_form.html.twig", ['form' => $form->createView()]);
+            return $this->render("AppBundle::Post_Comment/_form.html.twig", ['form' => $form->createView()]);
         }
         return ['form' => $form->createView(), 'comment' => $parent, 'post' => $post];
     }

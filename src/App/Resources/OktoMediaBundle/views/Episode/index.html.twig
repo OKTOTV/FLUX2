@@ -1,0 +1,137 @@
+{%- extends "BprsStyleBundle::layout.html.twig" -%}
+
+{%- block nav_head -%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'backend', 'dropdown': ''} %}
+{%- endblock -%}
+
+{%- block body_main -%}
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="{{ path('oktolab_series') }}">{{ 'oktolab_media.series_index_header'|trans }}</a></li>
+    <li role="presentation" class="active"><a href="{{ path('oktolab_episode_index') }}">{{ 'oktolab_media.episode_index_header'|trans }}</a></li>
+    <li role="presentation"><a href="{{ path('oktolab_media_index') }}">{{ 'oktolab_media.media_index_header'|trans }}</a></li>
+</ul>
+
+    <div class="page-header">
+        <p>
+            {% if app.request.query.get('inactive_only') == 0 %}
+                {{ 'oktolab_media.episodes_index_total'|trans({'%episodes%': episodes.getTotalItemCount}) }}
+            {% else %}
+                {{ 'oktolab_media.episodes_index_inactive_total'|trans({'%episodes%': episodes.getTotalItemCount}) }}
+            {% endif %}
+        </p>
+        <!-- Single button -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'oktolab_media.episode_index_action_dropdown'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{{ path('oktolab_episode_new') }}">
+                        {{ 'oktolab_media.episode_index_new'|trans|raw }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('oktothek_backend_export_episode_statistics', {'starttime': '-3 months'|date('Y-m-d'), 'endtime': 'now'|date('Y-m-d')})}}">
+                        {{ 'oktothek_export_episode_statistics'|trans|raw }}
+                    </a>
+                </li>
+                {% if app.request.query.get('inactive_only') == 0 %}
+                    <li>
+                        <a href="{{ path('oktolab_episode_index', {'inactive_only': '1'}) }}">
+                            {{ 'oktolab_media.episode_index_show_inactive'|trans|raw }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('oktolab_episode_index') }}">
+                            {{ 'oktolab_media.episode_index_show_all'|trans|raw }}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ 'oktolab_media.episode_index_sort_dropdown'|trans|raw }}
+          </button>
+          <ul class="dropdown-menu">
+            <li{% if episodes.isSorted('e.name') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'Name', 'e.name') }}</li>
+            <li{% if episodes.isSorted('e.firstranAt') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktolab_media.episode_index_firstranAt'|trans, 'e.firstranAt', {'direction': 'desc'}) }}</li>
+            <li{% if episodes.isSorted('e.updatedAt') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktolab_media.episode_index_updatedAt'|trans, 'e.updatedAt', {'direction': 'desc'}) }}</li>
+            <li{% if episodes.isSorted('e.createdAt') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktolab_media.episode_index_createdAt'|trans, 'e.createdAt', {'direction': 'desc'}) }}</li>
+            <li{% if episodes.isSorted('e.uniqID') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'UniqID', 'e.uniqID') }}</li>
+            <li{% if episodes.isSorted('s.name') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'Series', 's.name') }}</li>
+            <li{% if episodes.isSorted('e.duration') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktolab_media.episode_index_duration'|trans, 'e.duration') }}</li>
+            <li{% if episodes.isSorted('e.isActive') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktolab_media.episode_index_isActive'|trans, 'e.isActive') }}</li>
+            <li{% if episodes.isSorted('e.stereomode')%} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktolab_media.episode_index_stereomode'|trans, 'e.stereomode') }}</li>
+            <li{% if episodes.isSorted('e.views') %} class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.episode_index_views'|trans, 'e.views') }}</li>
+          </ul>
+        </div>
+    </div>
+
+    <div class="navigation">
+        {{ knp_pagination_render(episodes) }}
+    </div>
+        <div class="row">
+
+
+            {% for episode in episodes %}
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}">
+                                <img src="{{ episode.posterframe(true)|thumb(720,1280)}}" class="img-responsive" />
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <dl class="dl-horizontal">
+                                <dt>{{ 'oktolab_media.episode_index_name'|trans }}</dt>
+                                <dd><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}">{{ episode.name }}</a></dd>
+                                <dt>{{ 'oktolab_media.episode_index_uniqID'|trans }}</dt>
+                                <dd><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}">{{ episode.uniqID }}</a></dd>
+                                <dt>{{ 'oktolab_media.episode_index_series_name'|trans }}</dt>
+                                <dd>
+                                    {% if episode.series is not empty %}
+                                        <a href="{{ path('oktolab_series_show', {'series': episode.series.uniqID}) }}">{{ episode.series.name }}</a>
+                                    {% endif %}
+                                </dd>
+                                <dt>{{ 'oktolab_media.episode_index_firstranAt'|trans }}</dt>
+                                <dd>{{ episode.firstRanAt|date('d.m.Y')}}</dd>
+                                <dt>{{ 'oktolab_media.episode_index_updatedAt'|trans }}</dt>
+                                <dd>{{ episode.updatedAt|date('H:i:s d.m.Y')}}</dd>
+                                <dt>{{ 'oktolab_media.episode_index_description'|trans }}</dt>
+                                <dd>
+                                    {% if episode.description|length > 500 %}
+                                        {{ episode.description|slice(0, 497) ~ '...'|nl2br }}
+                                    {% else %}
+                                        {{ episode.description|nl2br }}
+                                    {% endif %}
+                                </dd>
+                                <dt>{{ 'oktolab_media.episode_index_stereomode'|trans }}</dt>
+                                <dd>{{ 'oktolab_media.stereomode_choice'|transchoice(episode.stereomode) }}</dd>
+                                <dt>
+                                    {{ 'oktolab_media.episode_index_duration'|trans }}
+                                </dt>
+                                <dd>
+                                    {{ episode.duration|duration }}
+                                </dd>
+                                <dt>
+                                    {{ 'oktolab_media.episode_index_isActive'|trans }}
+                                </dt>
+                                <dd>
+                                    {{ 'oktolab_media.episode_index_isActiveChoice'|transchoice(episode.isActive) }}
+                                </dd>
+                                <dt>
+                                    {{ 'oktothek.episode_index_views'|trans }}
+                                </dt>
+                                <dd>
+                                    {{ episode.views }}
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+            {% endfor %}
+            </div>
+    <div class="navigation">
+        {{ knp_pagination_render(episodes) }}
+    </div>
+{%- endblock -%}

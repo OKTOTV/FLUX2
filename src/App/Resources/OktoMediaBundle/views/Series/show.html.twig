@@ -1,0 +1,126 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'delorian', 'dropdown': ''} %}
+{% endblock %}
+
+{% block body_main -%}
+    <div class="page-header">
+        <h1>{{ series }}</h1>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'oktolab_media.series_show_actions'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{{ path('okto_media_new_episode_for_series', {'uniqID': series.uniqID})}}">
+                        {{ 'okto_media.series_add_new_episode'|trans|raw }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('oktolab_series_edit', { 'series': series.uniqID }) }}">
+                        {{ 'oktolab_media.series_edit_button'|trans|raw }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('oktolab_media_export_series', {'series': series.uniqID}) }}">
+                        {{ 'oktolab_media.series_export_button'|trans|raw }}
+                    </a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ path('oktolab_series_edit_tags', { 'series': series.uniqID }) }}">{{ 'okto_media.series_edit_tag_button'|trans|raw }}</a></li>
+                <li>
+                    <a href="{{ path('okto_media_series_tag_publicate', {'uniqID': series.uniqID})}}">
+                        {{ 'okto_media_series_show_publicate_tag_button'|trans|raw }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('okto_media_set_state', {'uniqID': series.uniqID})}}">
+                        {{ 'okto_media.show_series_set_state'|trans|raw }}
+                    </a>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
+                    <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}">
+                        {{ 'oktothek.series_show_frontend'|trans|raw }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            {% if series.posterframe is not empty %}
+                <img src="{{ series.posterframe|path }}" class="img-responsive" />
+            {% endif %}
+            {{ series.description }}
+        </div>
+        <div class="col-md-5">
+            <h4>{{ 'oktolab_media_info_for_series_header'|trans }}</h4>
+            <dl class="dl-horizontal">
+                <dt>{{ 'oktolab_media.series_info_isActive'|trans }}</dt>
+                <dd>{{ 'oktolab_media.series_info_isActive_choice'|transchoice( series.isActive ) }}</dd>
+
+                <dt>{{ 'oktolab_media.series_info_createdAt'|trans }}</dt>
+                <dd>{{ series.createdAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.series_info_updatedAt'|trans }}</dt>
+                <dd>{{ series.updatedAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.series_info_uniqID'|trans}}</dt>
+                <dd>{{ series.uniqID }}</dd>
+
+                <dt>{{ 'oktolab_media.series_info_webtitle'|trans}}</dt>
+                <dd>{{ series.webtitle }}</dd>
+            </dl>
+            <div class="list-group">
+                {% for reachme in series.reachmes %}
+                        <a href="{{ path('flux2_reachme_show', {'reachme': reachme.id })}}" class="list-group-item">{{ 'reachme_type_transchoice'|transchoice(reachme.type) }}</a>
+                {% endfor %}
+                <a href="{{ path('flux2_reachme_new', {'series_uid': series.uniqID})}}" class="list-group-item">{{ 'flux2_reachme_new'|trans|raw}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>{{ 'oktothek.series_show_added_users'|trans }}</h2>
+            <div class="list-group">
+                {% for user in series.users %}
+                <a href="mailto:{{ user.email }}" class="list-group-item">{{ user.username }} ({{ user.email }})</a>
+                {% endfor %}
+                <a href="{{ path('oktolab_series_edit_user', {'series': series.uniqID}) }}" class="list-group-item">{{ 'oktothek.series_add_user'|trans|raw }}</a>
+            </div>
+        </div>
+    </div>
+        {{ render(controller('OktolabMediaBundle:Series:paginationEpisodes', {'page': 1, 'series': series.id })) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var updateView = function(e, link) {
+            e.preventDefault();
+            var link = $(link);
+            $.ajax({
+                url: link.attr('href'),
+                context: document.body
+            }).success(function(data) {
+                $(link.parents('.episode-pager')).replaceWith(data);
+            });
+        }
+        // AJAX pagination
+        $( document ).on('click', '.pagination > li > a', function(e){
+            updateView(e, this);
+        });
+
+        $( document ).on('click', '.sortable', function(e){
+            updateView(e, this);
+        });
+        $( document ).on('click', '.asc', function(e){
+            updateView(e, this);
+        });
+        $( document ).on('click', '.desc', function(e){
+            updateView(e, this);
+        });
+    </script>
+{% endblock %}

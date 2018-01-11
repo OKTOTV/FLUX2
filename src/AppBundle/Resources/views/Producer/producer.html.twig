@@ -18,7 +18,7 @@
         <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }}<button class="btn btn-default updateNotifications" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>
         {% for episodecomment in newest_episode_comments %}
             <div class="row">
-                {% include "AppBundle::PostComment/_comment.html.twig" with {'comment': episodecomment} %}
+                {% include "AppBundle::Post_Comment/_comment.html.twig" with {'comment': episodecomment} %}
             </div>
         {% endfor %}
         <h3>{{ 'oktothek.series_producer_newest_blogpost_comments'|trans }}<button class="btn btn-default updateNotifications" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>

@@ -1,0 +1,6 @@
+jms_serializer:
+    metadata:
+        auto_detection: false
+    visitors:
+        json:
+            options: JSON_HEX_QUOT

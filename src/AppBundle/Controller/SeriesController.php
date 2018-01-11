@@ -21,14 +21,17 @@ class SeriesController extends Controller
 {
     /**
      * @Route("/post/{slug}.{_format}", name="oktothek_show_series_blogpost", defaults={"_format": "html"})
-     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
      * @Method("GET")
      * @Template()
      */
-    public function blogShowAction(Post $post)
+    public function blogShowAction($slug)
     {
-        $teaser = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post')->findNewestPosts(5, $post->getSeries());
-        return ['post' => $post, 'teasers' => $teaser];
+        $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post');
+        $post = $repo->findOneBy(['slug' => $slug]);
+        return [
+            'post' => $post,
+            'teasers' => $repo->findNewestPosts(5, $post->getSeries())
+        ];
     }
 
     /**

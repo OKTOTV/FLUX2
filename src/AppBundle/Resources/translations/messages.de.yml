@@ -250,6 +250,7 @@ oktothek.page_text_label:               "Seiteninhalt"
 oktothek.page_isActive_label:           "Seite Aktiv"
 oktothek.page_create_button:            '<span class="glyphicon glyphicon-floppy-disk"></span> Speichern'
 oktothek.page_preview_button:           'Vorschau <span class="glyphicon glyphicon-chevron-right"></span>'
+oktothek.page_preview_back_button:      '<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zurück zur Bearbeitung'
 
 oktothek.success_create_page:           "Seite erfolgreich angelegt"
 oktothek.success_delete_page:           "Seite erfolgreich gelöscht"
@@ -332,7 +333,7 @@ oktothek.comment_update_button:         "Aktualisieren"
 oktothek.comment_delete_button:         "Löschen"
 
 ## AppBundle/Resources/views/PostComment/index.html.twig
-oktothek.post_comment_header:           "Kommentare"
+oktothek.post_comment_header:           '{0} <span class="no_comment">Gib als Erster einen Kommentar ab</span> |{1} Ein Kommentar |]1,Inf[ <span class="comments-counter">%count%</span> Kommentare'
 
 ### commentPager.html.twig
 oktothek_comment_cP_login_title:        "Zum Kommentieren anmelden"

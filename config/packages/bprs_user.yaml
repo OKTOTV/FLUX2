@@ -1,0 +1,22 @@
+bprs_user:
+    class: "AppBundle\\Entity\\User"                        # add me to .env and .env.dist
+    register_header: "Registierung auf OKTO abschließen"
+    iforgot_header:  "Passwort auf OKTO zurücksetzen"
+    mail:
+        commandline_host: "localhost/FLUX2/web/app_dev.php" # add me to .env and .env.dist
+        adress:           "oktobot@okto.tv"                 # add me to .env and .env.dist
+        name:             "OKTOBOT"                         # add me to .env and .env.dist
+    permissions:
+        - ROLE_ADMIN
+        - ROLE_BPRS_USER_BACKEND
+        - ROLE_BPRS_APPLINK_BACKEND
+        - ROLE_BPRS_COMMANDLINE_BACKEND
+        - ROLE_BPRS_ASSET_READ
+        - ROLE_BPRS_ASSET_WRITE
+        - ROLE_BPRS_ASSET_DELETE
+        - ROLE_OKTOLAB_MEDIA_READ
+        - ROLE_OKTOLAB_USER
+        - ROLE_OKTOLAB_PRODUCER
+        - ROLE_USER
+    user_defaults:
+        - ROLE_OKTOLAB_USER

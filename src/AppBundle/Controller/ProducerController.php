@@ -114,8 +114,8 @@ class ProducerController extends Controller
                 $em->persist($post);
                 $em->persist($series);
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_post');
                 $this->get('oktothek_notification_service')->onNewPost($post);
+                $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_post');
                 return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_post');
