@@ -17,21 +17,21 @@
             {% if episodes is not empty %}
                 <section class="inc-pins" itemscope="itemscope" itemtype="http://schema.org/ItemList">
                     <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
-                    {% include "AppBundle::tag/episodeTag.html.twig" with {'episodes': episodes} %}
+                    {% include "AppBundle::tag/episode_tag.html.twig" with {'episodes': episodes} %}
                     <a href="{{ path('oktothek_detailed_episode_search', {'phrase': searchphrase})}}">{{ 'oktothek_search_show_more_episode_results'|trans }}</a>
                 </section>
             {% endif %}
             {% if seriess is not empty %}
                 <section class="inc-pins">
                     <h2>{{ 'oktothek_tag_series_header'|trans }}</h2>
-                    {% include "AppBundle::tag/seriesTag.html.twig" with {'seriess': seriess} %}
+                    {% include "AppBundle::tag/series_tag.html.twig" with {'seriess': seriess} %}
                     <a href="{{ path('oktothek_detailed_series_search', {'phrase': searchphrase})}}">{{ 'oktothek_search_show_more_series_results'|trans }}</a>
                 </section>
             {% endif %}
             {% if playlists is not empty %}
                 <section class="inc-pins">
                     <h2>{{ 'oktothek_tag_playlists_header'|trans }}</h2>
-                    {% include "AppBundle::tag/playlistTag.html.twig" with {'playlists': playlists} %}
+                    {% include "AppBundle::tag/playlist_tag.html.twig" with {'playlists': playlists} %}
                 </section>
             {% endif %}
             {% if coursetypes is not empty %}
