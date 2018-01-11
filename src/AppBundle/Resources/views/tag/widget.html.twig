@@ -1,0 +1,12 @@
+<div class="form-group{% if div_classes is defined %} {{ div_classes }}{% endif %}">
+    {{ form_label(widget)}}
+    <input type="text" class="form-control tag-input" placeholder="{{'oktothek_tag_placeholder'|trans }}" data-url="{{ path('oktothek_tag_ajax') }}">
+    <div class="list-group tags" data-prototype='{{ form_widget(widget.vars.prototype)|raw }}'>
+        {%- for children in widget.children -%}
+            <span class="label label-default remove">
+                {{ children.vars.value }}{{ form_widget(children) }}
+            </span>
+        {%- endfor -%}
+    </div>
+</div>
+{% do widget.setRendered %}

@@ -1,0 +1,39 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title%}{{ tag.text~' | '~name|default('OKTO') }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "clip_overview" %}
+{% block body %}
+<div id="top"></div>
+<main>
+    <div class="container-fluid">
+        <div class="bg-bleur"></div>
+        <header class="container page-header">
+            <h1>{{ 'oktothek.tag_pager_playlists_header'|trans({'%tag%': tag}) }}</h1>
+            {% include "AppBundle:default:_share.html.twig" with {'show_button': true} %}
+        </header>
+        </div>
+        <section class="container pager-row">
+        <div class="navigation row">
+            {{ knp_pagination_render(playlists) }}
+        </div>
+        <div>
+            {% include 'AppBundle::default/Playlist/PlaylistStack.html.twig' with {'playlists': playlists} %}
+        </div>
+        <div class="navigation row">
+            {{ knp_pagination_render(playlists) }}
+        </div>
+    </section>
+</main>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+{% endblock %}

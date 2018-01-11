@@ -1,0 +1,6 @@
+{% for post in posts|slice(0,3) %}
+    {% include 'AppBundle::news/_newsRow.html.twig' with {'newsloop': loop.index }%}
+{% endfor %}
+{% if posts|length > 3 %}
+    <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}">Mehr anzeigen</a>
+{% endif %}
