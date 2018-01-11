@@ -1,0 +1,76 @@
+oneup_uploader:
+    chunks:
+        maxage: 86400
+        storage:
+            directory: "%kernel.cache_dir%/uploader/chunks"
+    mappings:
+        cache:
+            frontend: blueimp
+            storage:
+                type: flysystem
+                filesystem: oneup_flysystem.cache_filesystem
+        posterframe:
+            frontend: blueimp
+            storage:
+                type: flysystem
+                filesystem: oneup_flysystem.posterframe_filesystem
+        video:
+            frontend: blueimp
+            storage:
+                type: flysystem
+                filesystem: oneup_flysystem.video_filesystem
+        gallery:
+            frontend: blueimp
+            storage:
+                type: flysystem
+                filesystem: oneup_flysystem.gallery_filesystem
+        promo:
+            frontend: blueimp
+            storage:
+                type: flysystem
+                filesystem: oneup_flysystem.promo_filesystem
+        sprite:
+            frontend: blueimp
+            storage:
+                type: flysystem
+                filesystem: oneup_flysystem.promo_filesystem
+
+oneup_flysystem:
+    adapters:
+        posterframe:
+            local:
+                directory: '%kernel.root_dir%/../../public/uploads/posterframes'  # add me to .env and .env.dist
+        video:
+            local:
+                directory: '%kernel.root_dir%/../../public/uploads/videos'    # add me to .env and .env.dist
+        cache:
+            local:
+                directory: '%kernel.root_dir%/../../public/uploads/cache' # add me to .env and .env.dist
+        gallery:
+            local:
+                directory: '%kernel.root_dir%/../../public/uploads/gallery'   # add me to .env and .env.dist
+        promo:
+            local:
+                directory: '%kernel.root_dir%/../../public/uploads/promo' # add me to .env and .env.dist
+        sprite:
+            local:
+                directory: '%kernel.root_dir%/../../public/uploads/sprite'    # add me to .env and .env.dist
+    filesystems:
+        posterframe:
+            adapter: posterframe
+            mount: posterframe
+        video:
+            adapter: video
+            mount: video
+        cache:
+            adapter: cache
+            mount: cache
+        gallery:
+            adapter: gallery
+            mount: gallery
+        promo:
+            adapter: promo
+            mount: promo
+        sprite:
+            adapter: sprite
+            mount: sprite

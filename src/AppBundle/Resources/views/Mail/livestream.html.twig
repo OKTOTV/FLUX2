@@ -27,8 +27,8 @@
                     {{
                         'oktothek.notific_mail.new_episode_abo_settings'|trans(
                             {
-                                '%series_link%': url('oktothek_show_series', {'uniqID': episode.series.uniqID}),
-                                '%series%':   episode.series.name,
+                                '%series_link%': url('oktothek_show_series', {'uniqID': series.uniqID}),
+                                '%series%':   series.name,
                                 '%abo_link%': url('user_update_abonnement', {'abonnement': abonnement.id})
                             }
                         )|raw

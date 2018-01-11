@@ -17,7 +17,7 @@
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <h3>{{ 'oktothek.newsletter_header'|trans }}</h3>
-                {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_default_newsletter }))}}
+                {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': 'oktothek_default_newsletter' }))}}
             </div>
         </div>
     </section>
@@ -28,11 +28,6 @@
         <section class="partner col-md-12 col-sm-12 col-xs-12">
             <h3 class="sr-only">{{ 'oktothek_default_footer_partner'|trans }}</h3>
             <ul>
-                <li>
-                    <object data="{{ asset('bundles/app/images/partner/partner_herold.svg')}}" type="text/svg+xml" width="155" height="30">
-                        <img src="{{ asset('bundles/app/images/partner/partner_herold.png')}}" width="155" height="30" alt="Herold.at">
-                    </object>
-                </li>
                 <li>
                     <object data="{{ asset('bundles/app/images/partner/partner_rtr.svg')}}" type="text/svg+xml" width="63" height="85">
                         <img src="{{ asset('bundles/app/images/partner/partner_rtr.png')}}" width="63" height="85" alt="RTR">

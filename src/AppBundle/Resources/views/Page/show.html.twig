@@ -9,7 +9,7 @@
 {% block body %}
 <div class="container content">
     {% if page.id is empty %}
-        <a href="#" onclick="goBack();return false;" class="btn btn-default">{{ 'oktothek.page_preview_back_button'|trans }}</a>
+        <a href="#" onclick="goBack();return false;" class="btn btn-default">{{ 'oktothek.page_preview_back_button'|trans|raw }}</a>
     {% else %}
         {% if is_granted('ROLE_USER')%}
             <a href="{{ path('oktothek_page_edit', {'page': page.id})}}" class="btn btn-default">{{ 'oktothek.page_edit_button'|trans|raw }}</a>

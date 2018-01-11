@@ -1,0 +1,16 @@
+twig:
+    paths: ['%kernel.project_dir%/templates']
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+        name:         "OKTO"
+        version:      "Alpha"
+        junksize:     "%env(bprs_asset_junksize)%"
+        intake_url:   "http://intake.okto.tv"
+        oktothek_default_newsletter: "%env(mailchimp_default_newsletter)%"
+        oktothek_academy_newsletter: "%env(mailchimp_academy_newsletter)%"
+        oktothek_academy_mail:       "%env(oktothek_academy_mail)%"
+        okto_streamurl: "%env(okto_stream_url)%"
+    charset:    "UTF-8"
+    form_themes:
+        - 'BprsStyleBundle:Form:fields.html.twig'
