@@ -1,0 +1,31 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block metas %}
+<meta name="description" content="Wie erstelle ich einen Account und welche Vorteile bringt es Teil Okto-Community zu sein? Hier findest du die Antworten! Alle Features des Oktoversums, wie zum Beispiel das Erstellen und Teilen von Playlists, das Verwalten deiner Abos oder das Teilen von Videos in deine sozialen Netzwerke oder werden in diesem Bereich genau erklärt.">
+{% endblock %}
+{% block title %}So funktioniert das Oktoversum{#{ 'oktothek_participate_title'|trans }#}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "page" %}
+{% block body %}
+    <div id="top"></div>
+    <header class="page-header">
+        <h1 itemprop="headline">Impressum / Offenlegung gem. § 25 MedG</h1>
+    </header>
+    <div class="container-fluid">
+        <section class="container">
+            <h3>Medieninhaberin</h3>
+            <p>Community TV-GmbH<br>Goldschlagstraße 172/ Stiege 4<br>1140 Wien</p>
+            <h3>Unternehmensgegenstand</h3>
+            <p>Betrieb einer Fernsehanstalt</p>
+            <h3>Geschäftsführer</h3>
+            <p>Mag. Christian Jungwirth, MBA</p>
+            <h3>Gesellschafter</h3>
+            <p>Verein zur Gründung und zum Betrieb Offener Fernsehkanäle Wien</p>
+            <h3>Zuständige Regulierungsbehörde</h3>
+            <p>KommAustria, Mariahilfer Straße 77-79, 1060 Wien</p>
+        </section>
+    </div>
+{% endblock %}
