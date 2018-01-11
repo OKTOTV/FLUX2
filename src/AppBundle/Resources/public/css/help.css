@@ -220,16 +220,6 @@ body.help .help-participate li:nth-child(1) figure {
 body.help .help-participate li:nth-child(2n) figure {
     padding-top:160px;
 }
-body.help .help-participate li:nth-child(1) figure span {
-    padding-top:25px;
-}
-body.help .help-participate li:nth-child(2) figure span, body.help .help-participate li:nth-child(3) figure span, body.help .help-participate li:nth-child(4) figure span {
-    padding-top:10px;
-}
-body.help .help-participate li:nth-child(5) figure span {
-    padding-left:28px;
-    padding-top:25px;
-}
 body.help .help-participate figure span {
     margin-bottom:10px;
 }

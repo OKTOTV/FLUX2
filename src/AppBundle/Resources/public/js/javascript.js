@@ -234,9 +234,9 @@ $(document).ready(function(){
 	}
     
     function setHeight_more(el) {
-        if ($(el).parents('li.more').width() == 50) {
+        if ($(el).parents('article.more').width() == 50) {
             var moreHeight = ((($(el).parents('section.container').width() - 50)/2)/16) * 9 + 67;
-        } else if ($(el).parents('li.more').width() == 100) {
+        } else if ($(el).parents('article.more').width() == 100) {
             var moreHeight = (($( window ).width() - 10)/16) * 9;
         }
         $(el).css('height', moreHeight + 'px');

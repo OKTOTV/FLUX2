@@ -201,19 +201,6 @@
     vertical-align:center;
     top:-2px;
 }
-.livestream .schedule h5 {
-    margin-top:24px;
-    margin-bottom:5px;
-}
-.livestream .schedule .repeats.row {
-    padding-left:0;
-    padding-right:0;
-}
-.livestream .schedule .repeats li {
-    display: inline;
-    padding-right: 20px;
-    padding-left:0;
-}
 @media (min-width: 420px) {
     .livestream .schedule .panel-heading .time, 
     .livestream header.page-header .navbar-nav:first-child, 
@@ -307,9 +294,6 @@
     }
     .livestream #current_show .panel-heading, .livestream #current_show .panel-heading + div {
         margin-left:0px;
-    }
-    .livestream .schedule .repeats li.col-lg-1 {
-        width: auto;
     }
 }
 @media (min-width: 992px) {

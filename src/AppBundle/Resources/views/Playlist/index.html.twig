@@ -11,7 +11,6 @@
     <p class="aligncenter subheadline" itemprop="description">{{ 'oktothek.playlist_index_description'|trans({'%count%': pagination.getTotalItemCount}) }}</p>
 </header>
 <section class="container" itemscope="itemscope" itemtype=" http://schema.org/CollectionPage">
-    <h2 class="sr-only">Playlists</h2>
     <div class="row pager-row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="dropdown">
@@ -31,6 +30,7 @@
             </div>
         </div>
     </div>
+    <h2 class="sr-only">Playlists</h2>
     <ul class="row">
         {% for playlist in pagination %}
             {% include 'AppBundle:Default:Playlist/PlaylistThumb.html.twig' %}

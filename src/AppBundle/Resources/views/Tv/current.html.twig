@@ -34,7 +34,7 @@
     <ul class="panel-group schedule visible-xs-block" role="tablist">
         {% for next in current|slice(1) %}
         <li class="panel panel-default row">
-                  <div class="panel-heading" role="tab" id="next_item{{ loop.index0 }}">
+                  <div class="panel-heading" role="tab" id="item{{ loop.index0 }}">
                       <span class="time">{{ next.airdate|date('H:i')}}</span><h4>{% if next.name is not empty %}
                         {{'oktothek_tv_current_long'|trans({'%episode%': next.name, '%series%': next.series_name}) }}
                         {% else %}
