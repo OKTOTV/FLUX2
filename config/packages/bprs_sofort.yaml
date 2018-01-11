@@ -1,0 +1,4 @@
+bprs_sofort:
+    customer_id:    "%env(customer_id)%"
+    project_id:     "%env(project_id)%"
+    api_id:         "%env(api_id)%"

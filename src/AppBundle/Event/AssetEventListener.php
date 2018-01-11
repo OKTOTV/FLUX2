@@ -22,6 +22,7 @@ class AssetEventListener {
 
     public function onPreDelete(DeleteAssetEvent $event)
     {
+        # TODO: unlink coursepackages
         # remove slides
         $slide_repo = $this->em->getRepository("AppBundle::Slide");
         $slides = $slide_repo->findSlidesWithAsset($event->getAsset());

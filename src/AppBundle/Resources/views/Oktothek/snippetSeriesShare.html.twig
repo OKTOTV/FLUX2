@@ -14,7 +14,7 @@
                     <li><a href="https://plus.google.com/share?url={{ share_url }}" class="icon-googleplus" target="_blank" title="Sendereihe auf Google Plus teilen"><span itemprop="recipient">{{ 'oktothek_series.share_gp'|trans }}</span></a></li>
                     <li><a href="https://pinterest.com/pin/create/link/?url={{ share_url }}&media={{ series.posterframe|thumb(720,1280)}}" class="icon-pinterest" target="_blank" title="Sendereihe auf Pinterest teilen"><span itemprop="recipient">{{ 'oktothek_series.share_pint'|trans }}</span></a></li>
                 </ul>
-                <a href="mailto:?to=&subject={{ series.name|url_encode }}&body={{ share_url }}" class="btn btn-default" itemprop="recipient">{{ 'oktothek_share_email'|trans }}</a>
+                <a href="mailto:?to=&subject={{ series.name }}&body={{ share_url }}" class="btn btn-default" itemprop="recipient">{{ 'oktothek_share_email'|trans }}</a>
             </div>
         </div>
     </div>

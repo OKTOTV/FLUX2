@@ -76,24 +76,6 @@ class DefaultController extends Controller
         );
         return ['episode' => $episode];
     }
-    
-    /**
-     * @Route("/imprint", name="imprint")
-     * @Template()
-     */
-    public function imprintAction()
-    {
-        return [];
-    }
-    
-    /**
-     * @Route("/contact", name="contact")
-     * @Template()
-     */
-    public function contactAction()
-    {
-        return [];
-    }
 
     /**
     * @Route(

@@ -87,6 +87,7 @@
         </article>
         <!-- Ende Serienbeschreibung -->
     </section>
+    {{ render(controller("AppBundle:Series:episodesWithTagsAjax", { 'uniqID': series.uniqID })) }}
     {% if teasers is not empty %}
         <section class="blog">
             <div id="anchor_blog"></div>
@@ -96,7 +97,6 @@
             </div>
         </section>
     {% endif %}
-    {{ render(controller("AppBundle:Series:episodesWithTagsAjax", { 'uniqID': series.uniqID })) }}
     {% if series.reachmes is not empty %}
         <section class="container">
             <div class="infos">

@@ -7,6 +7,7 @@
 
 {% set body_class = "clip_overview" %}
 {% block body_main %}
+<main>
     <section class="container">
         <header>
             <h1>{{ 'oktothek_search_episodes_results_header'|trans({'%phrase%': phrase}) }}</h1>
@@ -26,4 +27,5 @@
             {{ knp_pagination_render(episodes) }}
         </div>
     </section>
+</main>
 {% endblock %}

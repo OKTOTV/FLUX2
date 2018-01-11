@@ -8,6 +8,7 @@
 {% set body_class = "clip_overview" %}
 {% block body %}
 <div id="top"></div>
+<main>
     <div class="container-fluid">
         <div class="bg-bleur"></div>
         <header class="container page-header">
@@ -42,7 +43,8 @@
                 {{ knp_pagination_render(episodes) }}
             </div>
         </div>
-    </section>
+        </section>
+</main>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

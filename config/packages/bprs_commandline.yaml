@@ -1,0 +1,4 @@
+bprs_command_line:
+    php_path: "php"                 # add me to .env and .env.dist
+    worker_queue: "flux2"           # add me to .env and .env.dist
+    redis_backend: "localhost:6379" # add me to .env and .env.dist

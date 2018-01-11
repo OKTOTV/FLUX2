@@ -7,11 +7,11 @@
 
 {% set body_class = "clip_overview" %}
 {% block body_main %}
+<main>
     <header class="page-header">
         <h1><a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID}) }}">{{ series }}</a></h1>
     </header>
     <section class="container">
-        <h2 class="sr-only">Episoden</h2>
         <div class="row pager-row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="dropdown">
@@ -30,6 +30,7 @@
                 </div>
             </div>
         </div>
+        <h2 class="sr-only">Episoden</h2>
         <ul class="row">
         {% for episode in episodes %}
             {% include 'AppBundle:Episode:EpisodeThumb.html.twig' %}
@@ -39,4 +40,5 @@
             {{ knp_pagination_render(episodes) }}
         </div>
     </section>
+</main>
 {% endblock %}

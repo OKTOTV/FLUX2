@@ -23,12 +23,12 @@ class NewsCommentController extends Controller
 {
     /**
      * @Route("/{slug}", name="oktothek_news_comments")
-     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
      * @Template()
      */
-    public function indexAction(Request $request, Post $post)
+    public function indexAction(Request $request, $slug)
     {
         $em = $this->getDoctrine()->getManager();
+        $post = $em->getRepository('AppBundle:Post')->findOneBy(['slug' => $slug]);
         $comments = $this->get('knp_paginator')->paginate(
             $em->getRepository('AppBundle:PostComment')->findCommentsForPost($post, 0, true),
             $request->query->get('page', 1),
@@ -42,13 +42,12 @@ class NewsCommentController extends Controller
     /**
      * @Security("has_role('ROLE_OKTOLAB_USER')")
      * @Route("/{post}/create", name="oktothek_news_comment_create")
-     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
      * @Template()
      */
     public function newCommentAction(Request $request, Post $post)
     {
         $comment = new PostComment();
-        $user = $this->get('security.context')->getToken()->getUser();
+        $user = $this->getUser();
         $comment->setUser($user);
         $post->addComment($comment);
 
@@ -74,7 +73,7 @@ class NewsCommentController extends Controller
                 $em->persist($post);
                 $em->flush();
                 if ($request->isXmlHttpRequest()) {
-                    return $this->render("AppBundle::PostComment/_comment.html.twig", ['comment' => $comment]);
+                    return $this->render("AppBundle::Post_Comment/_comment.html.twig", ['comment' => $comment]);
                 }
                 return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $post->getSlug()]));
             } else {
@@ -87,18 +86,17 @@ class NewsCommentController extends Controller
 
     /**
      * @Security("has_role('ROLE_OKTOLAB_USER')")
-     * @Route("/{slug}/{parent}/answer", name="oktothek_news_comment_answer")
-     * @ParamConverter("post", class="AppBundle:Post", options={"slug" = "slug"})
+     * @Route("/{parent}/answer", name="oktothek_news_comment_answer")
      * @Template()
      */
-    public function answerCommentAction(Request $request, Post $post, PostComment $parent)
+    public function answerCommentAction(Request $request, PostComment $parent)
     {
         $comment = new PostComment();
 
         $form = $this->createForm(
             PostCommentType::class,
             $comment,
-            ['action' => $this->generateUrl('oktothek_news_comment_answer', ['slug' => $post->getSlug(), 'parent' => $parent->getId()])]
+            ['action' => $this->generateUrl('oktothek_news_comment_answer', ['parent' => $parent->getId()])]
         );
         $form->add(
             'submit',
@@ -112,26 +110,26 @@ class NewsCommentController extends Controller
         if ($request->getMethod() == "POST") {
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $user = $this->get('security.context')->getToken()->getUser();
+                $user = $this->getUser();
                 $comment->setUser($user);
                 $parent->addChild($comment);
-                $post->addComment($comment);
+                $parent->getPost()->addComment($comment);
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($post);
+                $em->persist($parent->getPost());
                 $em->persist($parent);
                 $em->flush();
                 if ($request->isXmlHttpRequest()) {
-                    return $this->render("AppBundle::NewsComment/_answer.html.twig", ['comment' => $comment]);
+                    return $this->render("AppBundle::News_Comment/_answer.html.twig", ['comment' => $comment]);
                 }
-                return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $post->getSlug()]));
+                return $this->redirect($this->generateUrl('oktothek_show_news', ['slug' => $parent->getPost()->getSlug()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_comment');
             }
         }
         if ($request->isXmlHttpRequest()) {
-            return $this->render("AppBundle::PostComment/_form.html.twig", ['form' => $form->createView()]);
+            return $this->render("AppBundle::Post_Comment/_form.html.twig", ['form' => $form->createView()]);
         }
-        return ['form' => $form->createView(), 'comment' => $parent, 'post' => $post];
+        return ['form' => $form->createView(), 'comment' => $parent, 'post' => $parent->getPost()];
     }
 
     /**
