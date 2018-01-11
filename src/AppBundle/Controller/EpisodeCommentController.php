@@ -47,7 +47,7 @@ class EpisodeCommentController extends Controller
     public function newCommentAction(Request $request, Episode $episode)
     {
         $comment = new EpisodeComment();
-        $user = $this->getUser();
+        $user = $this->get('security.context')->getToken()->getUser();
         $comment->setUser($user);
         $episode->addComment($comment);
 
@@ -74,7 +74,7 @@ class EpisodeCommentController extends Controller
                 $em->flush();
                 $this->get('oktothek_notification_service')->onCommentOnEpisode($comment);
                 if ($request->isXmlHttpRequest()) {
-                    return $this->render("AppBundle::Episode_Comment/_comment.html.twig", ['comment' => $comment]);
+                    return $this->render("AppBundle::EpisodeComment/_comment.html.twig", ['comment' => $comment]);
                 }
                 return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
             } else {
@@ -112,7 +112,7 @@ class EpisodeCommentController extends Controller
         if ($request->getMethod() == "POST") {
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $user = $this->getUser();
+                $user = $this->get('security.context')->getToken()->getUser();
                 $comment->setUser($user);
                 $parent->addChild($comment);
                 $episode->addComment($comment);
@@ -127,7 +127,7 @@ class EpisodeCommentController extends Controller
             }
         }
         if ($request->isXmlHttpRequest()) {
-            return $this->render("AppBundle::Episode_Comment/_form.html.twig", ['form' => $form->createView()]);
+            return $this->render("AppBundle::EpisodeComment/_form.html.twig", ['form' => $form->createView()]);
         }
         return ['form' => $form->createView(), 'comment' => $parent, 'episode' => $episode];
     }

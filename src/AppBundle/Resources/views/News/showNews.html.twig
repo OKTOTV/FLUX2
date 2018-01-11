@@ -1,0 +1,95 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ post.name~' | '~name|default('OKTO') }}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'news', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "news" %}
+{% block body %}
+    <div class="container" itemscope="itemscope" itemtype="http://schema.org/NewsArticle">
+        <div class="row">
+            <div class="col-md-8 news-container">
+                {% include 'AppBundle::News/post.html.twig' %}
+                <!-- Kommentare -->
+                {{ render(controller("AppBundle:NewsComment:index", {'slug': post.slug})) }}
+                <!-- Ende Kommentare -->
+            </div>
+            <aside class="col-md-4">
+                <div class="box">
+                    <h3>{{ 'oktothek.newsletter_header'|trans }}</h3>
+                    {{ render(controller('AppBundle:Newsletter:subscribe', {'newsletter': oktothek_default_newsletter }))}}
+                </div>
+                <div class="box">
+                    <h3>SOCIAL NETWORKS</h3>
+                    <p>Folgen Sie uns auf:</p>
+                    <ul class="socialnetworks">
+                        <li><a href="https://www.facebook.com/okto.tv" class="icon-facebook" target="_blank" title="Okto auf Facebook"><span>Facebook</span></a></li>
+                        <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Okto auf Twitter"><span>Twitter</span></a></li>
+                        <li><a href="https://www.instagram.com/oktotv/" class="icon-instagramm" target="_blank" title="Okto auf Instagramm"><span>Instagramm</span></a></li>
+                        <li><a href="https://www.youtube.com/user/oktotv" class="icon-youtube" target="_blank" title="Okto auf YouTube"><span>YouTube</span></a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+	</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+	<script src="{{ asset('bundles/app/js/javascript_collapse.js') }}"></script>
+    <script type="text/javascript">
+        // Comments
+        $(document).on('click', '#appbundle_post_comment_submit', function(e){
+            e.preventDefault();
+            var button = $(this);
+            var form = button.closest('form[name="appbundle_post_comment"]');
+            var inputField = form.find('#appbundle_post_comment_text');
+            console.log(form.attr('action'));
+            if (inputField.val().length) {
+                $.ajax({
+                    url: form.attr('action'),
+                    type: 'post',
+                    dataType: 'json',
+                    data: form.serialize(),
+                }).complete(function(data) {
+                    inputField.val('');
+                    if (data.status = 200) {
+                        if (button.hasClass('answer')) {
+                            $(data.responseText).hide().appendTo(form.closest('.comment-answer').find('.answer-text')).slideDown();
+                        } else {
+                            $(data.responseText).hide().prependTo('.commentbox').slideDown();
+                        }
+                    }
+                });
+            }
+        });
+
+        $(document).on('click', '.answer_comment', function(e){
+            e.preventDefault();
+            var parent = $(this).parent()[0];
+            $(this).hide();
+            $.ajax({
+                url: $(this).attr("href"),
+            }).success(function(data) {
+                $(data).hide().appendTo($(parent)).slideDown();
+            });
+        });
+
+        // AJAX pagination
+        $( document ).on('click', '.pagination > li > a', function(e){
+            e.preventDefault();
+            var link = $(this);
+            $.ajax({
+                url: link.attr('href'),
+                context: document.body
+            }).success(function(data) {
+                $(link.parents('.comment-pager')).replaceWith(data);
+            });
+        });
+    </script>
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/app/css/news.css') }}" rel="stylesheet" />
+	<link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+{% endblock %}

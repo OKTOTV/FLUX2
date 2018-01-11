@@ -95,9 +95,7 @@ class NotificationListener
                         "AppBundle::Mail/livestream.html.twig",
                         'oktothek.notification_message_livestream',
                         [
-                            'series' => $series,
-                            'notification' => $abonnement,
-                            'abonnement' => $abonnement
+                            'notification' => $abonnement
                         ]
                     );
                 } else {

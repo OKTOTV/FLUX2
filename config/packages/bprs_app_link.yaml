@@ -1,2 +1,0 @@
-bprs_app_link:
-    available_apis: [oktolab_media_api, bprs_asset_api]

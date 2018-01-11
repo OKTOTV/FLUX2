@@ -12,7 +12,7 @@ use AppBundle\Entity\Course\Coursetype;
 use AppBundle\Entity\Course\Course;
 use AppBundle\Form\Course\AttendeeType;
 use AppBundle\Entity\Course\Attendee;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 use AppBundle\Entity\Course\Coursepackage;
 use AppBundle\Entity\Course\CoursepackageSelect;
 use AppBundle\Form\Course\CoursepackageSelectType;
@@ -68,7 +68,7 @@ class AcademyController extends Controller
         $attendee = new Attendee();
         $course->addAttendee($attendee);
 
-        $form = $this->createForm(AttendeeType::class, $attendee);
+        $form = $this->createForm(new AttendeeType(), $attendee);
         if ($course->getCoursetype()->getPrice() <= 0) {
             $form->add(
                 'register',
@@ -81,7 +81,7 @@ class AcademyController extends Controller
         } else {
             $form->add(
                 'sofort',
-                SubmitType::class,
+                'submit',
                 [
                     'label' => 'oktothek.book_sofort_button',
                     'attr' => ['class' => 'btn btn-primary']

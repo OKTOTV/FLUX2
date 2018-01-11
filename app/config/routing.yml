@@ -1,0 +1,63 @@
+bprs_analytics:
+    resource: "@BprsAnalyticsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+bprs_sofort:
+    resource: "@BprsSOFORTBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+bprs_applink:
+    resource: .
+    type: bprs_applink
+
+start:
+    path:      /
+    defaults:  { _controller: AppBundle:Default:oktothek, _locale: de }
+    requirements:
+        _locale:  de|en
+
+shorturl:
+    path:      /watch
+    defaults:  { _controller: AppBundle:Default:episodeShort }
+
+series_redirect:
+    path:      /{webtitle}
+    defaults:  { _controller: AppBundle:Default:seriesRedirect }
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    defaults:  { _locale: de } #new
+    prefix: /{_locale}
+    requirements:
+        _locale: de|en
+
+oneup_uploader:
+    resource: .
+    type: uploader
+
+oktolab_media:
+    resource: .
+    type:     oktolab_media
+
+bprs_user:
+    resource: .
+    type: bprs_user
+
+bprs_asset:
+    resource: .
+    type: bprs_asset
+
+bprs_commandline:
+    resource: .
+    type: bprs_commandline
+    prefix: /{_locale}/backend
+    defaults:  { _locale: de } #new
+
+bprs_logbook:
+    resource: "@BprsLogbookBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
+    defaults:  { _locale: de } #new

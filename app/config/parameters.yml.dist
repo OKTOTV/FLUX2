@@ -1,0 +1,159 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_driver: pdo_sqlite
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+    # You should uncomment this if you want use pdo_sqlite
+    database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+    mailer_port:       587
+    mailer_encryption: tls
+    locale: de
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            ThisTokenIsNotSoSecretChangeIt
+    secure_cookie:     true
+
+    bprs_user.host: localhost.host
+    bprs_user.mailadress: bot@host.com
+    bprs_user.name: MAILBOT
+    bprs_user.class: "AppBundle\\Entity\\User"
+    xsendfile: true
+    bprs_asset.junksize: 200000
+    php_path: "/path/to/php"
+    worker_queue: "flux2"
+    bprs_asset_worker_queue: "flux2_asset"
+    sprite_worker_queue: "flux2_sprite"
+    redis_backend: 'localhost:6379'
+
+    customer_id:    123456
+    project_id:     123456
+    api_id:         123456789ABCDEFGHIJKLMNOPQRST
+
+    okto_help_uniqID: 59c262a776b6f
+    player_url:     "http://url.to.your/player.js"
+    okto_stream_url: "http://your.stream/url.m3u8"
+    program_url:    'http://delorian.okto.tv/app.php/de/delorian/public_api/program/%%s/%%s'
+    bprs_asset_404: "http://your.placeholder.com/Logo2.png"
+    bprs_asset_adapters:
+        posterframe:
+            url:  "http://your.url/path/posterframes"
+            path: "/your/path/to/posterframes"
+        video:
+            url:  "http://your.url/path/videos"
+            path: "/your/path/to/videos"
+        gallery:
+            url:  "http://your.url/path/gallery"
+            path: "/your/path/to/gallery"
+        cache:
+            url: "/tmp"
+            path: "/tmp"
+        promo:
+            url:  "http://your.url/path/promo"
+            path: "/your/path/to/promo"
+    mailchimp_api_key: "your_secret_key"
+    mailchimp_default_newsletter: "???"
+    mailchimp_academy_newsletter: "???"
+    oktothek_academy_mail:        "academy@mail.com"
+    oktothek_aws_key:    "your_IAM_key"
+    oktothek_aws_secret: "your_IAM_secret"
+    oneup_flysystem_adapters:
+        posterframe:
+            local:
+                directory: '%kernel.root_dir%/../web/uploads/posterframes'
+        video:
+            local:
+                directory: '%kernel.root_dir%/../web/uploads/videos'
+        cache:
+            local:
+                directory: /tmp
+        gallery:
+            local:
+                directory: '%kernel.root_dir%/../web/uploads/gallery'
+        promo:
+            local:
+                directory: '%kernel.root_dir%/../web/uploads/promo'
+        sprite:
+            local:
+                directory: '%kernel.root_dir%/../web/uploads/sprite'
+
+    academy_notification_mail:  "mailadress@mail.mail"
+
+    oktolab_encoding_resolutions:
+        360p:
+            name: 360p
+            sortNumber: 0
+            video_width: 640
+            video_height: 360
+            adapter: "video"
+            video_bitrate: 3000000
+            crf_rate:   23
+            preset:     "veryslow"
+            video_framerate: "25" #"30000/1001"
+            audio_bitrate:   128000
+        720p:
+            name: 720p
+            sortNumber: 1
+            video_width: 1280
+            video_height: 720
+            adapter: "video"
+            video_bitrate: 5000000
+            crf_rate:   23
+            preset:     "veryslow"
+        1080p:
+            name: 1080p
+            sortNumber: 2
+            video_width: 1920
+            video_height: 1080
+            adapter: "video"
+            video_bitrate: 8000000
+            crf_rate:   22
+            preset:     "slower"
+        UHD:
+            name: UHD
+            sortNumber: 3
+            video_width: 3840
+            video_height: 2160
+            adapter: "video"
+            video_bitrate: 15000000
+            crf_rate:   23
+            preset:     "veryslow"
+
+        # monoscopic clips
+        SD:
+            stereomode: 1
+            name: "SD"
+            sortNumber: 0
+            video_width: 1920
+            video_height: 960
+            adapter:    "video"
+            video_bitrate: 7500000
+            crf_rate:   23
+            video_framerate: "25"
+            preset:     "medium"
+        HD:
+            stereomode:  1
+            name: "HD"
+            sortNumber: 1
+            video_width: 3840
+            video_height: 1920
+            adapter:    "video"
+            video_bitrate: 8000000
+            crf_rate:  23
+            video_framerate: "25"
+            preset:     "medium"
+
+    oktolab_origin_config:
+        margin: 2
+        position: "top-left"
+        logo: "bundles/app/images/player/logo.svg"
+        url:  "https://www.okto.tv"

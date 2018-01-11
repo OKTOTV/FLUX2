@@ -1,0 +1,183 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}
+        {{
+            'oktothek.episode_title'|trans({
+                '%episode%': episode.name|default(
+                    'oktothek.episode_title_fallback'|trans({'%uniqID%': episode.uniqID})
+                )
+            })
+        }}
+{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'delorian', 'dropdown': ''} %}
+{% endblock %}
+
+{% block body_main %}
+    <div class="page-header">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'oktolab_media.episode_show_actions'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">{{ 'oktothek.episode_show_in_frontend'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktolab_episode_edit', {'episode': episode.uniqID}) }}">{{ 'oktolab_media.episode_edit_button'|trans|raw }}</a></li>
+                <li><a href="#" id="set_posterframe">{{ 'okto_media.set_currentposition_asposterframe'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktothek_backend_slide_from_episode', {'uniqID': episode.uniqID})}}">{{ 'oktothek_backend_slide_from_episode'|trans|raw }}</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ path('oktolab_media_export_episode', {'uniqID': episode.uniqID}) }}">{{ 'oktolab_media.show_episode_export'|trans|raw }}</a></li>
+                {% if episode.keychain %}
+                    <li><a href="{{ path('oktolab_media_reimport_episode', {'uniqID': episode.uniqID }) }}" id="reimport_episode">{{ 'oktolab_media.reimport_episode'|trans|raw }}</a></li>
+                    <li><a href="{{ path('oktolab_media_reimport_episode', {'uniqID': episode.uniqID, 'overwrite': 1 }) }}" id="reimport_episode_overwrite">{{ 'oktolab_media.reimport_episode_overwrite'|trans|raw }}</a></li>
+                {% endif %}
+                <li role="separator" class="divider"></li>
+                <li><a href="{{ path('oktolab_episode_encode', {'uniqID': episode.uniqID}) }}">{{ 'oktolab_media.show_episode_add_to_encode_queue'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktolab_episode_encode', {'uniqID': episode.uniqID, 'first': 1}) }}">{{ 'oktolab_media.show_episode_add_to_encode_queue_next'|trans|raw }}</a></li>
+                {% if episode.technicalStatus >= 50 and episode.isActive == false %}
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{{ path('oktothek_backend_publish_episode', {'uniqID': episode.uniqID })}}">{{ 'oktothek.backend_episode_publish'|trans|raw }}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'okto_media.episode_show_files'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    {% if episode.video is not empty %}
+                        <a href="{{ path('bprs_asset_show', {'filekey': episode.video.filekey}) }}">{{ 'okto_media.episode_show_files_video'|trans }}</a>
+                    {% endif %}
+                    {% if episode.posterframe is not empty %}
+                    <a href="{{ path('bprs_asset_show', {'filekey': episode.posterframe.filekey}) }}">{{ 'okto_media.episode_show_files_posterframe'|trans }}</a>
+                    {% endif %}
+                    {% if episode.sprite is not empty %}
+                        <a href="{{ path('bprs_asset_show', {'filekey': episode.sprite.filekey}) }}" >{{ 'okto_media.episode_show_files_sprite'|trans }}</a>
+                    {% endif %}
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <h4>{{ episode.name }}</h4>
+            {% if episode.video is not empty %}
+                <div id="player">
+                </div>
+            {% elseif episode.posterframe is not empty %}
+                <img src="{{ episode.posterframe|path }}" class="img-responsive"/>
+            {% endif %}
+            {{ episode.description|default('oktolab_media.show_episode_description_missing'|trans)|nl2br }}
+        </div>
+        <div class="col-md-5">
+            <h4>{{ 'oktolab_media_info_for_episode_header'|trans }}</h4>
+            <dl class="dl-horizontal">
+                <dt>{{ 'oktolab_media.episode_info_isActive'|trans }}</dt>
+                <dd>{{ 'oktolab_media.episode_info_isActive_choice'|transchoice( episode.isActive ) }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_createdAt'|trans }}</dt>
+                <dd>{{ episode.createdAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_updatedAt'|trans }}</dt>
+                <dd>{{ episode.updatedAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_onlineStart'|trans }}</dt>
+                <dd>{{ episode.onlineStart|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_onlineEnd'|trans}}</dt>
+                <dd>{% if episode.onlineEnd %}{{ episode.onlineEnd|date("d.m.Y H:i") }}{% endif %}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_firstranAt'|trans }}</dt>
+                <dd>{{ episode.firstranAt|date("d.m.Y H:i") }}</dd>
+
+                <dt>{{ 'okto_media.episode_info_series'|trans }}</dt>
+                <dd>
+                    {% if episode.series %}
+                        <a href="{{ path('oktolab_series_show', {'series': episode.series.uniqID})}}">{{ episode.series.name}}</a>
+                    {% endif %}
+                </dd>
+
+                <dt>{{ 'oktolab_media.episode_info_uniqID'|trans}}</dt>
+                <dd>{{ episode.uniqID }}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_stereomode'|trans }}</dt>
+                <dd>{{ 'oktolab_media.stereomode_choice'|transchoice(episode.stereomode)}}</dd>
+
+                <dt>{{ 'oktolab_media.episode_info_duration'|trans }}</dt>
+                <dd>{{ episode.duration|duration}}</dd>
+
+                <dt>{{ 'oktothek.episode_info_views'|trans }}</dt>
+                <dd>{{ episode.views }}</dd>
+            </dl>
+
+            <h4>{{ 'oktolab_media_media_for_episode_header'|trans }}</h4>
+            <div class="list-group">
+                {% for media in episode.media %}
+                    <a href="{{ path('oktolab_media_show_media', {'media': media.id })}}" class="list-group-item">{{ media.quality }}</a>
+                {% endfor %}
+                <a href="{{ path('oktolab_media_new_media', {'uniqID': episode.uniqID}) }}" class="list-group-item">{{ 'oktolab_media.episode_add_new_media'|trans|raw }}</a>
+            </div>
+
+            <h4>{{ 'oktolab_media.episode_show_captions_header'|trans }}</h4>
+            <div class="list-group">
+                {% for caption in episode.captions %}
+                    <a href="{{ path('oktolab_caption_show', {'caption': caption.id }) }}" class="list-group-item">{{ caption.label }}</a>
+                {% endfor %}
+                <a href="{{ path('oktolab_caption_new', {'uniqID': episode.uniqID}) }}" class="list-group-item">{{ 'oktolab_media.caption_new_button'|trans|raw }}</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Logbuch</h2>
+        {% render(controller('BprsLogbookBundle:Default:pager', {'reference': episode.uniqID})) %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ player(episode)|raw }}
+    {% if episode.video is not empty %}
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var playerInstance = jwplayer("player");
+
+                $('#set_posterframe').click(function(e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: "{{ path('oktolab_episode_extractposterframe', {'uniqID': episode.uniqID}) }}",
+                        data: {'position': playerInstance.getPosition()},
+                        type: 'GET'
+                    });
+                });
+            });
+        </script>
+    {% endif %}
+    <script>
+        // AJAX pagination
+
+        var updateView = function(e, link) {
+            e.preventDefault();
+            var link = $(link);
+            $.ajax({
+                url: link.attr('href'),
+                context: document.body
+            }).success(function(data) {
+                $(link.parents('.episode-pager')).replaceWith(data);
+            });
+        }
+
+        $( document ).on('click', '.pagination > li > a', function(e){
+            updateView(e, this);
+        });
+
+        $( document ).on('click', '.sortable', function(e){
+            updateView(e, this);
+        });
+        $( document ).on('click', '.asc', function(e){
+            updateView(e, this);
+        });
+        $( document ).on('click', '.desc', function(e){
+            updateView(e, this);
+        });
+    </script>
+{% endblock %}

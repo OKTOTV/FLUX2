@@ -19,7 +19,7 @@
             {% include "AppBundle::Default/markdown_helper.html.twig" %}
         </div>
     </div>
-    {{ render(controller('BprsAssetBundle:Asset:modalList', {},{'adapter': 'promo'})) }}
+    {% render(controller('BprsAssetBundle:Asset:modalList', {},{'adapter': 'promo'}))%}
     {% include "AppBundle::Tag/widget.html.twig" with {'widget': form.tags} %}
  {{ form_end(form)}}
 
