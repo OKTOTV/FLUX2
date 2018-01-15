@@ -57,7 +57,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager #form.csrf_provider
             logout:
                 path: bprs_user_logout
-                target: /de
+                target: homepage
             anonymous: ~
             provider: database
             remember_me:
