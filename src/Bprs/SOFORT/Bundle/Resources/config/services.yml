@@ -1,4 +1,4 @@
 services:
     bprs_sofort:
         class: Bprs\SOFORT\Bundle\Model\SOFORTService
-        arguments: [ %bprs_sofort.configkey%, %bprs_sofort.currency_code%, %bprs_sofort.success_url%, %bprs_sofort.abort_url%, %bprs_sofort.notification_url%]
+        arguments: [ "%bprs_sofort.configkey%", "%bprs_sofort.currency_code%", "%bprs_sofort.success_url%", "%bprs_sofort.abort_url%", "%bprs_sofort.notification_url%"]

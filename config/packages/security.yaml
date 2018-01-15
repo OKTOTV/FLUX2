@@ -55,7 +55,6 @@ security:
                 check_path: bprs_user_login_check
                 default_target_path: homepage
                 csrf_token_generator: security.csrf.token_manager #form.csrf_provider
-                default_target_path: /de
             logout:
                 path: bprs_user_logout
                 target: /de
@@ -65,6 +64,7 @@ security:
                 secret: '%kernel.secret%'
                 httponly: false
                 secure: false
+            logout_on_user_change: true
             switch_user: { role: ROLE_ADMIN }
 
     access_control:
