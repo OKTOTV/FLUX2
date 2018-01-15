@@ -204,7 +204,7 @@ class AcademyService
     {
         $this->mailer->sendMail(
             $this->notification_mail,
-            'AppBundle:Academy:mailNotification.html.twig',
+            'AppBundle:academy:mail_notification.html.twig',
             ['attendee' => $attendee, 'course' => $course],
             'Neuer Kursteilnehmer'
         );
