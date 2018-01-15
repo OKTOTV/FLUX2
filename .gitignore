@@ -55,7 +55,7 @@ app/SymfonyRequirements.php
 
 # Symonfy 4
 /public/uploads/
-/config/packages/oneup.yaml
+config/packages/oneup.yaml
 
 ###> symfony/framework-bundle ###
 .env
