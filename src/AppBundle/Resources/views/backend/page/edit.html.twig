@@ -16,7 +16,7 @@
             {{ form_row(form.text) }}
         </div>
         <div class="col-md-4">
-            {% include "AppBundle::Default/markdown_helper.html.twig" %}
+            {% include "AppBundle::default/markdown_helper.html.twig" %}
         </div>
     </div>
     {% render(controller('BprsAssetBundle:Asset:modalList', {'page': 1}))%}
