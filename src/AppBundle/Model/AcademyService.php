@@ -178,7 +178,7 @@ class AcademyService
         }
         $this->mailer->sendMail(
             $attendee->getEmail(),
-            'AppBundle:Academy:mailPaidCourse.html.twig',
+            'AppBundle:academy:mail_paid_course.html.twig',
             ['attendee' => $attendee, 'course' => $course],
             'OKTO Kursanmeldung'
         );
@@ -191,7 +191,7 @@ class AcademyService
         }
         $this->mailer->sendMail(
             $attendee->getEmail(),
-            'AppBundle:Academy:mailFreeCourse.html.twig',
+            'AppBundle:academy:mail_free_course.html.twig',
             ['attendee' => $attendee, 'course' => $course],
             'OKTO Kursanmeldung'
         );
