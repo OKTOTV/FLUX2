@@ -68,9 +68,9 @@ class CourseController extends Controller
      */
     public function editCoursetypeAction(Request $request, Coursetype $coursetype)
     {
-        $form = $this->createForm(new CoursetypeType(), $coursetype);
-        $form->add('delete', 'submit', ['label' => 'oktothek.coursetype_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
-        $form->add('submit', 'submit', ['label' => 'oktothek.coursetype_edit_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form = $this->createForm(CoursetypeType::class, $coursetype);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.coursetype_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.coursetype_edit_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -116,8 +116,8 @@ class CourseController extends Controller
     {
         $course = new Course();
         $course->setCoursetype($coursetype);
-        $form = $this->createForm(new CourseFormType(), $course);
-        $form->add('submit', 'submit', ['label' => 'oktothek.course_create_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form = $this->createForm(CourseFormType::class, $course);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.course_create_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -141,9 +141,9 @@ class CourseController extends Controller
      */
     public function editCourseAction(Request $request, Course $course)
     {
-        $form = $this->createForm(new CourseFormType(), $course);
-        $form->add('delete', 'submit', ['label' => 'oktothek.course_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
-        $form->add('submit', 'submit', ['label' => 'oktothek.course_edit_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form = $this->createForm(CourseFormType::class, $course);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.course_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.course_edit_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $old_dates = new ArrayCollection();

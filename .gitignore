@@ -54,8 +54,17 @@ app/cache/.gitkeep
 app/SymfonyRequirements.php
 
 # Symonfy 4
+/public/uploads/
+config/packages/oneup.yaml
+config/packages/bprs_asset.yaml
+
+###> symfony/framework-bundle ###
 .env
 /public/bundles/
-/public/uploads/
 /var/
 /vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/web-server-bundle ###
+.web-server-pid
+###< symfony/web-server-bundle ###
