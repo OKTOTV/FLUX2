@@ -11,6 +11,7 @@ bprs_asset:
         video:
             url: '%env(video_url)%'
             path: '%env(video_path)%'
+            remote: true
         gallery:
             url: '%env(gallery_url)%'
             path: '%env(gallery_path)%'
@@ -23,3 +24,4 @@ bprs_asset:
         sprite:
             url: '%env(sprite_url)%'
             path: '%env(sprite_path)%'
+            remote: true
