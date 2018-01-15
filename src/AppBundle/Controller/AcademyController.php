@@ -72,7 +72,7 @@ class AcademyController extends Controller
         if ($course->getCoursetype()->getPrice() <= 0) {
             $form->add(
                 'register',
-                'submit',
+                SubmitType::class,
                 [
                     'label' => 'oktothek.register_attendee_button',
                     'attr' => ['class' => 'btn btn-primary']
