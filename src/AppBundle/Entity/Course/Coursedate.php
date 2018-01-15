@@ -8,7 +8,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Coursedate
  *
- * @Assert\Callback(methods={"isStartBeforeEnd"})
  * @ORM\Table()
  * @ORM\Entity
  */
@@ -127,6 +126,6 @@ class Coursedate
      */
     public function isStartBeforeEnd()
     {
-        return $this->courseStart < $this->courseEnd;
+        return ($this->courseStart < $this->courseEnd);
     }
 }
