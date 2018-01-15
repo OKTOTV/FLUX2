@@ -7,5 +7,23 @@
     },
     "mtdowling/jmespath.php": {
         "version": "2.4.0"
+    },
+    "symfony/profiler-pack": {
+        "version": "dev-master"
+    },
+    "symfony/stopwatch": {
+        "version": "3.4.x-dev"
+    },
+    "symfony/var-dumper": {
+        "version": "3.4.x-dev"
+    },
+    "symfony/web-profiler-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "6bdfa1a95f6b2e677ab985cd1af2eae35d62e0f6"
+        }
     }
 }

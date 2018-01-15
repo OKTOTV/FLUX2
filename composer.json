@@ -23,6 +23,7 @@
         "symfony/lts": "^3",
         "symfony/monolog-bundle": "^3.1",
         "symfony/orm-pack": "^1.0",
+        "symfony/profiler-pack": "dev-master",
         "symfony/security-bundle": "^3.4",
         "symfony/security-csrf": "^3.4",
         "symfony/serializer": "^3.4",
