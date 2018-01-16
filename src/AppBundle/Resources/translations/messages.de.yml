@@ -221,7 +221,7 @@ oktothek.post_edit_header:              "Post bearbeiten"
 oktothek.post_update_button:            '<span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern'
 oktothek.post_delete_button:            '<span class="glyphicon glyphicon-trash"></span> Post löschen'
 oktothek.success_edit_post:             "Newsbeitrag erfolgreich bearbeitet"
-
+oktothek.success_delete_post:           "Beitrag erfolgreich gelöscht"
 ## post index
 oktothek.create_new_post_button:        "Neuen Beitrag anlegen"
 oktothek.post_show_more:                "Mehr dazu anzeigen"
