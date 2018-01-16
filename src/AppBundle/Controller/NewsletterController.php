@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * @Route("/newsletter")
@@ -19,14 +20,14 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 class NewsletterController extends Controller {
 
     /**
-     * @Route("/{newsletter}/subscribe", name="oktothek_newsletter")
+     * @Route("/subscribe", name="oktothek_newsletter")
      * @Template()
      */
-    public function subscribeAction(Request $request, $newsletter)
+    public function subscribeAction(Request $request)
     {
         $data = ['email' => ''];
-        $form = $this->get('form.factory')->createNamedBuilder('newsletterform', FormType::class, $data, array())//$this->createFormBuilder($data)
-            ->setAction($this->generateUrl('oktothek_newsletter', ['newsletter' => $newsletter]))
+        $form = $this->get('form.factory')->createNamedBuilder('newsletterform', FormType::class, $data, [])
+            ->setAction($this->generateUrl('oktothek_newsletter'))
             ->add('email', EmailType::class, ['constraints' => [new Email(['checkMX' => true]), new NotBlank()], 'attr' => ['placeholder' => 'oktothek.newsletter_mail_placeholder']])
             ->add('submit', SubmitType::class, ['label' => "oktothek.newsletter_subscribe_submit"])
             ->getForm();
@@ -35,7 +36,8 @@ class NewsletterController extends Controller {
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $email = $form->getData()['email'];
-                $success = $this->get('oktothek_newsletter')->subscribe($email, $newsletter);
+                $subject = $this->get('translator')->trans('oktothek.confirm_newsletter_subject');
+                $success = $this->get('oktothek_newsletter')->subscribe($email);
                 if ($success) {
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_subscribe_newsletter');
                 } else {
@@ -43,16 +45,10 @@ class NewsletterController extends Controller {
                 }
                 return $this->redirect($request->headers->get('referer'));
             } else {
-                // TODO: redirect to own template and display errors, etc
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_submit_newsletter');
                 return $this->redirect($request->headers->get('referer'));
             }
         }
         return ['newsletterform' => $form->createView()];
     }
-
-
-    /**
-     * TODO: confirm subscription action would be nice
-     */
 }

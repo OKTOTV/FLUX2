@@ -2,8 +2,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-    newsletter.api_key:            "%env(mailchimp_api_key)%"
     okto_help_uniqID:              "%env(okto_help_uniqID)%"
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -153,7 +153,7 @@ services:
 # newsletter
     oktothek_newsletter:
         class:  AppBundle\Model\NewsletterService
-        arguments:  [ "%newsletter.api_key%" ]
+        arguments:  [ "%env(mailchimp_api_key)%", "%env(mailchimp_default_newsletter)%" ]
 
 # producer
     oktothek_producer_analytics:
