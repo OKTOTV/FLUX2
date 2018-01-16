@@ -16,7 +16,7 @@ oktolab_media:
             adapter: video
             video_bitrate: 3000000
             crf_rate: 23
-            preset: veryslow
+            preset: slower
             video_framerate: '25'
             audio_bitrate: 128000
         720p:
