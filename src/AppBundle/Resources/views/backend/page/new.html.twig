@@ -20,7 +20,7 @@
         </div>
     </div>
     {{ render(controller('BprsAssetBundle:Asset:modalList', {},{'adapter': 'promo'})) }}
-    {% include "AppBundle::Tag/widget.html.twig" with {'widget': form.tags} %}
+    {% include "AppBundle::tag/widget.html.twig" with {'widget': form.tags} %}
  {{ form_end(form)}}
 
 {% endblock %}
