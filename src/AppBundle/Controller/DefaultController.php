@@ -101,7 +101,7 @@ class DefaultController extends Controller
     public function registerAction(Request $request)
     {
         $user = new User();
-        $form = $this->createForm(new RegisterType(), $user);
+        $form = $this->createForm(RegisterType::class, $user);
         $form->add('submit', SubmitType::class, [
             'label' => 'oktothek.register_user_button',
             'attr' => ['class' => 'btn btn-default']
