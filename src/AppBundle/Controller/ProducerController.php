@@ -305,7 +305,7 @@ class ProducerController extends Controller
 
     /**
      * @Route("/channel/{uniqID}/assets/ajax", name="oktothek_channel_assets_ajax")
-     * @Template("BprsAssetBundle:Asset:ajaxModalList.html.twig")
+     * @Template("BprsAssetBundle:asset:ajax_modal_list.html.twig")
      */
     public function seriesAjaxModalAction(Request $request, Series $series)
     {
