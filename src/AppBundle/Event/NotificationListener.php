@@ -31,7 +31,7 @@ class NotificationListener
                     $this->router->generate('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]),
                     'oktothek.notification_message_episode',
                     ['%series%' => $episode->getSeries()->getName()],
-                    "AppBundle::Mail/new_episode.html.twig",
+                    "AppBundle::mail/new_episode.html.twig",
                     'oktothek.notification_message_episode',
                     [
                         'abonnement' => $abonnement,
@@ -61,7 +61,7 @@ class NotificationListener
                         $this->router->generate('oktothek_show_series_blogpost', ['slug' => $post->getSlug()]),
                         'oktothek.notification_message_post',
                         ['%series%' => $post->getSeries()->getName()],
-                        "AppBundle::Mail/new_post.html.twig",
+                        "AppBundle::mail/new_post.html.twig",
                         'oktothek.notification_message_post',
                         [
                             'abonnement' => $abonnement,
@@ -92,7 +92,7 @@ class NotificationListener
                         $this->router->generate('tv'),
                         'oktothek.notification_message_livestream',
                         ['%series%' => $series->getName()],
-                        "AppBundle::Mail/livestream.html.twig",
+                        "AppBundle::mail/livestream.html.twig",
                         'oktothek.notification_message_livestream',
                         [
                             'series' => $series,
@@ -123,7 +123,7 @@ class NotificationListener
                         $this->router->generate('oktothek_show_series_blogpost', ['slug' => $comment->getPost()->getSlug()]),
                         'oktothek.notification_message_post_new_comment',
                         [],
-                        "AppBundle::Mail/commentBlogpost.html.twig",
+                        "AppBundle::mail/commentBlogpost.html.twig",
                         'oktothek.notification_message_post_new_comment',
                         [
                             'notification' => $abonnement,
@@ -154,7 +154,7 @@ class NotificationListener
                         $this->router->generate('oktothek_show_episode', ['uniqID' => $comment->getEpisode()->getUniqID()]),
                         'oktothek.notification_message_episode_new_comment',
                         ['%series%' => $comment->getEpisode()->getSeries()->getName()],
-                        "AppBundle::Mail/commentEpisode.html.twig",
+                        "AppBundle::mail/commentEpisode.html.twig",
                         'oktothek.notification_message_episode_new_comment',
                         [
                             'notification' => $abonnement,
@@ -189,7 +189,7 @@ class NotificationListener
                     $this->router->generate('oktolab_episode_show', ['uniqID' => $episode->getUniqID()], RouterInterface::ABSOLUTE_URL),
                     'oktothek.notification_message_finalized_episode',
                     ['%series%' => $episode->getSeries()->getName()],
-                    "AppBundle::Mail/finalizedEpisode.html.twig",
+                    "AppBundle::mail/finalizedEpisode.html.twig",
                     'oktothek.notification_message_finalized_episode',
                     [
                         'notification' => $abonnement,
