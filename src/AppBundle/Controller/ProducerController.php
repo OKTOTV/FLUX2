@@ -134,8 +134,22 @@ class ProducerController extends Controller
     {
         $this->denyAccessUnlessGranted('edit_channel', $series);
         $form = $this->createForm(PostType::class, $post);
-        $form->add('delete', SubmitType::class, ['label' => 'oktothek.post_delete_button', 'attr' => ['class' => 'btn btn-danger']]);
-        $form->add('submit', SubmitType::class, ['label' => 'oktothek.post_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add(
+            'delete',
+            SubmitType::class,
+            [
+                'label' => 'oktothek.post_delete_button',
+                'attr' => ['class' => 'btn btn-danger']
+            ]
+        );
+        $form->add(
+            'submit',
+            SubmitType::class,
+            [
+                'label' => 'oktothek.post_update_button',
+                'attr' => ['class' => 'btn btn-primary']
+            ]
+        );
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
@@ -151,19 +165,46 @@ class ProducerController extends Controller
                     $em->persist($post);
                     $em->persist($series);
                     $em->flush();
-                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_update_post');
+                    $this->get('session')->getFlashBag()->add(
+                        'success',
+                        'oktothek.success_update_post'
+                    );
 
-                    return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
+                    return $this->redirect(
+                        $this->generateUrl(
+                            'oktothek_channel_blogposts',
+                            ['uniqID' => $series->getUniqID()]
+                        )
+                    );
                 } elseif ($form->get('delete')->isClicked()) { // delete
                     $this->get('oktothek_post_service')->deletePost($post);
-                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_delete_post');
-                    return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
+                    $this->get('session')->getFlashBag()->add(
+                        'success',
+                        'oktothek.success_delete_post'
+                    );
+                    return $this->redirect(
+                        $this->generateUrl(
+                            'oktothek_channel_blogposts',
+                            ['uniqID' => $series->getUniqID()]
+                        )
+                    );
                 } else {
-                    $this->get('session')->getFlashBag()->add('info', 'oktothek.success_unknown_post');
-                    return $this->redirect($this->generateUrl('oktothek_channel_blogposts', ['uniqID' => $series->getUniqID()]));
+                    $this->get('session')->getFlashBag()->add(
+                        'info',
+                        'oktothek.success_unknown_post'
+                    );
+                    return $this->redirect(
+                        $this->generateUrl(
+                            'oktothek_channel_blogposts',
+                            ['uniqID' => $series->getUniqID()]
+                        )
+                    );
                 }
             } else {
-                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_update_post');
+                $this->get('session')->getFlashBag()->add(
+                    'error',
+                    'oktothek.error_update_post'
+                );
             }
         }
 
@@ -180,7 +221,14 @@ class ProducerController extends Controller
         $this->denyAccessUnlessGranted('view_channel', $series);
         $em = $this->getDoctrine()->getManager();
         $paginator = $this->get('knp_paginator');
-        $episodes = $paginator->paginate($em->getRepository('AppBundle:Episode')->findEpisodesForSeries($series, true), $page, 3);
+        $episodes = $paginator->paginate(
+            $em->getRepository('AppBundle:Episode')->findEpisodesForSeries(
+                $series,
+                true
+            ),
+            $page,
+            3
+        );
         return ['episodes' => $episodes, 'series' => $series];
     }
 
