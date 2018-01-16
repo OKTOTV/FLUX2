@@ -1,0 +1,3 @@
+okto_media:
+    tag_class: "AppBundle\\Entity\\Tag"
+    user_class: "AppBundle\\Entity\\User"
