@@ -27,7 +27,7 @@ class SeriesController extends Controller
     public function blogShowAction($slug)
     {
         $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Post');
-        $post = $repo->findOneBy(['slug' => $slug]);
+        $post = $repo->findActivePostBySlug($slug);
         return [
             'post' => $post,
             'teasers' => $repo->findNewestPosts(5, $post->getSeries())

@@ -63,6 +63,24 @@ class PostRepository extends EntityRepository
         return $query->setMaxResults($number)->getResult();
     }
 
+    public function findActivePostBySlug($slug, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT p
+                FROM AppBundle:Post p
+                WHERE p.slug = :slug
+                AND p.isActive = true
+                AND p.onlineAt <= :now')
+            ->setParameter('slug', $slug)
+            ->setParameter('now', new \DateTime());
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getSingleResult();
+    }
+
     public function findPostsForSeries($series, $query_only = false)
     {
         $query = $this->getEntityManager()
@@ -87,8 +105,10 @@ class PostRepository extends EntityRepository
                 FROM AppBundle:Post p
                 WHERE p.series = :id
                 AND p.isActive = true
+                AND p.onlineAt <= :now
                 ORDER BY p.createdAt DESC')
-            ->setParameter('id', $series->getId());
+            ->setParameter('id', $series->getId())
+            ->setParameter('now', new \DateTime());
 
         if ($query_only) {
             return $query;
@@ -101,16 +121,32 @@ class PostRepository extends EntityRepository
         $query = null;
         if ($series) {
             $query = $this->getEntityManager()
-                ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.series = :id ORDER BY p.createdAt DESC')
-                ->setParameter('id', $series->getId());
+                ->createQuery(
+                    'SELECT p
+                    FROM AppBundle:Post p
+                    WHERE p.series = :id
+                    AND p.isActive = true
+                    AND p.onlineAt <= :now
+                    ORDER BY p.createdAt DESC')
+                ->setParameter('id', $series->getId())
+                ->setParameter('now', new \DateTime());
         } else {
             $query = $this->getEntityManager()
-                ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.series IS NULL ORDER BY p.createdAt DESC');
+                ->createQuery(
+                    'SELECT p
+                    FROM AppBundle:Post p
+                    WHERE p.series IS NULL
+                    AND p.isActive = true
+                    AND p.onlineAt <= :now
+                    ORDER BY p.createdAt DESC'
+                )
+                ->setParameter('now', new \DateTime());
         }
 
         if ($query_only) {
             return $query;
         }
+
         return $query->setMaxResults($number)->getResult();
     }
 }

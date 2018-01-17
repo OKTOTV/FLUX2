@@ -38,7 +38,7 @@
                 <!-- Antwort Container -->
                 {% if comment.children is empty %}
                 <div class="comment-answer">
-                    {% if comment.user.id == app.user.id and comment.canBeEdited %}
+                    {% if app.user is not empty and comment.user.id == app.user.id and comment.canBeEdited %}
                         <a href="{{ path('oktothek_post_comment_edit', {'comment': comment.id}) }}">
                             {{ 'oktothek_comment_edit'|trans }}
                         </a>
@@ -47,11 +47,13 @@
                 </div>
                 {% else %}
                     <div class="comment-answer">
-                        {% if comment.user.id == app.user.id and comment.canBeEdited %}
+
+                        {% if app.user is not empty and comment.user.id == app.user.id and comment.canBeEdited %}
                             <a href="{{ path('oktothek_post_comment_edit', {'comment': comment.id}) }}">
                                 {{ 'oktothek_comment_edit'|trans }}
                             </a>
                         {% endif %}
+
                         <a href="{{ path('oktothek_post_comment_answer', {'slug': post.slug, 'parent': comment.id})}}" class="answer_comment">{{ 'oktothek_comment_answer'|trans }}</a>
                         <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}" title="{{ 'oktothek_comment_cP_answer'|trans }}">{{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}</a>
                         <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
