@@ -10,7 +10,11 @@
                 <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.name }} ansehen">
                     <img src="{{ episode.posterframe(true)|thumb(309,550) }}" class="img-responsive" alt="{{ episode.name }} - {{ episode.series.name|default('') }}" itemprop="image"/>
                 </a>
-                <div class="pin-icon"><span class="glyphicon icon-views"></span> {{ episode.users|length }}</div>
+                {# hide views by edk, cj, gl
+                <div class="pin-icon">
+                    <span class="glyphicon icon-views"></span>{{ episode.views|viewOptimizer }}
+                </div>
+                #}
                 <figcaption>
                     <h3 itemscope="itemscope" itemtype="http://schema.org/CreativeWorkSeries" itemprop="partOfSeries"><a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name|default('') }}" itemprop="url"><span itemprop="name">{{ episode.series.name }}</span></a></h3>
                     <p><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.name }} ansehen" itemprop="url"><span itemprop="name">{{ episode.name }}</span></a></p>
