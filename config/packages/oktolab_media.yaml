@@ -27,7 +27,7 @@ oktolab_media:
             adapter: video
             video_bitrate: 5000000
             crf_rate: 23
-            preset: veryslow
+            preset: slower
         1080p:
             name: 1080p
             sortNumber: 2
@@ -45,7 +45,7 @@ oktolab_media:
             adapter: video
             video_bitrate: 15000000
             crf_rate: 23
-            preset: veryslow
+            preset: slower
         SD:
             stereomode: 1
             name: SD
