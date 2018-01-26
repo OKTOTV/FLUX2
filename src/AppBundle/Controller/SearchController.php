@@ -42,8 +42,8 @@ class SearchController extends Controller
         if ($request->getMethod() == "POST") {
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $searchphrase = str_replace('/', '', $data['search']);
                 $data = $form->getData();
+                $searchphrase = str_replace('/', '', $data['search']);
                 $search = $this->get('oktothek_search');
                 $episodes = $search->searchEpisodes($searchphrase);
                 $series = $search->searchSeries($searchphrase);
