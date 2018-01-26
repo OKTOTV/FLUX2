@@ -178,6 +178,7 @@ body.oktothek .participart [data-tooltip]::after,
 article figcaption h3, 
 footer h3, 
 #anchor-menu .panel-title, 
++a.tag, 
 .newsarchiv h2, 
 .post h3, 
 .post .label, 
@@ -218,7 +219,6 @@ header .nav,
 .blog-pin figcaption p, 
 .btn, 
 .pin .pin-icon .glyphicon, 
-a.tag, 
 .nav-justified,
 .playlists .author,
 footer h3, 
@@ -275,7 +275,6 @@ a.less,
 .carousel-caption .type, 
 .pin figcaption h3, 
 .blog-pin figcaption h3,
-a.tag, 
 footer h3, 
 .input-group-addon, 
 .collapseShare h3, 
@@ -305,7 +304,10 @@ body.help .help-action li .menu-text,
 	text-transform:uppercase;
 }
 
-header .search-tagnav-position li a, .episode .tags a, #episode-tag option {
+header .search-tagnav-position li a, 
+.episode .tags a, 
+#episode-tag option, 
+a.tag {
     text-transform: lowercase;
 }
 
