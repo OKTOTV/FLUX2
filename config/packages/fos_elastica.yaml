@@ -98,7 +98,7 @@ fos_elastica:
                         model: AppBundle\Entity\Tag
                         provider: ~
                         listener: ~
-                    #     finder: ~
+                        finder: ~
             settings:
                 index:
                     analysis:
