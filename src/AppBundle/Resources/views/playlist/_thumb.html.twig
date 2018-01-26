@@ -2,8 +2,8 @@
         <figure class="playlist-pin pin" itemscope itemtype="http://schema.org/VideoGallery">
         {% if playlist.items is not empty %}
             <a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="{{ playlist.name }} ansehen" itemprop="url">
-                <meta itemprop="thumbnailUrl" content="{{ playlist.items[0].episode.posterframe(true)|thumb(135,240) }}" />
-                <img src="{{ playlist.items[0].episode.posterframe(true)|thumb(135,240) }}" class="img-responsive" alt="{{ 'oktothek_playlist_thumb_img_title'|trans({'%playlist%': playlist.name})}}" itemprop="image" />
+                <meta itemprop="thumbnailUrl" content="{{ playlist.items[0].episode.posterframe(true)|thumb(303,539) }}" />
+                <img src="{{ playlist.items[0].episode.posterframe(true)|thumb(303,539) }}" class="img-responsive" alt="{{ 'oktothek_playlist_thumb_img_title'|trans({'%playlist%': playlist.name})}}" itemprop="image" />
             </a>
         {% endif %}
             <figcaption>
