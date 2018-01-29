@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Intl\Intl;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -21,7 +22,20 @@ class AttendeeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $title_choices = [
+            'oktothek_attendee_title_sir' => 1,
+            'oktothek_attendee_title_madam' => 2,
+            'oktothek_attendee_title_lord' => 4,
+            'oktothek_attendee_title_apache' => 3
+        ];
+        uksort($title_choices, function ($a, $b) {return mt_rand(-10, 10);});
+
         $builder
+            ->add('title', ChoiceType::class, [
+                'label' => 'oktothek_attendee_title_label',
+                'placeholder' => 'oktothek_attendee_title_placeholder',
+                'choices' => $title_choices
+            ])
             ->add('name', TextType::class,
                 [
                     'label' => 'oktothek_attendee_name_label',
