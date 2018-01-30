@@ -23,12 +23,11 @@ class AttendeeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $title_choices = [
-            'oktothek_attendee_title_sir' => 1,
-            'oktothek_attendee_title_madam' => 2,
-            'oktothek_attendee_title_lord' => 4,
-            'oktothek_attendee_title_apache' => 3
+            'oktothek_attendee_title_madam' => 1,
+            'oktothek_attendee_title_sir' => 2,
         ];
-        uksort($title_choices, function ($a, $b) {return mt_rand(-10, 10);});
+        // If we ever want to random shuffle titles, uncomment this line.
+        // uksort($title_choices, function ($a, $b) {return mt_rand(-10, 10);});
 
         $builder
             ->add('title', ChoiceType::class, [

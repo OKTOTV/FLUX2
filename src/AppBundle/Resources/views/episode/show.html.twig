@@ -55,15 +55,18 @@
                 </p>
                 <ul class="misc clearfix">
                     {% if app.user is empty %}
+                        {# removed clicks and favorites (from edk)
                         <li class="view-icon"><span class="glyphicon icon-views"></span> <span>{{ episode.views }}</span></li>
                         <li class="favorite-icon"><span class="glyphicon glyphicon-heart"></span> <span>{{ episode.users|length}}</span></li>
+                        #}
                     {% else %}
                         {% if is_granted('ROLE_USER') %}
                             <li><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a></li>
                         {% endif %}
+                        {# removed clicks and favorites (from edk)
                         <li class="view-icon next-but"><span class="icon-views"></span> <span>{{ episode.views }}</span></li>
                         <li class="favorite-icon"><button type="button" class="btn btn-default like-it" id="favorite" data-uniqID="{{episode.uniqID}}" title="Favorite Video" data-fav="{% if episode in app.user.favorites %}1{% else %}0{% endif %}"><span class="glyphicon {% if episode in app.user.favorites %}glyphicon-heart choosen{% else %}glyphicon-heart{% endif %}"></span> <span>{{ episode.users|length}}</span></button></li>
-
+                        #}
                         {% set in_abo = false %}
                         {% for abonnement in app.user.abonnements if abonnement.series.uniqID == episode.series.uniqID %}
                             {% set in_abo = true %}
