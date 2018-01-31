@@ -124,7 +124,7 @@ class UserController extends Controller
         $this->denyAccessUnlessGranted('view', $abonnement); //symfony voter
 
         $form = null;
-        if ($this->get('security.context')->isGranted('ROLE_USER')) {
+        if ($this->denyAccessUnlessGranted('ROLE_USER')) {
             $form = $this->createForm(new OktoAbonnementType(), $abonnement);
         } else {
             $form = $this->createForm(new AbonnementType(), $abonnement);
