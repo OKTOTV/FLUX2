@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -120,17 +120,17 @@ class UserController extends Controller
      * @Route("/updateAbonnement/{abonnement}", name="user_update_abonnement")
      * @Template()
      */
-    public function updateAbonnementAction(Request $request, AuthorizationCheckerInterface $authChecker, Abonnement $abonnement)
+    public function updateAbonnementAction(Request $request, Abonnement $abonnement)
     {
         $this->denyAccessUnlessGranted('view', $abonnement); //symfony voter
 
         $form = null;
-        if ($authChecker->isGranted('ROLE_USER')) {
-            $form = $this->createForm(new OktoAbonnementType(), $abonnement);
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_USER')) {
+            $form = $this->createForm(OktoAbonnementType::class, $abonnement);
         } else {
-            $form = $this->createForm(new AbonnementType(), $abonnement);
+            $form = $this->createForm(AbonnementType::class, $abonnement);
         }
-        $form->add('submit', 'submit', ['label' => 'oktothek.user_update_abonnement_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek.user_update_abonnement_button', 'attr' => ['class' => 'btn btn-primary']]);
 
         if ($request->getMethod() == "POST") { //sends form
             $form->handleRequest($request);
