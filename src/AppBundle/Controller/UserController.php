@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -119,12 +120,12 @@ class UserController extends Controller
      * @Route("/updateAbonnement/{abonnement}", name="user_update_abonnement")
      * @Template()
      */
-    public function updateAbonnementAction(Request $request, Abonnement $abonnement)
+    public function updateAbonnementAction(Request $request, AuthorizationCheckerInterface $authChecker, Abonnement $abonnement)
     {
         $this->denyAccessUnlessGranted('view', $abonnement); //symfony voter
 
         $form = null;
-        if ($this->denyAccessUnlessGranted('ROLE_USER')) {
+        if ($authChecker->isGranted('ROLE_USER')) {
             $form = $this->createForm(new OktoAbonnementType(), $abonnement);
         } else {
             $form = $this->createForm(new AbonnementType(), $abonnement);
