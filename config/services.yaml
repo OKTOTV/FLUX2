@@ -201,6 +201,7 @@ services:
         arguments: [ "@doctrine.orm.entity_manager", "@bprs_user.mailer", "@translator" ]
         tags:
             - { name: kernel.event_listener, event: bprs_user.post_password_reset, method: onPostPasswordReset }
+            - { name: kernel.event_listener, event: bprs_user.pre_user_delete, method: onPreDeleteUser}
 
     oktothek_episode_logstate_event_listener:
         class: AppBundle\Event\EpisodeLogstateEventListener
