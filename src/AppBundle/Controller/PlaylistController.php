@@ -28,7 +28,7 @@ class PlaylistController extends Controller
     public function newAction(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            $user = $this->get('security.context')->getToken()->getUser();
+            $user = $this->getUser();
             $uniqID = $request->request->get('uniqID');
             $name = $request->request->get('name');
             $this->get('oktothek_playlist_service')->newPlaylist($name, $user, $uniqID);

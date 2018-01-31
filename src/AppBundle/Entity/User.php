@@ -77,7 +77,8 @@ class User extends BaseUser
         $this->abonnements = new ArrayCollection();
         $this->favorites = new ArrayCollection();
         $this->playlists = new ArrayCollection();
-        $this->comments = new ArrayCollection();
+        $this->episode_comments = new ArrayCollection();
+        $this->$post_comments = new ArrayCollection();
         $this->uniqID = uniqID();
     }
 
@@ -85,6 +86,40 @@ class User extends BaseUser
     {
         return $this->getUsername();
     }
+
+     public function getEpisodeComments()
+     {
+         return $this->episode_comments;
+     }
+
+     public function addEpisodeComment($comment)
+     {
+         $this->episode_comments[] = $comment;
+         return $this;
+     }
+
+     public function removeEpisodeComment($comment)
+     {
+         $this->episode_comments->removeElement($comment);
+         return $this;
+     }
+
+     public function getPostComments()
+     {
+         return $this->post_comments;
+     }
+
+     public function addPostComment($comment)
+     {
+         $this->post_comments[] = $comment;
+         return $this;
+     }
+
+     public function removePostComment($comment)
+     {
+         $this->post_comments->removeElement($comment);
+         return $this;
+     }
 
     /**
      * Add playlists
