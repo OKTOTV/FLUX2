@@ -78,7 +78,7 @@ class User extends BaseUser
         $this->favorites = new ArrayCollection();
         $this->playlists = new ArrayCollection();
         $this->episode_comments = new ArrayCollection();
-        $this->$post_comments = new ArrayCollection();
+        $this->post_comments = new ArrayCollection();
         $this->uniqID = uniqID();
     }
 
