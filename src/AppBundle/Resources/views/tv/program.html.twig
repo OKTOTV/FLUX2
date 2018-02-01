@@ -27,12 +27,10 @@
                       <div class="description">
                           {{ show.description }}
                           {% if show.repetitions is not empty %}
-                              <ul class="list-inline">
-                                  <li style="padding-left:0px">
-                                      {{ 'oktothek_tv_program_repetition'|trans}}
-                                  </li>
+                              <h5>{{'oktothek_tv_program_repetition'|trans}}</h5>
+                              <ul class="row repeats">
                                   {% for repetition in show.repetitions %}
-                                  <li>
+                                  <li class="col-xs-6 col-sm-3 col-md-2 col-lg-1">
                                       {{ repetition|date('oktothek_tv_program_repetition_dateformat'|trans)}}
                                   </li>
                                   {% endfor %}

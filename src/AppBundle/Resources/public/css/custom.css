@@ -156,7 +156,8 @@ button.btn-default#ButtonShare_mobil .visible-xs-inline,
 .subscriptions header.page-header .pull-left .icon,
 body.help .help-participate figcaption,
 body.help .help-action figcaption,
-body.help section:last-child {
+body.help section:last-child,
+body.livestream .description {
 		font-size:16px;
 	}
 	/* Placeholderstyles (nicht möglich zu gruppieren) */
@@ -196,9 +197,9 @@ footer h3,
 .academy .preview .timetable p, 
 a.more, 
 header .navbar-nav.themes a, 
-.livestream .schedule li h4, 
-.livestream .next-episode-schedule h4,
-.livestream .navbar-nav a.btn span, 
+body.livestream .schedule li h4, 
+body.livestream .next-episode-schedule h4,
+body.livestream .navbar-nav a.btn span, 
 .pin-icon {
 	font-size:14px;
 	letter-spacing:0.25px;
@@ -245,7 +246,9 @@ body.producer ul.list-group .pin a p,
 div.list-group.tags span.label.label-default.remove,
 body.help #link-new-account a,
 .helptext a,
-.episode .view-icon span {
+.episode .view-icon span,
+body.livestream h5,
+.livestream .schedule .repeats li {
 	font-size:12px;
 	letter-spacing:0.25px;
 }
@@ -300,7 +303,8 @@ body.tagpage .pages .list-group-item a,
 div.list-group.tags span.label.label-default.remove,
 body.help .help-action li .menu-text,
 .helptext span, 
-.helptext a {
+.helptext a,
+body.livestream h5 {
 	text-transform:uppercase;
 }
 
@@ -987,7 +991,8 @@ header .collapseShare a.btn,
 body.producer li.list-group-item,
 body.producer ul.list-group .pin a p,
 .pagination li.disabled span,
-body.tagpage .pages .list-group-item a { /* Hellgrau */
+body.tagpage .pages .list-group-item a,
+.livestream .schedule .repeats li { /* Hellgrau */
 	color:#dcdcdc;
 }
 a.tag, 
