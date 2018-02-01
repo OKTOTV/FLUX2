@@ -16,13 +16,13 @@
 <div class="row">
     <main class="col-md-8">
         <section>
-        <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }}<button class="btn btn-default updateNotifications" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>
+        <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }} <button class="btn btn-default updateNotifications pull-right" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span> Benachrichtigen</button></h3>
         {% for episodecomment in newest_episode_comments %}
             <div class="row">
                 {% include "AppBundle::post_comment/_comment.html.twig" with {'comment': episodecomment} %}
             </div>
         {% endfor %}
-        <h3>{{ 'oktothek.series_producer_newest_blogpost_comments'|trans }}<button class="btn btn-default updateNotifications" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>
+        <h3>{{ 'oktothek.series_producer_newest_blogpost_comments'|trans }} <button class="btn btn-default updateNotifications pull-right" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span> Benachrichtigen</button></h3>
         {% for blogpostcomment in newest_blogpost_comments %}
             <div class="row">
                 {% include "AppBundle::post_comment/_comment.html.twig" with {'comment': blogpostcomment} %}

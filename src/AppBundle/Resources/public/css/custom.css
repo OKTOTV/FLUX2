@@ -1101,8 +1101,9 @@ body.tagpage .content-bg,
 .tabs-content .pagination > li > a, 
 .tabs-content .pagination > li > span,
 .visible-xs-block .pager .disabled > a, .visible-xs-block .pager .disabled > a:focus, .visible-xs-block .pager .disabled > a:hover, .visible-xs-block .pager .disabled > span,
-.producer .visible-xs-block .pager li > a, 
-.producer .visible-xs-block .pager li > a {
+body.producer .visible-xs-block .pager li > a, 
+body.producer .visible-xs-block .pager li > a,
+body.producer .tools {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
