@@ -70,13 +70,13 @@ oktothek.notific_mail.comm_episode_message:         'Die Sendung <a href="%serie
 oktothek.notific_mail.comm_episode_timestamp:       "Folge von %day%, %date%"
 oktothek.notific_mail.comm_episode_day_choice:      "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek.notific_mail.comm_episode_date_format:     "d.m.Y"
-oktothek.notific_mail.comm_episode_discuss:         "Mitdiskutieren"
+oktothek.notific_mail.comm_episode_discuss:         "Antworten"
 oktothek.notific_mail.comm_episode_abo_settings:    'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
 
 # src/AppBundle/Resources/views/Mail/commentBlogpost.html.twig
 oktothek.notific_mail.comm_blogpost_user:           "Liebe/r %user%!"
 oktothek.notific_mail.comm_blogpost_message:        'Die Sendung <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series_name%</a> hat einen neuen Kommentar zu einem Blogpost. Schau doch mal rein und diskutiere mit.'
-oktothek.notific_mail.comm_blogpost_discuss:        "Mitdiskutieren"
+oktothek.notific_mail.comm_blogpost_discuss:        "Antworten"
 oktothek.notific_mail.comm_blogpost_abo_settings:   'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
 
 ## Search
