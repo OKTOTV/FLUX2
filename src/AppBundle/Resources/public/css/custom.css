@@ -1259,6 +1259,7 @@ body.livestream .schedule .panel-default {
 .btn-primary.active:hover, 
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
+body.producer .btn-default.active,
 .input-group-addon,
 .more figure.episode-pin a { /* Gelb */
 	background-color:#fcce14;
@@ -1399,6 +1400,7 @@ a:focus .more.right .icon,
 .btn-primary.focus:active, 
 .btn-primary.active.focus,
 .btn-primary.but-full:hover,
+body.producer .btn-default.active,
 #appbundle_episode_comment .btn-link,
 .livestream #nav-programm .icon,
 .more figure.episode-pin a,
