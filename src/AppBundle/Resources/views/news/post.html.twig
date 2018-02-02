@@ -53,7 +53,7 @@
         <header class="page-header">
             <h3 itemprop="headline">{{ post.name }}</h3>
         </header>
-        <span itemprop="description">{{ post.description|markdown() }}</span>
+        <div itemprop="description">{{ post.description|markdown() }}</div>
         <p class="misc">
             <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
         </p>
