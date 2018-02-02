@@ -15,14 +15,19 @@
 
 <div class="row">
     <main class="col-md-8">
-        <section>
         <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }} <button class="btn btn-default updateNotifications pull-right" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span> Benachrichtigen</button></h3>
+        <section>
+        <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }}</h3>
+        <p><button class="btn btn-default updateNotifications" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button> Benachrichtigen wenn ein neuer Kommentar gepostet wurde.</p>
         {% for episodecomment in newest_episode_comments %}
             <div class="row">
                 {% include "AppBundle::post_comment/_comment.html.twig" with {'comment': episodecomment} %}
             </div>
         {% endfor %}
-        <h3>{{ 'oktothek.series_producer_newest_blogpost_comments'|trans }} <button class="btn btn-default updateNotifications pull-right" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span> Benachrichtigen</button></h3>
+        </section>
+        <section>
+        <h3>{{ 'oktothek.series_producer_newest_blogpost_comments'|trans }}</h3>
+        <p><button class="btn btn-default updateNotifications" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button> Benachrichtigen wenn ein neuer Kommentar gepostet wurde.</p>
         {% for blogpostcomment in newest_blogpost_comments %}
             <div class="row">
                 {% include "AppBundle::post_comment/_comment.html.twig" with {'comment': blogpostcomment} %}
