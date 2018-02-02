@@ -145,7 +145,7 @@ body.producer .newsarchiv .post .page-header > h3 {
     body.producer .list-group-item .pin {
         padding-bottom:0;
     }
-     body.producer .statistic .list-group-item .pin, body.producer .statistic .list-group-item figcaption {
+    body.producer .statistic .list-group-item .pin, body.producer .statistic .list-group-item figcaption {
         padding-left:0px;
         padding-right:15px;
     }
