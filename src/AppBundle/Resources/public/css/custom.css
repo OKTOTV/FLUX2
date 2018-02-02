@@ -2682,7 +2682,7 @@ footer .open .dropdown-menu {
     	padding: 5px 15px;
 	}
     .dropdown-menu {
-        padding:10px;
+        padding:0px;
     }
     .dropdown-menu li {
 		padding-left:0;
