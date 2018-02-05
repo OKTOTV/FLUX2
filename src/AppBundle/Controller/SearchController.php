@@ -43,11 +43,12 @@ class SearchController extends Controller
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $data = $form->getData();
+                $searchphrase = str_replace('/', '', $data['search']);
                 $search = $this->get('oktothek_search');
-                $episodes = $search->searchEpisodes($data['search']);
-                $series = $search->searchSeries($data['search']);
-                $playlists = $search->searchPlaylists($data['search']);
-                $coursetypes = $search->searchCourseTypes($data['search']);
+                $episodes = $search->searchEpisodes($searchphrase);
+                $series = $search->searchSeries($searchphrase);
+                $playlists = $search->searchPlaylists($searchphrase);
+                $coursetypes = $search->searchCourseTypes($searchphrase);
 
                 return $this->render('AppBundle::search/results.html.twig', [
                     'episodes' => $episodes,

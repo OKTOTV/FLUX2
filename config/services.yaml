@@ -1,7 +1,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
+    locale: 'de'
     okto_help_uniqID:              "%env(okto_help_uniqID)%"
 
 services:
@@ -201,6 +201,7 @@ services:
         arguments: [ "@doctrine.orm.entity_manager", "@bprs_user.mailer", "@translator" ]
         tags:
             - { name: kernel.event_listener, event: bprs_user.post_password_reset, method: onPostPasswordReset }
+            - { name: kernel.event_listener, event: bprs_user.pre_user_delete, method: onPreDeleteUser}
 
     oktothek_episode_logstate_event_listener:
         class: AppBundle\Event\EpisodeLogstateEventListener

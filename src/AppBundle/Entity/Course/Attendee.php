@@ -25,6 +25,11 @@ class Attendee
     private $id;
 
     /**
+     * @ORM\Column(name="title", type="integer", nullable=true)
+     */
+    private $title;
+
+    /**
      * @var string
      * @Assert\NotBlank()
      * @Assert\Length(max=250)
@@ -144,6 +149,17 @@ class Attendee
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**

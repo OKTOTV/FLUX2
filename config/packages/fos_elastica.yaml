@@ -72,6 +72,19 @@ fos_elastica:
                         provider: ~
                         listener: ~
                         finder: ~
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            tag_analyzer:
+                                type: custom
+                                tokenizer: lowercase
+                                filter: [snowball, my_ngram]
+                        filter:
+                            my_ngram:
+                                type: edgeNGram
+                                min_gram: 3
+                                max_gram: 20
         tag:
             client: default
             types:
@@ -85,7 +98,7 @@ fos_elastica:
                         model: AppBundle\Entity\Tag
                         provider: ~
                         listener: ~
-                    #     finder: ~
+                        finder: ~
             settings:
                 index:
                     analysis:

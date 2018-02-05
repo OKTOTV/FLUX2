@@ -615,17 +615,19 @@ oktothek.channels_show_more:            "Mehr anzeigen"
 ## academy
 
 oktothek.success_book_SOFORT_course:    "Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Buchungsbestätigung"
-oktothek.book_sofort_button:            "Mit SOFORTÜberweisung bezahlen"
+oktothek.book_sofort_button:            "Online mit SOFORTÜberweisung bezahlen"
 oktothek.attendee_create_button:        "Per Überweisung oder Bar bezahlen"
 oktothek.register_attendee_button:      "Kostenlos Registrieren"
 oktothek.error_sofort_book_course:      "Beim Bezahlvorgang ist ein Fehler aufgetreten. Bitte versuche es noch einmal."
 oktothek.error_book_course:             "Bitte fülle alle Felder aus, um dich für den Workshop anzumelden"
 oktothek.success_register_course:       "Vielen Dank! Sie erhalten in kürze eine Email mit ihrer Registrierungsbestätigung"
 
+oktothek_attendee_title_placeholder:        "Anrede wählen"
 oktothek_attende_name_placeholder:          "Max"
 oktothek_attende_surname_placeholder:       "Musterfrau"
 oktothek_attende_mail_placeholder:          "max@musterfrau.at"
 oktothek_attende_tel_placeholder:           "+43 123 456 789"
+oktothek_attendee_title_label:              "Anrede"
 oktothek_attendee_adress_label:             "Adresse"
 oktothek_attendee_adress_placeholder:       "Musterstraße 12/3"
 oktothek_attendee_plz_label:                "Postleitzahl"
@@ -636,6 +638,10 @@ oktothek_attendee_agb_label:                "Ich habe die AGB gelesen und bin mi
 oktothek_attendee_bookCourse_reduced_label: "Ermäßigt*"
 oktothek_attendee_city_label:               "Ort"
 oktothek_attendee_city_placeholder:         "Musterstadt"
+
+oktothek_attendee_title_sir:                "Herr"
+oktothek_attendee_title_madam:              "Frau"
+oktothek_attendee_title_choice:             "{0} Unbekannt |{1} Frau |{2} Herr"
 
 # Coursepackage
 oktothek.backend_edit_coursepackage_header:             "Kurspaket bearbeiten"
@@ -701,6 +707,7 @@ oktothek.backend_coursedate_end_label:  Terminende
 # Attendee
 # AppBundle/Resources/views/Backend/Attendee/show.html.twig
 oktothek.backend_attendee_show_back_to_index: '<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Zum Teilnehmerindex'
+oktothek.backend_attendee_full_name:    "%title% %firstname% %lastname%"
 oktothek_attendee_name_label:           "Vorname"
 oktothek_attendee_surname_label:        "Nachname"
 oktothek_attendee_email_label:          "E-Mail"
@@ -709,6 +716,7 @@ oktothek_attendee_reduced_label:        "Ermäßigt"
 oktothek_attendee_present_label:        "Anwesend"
 attendee_info_course:                   "Kurs"
 
+attendee_info_title:                    "Anrede"
 attendee_info_name:                     "Vorname"
 attendee_info_surname:                  "Nachname"
 attendee_info_email:                    "Mailadresse"

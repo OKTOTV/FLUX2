@@ -5,7 +5,7 @@
 {% endblock %}
 {% block body_main %}
     <div class="page-header">
-        <h1>{{ attendee }}</h1>
+        <h1>Kursteilnehmer</h1>
         <!-- Single button -->
         <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,94 +36,68 @@
         </div>
     </div>
 
-    <table class="table table-bordered">
-        <tbody>
-            <tr>
-                <td>
-                    {{ 'attendee_info_present'|trans }}
-                </td>
-                <td>
-                    {{ 'attendee_info_present_choice'|transchoice(attendee.present)}}
-                </td>
-            </tr>
-            <tr>
-                <td>{{ 'attendee_info_name'|trans }}</td>
-                <td>{{ attendee.name }}</td>
-            </tr>
-            <tr>
-                <td>{{ 'attendee_info_surname'|trans }}</td>
-                <td>{{ attendee.surname }}</td>
-            </tr>
-            <tr>
-                <td>{{ 'attendee_info_email'|trans }}</td>
-                <td>{{ attendee.email }}</td>
-            </tr>
-            <tr>
-                <td>{{ 'attendee_info_tel'|trans }}</td>
-                <td>{{ attendee.tel }}</td>
-            </tr>
-            <tr>
-                <td>{{ 'attendee_info_reduced'|trans }}</td>
-                <td>{{ 'attendee_info_reduced_choice'|transchoice(attendee.reducedEligible) }}</td>
-            </tr>
-            <tr>
-                <td>{{ 'attendee_info_transactionId'|trans }}</td>
-                <td>{{ attendee.transactionId }}</td>
-            </tr>
-            <tr>
-                <td>{{ 'attendee_info_info'|trans }}</td>
-                <td>{{ attendee.info|nl2br }}</td>
-            </tr>
-            <tr>
-                <td>{{ 'attendee_info_paymentStatus'|trans }}</td>
-                <td>{{ attendee.paymentStatus|trans }}</td>
-            </tr>
-            <tr>
-                <td>{{ 'attendee_info_updatedAt'|trans }}</td>
-                <td>{{ attendee.updatedAt|date('H:i d.m.Y') }}</td>
-            </tr>
-            <tr>
-                <td>
-                    {{ 'attendee_info_adress'|trans }}
-                </td>
-                <td>
-                    {{ attendee.adress }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{ 'attendee_info_zipcode'|trans }}
-                </td>
-                <td>
-                    {{ attendee.zipcode }}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{ 'attendee_info_city'|trans }}
-                </td>
-                <td>
-                    {{ attendee.city }}
-                </td>
-            </tr>
-            <tr>
-                <td>
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+                <dt>{{ 'attendee_info_title'|trans }}</dt>
+                <dd>{{ 'oktothek_attendee_title_choice'|transchoice(attendee.title) }}</dd>
+
+                <dt>{{ 'attendee_info_name'|trans }}</dt>
+                <dd>{{ attendee.name }}</dd>
+
+                <dt>{{ 'attendee_info_surname'|trans }}</dt>
+                <dd>{{ attendee.surname }}</dd>
+
+                <dt>{{ 'oktothek.backend_attendee_info_email'|trans }}</dt>
+                <dd>{{ attendee.email }}</dd>
+
+                <dt>{{ 'oktothek.backend_attendee_info_tel'|trans }}</dt>
+                <dd>{{ attendee.tel|default('oktothek.backend_attendee_info_no_tel'|trans) }}</dd>
+
+                <dt>{{ 'oktothek.backend_attendee_info_date'|trans }}</dt>
+                <dd>{{ attendee.updatedAt|date('oktothek.backend_attendee_info_date_format'|trans) }}</dd>
+            </dl>
+            <dl class="dl-horizontal">
+                <dt>{{ 'attendee_info_adress'|trans }}</dt>
+                <dd>{{ attendee.adress }}</dd>
+
+                <dt>{{ 'attendee_info_zipcode'|trans }}</dt>
+                <dd>{{ attendee.zipcode }}</dd>
+
+                <dt>{{ 'attendee_info_city'|trans }}</dt>
+                <dd>{{ attendee.city }}</dd>
+
+                <dt>
                     {{ 'attendee_info_country'|trans }}
-                </td>
-                <td>
+                </dt>
+                <dd>
                     {{ attendee.countryname }}
-                </td>
-            </tr>
+                </dd>
+            </dl>
+        </div>
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+                <dt>{{ 'attendee_info_reduced'|trans }}</dt>
+                <dd>{{ 'attendee_info_reduced_choice'|transchoice(attendee.reducedEligible) }}</dd>
 
-            {% if attendee.courses is not empty %}
-                {% for course in attendee.courses %}
-                <tr>
-                    <td>{{ 'attendee_info_course'|trans }}</td>
-                    <td><a href="{{ path('oktothek_backend_show_course', {'course': course.id})}}">{{ course.coursetype }}</a></td>
-                </tr>
-                {% endfor %}
-            {% endif %}
-        <tbody>
-    </table>
+                <dt>{{ 'attendee_info_transactionId'|trans }}</dt>
+                <dd>{{ attendee.transactionId }}</dd>
 
+                <dt>{{ 'attendee_info_paymentStatus'|trans }}</dt>
+                <dd>{{ attendee.paymentStatus|trans }}</dd>
+            </dl>
+            <dl class="dl-horizontal">
+                {% if attendee.courses is not empty %}
+                    {% for course in attendee.courses %}
+                        <dt>{{ 'attendee_info_course'|trans }}</dt>
+                        <dd>
+                            <a href="{{ path('oktothek_backend_show_course', {'course': course.id})}}">
+                                {{ course.coursetype }}
+                            </a>
+                        </dd>
+                    {% endfor %}
+                {% endif %}
+            </dl>
+        </div>
+    </div>
 {% endblock %}

@@ -68,7 +68,17 @@
                 <tbody>
                     {% for attendee in course.attendees %}
                         <tr>
-                            <td><a href="{{ path('oktothek_backend_show_attendee', {'attendee': attendee.id })}}">{{ attendee }}</a></td>
+                            <td>
+                                <a href="{{ path('oktothek_backend_show_attendee', {'attendee': attendee.id })}}">
+                                    {{
+                                        'oktothek.backend_attendee_full_name'|trans({
+                                            '%title%': 'oktothek_attendee_title_choice'|transchoice(attendee.title),
+                                            '%firstname%': attendee.name,
+                                            '%lastname%': attendee.surname
+                                        })
+                                    }}
+                                </a>
+                            </td>
                             <td>{{ attendee.paymentStatus|trans }}</td>
                             <td>
                                 {{ 'oktothek.bakcend_course_attendee_present_choice'|transchoice(attendee.present)}}

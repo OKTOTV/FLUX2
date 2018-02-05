@@ -55,6 +55,7 @@ class EpisodeController extends Controller
         $em = $this->getDoctrine()->getManager();
         $q = $em->createQuery("SELECT e.name as episodename, e.views, e.uniqID, s.name as seriesname FROM AppBundle:Episode e LEFT JOIN e.series s");
         $iterableResult = $q->iterate();
+        $logstates0 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => 'start'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
         $logstates = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '20%'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
         $logstates40 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '40%'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
         $logstates60 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '60%'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
@@ -65,11 +66,20 @@ class EpisodeController extends Controller
             $results[$row[$i]['uniqID']]['episode'] = $row[$i]['episodename'];
             $results[$row[$i]['uniqID']]['series'] = $row[$i]['seriesname'];
             $results[$row[$i]['uniqID']]['clicks'] = $row[$i]['views'];
+            $zero_percent = 0;
             $twenty_percent = 0;
             $fourty_percent = 0;
             $sixty_percent = 0;
             $eighty_percent = 0;
             $end = 0;
+
+            foreach ($logstates0 as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $zero_percent++;
+                    unset($logstate);
+                }
+            }
+
             foreach ($logstates as $logstate) {
                 if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
                     $twenty_percent++;
@@ -100,6 +110,7 @@ class EpisodeController extends Controller
                     unset($logstate);
                 }
             }
+            $results[$row[$i]['uniqID']]['0'] = $zero_percent;
             $results[$row[$i]['uniqID']]['20'] = $twenty_percent;
             $results[$row[$i]['uniqID']]['40'] = $fourty_percent;
             $results[$row[$i]['uniqID']]['60'] = $sixty_percent;
@@ -118,6 +129,7 @@ class EpisodeController extends Controller
                         'Folge',
                         'UniqID',
                         'Klicks',
+                        '0%',
                         '20%',
                         '40%',
                         '60%',
@@ -134,6 +146,7 @@ class EpisodeController extends Controller
                         $info["episode"],
                         $uniqID,
                         $info["clicks"],
+                        $info["0"],
                         $info["20"],
                         $info["40"],
                         $info["60"],
