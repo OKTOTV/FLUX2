@@ -15,9 +15,9 @@
     <meta itemprop="url" content="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" />
     <figure class="episode-pin pin" itemscope="itemscope" itemtype="http://schema.org/Episode">
         <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episodetitle}) }}">
-            <meta itemprop="thumbnailUrl" content="{{ episode.posterframe(true)|thumb(158,282) }}" />
+            <meta itemprop="thumbnailUrl" content="{{ episode.posterframe(true)|thumb(303,539) }}" />
             <meta itemprop="datePublished" content="{{ episode.firstranAt|date('Y-m-d')}}" />
-            <img src="{{ episode.posterframe(true)|thumb(158,282) }}" class="img-responsive" alt="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episode.name|default('oktothek_episode_thumb_default_name'|trans({'%date%': episode.firstRanAt|date('oktothek_episode_thumb_date_format'|trans)})) }) }}" />
+            <img src="{{ episode.posterframe(true)|thumb(303,539) }}" class="img-responsive" alt="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episode.name|default('oktothek_episode_thumb_default_name'|trans({'%date%': episode.firstRanAt|date('oktothek_episode_thumb_date_format'|trans)})) }) }}" />
         </a>
         {# hide views by edk, cj, gl 
         <div class="pin-icon" title="{{ 'oktothek_episode_thumb_likes_title_choice'|transchoice(episode.views) }}">

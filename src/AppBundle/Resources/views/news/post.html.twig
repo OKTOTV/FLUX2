@@ -1,5 +1,5 @@
 <article class="row post">
-    <figure class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <figure class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     {% if post.assets is empty %} {# no assets#}
     {% elseif post.assets|length == 1 %} {# one photo or video #}
         {% if post.assets[0].mimetype == 'image/jpeg' or post.assets[0].mimetype == 'image/png' %}
@@ -42,7 +42,7 @@
         </div>
     {% endif %}
     </figure>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <meta itemprop="author" content="{{ 'oktothek_author_of_slides'|trans }}" />
         <meta itemprop="datePublished" content="{{ post.onlineAt|date('Y-m-d')}}" />
         <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
@@ -51,9 +51,9 @@
         </span>
         <p>{% for tag in post.tags %}<a href="{{ path('oktothek_tag_show', {'slug': tag.slug })}}" class="tag" itemprop="keywords">{{ tag.text }}</a>{% endfor %}</p>
         <header class="page-header">
-            <h3 itemprop="headline"><a href="{{ path( 'oktothek_show_news', {'slug': post.slug})}}">{{ post.name }}</a></h3>
+            <h3 itemprop="headline">{{ post.name }}</h3>
         </header>
-        <span itemprop="description">{{ post.description|markdown() }}</span>
+        <div itemprop="description">{{ post.description|markdown() }}</div>
         <p class="misc">
             <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
         </p>

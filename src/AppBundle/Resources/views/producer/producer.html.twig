@@ -15,24 +15,32 @@
 
 <div class="row">
     <main class="col-md-8">
-        <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }}<button class="btn btn-default updateNotifications" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>
+        <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }} <button class="btn btn-default updateNotifications pull-right" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span> Benachrichtigen</button></h3>
+        <section>
+        <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }}</h3>
+        <p><button class="btn btn-default updateNotifications" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button> Benachrichtigen wenn ein neuer Kommentar gepostet wurde.</p>
         {% for episodecomment in newest_episode_comments %}
             <div class="row">
                 {% include "AppBundle::post_comment/_comment.html.twig" with {'comment': episodecomment} %}
             </div>
         {% endfor %}
-        <h3>{{ 'oktothek.series_producer_newest_blogpost_comments'|trans }}<button class="btn btn-default updateNotifications" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button></h3>
+        </section>
+        <section>
+        <h3>{{ 'oktothek.series_producer_newest_blogpost_comments'|trans }}</h3>
+        <p><button class="btn btn-default updateNotifications" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button> Benachrichtigen wenn ein neuer Kommentar gepostet wurde.</p>
         {% for blogpostcomment in newest_blogpost_comments %}
             <div class="row">
                 {% include "AppBundle::post_comment/_comment.html.twig" with {'comment': blogpostcomment} %}
             </div>
         {% endfor %}
+        </section>
+        <section class="statistic">
         <h3>{{ 'oktothek.series_producer_newest_episodes'|trans }}</h3>
         {% for episode in newest_episodes %}
             <div class="row">
                 <figure class="list-group-item">
                     <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 pin">
-                        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}"><img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(135,240)}}" /></a>
+                        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}"><img class="img img-responsive" src="{{ episode.posterframe(true)|thumb(275,489)}}" /></a>
                     </div>
                     <figcaption class="col-md-10 col-lg-10 col-sm-9 col-xs-12">
                         <h3><a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}">{{ episode.name }}</a></h3>
@@ -42,6 +50,8 @@
                 </figure>
             </div>
         {% endfor %}
+        </section>
+        <section class="statistic">
         <h3>{{ 'oktothek.series_producer_newest_blogposts'|trans }}</h3>
         {% for post in newest_posts %}
             {% set text_only = true %}
@@ -55,7 +65,7 @@
                     <div class="col-md-2 col-lg-2 col-sm-3 col-xs-12 pin">
                         {% if text_only == false %}
                             <a href="{{ path('oktothek_series_edit_blog_post', {'uniqID': series.uniqID, 'post': post.id})}}">
-                                <img src="{{ post.assets[0]|thumb(135,240) }}" class="img img-responsive" alt="{{ post.name }}"/>
+                                <img src="{{ post.assets[0]|thumb(275,489) }}" class="img img-responsive" alt="{{ post.name }}"/>
                             </a>
                         {% endif %}
                     </div>
@@ -66,9 +76,10 @@
                 </figure>
             </div>
         {% endfor %}
+        </section>
     </main>
     <aside class="col-md-4">
-        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID})}}"><img src="{{ series.posterframe|thumb(720,1280)}}" class="img img-responsive" /></a>
+        <a href="{{ path('oktothek_show_series', {'uniqID': series.uniqID})}}"><img src="{{ series.posterframe|thumb(275,489)}}" class="img img-responsive" /></a>
         <ul class="list-group">
             <li href="" class="list-group-item description">
                 <h3 class="list-group-item-heading">{{ 'oktothek.series_producer_description'|trans }}</h3>
