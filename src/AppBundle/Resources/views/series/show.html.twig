@@ -96,7 +96,7 @@
             </div>
         </section>
     {% endif %}
-    {{ render(controller("AppBundle:Series:episodesWithTagsAjax", { 'uniqID': series.uniqID })) }}
+    {{ render(controller("AppBundle:series:episodesWithTagsAjax", { 'uniqID': series.uniqID })) }}
     {% if series.reachmes is not empty %}
         <section class="container">
             <div class="infos">
