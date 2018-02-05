@@ -16,7 +16,7 @@ class EpisodeCommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('text', TextareaType::class, ['attr' => ['placeholder' => 'oktothek.comment_placeholder_text']])
+            ->add('text', TextareaType::class, ['attr' => ['placeholder' => 'oktothek.comment_placeholder_text'], 'label' => 'oktothek.episode_comment_label'])
         ;
     }
 

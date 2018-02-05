@@ -72,6 +72,7 @@ oktothek.notific_mail.comm_episode_day_choice:      "{1} Mo |{2} Di |{3} Mi |{4}
 oktothek.notific_mail.comm_episode_date_format:     "d.m.Y"
 oktothek.notific_mail.comm_episode_discuss:         "Mitdiskutieren"
 oktothek.notific_mail.comm_episode_abo_settings:    'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
+oktothek.episode_comment_label:                     'Text'
 
 # src/AppBundle/Resources/views/Mail/commentBlogpost.html.twig
 oktothek.notific_mail.comm_blogpost_user:           "Liebe/r %user%!"
@@ -346,7 +347,6 @@ oktothek_tag_episode_header:            Folgen
 oktothek_tag_series_header:             Sendereihen
 oktothek_tag_playlists_header:          Playlisten
 oktothek_tag_posts_header:              Posts
-oktothek_tag_pages_header:              Seiten
 oktothek_tag_placeholder:               Katzen, YOLO and more
 oktothek.tag_new_button:                <span class="glyphicon glyphicon-plus"></span> Neuen Tag anlegen
 oktothek_tag_more_results:              Mehr Anzeigen <span class="icon">+</span>
@@ -570,10 +570,10 @@ oktothek_series_blogShow_title:         "%blogpost% | OKTO"
 oktothek_series_episodeStack_show_more: 'Mehr Videos anzeigen <span class="glyphicon glyphicon-menu-right"></span>'
 
 ## series playlists
-oktothek_series_playlists_title:        %series% Playlisten
-oktothek.series_playlists_filter:       <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
-oktothek.series_playlists_name_filter:  Name
-oktothek.series_playlists_createdAt_filter: Datum
+oktothek_series_playlists_title:            "%series% Playlisten"
+oktothek.series_playlists_filter:           '<span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>'
+oktothek.series_playlists_name_filter:      "Name"
+oktothek.series_playlists_createdAt_filter: "Datum"
 
 ## series blog
 oktothek.series_blog_header:            "%series%'s Blog"
@@ -813,23 +813,23 @@ oktothek.backend_coursetype_dropdown:   <span class="glyphicon glyphicon-cog"></
 oktothek_backend_edit_coursetype:       <span class="glyphicon glyphicon-edit"></span> Kurstyp bearbeiten
 
 # AppBundle/Resources/views/Backend/Course/showCoursetype.html.twig
-oktothek_backend_coursetype_price_info: Vollpreis
-oktothek_backend_courstype_price:       %amount% €
-oktothek_backend_coursetype_price_reduced_info: Ermäßigter Preis
-oktothek_backend_courstype_price_reduced: %amount% €
-oktothek_backend_coursetype_highlight_info: Hervorgehoben
-oktothek_backend_courstype_highligt_choice: "{0} Nein|{1} Ja"
-oktothek_backend_coursetype_attachment_info: Anhang
-oktothek_backend_course_no_dates:       Kurs ohne Termine!
-oktothek_backend_course_start_time_format:    "d.m.Y H:i"
-oktothek_backend_course_end_time_format:      "H:i"
-oktothek_backend_course_timestamp:      "%starttime% - %endtime%"
-oktothek_backend_course_badge:          "%current%/%max%"
+oktothek_backend_coursetype_price_info:         "Vollpreis"
+oktothek_backend_courstype_price:               "%amount% €"
+oktothek_backend_coursetype_price_reduced_info: "Ermäßigter Preis"
+oktothek_backend_courstype_price_reduced:       "%amount% €"
+oktothek_backend_coursetype_highlight_info:     "Hervorgehoben"
+oktothek_backend_courstype_highligt_choice:     "{0} Nein|{1} Ja"
+oktothek_backend_coursetype_attachment_info:    "Anhang"
+oktothek_backend_course_no_dates:               "Kurs ohne Termine!"
+oktothek_backend_course_start_time_format:      "d.m.Y H:i"
+oktothek_backend_course_end_time_format:        "H:i"
+oktothek_backend_course_timestamp:              "%starttime% - %endtime%"
+oktothek_backend_course_badge:                  "%current%/%max%"
 
-oktothek.backend_edit_course_header:    Kurs bearbeiten
-oktothek.course_delete_button:          <span class="glyphicon glyphicon-trash"></span> Kurs löschen
-oktothek.course_edit_button:            <span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern
-oktothek.coursetype_create_button:      <span class="glyphicon glyphicon-floppy-disk"></span> Anlegen
+oktothek.backend_edit_course_header:    "Kurs bearbeiten"
+oktothek.course_delete_button:          '<span class="glyphicon glyphicon-trash"></span> Kurs löschen'
+oktothek.course_edit_button:            '<span class="glyphicon glyphicon-floppy-disk"></span> Änderungen speichern'
+oktothek.coursetype_create_button:      '<span class="glyphicon glyphicon-floppy-disk"></span> Anlegen'
 
 oktothek.backend_edit_coursetype_header: Kurstyp bearbeiten
 oktothek.backend_new_coursetype_header:  Neuer Kurstyp
@@ -932,7 +932,6 @@ oktothek_user_channel_filter_updatedAt:     Zuletzt aktualisiert
 
 ## abonnements
 oktothek_user_abonnements_title:            "Deine Abonnements | OKTO"
-oktothek_user_abonnements_header:           "Deine Abonnements"
 
 # slider
 ## show
@@ -1077,15 +1076,15 @@ oktothek.series_producer_episode_tags:      "Tags"
 oktothek.series_producer_episode_files:     "Dateien"
 oktothek.series_producer_episode_download:  '<span class="glyphicon glyphicon-download" aria-hidden="true"></span> %file%'
 
-oktothek.series_producer_analytic_2weeks_header: Die letzten 14 Tage
-oktothek.series_producer_analytic_48hours_header: Die letzten 48 Stunden
-oktothek.series_producer_analytic_click:    "{20} 20%| {60} 60%"
-oktothek.series_producer_anlaytic_border:   "{20} rgba(252,206,20,0.6)|{60} rgba(100,200,200,0.6)"
-oktothek.series_producer_analytic_20:       %20 Bindung
-oktothek.series_producer_analytic_20:       %40 Bindung
-oktothek.series_producer_analytic_20:       %60 Bindung
-oktothek.series_producer_analytic_20:       %80 Bindung
-oktothek.series_producer_analytic_end:       %100 Bindung
+oktothek.series_producer_analytic_2weeks_header:    "Die letzten 14 Tage"
+oktothek.series_producer_analytic_48hours_header:   "Die letzten 48 Stunden"
+oktothek.series_producer_analytic_click:            "{20} 20%| {60} 60%"
+oktothek.series_producer_anlaytic_border:           "{20} rgba(252,206,20,0.6)|{60} rgba(100,200,200,0.6)"
+oktothek.series_producer_analytic_20:               "%20 Bindung"
+oktothek.series_producer_analytic_40:               "%40 Bindung"
+oktothek.series_producer_analytic_60:               "%60 Bindung"
+oktothek.series_producer_analytic_80:               "%80 Bindung"
+oktothek.series_producer_analytic_end:              "%100 Bindung"
 
 ## producer playlists
 oktothek_producer_playlists_title:          "Playlistübersicht der Sendereihe %series% | OKTO"
@@ -1108,7 +1107,6 @@ oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
 oktothek.newsletter_label:                  "Newsletter abbonieren"
 oktothek.success_subscribe_newsletter:      "Sie erhalten in kürze eine E-Mail zur Bestätigung des Newsletters"
 oktothek.error_subscribe_newsletter:        "Wir konnten Sie nicht für den Newsletter anmelden. Senden Sie uns bitte eine E-Mail an pr@okto.tv"
-oktothek.error_submit_newsletter:           "Das Formular konnte nicht verarbeitet werden"
 
 # participate
 oktothek.participate_5_steps:               Die fünf Schritte zur Sendung
