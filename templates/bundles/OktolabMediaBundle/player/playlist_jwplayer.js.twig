@@ -1,0 +1,54 @@
+<script src="{{ player_url|raw }}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var logged_playlist = false;
+        var playerInstance = jwplayer("{{ player_id }}");
+        playerInstance.setup({
+            playbackRateControls: true,
+            playlist: "{{ url('oktothek_show_playlist', {'uniqID': playlist.uniqID, '_format': 'json'})}}"
+        }).on('play', function(event){
+            if (event.oldstate == "buffering") { {# fire statistics #}
+                var episode = this.getPlaylistItem(this.getPlaylistIndex());
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': episode.uniqID, 'value': 'start'}
+                });
+                if (logged_playlist == false) {
+                    $.ajax({
+                        url: "{{ url('bprs_analytics_write_log')}}",
+                        data: {'identifier': "{{ playlist.uniqID }}", 'value': 'start_playlist'}
+                    });
+                    logged_playlist = true;
+                }
+            }
+        }).on('time', function(event) {
+            var percentage = Math.floor(event.position*100 / event.duration);
+
+            if ( percentage == 20 ) {
+                var episode = this.getPlaylistItem(this.getPlaylistIndex());
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': episode.uniqID, 'value': percentage+'%'}
+                });
+            } else if ( percentage == 40 ) {
+                var episode = this.getPlaylistItem(this.getPlaylistIndex());
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': episode.uniqID, 'value': percentage+'%'}
+                });
+            } else if (percentage == 60 ) {
+                var episode = this.getPlaylistItem(this.getPlaylistIndex());
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': episode.uniqID, 'value': percentage+'%'}
+                });
+            } else if ( percentage == 80 ) {
+                var episode = this.getPlaylistItem(this.getPlaylistIndex());
+                $.ajax({
+                    url: "{{ url('bprs_analytics_write_log')}}",
+                    data: {'identifier': episode.uniqID, 'value': percentage+'%'}
+                });
+            }
+        });
+    });
+</script>

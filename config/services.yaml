@@ -208,3 +208,4 @@ services:
         arguments: [ "@doctrine.orm.entity_manager" ]
         tags:
             - { name: kernel.event_listener, event: start, method: onEpisodeStart }
+            - { name: kernel.event_listener, event: start_playlist, method: onPlaylistStart }

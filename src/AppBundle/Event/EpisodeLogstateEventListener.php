@@ -21,4 +21,15 @@ class EpisodeLogstateEventListener {
             $this->em->flush();
         }
     }
+
+    public function onPlaylistStart($event)
+    {
+        $uniqID = $event->getLogstate()->getIdentifier();
+        $playlist = $this->em->getRepository('AppBundle:Playlist')->findOneBy(['uniqID' => $uniqID]);
+        if ($playlist) {
+            $playlist->setViews($playlist->getViews() +1);
+            $this->em->persist($playlist);
+            $this->em->flush();
+        }
+    }
 }
