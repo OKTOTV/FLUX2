@@ -11,7 +11,7 @@
                 var episode = this.getPlaylistItem(this.getPlaylistIndex());
                 $.ajax({
                     url: "{{ url('bprs_analytics_write_log')}}",
-                    data: {'identifier': episode.uniqID, 'value': percentage+'%'}
+                    data: {'identifier': episode.uniqID, 'value': 'start'}
                 });
                 if (logged_playlist == false) {
                     $.ajax({
