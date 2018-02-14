@@ -33,6 +33,11 @@ class Playlist extends BasePlaylist implements PlaylistInterface
      */
     private $series;
 
+    /**
+     * @ORM\Column(name="views", type="integer", options={"defaults" = 0}, nullable=true)
+     */
+    private $views;
+
     public function __construct()
     {
         parent::__construct();
@@ -117,6 +122,17 @@ class Playlist extends BasePlaylist implements PlaylistInterface
     public function getSeries()
     {
         return $this->series;
+    }
+
+    public function getViews()
+    {
+        return $this->views;
+    }
+
+    public function setViews($views)
+    {
+        $this->views = $views;
+        return $this;
     }
 }
  ?>
