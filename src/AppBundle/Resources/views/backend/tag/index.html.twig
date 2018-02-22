@@ -6,7 +6,7 @@
 
 {% set body_class = "head-white-color" %}
 {% block body_main %}
-    {% include "AppBundle::Backend/Tag/header.html.twig" with {'active': 'all_tags'} %}
+    {% include "AppBundle::backend/tag/header.html.twig" with {'active': 'all_tags'} %}
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ 'oktothek.tag_filter_all_button'|trans|raw }}
