@@ -19,6 +19,7 @@
                     <a href="{{ slide.link }}">
                     <div class="content-opacity">
                         <meta itemprop="datePublished" content="{{ slide.onlineAt|date('Y-m-d')}}" />
+                        <meta itemprop="dateModified" content="{{ slide.onlineAt|date('Y-m-d')}}" />
                         <meta itemprop="mainEntityOfPage" content="{{ slide.link }}" />
                         <p class="type" itemprop="about">{{ 'oktothek.slide_type_choice'|transchoice(slide.slidetype) }}</p>
                         <h3 itemprop="headline">{{ slide.name }}</h3>

@@ -24,10 +24,11 @@
                     {{ post.teaser|nl2br }}
                     <meta itemprop="author" content="{{ 'oktothek_author_of_slides'|trans }}" />
                     <meta itemprop="datePublished" content="{{ post.onlineAt|date('Y-m-d')}}" />
+                    <meta itemprop="dateModified" content="{{ post.onlineAt|date('Y-m-d')}}" />
                     <meta itemprop="mainEntityOfPage" content="{{ path('oktothek_show_news', {'slug': post.slug})}}" />
                     <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
                         <meta itemprop="name" content="Okto Community TV">
-                        <meta itemprop="logo" content="{{ asset('bundles/app/images/okto_logo.png')}}">
+                        <meta itemprop="logo" content="{{ absolute_url(asset('bundles/app/images/okto_logo.png')) }}">
                     </span>
                 </p>
             </div>
