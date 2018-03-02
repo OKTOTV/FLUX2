@@ -1,9 +1,9 @@
 {# used in Tag view #}
 <li class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ series.description }}" itemscope="itemscope" itemtype="http://schema.org/Series">
     <figure class="series-pin pin">
-        <a href="{{ url|default(path('oktothek_show_series', {'uniqID': series.uniqID})) }}" title="{{ series.name }}">
+        <a href="{{ url|default(url('oktothek_show_series', {'uniqID': series.uniqID})) }}" title="{{ series.name }}">
             <meta itemprop="thumbnailUrl" content="{{ series.posterframe|thumb(303,539) }}" />
-            <meta itemprop="url" content="{{ url|default(path('oktothek_show_series', {'uniqID': series.uniqID})) }}" />
+            <meta itemprop="url" content="{{ url|default(url('oktothek_show_series', {'uniqID': series.uniqID})) }}" />
             <img src="{{ series.posterframe|thumb(303,539) }}" class="img-responsive" alt="{{ series.name }}" itemprop="image"/>
         </a>
         <figcaption>
