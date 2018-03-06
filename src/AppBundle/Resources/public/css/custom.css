@@ -119,11 +119,11 @@ div.list-group.tags span.label.label-default.remove::before {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1, .oktothek h2#button_down, .livestream header h1 .time, .series.blog h1 {
+h1, .livestream header h1 .time, .series.blog h1 {
 	font-size:35px;
 	letter-spacing:0.5px;
 }
-h2, .h2, #anchor-menu .panel-title .glyphicon, 
+body.oktothek h1, h2, .h2, #anchor-menu .panel-title .glyphicon, 
 .btn-top .glyphicon {
 	font-size:30px;
 }
@@ -415,7 +415,7 @@ select:active:focus {
 	    font-weight: normal;
 	    font-style: normal;
     }
-    h2, .h2 {
+    body.oktothek h1, h2, .h2 {
 	    font-size:35px;
 	    letter-spacing:0.5px;
     }
@@ -2461,7 +2461,7 @@ h2, h1, .subscriptions header.page-header h1, body.help .help-action h3 {
 header.page-header h1 {
     margin-bottom:0px;
 }
-h2 {
+body.oktothek h1, h2 {
 	margin-top:10px;
 }
 h2:first-child {
