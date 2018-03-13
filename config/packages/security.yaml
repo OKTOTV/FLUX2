@@ -53,7 +53,7 @@ security:
             form_login:
                 login_path: bprs_user_login
                 check_path: bprs_user_login_check
-                default_target_path: homepage
+                #default_target_path: homepage users get redirected to whereever they decided to login
                 csrf_token_generator: security.csrf.token_manager #form.csrf_provider
             logout:
                 path: bprs_user_logout
