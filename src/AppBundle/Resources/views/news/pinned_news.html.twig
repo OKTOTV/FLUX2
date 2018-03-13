@@ -22,12 +22,13 @@
                 <h3 itemprop="headline"><a href="{{ path('oktothek_show_news', {'slug': post.slug})}}" title="{{ post.name }}">{{ post.name }}</a></h3>
                 <p itemprop="description">
                     {{ post.teaser|nl2br }}
-                    <meta itemprop="author" content="{{ 'oktothek_author_of_slides'|trans }}" />
-                    <meta itemprop="datePublished" content="{{ post.onlineAt|date('Y-m-d')}}" />
-                    <meta itemprop="mainEntityOfPage" content="{{ path('oktothek_show_news', {'slug': post.slug})}}" />
+                    <span itemprop="author" content="{{ 'oktothek_author_of_slides'|trans }}" /></span>
+                    <span itemprop="datePublished" content="{{ post.onlineAt|date('Y-m-d')}}" /></span>
+                    <span itemprop="dateModified" content="{{ post.onlineAt|date('Y-m-d')}}" /></span>
+                    <span itemprop="mainEntityOfPage" content="{{ path('oktothek_show_news', {'slug': post.slug})}}" /></span>
                     <span itemscope="itemscope" itemtype="http://schema.org/Organization" itemprop="publisher">
-                        <meta itemprop="name" content="Okto Community TV">
-                        <meta itemprop="logo" content="{{ asset('bundles/app/images/okto_logo.png')}}">
+                        <span itemprop="name" content="Okto Community TV"></span>
+                        <span itemprop="logo" content="{{ absolute_url(asset('bundles/app/images/okto_logo.png')) }}"></span>
                     </span>
                 </p>
             </div>

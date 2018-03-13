@@ -29,22 +29,24 @@
                             {{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_series'|trans, 's.name') }}
                         </li>
                     </ul>
-                </div>
+                </div> 
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="row pager-row">
+                        <div class="navigation">
+                            {{ knp_pagination_render(episodes) }}
+                        </div>
+                    </div>
+                </div>
             <ul class="row" itemscope="itemscope" itemtype="http://schema.org/ItemList">
-+            {% for episode in episodes %}
-+                {% include 'AppBundle:episode:EpisodeThumb.html.twig' %}
-+            {% endfor %}
-+           </ul>
-+           <div class="row">
+            {% for episode in episodes %}
+                {% include 'AppBundle:episode:EpisodeThumb.html.twig' %}
+            {% endfor %}
+           </ul>
+           <div class="row">
                 <div class="navigation">
                     {{ knp_pagination_render(episodes) }}                
                 </div>
-            </div>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-6 col-lg-6">
-            <div class="navigation">
-                {{ knp_pagination_render(episodes) }}
             </div>
         </div>
 </section>

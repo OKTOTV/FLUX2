@@ -71,7 +71,7 @@
 .carousel-caption h3, .carousel-caption, .description-overlay .description-wrapper, .playlists .description-wrapper {
 	margin: 0;
 }
-.fullscreen-images header + .container-fluid, section.bg-fullscreen h2 {
+.fullscreen-images header + .container-fluid, section.bg-fullscreen h1, section.bg-fullscreen h2 {
 	margin-top:0px;
 }
 section.fs-image-content, section.fs-image-content {
@@ -107,7 +107,7 @@ section.fs-image-content, .carousel-caption, .description-overlay .description-w
 section.fs-image-content + section header.page-header  {
 	margin-top:0;
 }
-section.bg-fullscreen h2, section.fs-image-content + section header.page-header  {
+section.bg-fullscreen h1, section.bg-fullscreen h2, section.fs-image-content + section header.page-header  {
 	padding-top:40px;
 }
 .carousel-caption, .description-overlay .description-wrapper {
@@ -165,7 +165,7 @@ body.oktothek .carousel-control.left span::before, body.oktothek .carousel-contr
 	display:table-cell;
 	vertical-align:top;
 }*/
-#button_down span, .description-overlay .facts, .description-overlay figcaption .misc, .description-overlay.description {
+#button_down span.participant-arrow-down, .description-overlay .facts, .description-overlay figcaption .misc, .description-overlay.description {
 	display:none;
 }
 .fs-image-misc-mobile {
@@ -297,14 +297,14 @@ body.playlists .fs-image-misc-mobile {
 	#button_down {
 		cursor:pointer;
 	}
-    h2#button_down {
+    h1#button_down, h2#button_down {
         vertical-align:bottom;
         /*margin-top:-8px;*/
         margin-top:-1px;
         margin-bottom:40px;
         position: relative;
 	}
-	#button_down span {
+	#button_down span.participant-arrow-down {
 		position:absolute;
 		display:inline-block;
 		width:30px;

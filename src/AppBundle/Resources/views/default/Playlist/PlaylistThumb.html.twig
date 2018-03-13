@@ -8,14 +8,16 @@
         {% endif %}
         <figcaption>
             <h3 itemprop="name"><a href="{{ path('oktothek_show_playlist', {'uniqID': playlist.uniqID}) }}" title="{{ playlist.name }} ansehen">{{ playlist.name }}</a></h3>
+            
+            {% if playlist.user %}
+            <meta itemprop="author" content="{{ playlist.user.username }}">
             <p>
-                {% if playlist.user %}
-                <meta itemprop="author" content="{{ playlist.user.username }}">
                 <a href="{{ path('oktothek_show_user', {'username': playlist.user.username}) }}" title="{{ 'oktothek_playlist_thumb_creator_title'|trans({'%user%': playlist.user.username}) }}">
                     {{ 'oktothek_playlist_thumb_creator'|trans({'%user%': playlist.user.username}) }}
                 </a>
-                {% endif %}
             </p>
+            {% endif %}
+            
         </figcaption>
     </figure>
 </li>

@@ -193,13 +193,14 @@ $(document).ready(function(){
 		}
 	});
 	
+    /* Hinunter scrollen, nach Klick auf Pfeil */
 	function showButtonDown() {
 	      if(($(document).scrollTop() <= headerScrollheight) && (Winwidth >= 768)) {
 			  //Downbutton erscheinen lassen
-			  $('.fullscreen-images #button_down span').css('display','inline');
+			  $('.fullscreen-images #button_down span.participant-arrow-down').css('display','inline');
 	      } else if (($(document).scrollTop() > headerScrollheight) && (Winwidth >= 768)) {
 			  //Downbutton ausblenden
-			  $('.fullscreen-images #button_down span').css('display','none');
+			  $('.fullscreen-images #button_down span.participant-arrow-down').css('display','none');
 		   }
 	 }
 

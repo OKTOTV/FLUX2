@@ -2,7 +2,7 @@
 {% block metas %}
 <meta name="description" content="{{ episode.description }}">
 <meta property="og:url" content="{{ url('oktothek_show_episode', {'uniqID': episode.uniqID })}}" />
-<meta property="og:title" content="{{ episode.name }}" />
+<meta property="og:title" content="{{ episode.name }}, {{ episode.series.name }}" />
 <meta property="og:description" content="{{ episode.description }}" />
 <meta property="og:image" content="{{ episode.posterframe(true)|thumb(720,1280) }}" />
 
@@ -19,7 +19,7 @@
 {% endif %}
 {% endblock %}
 
-{% block title %}{{ episode.name ~' | '~ name|default('OKTO') }}{% endblock %}
+{% block title %}{{ episode.name ~', '~ episode.series.name ~' | '~ name|default('OKTO') }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
