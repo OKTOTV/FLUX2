@@ -19,15 +19,18 @@
             <meta itemprop="datePublished" content="{{ episode.firstranAt|date('Y-m-d')}}" />
             <img src="{{ episode.posterframe(true)|thumb(303,539) }}" class="img-responsive" alt="{{ 'oktothek_episode_thumb_img'|trans({'%episode%': episode.name|default('oktothek_episode_thumb_default_name'|trans({'%date%': episode.firstRanAt|date('oktothek_episode_thumb_date_format'|trans)})) }) }}" />
         </a>
-        {# hide views by edk, cj, gl 
+        {# hide views by edk, cj, gl
         <div class="pin-icon" title="{{ 'oktothek_episode_thumb_likes_title_choice'|transchoice(episode.views) }}">
             <span class="glyphicon icon-views"></span>{{ episode.views|viewOptimizer }}
         </div>
         #}
         <figcaption>
-            <h3 itemscope="itemscope" itemtype="http://schema.org/CreativeWorkSeries" itemprop="partOfSeries">
-                <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ 'oktothek_episode_thumb_series_title'|trans({'%series%': episode.series.name}) }}" itemprop="url"><span itemprop="name">{{ episode.series.name }}</span></a>
-            </h3>
+            {% if episode.series is not empty %}
+                <h3 itemscope="itemscope" itemtype="http://schema.org/CreativeWorkSeries" itemprop="partOfSeries">
+
+                    <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ 'oktothek_episode_thumb_series_title'|trans({'%series%': episode.series.name}) }}" itemprop="url"><span itemprop="name">{{ episode.series.name }}</span></a>
+                </h3>
+            {% endif %}
             <p itemprop="name">
                 <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ 'oktothek_episode_thumb_title'|trans({'%episode%': episodetitle}) }}" itemprop="url">
                     {% if episode.name is empty %}

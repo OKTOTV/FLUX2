@@ -34,7 +34,7 @@ class PostRepository extends EntityRepository
     public function findAllPostQuery()
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.series IS NULL');
+            ->createQuery('SELECT p FROM AppBundle:Post p WHERE p.series IS NULL ORDER BY p.createdAt DESC');
     }
 
     public function findAllActivePosts($number = 6, $query_only = false)

@@ -9,6 +9,9 @@
             <a href="{{ url|default(path('oktothek_show_series', {'uniqID': series.uniqID})) }}" title="{{ series.name }}">
                 <h3 itemprop="name">{{ series.name }}</h3>
             </a>
+            {% if render_description is defined %}
+                <p>{{ series.description }}</p>
+            {% endif %}
         </figcaption>
     </figure>
 </li>

@@ -1,0 +1,48 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block title %}{{ 'oktothek.index_series_title'|trans }}{% endblock %}
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "clip_overview" %}
+{% block body_main %}
+    <header class="page-header">
+        <h1 itemprop="headline">{{ 'oktothek.index_series_header'|trans }}</h1>
+    </header>
+    <section class="container" itemscope="itemscope" itemtype="http://schema.org/VideoGallery">
+    <h2 class="sr-only">{{ 'oktothek.index_series_header'|trans }}</h2>
+        <div class="row pager-row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    {{ 'oktothek.series_index_sort_dropdown'|trans|raw }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                        <li {% if seriess.isSorted('s.name') %}class="active"{% endif %}>
+                            {{ knp_pagination_sortable(seriess, 'oktothek.series_index_sort_name'|trans, 's.name') }}
+                        </li>
+                        <li {% if seriess.isSorted('s.updatedAt') %}class="active"{% endif %}>
+                            {{ knp_pagination_sortable(seriess, 'oktothek.series_index_sort_updatedAt'|trans, 's.updatedAt') }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="row" itemscope="itemscope" itemtype="http://schema.org/ItemList">
+            {% for series in seriess %}
+                {% include 'AppBundle:series:_thumb.html.twig' with {render_description: 'true'} %}
+            {% endfor %}
+           </ul>
+           <div class="row">
+                <div class="navigation">
+                    {{ knp_pagination_render(seriess) }}
+                </div>
+            </div>
+        </div>
+        <div class="hidden-xs hidden-sm col-md-6 col-lg-6">
+            <div class="navigation">
+                {{ knp_pagination_render(seriess) }}
+            </div>
+        </div>
+</section>
+{% endblock %}

@@ -13,13 +13,12 @@ fos_elastica:
                         analyzer:
                             episode_analyzer:
                                 type: custom
-                                tokenizer: lowercase
-                                filter: [snowball, my_ngram]
+                                tokenizer: standard
+                                filter: [lowercase, elision, my_snowball]
                         filter:
-                            my_ngram:
-                                type: edgeNGram
-                                min_gram: 3
-                                max_gram: 20
+                            my_snowball:
+                                type: snowball
+                                language: German
             types:
                 episode:
                     serializer:
@@ -54,13 +53,12 @@ fos_elastica:
                         analyzer:
                             series_analyzer:
                                 type: custom
-                                tokenizer: lowercase
-                                filter: [snowball, my_ngram]
+                                tokenizer: standard
+                                filter: [lowercase, elision, my_snowball]
                         filter:
-                            my_ngram:
-                                type: edgeNGram
-                                min_gram: 3
-                                max_gram: 20
+                            my_snowball:
+                                type: snowball
+                                language: German
         playlist:
             types:
                 playlist:
@@ -78,13 +76,12 @@ fos_elastica:
                         analyzer:
                             tag_analyzer:
                                 type: custom
-                                tokenizer: lowercase
-                                filter: [snowball, my_ngram]
+                                tokenizer: standard
+                                filter: [lowercase, elision, my_snowball]
                         filter:
-                            my_ngram:
-                                type: edgeNGram
-                                min_gram: 3
-                                max_gram: 20
+                            my_snowball:
+                                type: snowball
+                                language: German
         tag:
             client: default
             types:
@@ -105,13 +102,12 @@ fos_elastica:
                         analyzer:
                             tag_analyzer:
                                 type: custom
-                                tokenizer: lowercase
-                                filter: [snowball, my_ngram]
+                                tokenizer: standard
+                                filter: [lowercase, elision, my_snowball, edgeNGram]
                         filter:
-                            my_ngram:
-                                type: edgeNGram
-                                min_gram: 3
-                                max_gram: 20
+                            my_snowball:
+                                type: snowball
+                                language: German
         coursetype:
             types:
                 coursetype:
@@ -132,7 +128,7 @@ fos_elastica:
                             coursetype_analyzer:
                                 type: custom
                                 tokenizer: standard
-                                filter: [my_ngram]
+                                filter: [snowball]
                         filter:
                             my_ngram:
                                 type: edgeNGram

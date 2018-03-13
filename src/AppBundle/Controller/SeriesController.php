@@ -19,6 +19,26 @@ use AppBundle\Entity\Series;
  */
 class SeriesController extends Controller
 {
+
+    /**
+     * @Route("/index.{_format}", name="oktothek_show_series_index", defaults={"_format": "html"})
+     * @Method("GET")
+     * @Template()
+     */
+    public function indexAction(Request $request)
+    {
+        $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Series');
+        $paginator = $this->get('knp_paginator');
+        $seriess = $paginator->paginate(
+            $repo->findActiveSeries(true),
+            $request->query->get('page', 1),
+            $request->query->get('results', 24)
+        );
+
+        return ['seriess' => $seriess];
+    }
+
+
     /**
      * @Route("/post/{slug}.{_format}", name="oktothek_show_series_blogpost", defaults={"_format": "html"})
      * @Method("GET")
