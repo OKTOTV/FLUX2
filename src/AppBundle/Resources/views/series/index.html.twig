@@ -1,6 +1,6 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 
-{% block title %}{{ 'oktothek.newest_episodes_title'|trans }}{% endblock %}
+{% block title %}{{ 'oktothek.index_series_title'|trans }}{% endblock %}
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
@@ -8,7 +8,7 @@
 {% set body_class = "clip_overview" %}
 {% block body_main %}
     <header class="page-header">
-        <h1 itemprop="headline">{{ 'oktothek.newest_episodes_header'|trans }}</h1>
+        <h1 itemprop="headline">{{ 'oktothek.index_series_header'|trans }}</h1>
     </header>
     <section class="container" itemscope="itemscope" itemtype="http://schema.org/VideoGallery">
     <h2 class="sr-only">Episoden</h2>
@@ -16,35 +16,32 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="dropdown">
                     <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    {{ 'oktothek.user_favorites_filter'|trans|raw }}
+                    {{ 'oktothek.series_index_sort_dropdown'|trans|raw }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="filter_menu">
-                        <li {% if episodes.isSorted('e.name') %}class="active"{% endif %}>
-                            {{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_name'|trans, 'e.name') }}
+                        <li {% if seriess.isSorted('s.name') %}class="active"{% endif %}>
+                            {{ knp_pagination_sortable(seriess, 'oktothek.series_index_sort_name'|trans, 's.name') }}
                         </li>
-                        <li {% if episodes.isSorted('e.firstranAt') %}class="active"{% endif %}>
-                            {{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_firstranAt'|trans, 'e.firstranAt') }}
-                        </li>
-                        <li {% if episodes.isSorted('s.name') %}class="active"{% endif %}>
-                            {{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_series'|trans, 's.name') }}
+                        <li {% if seriess.isSorted('s.updatedAt') %}class="active"{% endif %}>
+                            {{ knp_pagination_sortable(seriess, 'oktothek.series_index_sort_updatedAt'|trans, 's.updatedAt') }}
                         </li>
                     </ul>
                 </div>
             </div>
             <ul class="row" itemscope="itemscope" itemtype="http://schema.org/ItemList">
-            {% for episode in episodes %}
-                {% include 'AppBundle:episode:EpisodeThumb.html.twig' %}
+            {% for series in seriess %}
+                {% include 'AppBundle:series:_thumb.html.twig' with {render_description: 'true'} %}
             {% endfor %}
            </ul>
            <div class="row">
                 <div class="navigation">
-                    {{ knp_pagination_render(episodes) }}
+                    {{ knp_pagination_render(seriess) }}
                 </div>
             </div>
         </div>
         <div class="hidden-xs hidden-sm col-md-6 col-lg-6">
             <div class="navigation">
-                {{ knp_pagination_render(episodes) }}
+                {{ knp_pagination_render(seriess) }}
             </div>
         </div>
 </section>

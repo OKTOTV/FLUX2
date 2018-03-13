@@ -563,6 +563,14 @@ oktothek.series_show_blog:              Zum Blog
 oktothek.series_more_blog_entries:      Mehr Blogeinträge
 oktothek.series_playlist_header:        "Vom Sendungsteam empfohlen"
 
+# Series/index.html.twig
+oktothek.index_series_title:            "Alle Sendereihen | OKTO"
+oktothek.index_series_header:           "Sendungen"
+oktothek.series_index_sort_dropdown:    'Sortieren <span class="caret"></span>'
+oktothek.series_index_sort_name:        "Name"
+oktothek.series_index_sort_updatedAt:   "Letzte Änderung"
+
+
 # Series/blogShow.html.twig
 oktothek_series_blogShow_title:         "%blogpost% | OKTO"
 

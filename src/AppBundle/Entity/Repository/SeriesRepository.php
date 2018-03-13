@@ -96,4 +96,16 @@ class SeriesRepository extends BaseSeriesRepository
 
         return $query->getResult();
     }
+
+    public function findActiveSeries($query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery("SELECT s FROM AppBundle:Series s WHERE s.isActive = 1");
+
+        if ($query_only) {
+            return $query;
+        }
+
+        return $query->getResult();
+    }
 }
