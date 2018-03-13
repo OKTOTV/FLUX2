@@ -97,7 +97,7 @@ class SlideController extends Controller
 
     /**
      * @Route("/slide_from_episode/{uniqID}", name="oktothek_backend_slide_from_episode")
-     * @Template("AppBundle::Backend\Slide\edit.html.twig")
+     * @Template("AppBundle::backend\slide\edit.html.twig")
      */
     public function slideFromEpisode(Request $request, Episode $episode)
     {
@@ -124,7 +124,7 @@ class SlideController extends Controller
 
     /**
      * @Route("/slide_from_news/{slug}", name="oktothek_backend_slide_from_news")
-     * @Template("AppBundle::Backend\Slide\edit.html.twig")
+     * @Template("AppBundle::backend\slide\edit.html.twig")
      */
     public function slideFromNews(Request $request, Post $post)
     {
