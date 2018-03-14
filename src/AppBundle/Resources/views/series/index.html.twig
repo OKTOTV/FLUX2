@@ -10,8 +10,8 @@
     <header class="page-header">
         <h1 itemprop="headline">{{ 'oktothek.index_series_header'|trans }}</h1>
     </header>
-    <section class="container" itemscope="itemscope" itemtype="http://schema.org/VideoGallery">
-    <h2 class="sr-only">{{ 'oktothek.index_series_header'|trans }}</h2>
+    <section class="container" itemscope="itemscope" itemtype="http://schema.org/CreativeWorkSeries">
+        <h2 class="sr-only">{{ 'oktothek.index_series_header'|trans }}</h2>
         <div class="row pager-row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="dropdown">
@@ -28,16 +28,18 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="row">
+                    <div class="navigation">
+                        {{ knp_pagination_render(seriess) }}
+                    </div>
+                </div>
+            </div>
             <ul class="row" itemscope="itemscope" itemtype="http://schema.org/ItemList">
             {% for series in seriess %}
                 {% include 'AppBundle:series:_thumb.html.twig' with {render_description: 'true'} %}
             {% endfor %}
            </ul>
-           <div class="row">
-                <div class="navigation">
-                    {{ knp_pagination_render(seriess) }}
-                </div>
-            </div>
         </div>
         <div class="hidden-xs hidden-sm col-md-6 col-lg-6">
             <div class="navigation">
