@@ -81,4 +81,15 @@ class TagRepository extends OktoTagRepository
         }
         return $query->setMaxResults($number)->getResult();
     }
+
+    public function findAllTags($query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery('SELECT t FROM AppBundle:Tag t');
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->setMaxResults($number)->getResult();
+    }
 }

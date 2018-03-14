@@ -118,9 +118,8 @@ class SearchService
     {
         $fieldQuery = new \Elastica\Query\Match();
         $fieldQuery->setFieldQuery('text', $searchphrase);
-        // $fieldQuery->setFieldParam('text', 'analyzer', 'episode_analyzer');
         $fieldQuery->setFieldParam('text', 'fuzziness', '2');
-        $fieldQuery->setFieldParam('text', 'prefix_length', '2');
+        //$fieldQuery->setFieldParam('text', 'prefix_length', '2');
         return $this->tagFinder->find($fieldQuery, $numberResults);
     }
 
