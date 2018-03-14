@@ -37,7 +37,7 @@ class TagController extends Controller
     {
         if ($request->isXmlHttpRequest()) {
             $em = $this->getDoctrine()->getManager();
-            if ($request->getMethod() =="GET") {
+            if ($request->getMethod() == "GET") {
                 $tags = $em->getRepository('AppBundle:Tag')->findAll();
                 $json = [];
                 foreach ($tags as $tag) {
