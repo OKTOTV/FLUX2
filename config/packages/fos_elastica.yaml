@@ -102,7 +102,7 @@ fos_elastica:
                             tag_analyzer:
                                 type: custom
                                 tokenizer: standard
-                                filter: [lowercase, elision, edgeNGram]
+                                filter: [lowercase, elision, my_ngram]
                         filter:
                             my_ngram:
                                 type: edgeNGram
