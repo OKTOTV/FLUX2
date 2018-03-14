@@ -3350,7 +3350,7 @@ footer {
 	width:100%;
 	position:relative;
 }
-footer .container {
+footer .container, .clip_overview footer .row {
 	margin:0 auto;
 }
 footer .partner {
