@@ -22,6 +22,7 @@
     </li>#}
     <li {% if slug|default('') == 'homepage' %}class="active"{% endif %}><a href="{{ path('homepage') }}">Home</a></li>
     <li {% if slug|default('') == 'oktothek_news' %}class="active"{% endif %}><a href="{{ path('oktothek_news')}}">News</a></li>
+    <li {% if slug|default('') == 'oktothek_show_series_index' %}class="active"{% endif %}><a href="{{ path('oktothek_show_series_index')}}">Sendungen</a></li>
     <li {% if slug|default('') == 'contact' %}class="active"{% endif %}><a href="{{ path('contact')}}">Kontakt</a></li>
     <li {% if slug|default('') == 'help' %}class="active"{% endif %}><a href="{{ path('help')}}">Hilfe</a></li>
     <li {% if slug|default('') == 'imprint' %}class="active"{% endif %}><a href="{{ path('imprint')}}">Imprint</a></li>
