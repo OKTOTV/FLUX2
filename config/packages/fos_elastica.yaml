@@ -83,13 +83,12 @@ fos_elastica:
                                 type: snowball
                                 language: German
         tag:
-            client: default
             types:
                 tag:
                     serializer:
                         groups: [okto]
                     properties:
-                        text: { boost: 8, analyzer: tag_analyzer }
+                        text: { analyzer: tag_analyzer }
                     persistence:
                         driver: orm
                         model: AppBundle\Entity\Tag
@@ -103,11 +102,11 @@ fos_elastica:
                             tag_analyzer:
                                 type: custom
                                 tokenizer: standard
-                                filter: [lowercase, elision, my_snowball, edgeNGram]
+                                filter: [lowercase, elision, my_ngram]
                         filter:
-                            my_snowball:
-                                type: snowball
-                                language: German
+                            my_ngram:
+                                type: edgeNGram
+                                min_gram: 2
         coursetype:
             types:
                 coursetype:

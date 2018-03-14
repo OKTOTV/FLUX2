@@ -32,22 +32,9 @@ class SearchService
         $multiquery = new \Elastica\Query\MultiMatch();
         $multiquery->setFields(['name', 'description', 'series_search']);
         $multiquery->setQuery($searchphrase);
-        // $multiquery->setType(\Elastica\Query\MultiMatch::TYPE_CROSS_FIELDS);
         $multiquery->setParam('fuzziness', '2');
         $multiquery->setParam('prefix_length', '2');
         $boolQuery->addMust($multiquery);
-
-        // $titleQuery = new \Elastica\Query\Match();
-        // $titleQuery->setFieldQuery('name', $searchphrase);
-        // $titleQuery->setFieldParam('name', 'fuzziness', 2);
-        // $titleQuery->setFieldParam('name', 'prefix_length', 1);
-        // $boolQuery->addShould($titleQuery);
-        //
-        // $descriptionQuery = new \Elastica\Query\Match();
-        // $descriptionQuery->setFieldQuery('description', $searchphrase);
-        // $descriptionQuery->setFieldParam('description', 'fuzziness', 2);
-        // $boolQuery->addShould($descriptionQuery);
-
 
         if ($activeOnly) {
             $activeQuery = new \Elastica\Query\Term();
@@ -118,8 +105,6 @@ class SearchService
     {
         $fieldQuery = new \Elastica\Query\Match();
         $fieldQuery->setFieldQuery('text', $searchphrase);
-        $fieldQuery->setFieldParam('text', 'fuzziness', '2');
-        //$fieldQuery->setFieldParam('text', 'prefix_length', '2');
         return $this->tagFinder->find($fieldQuery, $numberResults);
     }
 
