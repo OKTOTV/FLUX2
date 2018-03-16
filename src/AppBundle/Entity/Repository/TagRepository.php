@@ -29,7 +29,7 @@ class TagRepository extends OktoTagRepository
 
     public function findSeriesWithTag(Tag $tag, $number = 6, $query_only = false, $series_class = "AppBundle:Series") {
         $query = $this->getEntityManager()
-            ->createQuery('SELECT s FROM '.$series_class.' s LEFT JOIN s.episodes e LEFT JOIN e.tags t WHERE t.id = :tag_id ORDER BY s.createdAt DESC')
+            ->createQuery('SELECT s FROM '.$series_class.' s LEFT JOIN s.tags t WHERE t.id = :tag_id ORDER BY s.createdAt DESC')
             ->setParameter('tag_id', $tag->getId());
 
         if ($query_only) {
