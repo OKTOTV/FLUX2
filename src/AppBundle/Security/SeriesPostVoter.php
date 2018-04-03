@@ -54,7 +54,10 @@ class SeriesPostVoter extends Voter
     private function canView(Series $series, User $user)
     {
         $users = $series->getUsers()->toArray();
-        return in_array($user, $users);
+        if (in_array($user, $users) || in_array($user->getRoles(), 'ROLE_USER')) {
+            return true;
+        }
+        return false;
     }
 
     // allow user to post in the backend

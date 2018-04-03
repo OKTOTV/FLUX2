@@ -70,6 +70,7 @@
             {{ episode.description|default('oktolab_media.show_episode_description_missing'|trans)|nl2br }}
         </div>
         <div class="col-md-5">
+            <a href="{{ path('oktothek_channel_episode', {'uniqID': episode.uniqID}) }}">Statistik</a>
             <h4>{{ 'oktolab_media_info_for_episode_header'|trans }}</h4>
             <dl class="dl-horizontal">
                 <dt>{{ 'oktolab_media.episode_info_isActive'|trans }}</dt>
