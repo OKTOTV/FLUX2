@@ -54,7 +54,7 @@ class SeriesPostVoter extends Voter
     private function canView(Series $series, User $user)
     {
         $users = $series->getUsers()->toArray();
-        if (in_array($user, $users) || in_array($user->getRoles(), 'ROLE_USER')) {
+        if (in_array($user, $users) || in_array('ROLE_USER', $user->getRoles())) {
             return true;
         }
         return false;
