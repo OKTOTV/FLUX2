@@ -17,25 +17,29 @@
             {% if episodes is not empty %}
                 <section class="inc-pins" itemscope="itemscope" itemtype="http://schema.org/ItemList">
                     <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
-                    {% include "AppBundle::tag/episode_tag.html.twig" with {'episodes': episodes} %}
-                    <a href="{{ path('oktothek_detailed_episode_search', {'phrase': searchphrase})}}" class="pull-right more hidden-xs">
-                        {{ 'oktothek_search_show_more_episode_results'|trans }} <span class="icon small-arrow-right"></span>
-                    </a>
-                    <a href="{{ path('oktothek_detailed_episode_search', {'phrase': searchphrase})}}" class="right more visible-xs-block">
-                        {{ 'oktothek_search_show_more_episode_results'|trans }} <span class="icon small-arrow-right"></span>
-                    </a>
+                    {% include "AppBundle::tag/episode_tag.html.twig" with {'episodes': episodes|slice(0,4)} %}
+                    {% if episodes|length > 5 %}
+                        <a href="{{ path('oktothek_detailed_episode_search', {'phrase': searchphrase})}}" class="pull-right more hidden-xs">
+                            {{ 'oktothek_search_show_more_episode_results'|trans }} <span class="icon small-arrow-right"></span>
+                        </a>
+                        <a href="{{ path('oktothek_detailed_episode_search', {'phrase': searchphrase})}}" class="right more visible-xs-block">
+                            {{ 'oktothek_search_show_more_episode_results'|trans }} <span class="icon small-arrow-right"></span>
+                        </a>
+                    {% endif %}
                 </section>
             {% endif %}
             {% if seriess is not empty %}
                 <section class="inc-pins">
                     <h2>{{ 'oktothek_tag_series_header'|trans }}</h2>
-                    {% include "AppBundle::tag/series_tag.html.twig" with {'seriess': seriess} %}
-                    <a href="{{ path('oktothek_detailed_series_search', {'phrase': searchphrase})}}" class="pull-right more hidden-xs">
-                        {{ 'oktothek_search_show_more_series_results'|trans }} <span class="icon small-arrow-right"></span>
-                    </a>
-                    <a href="{{ path('oktothek_detailed_series_search', {'phrase': searchphrase})}}" class="right more visible-xs-block">
-                        {{ 'oktothek_search_show_more_series_results'|trans }} <span class="icon small-arrow-right"></span>
-                    </a>
+                    {% include "AppBundle::tag/series_tag.html.twig" with {'seriess': seriess|slice(0,4)} %}
+                    {% if seriess|length > 5 %}
+                        <a href="{{ path('oktothek_detailed_series_search', {'phrase': searchphrase})}}" class="pull-right more hidden-xs">
+                            {{ 'oktothek_search_show_more_series_results'|trans }} <span class="icon small-arrow-right"></span>
+                        </a>
+                        <a href="{{ path('oktothek_detailed_series_search', {'phrase': searchphrase})}}" class="right more visible-xs-block">
+                            {{ 'oktothek_search_show_more_series_results'|trans }} <span class="icon small-arrow-right"></span>
+                        </a>
+                    {% endif %}
                 </section>
             {% endif %}
             {% if playlists is not empty %}
