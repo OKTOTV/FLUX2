@@ -2,13 +2,13 @@
 
 <ul class="row channels">
     {% for channel in channels|slice(0,4) %}
-        {% include "AppBundle:User:channelThumb.html.twig" %}
+        {% include "AppBundle:user:channelThumb.html.twig" %}
     {% endfor %}
 </ul>
 {% if channels|length > 4 %}
     <ul class="row collapse channels" id="{{ collapse_id }}">
        {% for channel in channels|slice(4,3) %}
-            {% include "AppBundle:User:channelThumb.html.twig" %}
+            {% include "AppBundle:user:channelThumb.html.twig" %}
         {% endfor %}
         {% if channels|length > 7 %} {# there are more results. show link to paginator #}
             <a href="{{ pager_url|default('#') }}">{{ pager_link_text|default('oktothek_more_results')|trans|raw }}</a>
