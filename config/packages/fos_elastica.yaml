@@ -26,7 +26,7 @@ fos_elastica:
                     properties:
                         name: { analyzer: episode_analyzer }
                         description: { analyzer: episode_analyzer }
-                        series_search:      { boost: 3, analyzer: episode_analyzer }
+                        series_search:      { boost: 5, analyzer: episode_analyzer }
                     persistence:
                         driver: orm
                         model: AppBundle\Entity\Episode
