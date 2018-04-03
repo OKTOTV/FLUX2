@@ -2,7 +2,7 @@
 
 {% block title %}{{ 'oktothek_producer_edit_playlist_title'|trans({'%playlist%': form.vars.value.title})}}{% endblock %}
 
-{% import 'AppBundle::Playlist/playlistitem_macro.html.twig' as playlistMacro %}
+{% import 'AppBundle::playlist/playlistitem_macro.html.twig' as playlistMacro %}
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
