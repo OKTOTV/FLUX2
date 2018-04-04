@@ -34,11 +34,18 @@ class Episode extends OktoEpisode {
      */
     private $views;
 
+    /**
+     * @ORM\Column(name="trending_score", type="integer", options={"defaults" = 0}, nullable=true)
+     * used to offload the query to set score. a cronjob should update this score every few hours.
+     */
+    private $trending_score;
+
     public function __construct()
     {
         parent::__construct();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->views = 0;
+        $this->trending_score = 0;
     }
 
     /**
@@ -179,5 +186,15 @@ class Episode extends OktoEpisode {
     {
         $this->views = $views;
         return $this;
+    }
+
+    public function getTrendingScore()
+    {
+        return $this->trending_score;
+    }
+
+    public function setTrendingScore($score)
+    {
+        $this->trending_score = $score;
     }
 }
