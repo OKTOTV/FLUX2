@@ -95,6 +95,20 @@ class Episode extends OktoEpisode {
         return "";
     }
 
+    /**
+     * @JMS\Type("string")
+     * @JMS\Groups({"search"})
+     * @JMS\VirtualProperty
+     * @JMS\SerializedName("episode_tags")
+     */
+    public function getEpisodeTagSearch()
+    {
+        if (count($this->getTags())) {
+            return implode(", ", $this->getTags()->toArray());
+        }
+        return "";
+    }
+
     public function canBeOnline()
     {
         $now = new \DateTime();

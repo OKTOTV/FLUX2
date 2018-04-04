@@ -30,7 +30,7 @@ class SearchService
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
         $multiquery = new \Elastica\Query\MultiMatch();
-        $multiquery->setFields(['name', 'description', 'series_search']);
+        $multiquery->setFields(['name', 'description', 'series_search', 'episode_tags']);
         $multiquery->setQuery($searchphrase);
         $multiquery->setParam('fuzziness', '2');
         $multiquery->setParam('prefix_length', '2');
@@ -54,7 +54,7 @@ class SearchService
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
         $multiquery = new \Elastica\Query\MultiMatch();
-        $multiquery->setFields(['name', 'description']);
+        $multiquery->setFields(['name', 'description', 'series_tags']);
         $multiquery->setQuery($searchphrase);
         // $multiquery->setType(\Elastica\Query\MultiMatch::TYPE_MOST_FIELDS);
         $multiquery->setParam('fuzziness', '2');
