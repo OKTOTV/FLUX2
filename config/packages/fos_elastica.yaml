@@ -27,6 +27,7 @@ fos_elastica:
                         name: { analyzer: episode_analyzer }
                         description: { analyzer: episode_analyzer }
                         series_search:      { boost: 5, analyzer: episode_analyzer }
+                        episode_tags:       { analyzer: episode_analyzer }
                     persistence:
                         driver: orm
                         model: AppBundle\Entity\Episode
@@ -41,6 +42,7 @@ fos_elastica:
                     properties:
                         name:        { boost: 8, analyzer: series_analyzer }
                         description: { analyzer: series_analyzer }
+                        series_tags: { analyzer: series_analyzer }
                     persistence:
                         driver: orm
                         model:  AppBundle\Entity\Series

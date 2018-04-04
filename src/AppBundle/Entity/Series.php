@@ -39,6 +39,20 @@ class Series extends OktoSeries
     protected $files;
 
     /**
+     * @JMS\Type("string")
+     * @JMS\Groups({"search"})
+     * @JMS\VirtualProperty
+     * @JMS\SerializedName("series_tags")
+     */
+    public function getSeriesTagSearch()
+    {
+        if (count($this->getTags())) {
+            return implode(", ", $this->getTags()->toArray());
+        }
+        return "";
+    }
+
+    /**
      * Add abonnements
      *
      * @param \AppBundle\Entity\Abonnements $abonnements
