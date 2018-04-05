@@ -25,7 +25,7 @@ class CreateAndUpdateYearlyTagsCommand extends ContainerAwareCommand {
         $tag_service = $this->getContainer()->get('okto_media_tag');
         $year_tags = [];
         $current_year = (new \DateTime())->format('Y');
-        for ($i=0; $i <= $current_year; $i++) {
+        for ($i=1000; $i <= $current_year; $i++) {
             if ($tag = $tag_service->getTagByText((string)$i)) {
                 $year_tags[$i] = $tag;
             }
