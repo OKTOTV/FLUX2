@@ -53,7 +53,8 @@ class SeriesRepository extends BaseSeriesRepository
                 JOIN e.series s
                 WHERE s.id = :series_id
                 AND e.isActive = true
-                AND (e.onlineStart < :start OR e.onlineStart IS NULL)'
+                AND (e.onlineStart < :start OR e.onlineStart IS NULL)
+                ORDER BY t.slug ASC'
             )
             ->setParameter('series_id', $series->getId())
             ->setParameter('start', new \DateTime())
