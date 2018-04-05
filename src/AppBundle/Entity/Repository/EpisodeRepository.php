@@ -138,5 +138,22 @@ class EpisodeRepository extends BaseEpisodeRepository
         }
         return $query->getOneOrNullResult();
     }
+
+    public function findEpisodesByFirstRanAtYear($year = "2005", $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT e FROM AppBundle:Episode e
+                WHERE e.firstranAt >= :start
+                AND e.firstranAt <= :end'
+            )
+            ->setParameter('start', new \DateTime('01.01.'.$year))
+            ->setParameter('end', new \DateTime('31.12.'.$year));
+
+        if ($query_only) {
+            return $query;
+        }
+        return $query->getResult();
+    }
 }
 ?>
