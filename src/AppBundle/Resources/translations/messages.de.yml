@@ -1029,6 +1029,7 @@ oktothek_episode_thumb_default_name:        "Episode vom %date%"
 oktothek_episode_thumb_timestamp_format:    "%day%, %date%"
 oktothek_episode_thumb_day_choice:          "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} Sa|{7} So"
 oktothek_episode_thumb_date_format:         "d.m.Y"
+oktothek_episode_thumb_new_tag:             "NEU"
 
 # producer
 oktothek_producer_userChannels_title:               "Sendereihenbereich | OKTO"

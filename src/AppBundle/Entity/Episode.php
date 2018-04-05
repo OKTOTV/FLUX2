@@ -211,4 +211,9 @@ class Episode extends OktoEpisode {
     {
         $this->trending_score = $score;
     }
+
+    public function isNew($relative = "-3 days")
+    {
+        return $this->getFirstranAt() > new \DateTime($relative);
+    }
 }
