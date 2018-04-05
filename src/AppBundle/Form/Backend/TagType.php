@@ -18,7 +18,7 @@ class TagType extends AbstractType
     {
         $builder
             ->add('text', TextType::class, ['label' => 'oktothek.tag_text_label'])
-            ->add('highlight', CheckboxType::class, ['label' => 'oktothek.tag_highlight_label'])
+            ->add('highlight', CheckboxType::class, ['label' => 'oktothek.tag_highlight_label', 'required' => false])
         ;
     }
 

@@ -7,22 +7,22 @@
 {% set body_class = "head-white-color" %}
 {% block body_main %}
     {% include "AppBundle::backend/tag/header.html.twig" with {'active': 'all_tags'} %}
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ 'oktothek.tag_filter_all_button'|trans|raw }}
-      </button>
-      <ul class="dropdown-menu">
-        <li {% if tags.isSorted('t.rank') %}class="active"{% endif %}>{{ knp_pagination_sortable(tags, 'Rank', 't.rank') }}</li>
-        <li {% if tags.isSorted('t.slug') %}class="active"{% endif %}>{{ knp_pagination_sortable(tags, 'Text', 't.slug') }}</li>
-      </ul>
-    </div>
     <section>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ 'oktothek.tag_sort_all_button'|trans|raw }}
+          </button>
+          <ul class="dropdown-menu">
+            <li {% if tags.isSorted('t.rank') %}class="active"{% endif %}>{{ knp_pagination_sortable(tags, 'Rank', 't.rank') }}</li>
+            <li {% if tags.isSorted('t.slug') %}class="active"{% endif %}>{{ knp_pagination_sortable(tags, 'Text', 't.slug') }}</li>
+          </ul>
+        </div>
         {{ knp_pagination_render(tags) }}
-        <ul class="list-group">
+        <div class="list-group">
             {% for tag in tags %}
-                <li class="list-group-item"><a href="{{ path('oktothek_backend_tag_show', {'tag': tag.id}) }}">{{ tag.text }}</a></li>
+                <a href="{{ path('oktothek_backend_tag_show', {'tag': tag.id}) }}" class="list-group-item">{% if tag.highlight %}<span class="badge">{{ 'oktothek_tag_index_marked_as_highlight'|trans }}</span>{% endif %}{{ tag.text }}</a>
             {% endfor %}
-        </ul>
+        </div>
         {{ knp_pagination_render(tags) }}
     </section>
 {% endblock %}
