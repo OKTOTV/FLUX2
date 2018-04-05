@@ -35,12 +35,17 @@ class CreateAndUpdateYearlyTagsCommand extends ContainerAwareCommand {
         foreach ($year_tags as $year => $tag) {
             $output->writeln('Start adding episodes for year '.$year);
             $episodes = $oktolab_media->getEpisodeRepository()->findEpisodesByFirstRanAtYear($year);
+            $added = 0;
             foreach ($episodes as $episode) {
-                $episode->addTag($tag);
-                $em->persist($episode);
-                $em->flush();
+                if (!in_array($tag, $episode->getTags()->toArray())) {
+                    $episode->addTag($tag);
+                    $em->persist($episode);
+                    $em->flush();
+                    $added++;
+                }
             }
-            $output->writeln(sprintf('Added %s Episodes', count($episodes)));
+            $output->writeln(sprintf('Tagged Episodes: %s', count($episodes)));
+            $output->writeln(sprintf('Added Episodes: %s', $added));
         }
     }
 }
