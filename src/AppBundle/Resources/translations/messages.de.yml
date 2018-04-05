@@ -363,9 +363,11 @@ oktothek.tag_create_button:            '<span class="glyphicon glyphicon-floppy-
 oktothek.success_create_tag:           "Tag erfolgreich angelegt"
 oktothek.error_create_tag:             "Tag konnte nicht angelegt werden"
 
+oktothek_tag_backend_index_title:       "Schlagwort Index | OKTO"
 oktothek_tag_index_marked_as_highlight: "menü"
 
 # AppBundle/Resources/views/backend/tag/show.html.twig
+oktothek_tag_backend_title:                 'Schlagwort "%tag%" | OKTO'
 oktothek_tag_backend_actions_button:        'Aktionen <span class="caret"></span>'
 oktothek_tag_backend_show_edit:             '<span class="glyphicon glyphicon-edit"></span> Bearbeiten'
 oktothek_tag_backend_show_goto_frontend:    '<span class="glyphicon glyphicon-eye-open"></span> Zum Frontend'

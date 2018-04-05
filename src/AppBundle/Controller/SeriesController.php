@@ -66,11 +66,11 @@ class SeriesController extends Controller
         if ($request->getMethod() == "POST") {
             if ($request->request->get('tag') == "all") {
                 $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
-                return $this->render('AppBundle::Series/episodeStackOpen.html.twig', ['episodes' => $episodes]);
+                return $this->render('AppBundle::series/episodeStackOpen.html.twig', ['episodes' => $episodes]);
             } else {
                 $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $request->request->get('tag')]);
                 $episodes = $em->getRepository('AppBundle:Series')->findEpisodesWithTag($series, $tag);
-                return $this->render('AppBundle::Series/episodeStackOpen.html.twig', ['episodes' => $episodes]);
+                return $this->render('AppBundle::series/episodeStackOpen.html.twig', ['episodes' => $episodes]);
             }
         } else {
             $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);

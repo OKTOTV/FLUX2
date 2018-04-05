@@ -1,4 +1,5 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ 'oktothek_tag_backend_title'|trans({'%tag%': tag}) }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': ''} %}
