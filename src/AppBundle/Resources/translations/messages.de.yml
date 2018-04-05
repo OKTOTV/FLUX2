@@ -580,6 +580,7 @@ oktothek.episode_views_million:         "%views%M" # ;) if i ever need this
 oktothek_series_blog_header:            Blog
 oktothek_series_episodes_all:           Alle Folgen
 oktothek_series_episodes_title:         Alle Episoden von %series%
+oktothek_series_episodes_with_tag:      "Episoden von %series% mit Schlagwort %tag%"
 oktothek.series_episodes_filter:        <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
 oktothek.series_episodes_name_filter:   Name
 oktothek.series_episodes_onlineStart_filter: Datum

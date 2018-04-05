@@ -123,8 +123,6 @@
     <script type="text/javascript">
         $(document).on('change', '#episode-tag', function(){
             var optionSelected = $("option:selected", this);
-            console.log(optionSelected);
-            console.log($(optionSelected).attr('data-slug'));
             var slug = $(optionSelected).attr('data-slug');
             $.ajax({
                 url: "{{ path('oktothek_series_episodes_with_tags_ajax', {'uniqID': series.uniqID}) }}",
