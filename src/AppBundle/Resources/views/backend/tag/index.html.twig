@@ -20,7 +20,7 @@
         {{ knp_pagination_render(tags) }}
         <ul class="list-group">
             {% for tag in tags %}
-                <li class="list-group-item"><a href="{{ path('oktothek_tag_show', {'slug': tag.slug}) }}">{{ tag.text }}</a></li>
+                <li class="list-group-item"><a href="{{ path('oktothek_backend_tag_show', {'tag': tag.id}) }}">{{ tag.text }}</a></li>
             {% endfor %}
         </ul>
         {{ knp_pagination_render(tags) }}

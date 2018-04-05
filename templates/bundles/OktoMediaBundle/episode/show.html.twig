@@ -126,6 +126,14 @@
                 {% endfor %}
                 <a href="{{ path('oktolab_caption_new', {'uniqID': episode.uniqID}) }}" class="list-group-item">{{ 'oktolab_media.caption_new_button'|trans|raw }}</a>
             </div>
+
+            <h4>{{ 'okto_media_episode_tags_header'|trans }}</h4>
+            <div class="list-group">
+                {% for tag in episode.tags %}
+                    <a href="{{ path('oktothek_backend_tag_show', {'tag': tag.id}) }}" class="list-group-item">{{ tag }}</a>
+                {% endfor %}
+                <a href="{{ path('oktolab_episode_edit', {'episode': episode.uniqID}) }}" class="list-group-item">{{ 'okto_media_episode_edit_tags_button'|trans|raw }}</a>
+            </div>
         </div>
     </div>
     <div class="row">

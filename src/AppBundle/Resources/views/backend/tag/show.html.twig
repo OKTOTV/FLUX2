@@ -1,0 +1,29 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek_backend', 'dropdown': ''} %}
+{% endblock %}
+
+{% set body_class = "head-white-color" %}
+{% block body_main %}
+    <div class="page-header">
+        <h1>{{ tag }}</h1>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'oktothek_tag_backend_actions_button'|trans|raw }}
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="{{ path('oktothek_tag_edit', {'tag': tag.id}) }}">{{ 'oktothek_tag_backend_show_edit'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktothek_tag_show', {'slug': tag.slug}) }}">{{ 'oktothek_tag_backend_show_goto_frontend'|trans|raw }}</a></li>
+                <li><a href="{{ path('oktothek_tag_index') }}">{{ 'oktothek_tag_backend_show_back_to_index'|trans|raw }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="list-group">
+        <a href="{{ path('oktothek_tag_episode_page', {'slug': tag.slug}) }}" class="list-group-item"><span class="badge">{{ tag.episodes|length }}</span>{{ 'oktothek_tag_backend_show_episodes'|trans }}</a>
+        <a href="{{ path('oktothek_tag_series_page', {'slug': tag.slug}) }}" class="list-group-item"><span class="badge">{{ tag.series|length }}</span>{{ 'oktothek_tag_backend_show_series'|trans }}</a>
+        <a href="{{ path('oktothek_tag_posts_page', {'slug': tag.slug}) }}" class="list-group-item"><span class="badge">{{ tag.posts|length }}</span>{{ 'oktothek_tag_backend_show_posts'|trans }}</a>
+        <a href="{{ path('oktothek_tag_pages_page', {'slug': tag.slug}) }}" class="list-group-item"><span class="badge">{{ tag.pages|length }}</span>{{ 'oktothek_tag_backend_show_pages'|trans }}</a>
+    </div>
+    {{ 'oktothek_tag_backend_show_updatedAt'|trans({'%date%': tag.updatedAt|date('d.m.Y H:i')}) }}
+{% endblock %}
