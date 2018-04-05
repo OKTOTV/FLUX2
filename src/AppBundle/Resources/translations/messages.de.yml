@@ -363,6 +363,22 @@ oktothek.tag_create_button:            <span class="glyphicon glyphicon-floppy-d
 oktothek.success_create_tag:           Tag erfolgreich angelegt
 oktothek.error_create_tag:             Tag konnte nicht angelegt werden
 
+# AppBundle/Resources/views/backend/tag/show.html.twig
+oktothek_tag_backend_actions_button:        'Aktionen <span class="caret"></span>'
+oktothek_tag_backend_show_edit:             '<span class="glyphicon glyphicon-edit"></span> Bearbeiten'
+oktothek_tag_backend_show_goto_frontend:    '<span class="glyphicon glyphicon-eye-open"></span> Zum Frontend'
+oktothek_tag_backend_show_back_to_index:    '<span class="glyphicon glyphicon-arrow-left"></span> Zurück zum Index'
+oktothek_tag_backend_show_episodes:         'Episoden'
+oktothek_tag_backend_show_series:           'Sendereihen'
+oktothek_tag_backend_show_posts:            'Posts'
+oktothek_tag_backend_show_pages:            'Seiten'
+oktothek_tag_backend_show_updatedAt:        'Schlagwort zuletzt aktualisiert am: %date%'
+
+# AppBundle/Resources/views/backend/tag/edit.html.twig
+oktothek_tag_backend_update_button:         '<span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren'
+oktothek_tag_backend_delete_button:         '<span class="glyphicon glyphicon-trash"></span> Löschen'
+oktothek_tag_backend_edit_header:           "Schlagwort bearbeiten"
+
 # popular tag
 oktothek.success_update_popular_tags:  Hervorgehobene Schlagworte erfolgreich aktualisiert
 oktothek.error_update_popular_tags:    Hervorgehobene Schlagworte konnten nicht aktualisert werden

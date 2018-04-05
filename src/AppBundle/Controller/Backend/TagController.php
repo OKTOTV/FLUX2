@@ -41,6 +41,16 @@ class TagController extends Controller
     }
 
     /**
+     * @Route("/show/{tag}", name="oktothek_backend_tag_show")
+     * @Method("GET")
+     * @Template()
+     */
+    public function showAction(Tag $tag)
+    {
+        return ['tag' => $tag];
+    }
+
+    /**
      * @Route("/popular", name="oktothek_tag_popular")
      * @Method("GET")
      * @Template()
@@ -126,13 +136,36 @@ class TagController extends Controller
     }
 
     /**
-     * @Route("/edit/{slug}", name="oktothek_tag_edit")
-     * @Method({"GET", "PUT"})
+     * @Route("/edit/{tag}", name="oktothek_tag_edit")
+     * @Method({"GET", "PUT", "POST"})
      * @Template()
      */
-    public function editTagAction(Request $request, Tag $tag)
+    public function editAction(Request $request, Tag $tag)
     {
-        # code...
+        $form = $this->createForm(TagType::class, $tag);
+        $form->add('submit', SubmitType::class, ['label' => 'oktothek_tag_backend_update_button', 'attr' => ['class' => 'btn btn-primary']]);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek_tag_backend_delete_button', 'attr' => ['class' => 'btn btn-primary']]);
+
+        if ($request->getMethod() == "POST") { //sends form
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                if ($form->get('submit')->isClicked()) {
+                    $em->persist($tag);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_updated_tag');
+                } elseif ($form->get('delete')->isClicked()) {
+                    $em->remove($tag);
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('success', 'oktothek.success_deleted_tag');
+                }
+                return $this->redirect($this->generateUrl('oktothek_tag_index'));
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'oktothek.error_update_tag');
+            }
+        }
+
+        return ['form' => $form->createView()];
     }
 }
 
