@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use AppBundle\Entity\Post;
 use AppBundle\Entity\Series;
+use AppBundle\Entity\Tag;
 
 /**
  * Series controller.
@@ -66,11 +67,11 @@ class SeriesController extends Controller
         if ($request->getMethod() == "POST") {
             if ($request->request->get('tag') == "all") {
                 $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
-                return $this->render('AppBundle::series/episodeStackOpen.html.twig', ['episodes' => $episodes]);
+                return $this->render('AppBundle::series/episodeStackOpen.html.twig', ['episodes' => $episodes, 'pager_url' => $this->generateUrl('oktothek_show_series_episodes', ['uniqID' => $series->getUniqID()])]);
             } else {
                 $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $request->request->get('tag')]);
                 $episodes = $em->getRepository('AppBundle:Series')->findEpisodesWithTag($series, $tag);
-                return $this->render('AppBundle::series/episodeStackOpen.html.twig', ['episodes' => $episodes]);
+                return $this->render('AppBundle::series/episodeStackOpen.html.twig', ['episodes' => $episodes, 'selected_tag' => $tag, 'pager_url' => $this->generateUrl('oktothek_show_series_episodes_with_tag', ['uniqID' => $series->getUniqID(), 'tag' => $tag->getId()])]);
             }
         } else {
             $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
@@ -125,6 +126,20 @@ class SeriesController extends Controller
         $paginator = $this->get('knp_paginator');
         $episodes = $paginator->paginate($em->getRepository('AppBundle:Series')->findActiveEpisodes($series, true), $page, 12);
         return ['episodes' => $episodes, 'series' => $series];
+    }
+
+    /**
+     * @Route("/{uniqID}/episodes_with_tag/{tag}.{_format}", name="oktothek_show_series_episodes_with_tag", defaults={"_format": "html"})
+     * @Method("GET")
+     * @Template()
+     */
+    public function episodesWithTagAction(Request $request, Series $series, Tag $tag)
+    {
+        $page = $request->query->get('page', 1);
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $episodes = $paginator->paginate($em->getRepository('AppBundle:Series')->findActiveEpisodesWithTag($series, $tag, true), $page, 12);
+        return ['episodes' => $episodes, 'series' => $series, 'tag' => $tag];
     }
 
     /**

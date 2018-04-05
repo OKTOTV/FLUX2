@@ -98,6 +98,31 @@ class SeriesRepository extends BaseSeriesRepository
         return $query->getResult();
     }
 
+    /**
+     * used to filter episodes of series with specific tag
+     */
+    public function findActiveEpisodesWithTag(Series $series, Tag $tag, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                "SELECT e FROM AppBundle:Episode e
+                LEFT JOIN e.tags t
+                WHERE e.series = :series_id
+                AND (e.onlineStart < :online_start OR e.onlineStart IS NULL)
+                AND e.isActive = 1
+                AND t.id = :tag_id
+                ORDER BY e.firstranAt DESC"
+            )->setParameter('series_id', $series->getId())
+            ->setParameter('online_start', new \DateTime())
+            ->setParameter('tag_id', $tag->getId());
+
+        if ($query_only) {
+            return $query;
+        }
+
+        return $query->getResult();
+    }
+
     public function findActiveSeries($query_only = false)
     {
         $query = $this->getEntityManager()
