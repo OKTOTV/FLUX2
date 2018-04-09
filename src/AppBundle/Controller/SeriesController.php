@@ -67,11 +67,33 @@ class SeriesController extends Controller
         if ($request->getMethod() == "POST") {
             if ($request->request->get('tag') == "all") {
                 $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
-                return $this->render('AppBundle::series/episodeStackOpen.html.twig', ['episodes' => $episodes, 'pager_url' => $this->generateUrl('oktothek_show_series_episodes', ['uniqID' => $series->getUniqID()])]);
+                return $this->render(
+                    'AppBundle::series/episodeStackOpen.html.twig',
+                    [
+                        'episodes' => $episodes,
+                        'pager_url' => $this->generateUrl(
+                            'oktothek_show_series_episodes',
+                            ['uniqID' => $series->getUniqID()]
+                        )
+                    ]
+                );
             } else {
                 $tag = $em->getRepository('AppBundle:Tag')->findOneBy(['slug' => $request->request->get('tag')]);
                 $episodes = $em->getRepository('AppBundle:Series')->findEpisodesWithTag($series, $tag);
-                return $this->render('AppBundle::series/episodeStackOpen.html.twig', ['episodes' => $episodes, 'selected_tag' => $tag, 'pager_url' => $this->generateUrl('oktothek_show_series_episodes_with_tag', ['uniqID' => $series->getUniqID(), 'tag' => $tag->getId()])]);
+                return $this->render(
+                    'AppBundle::series/episodeStackOpen.html.twig',
+                    [
+                        'episodes' => $episodes,
+                        'selected_tag' => $tag,
+                        'pager_url' => $this->generateUrl(
+                            'oktothek_show_series_episodes_with_tag',
+                            [
+                                'uniqID' => $series->getUniqID(),
+                                'tag' => $tag->getId()
+                            ]
+                        )
+                    ]
+                );
             }
         } else {
             $episodes = $em->getRepository('AppBundle:Series')->findNewestEpisodesForSeries($series);
