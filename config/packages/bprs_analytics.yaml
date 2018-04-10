@@ -1,0 +1,3 @@
+bprs_analytics:
+    salt:          '%env(bprs_analytics_salt)%'
+    geoIP2_path:   '%env(bprs_analytics_geoIP2_path)%'

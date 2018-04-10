@@ -6,6 +6,7 @@
         "php": "^7.0.8",
         "bprs/asset-bundle": "^3.0",
         "bprs/user-bundle": "dev-master",
+        "bprs/analytics-bundle": "dev-master",
         "doctrine/orm": "^2.6",
         "friendsofsymfony/elastica-bundle": "^5.0",
         "jms/serializer-bundle": "^2.3",

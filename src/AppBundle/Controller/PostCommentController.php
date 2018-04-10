@@ -141,7 +141,14 @@ class PostCommentController extends Controller
         $this->denyAccessUnlessGranted('user_edit', $comment); //symfony voter
         $commentForm = $this->createForm(PostCommentType::class, $comment, ['action' => $this->generateUrl('oktothek_post_comment_edit', ['comment' => $comment->getId()])]);
         $commentForm->add('submit', SubmitType::class, ['label' => 'oktothek.comment_update_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $commentForm->add('delete', SubmitType::class, ['label' => 'oktothek.comment_delete_button', 'attr' => ['class' => 'btn btn-link']]);
+        $commentForm->add(
+            'delete',
+            SubmitType::class,
+            [
+                'label' => 'oktothek.comment_delete_button',
+                'attr' => ['class' => 'btn btn-link']
+            ]
+        );
 
         if ($request->getMethod() == "POST") {
             $commentForm->handleRequest($request);
