@@ -2,6 +2,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
         var playerInstance = jwplayer("{{ player_id }}");
+        var percent20fired = false;
+        var percent40fired  = false;
+        var percent60fired = false;
+        var percent80fired = false;
         playerInstance.setup({
             playbackRateControls: true,
             logo:   {{ origin(episode)|raw }},
@@ -66,26 +70,30 @@
         }).on('time', function(event) {
             var percentage = Math.floor(event.position*100 / event.duration);
 
-            if ( percentage == 20 ) {
+            if ( percentage == 20 && percent20fired == false ) {
                 $.ajax({
                     url: "{{ url('bprs_analytics_write_log')}}",
                     data: {'identifier': "{{ episode.uniqID}}", 'value': percentage+'%'}
                 });
-            } else if ( percentage == 40 ) {
+                percent20fired = true;
+            } else if ( percentage == 40 && percent40fired == false ) {
                 $.ajax({
                     url: "{{ url('bprs_analytics_write_log')}}",
                     data: {'identifier': "{{ episode.uniqID}}", 'value': percentage+'%'}
                 });
-            } else if (percentage == 60 ) {
+                percent40fired = true;
+            } else if (percentage == 60 && percent60fired == false ) {
                 $.ajax({
                     url: "{{ url('bprs_analytics_write_log')}}",
                     data: {'identifier': "{{ episode.uniqID}}", 'value': percentage+'%'}
                 });
-            } else if ( percentage == 80 ) {
+                percent60fired = true;
+            } else if ( percentage == 80 && percent80fired == false ) {
                 $.ajax({
                     url: "{{ url('bprs_analytics_write_log')}}",
                     data: {'identifier': "{{ episode.uniqID}}", 'value': percentage+'%'}
                 });
+                percent80fired = true;
             }
         });
     });

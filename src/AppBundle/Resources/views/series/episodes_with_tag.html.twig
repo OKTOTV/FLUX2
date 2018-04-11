@@ -16,11 +16,15 @@
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="dropdown">
                     <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        {{ 'oktothek.series_episodes_filter'|trans|raw }}
+                        {{ 'oktothek.series_episodes_filter'|trans|raw }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="filter_menu">
-                        <li {% if episodes.isSorted('e.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.series_episodes_name_filter'|trans, 'e.name') }}</li>
-                        <li {% if episodes.isSorted('e.firstranAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.series_episodes_onlineStart_filter'|trans, 'e.firstranAt') }}</li>
+                        <li {% if episodes.isSorted('e.name') %}class="active"{% endif %}>
+                            {{ knp_pagination_sortable(episodes, 'oktothek.series_episodes_name_filter'|trans, 'e.name') }}
+                        </li>
+                        <li {% if episodes.isSorted('e.firstranAt') %}class="active"{% endif %}>
+                            {{ knp_pagination_sortable(episodes, 'oktothek.series_episodes_onlineStart_filter'|trans, 'e.firstranAt') }}
+                        </li>
                     </ul>
                 </div>
             </div>
