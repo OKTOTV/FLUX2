@@ -1,0 +1,60 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'comments', 'dropdown': 'oktothek_backend'} %}
+{% endblock %}
+{% block body_main %}
+    <h1>{{ 'oktothek.backend_index_comments'|trans}}</h1>
+    <ul class="nav nav-tabs">
+      <li role="presentation" {% if type == 'episode' %}class="active"{% endif %}>
+          <a href="{{ path('user_comment_index', {'type': 'episode'}) }}">
+              {{ 'oktothek.user_comment_index_tab_episodes'|trans}}
+          </a>
+      </li>
+      <li role="presentation" {% if type == 'post' %}class="active"{% endif %}>
+          <a href="{{ path('user_comment_index', {'type': 'post'}) }}">
+              {{ 'oktothek.user_comment_index_tab_posts'|trans}}
+          </a>
+      </li>
+    </ul>
+    <div class="navigation">
+        {{ knp_pagination_render(comments) }}
+    </div>
+    <div class="list-group">
+        {% for comment in comments %}
+            <div class="row">
+                <div class="col-md-2">{{ comment.createdAt|date('H:i d.m.Y') }}</div>
+                <div class="col-md-8">
+                    {{ comment.text|nl2br }}
+                </div>
+                <div class="col-md-2">
+                    <!-- Single button -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ 'oktothek.backend_index_action_dropdown'|trans|raw }}
+      </button>
+      <ul class="dropdown-menu">
+          {% if comment.post is defined %}
+              {% if comment.post.series is empty %} {# news #}
+                  <li><a href="{{ path('oktothek_show_news', {'slug': comment.post.slug}) }}">{{ 'oktothek.backend_index_to_post_link'|trans|raw}}</a></li>
+              {% else %} {# series blogpost #}
+                  <li><a href="{{ path('oktothek_show_series_blogpost', {'slug': comment.post.slug}) }}">{{ 'oktothek.backend_index_to_post_link'|trans|raw}}</a></li>
+              {% endif %}
+          {% elseif comment.episode is defined %}
+              <li><a href="{{ path('oktothek_show_episode', {'uniqID': comment.episode.uniqID}) }}">{{ 'oktothek.backend_index_to_episode_link'|trans|raw }}</a></li>
+          {% endif %}
+
+        {% if comment.canBeEdited %}
+            <li><a href="{{ path('oktothek_episode_comment_edit', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_edit_link'|trans|raw }}</a></li>
+        {% endif %}
+        <li role="separator" class="divider"></li>
+        <li><a href="{{ path('oktothek_episode_comment_delete', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_delete_link'|trans|raw }}</a></li>
+      </ul>
+    </div></div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(comments) }}
+    </div>
+{% endblock %}

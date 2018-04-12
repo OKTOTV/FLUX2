@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\User;
 
 /**
  * EpisodeCommentRepository
@@ -35,5 +36,21 @@ class EpisodeCommentRepository extends EntityRepository
         }
 
         return $query->setMaxResults($results)->getResult();
+    }
+
+    public function findCommentsForUser(User $user, $query_only = false)
+    {
+        $query = $this->getEntityManager()
+            ->createQuery(
+                'SELECT c FROM AppBundle:EpisodeComment c
+                WHERE c.user = :user
+                ORDER BY c.createdAt DESC'
+            )->setParameter('user', $user->getId());
+
+        if ($query_only) {
+            return $query;
+        }
+
+        return $query->getResult();
     }
 }

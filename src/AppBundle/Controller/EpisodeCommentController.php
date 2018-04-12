@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\EpisodeComment;
 use AppBundle\Form\EpisodeCommentType;
+use AppBundle\Form\DeleteCommentType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
@@ -166,5 +167,32 @@ class EpisodeCommentController extends Controller
             return $this->redirect($request->headers->get('referer'));
         }
         return ['form' => $commentForm->createView()];
+    }
+
+    /**
+     * @Route("/delete/{comment}", name="oktothek_episode_comment_delete")
+     * @Template()
+     */
+    public function deleteCommentAction(Request $request, EpisodeComment $comment)
+    {
+        $this->denyAccessUnlessGranted('user_delete_comment', $comment);
+        $form = $this->createForm(DeleteCommentType::class, $comment);
+        $form->add('delete', SubmitType::class, ['label' => 'oktothek.episode_comment_delete_button', 'attr' => ['class' => 'btn btn-default']]);
+
+        if ($request->getMethod() == "POST") {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $episode = $comment->getEpisode();
+                $episode->removeComment($comment);
+                $em->remove($comment);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_delete_success');
+                return $this->redirect($this->generateUrl('user_comment_index'));
+            }
+
+            $this->get('session')->getFlashBag()->add('error', 'oktothek.comment_update_error');
+        }
+        return ['form' => $form->createView(), 'comment' => $comment];
     }
 }

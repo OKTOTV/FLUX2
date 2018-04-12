@@ -43,6 +43,7 @@ oktothek.menu_tag_dropdown:                         'Themen <span class="caret">
 oktothek.menu_best_tags:                            "Beliebteste Themen"
 oktothek.menu_notification_xs:                      "Benachrichtigung"
 oktothek.menu_user_notifications_title:             "Benachrichtigungen"
+oktothek.menu_user_comments:                        '<span class="glyphicon glyphicon-comment"></span> Deine Kommentare'
 
 # notifications (and mails)
 oktothek.notification_message_episode:              "Neue Episode von %series%"
@@ -335,6 +336,20 @@ oktothek.comment_delete_button:         "Löschen"
 
 ## AppBundle/Resources/views/PostComment/index.html.twig
 oktothek.post_comment_header:           '{0} <span class="no_comment">Gib als Erster einen Kommentar ab</span> |{1} Ein Kommentar |]1,Inf[ <span class="comments-counter">%count%</span> Kommentare'
+
+oktothek.episode_comment_delete_header:         "Kommentar löschen"
+oktothek.episode_comment_delete_back_to_index:  '<span class="glyphicon glyphicon-arrow-left"></span> Zurück zu deinen Kommentaren'
+oktothek_comment_delete_label:                  "Kommentar wirklich löschen"
+oktothek.episode_comment_delete_button:         '<span class="glyphicon glyphicon-trash"></span> Löschen'
+
+# AppBundle/Resources/views/user/comment_index.html.twig
+oktothek.user_comment_index_tab_episodes:   "Episoden"
+oktothek.user_comment_index_tab_posts:      "News- & Blogposts"
+oktothek.backend_index_action_dropdown:     'Aktionen <span class="caret"></span>'
+oktothek.backend_index_delete_link:         '<span class="glyphicon glyphicon-trash"></span> Löschen'
+oktothek.backend_index_edit_link:           '<span class="glyphicon glyphicon-edit"></span> Bearbeiten'
+oktothek.backend_index_to_episode_link:     '<span class="glyphicon glyphicon-arrow-right"></span> Zur Episode'
+oktothek.backend_index_to_post_link:     '<span class="glyphicon glyphicon-arrow-right"></span> Zum Post'
 
 ### commentPager.html.twig
 oktothek_comment_cP_login_title:        "Zum Kommentieren anmelden"

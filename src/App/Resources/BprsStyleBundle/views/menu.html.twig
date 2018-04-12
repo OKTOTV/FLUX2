@@ -31,6 +31,9 @@
                         <li {% if selected == "favorites" %}class="active"{% endif %}>
                             <a href="{{ path('oktothek_user_favorites', {'username': app.user.username}) }}">{{ 'oktothek.menu_user_favorites'|trans|raw }}</a>
                         </li>
+                        <li {% if selected == "comments" %}class="active"{% endif %}>
+                            <a href="{{ path('user_comment_index') }}">{{ 'oktothek.menu_user_comments'|trans|raw }}</a>
+                        </li>
                         <li role="separator" class="divider"></li>
                         {% if is_granted('ROLE_OKTOLAB_PRODUCER') %}
                             <li {% if selected == "producer" %}class="active"{% endif %}>
