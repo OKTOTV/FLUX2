@@ -1174,3 +1174,6 @@ oktothek_export_episode_statistics:         '<span class="glyphicon glyphicon-sa
 
 # app/Resources/OktoMediaBundle/views/Episode/index.html.twig
 oktothek.episode_index_views:               "Views"
+
+# overwrite bundle notification BprsUserBundle
+bprs_user.list_notifications.empty:         "Derzeit keine Benachrichtigungen"
