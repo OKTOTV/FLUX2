@@ -57,7 +57,6 @@ class CommentVoter extends Voter
     // allow user to delete his post anytime
     private function canDelete(Comment $comment, User $user)
     {
-        // die(var_dump($comment->getUser()->getId()));
         return $comment->getUser()->getId() === $user->getId();
     }
 }
