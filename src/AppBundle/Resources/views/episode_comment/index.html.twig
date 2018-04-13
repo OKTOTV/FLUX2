@@ -1,91 +1,108 @@
 <section class="comments comment-pager">
     <div class="container">
-<h2>{{ 'oktothek.episode_comment_header'|transchoice(comments.getTotalItemCount)|raw }}</h2>
-<!-- Kommentar -->
-<div class="row">
-    <div class="navigation">
-        {{ knp_pagination_render(comments) }}
-    </div>
-    {% if is_granted('ROLE_OKTOLAB_USER') %}
-        <div class="row comment-form">
-            <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
-                {{ render(controller('AppBundle:EpisodeComment:newComment', {'episode': episode.id}))}}
+        <h2>{{ 'oktothek.episode_comment_header'|transchoice(comments.getTotalItemCount)|raw }}</h2>
+        <div class="row">
+            <div class="navigation">
+                {{ knp_pagination_render(comments) }}
             </div>
-        </div>
-    {% else %}
-        <p class="aligncenter"><a href="{{ path('bprs_user_login') }}" class="btn btn-default login" title="{{ 'oktothek_comment_cP_login_title'|trans }}">{{'oktothek_default_login_teaser_link'|trans }}</a></p>
-    {% endif %}
-    <div class="commentbox">
-    {% for comment in comments %}
-            <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div class="avatar2"></div></div>
-            <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
-                <div class="author" itemprop="author">
-                    {{ 'oktothek.comment_author'|trans({
-                        '%name%': '<a href="'~url('oktothek_show_user', {'username': comment.user.username})~'">'~comment.user.username~'</a>',
-                        '%date%': 'oktothek.comment_author_date'|trans({
-                            '%day%': 'oktothek.comment_author_day_choice'|transchoice(comment.createdAt|date('N')),
-                            '%date%': comment.createdAt|date('oktothek.comment_author_date_format'|trans)
-                        })
-                    })|raw }}
+            {% if is_granted('ROLE_OKTOLAB_USER') %}
+                <div class="row comment-form">
+                    <div class="col-xs-12 col-sm-11 col-md-11 col-lg-11">
+                        {{ render(controller('AppBundle:EpisodeComment:newComment', {'episode': episode.id}))}}
+                    </div>
                 </div>
-                <div class="comment-text">
-                    {% if comment.removed %}
-                        <p>{{ 'oktothek.comment_pager_comment_removed'|trans }}</p>
+            {% else %}
+                <p class="aligncenter">
+                    <a href="{{ path('bprs_user_login') }}" class="btn btn-default login" title="{{ 'oktothek_comment_cP_login_title'|trans }}">
+                        {{'oktothek_default_login_teaser_link'|trans }}
+                    </a>
+                </p>
+            {% endif %}
+            <div class="commentbox">
+            {% for comment in comments %}
+                <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container">
+                    <div class="avatar2"></div>
+                </div>
+                <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
+                    <div class="author" itemprop="author">
+                        {{ 'oktothek.comment_author'|trans({
+                            '%name%': '<a href="'~url('oktothek_show_user', {'username': comment.user.username})~'">'~comment.user.username~'</a>',
+                            '%date%': 'oktothek.comment_author_date'|trans({
+                                '%day%': 'oktothek.comment_author_day_choice'|transchoice(comment.createdAt|date('N')),
+                                '%date%': comment.createdAt|date('oktothek.comment_author_date_format'|trans)
+                            })
+                        })|raw }}
+                    </div>
+                    <div class="comment-text">
+                        {% if comment.removed %}
+                            <p>
+                                {{ 'oktothek.comment_pager_comment_removed'|trans }}
+                            </p>
+                        {% else %}
+                            <p>
+                                {{ comment.text|striptags('</a>')|nl2br|episodeComment(episode.uniqID)|raw }}
+                            </p>
+                        {% endif %}
+                    </div>
+                    {% if comment.children is empty %}
+                        {% if is_granted('ROLE_OKTOLAB_USER') %}
+                        <div class="comment-answer">
+                            {% if comment.user.id == app.user.id and comment.canBeEdited %}
+                                <a href="{{ path('oktothek_comment_edit', {'comment': comment.id, 'redirect_me': url('oktothek_show_episode', {'uniqID': episode.uniqID})}) }}">
+                                    {{ 'oktothek_comment_edit'|trans }}
+                                </a>
+                            {% endif %}
+                            <a href="{{ path('oktothek_episode_comment_answer', {'uniqID': episode.uniqID, 'parent': comment.id})}}" class="answer_comment">
+                                {{ 'oktothek_comment_answer'|trans }}
+                            </a>
+                        </div>
+                        {% endif %}
                     {% else %}
-                        <p>{{ comment.text|striptags('</a>')|nl2br|episodeComment(episode.uniqID)|raw }}</p>
-                    {% endif %}
-                </div>
-                <!-- Antwort Container -->
-                {% if comment.children is empty %}
-                <div class="comment-answer">
-                    {% if is_granted('ROLE_OKTOLAB_USER') %}
-                        {% if comment.user.id == app.user.id and comment.canBeEdited %}
-                            <a href="{{ path('oktothek_episode_comment_edit', {'comment': comment.id}) }}">
-                                {{ 'oktothek_comment_edit'|trans }}
+                        <div class="comment-answer">
+                            {% if comment.user.id == app.user.id and comment.canBeEdited %}
+                                <a href="{{ path('oktothek_comment_edit', {'comment': comment.id, 'redirect_me': url('oktothek_show_episode', {'uniqID': episode.uniqID})}) }}">
+                                    {{ 'oktothek_comment_edit'|trans }}
+                                </a>
+                            {% endif %}
+                            <a href="{{ path('oktothek_episode_comment_answer', {'uniqID': episode.uniqID, 'parent': comment.id})}}" class="answer_comment">
+                                {{ 'oktothek_comment_answer'|trans }}
                             </a>
-                        {% endif %}
-                    {% endif %}
-                    <a href="{{ path('oktothek_episode_comment_answer', {'uniqID': episode.uniqID, 'parent': comment.id})}}" class="answer_comment">{{ 'oktothek_comment_answer'|trans }}</a>
-                </div>
-                {% else %}
-                    <div class="comment-answer">
-                        {% if comment.user.id == app.user.id and comment.canBeEdited %}
-                            <a href="{{ path('oktothek_episode_comment_edit', {'comment': comment.id}) }}">
-                                {{ 'oktothek_comment_edit'|trans }}
+                            <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}" title="{{ 'oktothek_comment_cP_answer'|trans }}">
+                                {{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}
                             </a>
-                        {% endif %}
-                        <a href="{{ path('oktothek_episode_comment_answer', {'uniqID': episode.uniqID, 'parent': comment.id})}}" class="answer_comment">{{ 'oktothek_comment_answer'|trans }}</a>
-                        <a class="answerlink" role="button" data-toggle="collapse" href="#answer_comment_{{ loop.index }}" aria-expanded="false" aria-controls="answer_comment_{{ loop.index }}" title="{{ 'oktothek_comment_cP_answer'|trans }}">{{ 'oktothek.comment_reply_choice'|transchoice(comment.children|length) }}</a>
-                        <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
-
-                            <!-- Antwort -->
-                            {% for answer in comment.children %}
-                            <div class="row">
-                                <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div class="avatar2"></div></div>
-                                <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 answer" itemprop="comment">
-                                    <div class="author" itemprop="author">
-                                        {{ 'oktothek.comment_author'|trans({
-                                            '%name%': comment.user.username,
-                                            '%date%': 'oktothek.comment_author_date'|trans({
-                                                '%day%': 'oktothek.comment_author_day_choice'|transchoice(comment.createdAt|date('N')),
-                                                '%date%': comment.createdAt|date('oktothek.comment_author_date_format'|trans)
-                                            })
-                                        })|raw }}
+                            <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
+                                {% for answer in comment.children %}
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container">
+                                        <div class="avatar2"></div>
                                     </div>
-                                    <div class="comment-text" itemprop="text">
-                                        <p>{{ answer.text|striptags('<a>')|nl2br|raw }}</p>
+                                    <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 answer" itemprop="comment">
+                                        <div class="author" itemprop="author">
+                                            {{ 'oktothek.comment_author'|trans({
+                                                '%name%': comment.user.username,
+                                                '%date%': 'oktothek.comment_author_date'|trans({
+                                                    '%day%': 'oktothek.comment_author_day_choice'|transchoice(comment.createdAt|date('N')),
+                                                    '%date%': comment.createdAt|date('oktothek.comment_author_date_format'|trans)
+                                                })
+                                            })|raw }}
+                                        </div>
+                                        <div class="comment-text" itemprop="text">
+                                            <p>{{ answer.text|striptags('<a>')|nl2br|raw }}</p>
+                                            {% if answer.user.id == app.user.id and answer.canBeEdited %}
+                                                <a href="{{ path('oktothek_comment_edit', {'comment': answer.id, 'redirect_me': url('oktothek_show_episode', {'uniqID': episode.uniqID})}) }}">
+                                                    {{ 'oktothek_comment_edit'|trans }}
+                                                </a>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
-                            {% endfor %}
                         </div>
-                    </div>
                     {% endif %}
-                    <!-- Ende Antwort Container -->
+                </div>
+            {% endfor %}
             </div>
-    {% endfor %}
+        </div>
     </div>
-</div>
-<!-- Ende Kommentar -->
-</div>
 </section>

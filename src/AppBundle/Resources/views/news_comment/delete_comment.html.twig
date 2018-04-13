@@ -9,9 +9,9 @@
 {% block body_main %}
 
     <div class="page-header">
-        <h1>{{ 'oktothek.episode_comment_delete_header'|trans }}</h1>
-        <a href="{{ path('user_comment_index') }}" class="btn btn-default">{{ 'oktothek.episode_comment_delete_back_to_index'|trans|raw }}</a>
+        <h1>{{ 'oktothek.news_comment_delete_header'|trans }}</h1>
+        <a href="{{ path('user_comment_index') }}" class="btn btn-default">{{ 'oktothek.news_comment_delete_back_to_index'|trans|raw }}</a>
     </div>
     {{ comment.text|nl2br }}
-    {{ form(form) }}
+    {% include "AppBundle::news_comment/_form.html.twig" %}
 {% endblock %}

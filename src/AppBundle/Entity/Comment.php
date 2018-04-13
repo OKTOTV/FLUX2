@@ -128,4 +128,8 @@ class Comment
     {
         return $this->createdAt > new \DateTime('-12 hours');
     }
+
+    public function getCommentedObject() {
+        return null;
+    }
 }

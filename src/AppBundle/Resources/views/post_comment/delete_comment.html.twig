@@ -13,5 +13,5 @@
         <a href="{{ path('user_comment_index') }}" class="btn btn-default">{{ 'oktothek.episode_comment_delete_back_to_index'|trans|raw }}</a>
     </div>
     {{ comment.text|nl2br }}
-    {{ form(form) }}
+    {% include "AppBundle::Episode_Comment/_form.html.twig" %}
 {% endblock %}

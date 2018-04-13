@@ -45,10 +45,10 @@
           {% endif %}
 
         {% if comment.canBeEdited %}
-            <li><a href="{{ path('oktothek_episode_comment_edit', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_edit_link'|trans|raw }}</a></li>
+            <li><a href="{{ path('oktothek_comment_edit', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_edit_link'|trans|raw }}</a></li>
         {% endif %}
         <li role="separator" class="divider"></li>
-        <li><a href="{{ path('oktothek_episode_comment_delete', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_delete_link'|trans|raw }}</a></li>
+        <li><a href="{{ path('oktothek_comment_delete', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_delete_link'|trans|raw }}</a></li>
       </ul>
     </div></div>
             </div>

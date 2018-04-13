@@ -13,7 +13,7 @@ use AppBundle\Entity\User;
  * @JMS\AccessType("public_method")
  * @JMS\ExclusionPolicy("all")
  */
-class Episode extends OktoEpisode {
+class Episode extends OktoEpisode implements CommentInterface {
     /**
     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="favorites")
     */
@@ -162,7 +162,7 @@ class Episode extends OktoEpisode {
      * @param \AppBundle\Entity\EpisodeComment $comment
      * @return Episode
      */
-    public function addComment(\AppBundle\Entity\EpisodeComment $comment)
+    public function addComment($comment)
     {
         $this->comments[] = $comment;
         $comment->setEpisode($this);
@@ -174,7 +174,7 @@ class Episode extends OktoEpisode {
      *
      * @param \AppBundle\Entity\EpisodeComment $comment
      */
-    public function removeComment(\AppBundle\Entity\EpisodeComment $comment)
+    public function removeComment($comment)
     {
         $this->comments->removeElement($comment);
         $comment->setEpisode(null);

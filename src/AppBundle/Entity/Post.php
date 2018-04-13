@@ -15,7 +15,7 @@ use AppBundle\Entity\Series;
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\PostRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Post
+class Post implements CommentInterface
 {
     /**
      * @var integer
@@ -464,7 +464,7 @@ class Post
      * @param \AppBundle\Entity\PostComment $comment
      * @return Post
      */
-    public function addComment(\AppBundle\Entity\PostComment $comment)
+    public function addComment($comment)
     {
         $this->comments[] = $comment;
         $comment->setPost($this);
@@ -476,7 +476,7 @@ class Post
      *
      * @param \AppBundle\Entity\PostComment $comment
      */
-    public function removeComment(\AppBundle\Entity\PostComment $comment)
+    public function removeComment($comment)
     {
         $this->comments->removeElement($comment);
         $comment->setPost(null);
