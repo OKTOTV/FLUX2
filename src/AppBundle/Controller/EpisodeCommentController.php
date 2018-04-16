@@ -62,7 +62,7 @@ class EpisodeCommentController extends Controller
             SubmitType::class,
             [
                 'label' => 'oktothek.comment_send_button',
-                'attr' => ['class' => 'btn btn-link']
+                'attr' => ['class' => 'btn btn-link comment_submit']
             ]
         );
 
@@ -106,7 +106,7 @@ class EpisodeCommentController extends Controller
             SubmitType::class,
             [
                 'label' => 'oktothek.comment_send_button',
-                'attr' => ['class' => 'btn btn-link']
+                'attr' => ['class' => 'btn btn-link comment_submit answer']
             ]
         );
 
@@ -122,6 +122,9 @@ class EpisodeCommentController extends Controller
                 $em->persist($parent);
                 $em->flush();
                 $this->get('oktothek_notification_service')->onCommentOnEpisode($comment);
+                if ($request->isXmlHttpRequest()) {
+                    return $this->render("AppBundle::episode_comment/_comment.html.twig", ['comment' => $comment]);
+                }
                 return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_comment');
