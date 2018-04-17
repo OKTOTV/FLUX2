@@ -777,8 +777,8 @@ header .navbar-nav .dropdown-menu, footer .dropdown-menu {
 	    background-repeat:no-repeat;
 	    background-position:center center;
     }
-	header .navbar-fixed-top {
-	    background-image:url(../images/header_gradient.png);
+    header .navbar-fixed-top {
+        background-image:url(../images/header_gradient.png);
 	    background-repeat:repeat-x;
 	    background-position:left top;
     }
@@ -1085,7 +1085,7 @@ button.list-group-item-danger:hover,
 }
 
 body, 
-.bg-opacity, 
+.bg-opacity,
 select, 
 .oktothek article a.btn-default.but-full:hover, 
 .oktothek article a.btn-default.but-full:focus, 
@@ -1286,6 +1286,7 @@ button.list-group-item-danger,
 }
 .btn-default, 
 .btn-primary,
+#carousel figcaption .bg-opacity,
 .play-episode.btn-default, 
 body.tagpage header .misc .btn-default, 
 .post .label-default, 
@@ -1323,17 +1324,28 @@ div.list-group.tags span.label.label-default.remove,
 .subscriptions .btn-default.edit:active {
 	background-color:transparent;
 }
+.carousel-caption .bg-opacity {
+    background-image:url(../images/header_gradient.png);
+    background-repeat:repeat-x;
+    background-position:left top;
+}
 @media (min-width: 580px) {
     body.series .series-posterframe > div {
         background-color:transparent;
     }
 }
 @media (min-width: 768px) {
+    #carousel figcaption .bg-opacity {
+        background-color: #000000;
+    }
     button.btn-default#ButtonPlaylist:hover,
     button.btn-default#ButtonPlaylist:focus,
     button.btn-default#ButtonShare:hover,
     button.btn-default#ButtonShare:focus {
 	    background-color:#fcce14;
+    }
+    .carousel-caption {
+        background-image:none;
     }
 }
 .play-episode.btn-default {
@@ -1575,6 +1587,9 @@ a:focus.pull-left {
     outline:dotted 1px #ffffff;
 }
 @media (min-width: 768px) {
+    .carousel-caption .bg-opacity {
+        background-image: none;
+    }
     button.btn-default#ButtonPlaylist, 
     button.btn-default#ButtonShare {
 	    border: solid 2px #fcce14;
@@ -1713,11 +1728,13 @@ body.oktothek .participart-list li figcaption p {
 body.oktothek .carousel-control.left span {
     background-image:url(../images/caret_left.png);
     background-image:url(../images/caret_left.svg), none;
+    background-position: left center;
 	background-repeat:no-repeat;
 }
 body.oktothek .carousel-control.right span {
     background-image:url(../images/caret_right.png);
     background-image:url(../images/caret_right.svg), none;
+    background-position: right center;
 	background-repeat:no-repeat;
 }
 body.oktothek a.btn.login {
@@ -1906,12 +1923,16 @@ a, button, .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
     -moz-opacity: 0.7;  /* older Mozilla browser */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /* IE8 in Standard Compliant Mode */
 }
+#carousel figcaption .bg-opacity {
+    opacity: 1;       /* modern browser */
+    -moz-opacity: 1;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; /* IE8 in Standard Compliant Mode */
+}
 .close {
     opacity: 0.9;       /* modern browser */
     -moz-opacity: 0.9;  /* older Mozilla browser */
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"; /* IE8 in Standard Compliant Mode */
 }
-#carousel figcaption .bg-opacity, 
 .current-episode.description-wrapper .bg-opacity, 
 .current-course.description-wrapper .bg-opacity {
     opacity: 0.4;       /* modern browser */
