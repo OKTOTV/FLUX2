@@ -81,7 +81,7 @@ $(document).ready(function(){
         
         newWidth = newHeight / _ratio;
         newMargin = (newWidth - newHeight) / 2;
-        $('#carousel').css('width', newWidth + 'px').css('margin-left', "-" + newMargin + 10 + "px");
+        $('#carousel').css('width', newWidth + 'px').css('margin-left', "-" + newMargin + "px");
         
         $('.carousel-control.right').css('right','20%').css('left','auto');
         $('.carousel-control.left').css('left','20%').css('right','auto');
