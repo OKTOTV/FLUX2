@@ -126,6 +126,10 @@ class Comment
 
     public function canBeEdited()
     {
-        return $this->createdAt > new \DateTime('-7 days');
+        return $this->createdAt > new \DateTime('-12 hours');
+    }
+
+    public function getCommentedObject() {
+        return null;
     }
 }

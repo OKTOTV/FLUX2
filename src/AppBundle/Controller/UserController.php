@@ -117,6 +117,39 @@ class UserController extends Controller
     }
 
     /**
+     * @Route("/comment_index", name="user_comment_index")
+     * @Template()
+     */
+    public function commentIndexAction(Request $request)
+    {
+        $user = $this->getUser();
+        $page = $request->query->get('page', 1);
+        $results = $request->query->get('results', 10);
+        $em = $this->getDoctrine()->getManager();
+        $paginator = $this->get('knp_paginator');
+        $query = '';
+        $type = $request->get('type', 'episode');
+        switch ($type) {
+            case 'episode':
+                $query = $em->getRepository('AppBundle:EpisodeComment')->findCommentsForUser($user, true);
+                break;
+            case 'post':
+                $query = $em->getRepository('AppBundle:PostComment')->findCommentsForUser($user, true);
+                break;
+            default:
+                $query = $em->getRepository('AppBundle:EpisodeComment')->findCommentsForUser($user, true);
+                break;
+        }
+        $comments = $paginator->paginate(
+            $query,
+            $page,
+            $results
+        );
+
+        return ['comments' => $comments, 'type' => $type];
+    }
+
+    /**
      * @Route("/updateAbonnement/{abonnement}", name="user_update_abonnement")
      * @Template()
      */

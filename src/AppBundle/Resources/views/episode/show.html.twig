@@ -169,30 +169,38 @@
                     }
                 })
             });
+        });
 
-            // Comments
-            $('#appbundle_episode_comment_submit').click(function(e){
-                if ($('#appbundle_episode_comment_text').val().length) {
-                    e.preventDefault();
-                    $.ajax({
-                        url: "{{ url('oktothek_episode_comment_create', {'episode': episode.Id})}}",
-                        type: 'post',
-                        dataType: 'json',
-                        data: $($(this).parents('form[name="appbundle_episode_comment"]')[0]).serialize(),
-                    }).complete(function(data) {
-                        $('#appbundle_episode_comment_text').val('');
-                        if (data.status = 200) {
+        // Comments
+        $(document).on('click', '.comment_submit', function(e){
+            var button = $(this);
+            var form = button.closest('form[name="appbundle_episode_comment"]');
+            var inputField = form.find('#appbundle_episode_comment_text');
+            if (inputField.val().length) {
+                e.preventDefault();
+                $.ajax({
+                    url: form.attr('action'),
+                    type: 'post',
+                    dataType: 'json',
+                    data: form.serialize(),
+                }).complete(function(data) {
+                    inputField.val('');
+                    if (data.status = 200) {
+                        if (button.hasClass('answer')) {
+                            $(data.responseText).hide().appendTo(form.closest('.comment-answer').find('.answer-text')).wrapAll('<div class="row"></div>').slideDown();
+                        } else {
                             $(data.responseText).hide().prependTo('.commentbox').slideDown();
                         }
-                    });
-                }
-            });
+                    }
+                });
+            }
         });
 
         $(document).on('click', '.answer_comment', function(e){
             e.preventDefault();
             var parent = $(this).parent();
             $(this).hide();
+            console.log($(this).attr("href"));
             $.ajax({
                 url: $(this).attr("href"),
 
@@ -201,6 +209,7 @@
             });
         });
 
+        // Playlist
         $(document).on('click', '.playlist', function(e){
             var playlist = $(this);
             if (playlist.hasClass('active')) {

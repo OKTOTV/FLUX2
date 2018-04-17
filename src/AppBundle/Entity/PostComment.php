@@ -118,4 +118,8 @@ class PostComment extends BaseComment {
     {
         return $this->children;
     }
+
+    public function getCommentedObject() {
+        return $this->post;
+    }
 }

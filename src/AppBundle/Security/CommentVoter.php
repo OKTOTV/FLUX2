@@ -10,11 +10,12 @@ use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 class CommentVoter extends Voter
 {
     const EDIT = 'user_edit';
+    const DELETE = 'user_delete_comment';
 
     protected function supports($attribute, $subject)
     {
         // if the attribute isn't one we support, return false
-        if (!in_array($attribute, [self::EDIT])) {
+        if (!in_array($attribute, [self::EDIT, self::DELETE])) {
             return false;
         }
 
@@ -38,6 +39,10 @@ class CommentVoter extends Voter
         switch($attribute) {
             case self::EDIT:
                 return $this->canEdit($subject, $user);
+                break;
+            case self::DELETE:
+                return $this->canDelete($subject, $user);
+                break;
         }
 
         throw new \LogicException('This code should not be reached!');
@@ -46,6 +51,12 @@ class CommentVoter extends Voter
     // allow user to post in the backend
     private function canEdit(Comment $comment, User $user)
     {
-        return $comment->getUser() === $user && $comment->getCreatedAt() > new \DateTime('-7 days');
+        return $comment->getUser()->getId() === $user->getId() && $comment->getCreatedAt() > new \DateTime('-12 hours');
+    }
+
+    // allow user to delete his post anytime
+    private function canDelete(Comment $comment, User $user)
+    {
+        return $comment->getUser()->getId() === $user->getId();
     }
 }

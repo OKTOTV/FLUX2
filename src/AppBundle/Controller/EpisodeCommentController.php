@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Entity\Episode;
 use AppBundle\Entity\EpisodeComment;
 use AppBundle\Form\EpisodeCommentType;
+use AppBundle\Form\DeleteCommentType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
@@ -61,7 +62,7 @@ class EpisodeCommentController extends Controller
             SubmitType::class,
             [
                 'label' => 'oktothek.comment_send_button',
-                'attr' => ['class' => 'btn btn-link']
+                'attr' => ['class' => 'btn btn-link comment_submit']
             ]
         );
 
@@ -105,7 +106,7 @@ class EpisodeCommentController extends Controller
             SubmitType::class,
             [
                 'label' => 'oktothek.comment_send_button',
-                'attr' => ['class' => 'btn btn-link']
+                'attr' => ['class' => 'btn btn-link comment_submit answer']
             ]
         );
 
@@ -121,6 +122,9 @@ class EpisodeCommentController extends Controller
                 $em->persist($parent);
                 $em->flush();
                 $this->get('oktothek_notification_service')->onCommentOnEpisode($comment);
+                if ($request->isXmlHttpRequest()) {
+                    return $this->render("AppBundle::episode_comment/_comment.html.twig", ['comment' => $comment]);
+                }
                 return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_comment');
@@ -130,41 +134,5 @@ class EpisodeCommentController extends Controller
             return $this->render("AppBundle::episode_comment/_form.html.twig", ['form' => $form->createView()]);
         }
         return ['form' => $form->createView(), 'comment' => $parent, 'episode' => $episode];
-    }
-
-    /**
-     * @Route("/edit/{comment}", name="oktothek_episode_comment_edit")
-     * @Template()
-     */
-    public function editCommentAction(Request $request, EpisodeComment $comment)
-    {
-        $this->denyAccessUnlessGranted('user_edit', $comment); //symfony voter
-        $commentForm = $this->createForm(EpisodeCommentType::class, $comment, ['action' => $this->generateUrl('oktothek_episode_comment_edit', ['comment' => $comment->getId()])]);
-        $commentForm->add('submit', SubmitType::class, ['label' => 'oktothek.comment_update_button', 'attr' => ['class' => 'btn btn-primary']]);
-        $commentForm->add('delete', SubmitType::class, ['label' => 'oktothek.comment_delete_button', 'attr' => ['class' => 'btn btn-link']]);
-
-        if ($request->getMethod() == "POST") {
-            $commentForm->handleRequest($request);
-            if ($commentForm->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                if ($commentForm->get('submit')->isClicked()) {
-                    $em->persist($comment);
-                    $em->flush();
-                    $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_update_success');
-                    return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $comment()->getEpisode()->getUniqID()]));
-                } elseif ($commentForm->get('delete')->isClicked()) {
-                    $episode = $comment->getEpisode();
-                    $episode->removeComment($comment);
-                    // $em->persist($episode);
-                    $em->remove($comment);
-                    $em->flush();
-                    $this->get('session')->getFlashBag()->add('success', 'oktothek.comment_delete_success');
-                    return $this->redirect($this->generateUrl('oktothek_show_episode', ['uniqID' => $episode->getUniqID()]));
-                }
-            }
-            $this->get('session')->getFlashBag()->add('error', 'oktothek.comment_update_error');
-            return $this->redirect($request->headers->get('referer'));
-        }
-        return ['form' => $commentForm->createView()];
     }
 }
