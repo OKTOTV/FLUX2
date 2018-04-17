@@ -31,5 +31,5 @@
                 <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare-{{ newsloop|default('1') }}" data-uniqID="#" title="{{ 'oktothek_share_header'|trans }}"><span class="share-btn-text">{{ 'oktothek_share_header'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
             </p>
         </div>
-    {% include "AppBundle:news:_shareCollapse.html.twig" %}
+    {% include "AppBundle:series/Blog:_shareCollapse.html.twig" %}
 </article>
