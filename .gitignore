@@ -43,6 +43,7 @@
 composer.lock
 .htaccess
 check.php
+symfony.lock
 
 app/data.db3
 *.rdb
