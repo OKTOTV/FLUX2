@@ -63,7 +63,6 @@ $(document).ready(function(){
 		if (Winheight / _ratio > Winwidth) {
 			newMargin = (Winwidth - (Winheight / _ratio)) / 2;
             newWidth = Winheight / _ratio;
-			//$(el).css('height', Winheight + 'px').css('width', (Winheight / _ratio) + 'px').css('margin-left', newMargin + "px");
             $('#carousel').css('width', newWidth + 'px').css('margin-left', newMargin + "px");
             $('.carousel-control.right').css('right', (newWidth - Winwidth)/2 + 'px').css('left','auto');;
             $('.carousel-control.left').css('left', (newWidth - Winwidth)/2 + 'px').css('right','auto');
@@ -72,20 +71,24 @@ $(document).ready(function(){
             $('#carousel').css('width', '100%').css('margin-left','0px');
             $('.carousel-control.right').css('right','0px').css('left','auto');;
             $('.carousel-control.left').css('left','0px').css('right','auto');
-			//$(el).css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
             $(el).css('height','auto').css('width',Winwidth + 'px').css('margin-left','0px');
         }
-		//$(el).fadeIn(600);
 	}
 	
-	function resizeImageMobile(el, container, _ratio) {
+	function resizeImageMobile(el, container, _ratio, newHeight) {
 		_parentContainer = $(container).find('article').parent('div');
-        $('#carousel').css('width', '100%').css('margin-left','0px');
-        $('.carousel-control.right').css('right','0px').css('left','auto');
-        $('.carousel-control.left').css('left','0px').css('right','auto');
-		if (_parentContainer.css('height') != "auto")
-			$(container).find('article').parent('div').css('height','auto');
-		el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
+        //$('#carousel').css('width', '100%').css('margin-left','0px');
+        
+        newWidth = newHeight / _ratio;
+        newMargin = (newWidth - newHeight) / 2;
+        $('#carousel').css('width', newWidth + 'px').css('margin-left', "-" + newMargin + "px");
+        
+        $('.carousel-control.right').css('right','20%').css('left','auto');
+        $('.carousel-control.left').css('left','20%').css('right','auto');
+		/*if (_parentContainer.css('height') != "auto")
+			$(container).find('article').parent('div').css('height','auto');*/
+		//el.css('height',(Winwidth * _ratio) + 'px').css('width',Winwidth + 'px').css('margin-left','0px');
+        $(el).css('height', newHeight+'px').css('width', newWidth + 'px').css('margin-left', "0px");
 	}
 
 	 /*Alle Bilder auf gleiche Höhe bringen (nach der kleinsten Höhe)*/
@@ -104,8 +107,10 @@ $(document).ready(function(){
                     $('#slider').css('height',($( window ).height() - borderbottom) + 'px');
 					resizeImage($(items).find('img'), container, aspectRatio);
 				} else {
-                    $('#slider').css('height','auto');
-					resizeImageMobile($(items).find('img'), container, aspectRatio);
+                    Winwidth = $( window ).width();
+                    newHeight = Winwidth;
+                    $('#slider').css('height',newHeight + 'px');
+					resizeImageMobile($(items).find('img'), container, aspectRatio, newHeight);
 				}
 				if (carouselslide == false) {
 					$('.preloader').fadeOut('slow','linear',function(){
