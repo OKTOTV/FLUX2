@@ -118,7 +118,6 @@ $(document).ready(function(){
 					    carouselslide = true;
 					});
 				}
-                console.log(carouselslide);
             };
             normalizeHeights();
 
