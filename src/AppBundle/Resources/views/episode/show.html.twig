@@ -5,6 +5,8 @@
 <meta property="og:title" content="{{ episode.name }}, {{ episode.series.name }}" />
 <meta property="og:description" content="{{ episode.description }}" />
 <meta property="og:image" content="{{ episode.posterframe(true)|thumb(720,1280) }}" />
+<meta property="og:type" content="video.episode" />
+<meta property="fb:app_id" content="696921587161553" />
 
 {% set fb_media = null %}
 {% for media in episode.media %}
