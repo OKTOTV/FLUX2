@@ -128,6 +128,7 @@ oktothek.user_name_label:               "Benutzername"
 oktothek.user_name_placeholder:         "Username. Ist öffentlich zugänglich."
 oktothek.user_email_label:              "Email"
 oktothek.user_email_placeholder:        "Deine Email. Bleibt privat und wird zum registrieren verwendet"
+oktothek.user_confirmed_data_usage_label: "Hiermit bestätige ich, dass meine E-Mail und mein selbstgewählter Benutzername gespeichert werden dürfen. Die E-Mail-Adresse bleibt privat und ist nicht öffentlich einsehbar. Lediglich der Benutzername ist für alle sichtbar."
 oktothek.register_user_button:          "Account anlegen"
 oktothek.error_create_account:          "Beim Anlegen des Accounts ist ein Fehler aufgetreten. Bitte versuche es zu einem späteren Zeitpunkt noch einmal oder kontaktiere uns unter support@okto.tv"
 oktothek.success_create_account:        "Dein Account wurde erfolgreich angelegt. Schaue in dein Postfach und bestätige deine E-Mail-Adresse, um deine Anmeldung zu vervollständigen."
@@ -1155,6 +1156,8 @@ oktothek_producer_nowLive_title:            "Live-Benachrichtigungen | Sendereih
 # newsletter
 oktothek.newsletter_header:                 Newsletter
 oktothek.newsletter_mail_placeholder:       E-Mail
+oktothek.newsletter_confirm_label:          Ich bin mit dem Speichern meiner E-Mail-Adresse einverstanden. Die E-Mail-Adresse wird an die Datenschutz-zertifizierte Newsletter Verwaltungssoftware MailChimp zum technischen Versand weitergegeben. Mehr Informationen findest du auf der Homepage des Anbieters unter https://mailchimp.com/legal/privacy
+oktothek.newsletter_register_unsubsribe:    Der Newsletter kann jederzeit wieder abbestellt werden.
 oktothek.newsletter_subscribe_submit:       Anmelden
 oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
 oktothek.newsletter_label:                  "Newsletter abbonieren"
