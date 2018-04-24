@@ -23,6 +23,7 @@ doctrine:
             Oktolab\MediaBundle\Entity\EpisodeInterface:    AppBundle\Entity\Episode
             Oktolab\MediaBundle\Entity\PlaylistInterface:   AppBundle\Entity\Playlist
             Oktolab\MediaBundle\Entity\SeriesInterface:     AppBundle\Entity\Series
+            Oktolab\MediaBundle\Entity\StreamInterface:     Okto\MediaBundle\Entity\Stream
             Okto\MediaBundle\Entity\TagInterface:           AppBundle\Entity\Tag
             Bprs\UserBundle\Entity\UserInterface:           AppBundle\Entity\User
 

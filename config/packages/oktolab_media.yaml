@@ -5,8 +5,15 @@ oktolab_media:
     episode_class:          "AppBundle\\Entity\\Episode"
     series_class:           "AppBundle\\Entity\\Series"
     asset_class:            "AppBundle\\Entity\\Asset"
+    stream_class:           "Okto\\MediaBundle\\Entity\\Stream"
     keep_original:          false
     serializing_schema:     "okto"
+
+    streamservers:
+        server_1:
+            player_url: "%env(rmpt_server_public_player)%" # this would be the cloudfront public adress
+            rtmp_url:    "%env(rtmp_server)%"
+            rtmp_control: "%env(rtmp_server_control)%"         # this would be a nginx rtmp server at okto or in the cloud
     resolutions:
         360p:
             name: 360p
@@ -69,7 +76,7 @@ oktolab_media:
             video_framerate: '25'
             preset: medium
 
-    player_url: "https://content.jwplatform.com/libraries/FJWVLOxx.js" # add me to .env and .env.dist
+    player_url: "%env(player_url)%" # add me to .env and .env.dist
     origin:
         margin: 2
         position: top-left
