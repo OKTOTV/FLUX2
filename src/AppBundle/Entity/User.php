@@ -11,6 +11,7 @@ use AppBundle\Entity\Comment;
 use AppBundle\Entity\Abonnement;
 use AppBundle\Entity\Notification;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -72,6 +73,12 @@ class User extends BaseUser
      */
     private $greeted;
 
+    /**
+     * @Assert\IsTrue()
+     * @ORM\Column(name="confirmed_data_usage", type="boolean", nullable=true)
+     */
+    private $confirmed_data_usage;
+
     public function __construct() {
         parent::__construct();
         $this->abonnements = new ArrayCollection();
@@ -85,6 +92,17 @@ class User extends BaseUser
     public function __toString()
     {
         return $this->getUsername();
+    }
+
+    public function getConfirmedDataUsage()
+    {
+        return $this->confirmed_data_usage;
+    }
+
+    public function setConfirmedDataUsage($confirmed)
+    {
+        $this->confirmed_data_usage = $confirmed;
+        return $this;
     }
 
      public function getEpisodeComments()

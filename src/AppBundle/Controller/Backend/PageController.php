@@ -7,19 +7,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Entity\Page;
 use AppBundle\Form\PageType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
- * News controller.
+ * Page controller.
  *
- * @Route("/backend/page")
+ * @Route("/press/page")
+ * @Security("has_role('ROLE_PR_USER')")
  */
 class PageController extends Controller
 {
     /**
      * @Route("/", name="oktothek_backend_page_index")
+     * @Method("GET")
      * @Template()
      */
     public function indexAction(Request $request)
@@ -61,7 +64,6 @@ class PageController extends Controller
             }
             $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_page');
         }
-
         return ['form' => $form->createView()];
     }
 

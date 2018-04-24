@@ -8,12 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use AppBundle\Entity\Post;
 use AppBundle\Form\PostType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
- * @Route("/backend/news")
+ * @Route("/press/news")
+ * @Security("has_role('ROLE_PR_USER')")
  */
 class NewsController extends Controller
 {
@@ -32,6 +34,7 @@ class NewsController extends Controller
 
     /**
      * @Route("/blogposts", name="oktothek_backend_news_blogpost_index")
+     * @Security("has_role('ROLE_USER')")
      * @Template()
      */
     public function blogPostAction(Request $request)

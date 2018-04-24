@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\Abonnement;
 use AppBundle\Form\AbonnementType;
@@ -191,6 +192,64 @@ class UserController extends Controller
         $em->getRepository('BprsUserBundle:Notification')->setAllNotificationToReadForUser($this->getUser());
         return $this->redirect($this->generateUrl('homepage'));
     }
+
+    /**
+     * @Route("/export_episode_statistic", name="oktothek_user_episode_statistics")
+     * @Security("has_role('ROLE_PR_USER')")
+     * @Template()
+     */
+    public function downloadEpisodeStatisticsAction(Request $request)
+    {
+        $results = $this->get('oktothek_episode')->getClicksInTimerange(
+            $request->query->get('startdate', '-2 weeks'),
+            $request->query->get('enddate', 'now')
+        );
+
+        $delimiter = ';';
+        $response = new StreamedResponse(function() use($results, $delimiter) {
+            $handle = fopen('php://output', 'r+');
+                fputcsv($handle,
+                    array(
+                        'Sendereihe',
+                        'Folge',
+                        'UniqID',
+                        'Klicks',
+                        '0%',
+                        '20%',
+                        '40%',
+                        '60%',
+                        '80%',
+                        '100%'
+                    ),
+                    $delimiter
+                );
+
+            foreach ($results as $uniqID => $info) {
+                fputcsv($handle,
+                    [
+                        $info["series"],
+                        $info["episode"],
+                        $uniqID,
+                        $info["clicks"],
+                        $info["0"],
+                        $info["20"],
+                        $info["40"],
+                        $info["60"],
+                        $info["80"],
+                        $info["end"]
+                    ],
+                    $delimiter
+                );
+            }
+            fclose($handle);
+        });
+
+        $response->headers->set('Content-Type', 'application/force-download');
+        $response->headers->set('Content-Disposition','attachment; filename="episode_statistics.csv"');
+
+        return $response;
+    }
+
 
     /**
      * @Route("/{username}", name="oktothek_show_user")
