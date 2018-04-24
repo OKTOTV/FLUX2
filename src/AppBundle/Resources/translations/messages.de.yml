@@ -170,6 +170,7 @@ oktothek.your_abos_blogposts:                   "News von den Blogs"
 ### participate.html.twig
 oktothek_default_participate_meta_description:  "Werde Oktonaut! Alle Möglichkeiten bei Okto mitzumachen findest du hier."
 oktothek_default_participate:                   "Mitmachen"
+oktothek_default_participate_header:            'Mitmachen<span class="sr-only"> beim Community TV Sender Okto</span> <span class="icon participant-arrow-down jump">Hier!</span>'
 oktothek_default_participate_sub:               "Du platzt vor Ideen? Dann bist du bei uns richtig!"
 oktothek_default_participate_login:             "Melde Dich an!"
 oktothek_default_participate_view_clips:        "Clips ansehen"
