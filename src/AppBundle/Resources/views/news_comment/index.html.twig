@@ -57,7 +57,7 @@
                         <div class="answer-text collapse" id="answer_comment_{{ loop.index }}">
                             <!-- Antwort -->
                             {% for answer in comment.children %}
-                                {% include "AppBundle:News_Comment:_answer.html.twig" with {'comment': answer}%}
+                                {% include "AppBundle:news_comment:_answer.html.twig" with {'comment': answer}%}
                             {% endfor %}
                         </div>
                     </div>

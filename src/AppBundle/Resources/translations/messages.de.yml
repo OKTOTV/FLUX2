@@ -43,6 +43,7 @@ oktothek.menu_tag_dropdown:                         'Themen <span class="caret">
 oktothek.menu_best_tags:                            "Beliebteste Themen"
 oktothek.menu_notification_xs:                      "Benachrichtigung"
 oktothek.menu_user_notifications_title:             "Benachrichtigungen"
+oktothek.menu_user_comments:                        '<span class="glyphicon glyphicon-comment"></span> Deine Kommentare'
 
 # notifications (and mails)
 oktothek.notification_message_episode:              "Neue Episode von %series%"
@@ -169,6 +170,7 @@ oktothek.your_abos_blogposts:                   "News von den Blogs"
 ### participate.html.twig
 oktothek_default_participate_meta_description:  "Werde Oktonaut! Alle Möglichkeiten bei Okto mitzumachen findest du hier."
 oktothek_default_participate:                   "Mitmachen"
+oktothek_default_participate_header:            'Mitmachen<span class="sr-only"> beim Community TV Sender Okto</span> <span class="icon participant-arrow-down jump">Hier!</span>'
 oktothek_default_participate_sub:               "Du platzt vor Ideen? Dann bist du bei uns richtig!"
 oktothek_default_participate_login:             "Melde Dich an!"
 oktothek_default_participate_view_clips:        "Clips ansehen"
@@ -335,6 +337,20 @@ oktothek.comment_delete_button:         "Löschen"
 
 ## AppBundle/Resources/views/PostComment/index.html.twig
 oktothek.post_comment_header:           '{0} <span class="no_comment">Gib als Erster einen Kommentar ab</span> |{1} Ein Kommentar |]1,Inf[ <span class="comments-counter">%count%</span> Kommentare'
+
+oktothek.episode_comment_delete_header:         "Kommentar löschen"
+oktothek.episode_comment_delete_back_to_index:  '<span class="glyphicon glyphicon-arrow-left"></span> Zurück zu deinen Kommentaren'
+oktothek_comment_delete_label:                  "Kommentar wirklich löschen"
+oktothek.episode_comment_delete_button:         '<span class="glyphicon glyphicon-trash"></span> Löschen'
+
+# AppBundle/Resources/views/user/comment_index.html.twig
+oktothek.user_comment_index_tab_episodes:   "Episoden"
+oktothek.user_comment_index_tab_posts:      "News- & Blogposts"
+oktothek.backend_index_action_dropdown:     'Aktionen <span class="caret"></span>'
+oktothek.backend_index_delete_link:         '<span class="glyphicon glyphicon-trash"></span> Löschen'
+oktothek.backend_index_edit_link:           '<span class="glyphicon glyphicon-edit"></span> Bearbeiten'
+oktothek.backend_index_to_episode_link:     '<span class="glyphicon glyphicon-arrow-right"></span> Zur Episode'
+oktothek.backend_index_to_post_link:     '<span class="glyphicon glyphicon-arrow-right"></span> Zum Post'
 
 ### commentPager.html.twig
 oktothek_comment_cP_login_title:        "Zum Kommentieren anmelden"
@@ -1159,3 +1175,6 @@ oktothek_export_episode_statistics:         '<span class="glyphicon glyphicon-sa
 
 # app/Resources/OktoMediaBundle/views/Episode/index.html.twig
 oktothek.episode_index_views:               "Views"
+
+# overwrite bundle notification BprsUserBundle
+bprs_user.list_notifications.empty:         "Derzeit keine Benachrichtigungen"

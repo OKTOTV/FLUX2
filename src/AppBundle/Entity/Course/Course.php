@@ -4,6 +4,7 @@ namespace AppBundle\Entity\Course;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\CommentInterface;
 
 /**
  * Course
@@ -12,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\CourseRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Course
+class Course implements CommentInterface
 {
     /**
      * @var integer
@@ -342,6 +343,31 @@ class Course
     public function setDeadline($deadline)
     {
         $this->deadline = $deadline;
+        return $this;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \AppBundle\Entity\EpisodeComment $comment
+     * @return Episode
+     */
+    public function addComment($comment)
+    {
+        $this->comments[] = $comment;
+        $comment->setCourse($this);
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \AppBundle\Entity\EpisodeComment $comment
+     */
+    public function removeComment($comment)
+    {
+        $this->comments->removeElement($comment);
+        $comment->setCourse(null);
         return $this;
     }
 }

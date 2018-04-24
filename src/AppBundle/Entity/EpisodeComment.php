@@ -118,4 +118,8 @@ class EpisodeComment extends BaseComment {
     {
         return $this->children;
     }
+
+    public function getCommentedObject() {
+        return $this->episode;
+    }
 }
