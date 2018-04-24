@@ -9,6 +9,11 @@
 {% block body_main %}
 <div class="container login">
   <header class="page-header"><h1 class="form-signin-heading">{{'oktothek_register_header'|trans}}</h1></header>
-    {{ form(form) }}
+    {{ form_start(form) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.confirmed_data_usage) }}
+        <p>{{ 'oktothek.register_how_to_delete_account'|trans|raw }}</p>
+    {{ form_end(form) }}
 </div>
 {% endblock %}
