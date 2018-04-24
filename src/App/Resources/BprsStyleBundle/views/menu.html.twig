@@ -65,6 +65,11 @@
                                 <a href="{{ path('bprs_asset_list') }}">{{ 'bprs_asset.menu'|trans|raw }}</a>
                             </li>
                         {% endif %}
+                        {% if is_granted('ROLE_PR_USER') %}
+                            <li>
+                                <a href="{{ path('oktothek_user_episode_statistics') }}">{{ 'oktothek.menu_statistics'|trans|raw }}</a>
+                            </li>
+                        {% endif %}
                         <li role="separator" class="divider"></li>
                         <li><a href="{{ path('bprs_user_logout') }}">{{'oktothek.menu_user_logout'|trans|raw }}</a><li>
                     </ul>

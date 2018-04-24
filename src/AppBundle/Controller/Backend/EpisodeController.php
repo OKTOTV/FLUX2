@@ -35,15 +35,6 @@ class EpisodeController extends Controller
         return $this->redirect($this->generateUrl('oktolab_episode_show', ['uniqID' => $episode->getUniqID()]));
     }
 
-    // /**
-    //  * @Route("/episode/statistic/{uniqID}", name="oktothek_backend_statistic_episode")
-    //  * @Template()
-    //  */
-    // public function statisticAction(Request $request, Episode $episode)
-    // {
-    //     # code...
-    // }
-
     /**
      * quick and dirty way to export statistics for all episodes
      * @Route("/episode/statistic/export", name="oktothek_backend_export_episode_statistics")
@@ -51,74 +42,10 @@ class EpisodeController extends Controller
      */
     public function exportClicksInTimerangeAction(Request $request)
     {
-        $results = [];
-        $em = $this->getDoctrine()->getManager();
-        $q = $em->createQuery("SELECT e.name as episodename, e.views, e.uniqID, s.name as seriesname FROM AppBundle:Episode e LEFT JOIN e.series s");
-        $iterableResult = $q->iterate();
-        $logstates0 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => 'start'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
-        $logstates = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '20%'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
-        $logstates40 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '40%'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
-        $logstates60 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '60%'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
-        $logstates80 = $this->get('bprs_analytics')->getLogstatesInTime(['value' => '80%'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
-        $logstatesEnd = $this->get('bprs_analytics')->getLogstatesInTime(['value' => 'end'], $request->query->get('startdate', '-2 weeks'), $request->query->get('enddate', 'now'));
-        $i = 0;
-        while (($row = $iterableResult->next()) !== false) {
-            $results[$row[$i]['uniqID']]['episode'] = $row[$i]['episodename'];
-            $results[$row[$i]['uniqID']]['series'] = $row[$i]['seriesname'];
-            $results[$row[$i]['uniqID']]['clicks'] = $row[$i]['views'];
-            $zero_percent = 0;
-            $twenty_percent = 0;
-            $fourty_percent = 0;
-            $sixty_percent = 0;
-            $eighty_percent = 0;
-            $end = 0;
-
-            foreach ($logstates0 as $logstate) {
-                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
-                    $zero_percent++;
-                    unset($logstate);
-                }
-            }
-
-            foreach ($logstates as $logstate) {
-                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
-                    $twenty_percent++;
-                    unset($logstate);
-                }
-            }
-            foreach ($logstates40 as $logstate) {
-                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
-                    $fourty_percent++;
-                    unset($logstate);
-                }
-            }
-            foreach ($logstates60 as $logstate) {
-                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
-                    $sixty_percent++;
-                    unset($logstate);
-                }
-            }
-            foreach ($logstates80 as $logstate) {
-                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
-                    $eighty_percent++;
-                    unset($logstate);
-                }
-            }
-            foreach ($logstatesEnd as $logstate) {
-                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
-                    $end++;
-                    unset($logstate);
-                }
-            }
-            $results[$row[$i]['uniqID']]['0'] = $zero_percent;
-            $results[$row[$i]['uniqID']]['20'] = $twenty_percent;
-            $results[$row[$i]['uniqID']]['40'] = $fourty_percent;
-            $results[$row[$i]['uniqID']]['60'] = $sixty_percent;
-            $results[$row[$i]['uniqID']]['80'] = $eighty_percent;
-            $results[$row[$i]['uniqID']]['end'] = $end;
-            $em->clear();
-            $i++;
-        }
+        $results = $this->get('oktothek_episode')->getClicksInTimerange(
+            $request->query->get('startdate', '-2 weeks'),
+            $request->query->get('enddate', 'now')
+        );
 
         $delimiter = ';';
         $response = new StreamedResponse(function() use($results, $delimiter) {
