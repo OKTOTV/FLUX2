@@ -1164,6 +1164,9 @@ oktothek.newsletter_label:                  "Newsletter abbonieren"
 oktothek.success_subscribe_newsletter:      "Sie erhalten in kürze eine E-Mail zur Bestätigung des Newsletters"
 oktothek.error_subscribe_newsletter:        "Wir konnten Sie nicht für den Newsletter anmelden. Senden Sie uns bitte eine E-Mail an pr@okto.tv"
 
+oktothek.newletter_footer_link_button:      "Newsletter"
+oktothek.news_newletter_link_button:        "Newsletter"
+
 # participate
 oktothek.participate_5_steps:               Die fünf Schritte zur Sendung
 
