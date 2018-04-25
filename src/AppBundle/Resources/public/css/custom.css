@@ -138,9 +138,12 @@ body.oktothek h1, h2, .h2, #anchor-menu .panel-title .glyphicon,
 .livestream .next-episode-schedule .time {
 	font-size:24px;
 }
+.subheadline,
+.participart .button_container .btn {
+    font-size:19px;
+}
 header .navbar-toggle.search-button span, 
 header .navbar-toggle.menu-button span.icon-close, 
-.subheadline, .participart .button_container .btn,
 body.oktothek .participart .shorttext,
 .news p, figcaption .description, 
 .academy .preview p, 
@@ -172,6 +175,7 @@ header .form-control::-webkit-input-placeholder {
 }
 h3, 
 .h3, 
+legend,
 .checkbox label,
 header .collapse.in h3, 
 body.oktothek .participart [data-tooltip]::after, 
@@ -253,7 +257,7 @@ body.livestream h5,
 /* Spacelayout */
 .oktothek .participart-list figcaption h3, 
 label {
-	font-size:11px;
+	font-size:14px;
 	letter-spacing:0.70px;
 }
 .pin .pin-icon {
@@ -288,6 +292,7 @@ footer h3,
 .infos h3, 
 .blog h3, 
 .academy .pin .preview-content a, 
+legend,
 h3, 
 .h3, 
 .courses h4, 
@@ -424,7 +429,6 @@ select:active:focus {
     }
 	header .form-control::-moz-placeholder {
   		font-size:16px;
-
     }
     header .form-control:-ms-input-placeholder {
         font-size:16px;
@@ -453,6 +457,10 @@ select:active:focus {
 	}
     .playlists #StartPlaylist.btn span.glyphicon {
         font-size: 24px;
+    }
+    .oktothek .participart-list figcaption h3 {
+	    font-size:11px;
+	    letter-spacing:0.70px;
     }
 }
 
@@ -856,6 +864,7 @@ a:hover.pull-right.more,
 a:hover.pull-left.more,
 a:focus.pull-right.more,
 a:focus.pull-left.more,
+legend,
 select.form-control.ghost, 
 #carousel a h3,
 #carousel a p.subheadline,
@@ -1354,7 +1363,7 @@ div.list-group.tags span.label.label-default.remove,
 .academy .timetable li:first-child p {
 	border-top:dotted 1px #5a6769;
 }
-.academy .timetable li p:first-child {
+.academy .timetable li p:first-child, legend {
     border-bottom:none;
 }
 .academy .timetable li:first-child p:last-child {
@@ -1547,14 +1556,10 @@ div.list-group.tags span.label.label-default.remove,
 }
 /* Spacelayout */
 .btn, 
-.pull-right .icon, 
-.more.right .icon, 
-.pull-left .icon, 
 header .misc .btn,
 header .collapseShare .btn,
 .livestream #nav-programm .icon,
 .more figure.episode-pin a,
-.subscriptions .edit .icon,
 #appbundle_episode_comment .btn-link {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
@@ -1565,6 +1570,10 @@ header .collapseShare .btn,
 	-khtml-border-radius:20px;
 	border-radius: 20px;
 }
+.pull-right .icon, 
+.more.right .icon, 
+.pull-left .icon,
+.subscriptions .edit .icon,
 .participart .button_container .btn, 
 #StartPlaylist_small.btn,
 body.tagpage .empty .icon-player,
@@ -1589,6 +1598,14 @@ a:focus.pull-left {
 @media (min-width: 768px) {
     .carousel-caption .bg-opacity {
         background-image: none;
+    }
+    .pull-right .icon, 
+    .more.right .icon, 
+    .pull-left .icon, 
+    .subscriptions .edit .icon {
+	    -moz-border-radius:19px;
+	    -khtml-border-radius:19px;
+	    border-radius: 19px;
     }
     button.btn-default#ButtonPlaylist, 
     button.btn-default#ButtonShare {
@@ -2830,9 +2847,9 @@ ul.row, li.pin {
 ul.row {
     padding-left:0px;
 }
-article.pin, 
-li.pin, 
-figure.pin img {
+.news article.pin, 
+.news li.pin, 
+.news figure.pin img {
 	width:100%;
 }
 article.pin,
@@ -2875,6 +2892,12 @@ li.pin figcaption {
     padding-top:0;
     padding-bottom:1px;
 }
+.news figure.pin img {
+	max-width:100%;
+	float:none;
+	height:auto;
+	margin:0 auto;
+}
 figure.pin img {
 	max-width:100%;
 	float:none;
@@ -2899,7 +2922,7 @@ figcaption  {
 .channels figcaption h3 {
     margin-bottom: 10px;
 }
-@media (min-width: 580px) {
+/*@media (min-width: 580px) {*/
 	article.pin,
     li.pin,
     .blog-pin div,
@@ -2924,7 +2947,7 @@ figcaption  {
         padding-left:15px;
         padding-right:15px;
     }
-}
+/*}*/
 @media (min-width: 768px) {
     /* Ränder Korrekturen */
     .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row, .clip_overview .row, .series-playlists .row  {
@@ -3232,9 +3255,11 @@ a.more.right {
     vertical-align: middle;
 }
 .pull-right .icon, .pull-left .icon, .more.right .icon, .subscriptions .edit .icon {
-	width:38px;
-	height:38px;
+	width:50px;
+	height:50px;
 	text-align:center;
+    line-height: 46px;
+    vertical-align: middle;
 }
 .pull-right .icon {
     margin-left:5px;
@@ -3249,6 +3274,19 @@ a.more.right {
     padding-right:0;
 }
 
+@media (min-width: 768px) {
+    .pull-right .icon, 
+    .pull-left .icon, 
+    .more.right .icon, 
+    .subscriptions .edit .icon {
+	    width:38px;
+	    height:38px;
+	    text-align:center;
+        line-height: 34px;
+        vertical-align: middle;
+    }
+}
+
 /*Formulare*/
 .form-control {
 	height:35px;
@@ -3256,20 +3294,21 @@ a.more.right {
 .checkbox label {
     line-height: 1.6em;
 }
-.login form, .subscriptions form, .live form {
+.login form, .subscriptions form, .live form, .newsletter form {
     width:320px;
     margin:0 auto;
 }
 .login form button[type="submit"]:not(header .login form button[type="submit"]), 
 .subscriptions form button[type="submit"]:not(header .subscriptions form button[type="submit"]), 
-.live form button[type="submit"]:not(header .live form button[type="submit"]) {
+.live form button[type="submit"]:not(header .live form button[type="submit"]),
+.newsletter form button[type="submit"]:not(header .newsletter form button[type="submit"]){
     display: block;
     margin:40px auto 20px auto;
 }
 .login form .registry .button-container {
     text-align: center;
 }
-.login fieldset {
+.login fieldset, .newsletter fieldset {
     padding-bottom:20px;
     margin-top:20px;
     margin-bottom:20px;
@@ -3279,8 +3318,9 @@ a.more.right {
     height: 50px;
     border-radius: 25px;
     vertical-align: middle;
+    margin-left:-25px;
 }
-.login label {
+.login label, .newsletter label {
     border: 0 none;
     clip: rect(0px, 0px, 0px, 0px);
     height: 1px;
@@ -3290,9 +3330,40 @@ a.more.right {
     position: absolute;
     width: 1px;
 }
+.login .checkbox label, .login p, .newsletter .checkbox label, .newsletter p {
+    padding-left:20px;
+}
+.login .checkbox label, .newsletter .checkbox label {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+    position: static;
+    width: auto;
+    padding-left:20px;
+}
 .login #oktothek_register, .login .form-signin {
     text-align: center;
 }
+.login button#register_submit, .newsletter button#newsletterform_submit {
+    width: 170px;
+    position: relative;
+    left:50%;
+    margin-left:-100px;
+    margin-top:40px;
+    display: block;
+}
+.login input#remember_me {
+    position: static;
+}
+.newsletter form {
+    margin-bottom:40px;
+}
+.academy.payment fieldset {
+    margin-bottom:40px;
+}
+
 .tt-menu {
     width:280px;
     padding:15px 10px;
@@ -3541,6 +3612,9 @@ footer .networks {
 	    padding-top:50px;
 	    margin-bottom:0;
         text-align: center;
+    }
+    footer a#newsletter_link {
+        margin-top:24px;
     }
 	footer .partner li {
 		margin-left:40px;

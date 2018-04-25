@@ -26,6 +26,7 @@
     {% endif %}
     {{ form_start(form) }}
         {{ form_errors(form) }}
+        <fieldset>
         <div class="row">
             <div class="col-md-4">
                 {{ form_row(form.title) }}
@@ -56,10 +57,33 @@
             </div>
         </div>
         {{ form_row(form.reducedEligible) }}
-        {% include 'AppBundle:academy:agb.html.twig' %}
-        {{ form_row(form.agb) }}
-        {{ form_row(form.info) }}
-
+        </fieldset>
+        <fieldset>
+          {% include 'AppBundle:academy:agb.html.twig' %}
+        </fieldset>
+        <fieldset>
+            {{ form_row(form.agb) }}
+        </fieldset>
+        <fieldset class="privacy">
+            <div class="checkbox">
+                <input id="attendee_dsvgo" name="attendee_dsvgo" value="1" type="checkbox">
+                <label>Ich bin mit der Speicherung meines Namens, Anrede, Adresse, Emailadresse, Telefonnummer, Zahlungsart, Kurstermin und Ermässigung für die Buchung des Kurses einverstanden. Die Daten werden nicht an Dritte weiter gegeben und nur für den Zweck der Buchung dieses Kurses verwendet. Zahlungsart und Ermässigung werden sofort nach Beendigung des Kurses wieder gelöscht. Alle anderen Daten bleiben solange die gesetzliche Frist es erfordert (mindestens 7, max. 10 Jahre) bei uns gespeichert.*</label>
+            </div>
+            <legend>Weitere Informationen</legend>
+            <div class="checkbox">
+                <input id="attendee_dsvgo" name="attendee_dsvgo" value="1" type="checkbox">
+                <label>Ich möchte über weitere Kurse informiert werden. Diese Zustimmung kann jederzeit wieder abbestellt werden über die zugesendeten Emails.</label>
+            </div>
+            <div class="privacy_declaration">
+            <p>
+                Wie deine Daten verwendet werden, erfährst Du hier: 
+            </p>
+            <p>
+                <a class="btn btn-primary" href="#">Datenschutzerklärung</a>
+            </p>
+            </div>
+       </fieldset>
+       {{ form_row(form.info) }}
     {{ form_end(form) }}
     <p><small>{{ 'oktothek_academy_show_footnote'|trans }}</small></p>
 
