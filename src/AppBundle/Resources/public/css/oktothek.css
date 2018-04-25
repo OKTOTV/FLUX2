@@ -149,6 +149,10 @@ body.oktothek .news-pin {
 .oktothek .participart .button_container .btn, #StartPlaylist.btn {
 	padding:12px 40px;
 }
+.participart .button_container .btn span {
+    line-height: 19px;
+    vertical-align: middle;
+}
 .oktothek .participart .button_container .but-full {
 	margin-top:70px;
 }
@@ -220,6 +224,9 @@ body.oktothek .helptext {
     }
     .oktothek .participart .but-full:hover span.passive, .oktothek .participart .but-full span.active {
         margin-left:-400px;
+    }
+    .oktothek .participart .but-full span.active {
+        margin-top:4px;
     }
     body.oktothek .participart-list li {
 	    width:140px;
