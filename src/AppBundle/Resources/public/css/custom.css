@@ -3414,6 +3414,14 @@ a.more.right {
 	width:100%;
 }
 
+/* Page */
+.page iframe {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    width: auto;
+}
+
 /* Fehlerseite */
 .errorpage .favorite-videos p {
     margin-bottom:40px;
