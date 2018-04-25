@@ -3471,6 +3471,9 @@ footer nav ul {
 	width:auto;
     margin-top:20px;
 }
+footer .nav > li > a {
+    padding-left:0;
+}
 footer nav ul li {
 	vertical-align:middle;
 }
@@ -3487,11 +3490,15 @@ footer .partner li object {
     max-width: 80%;
     height: auto;
 }
-footer .nav > li {
-	width:auto;
-}
 footer .nav > li.languages a  {
     margin-left:0px;
+}
+footer .nav > li {
+    width:50%;
+    float:left;
+}
+footer .nav > li:nth-child(2n+1) {
+    clear:left;
 }
 footer .networks div.col-md-6:last-child {
     padding-left:0;
@@ -3568,18 +3575,15 @@ footer .networks {
 	padding-top:5px;
 	padding-bottom:5px;
 }*/
+
 @media (min-width: 420px) {
-    footer .nav > li {
-	    width:50%;
-        float:left;
-    }
     footer .partner li {
 	    text-align:left;
     }
     footer .partner li {
         padding:20px 5px;
     }
-    footer .nav > li:nth-child(2n+1), footer .partner > li:nth-child(2n+1) {
+    footer .partner > li:nth-child(2n+1) {
         clear:left;
     }
     footer nav {
@@ -3603,6 +3607,9 @@ footer .networks {
     }
     footer .nav > li:nth-child(2n+1), footer .partner li:nth-child(2n+1) {
         clear:none;
+    }
+    footer .nav > li > a {
+        padding-left:15px;
     }
     footer nav ul {
         text-align: center;
