@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class RegisterType extends AbstractType
 {
@@ -26,6 +27,10 @@ class RegisterType extends AbstractType
                 [
                     'label' => 'oktothek.user_email_label',
                     'attr' => ['placeholder' => 'oktothek.user_email_placeholder']
+                ])
+            ->add('confirmed_data_usage', CheckboxType::class,
+                [
+                    'label' => 'oktothek.user_confirmed_data_usage_label'
                 ])
         ;
     }

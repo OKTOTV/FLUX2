@@ -9,12 +9,14 @@ class EpisodeService {
     private $notificator;
     private $logger;
     private $em;
+    private $bprs_analytics;
 
-    public function __construct($logger, $notificator, $em)
+    public function __construct($logger, $notificator, $em, $bprs_analytics)
     {
         $this->notificator = $notificator;
         $this->logger = $logger;
         $this->em = $em;
+        $this->bprs_analytics = $bprs_analytics;
     }
 
     public function publishEpisode(Episode $episode)
@@ -68,6 +70,79 @@ class EpisodeService {
                 ->setParameter('id', $score['id'])
                 ->getResult();
         }
+    }
+
+    public function getClicksInTimerange($startdate, $enddate)
+    {
+        $results = [];
+        $q = $this->em->createQuery("SELECT e.name as episodename, e.views, e.uniqID, s.name as seriesname FROM AppBundle:Episode e LEFT JOIN e.series s");
+        $iterableResult = $q->iterate();
+        $logstates0 = $this->bprs_analytics->getLogstatesInTime(['value' => 'start'], $startdate, $enddate);
+        $logstates = $this->bprs_analytics->getLogstatesInTime(['value' => '20%'], $startdate, $enddate);
+        $logstates40 = $this->bprs_analytics->getLogstatesInTime(['value' => '40%'], $startdate, $enddate);
+        $logstates60 = $this->bprs_analytics->getLogstatesInTime(['value' => '60%'], $startdate, $enddate);
+        $logstates80 = $this->bprs_analytics->getLogstatesInTime(['value' => '80%'], $startdate, $enddate);
+        $logstatesEnd = $this->bprs_analytics->getLogstatesInTime(['value' => 'end'], $startdate, $enddate);
+        $i = 0;
+        while (($row = $iterableResult->next()) !== false) {
+            $results[$row[$i]['uniqID']]['episode'] = $row[$i]['episodename'];
+            $results[$row[$i]['uniqID']]['series'] = $row[$i]['seriesname'];
+            $results[$row[$i]['uniqID']]['clicks'] = $row[$i]['views'];
+            $zero_percent = 0;
+            $twenty_percent = 0;
+            $fourty_percent = 0;
+            $sixty_percent = 0;
+            $eighty_percent = 0;
+            $end = 0;
+
+            foreach ($logstates0 as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $zero_percent++;
+                    unset($logstate);
+                }
+            }
+
+            foreach ($logstates as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $twenty_percent++;
+                    unset($logstate);
+                }
+            }
+            foreach ($logstates40 as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $fourty_percent++;
+                    unset($logstate);
+                }
+            }
+            foreach ($logstates60 as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $sixty_percent++;
+                    unset($logstate);
+                }
+            }
+            foreach ($logstates80 as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $eighty_percent++;
+                    unset($logstate);
+                }
+            }
+            foreach ($logstatesEnd as $logstate) {
+                if ($logstate->getIdentifier() == $row[$i]['uniqID']) {
+                    $end++;
+                    unset($logstate);
+                }
+            }
+            $results[$row[$i]['uniqID']]['0'] = $zero_percent;
+            $results[$row[$i]['uniqID']]['20'] = $twenty_percent;
+            $results[$row[$i]['uniqID']]['40'] = $fourty_percent;
+            $results[$row[$i]['uniqID']]['60'] = $sixty_percent;
+            $results[$row[$i]['uniqID']]['80'] = $eighty_percent;
+            $results[$row[$i]['uniqID']]['end'] = $end;
+            $this->em->clear();
+            $i++;
+        }
+
+        return $results;
     }
 
 }

@@ -23,7 +23,7 @@ services:
 
     oktothek_episode:
         class:  AppBundle\Model\EpisodeService
-        arguments:  [ "@bprs_logbook", "@oktothek_notification_service", "@doctrine.orm.entity_manager" ]
+        arguments:  [ "@bprs_logbook", "@oktothek_notification_service", "@doctrine.orm.entity_manager", "@bprs_analytics" ]
 
     gedmo.listener.sluggable:
         class: Gedmo\Sluggable\SluggableListener

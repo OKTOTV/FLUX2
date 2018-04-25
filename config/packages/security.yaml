@@ -10,12 +10,18 @@ security:
             - ROLE_BPRS_ASSET_DELETE
         ROLE_USER:
             - ROLE_OKTOLAB_PRODUCER
+            - ROLE_PR_USER
+        ROLE_PR_USER:
+            - ROLE_BPRS_ASSET_READ
+            - ROLE_BPRS_ASSET_WRITE
+            - ROLE_OKTOLAB_USER
         ROLE_OKTOLAB_PRODUCER:
             - ROLE_BPRS_ASSET_WRITE
             - ROLE_OKTOLAB_USER
 
 # ROLE_ADMIN:            TZE BOSSA
 # ROLE_USER:             Okto Ppl
+# ROLE_PR_USER:          Ppl like Sabin Kargl who snoop around more than they should.
 # ROLE_OKTOLAB_PRODUCER: Okto Serie Ppl
 # ROLE_OKTOLAB_USER:     Registered User
 

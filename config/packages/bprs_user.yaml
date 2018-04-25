@@ -18,5 +18,7 @@ bprs_user:
         - ROLE_OKTOLAB_USER
         - ROLE_OKTOLAB_PRODUCER
         - ROLE_USER
+        - ROLE_PR_USER
+        - ROLE_OKTOLAB_MEDIA_STREAM_READ # backend role of oktolabmediabundle for stream CRUD
     user_defaults:
         - ROLE_OKTOLAB_USER

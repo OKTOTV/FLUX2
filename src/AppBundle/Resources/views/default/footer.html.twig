@@ -16,8 +16,7 @@
                 </ul>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
-                <h3>{{ 'oktothek.newsletter_header'|trans }}</h3>
-                {{ render(controller('AppBundle:Newsletter:subscribe')) }}
+                <a href="{{ path('oktothek_newsletter') }}" class="btn btn-default">{{ 'oktothek.newletter_footer_link_button'|trans }}</a>
             </div>
         </div>
     </section>
