@@ -136,6 +136,39 @@ class Attendee
      */
     private $country;
 
+    /**
+     * @ORM\Column(name="dsgvo", type="boolean", options={"default" = false}, nullable=true)
+     * @Assert\IsTrue()
+     */
+    private $dsgvo;
+
+    /**
+     * @ORM\Column(name="newsletter", type="boolean", options={"default" = false}, nullable=true)
+     */
+    private $newsletter;
+
+    public function getDsgvo()
+    {
+        return $this->dsgvo;
+    }
+
+    public function setDsgvo($dsgvo)
+    {
+        $this->dsgvo = $dsgvo;
+        return $this;
+    }
+
+    public function getNewsletter()
+    {
+        return $this->newsletter;
+    }
+
+    public function setNewsletter($newsletter)
+    {
+        $this->newsletter = $newsletter;
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->name.' '.$this->surname;
