@@ -86,6 +86,13 @@ class AttendeeType extends AbstractType
                 'mapped' => false,
                 'constraints' => [new Assert\IsTrue()]
             ])
+            ->add('dsgvo', CheckboxType::class, [
+                'label' => 'oktothek_attendee_dsgvo_label'
+            ])
+            ->add('newsletter', CheckboxType::class, [
+                'label' => 'oktothek_attendee_newsletter_label',
+                'required' => false
+            ])
             ->add('info', TextareaType::class,
                 [
                     'label' => 'oktothek_attendee_info_label',

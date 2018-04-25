@@ -501,7 +501,13 @@ oktothek_academy_agb:   |
         </li>
     </ol>
 
-
+oktothek_academy_dsgvo_button: Datenschutzerklärung
+oktothek_academy_dsgvo:   |
+    ## OKTO COMMUNITY TV-GMBH Datenschutzerklärung für Schulungen
+    April 2018
+    <ol>
+        <li>Bitte Nachtragen</li>
+    </ol>
 ### show.html.twig
 oktothek_academy_show_meta_description: "Okto bietet ein grundlegendes und umfassendes Kursprogramm, um Fernsehmachen zu lernen - von Videojournalismus über Studioproduktion bis zu Mobile Reporting. Hier kannst du dich für unsere Workshops anmelden."
 oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"
@@ -689,10 +695,14 @@ oktothek_attendee_plz_placeholder:          "1234"
 oktothek_attendee_country_label:            "Land"
 oktothek_attendee_country_placeholder:      "Land wählen"
 oktothek_attendee_agb_label:                "Ich habe die AGB gelesen und bin mit ihnen einverstanden"
-oktothek_attendee_bookCourse_reduced_label: "Ermäßigt*"
+oktothek_attendee_bookCourse_reduced_label: "Ich bin für den ermäßigten Preis qualifiziert*"
 oktothek_attendee_city_label:               "Ort"
 oktothek_attendee_city_placeholder:         "Musterstadt"
-
+oktothek_attendee_dsgvo_label:              "Ich bin mit der Speicherung der angegebenen Daten für die Buchung des Kurses einverstanden. Die Daten werden nicht an Dritte weiter gegeben und nur für den Zweck der Buchung dieses Kurses verwendet. Sie bleiben solange die gesetzliche Frist es erfordert (mindestens 7, max. 10 Jahre) bei uns gespeichert."
+oktothek_attendee_newsletter_legend:        "Weitere Informationen"
+oktothek_attendee_newsletter_label:         "Ich möchte über weitere Kurse informiert werden. Diese Zustimmung kann jederzeit über die zugesendeten E-Mails widerrufen werden."
+oktothek_attendee_privacy_info:             "Wie deine Daten verwendet werden, erfährst Du hier:"
+oktothek_attendee_privacy_link:             "Datenschutzerklärung"
 oktothek_attendee_title_sir:                "Herr"
 oktothek_attendee_title_madam:              "Frau"
 oktothek_attendee_title_choice:             "{0} Unbekannt |{1} Frau |{2} Herr"
