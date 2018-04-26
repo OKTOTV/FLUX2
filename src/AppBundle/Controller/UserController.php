@@ -194,6 +194,24 @@ class UserController extends Controller
     }
 
     /**
+     * @Route("/confirm_privacy_policy", name="confirm_privacy_policy")
+     */
+    public function confirmPrivacyPolicy()
+    {
+        $user = $this->getUser();
+        $user->setConfirmedDataUsage(true);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        $this->get('session')->getFlashBag()->add(
+            'info',
+            'oktothek.info_confirmed_privacy_policy'
+        );
+        return $this->redirect($this->generateUrl('homepage'));
+    }
+
+    /**
      * @Route("/export_episode_statistic", name="oktothek_user_episode_statistics")
      * @Security("has_role('ROLE_PR_USER')")
      * @Template()

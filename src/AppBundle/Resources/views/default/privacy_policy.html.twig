@@ -1,0 +1,15 @@
+{% extends "BprsStyleBundle::layout.html.twig" %}
+{% block title %}{{ 'oktothek_privacy_policy_title'|trans }}{% endblock %}
+
+{% block nav_head%}
+    {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
+{% endblock %}
+
+{% block body %}
+    {{ 'oktothek_academy_dsgvo'|trans|markdown }}
+    {% if app.user is not null and not app.user.confirmedDataUsage %}
+        <a href="{{ path('confirm_privacy_policy') }}" class="btn btn-default">
+            {{ 'oktothek.confirm_privacy_policy_button'|trans }}
+        </a>
+    {% endif %}
+{% endblock %}
