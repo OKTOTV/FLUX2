@@ -87,6 +87,9 @@ body.academy .preview .misc {
 body.academy .price {
 	margin-right:15px;
 }
+body.academy #collapseDSGVO, body.academy #collapseAGB {
+    padding: 40px 0;
+}
 
 /* Newsletter */
 body.academy .newsletter fieldset {
