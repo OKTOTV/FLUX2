@@ -76,7 +76,7 @@ class DefaultController extends Controller
         );
         return ['episode' => $episode];
     }
-    
+
     /**
      * @Route("/imprint", name="imprint")
      * @Template()
@@ -85,7 +85,16 @@ class DefaultController extends Controller
     {
         return [];
     }
-    
+
+    /**
+     * @Route("/privacy_policy", name="privacy_policy")
+     * @Template()
+     */
+    public function privacyPolicyAction()
+    {
+        return [];
+    }
+
     /**
      * @Route("/contact", name="contact")
      * @Template()
@@ -94,7 +103,7 @@ class DefaultController extends Controller
     {
         return [];
     }
-    
+
     /**
     * @Route(
     *    "/slider/{number}.{_format}",
