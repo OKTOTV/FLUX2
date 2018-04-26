@@ -46,6 +46,18 @@ oktothek.menu_user_notifications_title:             "Benachrichtigungen"
 oktothek.menu_user_comments:                        '<span class="glyphicon glyphicon-comment"></span> Deine Kommentare'
 oktothek.menu_pages:                                '<span class="glyphicon glyphicon-book" aria-hidden="true"></span> Seiten'
 oktothek.menu_statistics:                           '<span class="glyphicon glyphicon-save"></span> Statistik'
+oktothek.menu_user_privacy_policy:                  '<span class="glyphicon glyphicon-flag"></span> Datenschutzerklärung'
+
+oktothek.footer_home:                               "Home"
+oktothek.footer_news:                               "News"
+oktothek.footer_series:                             "Sendungen"
+oktothek.footer_contact:                            "Kontakt"
+oktothek.footer_help:                               "Hilfe"
+oktothek.footer_imprint:                            "Impressum"
+oktothek.footer_privacy_policy:                     "Datenschutzerklärung"
+
+oktothek_privacy_policy_title:                      "Datenschutzerklärung | OKTO"
+oktothek.confirm_privacy_policy_button:             "Jetzt der Nutzung meiner Daten zustimmen"
 
 # notifications (and mails)
 oktothek.notification_message_episode:              "Neue Episode von %series%"
@@ -155,6 +167,7 @@ oktothek_user_welcome_feature_diy_par_2: "Wir bieten ebenfalls unterschiedliche 
 oktothek_user_welcome_support_mail:     "Bei Fragen oder Problemen schreibe uns eine E-Mail an %email%."
 oktothek_user_welcome_greetings:        "Beste Grüße,<br />dein OKTO Team"
 
+oktothek.info_confirmed_privacy_policy: "Du hast der Datenschutzbestimmung erfolgreich zugestimmt."
 ## search and results
 oktothek_results_header:                'Suchergebnisse für "%searchphrase%"'
 oktothek.searchfield_placeholder:       "Suche Videos, Leute und Infos"

@@ -3,7 +3,7 @@ bprs_user:
     register_header: "Registierung auf OKTO abschließen"
     iforgot_header:  "Passwort auf OKTO zurücksetzen"
     mail:
-        commandline_host: "localhost/FLUX2/web/app_dev.php" # add me to .env and .env.dist
+        commandline_host: '%env(MAILER_COMMANDLINE_HOST)%' # add me to .env and .env.dist
         adress:           "oktobot@okto.tv"                 # add me to .env and .env.dist
         name:             "OKTOBOT"                         # add me to .env and .env.dist
     permissions:
