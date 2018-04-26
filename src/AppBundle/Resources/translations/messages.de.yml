@@ -1168,7 +1168,7 @@ oktothek_producer_nowLive_title:            "Live-Benachrichtigungen | Sendereih
 oktothek.newsletter_header:                 Newsletter
 oktothek.newsletter_mail_placeholder:       E-Mail
 oktothek.newsletter_confirm_label:          Ich bin mit dem Speichern meiner E-Mail-Adresse einverstanden. Die E-Mail-Adresse wird an die Datenschutz-zertifizierte Newsletter Verwaltungssoftware MailChimp zum technischen Versand weitergegeben. Mehr Informationen findest du auf der Homepage des Anbieters unter https://mailchimp.com/legal/privacy.
-oktothek.newsletter_register_unsubsribe:    Der Newsletter kann jederzeit wieder abbestellt werden.
+oktothek.newsletter_register_unsubsribe:    Der Newsletter kann jederzeit über einen Link im Newsletter-Mail wieder abbestellt werden.
 oktothek.newsletter_subscribe_submit:       Anmelden
 oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
 oktothek.newsletter_label:                  "Newsletter abbonieren"
