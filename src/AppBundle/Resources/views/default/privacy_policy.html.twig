@@ -1,15 +1,40 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
+{% block metas %}
+<meta name="description" content="Um deinen Besuch bei Okto so gut wie möglich gestalten zu können, werden gewisse Daten von dir verarbeitet. Welche Daten das sind und warum wir das tun, verrät unsere Datenschutzerklärung.">
+{% endblock %}
 {% block title %}{{ 'oktothek_privacy_policy_title'|trans }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
 {% endblock %}
 
+{% set body_class = "page" %}
 {% block body %}
-    {{ 'oktothek_academy_dsgvo'|trans|markdown }}
-    {% if app.user is not null and not app.user.confirmedDataUsage %}
-        <a href="{{ path('confirm_privacy_policy') }}" class="btn btn-default">
+    <div id="top"></div>
+    <header class="page-header">
+        <h1 itemprop="headline">{{ 'oktothek_headline_dsgvo'|trans|markdown }}</h1>
+    </header>
+    <section class="container">
+    {{ 'oktothek_dsgvo'|trans|markdown }}
+    </section>
+    <section class="container">
+    {{ 'oktothek_user_dsgvo'|trans|markdown }}
+        {% if app.user is not null and not app.user.confirmedDataUsage %}
+        <p class="aligncenter"><a href="{{ path('confirm_privacy_policy') }}" class="btn btn-default">
             {{ 'oktothek.confirm_privacy_policy_button'|trans }}
-        </a>
+        </a></p>
     {% endif %}
+    </section>
+    <section class="container">
+    {{ 'oktothek_contact_dsgvo'|trans|markdown }}
+    </section>
+    <section class="container">
+    {{ 'oktothek_academy_dsgvo'|trans|markdown }}
+    </section>
+    <section class="container">
+    {{ 'oktothek_newsletter_dsgvo'|trans|markdown }}
+    </section>
+    <section class="container">
+    {{ 'oktothek_right_dsgvo'|trans|markdown }}
+    </section>
 {% endblock %}
