@@ -7,41 +7,43 @@
 {% endblock %}
 
 {% block header %}
-<header>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <a href="#top" acceskey="1" class="focusable">Zum Inhalt springen</a>
-        <div class="container-fluid">
-            <nav>
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed menu-button" data-toggle="collapse" data-target="#mainmenu-container" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
-                        <span class="sr-only">{{ 'oktothek_layout_navigation'|trans }}</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span aria-hidden="true" class="icon-close">&times;</span>
-                    </button>
-                    <button type="button" class="navbar-toggle collapsed search-button" data-toggle="collapse" data-target="#search-container">
-                        <span class="sr-only">{{ 'oktothek_layout_search'|trans }}</span>
-                        <span class="glyphicon glyphicon-search"></span>
-                        <span aria-hidden="true" class="icon-close">&times;</span>
-                    </button>
-                    <a class="navbar-brand" href="{{ path('homepage')}}" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/TelevisionStation">
-                        <meta itemprop="name" content="Okto Community TV">
-                        <meta itemprop="logo" content="{{ absolute_url(asset('bundles/app/images/okto_logo.png')) }}">
-                        <meta itemprop="image" content="{{ absolute_url(asset('bundles/app/images/img_8_3.png')) }}">
-                        <meta itemprop="telephone" content="+43 1 786 2442">
-                        <meta itemprop="address" content="Goldschlagstraße 172/4, 1140 Wien">
-                        <div class="brandimage"><span>{{ name|default('') }}</span></div>
-                    </a>
-                </div>
-                <div class="navbar-content">
-                    {% block nav_head%}
-                    {% endblock %}
-                </div>
-            </nav>
+    {% block header_content %}
+    {% endblock %}
+    <header>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <a href="#top" acceskey="1" class="focusable">Zum Inhalt springen</a>
+            <div class="container-fluid">
+                <nav>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed menu-button" data-toggle="collapse" data-target="#mainmenu-container" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+                            <span class="sr-only">{{ 'oktothek_layout_navigation'|trans }}</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span aria-hidden="true" class="icon-close">&times;</span>
+                        </button>
+                        <button type="button" class="navbar-toggle collapsed search-button" data-toggle="collapse" data-target="#search-container">
+                            <span class="sr-only">{{ 'oktothek_layout_search'|trans }}</span>
+                            <span class="glyphicon glyphicon-search"></span>
+                            <span aria-hidden="true" class="icon-close">&times;</span>
+                        </button>
+                        <a class="navbar-brand" href="{{ path('homepage')}}" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/TelevisionStation">
+                            <meta itemprop="name" content="Okto Community TV">
+                            <meta itemprop="logo" content="{{ absolute_url(asset('bundles/app/images/okto_logo.png')) }}">
+                            <meta itemprop="image" content="{{ absolute_url(asset('bundles/app/images/img_8_3.png')) }}">
+                            <meta itemprop="telephone" content="+43 1 786 2442">
+                            <meta itemprop="address" content="Goldschlagstraße 172/4, 1140 Wien">
+                            <div class="brandimage"><span>{{ name|default('') }}</span></div>
+                        </a>
+                    </div>
+                    <div class="navbar-content">
+                        {% block nav_head%}
+                        {% endblock %}
+                    </div>
+                </nav>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 {% endblock %}
 
 {% block messages %}
