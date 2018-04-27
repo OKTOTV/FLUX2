@@ -20,11 +20,15 @@ class TvController extends Controller
      * @Route("/", name="tv")
      * @Template
      */
-    public function TvAction()
+    public function TvAction(Request $request)
     {
         $current = $this->get('oktothek_tv')->getCurrent(false, 2);
-        $date = new \DateTime();
-        return ['current' => $current, 'url' => $this->generateUrl('oktothek_tv_program_for_date', ['date' => $date->format('d-m-Y')])];
+        $date = new \DateTime($request->query->get('date', 'now'));
+        return [
+            'current' => $current,
+            'url' => $this->generateUrl('oktothek_tv_program_for_date', ['date' => $date->format('d-m-Y')]),
+            'date' => $date
+        ];
     }
 
     /**
@@ -40,7 +44,7 @@ class TvController extends Controller
      * @Route("/program/{date}.{_format}", defaults={"date": "now", "_format": "html"}, name="oktothek_tv_program_for_date")
      * @Template
      */
-    public function programAction(Request $request, $date = "now")
+    public function programAction(Request $request, $date)
     {
         $start = new \Datetime($date);
         $start->setTime(8, 0);

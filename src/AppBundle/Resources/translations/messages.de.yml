@@ -528,8 +528,8 @@ oktothek_academy_dsgvo:   |
     </ol>
 
 ## default agb.html.twig
-oktothek_agb_title:     "Nutzungsbedingungen | OKTO"
-oktothek_agb: |
+oktothek_tos_title:     "Nutzungsbedingungen | OKTO"
+oktothek_tos: |
     ## OKTO COMMUNITY TV-GMBH Nutzungsbedingungen April 2018
     <ol>
         <li>Bitte Nachtragen</li>
