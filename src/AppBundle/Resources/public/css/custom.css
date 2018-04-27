@@ -139,7 +139,8 @@ body.oktothek h1, h2, .h2, #anchor-menu .panel-title .glyphicon,
 	font-size:24px;
 }
 .subheadline,
-.participart .button_container .btn {
+.participart .button_container .btn,
+.important_info {
     font-size:19px;
 }
 header .navbar-toggle.search-button span, 
@@ -947,7 +948,8 @@ button.input-group-addon:focus,
 .visible-xs-block .pager li > a,
 body.help .help-experience a h3,
 body.help .help-action h3 a,
-body.help .help-action li a .menu-text {
+body.help .help-action li a .menu-text,
+.important_info {
 	color:#ffffff;
 }
 *::-moz-selection {
@@ -3425,6 +3427,12 @@ a.more.right {
 /* Fehlerseite */
 .errorpage .favorite-videos p {
     margin-bottom:40px;
+}
+
+/* Flash Messages*/
+.important_info {
+    text-align: center;
+    padding:40px;
 }
 
 /* Einstellungen Abos */
