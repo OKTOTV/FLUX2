@@ -106,6 +106,9 @@ body.payment form {
 body.payment .privacy_declaration {
     margin-top:40px;
 }
+body.payment .subheadline {
+    text-align: left;
+}
 
 @media (min-width: 768px) {
     body.academy .timetable p {

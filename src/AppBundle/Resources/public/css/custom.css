@@ -2616,7 +2616,7 @@ button.btn.dropdown-toggle, header button.btn.dropdown-toggle {
     position:relative;
 }
 .dropdown-menu {
-	width:220px;
+	width:230px;
     margin-bottom:0;
     padding-bottom: 0;
 }
@@ -2656,9 +2656,9 @@ header .open .dropdown-menu .dropdown-header, header .open .dropdown-menu > li >
 .dropdown-menu li.divider {
     padding:0;
 }
-header .navbar-nav .dropdown-menu li:first-child {
+/*header .navbar-nav .dropdown-menu li:first-child {
 	display:none;
-}
+}*/
 .dropdown-menu, .dropdown-menu li a, .more-clips select.form-control option, select#episode-tag.form-control * {
     line-height:25px;
 }
