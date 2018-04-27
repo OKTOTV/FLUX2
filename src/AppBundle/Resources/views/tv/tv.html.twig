@@ -1,7 +1,10 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 {% block metas %}
     <meta name="description" content="{{ 'oktothek_tv_meta_description'|trans }}">
-
+{% endblock %}
+{% block header_content %}
+    <link rel="prev" href="{{ url('tv', {'date': date|date_modify('-1 day')|date('Y-m-d') }) }}" />
+    <link rel="next" href="{{ url('tv', {'date': date|date_modify('+1 day')|date('Y-m-d') }) }}" />
 {% endblock %}
 {% block title %}{{ 'oktothek_tv_title'|trans }}{% endblock %}
 {% block nav_head%}
