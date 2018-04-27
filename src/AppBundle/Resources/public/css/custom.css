@@ -3359,6 +3359,9 @@ a.more.right {
 .login input#remember_me {
     position: static;
 }
+.login .subheadline:nth-child(2) {
+    margin-bottom:40px;
+}
 .newsletter form {
     margin-bottom:40px;
 }
