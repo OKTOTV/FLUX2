@@ -23,7 +23,7 @@ shorturl:
     defaults:  { _controller: AppBundle:Default:episodeShort }
 
 series_redirect:
-    path:      /{webtitle}/
+    path:      /{webtitle}
     defaults:  { _controller: AppBundle:Default:seriesRedirect }
 
 
