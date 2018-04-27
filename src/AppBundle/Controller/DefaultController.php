@@ -96,10 +96,10 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/agb", name="agb")
+     * @Route("/tos", name="agb")
      * @Template()
      */
-    public function agbAction()
+    public function tosAction()
     {
         return [];
     }
