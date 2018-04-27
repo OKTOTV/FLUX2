@@ -1194,7 +1194,14 @@ oktothek_producer_nowLive_title:            "Live-Benachrichtigungen | Sendereih
 # newsletter
 oktothek.newsletter_header:                 Newsletter
 oktothek.newsletter_mail_placeholder:       E-Mail
-oktothek.newsletter_confirm_label:          Ich bin mit dem Speichern meiner E-Mail-Adresse einverstanden. Die E-Mail-Adresse wird an die Datenschutz-zertifizierte Newsletter Verwaltungssoftware MailChimp zum technischen Versand weitergegeben. Mehr Informationen findest du auf der Homepage des Anbieters unter https://mailchimp.com/legal/privacy.
+#oktothek.newsletter_confirm_label:          Ich bin mit dem Speichern meiner E-Mail-Adresse einverstanden. Die E-Mail-Adresse wird an die Datenschutz-zertifizierte Newsletter Verwaltungssoftware MailChimp zum technischen Versand weitergegeben. Mehr Informationen findest du auf der Homepage des Anbieters unter https://mailchimp.com/legal/privacy.
+oktothek.newsletter_confirm_label:          |
+    Ich melde mich hiermit für den zweiwöchigen Newsletter mit der oben angegebenen E-Mail Adresse an.
+    Er enthält Programm- und Oktothekt Tipps, Event-Ankündigungen sowie Hinweise zu Workshops.
+    Die E-Mail-Adresse wird an die Datenschutz-zertifizierte Newsletter Verwaltungssoftware MailChimp zum
+    technischen Versand weitergegeben.
+    Mehr Informationen findest du auf der <a href="https://mailchimp.com/legal/privacy" target="_blank">Homepage des Anbieters</a>
+     und in unserer <a href="https://www.okto.tv/de/privacy_policy" target="_blank">Datenschutzerklärung</a>.
 oktothek.newsletter_register_unsubsribe:    Der Newsletter kann jederzeit wieder abbestellt werden.
 oktothek.newsletter_subscribe_submit:       Anmelden
 oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
