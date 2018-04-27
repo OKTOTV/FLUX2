@@ -5,7 +5,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
 {% endblock %}
 
-{% block body %}
+{% block body_main %}
     {{ 'oktothek_academy_dsgvo'|trans|markdown }}
     {% if app.user is not null and not app.user.confirmedDataUsage %}
         <a href="{{ path('confirm_privacy_policy') }}" class="btn btn-default">
