@@ -48,6 +48,7 @@ oktothek.menu_pages:                                '<span class="glyphicon glyp
 oktothek.menu_statistics:                           '<span class="glyphicon glyphicon-save"></span> Statistik'
 oktothek.menu_user_privacy_policy:                  '<span class="glyphicon glyphicon-flag"></span> Datenschutzerklärung'
 
+
 oktothek.footer_home:                               "Home"
 oktothek.footer_news:                               "News"
 oktothek.footer_series:                             "Sendungen"
@@ -55,6 +56,10 @@ oktothek.footer_contact:                            "Kontakt"
 oktothek.footer_help:                               "Hilfe"
 oktothek.footer_imprint:                            "Impressum"
 oktothek.footer_privacy_policy:                     "Datenschutzerklärung"
+oktothek.footer_agb:                                "Nutzungsbedingungen"
+
+oktothek.agb_title:                                 "Nutzungsbedingungen | OKTO"
+oktothek.confirm_agb:                               "Ich bin mit den neuen Nutzungsbedingungen einverstanden"
 
 oktothek_privacy_policy_title:                      "Datenschutzerklärung | OKTO"
 oktothek.confirm_privacy_policy_button:             "Jetzt der Nutzung meiner Daten zustimmen"
@@ -514,13 +519,22 @@ oktothek_academy_agb:   |
         </li>
     </ol>
 
-oktothek_academy_dsgvo_button: Datenschutzerklärung
+oktothek_academy_dsgvo_button: "Datenschutzerklärung"
 oktothek_academy_dsgvo:   |
     ## OKTO COMMUNITY TV-GMBH Datenschutzerklärung für Schulungen
     April 2018
     <ol>
         <li>Bitte Nachtragen</li>
     </ol>
+
+## default agb.html.twig
+oktothek_agb_title:     "Nutzungsbedingungen | OKTO"
+oktothek_agb: |
+    ## OKTO COMMUNITY TV-GMBH Nutzungsbedingungen April 2018
+    <ol>
+        <li>Bitte Nachtragen</li>
+    </ol>
+
 ### show.html.twig
 oktothek_academy_show_meta_description: "Okto bietet ein grundlegendes und umfassendes Kursprogramm, um Fernsehmachen zu lernen - von Videojournalismus über Studioproduktion bis zu Mobile Reporting. Hier kannst du dich für unsere Workshops anmelden."
 oktothek_academy_show_recommend:        "Aktuelle Kurshighlights"

@@ -96,6 +96,15 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/agb", name="agb")
+     * @Template()
+     */
+    public function agbAction()
+    {
+        return [];
+    }
+
+    /**
      * @Route("/contact", name="contact")
      * @Template()
      */
