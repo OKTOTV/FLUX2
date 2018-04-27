@@ -45,8 +45,8 @@ class SearchController extends Controller
                 $data = $form->getData();
                 $searchphrase = str_replace('/', '', $data['search']);
                 $search = $this->get('oktothek_search');
-                $episodes = $search->searchEpisodes($searchphrase, 6);
-                $series = $search->searchSeries($searchphrase, 6);
+                $episodes = $search->searchEpisodes($searchphrase, true, 6);
+                $series = $search->searchSeries($searchphrase, true, 6);
                 $playlists = $search->searchPlaylists($searchphrase);
                 $coursetypes = $search->searchCourseTypes($searchphrase);
 

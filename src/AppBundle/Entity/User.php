@@ -79,6 +79,12 @@ class User extends BaseUser
      */
     private $confirmed_data_usage;
 
+    /**
+     * @Assert\IsTrue()
+     * @ORM\Column(name="confirmed_agb", type="boolean", nullable=true)
+     */
+    private $confirmedAGB;
+
     public function __construct() {
         parent::__construct();
         $this->abonnements = new ArrayCollection();
@@ -92,6 +98,17 @@ class User extends BaseUser
     public function __toString()
     {
         return $this->getUsername();
+    }
+
+    public function getConfirmedAGB()
+    {
+        return $this->confirmedAGB;
+    }
+
+    public function setConfirmedAGB($agb)
+    {
+        $this->confirmedAGB = $agb;
+        return $this;
     }
 
     public function getConfirmedDataUsage()
