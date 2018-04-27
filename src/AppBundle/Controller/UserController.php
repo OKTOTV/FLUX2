@@ -205,7 +205,7 @@ class UserController extends Controller
         $em->flush();
 
         $this->get('session')->getFlashBag()->add(
-            'info',
+            'important_info',
             'oktothek.info_confirmed_privacy_policy'
         );
         return $this->redirect($this->generateUrl('homepage'));
