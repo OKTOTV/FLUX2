@@ -72,7 +72,7 @@
             <div class="checkbox">
                 {{ form_row(form.newsletter) }}
             </div>
-            {# uncomment me to enable dsgvo dropdown
+            {# uncomment me to enable dsgvo dropdown#}
             <div class="privacy_declaration">
             <p>
                 {{ 'oktothek_attendee_privacy_info'|trans }}
@@ -80,7 +80,7 @@
             <p>
                 {% include 'AppBundle:academy:dsgvo.html.twig' %}
             </p>
-            </div> #}
+            </div> {##}
        </fieldset>
        {{ form_row(form.info) }}
     {{ form_end(form) }}
