@@ -1,9 +1,73 @@
-<body style="background-image:url({{ absolute_url(asset('bundles/app/images/commentEpisode/space.jpg')) }});background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:16px;padding-left:5%;padding-right:5%;line-height:24px;letter-spacing:0.6px;">
-    <p>
-        Hallo {{ user.username }}
-    </p>
-    <p>
-        <a href="{{ url('confirm_privacy_policy') }}">Jetzt der Nutzung meiner Daten zustimmen</a>
-        <a href="{{ url('privacy_policy') }}">Zur Datenschutzerklärung</a>
-    </p>
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ver&auml;nderung im Datenschutzgesetz 2018</title>
+</head>
+
+<body style="background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-weight:300;font-size:16px;padding-left:5%;padding-right:5%;line-height:27px;letter-spacing:0.6px;">
+    <style>
+        img.thumbnail {
+            width: 100%;
+            height: auto;
+        }
+            @media (max-width: 580px) {
+                .clips {
+                    width: 100%;
+                    margin-left:auto;
+                    margin-right:auto;
+                }
+                .clips td {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                }
+                .clips img {
+                    width: 100%;
+                }
+        }
+    </style>
+    <table style="background-image:url({{ absolute_url(asset('bundles/app/images/welcome_mail/space.jpg'))}})" border="0" width="100%">
+       <tr>
+           <td style="background-image: url({{ absolute_url(asset('bundles/app/images/welcome_mail/heinrich_im_emailall.png'))}});background-position: right top;background-repeat: no-repeat;" class="heinrich">
+               <div style="max-width:600px;margin-left:auto;margin-right:auto;">
+                    <p style=""><img src="{{ absolute_url(asset('bundles/app/images/welcome_mail/logo_okto_tv.gif'))}}" width="40" height="66" alt="OKTO Community TV GmbH"/></p>
+                    <h1 style="font-size: 32px;font-weight: normal;padding-top:60px;padding-bottom:30px;line-height:36px;text-align:center;">Liebe/r OktonautIn!</h1>
+                    <p style="padding-bottom:30px; font-size: 20px;">
+                        Aufgrund von Veränderungen im Datenschutzgesetz ab 25. Mai 2018 sind wir verpflichtet zu dokumentieren, dass du mit der Verarbeitung und Speicherung deiner E-Mail-Adresse im Rahmen deiner Aktivit&auml;ten im Oktoversum einverstanden bist.
+                    </p>
+                    <p>
+                        Bei den von dir gespeicherten Daten handelt es sich nach wie vor lediglich um die von dir angegebene E-Mail-Adresse sowie deine Kommentare, Playlists, Favoriten und Abos, welche du selbst verwalten und l&ouml;schen kannst. Selbstverst&auml;ndlich werden deine Daten nach wie vor nicht an Dritte weitergegeben.</p>
+                    <p>
+                        Wenn du dich n&auml;her &uuml;ber unsere Datenschutzvorkehrungen informieren m&ouml;chtest, dann klicke hier: <a href="{{ url('privacy_policy') }}" style="color:#fcce14;">Datenschutzerkl&auml;rung</a>
+                   </p>
+               </div>
+           </td>
+       </tr>
+    </table>
+    <table border="0" width="100%">
+        <tr>
+            <td>
+                <table style="background-color:#112022;text-align:center;margin-top:40px;margin-bottom:60px;margin-left:auto;margin-right:auto;max-width:600px;" border="0" class="clips">
+                    <tr>
+                        <td width="100%" valign="top">
+                            <div style="margin:15px;" >
+                                <p style="margin-left:0;margin-right:0;margin-top:0;margin-bottom:60px;padding:0;font-weight:normal;">Wenn du mit der Speicherung deiner E-Mail-Adresse einverstanden bist und weiterhin Teil des Oktoversums sein m&ouml;chtest, dann best&auml;tige dies bitte hier:</p>
+                                <p style="padding-bottom:20px;text-align:center"><a href="{{ url('confirm_privacy_policy') }}" style="background-color:#fcce14;padding-top:15px;padding-left:30px;padding-bottom:15px;padding-right:30px;border-radius:25px;-moz-border-radius:25px;-webkit-border-radius:25px;border-radius:25px;color:#000000;text-decoration:none;text-transform:uppercase;">Datennutzung best&auml;tigen</a></p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+               <div style="margin-left:auto;margin-right:auto;max-width:600px;">           
+                    <p>Bei Fragen oder Problemen schreibe uns eine E-Mail an <a href="mailto:feedback@okto.tv" style="color:#fcce14;">feedback@okto.tv</a>.</p>
+                    <p style="padding-top:30px;text-align:center;">
+                        Beste Gr&uuml;&szlig;e,<br>    
+                        dein OKTO Team
+                    </p>
+                    <p style="text-align:center;font-size:12px;line-height:18px;"><a href="https://www.okto.tv/de/imprint" style="color:#fcce14;">IMPRESSUM</a></p>
+                </div> 
+            </td>
+        </tr>
+    </table>
 </body>
+</html>
