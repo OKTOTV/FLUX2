@@ -23,7 +23,7 @@
     <li {% if slug|default('') == 'homepage' %}class="active"{% endif %}><a href="{{ path('homepage') }}">{{ 'oktothek.footer_home'|trans }}</a></li>
     <li {% if slug|default('') == 'oktothek_news' %}class="active"{% endif %}><a href="{{ path('oktothek_news')}}">{{ 'oktothek.footer_news'|trans }}</a></li>
     <li {% if slug|default('') == 'privacy_policy' %}class="active"{% endif %}><a href="{{ path('privacy_policy') }}">{{ 'oktothek.footer_privacy_policy'|trans }}</a></li>
-    <li {% if slug|default('') == 'agb' %}class="active"{% endif %}><a href="{{ path('agb') }}">{{ 'oktothek.footer_agb'|trans }}</a></li>
+    {#<li {% if slug|default('') == 'agb' %}class="active"{% endif %}><a href="{{ path('agb') }}">{{ 'oktothek.footer_agb'|trans }}</a></li>#}
     <li {% if slug|default('') == 'oktothek_show_series_index' %}class="active"{% endif %}><a href="{{ path('oktothek_show_series_index')}}">{{ 'oktothek.footer_series'|trans }}</a></li>
     <li {% if slug|default('') == 'contact' %}class="active"{% endif %}><a href="{{ path('contact')}}">{{ 'oktothek.footer_contact'|trans }}</a></li>
     <li {% if slug|default('') == 'help' %}class="active"{% endif %}><a href="{{ path('help')}}">{{ 'oktothek.footer_help'|trans }}</a></li>
