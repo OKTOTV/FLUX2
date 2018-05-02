@@ -77,6 +77,7 @@ oktothek.notification_message_finalized_episode:    "Finalisierte Episode von %s
 oktothek.notific_mail.new_post_user:                "Liebe/r %user%!"
 oktothek.notific_mail.new_post:                     'Die Sendereihe <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> hat einen <a href="%post_link%" style="color:#fcce14;text-decoration:none;">neuen Blogeintrag</a> verfasst.'
 oktothek.notific_mail.new_post_abo_settings:        'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
+oktothek.notific_mail.new_post_imprint:             "IMPRESSUM"
 
 # src/AppBundle/Resources/views/Mail/new_episode.html.twig
 oktothek.notific_mail.new_episode:                  'Die Sendereihe <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> hat eine <a href="%episode_link%" style="color:#fcce14;text-decoration:none;">neue Folge</a> online gestellt.'
@@ -84,6 +85,7 @@ oktothek.notific_mail.new_episode_release:          'Folge vom %day%, %date%'
 oktothek.notific_mail.new_episode_day_choice:       "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek.notific_mail.new_episode_date:             "d.m.Y"
 oktothek.notific_mail.new_episode_abo_settings:     'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
+oktothek.notific_mail.new_episode_imprint:          "IMPRESSUM"
 
 # src/AppBundle/Resources/views/Mail/commentEpisode.html.twig
 oktothek.notific_mail.comm_episode_user:            "Liebe/r %user%!"
@@ -94,12 +96,23 @@ oktothek.notific_mail.comm_episode_date_format:     "d.m.Y"
 oktothek.notific_mail.comm_episode_discuss:         "Antworten"
 oktothek.notific_mail.comm_episode_abo_settings:    'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
 oktothek.episode_comment_label:                     'Text'
+oktothek.notific_mail.comm_episode_imprint:         "IMPRESSUM"
 
 # src/AppBundle/Resources/views/Mail/commentBlogpost.html.twig
 oktothek.notific_mail.comm_blogpost_user:           "Liebe/r %user%!"
 oktothek.notific_mail.comm_blogpost_message:        'Die Sendung <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series_name%</a> hat einen neuen Kommentar zu einem Blogpost. Schau doch mal rein und diskutiere mit.'
 oktothek.notific_mail.comm_blogpost_discuss:        "Antworten"
 oktothek.notific_mail.comm_blogpost_abo_settings:   'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
+oktothek.notific_mail.comm_blogpost_imprint:        "IMPRESSUM"
+
+# src/AppBundle/Resources/views/Mail/livestream.html.twig
+oktothek.notific_mail.livestream_imprint:           "IMPRESSUM"
+
+# src/AppBundle/Resouces/views/Mail/data_usage_confirmation.html.twig
+oktothek.mail.data_usage_confirmation_imprint:      "IMPRESSUM"
+
+# src/AppBundle/Resources/views/Mail/welcome.html.twig
+oktothek.mail.welcome_imprint:                      "IMPRESSUM"
 
 ## Search
 ### results.html.twig
