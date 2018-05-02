@@ -96,7 +96,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/tos", name="agb")
+     * @Route("/tos", name="tos")
      * @Template()
      */
     public function tosAction()
