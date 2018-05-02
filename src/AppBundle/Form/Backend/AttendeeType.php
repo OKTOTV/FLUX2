@@ -84,6 +84,13 @@ class AttendeeType extends AbstractType
                     'label' => 'oktothek_attendee_present_label',
                     'required' => false
                 ])
+            ->add('dsgvo', CheckboxType::class, [
+                'label' => 'oktothek_attendee_dsgvo_label_backend'
+            ])
+            ->add('newsletter', CheckboxType::class, [
+                'label' => 'oktothek_attendee_newsletter_label_backend',
+                'required' => false
+            ])
             ->add('info', TextareaType::class,
                 [
                     'label' => 'oktothek_attendee_info_label',
