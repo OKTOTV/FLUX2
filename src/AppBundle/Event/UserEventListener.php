@@ -24,7 +24,7 @@ class UserEventListener {
             $this->em->flush();
             $this->mailer->sendMail(
                 $user->getEmail(),
-                "AppBundle::Mail/welcome.html.twig",
+                "AppBundle::mail/welcome.html.twig",
                 ['user' => $user],
                 $this->translator->trans('oktothek_user_welcome_subject', ['%user%' => $user->getUsername()])
             );
