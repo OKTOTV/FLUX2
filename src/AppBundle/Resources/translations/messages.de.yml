@@ -526,7 +526,7 @@ oktothek_headline_dsgvo:   |
 oktothek_headline_academy_dsgvo:   |
     ## OKTO COMMUNITY TV-GMBH Datenschutzerklärung für Kurse
 oktothek_dsgvo:   |
-    <p>Stand 26.April 2018</p>
+    <p>Stand April 2018</p>
     <p class="subheadline">Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003). In diesen Datenschutzinformationen informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen unserer Website.</p>
 oktothek_user_dsgvo:   |
     ##Benutzer-Account auf der Homepage
@@ -537,50 +537,22 @@ oktothek_contact_dsgvo:   |
 oktothek_academy_subheadline_dsgvo:   |
     Datenspeicherung bei Kursanmeldung
 oktothek_academy_dsgvo:   |
-
-        <li>Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003). In diesen Datenschutzinformationen informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen unserer Website.</li>
-        <li>
-            <h3>Kontakt mit uns</h3>
-            <p>Wenn Sie per E-Mail Kontakt mit uns aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen sechs Monate bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-        </li>
-        <li>
-        <h3>Datenspeicherung bei Kursanmeldung</h3>
-            <p>Zum Zweck der Vertragsabwicklung im Rahmen unseres Kurs-Angebots werden folgende Daten bei uns gespeichert: Anrede, Vorname, Nachname, Adresse, Email, Telefon und gebuchte Kurstermine. Sämtliche Daten werden (zur Abwicklung mit unserem Fördergeber) nach 10 Jahren gelöscht. Informationen zur Zahlungsmodalität (Bar oder Sofortüberweisung) sowie des Kaufpreises (Vollpreis oder ermäßigt) werden zum Zeitpunkt des gebuchten Kurses gelöscht.
-Die von Ihnen bereit gestellten Daten sind zur Vertragserfüllung bzw zur Durchführung vorvertraglicher Maßnahmen erforderlich. Ohne diese Daten können wir den Vertrag mit Ihnen nicht abschließen. Uns werden keine bei Sofortüberweisung angegebenen Kontodaten zur Verfügung gestellt und daher auch nicht verarbeitet.</p>
-        </li>
-        <li>
-            <h3>Datenspeicherung bei Newsletter-Anmeldung</h3>
-            <p>Sie haben die Möglichkeit, über unsere Website unseren Newsletter zu abonnieren. Hierfür benötigen wir Ihre E-Mail-Adresse und ihre Erklärung, dass Sie mit dem Bezug des Newsletters einverstanden sind. Sobald Sie sich für den Newsletter angemeldet haben, senden wir Ihnen ein Bestätigungs-Mail zu.</p>
-            <p>Ihre E-Mail Adresse wird an die Newsletter-Verwaltungssoftware Mailchimp zum technischen Versand weitergegeben. Mehr Informationen finden Sie auf der Homepage des <a href="https://mailchimp.com/about" target="_blank">Anbieters</a>.</p>
-            <p>Das Abo des Newsletters können Sie jederzeit über den Link „Newsletter abbestellen“ in der jeweiligen E-Mail oder durch Nachricht an folgende E-Mail-Adresse: <a href="mailto:pr@okto.tv">pr@okto.tv</a>. Wir löschen anschließend zeitnah Ihre Daten im Zusammenhang mit dem Newsletter-Versand.</p>
-        </li>
-        <li>
-            <h3>Ihre Rechte</h3>
-            <p>Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu. Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind, können Sie sich bei der Aufsichtsbehörde beschweren. In Österreich ist dies die <a href="https://www.dsb.gv.at" target="_blank">Datenschutzbehörde</a>.</p>
-            <h3>Sie erreichen uns unter folgenden Kontaktdaten:</h3>
-            <p>Okto Community TV GmbH<br>+43 1 786 2442<br>pr@okto.tv</p>
-        </li>
-        
-        
-        
-
-    <p>Zum Zweck der Vertragsabwicklung im Rahmen unseres Kurs-Angebots werden folgende Daten bei uns gespeichert: Anrede, Vorname, Nachname, Adresse, Email, Telefon und gebuchte Kurstermine. Sämtliche Daten werden (zur Abwicklung mit unserem Fördergeber) nach 10 Jahren gelöscht. Informationen zur Zahlungsmodalität (Bar oder Sofortüberweisung) sowie des Kaufpreises (Vollpreis oder ermäßigt) werden zum Zeitpunkt des gebuchten Kurses gelöscht.</p>
-    <p>Die von Ihnen bereit gestellten Daten sind zur Vertragserfüllung bzw zur Durchführung vorvertraglicher Maßnahmen erforderlich. Ohne diese Daten können wir den Vertrag mit Ihnen nicht abschließen. Uns werden keine bei Sofortüberweisung angegebenen Kontodaten zur Verfügung gestellt und daher auch nicht verarbeitet.</p>
+    <p>Zum Zweck der Vertragsabwicklung im Rahmen unseres Kurs-Angebots werden folgende Daten bei uns gespeichert: Anrede, Vorname, Nachname, Adresse, Email, Telefon und gebuchte Kurstermine. Sämtliche Daten werden (zur Abwicklung mit unserem Fördergeber) nach 10 Jahren gelöscht. Informationen zur Zahlungsmodalität (Bar oder Sofortüberweisung) sowie des Kaufpreises (Vollpreis oder ermäßigt) werden zum Zeitpunkt des gebuchten Kurses gelöscht.
+    Die von Ihnen bereit gestellten Daten sind zur Vertragserfüllung bzw zur Durchführung vorvertraglicher Maßnahmen erforderlich. Ohne diese Daten können wir den Vertrag mit Ihnen nicht abschließen. Uns werden keine bei Sofortüberweisung angegebenen Kontodaten zur Verfügung gestellt und daher auch nicht verarbeitet.</p>
 oktothek_newsletter_subheadline_dsgvo:   |
     Datenspeicherung bei Newsletter-Anmeldung
 oktothek_newsletter_dsgvo:   |
     <p>Sie haben die Möglichkeit, über unsere Website unseren Newsletter zu abonnieren. Hierfür benötigen wir Ihre E-Mail-Adresse und ihre Erklärung, dass Sie mit dem Bezug des Newsletters einverstanden sind. Sobald Sie sich für den Newsletter angemeldet haben, senden wir Ihnen ein Bestätigungs-Mail zu.</p>
-    <p>Ihre E-Mail Adresse wird an die Newsletter-Verwaltungssoftware Mailchimp zum technischen Versand weitergegeben. Mehr Informationen finden Sie auf der Homepage des Anbieters unter <a href="https://mailchimp.com/about" target="_blank">https://mailchimp.com/about</a>.</p>
-    <p>Das Abo des Newsletters können Sie jederzeit über den Link „Newsletter abbestellen“ in der jeweiligen E-Mail oder durch Nachricht an folgende E-Mail-Adresse: <a href="mailto:pr@okto.tv">pr@okto.tv</a>. Wir löschen anschließend zeitnah Ihre Daten im Zusammenhang mit dem Newsletter-Versand. </p>
+    <p>Ihre E-Mail Adresse wird an die Newsletter-Verwaltungssoftware Mailchimp zum technischen Versand weitergegeben. Mehr Informationen finden Sie auf der Homepage des <a href="https://mailchimp.com/about" target="_blank">Anbieters</a>.</p>
+    <p>Das Abo des Newsletters können Sie jederzeit über den Link „Newsletter abbestellen“ in der jeweiligen E-Mail oder durch Nachricht an folgende E-Mail-Adresse: <a href="mailto:pr@okto.tv">pr@okto.tv</a>. Wir löschen anschließend zeitnah Ihre Daten im Zusammenhang mit dem Newsletter-Versand.</p>
 oktothek_right_subheadline_dsgvo:   |
     Ihre Rechte
 oktothek_right_dsgvo:   |
-    <p>Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu. Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind, können Sie sich bei der Aufsichtsbehörde beschweren. In Österreich ist dies die Datenschutzbehörde.</p>
+    <p>Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu. Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind, können Sie sich bei der Aufsichtsbehörde beschweren. In Österreich ist dies die <a href="https://www.dsb.gv.at" target="_blank">Datenschutzbehörde</a>.</p>
     <h3>Sie erreichen uns unter folgenden Kontaktdaten:</h3>
-    <p>Okto Community TV GmbH<br>+43 1 786 2442<br><a href="mailto:pr@okto.tv">pr@okto.tv</a></p>
+    <p>Okto Community TV GmbH<br>+43 1 786 2442<br>pr@okto.tv</p>
 oktothek_more_rights_dsgvo:   |
     <p>Die Datenschutzerklärung für unsere gesamte Website finden Sie hier: <a href="#">Datenschutzerklärung</a></p>
-
 ## default agb.html.twig
 oktothek_tos_title:     "Nutzungsbedingungen | OKTO"
 oktothek_tos: |
@@ -1248,8 +1220,14 @@ oktothek_producer_nowLive_title:            "Live-Benachrichtigungen | Sendereih
 # newsletter
 oktothek.newsletter_header:                 Newsletter
 oktothek.newsletter_mail_placeholder:       E-Mail
-oktothek.newsletter_confirm_label:          Ich melde mich hiermit für den Newsletter mit der oben angegebenen E-Mail-Adresse an. 
-oktothek.newsletter_register_unsubsribe:    'Hinweis: Der Newsletter kann jederzeit mit dem darin enthaltenen Link wieder abbestellt werden. Die E-Mail-Adresse wird an die Datenschutz-zertifizierte Newsletter Verwaltungssoftware MailChimp zum technischen Versand weitergegeben. Mehr Informationen findest du auf der Homepage des Anbieters unter <a href="https://mailchimp.com/legal/privacy">https://mailchimp.com/legal/privacy</a>.'
+oktothek.newsletter_confirm_label:          |
+    Ich melde mich hiermit für den zweiwöchigen Newsletter mit der oben angegebenen E-Mail Adresse an.
+    Er enthält Programm- und Oktothekt Tipps, Event-Ankündigungen sowie Hinweise zu Workshops.
+    Die E-Mail-Adresse wird an die Datenschutz-zertifizierte Newsletter Verwaltungssoftware MailChimp zum
+    technischen Versand weitergegeben.
+    Mehr Informationen findest du auf der <a href="https://mailchimp.com/legal/privacy" target="_blank">Homepage des Anbieters</a>
+     und in unserer <a href="https://www.okto.tv/de/privacy_policy" target="_blank">Datenschutzerklärung</a>.
+oktothek.newsletter_register_unsubsribe:    Der Newsletter kann jederzeit wieder abbestellt werden.
 oktothek.newsletter_subscribe_submit:       Anmelden
 oktothek.error_submit_newsletter:           Email konnte nicht angemeldet werden
 oktothek.newsletter_label:                  "Newsletter abbonieren"

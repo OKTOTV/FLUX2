@@ -8,6 +8,7 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
 {% endblock %}
 
+<<<<<<< HEAD
 {% set body_class = "page" %}
 {% block body %}
     <div id="top"></div>
@@ -21,6 +22,12 @@
     {{ 'oktothek_user_dsgvo'|trans|markdown }}
         {% if app.user is not null and not app.user.confirmedDataUsage %}
         <p class="aligncenter"><a href="{{ path('confirm_privacy_policy') }}" class="btn btn-default">
+=======
+{% block body_main %}
+    {{ 'oktothek_academy_dsgvo'|trans|markdown }}
+    {% if app.user is not null and not app.user.confirmedDataUsage %}
+        <a href="{{ path('confirm_privacy_policy') }}" class="btn btn-default">
+>>>>>>> master
             {{ 'oktothek.confirm_privacy_policy_button'|trans }}
         </a></p>
     {% endif %}
