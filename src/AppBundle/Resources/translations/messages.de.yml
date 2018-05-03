@@ -403,7 +403,7 @@ oktothek_tag_playlists_header:          Playlisten
 oktothek_tag_posts_header:              Posts
 oktothek_tag_placeholder:               Katzen, YOLO and more
 oktothek.tag_new_button:                <span class="glyphicon glyphicon-plus"></span> Neuen Tag anlegen
-oktothek_tag_more_results:              Mehr Anzeigen <span class="icon">+</span>
+oktothek_tag_more_results:              Mehr Anzeigen
 oktothek_tag_more_episode_results:      'Mehr <span class="sr-only">Folgen </span>anzeigen'
 oktothek_tag_more_series_results:       'Mehr <span class="sr-only">Sendereihen </span>anzeigen'
 oktothek_tag_more_playlist_results:     'Mehr <span class="sr-only">Playlisten </span>anzeigen'

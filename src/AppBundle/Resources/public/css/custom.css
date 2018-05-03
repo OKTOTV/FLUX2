@@ -404,6 +404,12 @@ select:active:focus {
     outline:none;
 }
 
+.hyphenation {
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
 @media (min-width: 580px) {
     .livestream .schedule li h4, .livestream .next-episode-schedule h4 {
         text-transform:uppercase;
