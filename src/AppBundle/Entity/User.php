@@ -75,18 +75,20 @@ class User extends BaseUser
 
     /**
      * @Assert\IsTrue()
-     * @ORM\Column(name="confirmed_data_usage", type="boolean", nullable=true)
+     * @ORM\Column(name="confirmed_data_usage", type="boolean", options={"default":false})
      */
     private $confirmed_data_usage;
 
     /**
-     * @Assert\IsTrue()
-     * @ORM\Column(name="confirmed_agb", type="boolean", nullable=true)
+     *
+     * @ORM\Column(name="confirmed_agb", type="boolean", options={"default":false}, nullable=true)
      */
     private $confirmedAGB;
 
     public function __construct() {
         parent::__construct();
+        $this->confirmed_data_usage = false;
+        $this->confirmedAGB = false;
         $this->abonnements = new ArrayCollection();
         $this->favorites = new ArrayCollection();
         $this->playlists = new ArrayCollection();
