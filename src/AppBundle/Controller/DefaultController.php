@@ -17,8 +17,9 @@ class DefaultController extends Controller
      * @Route("/", name="homepage")
      * @Template()
      */
-    public function oktothekAction()
+    public function oktothekAction(Request $request)
     {
+        $this->get('bprs_analytics')->trackInfo($request, "homepage");
         $em = $this->getDoctrine()->getManager();
         $episode_repo = $em->getRepository('AppBundle:Episode');
         $best_episodes = $episode_repo->findTrendingEpisodes();//findBestEpisodes();
@@ -96,7 +97,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/tos", name="agb")
+     * @Route("/tos", name="tos")
      * @Template()
      */
     public function tosAction()

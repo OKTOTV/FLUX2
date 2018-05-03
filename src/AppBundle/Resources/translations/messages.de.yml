@@ -65,6 +65,8 @@ oktothek.confirm_agb:                               "Ich bin mit den neuen Nutzu
 oktothek_privacy_policy_title:                      "Datenschutzerklärung | OKTO"
 oktothek.confirm_privacy_policy_button:             "Jetzt der Nutzung meiner Daten zustimmen"
 
+oktothek_imprint_title:                             "Impressum | OKTO"
+
 # notifications (and mails)
 oktothek.notification_message_episode:              "Neue Episode von %series%"
 oktothek.notification_message_episode_new_comment:  "Neuer Kommentar zu deiner Episode"
@@ -77,6 +79,7 @@ oktothek.notification_message_finalized_episode:    "Finalisierte Episode von %s
 oktothek.notific_mail.new_post_user:                "Liebe/r %user%!"
 oktothek.notific_mail.new_post:                     'Die Sendereihe <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> hat einen <a href="%post_link%" style="color:#fcce14;text-decoration:none;">neuen Blogeintrag</a> verfasst.'
 oktothek.notific_mail.new_post_abo_settings:        'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
+oktothek.notific_mail.new_post_imprint:             "IMPRESSUM"
 
 # src/AppBundle/Resources/views/Mail/new_episode.html.twig
 oktothek.notific_mail.new_episode:                  'Die Sendereihe <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> hat eine <a href="%episode_link%" style="color:#fcce14;text-decoration:none;">neue Folge</a> online gestellt.'
@@ -84,6 +87,7 @@ oktothek.notific_mail.new_episode_release:          'Folge vom %day%, %date%'
 oktothek.notific_mail.new_episode_day_choice:       "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek.notific_mail.new_episode_date:             "d.m.Y"
 oktothek.notific_mail.new_episode_abo_settings:     'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
+oktothek.notific_mail.new_episode_imprint:          "IMPRESSUM"
 
 # src/AppBundle/Resources/views/Mail/commentEpisode.html.twig
 oktothek.notific_mail.comm_episode_user:            "Liebe/r %user%!"
@@ -94,12 +98,23 @@ oktothek.notific_mail.comm_episode_date_format:     "d.m.Y"
 oktothek.notific_mail.comm_episode_discuss:         "Antworten"
 oktothek.notific_mail.comm_episode_abo_settings:    'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
 oktothek.episode_comment_label:                     'Text'
+oktothek.notific_mail.comm_episode_imprint:         "IMPRESSUM"
 
 # src/AppBundle/Resources/views/Mail/commentBlogpost.html.twig
 oktothek.notific_mail.comm_blogpost_user:           "Liebe/r %user%!"
 oktothek.notific_mail.comm_blogpost_message:        'Die Sendung <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series_name%</a> hat einen neuen Kommentar zu einem Blogpost. Schau doch mal rein und diskutiere mit.'
 oktothek.notific_mail.comm_blogpost_discuss:        "Antworten"
 oktothek.notific_mail.comm_blogpost_abo_settings:   'Du kannst deine Benachrichtigungseinstellungen für <a href="%series_link%" style="color:#fcce14;text-decoration:none;">%series%</a> jederzeit <a href="%abo_link%" style="color:#fcce14;text-decoration:none;">ändern</a>.'
+oktothek.notific_mail.comm_blogpost_imprint:        "IMPRESSUM"
+
+# src/AppBundle/Resources/views/Mail/livestream.html.twig
+oktothek.notific_mail.livestream_imprint:           "IMPRESSUM"
+
+# src/AppBundle/Resouces/views/Mail/data_usage_confirmation.html.twig
+oktothek.mail.data_usage_confirmation_imprint:      "IMPRESSUM"
+
+# src/AppBundle/Resources/views/Mail/welcome.html.twig
+oktothek.mail.welcome_imprint:                      "IMPRESSUM"
 
 ## Search
 ### results.html.twig
@@ -438,7 +453,7 @@ oktothek.tag_search_label:             Bestehende Tags durchsuchen
 # tag pager
 oktothek.tag_pager_episode_header:     "Alle Clips zu #%tag%"
 oktothek.tag_pager_pages_header:       "Alle Seiten zu #%tag%"
-oktothek.tag_pager_playlists_header:   "Alle Playlists zu #%tag%"
+oktothek.tag_pager_playlists_header:   "Alle Playlisten zu #%tag%"
 oktothek.tag_pager_posts_header:       "Alle Posts zu #%tag%"
 oktothek.tag_pager_series_header:      "Alle Serien zu #%tag%"
 
@@ -530,7 +545,7 @@ oktothek_dsgvo:   |
     <p class="subheadline">Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Wir verarbeiten Ihre Daten daher ausschließlich auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003). In diesen Datenschutzinformationen informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen unserer Website.</p>
 oktothek_user_dsgvo:   |
     ##Benutzer-Account auf der Homepage
-    <p>Sie haben die Möglichkeit einen Benutzer-Account zu erstellen, um erweiterte Funktionen unserer Homepage in Anspruch nehmen zu können. Um einen Account zu erstellen, wird ihre E-Mail-Adresse, der damit verbundene Username und folgende damit verbundene Daten bei uns gespeichert: Vom User erstellte Playlists, abonnierte Sendereihen, Favoriten und vom User verfasste Kommentare. Sie können ihren Benutzer-Account jederzeit löschen. Dazu schreiben Sie eine E-Mail an <a href="mailto:support@okto.tv">support@okto.tv</a>. Wir löschen anschließend zeitnah ihren Account mit den angebenden Daten.</p>
+    <p>Sie haben die Möglichkeit einen Benutzer-Account zu erstellen, um erweiterte Funktionen unserer Homepage in Anspruch nehmen zu können. Um einen Account zu erstellen, wird ihre E-Mail-Adresse, der damit verbundene Username und folgende damit verbundene Daten bei uns gespeichert: Vom User erstellte Playlisten, abonnierte Sendereihen, Favoriten und vom User verfasste Kommentare. Sie können ihren Benutzer-Account jederzeit löschen. Dazu schreiben Sie eine E-Mail an <a href="mailto:support@okto.tv">support@okto.tv</a>. Wir löschen anschließend zeitnah ihren Account mit den angebenden Daten.</p>
 oktothek_contact_dsgvo:   |
     ##Kontakt mit uns
     <p>Wenn Sie per E-Mail Kontakt mit uns aufnehmen, werden Ihre angegebenen Daten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen ein Jahr bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
@@ -552,7 +567,7 @@ oktothek_right_dsgvo:   |
     <h3>Sie erreichen uns unter folgenden Kontaktdaten:</h3>
     <p>Okto Community TV GmbH<br>+43 1 786 2442<br>pr@okto.tv</p>
 oktothek_more_rights_dsgvo:   |
-    <p>Die Datenschutzerklärung für unsere gesamte Website finden Sie hier: <a href="#">Datenschutzerklärung</a></p>
+    <p>Die Datenschutzerklärung für unsere gesamte Website finden Sie hier: <a href="%privacy_policy_link%">Datenschutzerklärung</a></p>
 ## default agb.html.twig
 oktothek_tos_title:     "Nutzungsbedingungen | OKTO"
 oktothek_tos: |
@@ -752,8 +767,10 @@ oktothek_attendee_bookCourse_reduced_label: "Ich bin für den ermäßigten Preis
 oktothek_attendee_city_label:               "Ort"
 oktothek_attendee_city_placeholder:         "Musterstadt"
 oktothek_attendee_dsgvo_label:              "Ich bin mit der Speicherung der angegebenen Daten für die Buchung des Kurses einverstanden. Die Daten werden nicht an Dritte weiter gegeben und nur für den Zweck der Buchung dieses Kurses verwendet. Sie bleiben solange die gesetzliche Frist es erfordert (mindestens 7, max. 10 Jahre) bei uns gespeichert."
+oktothek_attendee_dsgvo_label_backend:      "Kursteilnehmer hat schriftlich der Nutzung seiner Daten zugestimmt."
 oktothek_attendee_newsletter_legend:        "Weitere Informationen"
 oktothek_attendee_newsletter_label:         "Ich möchte über weitere Kurse informiert werden. Diese Zustimmung kann jederzeit über die zugesendeten E-Mails widerrufen werden."
+oktothek_attendee_newsletter_label_backend: "Kursteilnehmer hat schriftlich zugestimmt über weitere Kurse per E-Mail Informiert zu werden."
 oktothek_attendee_privacy_info:             "Wie deine Daten verwendet werden, erfährst Du hier:"
 oktothek_attendee_privacy_link:             "Datenschutzerklärung"
 oktothek_attendee_title_sir:                "Herr"
