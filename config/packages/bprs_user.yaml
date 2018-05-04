@@ -20,5 +20,6 @@ bprs_user:
         - ROLE_USER
         - ROLE_PR_USER
         - ROLE_OKTOLAB_MEDIA_STREAM_READ # backend role of oktolabmediabundle for stream CRUD
+        - ROLE_BPRS_ANALYTICS_EXPORT # allows to download csvs from logstates (analyticsbundle)
     user_defaults:
         - ROLE_OKTOLAB_USER
