@@ -42,10 +42,9 @@ class NewsletterService {
         } catch (RequestException $e) {
             switch ($e->getResponse()->getStatusCode()) {
                 case 404:
-                    die(var_dump('404, not found. subsribe now'));
                     // no subscriber found, subscribe now
                     $response = $client->request(
-                        's',
+                        'POST',
                         sprintf('https://us7.api.mailchimp.com/3.0/lists/%s/members', $this->default_newsletter),
                         [
                             'auth' => ['anystring', $this->api_key],
