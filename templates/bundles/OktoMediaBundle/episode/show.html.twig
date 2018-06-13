@@ -61,7 +61,7 @@
     <div class="row">
         <div class="col-md-7">
             <h4>{{ episode.name }}</h4>
-            {% if episode.video is not empty %}
+            {% if episode.technicalStatus == constant('Oktolab\\MediaBundle\\Entity\\Episode::STATE_READY') %}
                 <div id="player">
                 </div>
             {% elseif episode.posterframe is not empty %}
@@ -75,6 +75,9 @@
             <dl class="dl-horizontal">
                 <dt>{{ 'oktolab_media.episode_info_isActive'|trans }}</dt>
                 <dd>{{ 'oktolab_media.episode_info_isActive_choice'|transchoice( episode.isActive ) }}</dd>
+
+                <dt>{{ 'oktolab_media.show_episode_technical_state'|trans }}</dt>
+                <dd>{{ 'oktolab_media.show_episode_technical_state_choice'|transchoice( episode.technicalStatus ) }}</dd>
 
                 <dt>{{ 'oktolab_media.episode_info_createdAt'|trans }}</dt>
                 <dd>{{ episode.createdAt|date("d.m.Y H:i") }}</dd>
@@ -112,27 +115,30 @@
             </dl>
 
             <h4>{{ 'oktolab_media_media_for_episode_header'|trans }}</h4>
-            <div class="list-group">
-                {% for media in episode.media %}
-                    <a href="{{ path('oktolab_media_show_media', {'media': media.id })}}" class="list-group-item">{{ media.quality }}</a>
-                {% endfor %}
-                <a href="{{ path('oktolab_media_new_media', {'uniqID': episode.uniqID}) }}" class="list-group-item">{{ 'oktolab_media.episode_add_new_media'|trans|raw }}</a>
-            </div>
+            {{ render(controller('OktolabMediaBundle:Media:mediaForEpisode', {'uniqID': episode.uniqID})) }}
 
-            <h4>{{ 'oktolab_media.episode_show_captions_header'|trans }}</h4>
+            <h4>{{ 'oktolab_media.episode_captions_header'|trans }}</h4>
             <div class="list-group">
                 {% for caption in episode.captions %}
-                    <a href="{{ path('oktolab_caption_show', {'caption': caption.id }) }}" class="list-group-item">{{ caption.label }}</a>
+                    <a href="{{ path('oktolab_capiton_editor', {'uniqID': caption.uniqID}) }}" class="list-group-item">
+                        {{ 'oktolab_media.show_episode_caption_list_entry'|trans({'%caption%': caption})|raw }}
+                    </a>
                 {% endfor %}
-                <a href="{{ path('oktolab_caption_new', {'uniqID': episode.uniqID}) }}" class="list-group-item">{{ 'oktolab_media.caption_new_button'|trans|raw }}</a>
+                <a href="{{ path('oktolab_caption_new', {'uniqID': episode.uniqID}) }}" class="list-group-item">
+                    {{ 'oktolab_media.episode_show_captions_add'|trans|raw }}
+                </a>
             </div>
 
             <h4>{{ 'okto_media_episode_tags_header'|trans }}</h4>
             <div class="list-group">
                 {% for tag in episode.tags %}
-                    <a href="{{ path('oktothek_backend_tag_show', {'tag': tag.id}) }}" class="list-group-item">{{ tag }}</a>
+                    <a href="{{ path('oktothek_backend_tag_show', {'tag': tag.id}) }}" class="list-group-item">
+                        {{ 'okto_media.episode_show_tag_list_entry'|trans({'%tag%': tag})|raw }}
+                    </a>
                 {% endfor %}
-                <a href="{{ path('oktolab_episode_edit', {'episode': episode.uniqID}) }}" class="list-group-item">{{ 'okto_media_episode_edit_tags_button'|trans|raw }}</a>
+                <a href="{{ path('oktolab_episode_edit', {'episode': episode.uniqID}) }}" class="list-group-item">
+                    {{ 'oktolab_media.episode_show_tags_edit'|trans|raw }}
+                </a>
             </div>
         </div>
     </div>
@@ -144,8 +150,8 @@
 
 {% block javascripts %}
     {{ parent() }}
-    {{ player(episode)|raw }}
-    {% if episode.video is not empty %}
+    {% if episode.technicalStatus == constant('Oktolab\\MediaBundle\\Entity\\Episode::STATE_READY') %}
+        {{ player(episode)|raw }}
         <script type="text/javascript">
             $(document).ready(function(){
                 var playerInstance = jwplayer("player");
@@ -161,7 +167,7 @@
             });
         </script>
     {% endif %}
-    <script>
+    <script type="text/javascript">
         // AJAX pagination
 
         var updateView = function(e, link) {
