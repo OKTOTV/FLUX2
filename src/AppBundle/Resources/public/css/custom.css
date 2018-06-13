@@ -3500,6 +3500,7 @@ a.more.right {
     }
     
     .faq li .panel-heading a {
+        display: block;
         min-height: 50px;
         padding-top:15px;
         margin-left:-10px;
