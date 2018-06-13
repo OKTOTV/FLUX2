@@ -3489,27 +3489,30 @@ a.more.right {
 .faq li {
     list-style: none;
 }
-.faq li .panel-heading a {
-    display: block;
-    min-height: 50px;
-    padding-top:15px;
-    margin-left:-10px;
-}
-.faq li .panel-heading a {
-    padding-left:60px;
-}
-.faq li .panel-collapse {
-    padding-left:70px;
-}
 .faq .panel-group .panel + .panel {
     margin-top:2px;
     margin-bottom:2px;
 }
-.faq .panel-body {
-    padding-left:0;
-}
+
 @media (min-width: 768px) {
-    width: auto;
+    .page iframe {
+        width: auto;
+    }
+    
+    .faq li .panel-heading a {
+        min-height: 50px;
+        padding-top:15px;
+        margin-left:-10px;
+    }
+    .faq li .panel-heading a {
+        padding-left:60px;
+    }
+    .faq li .panel-collapse {
+        padding-left:70px;
+    }
+    .faq .panel-body {
+        padding-left:0;
+    }
 }
 
 /* Fehlerseite */
