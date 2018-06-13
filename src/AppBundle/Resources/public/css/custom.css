@@ -308,7 +308,8 @@ div.list-group.tags span.label.label-default.remove,
 body.help .help-action li .menu-text,
 .helptext span, 
 .helptext a,
-body.livestream h5 {
+body.livestream h5,
+.faq .panel-default > .panel-heading h2 {
 	text-transform:uppercase;
 }
 
@@ -374,7 +375,9 @@ a.pull-left.more,
 body.help .help-experience a:hover,
 body.help .help-action h3 a:hover,
 body.help .help-action li a:hover .menu-text,
-body.help #link-new-account a {
+body.help #link-new-account a,
+.faq .panel-default > .panel-heading a:hover,
+.faq .panel-default > .panel-heading a:focus {
 	text-decoration:none;
 }
 body.episode .description a,
@@ -955,7 +958,8 @@ button.input-group-addon:focus,
 body.help .help-experience a h3,
 body.help .help-action h3 a,
 body.help .help-action li a .menu-text,
-.important_info {
+.important_info,
+.faq .panel-body {
 	color:#ffffff;
 }
 *::-moz-selection {
@@ -1004,6 +1008,7 @@ header .collapseShare a.btn,
 .livestream .schedule a h4,
 .livestream .schedule h4,
 .livestream .next-episode-schedule h4,
+.faq .panel-default > .panel-heading,
 body.producer li.list-group-item,
 body.producer ul.list-group .pin a p,
 .pagination li.disabled span,
@@ -1169,6 +1174,8 @@ body.playlists .playlist_container .list-group-item,
 body.livestream .schedule .panel-default,
 body.livestream .next-episode-schedule .panel-time, 
 body.livestream #current_show .row.pin .panel-content,
+.faq .panel-default > .panel-heading,
+.faq .panel-default,
 .collapseWindow > div.collapse-content,
 body.series .news-pin, 
 body.series .news-form, 
@@ -1229,7 +1236,11 @@ body.series .blog aside .aside-inner:focus,
 body.playlists .playlist_container .list-group-item:hover, 
 body.playlists .playlist_container .list-group-item:focus,
 body.livestream .schedule .panel-default:hover,
-body.livestream .schedule .panel-default:focus { /* Mittleres Grau */
+body.livestream .schedule .panel-default:focus,
+.faq .panel-default:hover,
+.panel-default:focus,
+.faq .panel-default:hover > .panel-heading,
+.faq .panel-default:focus > .panel-heading { /* Mittleres Grau */
     background-color:#192e31;
 }
 article.pin figure.pin,
@@ -1371,10 +1382,14 @@ div.list-group.tags span.label.label-default.remove,
 .academy .timetable li:first-child p {
 	border-top:dotted 1px #5a6769;
 }
-.academy .timetable li p:first-child, legend {
+.academy .timetable li p:first-child, 
+legend,
+.faq .panel-default > .panel-heading {
     border-bottom:none;
 }
-.academy .timetable li:first-child p:last-child {
+.academy .timetable li:first-child p:last-child,
+.faq .panel-collapse > .panel-body,
+.faq .panel-default > .panel-heading + .panel-collapse > .panel-body{
     border-top:none;
 }
 a:hover.pull-right .icon, 
@@ -1512,7 +1527,8 @@ div.list-group.tags span.label.label-default.remove,
 .visible-xs-block .pager .disabled > a, 
 .visible-xs-block .pager .disabled > a:focus, 
 .visible-xs-block .pager .disabled > a:hover, 
-.visible-xs-block .pager .disabled > span {
+.visible-xs-block .pager .disabled > span,
+.faq .panel {
 	border:none;
 }
 .triangle {
@@ -1557,7 +1573,8 @@ div.list-group.tags span.label.label-default.remove,
 .visible-xs-block .pager .disabled > a, 
 .visible-xs-block .pager .disabled > a:focus, 
 .visible-xs-block .pager .disabled > a:hover, 
-.visible-xs-block .pager .disabled > span {
+.visible-xs-block .pager .disabled > span,
+.panel-heading {
 	-webkit-border-radius:0px;
 	-moz-border-radius:0px;
 	border-radius:0px;
@@ -1788,10 +1805,10 @@ body.oktothek a.btn.login:active {
     background-image:url(../images/img_8_1.png);
 	background-repeat:no-repeat;
 }
-.avatar-container {
+.avatar-container,  {
 	background-image:url(../images/avatar_circle_mobil.png);
     background-image: url("../images/avatar_circle_mobil.svg"), none;
-	background-repeat:no-repeat;
+    background-repeat:no-repeat;
 	background-position:center center;
 }
 .avatar1, 
@@ -1927,6 +1944,34 @@ body.playlists section:first-child,
     }
     section.fs-image-content, section.player-container {
 	    background-image:none;
+    }
+    .faq li:hover .panel-heading a, .faq li:focus .panel-heading a, .faq li .panel-heading a {
+        background-repeat:no-repeat;
+        background-size: 50px 50px;
+	    background-position:0px 0px;
+    }
+    .faq li:nth-child(5n+1):hover .panel-heading a, .faq li:nth-child(5n+1):focus .panel-heading a, .faq li:nth-child(5n+1) .panel-heading a {
+        background-image:url(../images/pages/question_pink.png);
+        background-image:url(../images/pages/question_pink.svg), none;
+    }
+    .faq li:nth-child(5n+2):hover .panel-heading a, .faq li:nth-child(5n+2):focus .panel-heading a, .faq li:nth-child(5n+2) .panel-heading a {
+        background-image:url(../images/pages/question_green.png);
+        background-image:url(../images/pages/question_green.svg), none;
+    }
+    .faq li:nth-child(5n+3):hover .panel-heading a, .faq li:nth-child(5n+3):focus .panel-heading a, .faq li:nth-child(5n+3) .panel-heading a {
+        background-image:url(../images/pages/question_blue.png);
+        background-image:url(../images/pages/question_blue.svg), none;
+    }
+    .faq li:nth-child(5n+4):hover .panel-heading a, .faq li:nth-child(5n+4):focus .panel-heading a, .faq li:nth-child(5n+4) .panel-heading a {
+        background-image:url(../images/pages/question_yellow.png);
+        background-image:url(../images/pages/question_yellow.svg), none;
+    }
+    .faq li:nth-child(5n+5):hover .panel-heading a, .faq li:nth-child(5n+5):focus .panel-heading a, .faq li:nth-child(5n+5) .panel-heading a {
+        background-image:url(../images/pages/question_white.png);
+        background-image:url(../images/pages/question_white.svg), none;
+    }
+    .faq li .panel-heading a.collapsed {
+        background-image:none;
     }
 }
 .socialnetworks a {
@@ -2489,7 +2534,7 @@ body.page section ul, body.news section ul {
 h1, h2, body.help .help-experience h3, body.help .help-action h3 {
 	text-align:center;
 }
-h1.name {
+h1.name, .faq .panel-default > .panel-heading h2 {
     text-align:left;
 }
 h1, footer .networks h3 {
@@ -2523,6 +2568,11 @@ body.help h2 {
 body.help .help-action-container h2 {
     margin-bottom:100px;
 }
+.faq .panel-default > .panel-heading h2 {
+    margin:0;
+    padding:0;
+}
+
 
 @media (min-width: 768px) {
     h2, h1 {
@@ -3287,9 +3337,9 @@ a.more.right {
     .pull-left .icon, 
     .more.right .icon, 
     .subscriptions .edit .icon {
-	    width:38px;
-	    height:38px;
-	    text-align:center;
+        width:38px;
+        height:38px;
+        text-align:center;
         line-height: 34px;
         vertical-align: middle;
     }
@@ -3302,7 +3352,10 @@ a.more.right {
 .checkbox label {
     line-height: 1.5em;
 }
-.login form, .subscriptions form, .live form, .newsletter form {
+.login form, 
+.subscriptions form, 
+.live form, 
+.newsletter form {
     width:320px;
     margin:0 auto;
 }
@@ -3404,10 +3457,10 @@ a.more.right {
 
 /* Content allgemein */
 .playlists div.player-container {
-	position:relative;
+    position:relative;
 }
 .aligncenter {
-	text-align:center;
+    text-align:center;
 }
 .preview-content {
 	display:none;
@@ -3429,8 +3482,38 @@ a.more.right {
 .page iframe {
     width: 100%;
 }
+.faq ul {
+    margin:0;
+    padding:0;
+}
+.faq li {
+    list-style: none;
+}
+.faq .panel-group .panel + .panel {
+    margin-top:2px;
+    margin-bottom:2px;
+}
+
 @media (min-width: 768px) {
-    width: auto;
+    .page iframe {
+        width: auto;
+    }
+    
+    .faq li .panel-heading a {
+        display: block;
+        min-height: 50px;
+        padding-top:15px;
+        margin-left:-10px;
+    }
+    .faq li .panel-heading a {
+        padding-left:60px;
+    }
+    .faq li .panel-collapse {
+        padding-left:70px;
+    }
+    .faq .panel-body {
+        padding-left:0;
+    }
 }
 
 /* Fehlerseite */

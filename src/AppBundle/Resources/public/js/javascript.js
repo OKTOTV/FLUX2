@@ -193,6 +193,7 @@ $(document).ready(function(){
 		}
 		
 		//$('#anchor-menu .collapse').collapse(); //Ankermenü Collapse aktivieren
+        
     }
     
     //Top Button
