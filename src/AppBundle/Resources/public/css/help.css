@@ -208,8 +208,7 @@ body.help .help-participate ul {
     width: 100%;
 }
 body.help .help-participate li {
-    float:left;
-    width: 50%;
+    width: 100%;
 }
 body.help .help-participate figure {
     padding-top:0px;
@@ -218,7 +217,7 @@ body.help .help-participate li:nth-child(1) figure {
     padding-top:20px;
 }
 body.help .help-participate li:nth-child(2n) figure {
-    padding-top:160px;
+    padding-top:40px;
 }
 body.help .help-participate li:nth-child(1) figure span {
     padding-top:25px;
@@ -556,7 +555,7 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     margin-left:-84px;
 }
 #circle2_outer {
-    top:145px;
+    top:25px;
 }
 #circle3_outer {
     width: 140px;
@@ -564,7 +563,7 @@ body.help #linecontainer-1 .part2 > div, body.help #linecontainer-3 .part2 > div
     top:-15px;
 }
 #circle4_outer {
-    top:226px;
+    top:109px;
     margin-left:-78px;
 }
 #circle5_outer {
@@ -611,6 +610,19 @@ body.help #link-new-account {
     }
     .help-experience li:nth-child(3) {
         margin-top:-50px;
+    }
+    body.help .help-participate li {
+        float:left;
+        width: 50%;
+    }
+    body.help .help-participate li:nth-child(2n) figure {
+        padding-top:160px;
+    }
+    #circle2_outer {
+        top:145px;
+    }
+    #circle4_outer {
+        top:226px;
     }
     body.help .help-action li a {
         width: 436px;
