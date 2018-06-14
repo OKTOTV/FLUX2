@@ -2907,7 +2907,10 @@ ul.row {
 }
 .news article.pin, 
 .news li.pin, 
-.news figure.pin img {
+.news figure.pin img,
+.abo-blogs article.pin, 
+.abo-blogs li.pin, 
+.abo-blogs figure.pin img {
 	width:100%;
 }
 article.pin,
@@ -2950,7 +2953,8 @@ li.pin figcaption {
     padding-top:0;
     padding-bottom:1px;
 }
-.news figure.pin img {
+.news figure.pin img,
+.abo-blogs figure.pin img {
 	max-width:100%;
 	float:none;
 	height:auto;
@@ -2980,32 +2984,31 @@ figcaption  {
 .channels figcaption h3 {
     margin-bottom: 10px;
 }
-/*@media (min-width: 580px) {*/
-	article.pin,
-    li.pin,
-    .blog-pin div,
-    .blog-pin figcaption {
-		width:50%;
-	}
-    figure.pin img {
-	    height:auto;
-	    margin:0;
-		float:none;
-    }
-	article.pin:nth-child(2n+1),
-    li.pin:nth-child(2n+1) {
-	    clear:left;
-    }
-	article.pin,
-    li.pin {
-		margin-bottom:0px;
-		padding-bottom:30px;
-	}
-    article.post figure {
-        padding-left:15px;
-        padding-right:15px;
-    }
-/*}*/
+article.pin,
+li.pin,
+.blog-pin div,
+.blog-pin figcaption {
+    width:50%;
+}
+figure.pin img {
+    height:auto;
+    margin:0;
+    float:none;
+}
+article.pin:nth-child(2n+1),
+li.pin:nth-child(2n+1) {
+    clear:left;
+}
+article.pin,
+li.pin {
+    margin-bottom:0px;
+    padding-bottom:30px;
+}
+article.post figure {
+    padding-left:15px;
+    padding-right:15px;
+}
+
 @media (min-width: 768px) {
     /* Ränder Korrekturen */
     .newest-playlists .row, .favorite-videos .row, .newest-videos .row, #episode-tag-stack .row, .clip_overview .row, .series-playlists .row  {
