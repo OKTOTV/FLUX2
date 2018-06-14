@@ -258,17 +258,32 @@ $(document).ready(function(){
 	/* Serien und Akademie */
 	function Textproperties() {
 		if (Winwidth >= 768 && Winheight >600) {
-	        ShortString = descriptionString.substr(0,200) + '...';
-			LinkString = 'weiterlesen';
+            if (descriptionString.length >= 200) {
+	           ShortString = descriptionString.substr(0,200) + '...';
+			   LinkString = 'weiterlesen';
+            } else {
+                ShortString = descriptionString;
+                LinkString = 'Ansicht vergrößern';
+            }
 		} else if (Winwidth >= 768 && Winheight > 450) {
-			ShortString = descriptionString.substr(0,100) + '...';
-			LinkString = 'weiterlesen';
+            if (descriptionString.length >= 100) {
+			    ShortString = descriptionString.substr(0,100) + '...';
+                LinkString = 'weiterlesen';
+            } else {
+                ShortString = descriptionString;
+                LinkString = 'vergrößern';
+            }
 		} else if (Winwidth >= 768 && Winheight <= 450) {
 			ShortString = "";
 			LinkString = 'Inhalt lesen';
 		} else if (Winwidth >= 400) {
-			ShortString = descriptionString.substr(0,100) + '...';
-			LinkString = 'weiterlesen';
+            if (descriptionString.length >= 100) {
+			    ShortString = descriptionString.substr(0,100) + '...';
+			    LinkString = 'weiterlesen';
+            } else {
+                ShortString = descriptionString;
+                LinkString = 'Ansicht vergrößern';
+            }
 	    } else if (Winwidth < 400) {
 		    ShortString = "";
 			LinkString = 'Inhalt lesen';
