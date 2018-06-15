@@ -18,9 +18,19 @@ class PageRepository extends EntityRepository
             ->createQuery('SELECT p FROM AppBundle:Page p');
     }
 
-    public function findActivePagesQuery()
+    public function findActivePages($limit = 0, $query_only = false)
     {
-        return $this->getEntityManager()
+        $query = $this->getEntityManager()
             ->createQuery('SELECT p FROM AppBundle:Page p WHERE p.is_active = 1');
+
+        if ($query_only) {
+            return $query;
+        }
+
+        if ($limit) {
+            $query->setMaxResults($limit);
+        }
+
+        return $query->getResults();
     }
 }

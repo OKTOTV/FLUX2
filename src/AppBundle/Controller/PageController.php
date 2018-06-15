@@ -22,7 +22,7 @@ class PageController extends Controller
      */
     public function footerAction($slug)
     {
-        $pages = $this->getDoctrine()->getManager()->getRepository('AppBundle:Page')->findAll();
+        $pages = $this->getDoctrine()->getManager()->getRepository('AppBundle:Page')->findActivePages();
         return ['pages' => $pages, 'slug' => $slug];
     }
 
@@ -33,6 +33,9 @@ class PageController extends Controller
     public function showAction($page)
     {
         $page = $this->getDoctrine()->getManager()->getRepository('AppBundle:Page')->findOneBy(['slug' => $page]);
-        return ['page' => $page];
+        if ($page->getIsActive()) {
+            return ['page' => $page];
+        }
+        throw $this->createNotFoundException('The product does not exist');
     }
 }
