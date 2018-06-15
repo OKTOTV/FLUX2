@@ -21,7 +21,16 @@
 {% endif %}
 {% endblock %}
 
-{% block title %}{{ episode.name ~', '~ episode.series.name ~' | '~ name|default('OKTO') }}{% endblock %}
+{% block title %}
+    {{ episode.name|default(
+        'oktothek.episode_show_firstRanAt'|trans(
+            {
+                '%day%': 'oktothek.episode_show_firstRanAt_day_choice'|transchoice(episode.firstRanAt|date('N')),
+                '%date%': episode.firstRanAt|date('oktothek.episode_show_firstRanAt_dateformat'|trans)
+            }
+        )
+    ) ~', '~ episode.series.name ~' | '~ name|default('OKTO') }}
+{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
