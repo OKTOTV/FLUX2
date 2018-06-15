@@ -3365,7 +3365,8 @@ a.more.right {
 .subscriptions form, 
 .live form, 
 .newsletter form {
-    width:320px;
+    max-width:320px;
+    width: 100%;
     margin:0 auto;
 }
 .login form button[type="submit"]:not(header .login form button[type="submit"]), 
@@ -3454,6 +3455,13 @@ a.more.right {
     .tt-menu {
         width:315px;
         padding:15px 10px;
+    }
+    .login form, 
+    .subscriptions form, 
+    .live form, 
+    .newsletter form {
+        width:320px;
+        margin:0 auto;
     }
 }
 
