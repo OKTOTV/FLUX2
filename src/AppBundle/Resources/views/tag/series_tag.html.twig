@@ -1,5 +1,5 @@
 <div class="row">
-    {% for series in seriess %}
+    {% for series in seriess|slice(0,5) %}
         {% if loop.first %}
             <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ series.description }}" itemscope="itemscope" itemtype="http://schema.org/Series">
                 <figure class="series-pin pin">

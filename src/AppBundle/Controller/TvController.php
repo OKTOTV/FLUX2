@@ -42,7 +42,7 @@ class TvController extends Controller
 
     /**
      * @Route("/program/{date}.{_format}", defaults={"date": "now", "_format": "html"}, name="oktothek_tv_program_for_date")
-     * @Template
+     * @Template()
      */
     public function programAction(Request $request, $date)
     {

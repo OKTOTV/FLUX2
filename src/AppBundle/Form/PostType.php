@@ -34,9 +34,7 @@ class PostType extends AbstractType
                 [
                     'widget' => 'single_text',
                     'html5' => false,
-                    //'format' => 'd.m.Y H:i',
                     'label' => 'oktothek.post_onlineAt_label',
-                    //'attr' => ['placeholder' => 'oktothek.post_onlineAt_placeholder']
                 ])
             ->add('assets', AssetCollectionType::class, ['label' => 'oktothek.post_assets_label'])
             ->add('tags', TagType::class)
