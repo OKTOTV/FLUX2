@@ -3,10 +3,14 @@
         <nav class="navbar navbar-default" id="nav-programm">
             <div class="row">
                 <div class="nav navbar-nav">
+                    {# dont show back buttons prior to 2018 #}
+                    {% if date > "now"|date_modify('-12 weeks') %}
                     <a class="btn btn-default loadme" id="yesterday" href="{{ path('oktothek_tv_program_for_date', {'date': date|date_modify('-1 day')|date('d-m-Y')}) }}" nofollow>
                         <span class="glyphicon glyphicon-chevron-left icon"></span> <span class="hidden-xs">{{'oktothek_tv_weekdays_choice'|transchoice(date|date_modify('-1 day')|date('N'))}}</span>
                     </a>
+                    {% endif %}
                 </div>
+
                 <div class="nav navbar-nav">
                     <h2 class="hidden-xs"><span class="time">
                         {{'oktothek_tv_weedays_format'|trans({'%day%': 'oktothek_tv_weekdays_choice'|transchoice(date|date('N')), '%date%': date|date('d.m')})}}</span>
@@ -16,9 +20,12 @@
                     </h2>
                 </div>
                 <div class="nav navbar-nav">
-                    <a class="btn btn-default loadme" id="tomorrow" href="{{ url('oktothek_tv_program_for_date', {'date': date|date_modify('+1 day')|date('d-m-Y')}) }}" nofollow>
-                        <span class="hidden-xs">{{'oktothek_tv_weekdays_choice'|transchoice(date|date_modify('+1 day')|date('N'))}}</span> <span class="glyphicon glyphicon-chevron-right icon"></span>
-                    </a>
+                    {# dont show program further than +2 weeks #}
+                    {% if date < "now"|date_modify('+2 weeks') %}
+                        <a class="btn btn-default loadme" id="tomorrow" href="{{ url('oktothek_tv_program_for_date', {'date': date|date_modify('+1 day')|date('d-m-Y')}) }}" nofollow>
+                            <span class="hidden-xs">{{'oktothek_tv_weekdays_choice'|transchoice(date|date_modify('+1 day')|date('N'))}}</span> <span class="glyphicon glyphicon-chevron-right icon"></span>
+                        </a>
+                    {% endif %}
                 </div>
             </div>
         </nav>
