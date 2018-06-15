@@ -90,8 +90,8 @@ h3,
 .playlists .btn.circle, 
 .edit-playlists form label,
 .livestream .schedule li h4, 
-.livestream .next-episode-schedule h4,
-.helptext span {
+.livestream .next-episode-schedule h4/*,
+.helptext span*/ {
 	font-family: HelveticaNeueLTStd-Md, Helvetica, sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -248,7 +248,7 @@ body.producer ul.list-group .pin a p,
 .icon.playlists-arrow-down,
 div.list-group.tags span.label.label-default.remove,
 body.help #link-new-account a,
-.helptext a,
+/*.helptext a,*/
 .episode .view-icon span,
 body.livestream h5,
 .livestream .schedule .repeats li {
@@ -306,8 +306,8 @@ label,
 body.tagpage .pages .list-group-item a,
 div.list-group.tags span.label.label-default.remove,
 body.help .help-action li .menu-text,
-.helptext span, 
-.helptext a,
+/*.helptext span, 
+.helptext a,*/
 body.livestream h5,
 .faq .panel-default > .panel-heading h2 {
 	text-transform:uppercase;
@@ -1755,11 +1755,16 @@ body.oktothek .participart .button_container {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-body.oktothek .participart-list li figure {
+body.oktothek .participart-list li figure, .oktothek .participart-list-login li figure {
 	background-image:url(../images/participart_circle.png);
     background-image:url(../images/participart_circle.svg), none;
-	background-repeat:no-repeat;
+    background-repeat:no-repeat;
+}
+body.oktothek .participart-list li figure {
 	background-position:center top;
+}
+.oktothek .participart-list-login li figure {
+	background-position:left top;
 }
 body.oktothek .participart-list li figcaption p {
     background-image: url(../images/speachbubble_title.png);
@@ -1789,12 +1794,13 @@ body.oktothek a.btn.login {
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
-body.oktothek .helptext {
+/*body.oktothek .helptext {
     background-image:url(../images/help_circle.png);
     background-image:url(../images/help_circle.svg), none;
     background-repeat:no-repeat;
     background-position:left center;
-}
+    background-size: 100px 100px;
+}*/
 body.oktothek a.btn.login:hover, 
 body.oktothek a.btn.login:focus, 
 body.oktothek a.btn.login:active {
@@ -2516,10 +2522,10 @@ html, body {
 }
 
 /* Listen */
-footer ul, footer li, .academy .timetable, .oktothek .participart-list li, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc ul, body.episode ul.misc li, ul#playlist_items li, ul#playlist_items  {
+footer ul, footer li, .academy .timetable, .oktothek .participart-list li, .oktothek .participart-list-login li, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc ul, body.episode ul.misc li, ul#playlist_items li, ul#playlist_items  {
 	list-style:none;
 }
-footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc, body.episode ul.misc li, ul#playlist_items li, ul#playlist_items {
+footer ul, footer li, .tags ul, .academy .timetable, .oktothek .participart-list, .oktothek .participart-list-login, body.producer ul.list-group, body.oktothek .participart .shorttext ul, body.oktothek .participart .shorttext li, body.episode ul.misc, body.episode ul.misc li, ul#playlist_items li, ul#playlist_items {
 	margin-left:0;
 	padding-left:0;
 }
