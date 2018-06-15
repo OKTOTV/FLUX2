@@ -3,6 +3,7 @@
 namespace AppBundle\Model;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class TvService
 {
@@ -20,13 +21,17 @@ class TvService
     {
         $client = new Client();
 
-        $response = $client->request(
-            'GET',
-            sprintf($this->url, $start->format('Y-m-d\\TH:i'), $end->format('Y-m-d\\TH:i'))
-        );
-        if ($response->getStatusCode() == 200) {
-            return json_decode($response->getBody());
-        } else {
+        try {
+            $response = $client->request(
+                'GET',
+                sprintf($this->url, $start->format('Y-m-d\\TH:i'), $end->format('Y-m-d\\TH:i'))
+            );
+            if ($response->getStatusCode() == 200) {
+                return json_decode($response->getBody());
+            } else {
+                return [];
+            }
+        } catch (RequestException $e) {
             return [];
         }
     }
