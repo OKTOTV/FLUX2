@@ -92,7 +92,7 @@ $(document).ready(function(){
                     
                     if (winWidth >= 992) {
                         setTimeout(function(){
-                        if (winWidth >= 1214) { vivus0.play(6); }
+                        if (winWidth >= 1214 && vivus0 != null) { vivus0.play(6); }
                         setTimeout(function(){
                             vivus1.play(6);
                             setTimeout(function(){
