@@ -43,8 +43,8 @@
                     <div class="container-bg-opacity">
                         <div class="bg-opacity"></div>
                     </div>
-                    <div class="online">Vom 31.12.2016</div>
-                    <div class="duration">1:03:22</div>
+                    <div class="online">{{ 'oktothek.episode_thumb_firstran_at'|trans({'%date%': episode.firstranAt|date('oktothek.episode_thumb_firstran_at_format'|trans)})}}</div>
+                    <div class="duration">{{ episode.duration|duration }}</div>
                 </a>
             </div>
         </figcaption>

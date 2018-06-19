@@ -66,6 +66,11 @@ oktothek.confirm_privacy_policy_button:             "Jetzt der Nutzung meiner Da
 
 oktothek_imprint_title:                             "Impressum | OKTO"
 
+
+# src/AppBundle/Resources/views/episode/EpisodeThumb.html.twig
+oktothek.episode_thumb_firstran_at:                 "vom %date%"
+oktothek.episode_thumb_firstran_at_format:          "d.m.Y"
+
 # notifications (and mails)
 oktothek.notification_message_episode:              "Neue Episode von %series%"
 oktothek.notification_message_episode_new_comment:  "Neuer Kommentar zu deiner Episode"
