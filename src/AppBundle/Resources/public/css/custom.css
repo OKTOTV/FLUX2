@@ -188,6 +188,7 @@ a.tag,
 .post h3, 
 .post .label, 
 .pin figcaption h3, 
+.pin figcaption p, 
 .blog-pin figcaption h3,
 .news h3, 
 .pin-icon .glyphicon, 
@@ -219,7 +220,6 @@ body.livestream .navbar-nav a.btn span,
 small,
 .livestream p.current-episode, 
 header .nav, 
-.pin figcaption p, 
 .blog-pin figcaption p, 
 .btn, 
 .pin .pin-icon .glyphicon, 
@@ -260,6 +260,10 @@ body.livestream h5,
 label {
 	font-size:14px;
 	letter-spacing:0.70px;
+}
+.pin .overlay .online, 
+.pin .overlay .duration {
+	font-size:11px;
 }
 .pin .pin-icon {
 	font-size:10px;
@@ -456,6 +460,9 @@ select:active:focus {
 		letter-spacing: 1px;
 		line-height:0.95em;
 	}
+    .playlists #StartPlaylist.btn span.glyphicon {
+        font-size: 24px;
+    }
 	.subheadline, 
     .participart .button_container .btn, 
     figcaption .description, 
@@ -465,8 +472,10 @@ select:active:focus {
 		font-size:19px;
 		letter-spacing: 0.1px;
 	}
-    .playlists #StartPlaylist.btn span.glyphicon {
-        font-size: 24px;
+    .pin figcaption p,
+    .pin .overlay .online, 
+    .pin .overlay .duration {
+        font-size: 12px;
     }
     .oktothek .participart-list figcaption h3 {
 	    font-size:11px;
@@ -875,6 +884,7 @@ a:hover.pull-left.more,
 a:focus.pull-right.more,
 a:focus.pull-left.more,
 legend,
+.pin .overlay a,
 select.form-control.ghost, 
 #carousel a h3,
 #carousel a p.subheadline,
@@ -990,6 +1000,7 @@ header .collapseShare a.btn,
 .pin figcaption p a, 
 .pin figcaption a p, 
 .pin a figcaption p, 
+.pin .overlay .online,
 .blog-pin figcaption p, 
 .blog-pin figcaption p a, 
 .producer figcaption p,
@@ -1165,6 +1176,7 @@ body.tagpage .inc-pins article.pin figure,
 body.tagpage .inc-pins li.pin figure,
 article.pin figure.pin,
 li.pin figure.pin,
+.pin .overlay .duration,
 body.tagpage article.first-pin,
 body.tagpage .pages > .list-group-item,
 .container.tags ul,
@@ -1585,7 +1597,8 @@ header .misc .btn,
 header .collapseShare .btn,
 .livestream #nav-programm .icon,
 .more figure.episode-pin a,
-#appbundle_episode_comment .btn-link {
+#appbundle_episode_comment .btn-link,
+.pin .overlay .duration {
 	-moz-border-radius:19px;
 	-khtml-border-radius:19px;
 	border-radius: 19px;
@@ -2026,7 +2039,17 @@ a, button, .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
     -moz-transition: opacity 0.2s ease;
     -o-transition: opacity 0.2s ease;
 }
+body.tagpage .bg-opacity {
+    opacity: 0.6;       /* modern browser */
+    -moz-opacity: 0.6;  /* older Mozilla browser */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE8 in Standard Compliant Mode */
+}
 @media (min-width: 768px) {
+    .overlay .bg-opacity {
+        opacity: 0.1;       /* modern browser */
+        -moz-opacity: 0.1;  /* older Mozilla browser */
+        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=10)"; /* IE8 in Standard Compliant Mode */
+    }
     #carousel figcaption .bg-opacity, 
     .current-episode.description-wrapper .bg-opacity, 
     .current-course.description-wrapper .bg-opacity {
@@ -2045,11 +2068,6 @@ a, button, .navbar-inverse .navbar-nav.navbar-right > li > a:hover span.link {
         -moz-opacity: 0.8;  /* older Mozilla browser */
         -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /* IE8 in Standard Compliant Mode */
     }
-}
-body.tagpage .bg-opacity {
-    opacity: 0.6;       /* modern browser */
-    -moz-opacity: 0.6;  /* older Mozilla browser */
-    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE8 in Standard Compliant Mode */
 }
 .bg-bleur {
 	-webkit-filter: blur(50px);
@@ -3014,6 +3032,20 @@ article.post figure {
     padding-left:15px;
     padding-right:15px;
 }
+.pin .overlay {
+        position: static;
+        display: block;
+        margin-top:-10px;
+    }
+.pin .overlay .container-bg-opacity, .pin .overlay .bg-opacity {
+    display: none;
+}
+.pin .overlay .duration {
+    position: absolute;
+    left:10px;
+    padding:1px 5px;
+    top:5px;
+}
 
 @media (min-width: 768px) {
     /* Ränder Korrekturen */
@@ -3028,6 +3060,34 @@ article.post figure {
     .series .blog {
         padding-left:25px;
     }
+    figure.episode-pin.pin:hover .overlay {
+        display: block;
+    }
+    article.pin figcaption, 
+    li.pin figcaption, 
+    article.post figure  {
+	    padding-left:10px;
+	    padding-right:10px;
+    }
+    .pin .overlay .container-bg-opacity, .pin .overlay .bg-opacity {
+        display: block;
+    }
+    .pin .overlay {
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        display: none;
+        margin-top:0px;
+    }
+    .pin .overlay .online {
+        position: absolute;
+    }
+    .pin .overlay .online {
+        left:15px;
+        top:28px;
+    }
+    
 }
 @media (min-width: 992px) {
 	article.pin,
@@ -3041,6 +3101,9 @@ article.post figure {
     article.pin:nth-child(4n+1),
     li.pin:nth-child(4n+1) {
 	    clear:left;
+    }
+    .pin .overlay {
+        height:159px;
     }
 }
 
