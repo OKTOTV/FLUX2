@@ -9,13 +9,17 @@
 {% block body_main %}
 <div class="container login">
   <header class="page-header"><h1 class="form-signin-heading">{{'oktothek_register_header'|trans}}</h1></header>
-    <p class="subheadline">Die neuesten Clips, beliebte Videos, aktuelle Playlisten und Newsbeiträge warten darauf, von dir entdeckt zu werden. Durch das Erstellen eines Accounts hast du die Möglichkeit deine eigenen Interessenschwerpunkte hervorzuheben und dir so ein individuelles Programm zusammenzustellen.</p>
-    <p class="subheadline">Hier kannst du dich ganz einfach registrieren:</p>
-    {{ form_start(form) }}
-        {{ form_row(form.username) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.confirmed_data_usage) }}
+    <section>
+        <p class="subheadline">Die neuesten Clips, beliebte Videos, aktuelle Playlisten und Newsbeiträge warten darauf, von dir entdeckt zu werden. Durch das Erstellen eines Accounts hast du die Möglichkeit deine eigenen Interessenschwerpunkte hervorzuheben und dir so ein individuelles Programm zusammenzustellen.</p>
+    </section>
+    <section>
+        <p class="subheadline">Hier kannst du dich ganz einfach registrieren:</p>
+        {{ form_start(form) }}
+            {{ form_row(form.username) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.confirmed_data_usage) }}
         <p>{{ 'oktothek.register_how_to_delete_account'|trans|raw }}</p>
-    {{ form_end(form) }}
+        {{ form_end(form) }}
+    </section>
 </div>
 {% endblock %}

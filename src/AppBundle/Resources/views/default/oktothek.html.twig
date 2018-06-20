@@ -25,8 +25,21 @@
             <meta itemprop="headline" content="{{ 'oktothek_default_participate'|trans }}">
             {% if is_granted('ROLE_OKTOLAB_USER') %}
             <h1 id="button_down" itemprop="name">{{ 'oktothek_default_welcome'|trans({'%username%': app.user.username }) }}<span class="icon participant-arrow-down">{{ 'oktothek_default_useless_fancy_button'|trans }}</span></h1>
-            <article class="container"><p class="aligncenter subheadline col-md-8 col-md-offset-2">{{ 'oktothek_default_sub_welcome'|trans }}</p>
-            <p class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 helptext"><span>Wie funktioniert das Oktoversum?</span><br>Hier findest du einen hilfreichen Überblick der gesamten Features.<br><a href="{{ path('help') }}">Überblick ansehen</a></p></article>
+            <article class="container">
+                <div class="row">
+                    <p class="aligncenter subheadline col-md-8 col-md-offset-2 hidden-xs">{{ 'oktothek_default_sub_welcome'|trans }}</p>
+                </div>
+                <div class="row">
+                    <ul class="participart-list-login">
+                        <li><figure data-target="#view_clips">
+                            <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
+                                <image xlink:href="{{ asset('bundles/app/images/oktothek/participart_question.svg')}}" src="{{ asset('bundles/app/images/oktothek/figure_oktonaut.png')}}" alt="{{ 'oktothek_default_participate_view_clips'|trans }}" width="100" height="100" style="width:100%;height:auto;" />
+                            </svg>
+                            <figcaption><h3>Wie funktioniert das Oktoversum?</h3><p>Hier findest du einen hilfreichen Überblick der gesamten Features.<br><a href="{{ path('help') }}">Überblick ansehen</a></p></figcaption></figure></a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
             {% else %}
             <h1 id="button_down">{{ 'oktothek_default_participate_header'|trans|raw }}</h1>
             <article class="container">
