@@ -258,7 +258,9 @@
                     },
                     type: 'POST',
                     success: function(data) {
-                        $('.playlists').append(item)
+                        if (!$('#collapsePlaylistArea ul').hasClass('playlists')) 
+                            $( '<ul class="list-group playlists row"></ul>' ).replaceAll( '.playlistspace' );
+                        $('.playlists').append(item);
                         playlist.val('');
                         $('.playlists li:last-child').slideDown('fast');
                         $('.playlists li:last-child').addClass('newplaylist');
