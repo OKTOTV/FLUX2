@@ -1022,7 +1022,6 @@ header .collapseShare a.btn,
 .faq .panel-default > .panel-heading,
 body.producer li.list-group-item,
 body.producer ul.list-group .pin a p,
-.pagination li.disabled span,
 body.tagpage .pages .list-group-item a,
 .livestream .schedule .repeats li { /* Hellgrau */
 	color:#dcdcdc;
@@ -1115,6 +1114,9 @@ button.list-group-item-danger:hover,
 .active .color4.pin a h3, 
 .active .color4.pin a p { /* Blau */
 	color: #13fffd;
+}
+.pagination li.disabled span {
+    color: #777777;
 }
 
 body, 
@@ -3595,6 +3597,7 @@ a.more.right {
         padding-left:0;
     }
 }
+
 
 /* Fehlerseite */
 .errorpage .favorite-videos p {
