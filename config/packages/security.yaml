@@ -10,6 +10,7 @@ security:
             - ROLE_BPRS_ASSET_DELETE
         ROLE_USER:
             - ROLE_OKTOLAB_PRODUCER
+            - ROLE_OKTOLAB_MEDIA_READ
             - ROLE_PR_USER
         ROLE_PR_USER:
             - ROLE_BPRS_ASSET_READ
