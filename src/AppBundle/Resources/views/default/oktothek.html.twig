@@ -32,8 +32,11 @@
                 <div class="row">
                     <ul class="participart-list-login">
                         <li><figure data-target="#view_clips">
-                            <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
+                            <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid" class="hidden-xs">
                                 <image xlink:href="{{ asset('bundles/app/images/oktothek/participart_question.svg')}}" src="{{ asset('bundles/app/images/oktothek/figure_oktonaut.png')}}" alt="{{ 'oktothek_default_participate_view_clips'|trans }}" width="100" height="100" style="width:100%;height:auto;" />
+                            </svg>
+                            <svg width="40" height="40" viewbox="0 0 40 40" preserveAspectRatio="xMinYMid" class="visible-xs-block">
+                                <image xlink:href="{{ asset('bundles/app/images/oktothek/participart_question.svg')}}" src="{{ asset('bundles/app/images/oktothek/figure_oktonaut.png')}}" alt="{{ 'oktothek_default_participate_view_clips'|trans }}" width="40" height="40" style="width:100%;height:auto;" />
                             </svg>
                             <figcaption><h3>Wie funktioniert das Oktoversum?</h3><p>Hier findest du einen hilfreichen Überblick der gesamten Features.<br><a href="{{ path('help') }}">Überblick ansehen</a></p></figcaption></figure></a>
                         </li>

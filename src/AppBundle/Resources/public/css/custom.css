@@ -1770,9 +1770,14 @@ body.oktothek .participart .button_container {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-body.oktothek .participart-list li figure, .oktothek .participart-list-login li figure {
+body.oktothek .participart-list li figure {
 	background-image:url(../images/participart_circle.png);
     background-image:url(../images/participart_circle.svg), none;
+    background-repeat:no-repeat;
+}
+.oktothek .participart-list-login li figure {
+	background-image:url(../images/avatar_circle.png);
+    background-image: url("../images/avatar_circle.svg"), none;
     background-repeat:no-repeat;
 }
 body.oktothek .participart-list li figure {
@@ -1942,6 +1947,11 @@ body.playlists section:first-child,
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
 	    background-image:url(../images/section_border.png);
+    }
+    .oktothek .participart-list-login li figure {
+	    background-image:url(../images/participart_circle.png);
+        background-image:url(../images/participart_circle.svg), none;
+        background-repeat:no-repeat;
     }
     .avatar-container {
 	    background-image:url(../images/avatar_circle.png);
