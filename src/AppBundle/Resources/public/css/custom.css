@@ -2970,6 +2970,9 @@ article.post figure  {
     width:15px;
 	height: 10px;
 }
+.pin .pin-icon.new {
+    padding-top:14px;
+}
 article.pin:nth-child(2n+1),
 li.pin:nth-child(2n+1) {
 	clear:none;
