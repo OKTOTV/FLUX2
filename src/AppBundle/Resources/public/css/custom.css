@@ -2194,17 +2194,7 @@ footer section {
 .btn-default.crop-asset:hover,
 .btn-default.crop-asset:focus,
 .btn-default.crop-asset:active {
-	border:none;
-}
-.crop-asset .icon {
-    background-image:url(../images/icon_cut.png);
-    background-image:url(../images/icon_cut.svg), none;
-    background-repeat:no-repeat;
-    background-position: center center;
-    -webkit-background-size: 50% 50%;
-    -moz-background-size: 50% 50%;
-    -o-background-size: 50% 50%;
-	background-size: 50% 50%;
+	border: solid 2px #fcce14;
 }
 
 
@@ -3881,6 +3871,12 @@ body.episode a.backend {
     width: 36px;
     height: 36px;
     display: inline-block;
+}
+.crop-asset {
+    margin-left:5px;
+}
+.crop-asset .glyphicon-scissors::before {
+    content: url(../images/icon_cut.png);
 }
 @media (min-width: 580px) {
     body.episode a.backend {
