@@ -50,17 +50,19 @@
                 </figure>
             </div>
             <article>
-                <p class="series" itemscope="itemscope" itemtype="http://schema.org/CreativeWorkSeries" itemprop="partOfSeries">
-                    <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name }}" itemprop="url"><span itemprop="name">{{ episode.series.name }}</span></a>
-                </p>
-                <h1 class="name" itemprop="headline">{{ episode.name }}</h1>
-                <div class="time" itemprop="datePublished">
-                    {{ 'oktothek.episode_show_firstRanAt'|trans({
-                        '%day%': 'oktothek.episode_show_firstRanAt_day_choice'|transchoice(episode.firstRanAt|default(episode.onlineStart)|date('N')),
-                        '%date%': episode.firstRanAt|default(episode.onlineStart)|date('oktothek.episode_show_firstRanAt_dateformat'|trans)
-                        })
-                    }}
-                </div>
+                <header>
+                    <p class="series" itemscope="itemscope" itemtype="http://schema.org/CreativeWorkSeries" itemprop="partOfSeries">
+                        <a href="{{ path('oktothek_show_series', {'uniqID': episode.series.uniqID}) }}" title="{{ episode.series.name }}" itemprop="url"><span itemprop="name">{{ episode.series.name }}</span></a>
+                    </p>
+                    <h1 class="name" itemprop="headline">{{ episode.name }}</h1>
+                    <div class="time" itemprop="datePublished">
+                        {{ 'oktothek.episode_show_firstRanAt'|trans({
+                            '%day%': 'oktothek.episode_show_firstRanAt_day_choice'|transchoice(episode.firstRanAt|default(episode.onlineStart)|date('N')),
+                            '%date%': episode.firstRanAt|default(episode.onlineStart)|date('oktothek.episode_show_firstRanAt_dateformat'|trans)
+                            })
+                        }}
+                    </div>
+                </header>
                 <p class="description" itemprop="description">
                     {{ episode.description|converturls|nl2br|episodeComment(episode.uniqID)|raw }}
                 </p>
@@ -267,7 +269,9 @@
                     },
                     type: 'POST',
                     success: function(data) {
-                        $('.playlists').append(item)
+                        if (!$('#collapsePlaylistArea ul').hasClass('playlists')) 
+                            $( '<ul class="list-group playlists row"></ul>' ).replaceAll( '.playlistspace' );
+                        $('.playlists').append(item);
                         playlist.val('');
                         $('.playlists li:last-child').slideDown('fast');
                         $('.playlists li:last-child').addClass('newplaylist');

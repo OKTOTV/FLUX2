@@ -2,42 +2,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Zurücksetzen Passwort</title>
+<title>Passwort zur&uuml;cksetzen</title>
 </head>
 
-<body style="background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:20px;padding-left:5%;padding-right:5%;line-height:27px;letter-spacing:0.6px;">
-<p style=""><img src="{{ absolute_url(asset('bundles/app/images/okto_logo.png')) }}" width="40" height="66" alt="OKTO Community TV GmbH"/></p>
-<h1 style="font-size: 32px;font-weight: normal;padding-top:20px;padding-bottom:30px;line-height:36px;">Liebe/r OktonautIn!</h1>
-<p style="padding-bottom:30px;">
-    Wir haben eine Anfrage zum Zur&uuml;cksetzen deines Okto-Passworts erhalten.
-</p>
-<div style="background-color:#333333;padding:20px;">
-<p style="margin:0;padding:0;font-weight:200;">
+<body style="background-color:#000000;color:#ffffff;font-family:'Helvetica Neue','Helvetica',Arial,sans-serif;font-size:16px;padding-left:5%;padding-right:5%;line-height:24px;letter-spacing:0.6px;">
+    <table style="background-image:url({{ absolute_url(asset('bundles/app/images/welcome_mail/space.jpg'))}})" border="0" width="100%">
+       <tr>
+           <td>
+              <div style="max-width:600px;margin-left:auto;margin-right:auto;">
+                    <p style=""><img src="{{ absolute_url(asset('bundles/app/images/okto_logo.png')) }}" width="40" height="66" alt="OKTO Community TV GmbH"/></p>
+                    <h1 style="font-size: 32px;font-weight:normal;padding-top:60px;padding-bottom:30px;line-height:36px;text-align:center;">Liebe/r OktonautIn!</h1>
+                    <p style="padding-bottom:30px;font-size:20px;font-weight:300;line-height: 27px;text-align: center">
+                       Wir haben eine Anfrage zum Zur&uuml;cksetzen deines Okto-Passworts erhalten.
+                    </p>
+               </div>
+           </td>
+       </tr>
+    </table>
+    <table border="0" width="100%">
+        <tr> 
+            <td>
+                <div style="background-color:#333333;padding:20px;font-weight:300;margin-left:auto;margin-right:auto;max-width:600px;">
+                    <p style="margin:0;padding:0;">
     Klicke hierf&uuml;r auf den folgenden Link:<br><a href="{{ url('bprs_user_iforgot_reset', { 'resetHash': user.resetHash }) }}" style="color:#fcce14;text-decoration:none;">{{ url('bprs_user_iforgot_reset', { 'resetHash': user.resetHash }) }}</a>
 </p>
-</div>
-<div style="font-size:14px;line-height:22px;">
-<p style="padding-top:30px;">
-Freundliche Gr&uuml;&szlig;e,<br>
-dein OKTO Team
-</p>
-<p>
-    *************************************<br>
-    OKTO Community TV GmbH<br>
-    www.okto.tv<br>
-    *************************************
-</p>
-<p>
-    T +43 1 786 2442 -22<br>
-    F +43 1 786 2442 -18
-</p>
-
-<p>---------------------------------<br>
-    OKTO<br>
-    Community TV-GmbH<br>
-    Goldschlagstra&szlig;e 172<br>
-    1140 Wien, &Ouml;sterreic
-</p>
-</div>
+                </div>
+                <div style="font-weight:300;margin-left:auto;margin-right:auto;max-width:600px;">
+                    <p style="padding-top:30px;text-align:center;">
+                        Freundliche Gr&uuml;&szlig;e,<br>    
+                        dein OKTO Team
+                    </p>
+                    <p style="text-align:center;">
+                        OKTO Community TV GmbH<br>
+                        <a href="http://www.okto.tv" style="color:#fcce14;text-decoration:none;word-wrap:break-word;">www.okto.tv</a>
+                    </p>
+                    <p style="text-align:center;"><a href="{{ url('imprint') }}" style="color:#fcce14;">{{ 'oktothek.mail.welcome_imprint'|trans }}</a></p>
+                </div> 
+            </td>
+        </tr>
+    </table>  
 </body>
 </html>

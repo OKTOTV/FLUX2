@@ -60,6 +60,7 @@
 <aside class="col-md-4 col-lg-4 hidden-sm hidden-xs">
     <div class="aside-inner clearfix">
         <ul>
+            <h3>Weitere Beiträge aus {{ post.series.name}}</h3>
             {% for teaser in teasers %}
             <li>
                 <span class="time">
@@ -76,6 +77,9 @@
             </li>
             {% endfor %}
         </ul>
+        <p>
+                <a href="{{ path('oktothek_show_series_blog', {'uniqID': post.series.uniqID })}}" class="pull-right more">{{ 'oktothek.series_show_blog'|trans }} <span class="icon small-arrow-right">&nbsp;</span></a>
+            </p>
     </div>
 </aside>
 {% endblock %}

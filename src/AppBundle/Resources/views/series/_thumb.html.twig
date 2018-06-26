@@ -5,6 +5,7 @@
             <meta itemprop="url" content="{{ path|default(path('oktothek_show_series', {'uniqID': series.uniqID})) }}" />
             <img src="{{ series.posterframe|thumb(158,282) }}" class="img-responsive" alt="{{ series.name }}" itemprop="image"/>
         </a>
+        {# <div class="pin-icon new" title="Hier gibt es eine neue Episode">NEU</div> #}
         <figcaption>
             <a href="{{ url|default(path('oktothek_show_series', {'uniqID': series.uniqID})) }}" title="{{ series.name }}">
                 <h3 itemprop="name">{{ series.name }}</h3>

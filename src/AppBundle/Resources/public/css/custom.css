@@ -1022,7 +1022,6 @@ header .collapseShare a.btn,
 .faq .panel-default > .panel-heading,
 body.producer li.list-group-item,
 body.producer ul.list-group .pin a p,
-.pagination li.disabled span,
 body.tagpage .pages .list-group-item a,
 .livestream .schedule .repeats li { /* Hellgrau */
 	color:#dcdcdc;
@@ -1115,6 +1114,9 @@ button.list-group-item-danger:hover,
 .active .color4.pin a h3, 
 .active .color4.pin a p { /* Blau */
 	color: #13fffd;
+}
+.pagination li.disabled span {
+    color: #777777;
 }
 
 body, 
@@ -1768,9 +1770,14 @@ body.oktothek .participart .button_container {
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-body.oktothek .participart-list li figure, .oktothek .participart-list-login li figure {
+body.oktothek .participart-list li figure {
 	background-image:url(../images/participart_circle.png);
     background-image:url(../images/participart_circle.svg), none;
+    background-repeat:no-repeat;
+}
+.oktothek .participart-list-login li figure {
+	background-image:url(../images/avatar_circle.png);
+    background-image: url("../images/avatar_circle.svg"), none;
     background-repeat:no-repeat;
 }
 body.oktothek .participart-list li figure {
@@ -1940,6 +1947,11 @@ body.playlists section:first-child,
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
 	    background-image:url(../images/section_border.png);
+    }
+    .oktothek .participart-list-login li figure {
+	    background-image:url(../images/participart_circle.png);
+        background-image:url(../images/participart_circle.svg), none;
+        background-repeat:no-repeat;
     }
     .avatar-container {
 	    background-image:url(../images/avatar_circle.png);
@@ -2192,17 +2204,7 @@ footer section {
 .btn-default.crop-asset:hover,
 .btn-default.crop-asset:focus,
 .btn-default.crop-asset:active {
-	border:none;
-}
-.crop-asset .icon {
-    background-image:url(../images/icon_cut.png);
-    background-image:url(../images/icon_cut.svg), none;
-    background-repeat:no-repeat;
-    background-position: center center;
-    -webkit-background-size: 50% 50%;
-    -moz-background-size: 50% 50%;
-    -o-background-size: 50% 50%;
-	background-size: 50% 50%;
+	border: solid 2px #fcce14;
 }
 
 
@@ -2968,6 +2970,9 @@ article.post figure  {
     width:15px;
 	height: 10px;
 }
+.pin .pin-icon.new {
+    padding-top:14px;
+}
 article.pin:nth-child(2n+1),
 li.pin:nth-child(2n+1) {
 	clear:none;
@@ -3596,6 +3601,7 @@ a.more.right {
     }
 }
 
+
 /* Fehlerseite */
 .errorpage .favorite-videos p {
     margin-bottom:40px;
@@ -3875,6 +3881,12 @@ body.episode a.backend {
     width: 36px;
     height: 36px;
     display: inline-block;
+}
+.crop-asset {
+    margin-left:5px;
+}
+.crop-asset .glyphicon-scissors::before {
+    content: url(../images/icon_cut.png);
 }
 @media (min-width: 580px) {
     body.episode a.backend {

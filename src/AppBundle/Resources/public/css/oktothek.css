@@ -213,11 +213,11 @@ body.oktothek .news-pin {
     min-height: 140px;
 }
 .oktothek ul.participart-list-login svg {
-    margin-left:25px;
-    margin-top:20px;
+    margin-left:6px;
+    margin-top:5px;
 }
 .oktothek ul.participart-list-login figcaption {
-    margin-left:160px;
+    margin-left:60px;
 }
 body.oktothek section.container.news {
     padding-right:5px;
@@ -231,6 +231,13 @@ body.oktothek .helptext {
     body.oktothek .participart {
 	    margin-bottom:60px;
 	    padding-bottom:40px;
+    }
+    .oktothek ul.participart-list-login svg {
+        margin-left:25px;
+        margin-top:20px;
+    }
+    .oktothek ul.participart-list-login figcaption {
+        margin-left:160px;
     }
     body.oktothek section.participart p.subheadline {
         margin-top:10px;
