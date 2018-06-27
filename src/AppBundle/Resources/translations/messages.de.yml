@@ -1,4 +1,5 @@
 # FLUX2
+# FLUX2
 # misc
 Previous:   Vorherige
 Next:       Nächste
@@ -42,7 +43,7 @@ oktothek.menu_tag_dropdown:                         'Themen <span class="caret">
 oktothek.menu_best_tags:                            "Beliebteste Themen"
 oktothek.menu_notification_xs:                      "Benachrichtigung"
 oktothek.menu_user_notifications_title:             "Benachrichtigungen"
-oktothek.menu_user_comments:                        '<span class="glyphicon glyphicon-comment"></span> Deine Kommentare'
+oktothek.menu_user_comments:                        '<span class="glyphicon glyphicon-comment"></span> Meine Kommentare'
 oktothek.menu_pages:                                '<span class="glyphicon glyphicon-book" aria-hidden="true"></span> Seiten'
 oktothek.menu_statistics:                           '<span class="glyphicon glyphicon-save"></span> Statistik'
 oktothek.menu_user_privacy_policy:                  '<span class="glyphicon glyphicon-flag"></span> Datenschutzerklärung'
