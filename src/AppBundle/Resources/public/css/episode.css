@@ -40,6 +40,9 @@ body.episode ul.misc li {
     float:left;
     display: block;
 }
+body.episode ul.misc li.backend {
+    float: none;
+}
 body.episode .backend + li {
     clear:left;
 }
@@ -77,7 +80,14 @@ body.episode #ButtonShare {
     padding-left:12px;
     padding-right:8px;
     padding-top:0;
-    margin-top:-1px;
+    margin-top:8px;
+}
+body.episode #subscribe {
+    margin-right:12px;
+}
+body.episode .container.tags {
+    padding-left:5px;
+    padding-right:5px;
 }
 @media (min-width: 768px) {
     body.episode ul.misc li {
@@ -104,6 +114,9 @@ body.episode #ButtonShare {
         padding-top:8px;
         margin-top:0px;
     }
+    body.episode #subscribe {
+        margin-right:0px;
+    }
     body.episode .misc {
 	    padding-bottom:20px;
     }
@@ -112,5 +125,9 @@ body.episode #ButtonShare {
     }
     .tags .col-lg-1 {
         width: auto;
+    }
+    body.episode .container.tags {
+        padding-left:1px;
+        padding-right:15px;
     }
 }

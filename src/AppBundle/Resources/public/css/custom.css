@@ -279,7 +279,6 @@ a.more,
 a.less, 
 .nav-justified,
 .episode .series a, 
-.comments a.answerlink, 
 #anchor-menu .panel-title, 
 .btn-top, 
 .carousel-caption .type, 
@@ -3143,6 +3142,22 @@ section.comments {
 .comments h2:first-child {
 	margin-top:0;
 }
+.comments h2 {
+    margin-bottom: 20px;
+    margin-left:-15px;
+    margin-right:-15px;
+}
+.comment-form label, .comment-answer label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
 .comments .answer {
 	cursor:pointer;
 }
@@ -3207,6 +3222,10 @@ form #appbundle_episode_comment_submit {
     .comment-pager .row {
         margin-left:0;
     }
+    .comments h2 {
+        margin-left:0px;
+        margin-right:0px;
+    }
     section.comments {
         padding-right:0px;
         padding-left:0px;
@@ -3234,6 +3253,10 @@ form #appbundle_episode_comment_submit {
     }
     .comment-form fieldset {
         text-align: left;
+    }
+    .comment-form .col-xs-12.col-sm-11.col-md-11.col-lg-11 {
+        padding-left:0;
+        padding-right:0;
     }
 }
 
