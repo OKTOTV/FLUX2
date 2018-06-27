@@ -33,14 +33,14 @@
                     <div class="col-md-10">
                         {% if comment.post is defined %}
                                     {% if comment.post.series is empty %} {# news #}
-                                        <h3><a href="{{ path('oktothek_show_news', {'slug': comment.post.slug}) }}">Newstitel</a></h3>
+                                        <h3><a href="{{ path('oktothek_show_news', {'slug': comment.post.slug}) }}">{{ comment.post.title }}</a></h3>
                                         {{ comment.text|nl2br }}
                                     {% else %} {# series blogpost #}
-                                        <h3><a href="{{ path('oktothek_show_series_blogpost', {'slug': comment.post.slug}) }}">Blogtitel</a></h3>
+                                        <h3><a href="{{ path('oktothek_show_series_blogpost', {'slug': comment.post.slug}) }}">{{ comment.post.title }}</a></h3>
                                         {{ comment.text|nl2br }}
                                     {% endif %}
-                                {% elseif comment.episode is defined %}
-                                    <h3><a href="{{ path('oktothek_show_episode', {'uniqID': comment.episode.uniqID}) }}">Episodentitel</a></h3>
+                                {% elseif comment.episode is defined or comment.episode is not empty %}
+                                        <h3><a href="{{ path('oktothek_show_episode', {'uniqID': comment.episode.uniqID}) }}">{{ comment.episode.name }}</a></h3>
                                     {{ comment.text|nl2br }}
                                 {% endif %}
                         
