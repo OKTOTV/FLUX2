@@ -136,6 +136,18 @@
 .news .collapse-header {
     padding-top:20px;
 }
+body.series .news-pin .collapse-content form.col-lg-6.col-md-6.col-sm-12.col-xs-12 {
+    padding-left:0;
+}
+body.series .news-pin .collapse-content {
+    padding:0;
+}
+body.series .news-pin .collapse-header {
+    display: none;
+}
+section.blog .post > div.collapseShare {
+    padding:0 10px;
+}
 @media (min-width: 580px) {
     .collapseShare .socialnetworks li {
 	    padding:0;
@@ -153,6 +165,9 @@
     }
     #ButtonShare .share-btn-text {
         margin-right:0px;
+    }
+    section.blog .post > div.collapseShare {
+        padding:0 15px;
     }
 }
 @media (min-width: 992px) {

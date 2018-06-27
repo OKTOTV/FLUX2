@@ -1191,9 +1191,9 @@ body.livestream #current_show .row.pin .panel-content,
 .faq .panel-default > .panel-heading,
 .faq .panel-default,
 .collapseWindow > div.collapse-content,
-body.series .news-pin, 
 body.series .news-form, 
 body.series .series-posterframe > div,
+body.series .news-pin article.post,
 #playlist_items .row, 
 form .tt-menu,
 body.newsarchiv aside .box,
@@ -1386,7 +1386,11 @@ div.list-group.tags span.label.label-default.remove,
     button.btn-default#ButtonShare:focus {
 	    background-color:#fcce14;
     }
-    .carousel-caption {
+    body.series .news-pin {
+        background-color:#112022;
+    }
+    .carousel-caption,
+    body.series .news-pin article.post {
         background-image:none;
     }
 }
@@ -3257,6 +3261,7 @@ form #appbundle_episode_comment_submit {
 	height:35px;
 	width:200px;
 	cursor:pointer;
+    margin:0 auto;
 }
 a.tag::before {
     content:'#';
@@ -3276,6 +3281,11 @@ div.list-group.tags span.label.label-default.remove::before {
 }
 div.list-group.tags span.label.label-default.remove::before {
     content: "\e014";
+}
+@media (min-width: 768px) {
+    .container-episode-tag {
+	    margin:0;
+    }
 }
 
 /* Clip Übersichten */
