@@ -1,5 +1,4 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
-
 {% block title %}{{ 'Kommentar bearbeiten' }}{% endblock %}
 
 {% block nav_head%}
@@ -7,5 +6,8 @@
 {% endblock %}
 
 {% block body_main %}
+    <header class="page-header"><h1 class="form-signin-heading">Kommentar bearbeiten</h1></header>
+    <section class="comments comment-edit row">
     {{ form(form) }}
+    </section>
 {% endblock %}
