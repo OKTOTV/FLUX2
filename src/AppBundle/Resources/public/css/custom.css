@@ -1254,7 +1254,9 @@ body.livestream .schedule .panel-default:focus,
 .faq .panel-default:hover,
 .panel-default:focus,
 .faq .panel-default:hover > .panel-heading,
-.faq .panel-default:focus > .panel-heading { /* Mittleres Grau */
+.faq .panel-default:focus > .panel-heading,
+body.commentsindex .list-group-item:hover,
+body.commentsindex .list-group-item:focus { /* Mittleres Grau */
     background-color:#192e31;
 }
 article.pin figure.pin,
