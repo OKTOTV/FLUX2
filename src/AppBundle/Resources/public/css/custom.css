@@ -1896,10 +1896,8 @@ body.oktothek a.btn.login:active {
     -o-background-size: 50% 50%;
 	background-size: 50% 50%;
 }
-.playlists .edit:hover, 
-.subscriptions .edit:hover .icon {
-	background-image:url(../images/icon_edit_hover.png);
-    background-image:url(../images/icon_edit_hover.svg), none;
+.commentsindex .edit .glyphicon-edit::before {
+	content:url(../images/icon_edit_small.png);
 }
 
 body.help #link-new-account span {
