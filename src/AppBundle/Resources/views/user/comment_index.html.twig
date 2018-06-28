@@ -30,7 +30,7 @@
             {% for comment in comments %}
                 
                     <li class="list-group-item row">
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         {% if comment.post is defined %}
                                     {% if comment.post.series is empty %} {# news #}
                                         <h3><a href="{{ path('oktothek_show_news', {'slug': comment.post.slug}) }}">{{ comment.post.title }}</a></h3>
@@ -45,37 +45,14 @@
                                 {% endif %}
                         
                     </div>
-                    <div class="col-md-2 edit">
+                    <div class="col-md-3 edit">
                         <p>{{ comment.createdAt|date('d.m.Y H:i') }}</p>
                         <p>
+                        <a href="{{ path('oktothek_comment_delete', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_delete_link'|trans|raw }}</a> 
                         {% if comment.canBeEdited %}
                             <a href="{{ path('oktothek_comment_edit', {'comment': comment.id}) }}">Bearbeiten</a>
-                        {% endif %} <a href="{{ path('oktothek_comment_delete', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_delete_link'|trans|raw }}</a>
+                        {% endif %}
                         </p>
-                    <!-- Single button -->
-                        <!--<div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ 'oktothek.backend_index_action_dropdown'|trans|raw }}
-                            </button>
-                            <ul class="dropdown-menu">
-                                
-                                {% if comment.post is defined %}
-                                    {% if comment.post.series is empty %} {# news #}
-                                        {#<li><a href="{{ path('oktothek_show_news', {'slug': comment.post.slug}) }}">{{ 'oktothek.backend_index_to_post_link'|trans|raw}}</a></li>#}
-                                    {% else %} {# series blogpost #}
-                                        {#<li><a href="{{ path('oktothek_show_series_blogpost', {'slug': comment.post.slug}) }}">{{ 'oktothek.backend_index_to_post_link'|trans|raw}}</a></li>#}
-                                    {% endif %}
-                                {% elseif comment.episode is defined %}
-                                    {#<li><a href="{{ path('oktothek_show_episode', {'uniqID': comment.episode.uniqID}) }}">{{ 'oktothek.backend_index_to_episode_link'|trans|raw }}</a></li>#}
-                                {% endif %}
-
-                                {% if comment.canBeEdited %}
-                                    {#<li><a href="{{ path('oktothek_comment_edit', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_edit_link'|trans|raw }}</a></li>#}
-                                {% endif %}
-                                <li role="separator" class="divider"></li>
-                                <li><a href="{{ path('oktothek_comment_delete', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_delete_link'|trans|raw }}</a></li>
-                            </ul>
-                        </div>-->
                         </div>
                     </li>
         {% endfor %}
