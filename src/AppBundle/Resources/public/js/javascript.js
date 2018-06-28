@@ -218,7 +218,7 @@ $(document).ready(function(){
 	
 	/* Kommentare */
 	
-	if ($('section').hasClass('comments')) {
+	if ($('section').hasClass('comments') && !$('section').hasClass('comment-edit')) {
 		$('.comments button').css('display','none');
 		$('textarea').focus(function() {
 			el = $(this).parents('fieldset').find('button').css('display', 'block');

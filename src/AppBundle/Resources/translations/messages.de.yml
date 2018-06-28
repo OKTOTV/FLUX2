@@ -1,4 +1,5 @@
 # FLUX2
+# FLUX2
 # misc
 Previous:   Vorherige
 Next:       Nächste
@@ -42,7 +43,7 @@ oktothek.menu_tag_dropdown:                         'Themen <span class="caret">
 oktothek.menu_best_tags:                            "Beliebteste Themen"
 oktothek.menu_notification_xs:                      "Benachrichtigung"
 oktothek.menu_user_notifications_title:             "Benachrichtigungen"
-oktothek.menu_user_comments:                        '<span class="glyphicon glyphicon-comment"></span> Deine Kommentare'
+oktothek.menu_user_comments:                        '<span class="glyphicon glyphicon-comment"></span> Meine Kommentare'
 oktothek.menu_pages:                                '<span class="glyphicon glyphicon-book" aria-hidden="true"></span> Seiten'
 oktothek.menu_statistics:                           '<span class="glyphicon glyphicon-save"></span> Statistik'
 oktothek.menu_user_privacy_policy:                  '<span class="glyphicon glyphicon-flag"></span> Datenschutzerklärung'
@@ -389,10 +390,13 @@ oktothek.episode_comment_delete_button:         '<span class="glyphicon glyphico
 oktothek.user_comment_index_tab_episodes:   "Episoden"
 oktothek.user_comment_index_tab_posts:      "News- & Blogposts"
 oktothek.backend_index_action_dropdown:     'Aktionen <span class="caret"></span>'
-oktothek.backend_index_delete_link:         '<span class="glyphicon glyphicon-trash"></span> Löschen'
-oktothek.backend_index_edit_link:           '<span class="glyphicon glyphicon-edit"></span> Bearbeiten'
-oktothek.backend_index_to_episode_link:     '<span class="glyphicon glyphicon-arrow-right"></span> Zur Episode'
-oktothek.backend_index_to_post_link:     '<span class="glyphicon glyphicon-arrow-right"></span> Zum Post'
+oktothek.backend_index_delete_link:         '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Löschen'
+oktothek.backend_index_edit_link:           '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Bearbeiten'
+oktothek.backend_index_to_episode_link:     '<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> Zur Episode'
+oktothek.backend_index_to_post_link:        '<span class="glyphicon glyphicon-arrow-right"></span> Zum Post'
+oktothek.user_comment_index_episode_date:   "Folge von %day%, %date%"
+oktothek.user_comment_index_episode_date_format: "d.m.Y"
+oktothek.user_comment_index_episode_date_day_choice: "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} Sa|{7} So"
 
 ### commentPager.html.twig
 oktothek_comment_cP_login_title:        "Zum Kommentieren anmelden"

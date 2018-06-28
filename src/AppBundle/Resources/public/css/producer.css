@@ -120,6 +120,29 @@ body.producer .newsarchiv .post .page-header > h3 {
 .tags .list-group-item::before {
     content:'#';
 }
+
+/* Kommentare */
+body.commentsindex .nav.nav-tabs > li > a {
+    padding: 10px 30px;
+}
+body.commentsindex .edit a::after {
+    content: '|';
+    margin-left:5px;
+}
+body.commentsindex .edit a:last-child::after {
+    content: '';
+    margin-left:0px;
+}
+body.commentsindex .list-group-item.row {
+    margin: 0 0 3px 0;
+}
+body.commentsindex .list-group-item h3 {
+    margin-top: 0;
+}
+body.commentsindex .list-group-item .col-md-10 {
+    padding-left:0;
+}
+
 @media (min-width: 580px) {
     /* Blog */
     body.producer .newsarchiv article.pin {

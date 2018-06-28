@@ -3,8 +3,12 @@
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'comments', 'dropdown': 'oktothek_backend'} %}
 {% endblock %}
+{% set body_class = "commentsindex" %}
 {% block body_main %}
+    <header class="page-header">
     <h1>{{ 'oktothek.backend_index_comments'|trans}}</h1>
+    </header>
+
     <ul class="nav nav-tabs">
       <li role="presentation" {% if type == 'episode' %}class="active"{% endif %}>
           <a href="{{ path('user_comment_index', {'type': 'episode'}) }}">
@@ -17,44 +21,71 @@
           </a>
       </li>
     </ul>
-    <div class="navigation">
-        {{ knp_pagination_render(comments) }}
-    </div>
-    <div class="list-group">
-        {% for comment in comments %}
-            <div class="row">
-                <div class="col-md-2">{{ comment.createdAt|date('H:i d.m.Y') }}</div>
-                <div class="col-md-8">
-                    {{ comment.text|nl2br }}
-                </div>
-                <div class="col-md-2">
-                    <!-- Single button -->
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ 'oktothek.backend_index_action_dropdown'|trans|raw }}
-      </button>
-      <ul class="dropdown-menu">
-          {% if comment.post is defined %}
-              {% if comment.post.series is empty %} {# news #}
-                  <li><a href="{{ path('oktothek_show_news', {'slug': comment.post.slug}) }}">{{ 'oktothek.backend_index_to_post_link'|trans|raw}}</a></li>
-              {% else %} {# series blogpost #}
-                  <li><a href="{{ path('oktothek_show_series_blogpost', {'slug': comment.post.slug}) }}">{{ 'oktothek.backend_index_to_post_link'|trans|raw}}</a></li>
-              {% endif %}
-          {% elseif comment.episode is defined %}
-              <li><a href="{{ path('oktothek_show_episode', {'uniqID': comment.episode.uniqID}) }}">{{ 'oktothek.backend_index_to_episode_link'|trans|raw }}</a></li>
-          {% endif %}
 
-        {% if comment.canBeEdited %}
-            <li><a href="{{ path('oktothek_comment_edit', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_edit_link'|trans|raw }}</a></li>
-        {% endif %}
-        <li role="separator" class="divider"></li>
-        <li><a href="{{ path('oktothek_comment_delete', {'comment': comment.id}) }}">{{ 'oktothek.backend_index_delete_link'|trans|raw }}</a></li>
-      </ul>
-    </div></div>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="navigation">
-        {{ knp_pagination_render(comments) }}
-    </div>
+    <section class="tabs-content live">
+        <div class="navigation">
+            {{ knp_pagination_render(comments) }}
+        </div>
+        <ul class="list-group">
+            {% for comment in comments %}
+                <li class="list-group-item row">
+                    <div class="col-md-10">
+                        {% if comment.post is defined %}
+                            {% if comment.post.series is empty %} {# news #}
+                                <h3>
+                                    <a href="{{ path('oktothek_show_news', {'slug': comment.post.slug}) }}">
+                                        {{ comment.post.title }}
+                                    </a>
+                                </h3>
+                                {{ comment.text|nl2br }}
+                            {% else %} {# series blogpost #}
+                                <h3>
+                                    <a href="{{ path('oktothek_show_series_blogpost', {'slug': comment.post.slug}) }}">
+                                        {{ comment.post.title }}
+                                    </a>
+                                </h3>
+                                {{ comment.text|nl2br }}
+                            {% endif %}
+                        {% elseif comment.episode is defined and comment.episode is not empty %}
+                            <h3>
+                                <a href="{{ path('oktothek_show_episode', {'uniqID': comment.episode.uniqID}) }}">
+                                    {{
+                                        comment.episode.name|default(
+                                            'oktothek.user_comment_index_episode_date'|trans({
+                                                '%day%': 'oktothek.user_comment_index_episode_date_day_choice'|transchoice(comment.episode.firstranAt|date('N')),
+                                                '%date%': comment.episode.firstranAt|date('oktothek.user_comment_index_episode_date_format'|trans)
+                                            })
+                                        )
+                                    }}
+                                </a>
+                            </h3>
+                            {{ comment.text|nl2br }}
+                        {% endif %}
+                    </div>
+                    <div class="col-md-2 edit">
+                        <p>
+                            {{ comment.createdAt|date('d.m.Y H:i') }}
+                        </p>
+                        <p>
+                            {% if comment.canBeEdited %}
+                                <a href="{{ path('oktothek_comment_edit', {'comment': comment.id}) }}">
+                                    {{ 'oktothek.backend_index_edit_link'|trans|raw }}
+                                </a>
+                            {% endif %}
+                            <a href="{{ path('oktothek_comment_delete', {'comment': comment.id}) }}">
+                                {{ 'oktothek.backend_index_delete_link'|trans|raw }}
+                            </a>
+                        </p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="navigation">
+            {{ knp_pagination_render(comments) }}
+        </div>
+    </section>
+    {% endblock %}
+    {% block stylesheets %}
+{{ parent() }}
+    <link href="{{ asset('bundles/app/css/producer.css') }}" rel="stylesheet" />
 {% endblock %}

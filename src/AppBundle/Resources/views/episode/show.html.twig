@@ -74,7 +74,7 @@
                         #}
                     {% else %}
                         {% if is_granted('ROLE_USER') %}
-                            <li><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a></li>
+                            <li class="backend"><a href="{{ path('oktolab_episode_show', {'uniqID': episode.uniqID}) }}" class="btn btn-default backend">{{ 'oktothek.episode_show_in_backend'|trans }}</a></li>
                         {% endif %}
                         {# removed clicks and favorites (from edk)
                         <li class="view-icon next-but"><span class="icon-views"></span> <span>{{ episode.views }}</span></li>

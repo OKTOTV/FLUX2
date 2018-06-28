@@ -279,7 +279,6 @@ a.more,
 a.less, 
 .nav-justified,
 .episode .series a, 
-.comments a.answerlink, 
 #anchor-menu .panel-title, 
 .btn-top, 
 .carousel-caption .type, 
@@ -1141,7 +1140,8 @@ body.tagpage .content-bg,
 .visible-xs-block .pager .disabled > a, .visible-xs-block .pager .disabled > a:focus, .visible-xs-block .pager .disabled > a:hover, .visible-xs-block .pager .disabled > span,
 body.producer .visible-xs-block .pager li > a, 
 body.producer .visible-xs-block .pager li > a,
-body.producer .tools {
+body.producer .tools,
+body.commentsindex .list-group-item {
 	background-color:#000000;
 }
 .table-striped > tbody > tr:nth-of-type(2n+1) {
@@ -1363,7 +1363,10 @@ body.series.blog .news-pin,
 div.list-group.tags span.label.label-default.remove,
 .subscriptions .btn-default.edit:hover,
 .subscriptions .btn-default.edit:focus,
-.subscriptions .btn-default.edit:active {
+.subscriptions .btn-default.edit:active,
+.comment-edit .btn-link:focus, 
+.comment-edit .btn-link:active:focus,
+.comment-edit .btn-link:active {
 	background-color:transparent;
 }
 .carousel-caption .bg-opacity {
@@ -3143,6 +3146,22 @@ section.comments {
 .comments h2:first-child {
 	margin-top:0;
 }
+.comments h2 {
+    margin-bottom: 20px;
+    margin-left:-15px;
+    margin-right:-15px;
+}
+.comment-form label, .comment-answer label, .comment-edit label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
 .comments .answer {
 	cursor:pointer;
 }
@@ -3191,6 +3210,13 @@ form #appbundle_episode_comment_submit {
     margin-top: -20px;
     margin-bottom:40px;
 }
+#appbundle_edit_comment_delete.btn::before {
+    content: "\e020";
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    margin-right: 5px;
+}
 /*#appbundle_comment_submit {
     margin:0 auto;
 }*/
@@ -3206,6 +3232,10 @@ form #appbundle_episode_comment_submit {
     }
     .comment-pager .row {
         margin-left:0;
+    }
+    .comments h2 {
+        margin-left:0px;
+        margin-right:0px;
     }
     section.comments {
         padding-right:0px;
@@ -3234,6 +3264,10 @@ form #appbundle_episode_comment_submit {
     }
     .comment-form fieldset {
         text-align: left;
+    }
+    .comment-form .col-xs-12.col-sm-11.col-md-11.col-lg-11 {
+        padding-left:0;
+        padding-right:0;
     }
 }
 
