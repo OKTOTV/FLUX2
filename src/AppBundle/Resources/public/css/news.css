@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 body.news h1, body.newsarchiv h1 {
-    text-align:left;
+    text-align:center;
 }
 .news h3 {
 	margin-top:0;
@@ -33,6 +33,9 @@ body.news .post-content img {
 	padding-bottom:0;
     text-align:left;
 }
+body.series.blog .post header.page-header {
+    text-align: center;
+}
 body.newsarchiv .page-header.detail, body.news .page-header.archiv, body.newsarchiv aside, body.news aside {
     display:none;
 }
@@ -63,7 +66,7 @@ body.newsarchiv aside .box, body.news aside .box {
     height:auto;
 }
 body.series.blog .page-header {
-    margin-top:30px;
+    margin-top:0px;
 }
 .post .page-header, .post .page-header > h3 {
     margin-top:0;
@@ -110,6 +113,39 @@ body.series .infos ul, body.series .blog aside ul {
 	margin-left:0;
 	padding-left:0;
 }
+body.series.blog .blog.col-md-8.col-lg-8.col-sm-12.col-xs-12 {
+    padding-left:5px;
+    padding-right:5px;
+}
+body.series.blog article.post figure, .comment-form .col-xs-12.col-sm-11.col-md-11.col-lg-11, body.series.blog .comments .container, body.series.blog .comments {
+    padding-left:0;
+    padding-right:0;
+}
+body.series.blog .comments .container .row {
+    margin-right:0;
+    margin-left:0;
+}
+body.series.blog .content {
+    padding-left:5px;
+    padding-right:5px;
+}
+body.series.blog article.post {
+    padding-bottom: 0;
+}
+body.series.blog .comments {
+    margin-left:-5px;
+    margin-right:-5px;
+    margin-top:0;
+}
+body.series.blog .comments .container {
+    width: 100%;
+}
+body.series.blog .misc {
+    margin-top:40px;
+}
+body.series.blog .comments .col-xs-12.col-sm-11.col-md-11.col-lg-11 {
+    width: 100%;
+}
 .blog aside .aside-inner {
 	margin-left:5px;
 	padding:15px;
@@ -133,6 +169,9 @@ section.blog article.post + .comments {
     }
 }
 @media (min-width: 768px) {
+    body.news h1, body.newsarchiv h1, body.series.blog .post header.page-header {
+        text-align:left;
+    }
     body.series.blog .page-header {
         margin-top:0;
     }
@@ -146,6 +185,21 @@ section.blog article.post + .comments {
     }
     body.series .news-pin article {
         padding-bottom:40px;
+    }
+    body.series.blog .comments .no_comment {
+        text-align: left;
+    }
+    body.series.blog .page-header {
+        margin-top:30px;
+    }
+    body.series.blog article.post figure {
+        padding-left:10px;
+        padding-right:10px;
+    }
+    body.series.blog .blog.col-md-8.col-lg-8.col-sm-12.col-xs-12, body.series.blog .content;
+    padding-right:5px; {
+        padding-left:15px;
+        margin-left:15px;
     }
 }
 @media (min-width: 992px) {
