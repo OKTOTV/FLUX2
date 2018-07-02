@@ -138,10 +138,12 @@ body.tagpage .pin figure.pin {
 body.tagpage .pin.empty:nth-child(2n+0),
 body.tagpage .small-pins .pin:nth-child(2n+0) {
 	padding-right:0px;
+    padding-left:5px,
 }
 body.tagpage .pin.empty:nth-child(2n+1),
 body.tagpage .small-pins .pin:nth-child(2n+1) {
 	padding-left:0px;
+    padding-right:5px;
 }
 body.tagpage .pin.empty figure {
     padding-top:65px;
