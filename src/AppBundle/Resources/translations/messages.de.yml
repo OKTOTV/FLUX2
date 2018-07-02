@@ -391,7 +391,7 @@ oktothek.user_comment_index_tab_episodes:   "Episoden"
 oktothek.user_comment_index_tab_posts:      "News- & Blogposts"
 oktothek.backend_index_action_dropdown:     'Aktionen <span class="caret"></span>'
 oktothek.backend_index_delete_link:         '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Löschen'
-oktothek.backend_index_edit_link:           '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Bearbeiten'
+oktothek.backend_index_edit_link:           '<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Bearbeiten'
 oktothek.backend_index_to_episode_link:     '<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> Zur Episode'
 oktothek.backend_index_to_post_link:        '<span class="glyphicon glyphicon-arrow-right"></span> Zum Post'
 oktothek.user_comment_index_episode_date:   "Folge von %day%, %date%"

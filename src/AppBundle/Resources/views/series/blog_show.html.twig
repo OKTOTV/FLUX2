@@ -20,14 +20,14 @@
                 {% set text_only = false %}
             {% endif %}
         {% endif %}
-
+    <section>
         <article class="row post" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
             {% if text_only == false %}
                 <figure class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <img src="{{ post.assets[0]|thumb(303,539) }}" class="img img-responsive" alt="{{ post.name }}"/>
                 </figure>
             {% endif %}
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
                     <meta itemprop="datePublished" content="{{ post.createdAt|date('Y-m-d')}}" />
                     {# <meta itemprop="image" content="{{ post.assets[0]|thumb(220,390) }}"> #}
                     <meta itemprop="author" content="{{ post.series.name }} Team">
@@ -52,10 +52,12 @@
                 </div>
             {% include "AppBundle:series/Blog:_shareCollapse.html.twig" %}
         </article>
-
+    </section>
+    <section>
     <!-- Kommentare -->
     {{ render(controller("AppBundle:PostComment:index", {'slug': post.slug})) }}
     <!-- Ende Kommentare -->
+    </section>
 </div>
 <aside class="col-md-4 col-lg-4 hidden-sm hidden-xs">
     <div class="aside-inner clearfix">

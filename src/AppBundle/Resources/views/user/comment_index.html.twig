@@ -28,8 +28,9 @@
         </div>
         <ul class="list-group">
             {% for comment in comments %}
-                <li class="list-group-item row">
-                    <div class="col-md-10">
+                
+                    <li class="list-group-item row">
+                    <div class="col-md-9 col-xs-12">
                         {% if comment.post is defined %}
                             {% if comment.post.series is empty %} {# news #}
                                 <h3>
@@ -62,19 +63,19 @@
                             {{ comment.text|nl2br }}
                         {% endif %}
                     </div>
-                    <div class="col-md-2 edit">
+                    <div class="col-md-3 col-xs-12 edit">
                         <p>
                             {{ comment.createdAt|date('d.m.Y H:i') }}
                         </p>
                         <p>
+                            <a href="{{ path('oktothek_comment_delete', {'comment': comment.id}) }}">
+                                {{ 'oktothek.backend_index_delete_link'|trans|raw }}
+                            </a>
                             {% if comment.canBeEdited %}
                                 <a href="{{ path('oktothek_comment_edit', {'comment': comment.id}) }}">
                                     {{ 'oktothek.backend_index_edit_link'|trans|raw }}
                                 </a>
                             {% endif %}
-                            <a href="{{ path('oktothek_comment_delete', {'comment': comment.id}) }}">
-                                {{ 'oktothek.backend_index_delete_link'|trans|raw }}
-                            </a>
                         </p>
                     </div>
                 </li>
@@ -83,6 +84,7 @@
         <div class="navigation">
             {{ knp_pagination_render(comments) }}
         </div>
+
     </section>
     {% endblock %}
     {% block stylesheets %}
