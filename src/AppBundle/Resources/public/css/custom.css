@@ -2595,7 +2595,7 @@ figcaption h3 {
 	margin:0;
 }
 body.help h2 {
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom:20px;
 }
 body.help .help-action-container h2 {
@@ -2613,6 +2613,9 @@ body.help .help-action-container h2 {
     }
     h2:first-child {
 	    margin-top:10px;
+    }
+    body.help h2 {
+        margin-top: 100px;
     }
 }
 
