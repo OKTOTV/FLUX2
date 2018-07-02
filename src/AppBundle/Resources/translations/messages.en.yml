@@ -1,0 +1,60 @@
+# FLUX2
+# FLUX2
+# misc
+Previous:   Previous
+Next:       Next
+
+oktothek.info_webtitle_not_found:       "No series found for this URL"
+
+# app/Resources/TwigBundle/views/Exception/error404.html.twig
+oktothek.error404_default_message:      "Maybe the search can help you find what you are looking for"
+
+# app/Resources/TwigBundle/views/Exception/error.html.twig
+oktothek.error_default_message:         "Maybe the search can help you find what you are looking for"
+# layout.html.twig
+oktothek_layout_navigation:             "Show/hide navigation"
+oktothek_layout_search:                 "Show/hide search"
+oktothek_layout_flashmessage_close:     "Close"
+
+# oktothek
+oktothek_more_results:                  "Show all"
+
+## menu
+oktothek.menu_oktothek:                             "Oktothek"
+oktothek.menu_tv:                                   "TV"
+oktothek.menu_participate:                          "Participate"
+oktothek.menu_academy:                              "Workshops"
+oktothek.menu_upload:                               "Upload"
+oktothek.menu_upload_title:                         "Upload your project"
+oktothek.menu_backend:                              '<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Backend'
+oktothek.menu_user_playlists:                       '<span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Playlisten'
+oktothek.menu_user_channels:                        '<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Abos'
+oktothek.menu_user_favorites:                       '<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favorites'
+oktothek.menu_my_channels:                          '<span class="glyphicon glyphicon-film" aria-hidden="true"></span> My series'
+oktothek.menu_user_logout:                          '<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout'
+oktothek.menu_user_notifications:                   '<span class="icon icon-transmitter-active"></span>'
+oktothek.menu_user_notifications_empty:             '<span class="icon icon-transmitter"></span>'
+oktothek.menu_user_no_notifications:                "No unread notifications"
+oktothek.menu_user_settings_notifications:          "Hier kannst du deine Abos verwalten."
+oktothek.menu_user_set_all_notifications_to_read:   "Mark all as read"
+oktothek.menu_user_show_all_notifications:          "Show all"
+oktothek.searchfiled_submit:                        '<span class="glyphicon glyphicon-search"></span>'
+oktothek.menu_tag_dropdown:                         'Themes <span class="caret">'
+oktothek.menu_best_tags:                            "Beliebteste Themen"
+oktothek.menu_notification_xs:                      "Notification"
+oktothek.menu_user_notifications_title:             "Notifications"
+oktothek.menu_user_comments:                        '<span class="glyphicon glyphicon-comment"></span> My comments'
+oktothek.menu_pages:                                '<span class="glyphicon glyphicon-book" aria-hidden="true"></span> Pages'
+oktothek.menu_statistics:                           '<span class="glyphicon glyphicon-save"></span> Statistics'
+oktothek.menu_user_privacy_policy:                  '<span class="glyphicon glyphicon-flag"></span> Privacy policy'
+
+
+oktothek.footer_home:                               "Home"
+oktothek.footer_news:                               "News"
+oktothek.footer_series:                             "Series"
+oktothek.footer_contact:                            "Contact"
+oktothek.footer_help:                               "Help"
+oktothek.footer_imprint:                            "Impressum"
+oktothek.footer_privacy_policy:                     "Privacy policy"
+
+oktothek.footer_agb:                                "Terms of service"
