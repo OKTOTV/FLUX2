@@ -3045,7 +3045,12 @@ li.pin {
 }
 article.post figure {
     padding-left:15px;
+ 
     padding-right:15px;
+}
+.clip_overview .row {
+    margin-right:-30px;
+    margin-left:-30px;
 }
 .pin .overlay {
         position: static;
@@ -3060,6 +3065,9 @@ article.post figure {
     left:10px;
     padding:1px 5px;
     top:5px;
+}
+#episode-tag-stack .more.pull-right {
+    margin-right: -10px;
 }
 
 @media (min-width: 768px) {
@@ -3101,6 +3109,9 @@ article.post figure {
     .pin .overlay .online {
         left:15px;
         top:28px;
+    }
+    #episode-tag-stack .more.pull-right {
+        margin-right: 0px;
     }
     
 }

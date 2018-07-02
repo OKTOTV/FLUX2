@@ -35,12 +35,12 @@
                     </div>
                 </div>
             </div>
-            <ul class="row" itemscope="itemscope" itemtype="http://schema.org/ItemList">
-            {% for series in seriess %}
-                {% include 'AppBundle:series:_thumb.html.twig' with {render_description: 'true'} %}
-            {% endfor %}
-           </ul>
         </div>
+        <ul class="row" itemscope="itemscope" itemtype="http://schema.org/ItemList">
+        {% for series in seriess %}
+            {% include 'AppBundle:series:_thumb.html.twig' with {render_description: 'true'} %}
+        {% endfor %}
+        </ul>
         <div class="row">
             <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
                 <div class="navigation">
