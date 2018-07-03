@@ -100,7 +100,7 @@ body.series .news-pin article.post figure {
     padding-left:0px;
     padding-right:0px;
 }
-body.series .news-pin article .misc {
+body.series .news-pin article .misc, body.newsarchiv .news-container article .misc {
     margin-top:20px;
 }
 body.series .news-pin article {

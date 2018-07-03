@@ -1692,7 +1692,8 @@ body.producer aside .description,
 .login fieldset, footer nav, 
 .livestream #current_show header, 
 body.help section.initiation,
-body.help section.features  {
+body.help section.features,
+body.user header {
 	background-repeat:no-repeat;
 	background-position:bottom center;
 	background-image:url(../images/section_border_small.png);
@@ -1950,7 +1951,8 @@ body.playlists section:first-child,
     .login fieldset, footer nav, 
     .livestream #current_show header,
     body.help section.initiation,
-    body.help section.features  {
+    body.help section.features,
+    body.user header {
 	    background-repeat:no-repeat;
 	    background-position:bottom center;
 	    background-image:url(../images/section_border.png);
@@ -2684,6 +2686,8 @@ section {
 }
 section, header.page-header {
 	margin-bottom:40px;
+}
+section, header.page-header, body.user header.page-header {
 	padding-bottom:40px;
 }
 header.page-header {
@@ -3049,8 +3053,8 @@ article.post figure {
     padding-right:15px;
 }
 .clip_overview .row {
-    margin-right:-30px;
-    margin-left:-30px;
+    margin-right:-15px;
+    margin-left:-15px;
 }
 .pin .overlay {
         position: static;

@@ -5,25 +5,25 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "" %}
+{% set body_class = "user" %}
 {% block body_main %}
     <header class="page-header">
         <h1>{{ user.username }}</h1>
     </header>
     {% if playlists is not empty %}
-    <section class="container">
+    <section>
         <h2>{{ 'oktothek_user_playlist_header'|trans }}</h2>
         {% include 'AppBundle:default/Playlist:PlaylistStack.html.twig' with {'playlists': playlists, 'pager_url': path('oktothek_user_playlists', {'username': user.username})} %}
     </section>
     {% endif %}
     {% if favorites is not empty %}
-    <section class="container">
+    <section>
         <h2>{{ 'oktothek_user_favorites_header'|trans }}</h2>
         {% include 'AppBundle:default:EpisodeStack.html.twig' with {'episodes': favorites, 'pager_url': path('oktothek_user_favorites', {'username': user.username})} %}
     </section>
     {% endif %}
     {% if channels is not empty %}
-    <section class="container">
+    <section>
         <h2>{{ 'oktothek_user_abonnements_header'|trans }}</h2>
         {% include 'AppBundle:user:channelStack.html.twig' with {'seriess': channels, 'pager_url': path('oktothek_user_channels', {'username': user.username})} %}
     </section>
