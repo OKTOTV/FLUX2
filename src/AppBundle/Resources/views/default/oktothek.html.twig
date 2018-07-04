@@ -38,7 +38,7 @@
                             <svg width="40" height="40" viewbox="0 0 40 40" preserveAspectRatio="xMinYMid" class="visible-xs-block">
                                 <image xlink:href="{{ asset('bundles/app/images/oktothek/participart_question.svg')}}" src="{{ asset('bundles/app/images/oktothek/figure_oktonaut.png')}}" alt="{{ 'oktothek_default_participate_view_clips'|trans }}" width="40" height="40" style="width:100%;height:auto;" />
                             </svg>
-                            <figcaption><h3>Wie funktioniert das Oktoversum?</h3><p>Hier findest du einen hilfreichen Überblick der gesamten Features.<br><a href="{{ path('help') }}">Überblick ansehen</a></p></figcaption></figure></a>
+                            <figcaption><h3>{{ 'oktothek_default_participate_login_sub_header'|trans }}</h3><p>{{ 'oktothek_default_participate_login_sub_description'|trans }}<br><a href="{{ path('help') }}">{{ 'oktothek_default_participate_login_sub_link'|trans }}</a></p></figcaption></figure></a>
                         </li>
                     </ul>
                 </div>
@@ -49,8 +49,8 @@
                 <p class="aligncenter subheadline" itemprop="description">{{ 'oktothek_default_participate_sub'|trans }}</p>
                 <div class="aligncenter button_container" itemscope="itemscope" itemtype="http://schema.org/RegisterAction">
                 <meta itemprop="name" content="{{ 'oktothek_default_participate'|trans }}" />
-                <meta itemprop="description" content="{{ 'oktothek_default_participate_sub'|trans }} {{ 'oktothek_default_participate_view_clips_title'|trans }} Mitdiskutieren und Playlisten erstellen." />
-                <a href="{{ path('help') }}" class="btn btn-default but-full" itemprop="object"><span class="passive">{{'oktothek_default_participate_login'|trans }}</span><span class="active">und sei dabei!</span></a></div>
+                <meta itemprop="description" content="{{ 'oktothek_default_participate_meta_description'|trans }}" />
+                <a href="{{ path('help') }}" class="btn btn-default but-full" itemprop="object"><span class="passive">{{'oktothek_default_participate_login'|trans }}</span><span class="active">{{'oktothek_default_participate_login_part2'|trans }}</span></a></div>
                 <ul class="participart-list clearfix">
                   <li><a href="#show_clips" class="anchor" itemprop="significantLink"><figure data-target="#view_clips">
                     <svg width="100" height="100" viewbox="0 0 100 100" preserveAspectRatio="xMinYMid">
