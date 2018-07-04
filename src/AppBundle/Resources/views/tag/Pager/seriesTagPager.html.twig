@@ -5,29 +5,31 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "clip_overview" %}
+{% set body_class = "clip_overview fullscreen-background" %}
 {% block body %}
 <div id="top"></div>
-    <div class="container-fluid">
-        <div class="bg-bleur"></div>
-        <header class="container page-header">
-            <h1>{{ 'oktothek.tag_pager_series_header'|trans({'%tag%': tag}) }}</h1>
-            {% include "AppBundle:default:_share.html.twig" with {'show_button': true} %}
-        </header>
-        </div>
-    <section class="container">
-        <div class="row navigation pager-row">
-            {{ knp_pagination_render(seriess) }}
-        </div>
-        <div>
-            {% for series in seriess %}
-                {% include "AppBundle:default:Series/SeriesThumb.html.twig" %}
-            {% endfor %}
-        </div>
-        <div class="row navigation">
-            {{ knp_pagination_render(seriess) }}
-        </div>
-    </section>
+<div class="container-fluid">
+    <div class="bg-bleur"></div>
+    <header class="container page-header">
+        <h1>{{ 'oktothek.tag_pager_series_header'|trans({'%tag%': tag}) }}</h1>
+        {% include "AppBundle:default:_share.html.twig" with {'show_button': true} %}
+    </header>
+    <div class="container content-bg">
+        <section>
+            <div class="row navigation pager-row">
+                {{ knp_pagination_render(seriess) }}
+            </div>
+            <div>
+                {% for series in seriess %}
+                    {% include "AppBundle:default:Series/SeriesThumb.html.twig" %}
+                {% endfor %}
+            </div>
+            <div class="row navigation">
+                {{ knp_pagination_render(seriess) }}
+            </div>
+        </section>
+    </div>
+</div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

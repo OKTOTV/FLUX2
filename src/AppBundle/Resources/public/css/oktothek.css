@@ -203,14 +203,14 @@ body.oktothek .news-pin {
 .oktothek .participart-list li:last-child {
 	margin-right:0px;
 }
+.oktothek ul.participart-list-login {
+    margin-bottom: 0;
+}
 .oktothek .participart-list-login li svg {
     float:left;
 }
 .oktothek ul.participart-list-login {
     padding:0 5px;
-}
-.oktothek .participart-list-login li figure {
-    min-height: 140px;
 }
 .oktothek ul.participart-list-login svg {
     margin-left:6px;
@@ -250,6 +250,9 @@ body.oktothek .helptext {
     }
     .oktothek .participart .but-full span.active {
         margin-top:4px;
+    }
+    .oktothek .participart-list-login li figure {
+        min-height: 140px;
     }
     body.oktothek .participart-list li {
 	    width:140px;

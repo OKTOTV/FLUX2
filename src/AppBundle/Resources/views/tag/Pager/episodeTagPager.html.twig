@@ -5,44 +5,46 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "clip_overview" %}
+{% set body_class = "clip_overview fullscreen-background" %}
 {% block body %}
 <div id="top"></div>
-    <div class="container-fluid">
-        <div class="bg-bleur"></div>
+<div class="container-fluid">
+    <div class="bg-bleur"></div>
         <header class="container page-header">
             <h1>{{ 'oktothek.tag_pager_episode_header'|trans({'%tag%': tag}) }}</h1>
             {% include "AppBundle:default:_share.html.twig" with {'show_button': true} %}
         </header>
-        </div>
-        <section class="container">
-            <div class="row pager-row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        {{ 'oktothek.user_favorites_filter'|trans|raw }}
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="filter_menu">
-                        <li {% if episodes.isSorted('e.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_name'|trans, 'e.name') }}</li>
-                        <li {% if episodes.isSorted('e.firstranAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_firstranAt'|trans, 'e.firstranAt') }}</li>
-                    </ul>
+        <div class="container content-bg">
+            <section>
+                <div class="row pager-row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="filter_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            {{ 'oktothek.user_favorites_filter'|trans|raw }}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="filter_menu">
+                                <li {% if episodes.isSorted('e.name') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_name'|trans, 'e.name') }}</li>
+                                <li {% if episodes.isSorted('e.firstranAt') %}class="active"{% endif %}>{{ knp_pagination_sortable(episodes, 'oktothek.favorite_index_filter_firstranAt'|trans, 'e.firstranAt') }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hidden-xs hidden-sm col-md-6 col-lg-6 navigation">
+                    {{ knp_pagination_render(episodes) }}
+                    </div>
                 </div>
-            </div>
-            <div class="hidden-xs hidden-sm col-md-6 col-lg-6 navigation">
-                {{ knp_pagination_render(episodes) }}
-            </div>
+                <ul class="row" itemscope="itemscope" itemtype="http://schema.org/ItemList">
+            {% for episode in episodes %}
+                {% include "AppBundle:episode:EpisodeThumb.html.twig" %}
+            {% endfor %}
+                </ul>
+                <div class="row">
+                    <div class="navigation">
+                 {{ knp_pagination_render(episodes) }}
+                    </div>
+                </div>
+            </section>
         </div>
-        <ul class="row">
-        {% for episode in episodes %}
-            {% include "AppBundle:episode:EpisodeThumb.html.twig" %}
-        {% endfor %}
-        </ul>
-        <div class="row">
-            <div class="navigation">
-                {{ knp_pagination_render(episodes) }}
-            </div>
-        </div>
-        </section>
+    </div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
@@ -51,4 +53,11 @@
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('bundles/app/css/collapse_windows.css') }}" rel="stylesheet" />
+    <style type="text/css">
+        .bg-bleur {
+            {% if tag.episodes is not empty %}
+                background-image:url( {{ tag.episodes[0].posterframe(true)|thumb(720,1280) }});
+            {% endif %}
+        }
+    </style>
 {% endblock %}

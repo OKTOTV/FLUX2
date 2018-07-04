@@ -121,6 +121,8 @@ oktothek.mail.data_usage_confirmation_imprint:      "IMPRESSUM"
 # src/AppBundle/Resources/views/Mail/welcome.html.twig
 oktothek.mail.welcome_imprint:                      "IMPRESSUM"
 
+# templates/bundles/BprsUserBundle/email/iforgot.html.twig
+
 ## Search
 ### results.html.twig
 oktothek_search_courses_header:         "Workshops"
@@ -225,6 +227,9 @@ oktothek_default_participate_equipment_title:   "Hier kannst du dir das Equipmen
 oktothek_default_participate_upload:            "Produktion hochladen"
 oktothek_default_participate_upload_title:      "Dein Video ist bereit zum Herzeigen? Du kannst es hier hochladen."
 oktothek_default_useless_fancy_button:          "Hier!"
+
+### help.html.twig
+oktothek_default_participate_meta_description:  "Wie erstelle ich einen Account und welche Vorteile bringt es Teil Okto-Community zu sein? Hier findest du die Antworten! Alle Features des Oktoversums, wie zum Beispiel das Erstellen und Teilen von Playlists, das Verwalten deiner Abos oder das Teilen von Videos in deine sozialen Netzwerke oder werden in diesem Bereich genau erklärt."
 
 ### footer.html.twig
 oktothek_default_footer_back_to_top:    'Nach oben <span class="icon icon-top"></span>'
@@ -576,6 +581,7 @@ oktothek_right_dsgvo:   |
     <p>Okto Community TV GmbH<br>+43 1 786 2442<br>pr@okto.tv</p>
 oktothek_more_rights_dsgvo:   |
     <p>Die Datenschutzerklärung für unsere gesamte Website finden Sie hier: <a href="%privacy_policy_link%">Datenschutzerklärung</a></p>
+
 ## default agb.html.twig
 oktothek_tos_title:     "Nutzungsbedingungen | OKTO"
 oktothek_tos: |
