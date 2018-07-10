@@ -1,8 +1,8 @@
 {% extends "BprsStyleBundle::layout.html.twig" %}
 {% block metas %}
-<meta name="description" content="{{ 'oktothek_default__meta_description'|trans }}">
+<meta name="description" content="{{ 'oktothek_help_meta_description'|trans }}">
 {% endblock %}
-{% block title %}So funktioniert das Oktoversum{#{ 'oktothek_participate_title'|trans }#}{% endblock %}
+{% block title %}{{ 'oktothek_help'|trans }}{% endblock %}
 
 {% block nav_head%}
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': '', 'dropdown': ''} %}
@@ -12,26 +12,26 @@
 {% block body %}
     <div id="top"></div>
     <div id="link-new-account">
-    <a href="{{ path('register') }}">Hier kannst du einen neuen Account anlegen <span></span></a>
+    <a href="{{ path('register') }}">{{ 'oktothek_help_register_link'|trans|raw }}</a>
     </div>
     <header class="page-header">
-        <h1 itemprop="headline">Willkommen im Oktoversum!</h1>
+        <h1 itemprop="headline">{{ 'oktothek_help_header'|trans }}</h1>
     </header>
     <div class="container-fluid">
         <section class="container initiation">
-            <p class="subheadline">Die neuesten Clips, beliebte Videos, aktuelle Playlisten und Newsbeiträge warten darauf, von dir entdeckt zu werden. Durch das Erstellen eines Accounts hast du die Möglichkeit deine eigenen Interessenschwerpunkte hervorzuheben und dir so ein individuelles Programm zusammenzustellen.</p>
-            <p class="subheadline">Bist du neu im Oktoversum? Hier kannst du dich ganz einfach registrieren:</p>
+            <p class="subheadline">{{ 'oktothek_help_subheader'|trans }}</p>
+            <p class="subheadline">{{ 'oktothek_help_register_text'|trans }}</p>
             <p class="subheadline" id="register-button"><a href="{{ path('register') }}" class="btn btn-default but-full">{{ 'oktothek.login_register'|trans }}</a></p>
         </section>
         <section class="container">
-            <p class="subheadline">Welche Möglichkeiten du damit hast, siehst du hier:</p>
+            <p class="subheadline">{{ 'oktothek_help_header_video'|trans }}</p>
             <div id="player"></div>
         </section>
         <section class="features">
-            <p class="subheadline">Wie es genau funktioniert, möchten wir dir hier zeigen:</p>
+            <p class="subheadline">{{ 'oktothek_help_header_content'|trans }}</p>
             <div id="help-experience-container">
-                <h2 id="help-experience-h2">Erleben</h2>
-                <p class="subheadline">Auf unserer Startseite hast du einen Überblick über</p>
+                <h2 id="help-experience-h2">{{ 'oktothek_help_header_erleben'|trans }}</h2>
+                <p class="subheadline">{{ 'oktothek_help_subheader_erleben'|trans }}</p>
                 <div id="linecontainer-1">
                     <div class="part-container">
                         <div class="part1">
@@ -56,15 +56,15 @@
                 </div>
                 <div class="container">
                     <ul class="row help-experience">
-                        <li class="col-md-4 col-sm-6 col-xs-12"><a href="https://okto.tv/de/news/"><figure><img src="{{ asset('bundles/app/images/help/newsbereich.jpg')}}" alt="Newsbereich, Startseite Oktothek"/><figcaption><h3>Newsbeitr&auml;ge</h3></figcaption></figure></a></li>
-                        <li class="col-md-4 col-sm-6 col-xs-12"><a href="https://okto.tv/de/oktothek/trending_episodes"><figure><img src="{{ asset('bundles/app/images/help/neueste_und_trendige_videos.jpg')}}" alt="Trending Clips Bereich und Neueste Clips, Startseite Oktothek"/><figcaption><h3>Die neuesten und beliebtesten Videos</h3></figcaption></figure></a></li>
-                        <li class="col-md-4 col-sm-6 col-xs-12"><a href="https://okto.tv/de/playlist/"><figure><img src="{{ asset('bundles/app/images/help/playlisten.jpg')}}" alt="Playlisten, Startseite Oktothek"/><figcaption><h3>und Playlisten</h3></figcaption></figure></a></li>
+                        <li class="col-md-4 col-sm-6 col-xs-12"><a href="https://okto.tv/de/news/"><figure><img src="{{ asset('bundles/app/images/help/newsbereich.jpg')}}" alt="{{ 'oktothek_help_alt_newsbeitraege'|trans }}"/><figcaption><h3>{{ 'oktothek_help_newsbeitraege'|trans }}</h3></figcaption></figure></a></li>
+                        <li class="col-md-4 col-sm-6 col-xs-12"><a href="https://okto.tv/de/oktothek/trending_episodes"><figure><img src="{{ asset('bundles/app/images/help/neueste_und_trendige_videos.jpg')}}" alt="{{ 'oktothek_help_alt_trending_und_neueste_Clips'|trans }}"/><figcaption><h3>{{ 'oktothek_help_trending_und_neueste_Clips'|trans }}</h3></figcaption></figure></a></li>
+                        <li class="col-md-4 col-sm-6 col-xs-12"><a href="https://okto.tv/de/playlist/"><figure><img src="{{ asset('bundles/app/images/help/playlisten.jpg')}}" alt="{{ 'oktothek_help_alt_playlisten'|trans }}"/><figcaption><h3>{{ 'oktothek_help_playlisten'|trans }}</h3></figcaption></figure></a></li>
                     </ul>
                 </div>
             </div>
             <div id="help-participate-container">
-                <h2>Mitmachen</h2>
-                <p class="subheadline">Die Episoden- und Sendereihenseite bietet auch einiges</p>
+                <h2>{{ 'oktothek_help_mitmachen'|trans }}</h2>
+                <p class="subheadline">{{ 'oktothek_help_subheader_mitmachen'|trans }}</p>
                 <div id="linecontainer-2">
                     <div class="part1">
                         <div></div>
@@ -126,8 +126,8 @@
                     <ul class="row help-participate">
                         <li>
                             <figure>
-                                <span><svg width="56" height="54" viewbox="0 0 57 54" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_like.svg')}}" src="{{ asset('bundles/app/images/help/icon_like.png')}}" alt="Button Lieblingsfolgen liken, Episode Oktothek" width="57" height="54" /></svg></span>
-                                <figcaption><div class="triangle"></div><div>Like deine Lieblingsfolgen und teile Clips oder Playlisten auf Facebook, Twitter, Google+, Pinterest oder per E-Mail.</div></figcaption>
+                                <span><svg width="56" height="54" viewbox="0 0 57 54" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_like.svg')}}" src="{{ asset('bundles/app/images/help/icon_like.png')}}" alt="{{ 'oktothek_help_mitmachen_alt_socialnetwork'|trans }}" width="57" height="54" /></svg></span>
+                                <figcaption><div class="triangle"></div><div>{{ 'oktothek_help_mitmachen_socialnetwork'|trans }}</div></figcaption>
                             </figure>
                             <div id="circle1_outer">
                                 <svg id="circle_1" data-name="circle 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160.94 82.75"><defs><style>.cls-1a,.cls-1b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-1a{stroke:#95c124;}.cls-1b{stroke:#d24290;}</style></defs><title>circle1</title><path class="cls-1a" d="M1.88,83A81.06,81.06,0,0,1,83.08,2.1" transform="translate(-0.38 -0.59)"/><path class="cls-1b" d="M9.35,83.35a75.24,75.24,0,1,1,150.47-.25" transform="translate(-0.38 -0.59)"/></svg>
@@ -135,9 +135,9 @@
                         </li>
                         <li>
                             <figure>
-                                <span><svg width="101" height="29" viewbox="0 0 101 29" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_abbonieren.svg')}}" src="{{ asset('bundles/app/images/help/icon_abbonieren.png')}}" alt="Button Lieblingssendungen abbonieren, Episode Oktothek" width="101" height="29" /></svg></span>
+                                <span><svg width="101" height="29" viewbox="0 0 101 29" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_abbonieren.svg')}}" src="{{ asset('bundles/app/images/help/icon_abbonieren.png')}}" alt="{{ 'oktothek_help_mitmachen_alt_abbonieren'|trans }}" width="101" height="29" /></svg></span>
                                 <figcaption>
-                                    <div>Abonniere deine Lieblingssendungen, damit du über die neusten Aktivitäten informiert bist.</div>
+                                    <div>{{ 'oktothek_help_mitmachen_abbonieren'|trans }}</div>
                                     <div class="triangle"></div>
                                 </figcaption>
                             </figure>
@@ -147,8 +147,8 @@
                         </li>
                         <li>
                             <figure>
-                                <span><svg width="101" height="29" viewbox="0 0 101 29" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_hinzufuegen.svg')}}" src="{{ asset('bundles/app/images/help/icon_hinzufuegen.png')}}" alt="Button: zu Playlisten hinzu fügen, Episode Oktothek" width="101" height="29" /></svg></span>
-                                <figcaption><div class="triangle"></div><div>Erstelle deine eigenen Playlisten mit Folgenhighlights aus unterschiedlichen Sendungen.</div></figcaption>
+                                <span><svg width="101" height="29" viewbox="0 0 101 29" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_hinzufuegen.svg')}}" src="{{ asset('bundles/app/images/help/icon_hinzufuegen.png')}}" alt="{{ 'oktothek_help_mitmachen_alt_playlisten_hinzufuegen'|trans }}" width="101" height="29" /></svg></span>
+                                <figcaption><div class="triangle"></div><div>{{ 'oktothek_help_mitmachen_playlisten_hinzufuegen'|trans }}</div></figcaption>
                             </figure>
                             <div id="circle3_outer">
                                 <svg id="circle_3" data-name="circle 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140.92 161.17"><defs><style>.cls-c3a,.cls-c3b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-c3a{stroke:#fdcf19;}.cls-c3b{stroke:#6fc7d8;}</style></defs><title>circle3</title><path class="cls-c3a" d="M21.95,27.67A80.24,80.24,0,0,1,80.28,2" transform="translate(-20.85 -0.5)"/><path class="cls-c3b" d="M160.26,80.15a78.77,78.77,0,0,1-77.5,80" transform="translate(-20.85 -0.5)"/></svg>
@@ -156,8 +156,8 @@
                         </li>
                         <li>
                             <figure>
-                                <span><svg width="101" height="29" viewbox="0 0 101 29" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_teilen.svg')}}" src="{{ asset('bundles/app/images/help/icon_teilen.png')}}" alt="Button Videos in sozialen Netzwerken teilen, Oktothek" width="101" height="29" /></svg></span>
-                                <figcaption><div>Du kannst die Videos auch direkt in die sozialen Netzwerke einbetten.</div><div class="triangle"></div></figcaption>
+                                <span><svg width="101" height="29" viewbox="0 0 101 29" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_teilen.svg')}}" src="{{ asset('bundles/app/images/help/icon_teilen.png')}}" alt="{{ 'oktothek_help_mitmachen_alt_videos_teilen'|trans }}" width="101" height="29" /></svg></span>
+                                <figcaption><div>{{ 'oktothek_help_mitmachen_videos_teilen'|trans }}</div><div class="triangle"></div></figcaption>
                             </figure>
                             <div id="circle4_outer">
                                 <svg id="circle_4" data-name="circle 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.19 83.16"><defs><style>.cls-c4a,.cls-c4b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-c4a{stroke:#6fc7d8;}.cls-c4b{stroke:#d24290;}</style></defs><title>circle4</title><path class="cls-c4a" d="M160.08,78.34A80.36,80.36,0,0,1,81,160" transform="translate(-0.4 -78.32)"/><path class="cls-c4b" d="M155,78.34A76.57,76.57,0,0,1,1.9,78.6" transform="translate(-0.4 -78.32)"/></svg>
@@ -165,8 +165,8 @@
                         </li>
                         <li>
                             <figure>
-                                <span><svg width="131" height="131" viewbox="0 0 131 131" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_comments.svg')}}" src="{{ asset('bundles/app/images/help/icon_comments.png')}}" alt="Button Kommentare zu Videos verfassen, Episode Oktothek" width="131" height="131" /></svg></span>
-                                <figcaption><div class="triangle"></div><div>Verfasse Kommentare zu einzelnen Episoden und trete in einen Diskurs mit der Community.</div></figcaption>
+                                <span><svg width="131" height="131" viewbox="0 0 131 131" preserveAspectRatio="xMinYMid"><image xlink:href="{{ asset('bundles/app/images/help/icon_comments.svg')}}" src="{{ asset('bundles/app/images/help/icon_comments.png')}}" alt="{{ 'oktothek_help_mitmachen_alt_kommentare'|trans }}" width="131" height="131" /></svg></span>
+                                <figcaption><div class="triangle"></div><div>{{ 'oktothek_help_mitmachen_kommentare'|trans }}</div></figcaption>
                             </figure>
                             <div id="circle5_outer">
                                 <svg id="circle_5" data-name="circle 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.13 83.45"><defs><style>.cls-c5a,.cls-c5b{fill:none;stroke-miterlimit:10;stroke-width:3px;}.cls-c5a{stroke:#fdcf19;}.cls-c5b{stroke:#6fc7d8;}</style></defs><title>circle5</title><path class="cls-c5a" d="M79.35,1.79a81.38,81.38,0,0,1,80.81,81.94" transform="translate(-0.53 -0.29)"/><path class="cls-c5b" d="M2,83.49a75.53,75.53,0,1,1,151.06.23" transform="translate(-0.53 -0.29)"/></svg>
@@ -176,7 +176,7 @@
                 </div>
             </div>
             <div id="help-action-container">
-                <h2>Aktiv werden</h2>
+                <h2>{{ 'oktothek_help_aktiv_werden'|trans }}</h2>
                 <div id="linecontainer-3">
                     <div class="part1">
                         <div class="line line1"></div>
@@ -197,17 +197,17 @@
                 <div class="container">
                     <ul class="row help-action">
                         <li class="col-md-6 col-sm-12">
-                            <figure><a href="http://intake.okto.tv/" target="_blank"><img src="{{ asset('bundles/app/images/help/intake.png')}}" alt="Intake Startseite"/><div class="menu-text">Hochladen</div></a>
+                            <figure><a href="http://intake.okto.tv/" target="_blank"><img src="{{ asset('bundles/app/images/help/intake.png')}}" alt="{{ 'oktothek_help_aktiv_werden_alt_hochladen'|trans }}"/><div class="menu-text">{{ 'oktothek_help_aktiv_werden_hochladen'|trans }}</div></a>
                                 <figcaption>
-                                    <h3><a href="http://intake.okto.tv/" target="_blank">Intake</a></h3>
-                                    <p>Du hast eine eigene Idee und möchtest deinen selbstproduzierten Clip im TV ausstrahlen? Dann nutze das Okto-Intake auf unserer Homepage zum Hochladen deiner eigenproduzierten Videos.</p>
+                                    <h3><a href="http://intake.okto.tv/" target="_blank">{{ 'oktothek_help_aktiv_werden_intake'|trans }}</a></h3>
+                                    <p>{{ 'oktothek_help_aktiv_werden_description_intake'|trans }}</p>
                                 </figcaption>
                             </figure>
                         </li>
                         <li class="col-md-6 col-sm-12">
-                            <figure><a href="https://okto.tv/de/workshops/"><img src="{{ asset('bundles/app/images/help/workshops.jpg')}}" alt="Workshops Startseite"/><div class="menu-text">Workshops</div></a>
-                                <figcaption><h3><a href="https://okto.tv/de/workshops/">Workshops</a></h3>
-                                    <p>Wir bieten ebenfalls unterschiedliche Medienworkshops an, damit du dein Knowhow erweitern kannst. Das komplette Kursangebot ist online ersichtlich. Du kannst dich direkt über unsere Homepage für die Workshops anmelden, egal ob von zu Hause oder unterwegs mit dem Handy.</p>
+                            <figure><a href="https://okto.tv/de/workshops/"><img src="{{ asset('bundles/app/images/help/workshops.jpg')}}" alt={{ 'oktothek_help_aktiv_werden_alt_workshops'|trans }}"/><div class="menu-text">{{ 'oktothek_help_aktiv_werden_workshops'|trans }}</div></a>
+                                <figcaption><h3><a href="https://okto.tv/de/workshops/">{{ 'oktothek_help_aktiv_werden_workshops'|trans }}</a></h3>
+                                    <p>{{ 'oktothek_help_aktiv_werden_description_workshops'|trans }}</p>
                                 </figcaption>
                             </figure>
                         </li>
@@ -216,15 +216,7 @@
             </div>
         </section>
         <section class="container">
-            <p>
-                Als nichtkommerzielles Unternehmen ist es für uns selbstverständlich, dass deine Daten weder gespeichert noch an Dritte weitergegeben werden, du aber dennoch die Vorteile einer zeitgemäßen Anbindung an Facebook & Co. genießen kannst.
-            </p>
-            <p>
-                Bei Fragen oder Problemen schreibe uns eine E-Mail an <a href="mailto:support@okto.tv">support@okto.tv</a>.
-            </p>
-            <p>
-                Und jetzt: Viel Spaß im Oktoversum!
-            </p>
+            {{ 'oktothek_help_datenschutz'|trans|markdown }}
         </section>
     </div>
 {% endblock %}

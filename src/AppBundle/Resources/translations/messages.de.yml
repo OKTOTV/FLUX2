@@ -158,11 +158,18 @@ oktothek.episode_stack_collapse_title:  "Mehr Videos anzeigen"
 
 oktothek.newest_episodes_title:         "Neueste Clips in der Oktothek | OKTO"
 oktothek.newest_episodes_header:        "Neueste Clips"
+oktothek.newest_episodes_sr_subheader:  "Episoden"
 oktothek.best_episodes_title:           "Beliebteste Clips in der Oktothek | OKTO"
 oktothek.best_episodes_header:          "Beliebteste Clips"
+oktothek.best_episodes_sr_subheader:    "Episoden"
 oktothek.trending_episodes_title:       "Trending Clips in der Oktothek | OKTO"
 oktothek.trending_episodes_header:      "Trending Clips"
-## register
+oktothek.trending_episodes_sr_subheader:  "Episoden"
+
+## register / register.html.twig
+oktothek_register_header:               "Registrieren"
+oktothek_register_sub_description:      "Die neuesten Clips, beliebte Videos, aktuelle Playlisten und Newsbeiträge warten darauf, von dir entdeckt zu werden. Durch das Erstellen eines Accounts hast du die Möglichkeit deine eigenen Interessenschwerpunkte hervorzuheben und dir so ein individuelles Programm zusammenzustellen."
+oktothek_register_sub_headline:         "Hier kannst du dich ganz einfach registrieren:"
 oktothek.user_register_title:           "Der Community beitreten | OKTO"
 oktothek.user_name_label:               "Benutzername"
 oktothek.user_name_placeholder:         "Dein selbstgewählter Benutzername"
@@ -206,18 +213,19 @@ oktothek.searchfield_label:             "Suche"
 oktothek_default_meta_description:              "Okto macht Platz für dich und deine Ideen. Wir bieten dir die optimale Unterstützung für die Entwicklung deiner Sendungsidee und bieten dir auf unserer Homepage die ultimative Plattform für die Verbreitung deiner Clips. Melde dich an, diskutiere, teile, lerne - mach mit und werde Teil unserer Community!"
 oktothek_default_welcome:                       "Willkommen %username%!"
 oktothek_default_sub_welcome:                   "Unsere neuesten und beliebtesten Clips, sowie spannende Newsbeitrage warten darauf von dir entdeckt zu werden. Gestalte das Programm nach deinen Vorlieben in einer Playlist oder teile deine Lieblingssendungen mit der restlichen Welt."
+oktothek_default_participate_meta_description:      "Du platzt vor Ideen? Dann bist du bei uns richtig! Eintauchen in die Oktothek und Videos ansehen. Mitdiskutieren und Playlisten erstellen."
 
 oktothek.your_abos:                             "Deine Abos"
 oktothek.your_abos_show_more:                   "Mehr Videos aus den Abos <span class='icon'>+</span>"
 
 oktothek.your_abos_blogposts:                   "News von den Blogs"
 
-### participate.html.twig
-oktothek_default_participate_meta_description:  "Werde Oktonaut! Alle Möglichkeiten bei Okto mitzumachen findest du hier."
 oktothek_default_participate:                   "Mitmachen"
+oktothek_default_participate_meta_description:  "Werde Oktonaut! Alle Möglichkeiten bei Okto mitzumachen findest du hier."
 oktothek_default_participate_header:            'Mitmachen<span class="sr-only"> beim Community TV Sender Okto</span> <span class="icon participant-arrow-down jump">Hier!</span>'
 oktothek_default_participate_sub:               "Du platzt vor Ideen? Dann bist du bei uns richtig!"
 oktothek_default_participate_login:             "Melde Dich an!"
+oktothek_default_participate_login_part2:       "und sei dabei!"
 oktothek_default_participate_view_clips:        "Clips ansehen"
 oktothek_default_participate_view_clips_title:  "Eintauchen in die Oktothek und Videos ansehen."
 oktothek_default_participate_5_steps:           "5 Schritte zur eigenen Sendung"
@@ -227,9 +235,9 @@ oktothek_default_participate_equipment_title:   "Hier kannst du dir das Equipmen
 oktothek_default_participate_upload:            "Produktion hochladen"
 oktothek_default_participate_upload_title:      "Dein Video ist bereit zum Herzeigen? Du kannst es hier hochladen."
 oktothek_default_useless_fancy_button:          "Hier!"
-
-### help.html.twig
-oktothek_default_participate_meta_description:  "Wie erstelle ich einen Account und welche Vorteile bringt es Teil Okto-Community zu sein? Hier findest du die Antworten! Alle Features des Oktoversums, wie zum Beispiel das Erstellen und Teilen von Playlists, das Verwalten deiner Abos oder das Teilen von Videos in deine sozialen Netzwerke oder werden in diesem Bereich genau erklärt."
+oktothek_default_participate_login_sub_header:  "Wie funktioniert das Oktoversum?"
+oktothek_default_participate_login_sub_description:  "Hier findest du einen hilfreichen Überblick der gesamten Features."
+oktothek_default_participate_login_sub_link:    "Überblick ansehen"
 
 ### footer.html.twig
 oktothek_default_footer_back_to_top:    'Nach oben <span class="icon icon-top"></span>'
@@ -247,6 +255,15 @@ oktothek_default_footer_partner:        "Partner"
 ## news post
 # AppBundle/Resources/views/News/news.html.twig
 oktothek_news_index_title:              "TV-Tipps und Neuigkeiten aus der Community | OKTO"
+oktothek_news_sn_title:                 "SOCIAL NETWORKS"
+oktothek_news_sn_description:           "Folgen Sie uns auf:"
+oktothek_news_sn_title_facebook:        "Okto auf Facebook"
+oktothek_news_sn_title_twitter:         "Okto auf Twitter"
+oktothek_news_sn_title_instagramm:      "Okto auf Instagramm"
+oktothek_news_sn_title_youtube:         "Okto auf YouTube"
+
+# AppBundle/Resources/views/news/post.html.twig
+oktothek_posts_share:                   "Teilen"
 
 ## form labels
 oktothek.post_name_label:               "Titel"
@@ -347,6 +364,7 @@ oktothek.playlist_show_next_video:      "Nächstes Video"
 oktothek_playlist_thumb_creator:        "Erstellt von %user%"
 oktothek_playlist_thumb_creator_title:  "mehr über User %user%"
 oktothek_playlist_thumb_img_title:      "erstes Posterframe von %playlist%"
+oktothek_playlist_thumb_ansehen:        "%playlist% ansehen"
 
 ## episode
 oktothek.episode_show_playlist_header:  Playlisten
@@ -377,6 +395,7 @@ oktothek.comment_create_error:          "Dein Kommentar konnte nicht gepostet we
 oktothek.comment_send_button:           "Kommentar senden"
 oktothek_comment_edit:                  "Bearbeiten"
 oktothek_comment_answer:                "Antworten"
+oktothek_comment_answer_title:          "Antwort schreiben"
 
 oktothek.comment_update_success:        "Kommentar erfolgreich bearbeitet"
 oktothek.comment_delete_success:        "Kommentar erfolgreich gelöscht"
@@ -647,8 +666,75 @@ oktothek_tv_program_repetition_date:    "d.m.Y, H:i"
 oktothek_tv_current_long:               "%series% - %episode%"
 oktothek_tv_current_short:              "%series%"
 oktothek_tv_current_time:               "Seit %time%"
-## participate
+
+## participate.html.twig
+oktothek_participate_meta_description:  "Werde Oktonaut! Alle Möglichkeiten bei Okto mitzumachen findest du hier."
 oktothek_participate_title:             "Informationen für alle die mitmachen wollen | OKTO"
+oktothek_participate_sr_header:         "Oktoversum"
+oktothek_participate_nav_close:         "Schließen"
+oktothek_participate_praktikantinnen_header:   "PraktikantInnen"
+oktothek_participate_praktikantinnen_link1:   "PraktikantInnenblog"
+oktothek_participate_praktikantinnen_link2:   "Bewirb dich jetzt!"
+oktothek_participate_perspektivenwechsel_header:   "Perspektivenwechsel"
+oktothek_participate_perspektivenwechsel_link1:   "Erlebe Wien in 360°"
+oktothek_participate_kontakt_header:   "Kontakt"
+oktothek_participate_kontakt_link1:   "Kontakt"
+oktothek_participate_kontakt_link2:   "Feedback"
+oktothek_participate_workshops_header:   "Workshops"
+oktothek_participate_workshops_link1:   "Jetzt Kurse buchen"
+oktothek_participate_workshops_link2:   "Komm zum Infoabend!"
+oktothek_participate_produzentinnen_header:   "ProduzentInnen"
+oktothek_participate_produzentinnen_link1:   "Jetzt Sendung abgeben!"
+oktothek_participate_produzentinnen_link2:   "Das schwarze Brett"
+oktothek_participate_produzentinnen_link3:   "Die fünf Schritte zur Sendung"
+
+### help.html.twig
+oktothek_help_meta_description:  "Wie erstelle ich einen Account und welche Vorteile bringt es Teil Okto-Community zu sein? Hier findest du die Antworten! Alle Features des Oktoversums, wie zum Beispiel das Erstellen und Teilen von Playlists, das Verwalten deiner Abos oder das Teilen von Videos in deine sozialen Netzwerke oder werden in diesem Bereich genau erklärt."
+oktothek_help:  "So funktioniert das Oktoversum"
+oktothek_help_register_link:  "Hier kannst du einen neuen Account anlegen <span></span>"
+oktothek_help_header:  "Willkommen im Oktoversum!"
+oktothek_help_subheader:  "Die neuesten Clips, beliebte Videos, aktuelle Playlisten und Newsbeiträge warten darauf, von dir entdeckt zu werden. Durch das Erstellen eines Accounts hast du die Möglichkeit deine eigenen Interessenschwerpunkte hervorzuheben und dir so ein individuelles Programm zusammenzustellen."
+oktothek_help_register_text:  "Bist du neu im Oktoversum? Hier kannst du dich ganz einfach registrieren:"
+oktothek_help_header_video:  "Welche Möglichkeiten du damit hast, siehst du hier:"
+oktothek_help_header_content:  "Wie es genau funktioniert, möchten wir dir hier zeigen:"
+oktothek_help_header_erleben:  "Erleben"
+oktothek_help_subheader_erleben:  "Auf unserer Startseite hast du einen Überblick über"
+oktothek_help_newsbeitraege:  "Newsbeiträge"
+oktothek_help_alt_newsbeitraege:  "Newsbereich, Startseite Oktothek"
+oktothek_help_trending_und_neueste_Clips:  "Die neuesten und beliebtesten Videos"
+oktothek_help_alt_trending_und_neueste_Clips:  "Trending Clips Bereich und Neueste Clips, Startseite Oktothek"
+oktothek_help_playlisten:  "und Playlisten"
+oktothek_help_alt_playlisten:  "Playlisten, Startseite Oktothek"
+oktothek_help_mitmachen:  "Mitmachen"
+oktothek_help_subheader_mitmachen:  "Die Episoden- und Sendereihenseite bietet auch einiges"
+oktothek_help_mitmachen_alt_socialnetwork:  "Button Lieblingsfolgen liken, Episode Oktothek"
+oktothek_help_mitmachen_socialnetwork:  "Like deine Lieblingsfolgen und teile Clips oder Playlisten auf Facebook, Twitter, Google+, Pinterest oder per E-Mail."
+oktothek_help_mitmachen_alt_abbonieren:  "Button Lieblingssendungen abbonieren, Episode Oktothek"
+oktothek_help_mitmachen_abbonieren:  "Abonniere deine Lieblingssendungen, damit du über die neusten Aktivitäten informiert bist."
+oktothek_help_mitmachen_alt_playlisten_hinzufuegen:  "Button: zu Playlisten hinzu fügen, Episode Oktothek"
+oktothek_help_mitmachen_playlisten_hinzufuegen:  "Erstelle deine eigenen Playlisten mit Folgenhighlights aus unterschiedlichen Sendungen."
+oktothek_help_mitmachen_alt_videos_teilen:  "Button Videos in sozialen Netzwerken teilen, Oktothek"
+oktothek_help_mitmachen_videos_teilen:  "Du kannst die Videos auch direkt in die sozialen Netzwerke einbetten."
+oktothek_help_mitmachen_alt_kommentare:  "Button Kommentare zu Videos verfassen, Episode Oktothek"
+oktothek_help_mitmachen_kommentare:  "Verfasse Kommentare zu einzelnen Episoden und trete in einen Diskurs mit der Community."
+oktothek_help_aktiv_werden:  "Aktiv werden"
+oktothek_help_aktiv_werden_alt_hochladen:  "Intake Startseite"
+oktothek_help_aktiv_werden_hochladen:  "Hochladen"
+oktothek_help_aktiv_werden_intake:  "Intake"
+oktothek_help_aktiv_werden_description_intake:  "Du hast eine eigene Idee und möchtest deinen selbstproduzierten Clip im TV ausstrahlen? Dann nutze das Okto-Intake auf unserer Homepage zum Hochladen deiner eigenproduzierten Videos."
+oktothek_help_aktiv_werden_alt_workshops:  "Workshops Startseite"
+oktothek_help_aktiv_werden_workshops:  "Workshops"
+oktothek_help_aktiv_werden_description_workshops:  "Wir bieten ebenfalls unterschiedliche Medienworkshops an, damit du dein Knowhow erweitern kannst. Das komplette Kursangebot ist online ersichtlich. Du kannst dich direkt über unsere Homepage für die Workshops anmelden, egal ob von zu Hause oder unterwegs mit dem Handy."
+oktothek_help_datenschutz:   |
+      <p>
+        Als nichtkommerzielles Unternehmen ist es für uns selbstverständlich, dass deine Daten weder gespeichert noch an Dritte weitergegeben werden, du aber dennoch die Vorteile einer zeitgemäßen Anbindung an Facebook & Co. genießen kannst.
+      </p>
+      <p>
+        Bei Fragen oder Problemen schreibe uns eine E-Mail an <a href="mailto:support@okto.tv">support@okto.tv</a>.
+      </p>
+      <p>
+        Und jetzt: Viel Spaß im Oktoversum!
+      </p>
 
 ## backend
 oktothek.backend_header:                Administrationsbereich
@@ -1141,11 +1227,10 @@ oktothek_share_pint:                        Pinterest
 oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420&nbsp;x&nbsp;315px eingebettet."
 oktothek_share_embed:                       Einbetten
 
-## register.html.twig
-oktothek_register_header:                   "Registrieren"
-
 ## Resources/views/Default/slider.html.twig
 oktothek_author_of_slides:                  "Okto Marketing"
+oktothek_default_slider_sr_vorher:          "Vorher"
+oktothek_default_slider_sr_naechster:       "Nächster"
 
 ## _share.html.twig
 oktothek_default_share_title_fb:            "Link auf Facebook teilen"
@@ -1280,6 +1365,11 @@ oktothek.episode_show_firstRanAt:           "Folge von %day%, %date%"
 oktothek.episode_show_firstRanAt_dateformat: "d.m.Y"
 oktothek.episode_show_firstRanAt_day_choice: "{1} Mo |{2} Di |{3} Mi |{4} Do |{5} Fr |{6} Sa |{7} So"
 oktothek.episode_info_views:                "Views"
+oktothek.episode_user_subscribe_title:          "%series% abbonieren"
+oktothek.episode_user_unsubscribe_title:     "%series% nicht mehr abbonieren"
+oktothek.episode_add_to_playlist_title:     "%episode% zur Playlist hinzufügen"
+oktothek.episode_add_to_playlist:           "Hinzufügen"
+oktothek.episode_share:                     "Teilen"
 oktothek_export_episode_statistics:         '<span class="glyphicon glyphicon-save" aria-hidden="true"></span> Episodenstatistik'
 
 # app/Resources/OktoMediaBundle/views/Episode/index.html.twig
