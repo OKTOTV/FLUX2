@@ -12,9 +12,9 @@
             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_TWITTER') == reachme.type %}
                 <li><a href="{{ reachme.uri }}" class="icon-twitter" target="_blank"><span>{{ 'oktothek_series_reachmestack_tw'|trans }}</span></a></li>
             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_INST') == reachme.type %}
-                <li><a href="{{ reachme.uri }}" class="icon-instagram" target="_blank"><span>{{ 'oktothek_series_reachmestack_inst'|trans }}</span></a></li>
+                <li><a href="{{ reachme.uri }}" class="icon-instagramm" target="_blank"><span>{{ 'oktothek_series_reachmestack_inst'|trans }}</span></a></li>
             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_GP') == reachme.type %}
-                <li><a href="{{ reachme.uri }}" class="icon-google+" target="_blank"><span>{{ 'oktothek_series_reachmestack_gp'|trans }}</span></a></li>
+                <li><a href="{{ reachme.uri }}" class="icon-googleplus" target="_blank"><span>{{ 'oktothek_series_reachmestack_gp'|trans }}</span></a></li>
             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_MAIL') == reachme.type %}
             {% elseif ('Okto\\MediaBundle\\Entity\\Reachme::TYPE_LINK') == reachme.type%}
                 <li><a href="{{ reachme.uri }}" class="icon-link" target="_blank"><span>{{ 'oktothek_series_reachmestack_link'|trans }}</span></a></li>

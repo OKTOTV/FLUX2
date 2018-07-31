@@ -1758,6 +1758,10 @@ a:hover .small-arrow-right, a:focus .small-arrow-right {
 	background-image:url(../images/icon_youtube.png);
     background-image: url("../images/icon_youtube.svg"), none;
 }
+.socialnetworks .icon-link {
+	background-image:url(../images/icon_links.png);
+    background-image: url("../images/icon_links.svg"), none;
+}
 .pin .pin-icon, 
 .playlists .mini-player {
 	background-repeat:no-repeat;
@@ -2919,6 +2923,7 @@ body.news .newsletter .input-group .form-control {
 /* Socialnetworkbuttons */
 .socialnetworks li {
 	display:inline;
+    padding: 0 2px;
 }
 .socialnetworks ul {
     width:auto;

@@ -87,20 +87,20 @@
             <li href="" class="list-group-item description">
                 <h3 class="list-group-item-heading">{{ 'oktothek.series_producer_reachmes'|trans }}</h3>
                 <p class="list-group-item-text">
-                    <ul class="socialnetworks">
+                    <ul class="socialnetworks clearfix">
                         {% for reachme in series.reachmes %}
                             {% if constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_MAIL') == reachme.type %}
                                 <li><strong>{{ 'oktothek.series_producer_contact'|trans }}</strong>: {{ reachme.uri }}</li>
                             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_FB') == reachme.type %}
-                                <li><a href="{{ reachme.uri }}" class="icon-facebook" target="_blank"><span>{{ 'oktothek_series_reachmestack_fb'|trans }}</span></a> <div>{{ reachme.uri }}</div></li>
+                                <li><a href="{{ reachme.uri }}" class="icon-facebook" target="_blank"><span>{{ 'oktothek_series_reachmestack_fb'|trans }}</span></a> <div><a href="{{ reachme.uri }}"target="_blank">{{ reachme.uri }}</a></div></li>
                             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_TWITTER') == reachme.type %}
-                                <li><a href="{{ reachme.uri }}" class="icon-twitter" target="_blank"><span>{{ 'oktothek_series_reachmestack_tw'|trans }}</span></a> <div>{{ reachme.uri }}</div></li>
+                                <li><a href="{{ reachme.uri }}" class="icon-twitter" target="_blank"><span>{{ 'oktothek_series_reachmestack_tw'|trans }}</span></a> <div><a href="{{ reachme.uri }}" target="_blank">{{ reachme.uri }}</a></div></li>
                             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_INST') == reachme.type %}
-                                <li><a href="{{ reachme.uri }}" class="icon-instagram" target="_blank"><span>{{ 'oktothek_series_reachmestack_inst'|trans }}</span></a> <div>{{ reachme.uri }}</div></li>
+                                <li><a href="{{ reachme.uri }}" class="icon-instagramm" target="_blank"><span>{{ 'oktothek_series_reachmestack_inst'|trans }}</span></a> <div><a href="{{ reachme.uri }}" target="_blank">{{ reachme.uri }}</a></div></li>
                             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_GP') == reachme.type %}
-                                <li><a href="{{ reachme.uri }}" class="icon-google+" target="_blank"><span>{{ 'oktothek_series_reachmestack_gp'|trans }}</span></a> <div>{{ reachme.uri }}</div></li>
+                                <li><a href="{{ reachme.uri }}" class="icon-googleplus" target="_blank"><span>{{ 'oktothek_series_reachmestack_gp'|trans }}</span></a> <div><a href="{{ reachme.uri }}" target="_blank">{{ reachme.uri }}</a></div></li>
                             {% else %}
-                                <li>{{ 'reachme_type_transchoice'|transchoice(reachme.type) }} - {{ reachme.uri }}</li>
+                                <li><a href="{{ reachme.uri }}" target="_blank" class="icon-link"><span>{{ 'reachme_type_transchoice'|transchoice(reachme.type) }}</span></a> <div>{{ 'reachme_type_transchoice'|transchoice(reachme.type) }}:<br><a href="{{ reachme.uri }}" target="_blank">{{ reachme.uri }}</a></div></li>
                             {% endif %}
                         {% endfor %}
                     </ul>
