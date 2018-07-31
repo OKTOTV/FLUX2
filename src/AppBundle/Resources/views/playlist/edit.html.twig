@@ -29,7 +29,7 @@
             {% for item in form.items %}
             <li class="row">
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-                    <img src="{{ item.vars.value.episode.posterframe(true)|thumb(135,240)}}" class="img img-responsive" alt="Posterframe von {{ item.vars.value.episode.name }}" />
+                    <img src="{{ item.vars.value.episode.posterframe(true)|thumb(135,240)}}" class="img img-responsive" alt="{{ 'oktothek_playlist_episode_posterframe'|trans({'%episode%': item.vars.value.episode.name}) }}" />
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
                     <a href="{{ path('oktothek_show_episode', {'uniqID': item.vars.value.episode.uniqID})}}">

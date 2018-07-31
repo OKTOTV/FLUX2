@@ -90,15 +90,15 @@
                     <ul class="socialnetworks">
                         {% for reachme in series.reachmes %}
                             {% if constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_MAIL') == reachme.type %}
-                                <li><strong>Kontakt:</strong>: {{ reachme.uri }}</li>
+                                <li><strong>{{ 'oktothek.series_producer_contact'|trans }}</strong>: {{ reachme.uri }}</li>
                             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_FB') == reachme.type %}
-                                <li><a href="{{ reachme.uri }}" class="icon-facebook" target="_blank"><span>Facebook</span></a> <div>{{ reachme.uri }}</div></li>
+                                <li><a href="{{ reachme.uri }}" class="icon-facebook" target="_blank"><span>{{ 'oktothek_series_reachmestack_fb'|trans }}</span></a> <div>{{ reachme.uri }}</div></li>
                             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_TWITTER') == reachme.type %}
-                                <li><a href="{{ reachme.uri }}" class="icon-twitter" target="_blank"><span>Twitter</span></a> <div>{{ reachme.uri }}</div></li>
+                                <li><a href="{{ reachme.uri }}" class="icon-twitter" target="_blank"><span>{{ 'oktothek_series_reachmestack_tw'|trans }}</span></a> <div>{{ reachme.uri }}</div></li>
                             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_INST') == reachme.type %}
-                                <li><a href="{{ reachme.uri }}" class="icon-instagram" target="_blank"><span>Instagram</span></a> <div>{{ reachme.uri }}</div></li>
+                                <li><a href="{{ reachme.uri }}" class="icon-instagram" target="_blank"><span>{{ 'oktothek_series_reachmestack_inst'|trans }}</span></a> <div>{{ reachme.uri }}</div></li>
                             {% elseif constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_GP') == reachme.type %}
-                                <li><a href="{{ reachme.uri }}" class="icon-google+" target="_blank"><span>Google+</span></a> <div>{{ reachme.uri }}</div></li>
+                                <li><a href="{{ reachme.uri }}" class="icon-google+" target="_blank"><span>{{ 'oktothek_series_reachmestack_gp'|trans }}</span></a> <div>{{ reachme.uri }}</div></li>
                             {% else %}
                                 <li>{{ 'reachme_type_transchoice'|transchoice(reachme.type) }} - {{ reachme.uri }}</li>
                             {% endif %}

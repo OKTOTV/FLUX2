@@ -24,10 +24,10 @@
                 <div class="content-opacity">
                     <button class="btn transparent pull-right btn-close"><span class="icon-close" aria-hidden="true" style="display: block;">×</span></button>
                     <h1 itemprop="headline">{{ playlist.name }}</h1>
-                    <p class="author" itemprop="author">Erstellt von {{ playlist.user }}</p>
+                    <p class="author" itemprop="author">{{ 'oktothek.playlist_show_author'|trans({'%user%': playlist.user}) }}</p>
                     <p class="description" itemprop="description">{{ playlist.description }}</p>
-                    <p class="more clear-fix"><button id="StartPlaylist_small" class="btn btn-default visible-xs-inline"><span class="glyphicon glyphicon-play"> </span></button> <a class="more pull-right" href="#">weiterlesen</a></p>
-                    <p class="misc hidden-xs"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> Playliste starten</button> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen">Teilen</button></p>
+                    <p class="more clear-fix"><button id="StartPlaylist_small" class="btn btn-default visible-xs-inline"><span class="glyphicon glyphicon-play"> </span></button> <a class="more pull-right" href="#">{{ 'oktothek.playlist_show_more'|trans }}</a></p>
+                    <p class="misc hidden-xs"><button id="StartPlaylist" class="btn btn-default"><span class="glyphicon glyphicon-play"> </span> {{ 'oktothek.playlist_show_start_playlist'|trans }}</button> <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{playlist.uniqID}}" title="{{ 'oktothek.playlist_show_share_title'|trans({'%playlist%': playlist.name}) }}">{{ 'oktothek.playlist_show_share'|trans }}</button></p>
                 </div>
             </header>
 		    <div class="playlist-buttons hidden-xs">
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="fs-image-misc-mobile">
-            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShareMobil" data-uniqID="{{playlist.uniqID}}" title="{{ playlist.name }} teilen"><span class="hidden-xs">Teilen</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShareMobil" data-uniqID="{{playlist.uniqID}}" title="{{ 'oktothek.playlist_show_share_title'|trans({'%playlist%': playlist.name}) }}"><span class="hidden-xs">{{ 'oktothek.playlist_show_share'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button>
                 <div class="playlist-minimized">
                     <button class="btn btn-default circle"><span>i</span></button>
                 </div>
@@ -59,9 +59,9 @@
 		  <article>
 		      <p class="series"><a href="#" title=""></a></p>
 		        <h2 class="name"></h2>
-			    <span class="time">online seit <span class="date"></span></span>
+			    <span class="time">{{ 'oktothek_playlist_online'|trans|raw }}</span>
 		        <p class="description"></p>
-                <p><a href="#" class="episodelink">Folgendetails</a></p>
+                <p><a href="#" class="episodelink">{{ 'oktothek_playlist_details'|trans }}</a></p>
             </article>
         </div>
     </section>

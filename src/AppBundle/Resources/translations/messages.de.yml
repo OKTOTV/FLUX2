@@ -305,6 +305,18 @@ oktothek.snippedEpisodeShare_title_gp:      "Auf Google+ teilen"
 oktothek.snippedEpisodeShare_title_pin:     "Auf Pinterest teilen"
 oktothek.snippedEpisodeShare_title_mail:    "Als E-Mail teilen"
 
+# AppBundle/Resources/views/Oktothek/snippetPlaylistShare.html.twig
+oktothek.snippedPlaylistShare_title_fb:      "Playlist auf Facebook teilen"
+oktothek.snippedPlaylistShare_title_tw:      "Playlist auf Twitter teilen"
+oktothek.snippedPlaylistShare_title_gp:      "Playlist auf Google Plus teilen"
+oktothek.snippedPlaylistShare_title_pin:     "Playlist auf Pinterest teilen"
+
+# AppBundle/Resources/views/Oktothek/snippetSeriesShare.html.twig
+oktothek.snippedSeriesShare_title_fb:      "Sendereihe auf Facebook teilen"
+oktothek.snippedSeriesShare_title_tw:      "Sendereihe auf Twitter teilen"
+oktothek.snippedSeriesShare_title_gp:      "Sendereihe auf Google Plus teilen"
+oktothek.snippedSeriesShare_title_pin:     "Sendereihe auf Pinterest teilen"
+
 ## page
 ### index page
 oktothek.backend_page_header:           "Seiten"
@@ -334,6 +346,7 @@ oktothek.page_edit_header:              "Seite bearbeiten"
 ## playlist
 ### index
 oktothek.playlist_index_header:             "Playlisten"
+oktothek.playlist_index_sr_header:          "Playlisten"
 oktothek.playlist_index_description:        "Über %count% Playlisten warten darauf, von dir entdeckt zu werden."
 oktothek.playlist_index_filter:             '<span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>'
 oktothek.playlist_index_filter_name:        "Name"
@@ -343,22 +356,33 @@ oktothek.playlist_index_new_playlist:       '<span class="glyphicon glyphicon-pl
 oktothek.playlist_show:                     "Playlist %playlist%"
 
 ### AppBundle/Resources/views/Playlist/edit.html.twig
-oktothek.playlist_edit_title:           "Playlist %playlist% bearbeiten | OKTO"
-oktothek.playlist_edit_header:          "Playlist bearbeiten"
-oktothek.playlist_delete_button:        <span class="glyphicon glyphicon-trash"></span> Playlist löschen
-oktothek.playlist_create_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Playliste anlegen
-oktothek.playlist_update_button:        <span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren
-oktothek.playlist_name_label:           Titel
-oktothek.playlist_description_label:    Beschreibung
-oktothek.playlist_items_label:          Folgen
-oktothek.playlist_search_label:         Folgensuche
-oktothek.error_edit_playlist:           Die Playlist konnte nicht gespeichert werden. Bitte überprüfe die Formularfelder
-oktothek.success_edit_playlist:         Wiedergabeliste erfolgreich aktualisiert
-oktothek.success_delete_playlist:       Wiedergabeliste erfolgreich gelöscht
-oktothek.playlist_delete_info:          Nicht zufrieden mit der Playlist? Hier kannst Du sie wieder löschen.
+oktothek.playlist_edit_title:           'Playlist %playlist% bearbeiten | OKTO'
+oktothek.playlist_edit_header:          'Playlist bearbeiten"'
+oktothek.playlist_delete_button:        '<span class="glyphicon glyphicon-trash"></span> Playlist löschen'
+oktothek.playlist_create_button:        '<span class="glyphicon glyphicon-floppy-disk"></span> Playliste anlegen'
+oktothek.playlist_update_button:        '<span class="glyphicon glyphicon-floppy-disk"></span> Aktualisieren'
+oktothek.playlist_name_label:           'Titel'
+oktothek.playlist_description_label:    'Beschreibung'
+oktothek.playlist_items_label:          'Folgen'
+oktothek.playlist_search_label:         'Folgensuche'
+oktothek_playlist_episode_posterframe:  'Posterframe von %episode%'
+oktothek_playlist_online:               'online seit <span class="date"></span>'
+oktothek_playlist_details:              'Folgendetails'
+oktothek.error_edit_playlist:           'Die Playlist konnte nicht gespeichert werden. Bitte überprüfe die Formularfelder'
+oktothek.success_edit_playlist:         'Wiedergabeliste erfolgreich aktualisiert'
+oktothek.success_delete_playlist:       'Wiedergabeliste erfolgreich gelöscht'
+oktothek.playlist_delete_info:          'Nicht zufrieden mit der Playlist? Hier kannst Du sie wieder löschen.'
+
+### new.html.twig
+oktothek.playlist_new_title:           'Neue Playlist erstellen | Okto'
 
 ### show.html.twig
 oktothek.playlist_show_next_video:      "Nächstes Video"
+oktothek.playlist_show_author:          "Erstellt von %user%"
+oktothek.playlist_show_more:            "weiterlesen"
+oktothek.playlist_show_start_playlist:  "Playliste starten"
+oktothek.playlist_show_share_title:     "%playlist% teilen"
+oktothek.playlist_show_share:           "Teilen"
 
 ## thumb
 oktothek_playlist_thumb_creator:        "Erstellt von %user%"
@@ -367,16 +391,18 @@ oktothek_playlist_thumb_img_title:      "erstes Posterframe von %playlist%"
 oktothek_playlist_thumb_ansehen:        "%playlist% ansehen"
 
 ## episode
-oktothek.episode_show_playlist_header:  Playlisten
-oktothek.episode_show_playlist_login_register: Du kannst Playlisten nur mit einem %link% verwalten
-oktothek.episode_show_playlist_login_register_link: Account
-oktothek.episode_show_playlist_no_playlists: Noch keine Playlisten angelegt
-oktothek.episode_show_update_playlists: Änderungen übernehmen
+oktothek.episode_show_playlist_header:  'Zu Playlisten hinzufügen'
+oktothek.episode_show_playlist_login_register: 'Du kannst Playlisten nur mit einem %link% verwalten'
+oktothek.episode_show_playlist_login_register_link: 'Account'
+oktothek.episode_show_playlist_no_playlists: 'Noch keine Playlisten angelegt'
+oktothek.episode_show_playlist_new_playlists: 'Neue Playlist erstellen'
+oktothek.episode_show_make_playlists: 'Erstellen'
+oktothek.episode_show_update_playlists: 'Änderungen übernehmen'
 oktothek.episode_comment_header:        '{0} <span class="no_comment">Gib als Erster einen Kommentar ab</span> |{1} Ein Kommentar |]1,Inf[ <span class="comments-counter">%count%</span> Kommentare'
-oktothek.more_from_this_series:         Mehr aus dieser Sendereihe
-oktothek.episode_tag_header:            Tags
-oktothek.success_publish_episode:       Episode veröffentlichen
-oktothek.episode_show_in_backend:       Im Backend anzeigen
+oktothek.more_from_this_series:         'Mehr aus dieser Sendereihe'
+oktothek.episode_tag_header:            'Tags'
+oktothek.success_publish_episode:       'Episode veröffentlichen'
+oktothek.episode_show_in_backend:       'Im Backend anzeigen'
 oktothek.episode_show_in_frontend:      '<span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Zum Frontend'
 oktothek.episode_title:                 "Backend %episode% | OKTO"
 oktothek.episode_title_fallback:        "Episode %uniqID%"
@@ -1200,32 +1226,32 @@ oktothek.success_delete_slide:              Slide erfolgreich gelöscht
 oktothek.success_update_slide:              Slide erfolgreich aktualisiert
 oktothek.error_update_slide:                Slide konnte nicht aktualisiert werden
 
-oktothek_backend_slide_from_episode:        <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Slide generieren
+oktothek_backend_slide_from_episode:        '<span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Slide generieren'
 
 # news
 ## index
-oktothek.backend_news_header:               Posts
-oktothek.backend_blogpost_header:           Blogposts von Sendereihen
-oktothek_backend_news_new:                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neuer Post
-oktothek.backend_files_header:              Promo Dateien
+oktothek.backend_news_header:               'Posts'
+oktothek.backend_blogpost_header:           'Blogposts von Sendereihen'
+oktothek_backend_news_new:                  '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Neuer Post'
+oktothek.backend_files_header:              'Promo Dateien'
 ## edit
-oktothek_backend_news_edit:                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Beitrag bearbeiten
-oktothek_backend_slide_from_news:           Slide generieren
+oktothek_backend_news_edit:                 '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Beitrag bearbeiten'
+oktothek_backend_slide_from_news:           'Slide generieren'
 
 # default (oktothek)
 oktothek_default_login_teaser:              "Melde dich an, um selbst eine Playlist zu erstellen und werde Teil der Okto Community!"
-oktothek_default_login_teaser_link:         ANMELDEN
-oktothek_default_newest_playlists_text:     Hier ist der heiße Scheiß!
+oktothek_default_login_teaser_link:         'ANMELDEN'
+oktothek_default_newest_playlists_text:     'Hier ist der heiße Scheiß!'
 
-oktothek_share_header:                      Teilen
-oktothek_share_email:                       E-Mail
-oktothek_share_fb:                          Facebook
-oktothek_share_tw:                          Twitter
-oktothek_share_gp:                          Google Plus
-oktothek_share_inst:                        Instagram
-oktothek_share_pint:                        Pinterest
-oktothek_share_helptext:                    "Das Video wird mit einer Größe von 420&nbsp;x&nbsp;315px eingebettet."
-oktothek_share_embed:                       Einbetten
+oktothek_share_header:                      'Teilen'
+oktothek_share_email:                       'E-Mail'
+oktothek_share_fb:                          'Facebook'
+oktothek_share_tw:                          'Twitter'
+oktothek_share_gp:                          'Google Plus'
+oktothek_share_inst:                        'Instagram'
+oktothek_share_pint:                        'Pinterest'
+oktothek_share_helptext:                    'Das Video wird mit einer Größe von 420&nbsp;x&nbsp;315px eingebettet.'
+oktothek_share_embed:                       'Einbetten'
 
 ## Resources/views/Default/slider.html.twig
 oktothek_author_of_slides:                  "Okto Marketing"
@@ -1261,6 +1287,7 @@ oktothek.series_producer_text:                      "Hier findest du allgemeine 
 oktothek.series_producer_description:               "Sendereihenbeschreibung"
 oktothek.series_producer_last_updated:              "Letztes Update"
 oktothek.series_producer_abonnements:               "Anzahl Abonnenten"
+oktothek.series_producer_contact:                  "Kontakt"
 oktothek.series_producer_reachmes:                  "Soziale Medien und Kontaktmöglichkeiten"
 oktothek.series_producer_episodes:                  "Verfügbare Episoden"
 oktothek.series_producer_playlists:                 "Verfügbare Playlisten"
@@ -1268,6 +1295,7 @@ oktothek.series_producer_newest_episode_comments:   "Aktuellste Episodenkommenta
 oktothek.series_producer_newest_blogpost_comments:  "Aktuellste Blogkommentare"
 oktothek.series_producer_newest_episodes:           "Letzte Episoden"
 oktothek.series_producer_newest_blogposts:          "Letzte Blogposts"
+
 
 # /src/AppBundle/views/Producer/producerHeader.html.twig
 oktothek_producer_header_general:           "Allgemein"
