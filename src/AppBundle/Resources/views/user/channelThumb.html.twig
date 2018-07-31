@@ -3,7 +3,7 @@
         <a href="{{ path('oktothek_show_series', {'uniqID': channel.series.uniqID}) }}" title="{{ channel.series.name }}"><img src="{{ channel.series.posterframe|thumb(303,539) }}" class="img-responsive"/></a>
         {#<div class="pin-icon"><span class="glyphicon glyphicon-heart"></span> {{ channel.series.abonnements|length }}</div>#}
         <figcaption>
-            <h3><a href="{{ path('oktothek_show_series', {'uniqID': channel.series.uniqID}) }}" title="{{ channel.series.name }} ansehen">{{ channel.series.name }}</a></h3>
+            <h3><a href="{{ path('oktothek_show_series', {'uniqID': channel.series.uniqID}) }}" title="{{ 'oktothek_user_channel_series_show'|trans({'%series%': channel.series.name}) }}">{{ channel.series.name }}</a></h3>
         </figcaption>
     </figure>
 </li>

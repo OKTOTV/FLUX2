@@ -132,10 +132,12 @@ oktothek_search_show_more_series_results:  "Mehr Sendereihen anzeigen"
 ### searchResultsForEpisodes.html.twig
 oktothek_search_episodes_results:           "Episoden mit '%phrase%' | OKTO"
 oktothek_search_episodes_results_header:    "Episoden mit '%phrase%'"
+oktothek_search_episodes_results_subheader: "Episoden"
 
 ### searchResultsForSeries.html.twig
 oktothek_search_series_results:           "Sendereihen mit '%phrase%' | OKTO"
 oktothek_search_series_results_header:    "Sendereihen mit '%phrase%'"
+oktothek_search_series_results_subheader: "Sendereihen"
 
 ## oktothek index
 oktothek.participate_header:            "Mitmachen"
@@ -456,8 +458,11 @@ oktothek.tag_index_header:              Tags
 oktothek_tag_pages_header:              Seiten
 oktothek_tag_header:                    "%title%"
 oktothek_tag_episode_header:            Folgen
+oktothek_tag_episodes_show:             %episode% ansehen
 oktothek_tag_series_header:             Sendereihen
 oktothek_tag_playlists_header:          Playlisten
+oktothek_tag_playlists_show:            %playlist% ansehen
+oktothek_tag_playlists_user_show:       Mehr über %user% erfahren
 oktothek_tag_posts_header:              Posts
 oktothek_tag_placeholder:               Katzen, YOLO and more
 oktothek.tag_new_button:                <span class="glyphicon glyphicon-plus"></span> Neuen Tag anlegen
@@ -692,6 +697,8 @@ oktothek_tv_program_repetition_date:    "d.m.Y, H:i"
 oktothek_tv_current_long:               "%series% - %episode%"
 oktothek_tv_current_short:              "%series%"
 oktothek_tv_current_time:               "Seit %time%"
+oktothek_tv_current_episode_title:      "Derzeit auf Okto"
+oktothek_tv_next_episode_title:         "Nächste Sendungen"
 
 ## participate.html.twig
 oktothek_participate_meta_description:  "Werde Oktonaut! Alle Möglichkeiten bei Okto mitzumachen findest du hier."
@@ -808,6 +815,12 @@ oktothek.series_reachmes_header:        Mehr Infos über %series% gibt es hier!
 oktothek.series_show_blog:              Zum Blog
 oktothek.series_more_blog_entries:      Mehr Blogeinträge
 oktothek.series_playlist_header:        "Vom Sendungsteam empfohlen"
+oktothek.series_show_more:              "weiterlesen"
+oktothek.series_share_title:            "Sendereihe teilen"
+oktothek.series_share_button:           "Teilen"
+oktothek.series_follow:                 "%series% abonnieren"
+oktothek_series_current_episode:         Aktuelle Folge
+oktothek_series_episode_link:            Zur Folge
 
 # Series/index.html.twig
 oktothek.index_series_title:            "Alle Sendereihen | OKTO"
@@ -820,6 +833,9 @@ oktothek.series_index_sort_updatedAt:   "Letzte Änderung"
 # Series/blogShow.html.twig
 oktothek_series_blogShow_title:         "%blogpost% | OKTO"
 
+# Series/episodes.html.twig
+oktothek_series_episodepager_subtitle:         "Episoden"
+
 # /src/AppBundle/Resources/views/Series/episodeStackOpen.html.twig
 oktothek_series_episodeStack_show_more: 'Mehr Videos anzeigen <span class="icon small-arrow-right">&nbsp;</span>'
 
@@ -828,6 +844,7 @@ oktothek_series_playlists_title:            "%series% Playlisten"
 oktothek.series_playlists_filter:           '<span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>'
 oktothek.series_playlists_name_filter:      "Name"
 oktothek.series_playlists_createdAt_filter: "Datum"
+oktothek.series_playlists_subtitle:         "Episoden"
 
 ## series blog
 oktothek.series_blog_header:            "%series%'s Blog"
@@ -840,6 +857,7 @@ oktothek_series_blogpost_stack_creator: '<a href="%link%">von %creator%</a>'
 oktothek_series_teaser_date:            "%day%, %date%"
 oktothek_series_teaser_day_choice:      "{1} Mo|{2} Di|{3} Mi|{4} Do|{5} Fr|{6} Sa|{7} So"
 oktothek_series_teaser_date_format:     "d.m.Y"
+oktothek_series_teaser_blog:            "%series% Team"
 
 ## series share
 oktothek_series.share_header:           "Teilen"
@@ -850,6 +868,7 @@ oktothek_series.share_pint:             "Pinterest"
 
 ## series reachme
 # Series/reachmeStack.html.twig
+oktothek_series_reachmestack_contact:     "Kontakt"
 oktothek_series_reachmestack_fb:          "Facebook"
 oktothek_series_reachmestack_tw:          "Twitter"
 oktothek_series_reachmestack_inst:        "Instagram"
@@ -1189,6 +1208,7 @@ oktothek_user_channels_series_header:       "Abonnierte Sendereihen"
 oktothek.user_channels_filter:              <span class="glyphicon glyphicon-sort-by-alphabet"></span> Sortieren <span class="caret"></span>
 oktothek_user_channel_filter_name:          Name
 oktothek_user_channel_filter_updatedAt:     Zuletzt aktualisiert
+oktothek_user_channel_series_show:          %series% ansehen
 
 ## abonnements
 oktothek_user_abonnements_title:            "Deine Abonnements | OKTO"

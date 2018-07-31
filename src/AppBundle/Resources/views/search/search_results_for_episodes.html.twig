@@ -16,7 +16,7 @@
                 {{ knp_pagination_render(episodes) }}
             </div>
         </div>
-        <h2 class="sr-only">Episoden</h2>
+        <h2 class="sr-only">{{ 'oktothek_search_episodes_results_subheader'|trans }}</h2>
         <ul class="row">
             {% for episode in episodes %}
                 {% include 'AppBundle:episode:EpisodeThumb.html.twig' %}

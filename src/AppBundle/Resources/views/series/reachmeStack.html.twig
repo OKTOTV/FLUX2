@@ -2,7 +2,7 @@
 <div>
     {% for reachme in reachmes %}
         {% if constant('Okto\\MediaBundle\\Entity\\Reachme::TYPE_MAIL') == reachme.type %}
-            <p class="contact"><strong>Kontakt:</strong> <a href="mailto:{{reachme.uri}}">{{reachme.uri}}</a></p>
+            <p class="contact"><strong>{{ 'oktothek_series_reachmestack_contact'|trans }}:</strong> <a href="mailto:{{reachme.uri}}">{{reachme.uri}}</a></p>
         {% endif %}
     {% endfor %}
     <ul class="socialnetworks">

@@ -1,6 +1,6 @@
 <section id="current_show">
     <header>
-        <p class="current-episode">Derzeit auf Okto</p>
+        <p class="current-episode">{{'oktothek_tv_current_episode_title'|trans }}</p>
         <h1 class="name">
             {% if current[0].name is not empty %}
                 {{'oktothek_tv_current_long'|trans({'%episode%': current[0].name, '%series%': current[0].series_name}) }}
@@ -11,7 +11,7 @@
         <time datetime="{{ current[0].airdate|date('Y-m-d H:i')}}">{{ 'oktothek_tv_current_time'|trans({'%time%': current[0].airdate|date('H:i')}) }}</time>
         <p class="description">{{ current[0].description }}</p>
     </header>
-    <h2>Nächste Sendungen</h2>
+    <h2>{{'oktothek_tv_next_episode_title'|trans }}</h2>
     <div class="next-episode-schedule hidden-xs">
     {% for next in current|slice(1) %}
         <article class="row pin">

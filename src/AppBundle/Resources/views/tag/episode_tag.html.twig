@@ -7,7 +7,7 @@
             <figure class="episode-pin pin" itemscope="itemscope" itemtype="http://schema.org/Episode">
                 <meta itemprop="thumbnailUrl" content="{{ episode.posterframe(true)|thumb(158,282) }}" />
                 <meta itemprop="datePublished" content="{{ episode.firstranAt|date('Y-m-d')}}" />
-                <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.name }} ansehen">
+                <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ 'oktothek_tag_episodes_show'|trans({'%episode%': episode.name}) }}">
                     <img src="{{ episode.posterframe(true)|thumb(309,550) }}" class="img-responsive" alt="{{ episode.name }} - {{ episode.series.name|default('') }}" itemprop="image"/>
                 </a>
                 {# hide views by edk, cj, gl
@@ -21,7 +21,7 @@
                     {% endif %}
                     <p>
                         {# {% if episode.isNew %}<span class="label label-default">{{ 'oktothek_episode_thumb_new_tag'|trans }}</span>{% endif %} #}
-                        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ episode.name }} ansehen" itemprop="url">
+                        <a href="{{ path('oktothek_show_episode', {'uniqID': episode.uniqID}) }}" title="{{ 'oktothek_tag_episodes_show'|trans({'%episode%': episode.name}) }}" itemprop="url">
                             <span itemprop="name">{{ episode.name }}</span>
                         </a>
                     </p>
