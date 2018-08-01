@@ -50,6 +50,9 @@ body.producer .statistic .list-group-item .pin, body.producer .statistic .list-g
 body.producer .row {
     padding-bottom:40px;
 }
+body.producer .comments .row {
+    padding-bottom:0px;
+}
 body.producer .tabs-content .row {
     margin-right:0;
     margin-left:0;

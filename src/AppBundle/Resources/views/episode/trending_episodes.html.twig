@@ -10,13 +10,13 @@
     <header class="page-header">
         <h1 itemprop="headline">{{ 'oktothek.trending_episodes_header'|trans }}</h1>
     </header>
-    <section class="container" itemscope="itemscope" itemtype="http://schema.org/VideoGallery">
+    <section itemscope="itemscope" itemtype="http://schema.org/VideoGallery">
     <div class="row pager-row">
         <div class="navigation">
             {{ knp_pagination_render(episodes) }}
         </div>
     </div>
-    <h2 class="sr-only">{{ 'oktothek.trending_episodes_header'|trans }}</h2>
+    <h2 class="sr-only">{{ 'oktothek.trending_episodes_sr_subheader'|trans }}</h2>
     <ul class="row" itemscope="itemscope" itemtype="http://schema.org/ItemList">
         {% for episode in episodes %}
             {% include 'AppBundle:episode:EpisodeThumb.html.twig' %}

@@ -55,7 +55,7 @@
         </header>
         <div itemprop="description">{{ post.description|markdown() }}</div>
         <p class="misc">
-            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="... teilen">Teilen</button>
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collape-{{ newsloop|default('1') }}" aria-expanded="false" aria-controls="collape-{{ newsloop|default('1') }}" id="ButtonShare" data-uniqID="#" title="{{ 'oktothek_posts_share'|trans }}">{{ 'oktothek_posts_share'|trans }}</button>
         </p>
     </div>
     {% include "AppBundle:news:_shareCollapse.html.twig" %}

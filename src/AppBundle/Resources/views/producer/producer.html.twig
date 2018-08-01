@@ -10,13 +10,12 @@
 {% block body_main %}
 
 {% include 'AppBundle::producer/producerHeader.html.twig' with {'active': 'producer_info', 'series': series} %}
-<section class="tabs-content">
+<div class="tabs-content">
 <p class="subheadline">{{ 'oktothek.series_producer_text'|trans }}</p>
 
 <div class="row">
     <main class="col-md-8">
-        <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }} <button class="btn btn-default updateNotifications pull-right" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span> Benachrichtigen</button></h3>
-        <section>
+        <section class="comments comment-pager">
         <h3>{{ 'oktothek.series_producer_newest_episode_comments'|trans }}</h3>
         <p><button class="btn btn-default updateNotifications" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button> Benachrichtigen wenn ein neuer Kommentar gepostet wurde.</p>
         {% for episodecomment in newest_episode_comments %}
@@ -124,7 +123,7 @@
         </ul>
     </aside>
 </div>
-</section>
+</div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

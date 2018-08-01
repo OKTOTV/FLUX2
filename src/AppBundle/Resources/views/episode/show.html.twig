@@ -85,13 +85,13 @@
                             {% set in_abo = true %}
                         {% endfor %}
                         {% if in_abo %}
-                            <li><button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button></li>
+                            <li><button type="button" class="btn btn-default" id="subscribe" title="{{ 'oktothek.episode_user_unsubscribe_title'|trans({'%series%': episode.series.name}) }}" data-subscribed="1">{{ 'oktothek_user_unsubscribe'|trans|raw }}</button></li>
                         {% else %}
-                            <li><button type="button" class="btn btn-default" id="subscribe" title="{{ episode.series.name }} abbonieren" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button></li>
+                            <li><button type="button" class="btn btn-default" id="subscribe" title="{{ 'oktothek.episode_user_subscribe_title'|trans({'%series%': episode.series.name}) }}" data-subscribed="0">{{ 'oktothek_user_subscribe'|trans|raw }}</button></li>
                         {% endif %}
-                        <li><button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} zur Playlist hinzuf&uuml;gen"><span class="hidden-xs">Hinzufügen</span><span class="visible-xs-inline glyphicon glyphicon-plus"></span></button></li>
+                        <li><button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapsePlaylistArea" aria-expanded="false" aria-controls="collapsePlaylistArea" id="ButtonPlaylist" data-uniqID="{{episode.uniqID}}" title="{{ 'oktothek.episode_add_to_playlist_title'|trans({'%episode%': episode.name}) }}"><span class="hidden-xs">{{ 'oktothek.episode_add_to_playlist'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-plus"></span></button></li>
                     {% endif %}
-                    <li><button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen"><span class="hidden-xs">Teilen</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button></li>
+                    <li><button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapseShareArea" aria-expanded="false" aria-controls="collapseShareArea" id="ButtonShare" data-uniqID="{{episode.uniqID}}" title="{{ episode.name }} teilen"><span class="hidden-xs">{{ 'oktothek.episode_share'|trans }}</span><span class="visible-xs-inline glyphicon glyphicon-share-alt"></span></button></li>
                 </ul>
                 <!-- Start Collapse Share-->
                 {% include 'AppBundle:oktothek:snippetEpisodeShare.html.twig' with {'episode': episode} %}

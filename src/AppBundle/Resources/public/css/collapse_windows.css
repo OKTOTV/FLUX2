@@ -10,7 +10,7 @@
 	display:inline;
 }
 .collapseShare .socialnetworks li {
-    padding:8px;
+    padding:2px;
     line-height: 48px;
     display: inline-block;
 }
@@ -39,8 +39,10 @@
 .tagpage .collapseShare, .tagpage .collapse-header div, .clip_overview .collapseShare, .clip_overview .collapse-header div {
 	margin:0 auto;
 }
-#collapseShare h3 { /* Überschrift Barrierefreiheit */
+#collapseShare h3, .news .collapse-content h3, body.newsarchiv .collapse-content h3, body.tagpage .collapse-content h3 { /* Überschrift Barrierefreiheit */
     margin-left: -9990px;
+    margin-top:0;
+    margin-bottom:0;
 }
 .collapsePlaylist ul, .collapsePlaylist li {
 	padding-left:0;
@@ -52,7 +54,7 @@
     margin-right:5px;
 }
 .collapseShare h3 {
-    margin-top:40px;
+    margin-top:20px;
 }
 .collapseShare .helptext {
 	padding-left:15px;
@@ -109,8 +111,9 @@
 .collapsePlaylist li button span {
     padding-left:0px;
 }
-.collapseShare form.col-md-7 {
+.collapseShare form  {
 	padding-left:0px;
+    padding-right: 0;
 }
 .less {
     display:none;
@@ -148,9 +151,11 @@ body.series .news-pin .collapse-header {
 section.blog .post > div.collapseShare {
     padding:0 10px;
 }
+body.tagpage .collapse-content .socialnetworks {
+    margin-left:0px;
+}
 @media (min-width: 580px) {
     .collapseShare .socialnetworks li {
-	    padding:0;
         line-height: auto;
         display:inline;
     }
@@ -168,6 +173,9 @@ section.blog .post > div.collapseShare {
     }
     section.blog .post > div.collapseShare {
         padding:0 15px;
+    }
+    body.tagpage .collapse-content .socialnetworks {
+        margin-left:10px;
     }
 }
 @media (min-width: 992px) {

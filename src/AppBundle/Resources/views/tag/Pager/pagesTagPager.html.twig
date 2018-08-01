@@ -5,27 +5,29 @@
     {% include 'BprsStyleBundle::menu.html.twig' with {'selected': 'oktothek', 'dropdown': ''} %}
 {% endblock %}
 
-{% set body_class = "clip_overview" %}
+{% set body_class = "clip_overview fullscreen-background" %}
 {% block body %}
 <div id="top"></div>
-    <div class="container-fluid">
-        <div class="bg-bleur"></div>
-        <header class="container page-header">
-            <h1>{{ 'oktothek.tag_pager_pages_header'|trans({'%tag%': tag}) }}</h1>
-            {% include "AppBundle:default:_share.html.twig" with {'show_button': true} %}
-        </header>
+<div class="container-fluid">
+    <div class="bg-bleur"></div>
+    <header class="container page-header">
+        <h1>{{ 'oktothek.tag_pager_pages_header'|trans({'%tag%': tag}) }}</h1>
+        {% include "AppBundle:default:_share.html.twig" with {'show_button': true} %}
+    </header>
+    <div class="container content-bg">
+        <section class="pager-row">
+            <div class="navigation row">
+                {{ knp_pagination_render(pages) }}
+            </div>
+            <div>
+                {% include 'AppBundle::page/PageStack.html.twig' with {'pages': pages} %}
+            </div>
+            <div class="navigation row">
+                {{ knp_pagination_render(pages) }}
+            </div>
+        </section>
     </div>
-    <section class="container pager-row">
-        <div class="navigation row">
-            {{ knp_pagination_render(pages) }}
-        </div>
-        <div>
-            {% include 'AppBundle::page/PageStack.html.twig' with {'pages': pages} %}
-        </div>
-        <div class="navigation row">
-            {{ knp_pagination_render(pages) }}
-        </div>
-    </section>
+</div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
