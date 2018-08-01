@@ -42,8 +42,8 @@ class Post implements CommentInterface
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Length(max=2500)
-     * @ORM\Column(name="description", type="text", length=2600)
+     * @Assert\Length(max=3500)
+     * @ORM\Column(name="description", type="text", length=3600)
      */
     private $description;
 
