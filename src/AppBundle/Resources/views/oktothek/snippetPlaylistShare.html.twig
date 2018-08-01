@@ -3,24 +3,24 @@
         <div class="triangle"></div>
     </div>
     <div class="collapse-content">
-        <h3>Teilen</h3>
+        <h3>{{ 'oktothek_share_header'|trans }}</h3>
         <div class="row">
             <form class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><input type="text" value="" class="form-control" id="sharingurl"></form>
             <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 share-buttons" itemscope="itemscope" itemtype="http://schema.org/ShareAction">
                 <ul class="socialnetworks">
                     {% set share_url = url('oktothek_show_playlist', {'uniqID': playlist.uniqID}) %}
-                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ playlist.name|url_encode }}" class="icon-facebook" target="_blank" title="Playlist auf Facebook teilen"><span itemprop="recipient">{{ 'oktothek_series.share_fb'|trans }}</span></a></li>
-                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="Playlist auf Twitter teilen"><span itemprop="recipient">{{ 'oktothek_series.share_tw'|trans }}</span></a></li>
-                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="Playlist auf Google Plus teilen"><span itemprop="recipient">{{ 'oktothek_series.share_gp'|trans }}</span></a></li>
-                    <li><a href="#" class="icon-pinterest" target="_blank" title="Playlist auf Pinterest teilen"><span itemprop="recipient">{{ 'oktothek_series.share_pint'|trans }}</span></a></li>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&t={{ playlist.name|url_encode }}" class="icon-facebook" target="_blank" title="{{ 'oktothek.snippedPlaylistShare_title_fb'|trans }}"><span itemprop="recipient">{{ 'oktothek_series.share_fb'|trans }}</span></a></li>
+                    <li><a href="https://twitter.com/oktotv" class="icon-twitter" target="_blank" title="{{ 'oktothek.snippedPlaylistShare_title_tw'|trans }}"><span itemprop="recipient">{{ 'oktothek_series.share_tw'|trans }}</span></a></li>
+                    <li><a href="https://plus.google.com/+CommunityTVGmbHWien" class="icon-googleplus" target="_blank" title="{{ 'oktothek.snippedPlaylistShare_title_gp'|trans }}"><span itemprop="recipient">{{ 'oktothek_series.share_gp'|trans }}</span></a></li>
+                    <li><a href="#" class="icon-pinterest" target="_blank" title="{{ 'oktothek.snippedPlaylistShare_title_pin'|trans }}"><span itemprop="recipient">{{ 'oktothek_series.share_pint'|trans }}</span></a></li>
                 </ul>
                 <a href="mailto:?to=&subject={{ playlist.name|url_encode }}&body={{ share_url }}" class="btn btn-default" itemprop="recipient">{{ 'oktothek_share_email'|trans }}</a>
             </div>
         </div>
-        <h3>Einbetten</h3>
+        <h3>{{ 'oktothek_share_embed'|trans }}</h3>
         <div class="row">
             <form class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><input type="text" value='<iframe width="420" height="315" src="{{ url('oktothek_embed_playlist', {'uniqID': playlist.uniqID})}}" frameborder="0" allowfullscreen></iframe>' class="form-control" id="embedurl"></form>
-            <div class="helptext">Das Video wird mit einer Größe von 420 x 315px eingebettet.</div>
+            <div class="helptext">{{ 'oktothek_share_helptext'|trans | raw }}</div>
         </div>
     </div>
 </div>

@@ -3,7 +3,7 @@
         <div class="triangle"></div>
     </div>
     <div class="collapse-content">
-        <h3>Zu {{ 'oktothek.episode_show_playlist_header'|trans }} hinzufügen</h3>
+        <h3>{{ 'oktothek.episode_show_playlist_header'|trans }}</h3>
 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_OKTOLAB_USER') %}
     {% if app.user.playlists|length > 0%}
             <ul class="list-group playlists row">
@@ -24,11 +24,11 @@
     {% else %}
             <p class="playlistspace">{{ 'oktothek.episode_show_playlist_no_playlists'|trans }}</p>
     {% endif %}
-        <h3>Neue Playlist erstellen</h3>
+        <h3>{{ 'oktothek.episode_show_playlist_new_playlists'|trans }}</h3>
         <form>
             <div class="input-group">
                 <input type="text" class="form-control playlist-new-input" placeholder="Playlistname" data-prototype='<li style="display:none;"><button type="button" class="playlist btn btn-default active"><span class="glyphicon glyphicon-ok"> </span></button><span>__name__</span></li>'>
-                <span class="input-group-btn"><button class="playlist-new btn btn-default" type="button">Erstellen</button></span>
+                <span class="input-group-btn"><button class="playlist-new btn btn-default" type="button">{{ 'oktothek.episode_show_make_playlists'|trans }}</button></span>
             </div>
         </form>
 {% else %}
