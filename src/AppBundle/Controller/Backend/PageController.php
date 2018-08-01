@@ -59,7 +59,7 @@ class PageController extends Controller
                     $this->get('session')->getFlashBag()->add('success', 'oktothek.success_create_page');
                     return $this->redirect($this->generateUrl('oktothek_page_show', ['page' => $page->getSlug()]));
                 } else { //preview
-                    return $this->render('AppBundle:Backend\Page:preview.html.twig', ['page' => $page]);
+                    return $this->render('AppBundle:backend\page:preview.html.twig', ['page' => $page]);
                 }
             }
             $this->get('session')->getFlashBag()->add('error', 'oktothek.error_create_page');
