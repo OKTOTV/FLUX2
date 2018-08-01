@@ -1,10 +1,12 @@
 <div class="row clip-tags">
-    {% for coursetype in coursetypes %}
+    {% for coursetype in coursetypes|slice(0,5) %}
         {% if loop.first %}
-            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ coursetype.description }}">
-                <figure class="series-pin pin">
+            <article class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin first-pin" title="{{ coursetype.description }}" itemscope="itemscope" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+                <meta itemprop="url" content="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.slug}) }}">
+                <meta itemprop="position" content="1">
+                <figure class="series-pin pin" itemscope="itemscope" itemtype="http://schema.org/Episode">
                     <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.slug}) }}" title="{{ coursetype.title }}">
-                        <img src="{{ coursetype.image|thumb(309,550) }}" class="img-responsive" alt="{{ coursetype.title }}"/>
+                        <img src="{{ coursetype.image|thumb(309,550) }}" class="img-responsive" alt="{{ coursetype.title }}" itemprop="image"/>
                     </a>
                     <figcaption>
                         <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.slug}) }}" title="{{ coursetype.title }}">
@@ -22,5 +24,5 @@
     {% for i in 0..numberofcoursetypes if i > 0 %}
         <li class="col-md-6 col-lg-6 col-sm-12 col-xs-12 pin empty"><figure><div class="icon-player"><div class="triangle"></div></div></figure></li>
     {% endfor %}
-    </div>
+    </ul>
 </div>

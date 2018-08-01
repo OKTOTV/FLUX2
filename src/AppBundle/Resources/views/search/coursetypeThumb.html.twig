@@ -1,18 +1,22 @@
-<figure class="academy-pin pin">
-    <div class="image-container">
-        <img src="{{ coursetype.image|thumb(135,240) }}" class="img-responsive" alt="{{ coursetype.title }}"/>
-        <div class="preview-button">
-            <div class="preview-content">
-                <div class="bg-opacity"> </div>
-                <a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}">{{ 'oktothek_academy_quickview'|trans }}</a>
-               </div>
-           <div class="preview-icon"><a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}"><div class="pin-icon"><span> </span></div></a></div>
+<li class="col-md-3 col-lg-3 col-sm-6 col-xs-6 pin" title="{{ coursetype.description }}" itemscope="itemscope" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <meta itemprop="position" content="1" />
+    <meta itemprop="url" content="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.slug}) }}" />
+    <figure class="academy-pin pin">
+        <div class="image-container">
+            <img src="{{ coursetype.image|thumb(135,240) }}" class="img-responsive" alt="{{ coursetype.title }}"/>
+            <div class="preview-button">
+                <div class="preview-content">
+                    <div class="bg-opacity"> </div>
+                    <a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}">{{ 'oktothek_academy_quickview'|trans }}</a>
+                </div>
+                <div class="preview-icon"><a role="button" data-toggle="collapse" href="#collapseDetail{{coursetype.id}}" aria-expanded="false" aria-controls="collapseDetail{{coursetype.id}}"><div class="pin-icon"><span> </span></div></a></div>
+            </div>
         </div>
-    </div>
-    <figcaption>
-        <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.slug}) }}" title="{{ 'oktothek_academy_hover_title'|trans({'%coursetype%': coursetype.title}) }}">
-            <h3>{{ coursetype.title }}</h3>
-            <p><span class="price">{{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.')})|raw }}</span></p>
-        </a>
-    </figcaption>
-</figure>
+        <figcaption>
+            <a href="{{ path('oktothek_academy_coursetype', {'coursetype': coursetype.slug}) }}" title="{{ 'oktothek_academy_hover_title'|trans({'%coursetype%': coursetype.title}) }}">
+                <h3>{{ coursetype.title }}</h3>
+                <p><span class="price">{{ 'oktothek_academy_misc_info'|trans({'%price%': coursetype.price|number_format(2, ',', '.'), '%price_reduced%': coursetype.priceReduced|number_format(2, ',', '.')})|raw }}</span></p>
+            </a>
+        </figcaption>
+    </figure>
+</li>

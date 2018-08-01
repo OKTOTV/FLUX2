@@ -49,9 +49,9 @@
                 </section>
             {% endif %}
             {% if coursetypes is not empty %}
-                <section class="inc-pins">
+                <section class="inc-pins" itemscope="itemscope" itemtype="http://schema.org/ItemList">
                     <h2>{{ 'oktothek_search_courses_header'|trans }}</h2>
-                    {% include "AppBundle::search/coursetypeResults.html.twig" with {'coursetypes': coursetypes } %}
+                    {% include "AppBundle::search/coursetypeResults.html.twig" with {'coursetypes': coursetypes|slice(0,4) } %}
                 </section>
             {% endif %}
         </div>
