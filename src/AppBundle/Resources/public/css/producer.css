@@ -59,6 +59,9 @@ body.producer .row {
 body.producer .comments .row {
     padding-bottom:0px;
 }
+body.producer .comment-text h3 {
+    margin-top:0;
+}
 body.producer .tabs-content .row {
     margin-right:0;
     margin-left:0;
@@ -150,6 +153,9 @@ body.commentsindex .list-group-item h3 {
 }
 body.commentsindex .list-group-item .col-md-9, body.commentsindex .list-group-item .col-xs-12 {
     padding-left:0;
+}
+body.producer .notification {
+    margin-bottom: 40px;
 }
 
 @media (min-width: 580px) {
