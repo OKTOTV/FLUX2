@@ -75,5 +75,6 @@ security:
             switch_user: { role: ROLE_ADMIN }
 
     access_control:
+        - { path: /backend/logout, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: /backend, roles: ROLE_USER }
         - { path: /backend/admin, roles: ROLE_ADMIN}

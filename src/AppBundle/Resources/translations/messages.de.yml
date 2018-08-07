@@ -1218,21 +1218,22 @@ oktothek_user_abonnements_title:            "Deine Abonnements | OKTO"
 oktothek.slide_type_choice:                 "{0} Episode|{1} News"
 
 ## index
-oktothek.backend_index_slider:              News & Slides
-oktothek.backend_slider_header:             Slider
-oktothek_backend_slide_new:                 <span class="glyphicon glyphicon-plus"></span> Neues Slide
-oktothek_backend_slide_index:               Zurück zum Index
+oktothek.backend_index_slider:              "News & Slides"
+oktothek.backend_slider_header:             "Slider"
+oktothek_backend_slide_new:                 '<span class="glyphicon glyphicon-plus"></span> Neues Slide'
+oktothek_backend_slide_index:               "Zurück zum Index"
 ## new
-oktothek.backend_slider_new_header:         Neues Slide
-oktothek.backend_slide_name_label:          Titel
-oktothek.backend_slide_description_label:   Beschreibung
-oktothek.backend_slide_link_label:          URL
-oktothek.backend_slide_asset_label:         Bild
-oktothek.slide_create_button:               <span class="glyphicon glyphicon-floppy-disk"></span> Anlegen
-oktothek_slide_type_episode:                Episode
-oktothek_slide_type_news:                   News
-oktothek.backend_slide_type_label:          Typ
-oktothek.backend_slide_onlineAt_label:      Sichtbar ab
+oktothek.backend_slider_new_header:         "Neues Slide"
+oktothek.backend_slide_name_label:          "Titel"
+oktothek.backend_slide_description_label:   "Beschreibung"
+oktothek.backend_slide_link_label:          "URL"
+oktothek.backend_slide_extern_label:        "URL in neuer Seite öffnen"
+oktothek.backend_slide_asset_label:         "Bild"
+oktothek.slide_create_button:               '<span class="glyphicon glyphicon-floppy-disk"></span> Anlegen'
+oktothek_slide_type_episode:                "Episode"
+oktothek_slide_type_news:                   "News"
+oktothek.backend_slide_type_label:          "Typ"
+oktothek.backend_slide_onlineAt_label:      "Sichtbar ab"
 
 oktothek.success_create_slide:              Slide erfolgreich angelegt
 oktothek.error_create_slide:                Fehler beim anlegen des Slides

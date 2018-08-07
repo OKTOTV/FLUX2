@@ -63,6 +63,17 @@ class Slide
     private $slideType;
 
     /**
+     * used to determine if link should be opened in a new tab or browser window
+     * @ORM\Column(name="extern", type="boolean", options={"default" = false})
+     */
+    private $extern;
+
+    public function __construct()
+    {
+        $this->extern = false;
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -208,5 +219,16 @@ class Slide
     public function getSlideType()
     {
         return $this->slideType;
+    }
+
+    public function getExtern()
+    {
+        return $this->extern;
+    }
+
+    public function setExtern($extern)
+    {
+        $this->extern = $extern;
+        return $this;
     }
 }
