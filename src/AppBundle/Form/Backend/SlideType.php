@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Bprs\AssetBundle\Form\Type\AssetType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -24,6 +25,14 @@ class SlideType extends AbstractType
             ->add('name', TextType::class, ['label' => 'oktothek.backend_slide_name_label'])
             ->add('description', TextType::class, ['label' => 'oktothek.backend_slide_description_label'])
             ->add('link', UrlType::class, ['label' => 'oktothek.backend_slide_link_label'] )
+            ->add(
+                'extern',
+                CheckboxType::class,
+                [
+                    'label' => 'oktothek.backend_slide_extern_label',
+                    'required' => false
+                ]
+            )
             ->add('onlineAt', DateTimeType::class, [
                 'widget' => 'single_text',
                 'html5' => false,
