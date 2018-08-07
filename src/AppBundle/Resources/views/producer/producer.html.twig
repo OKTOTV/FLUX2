@@ -20,37 +20,39 @@
         <p class="notification"><button class="btn btn-default updateNotifications" id="episode_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button> Benachrichtigen wenn ein neuer Kommentar gepostet wurde.</p>
         {% for episodecomment in newest_episode_comments %}
             <div class="row">
-                <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div class="avatar2"></div></div>
-<div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
-    <div class="author" itemprop="author">
-        {{ 'oktothek.comment_author'|trans({
-            '%name%': '<a href="'~url('oktothek_show_user', {'username': episodecomment.user.username})~'">'~episodecomment.user.username~'</a>',
-            '%date%': 'oktothek.comment_author_date'|trans({
-                '%day%': 'oktothek.comment_author_day_choice'|transchoice(episodecomment.createdAt|date('N')),
-                '%date%': episodecomment.createdAt|date('oktothek.comment_author_date_format'|trans)
-            })
-        })|raw }}
-    </div>
-    <div class="comment-text">
-        {% if episodecomment.removed %}
-            <p>{{ 'oktothek.comment_pager_comment_removed'|trans }}</p>
-        {% else %}
-            <h3>
-                <a href="{{ path('oktothek_show_episode', {'uniqID': episodecomment.episode.uniqID}) }}">
-                {{
-                    comment.episode.name|default(
-                        'oktothek.user_comment_index_episode_date'|trans({
-                        '%day%': 'oktothek.user_comment_index_episode_date_day_choice'|transchoice(episodecomment.episode.firstranAt|date('N')),
-                        '%date%': episodecomment.episode.firstranAt|date('oktothek.user_comment_index_episode_date_format'|trans)
-                        })
-                    )
-                }}
-                </a>
-            </h3>
-            <p>{{ episodecomment.text|nl2br }}</p>
-        {% endif %}
-    </div>
-</div>
+                <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container">
+                    <div class="avatar2"></div>
+                </div>
+                <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
+                    <div class="author" itemprop="author">
+                        {{ 'oktothek.comment_author'|trans({
+                            '%name%': '<a href="'~url('oktothek_show_user', {'username': episodecomment.user.username})~'">'~episodecomment.user.username~'</a>',
+                            '%date%': 'oktothek.comment_author_date'|trans({
+                                '%day%': 'oktothek.comment_author_day_choice'|transchoice(episodecomment.createdAt|date('N')),
+                                '%date%': episodecomment.createdAt|date('oktothek.comment_author_date_format'|trans)
+                            })
+                        })|raw }}
+                    </div>
+                    <div class="comment-text">
+                        {% if episodecomment.removed %}
+                            <p>{{ 'oktothek.comment_pager_comment_removed'|trans }}</p>
+                        {% else %}
+                            <h3>
+                                <a href="{{ path('oktothek_show_episode', {'uniqID': episodecomment.episode.uniqID}) }}">
+                                {{
+                                    comment.episode.name|default(
+                                        'oktothek.user_comment_index_episode_date'|trans({
+                                        '%day%': 'oktothek.user_comment_index_episode_date_day_choice'|transchoice(episodecomment.episode.firstranAt|date('N')),
+                                        '%date%': episodecomment.episode.firstranAt|date('oktothek.user_comment_index_episode_date_format'|trans)
+                                        })
+                                    )
+                                }}
+                                </a>
+                            </h3>
+                            <p>{{ episodecomment.text|nl2br }}</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         {% endfor %}
         </section>
@@ -59,30 +61,32 @@
         <p class="notification"><button class="btn btn-default updateNotifications" id="blog_comment" data-send="0"><span class="glyphicon glyphicon-bell"></span></button> Benachrichtigen wenn ein neuer Kommentar gepostet wurde.</p>
         {% for blogpostcomment in newest_blogpost_comments %}
             <div class="row">
-                <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container"><div class="avatar2"></div></div>
-<div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
-    <div class="author" itemprop="author">
-        {{ 'oktothek.comment_author'|trans({
-            '%name%': '<a href="'~url('oktothek_show_user', {'username': blogpostcomment.user.username})~'">'~blogpostcomment.user.username~'</a>',
-            '%date%': 'oktothek.comment_author_date'|trans({
-                '%day%': 'oktothek.comment_author_day_choice'|transchoice(blogpostcomment.createdAt|date('N')),
-                '%date%': blogpostcomment.createdAt|date('oktothek.comment_author_date_format'|trans)
-            })
-        })|raw }}
-    </div>
-    <div class="comment-text">
-        {% if blogpostcomment.removed %}
-            <p>{{ 'oktothek.comment_pager_comment_removed'|trans }}</p>
-        {% else %}
-            {# <h3>
-                <a href="{{ path('oktothek_show_series_blogpost', {'slug': blogpostcomment.post.slug}) }}">
-                    {{ blogpostcomment.post.title }}
-                </a>
-            </h3> #}
-            <p>{{ blogpostcomment.text|nl2br }}</p>
-        {% endif %}
-    </div>
-</div>
+                <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 avatar-container">
+                    <div class="avatar2"></div>
+                </div>
+                <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 comment">
+                    <div class="author" itemprop="author">
+                        {{ 'oktothek.comment_author'|trans({
+                            '%name%': '<a href="'~url('oktothek_show_user', {'username': blogpostcomment.user.username})~'">'~blogpostcomment.user.username~'</a>',
+                            '%date%': 'oktothek.comment_author_date'|trans({
+                                '%day%': 'oktothek.comment_author_day_choice'|transchoice(blogpostcomment.createdAt|date('N')),
+                                '%date%': blogpostcomment.createdAt|date('oktothek.comment_author_date_format'|trans)
+                            })
+                        })|raw }}
+                    </div>
+                    <div class="comment-text">
+                        {% if blogpostcomment.removed %}
+                            <p>{{ 'oktothek.comment_pager_comment_removed'|trans }}</p>
+                        {% else %}
+                            <h3>
+                                <a href="{{ path('oktothek_show_series_blogpost', {'slug': blogpostcomment.post.slug}) }}">
+                                    {{ blogpostcomment.post.name }}
+                                </a>
+                            </h3>
+                            <p>{{ blogpostcomment.text|nl2br }}</p>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         {% endfor %}
         </section>

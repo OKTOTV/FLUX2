@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+z<!DOCTYPE html>
 <html lang="de">
     <head>
         <meta name="google-site-verification" content="ySv6KHypkl1KdZURP_V6KmSQGS1H2HsK6oGe9u5XcD4" />
@@ -37,19 +37,6 @@
             {% block footer %}{% endblock %}
         </main>
         {% block javascript_footer %}
-        <script type="text/javascript">
-            var _paq = _paq || [];
-            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-            _paq.push(['trackPageView']);
-            _paq.push(['enableLinkTracking']);
-            (function() {
-                var u="https://matomo.okto.tv/";
-                _paq.push(['setTrackerUrl', u+'piwik.php']);
-                _paq.push(['setSiteId', '1']);
-                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-            })();
-        </script>
         {% endblock %}
     </body>
 </html>
