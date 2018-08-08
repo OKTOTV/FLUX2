@@ -623,6 +623,11 @@ oktothek_newsletter_dsgvo:   |
     <p>Sie haben die Möglichkeit, über unsere Website unseren Newsletter zu abonnieren. Hierfür benötigen wir Ihre E-Mail-Adresse und ihre Erklärung, dass Sie mit dem Bezug des Newsletters einverstanden sind. Sobald Sie sich für den Newsletter angemeldet haben, senden wir Ihnen ein Bestätigungs-Mail zu.</p>
     <p>Ihre E-Mail Adresse wird an die Newsletter-Verwaltungssoftware Mailchimp zum technischen Versand weitergegeben. Mehr Informationen finden Sie auf der Website des <a href="https://mailchimp.com/about" target="_blank">Anbieters</a>.</p>
     <p>Das Abo des Newsletters können Sie jederzeit über den Link „Newsletter abbestellen“ in der jeweiligen E-Mail oder durch Nachricht an folgende E-Mail-Adresse: <a href="mailto:pr@okto.tv">pr@okto.tv</a>. Wir löschen anschließend zeitnah Ihre Daten im Zusammenhang mit dem Newsletter-Versand.</p>
+oktothek_analyse_subheadline_dsgvo:   |
+    Webanalyse
+oktothek_analyse_dsgvo:   |
+    <p>Damit wir unsere Website laufend verbessern können verwenden wir den Webanalysendienst von Matomo (<a href="https://www.matomo.org" target="_blank">www.matomo.org</a>), einem Dienst des Anbieters InnoCraft Ltd., 150 Willis St, 6011 Wellington, Neuseeland, („Mataomo“). Bei dieser Anwendung werden keinerlei Daten an Dritte weiter gegeben oder persönliche Daten der User gespeichert. Um das zu gewährleisten werden die IP-Adressen anonymisiert und so ein örtliche Zuordnung verhindert. </p>
+    <p>Um eine vollständige Analyse zu ermöglichen, werden Cookies gesetzt. Wenn Sie das nicht möchten, können Sie hier ein Opt-Out Cookie setzen und die Erfassung durch Matomo wird deaktiviert.</p>
 oktothek_right_subheadline_dsgvo:   |
     Ihre Rechte
 oktothek_right_dsgvo:   |

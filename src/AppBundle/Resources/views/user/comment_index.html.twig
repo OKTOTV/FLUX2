@@ -35,14 +35,14 @@
                             {% if comment.post.series is empty %} {# news #}
                                 <h3>
                                     <a href="{{ path('oktothek_show_news', {'slug': comment.post.slug}) }}">
-                                        {{ comment.post.title }}
+                                        {{ comment.post.name }}
                                     </a>
                                 </h3>
                                 {{ comment.text|nl2br }}
                             {% else %} {# series blogpost #}
                                 <h3>
                                     <a href="{{ path('oktothek_show_series_blogpost', {'slug': comment.post.slug}) }}">
-                                        {{ comment.post.title }}
+                                        {{ comment.post.name }}
                                     </a>
                                 </h3>
                                 {{ comment.text|nl2br }}

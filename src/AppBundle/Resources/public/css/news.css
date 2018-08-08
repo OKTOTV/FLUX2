@@ -92,6 +92,9 @@ body.news figure+div, body.newsarchiv figure+div, body.tagpage figure+div {
 body.news figure:first-child {
     margin-bottom: 40px;
 }
+body.news .comments #appbundle_post_comment_submit {
+    margin-bottom: 40px;
+}
 body.series .news-pin article.row.post {
     margin-right:-10px;
     margin-left:-10px;
