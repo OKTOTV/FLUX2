@@ -3649,7 +3649,7 @@ a.more.right {
 
 @media (min-width: 768px) {
     .page iframe {
-        width: auto;
+        width: 600px;
     }
     
     .faq li .panel-heading a {
