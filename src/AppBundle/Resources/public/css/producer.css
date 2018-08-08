@@ -154,8 +154,16 @@ body.commentsindex .list-group-item h3 {
 body.commentsindex .list-group-item .col-md-9, body.commentsindex .list-group-item .col-xs-12 {
     padding-left:0;
 }
+body.producer .comment .author {
+    line-height: 16px;
+}
+
 body.producer .notification {
     margin-bottom: 40px;
+    margin-top:10px;
+}
+body.producer .notification button {
+    margin-right: 14px;
 }
 
 @media (min-width: 580px) {
