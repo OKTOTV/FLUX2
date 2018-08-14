@@ -11,6 +11,19 @@
         {% block stylesheets %}{% endblock %}
         <link rel="shortcut icon" href="{{ asset('bundles/bprsstyle/img/favicon.ico') }}">
         <link rel="apple-touch-icon" href="{{ asset('bundles/bprsstyle/img/apple-touch-icon.png') }}">
+        <script type="text/javascript">
+            var _paq = _paq || [];
+            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+                var u="https://matomo.okto.tv/";
+                _paq.push(['setTrackerUrl', u+'piwik.php']);
+                _paq.push(['setSiteId', '1']);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+            })();
+        </script>
     </head>
     <body class="{{ body_class|default('') }}" itemscope="itemscope" itemtype="http://schema.org/WebPage">
         {% block javascripts %}
