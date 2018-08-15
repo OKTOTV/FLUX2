@@ -5,9 +5,9 @@
     "license": "proprietary",
     "require": {
         "php": "^7.0.8",
-        "bprs/asset-bundle": "^3.0",
+        "bprs/asset-bundle": "3.0.6",
         "bprs/user-bundle": "2.0.24",
-        "bprs/analytics-bundle": "dev-master",
+        "bprs/analytics-bundle": "dev-master#c5dfc003634a733231281ed6a9cb68f529e2684c",
         "doctrine/orm": "^2.6",
         "friendsofsymfony/elastica-bundle": "^5.0",
         "jms/serializer-bundle": "^2.3",
