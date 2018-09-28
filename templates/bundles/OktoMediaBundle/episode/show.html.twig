@@ -120,8 +120,8 @@
             <h4>{{ 'oktolab_media.episode_captions_header'|trans }}</h4>
             <div class="list-group">
                 {% for caption in episode.captions %}
-                    <a href="{{ path('oktolab_caption_edit', {'caption': caption.uniqID}) }}" class="list-group-item">
-                        {{ 'oktolab_media.show_episode_caption_list_entry'|trans({'%caption%': caption})|raw }}
+                <a href="{{ path('oktolab_caption_edit', {'uniqID': caption.uniqID}) }}" class="list-group-item">
+                {{ 'oktolab_media.show_episode_caption_list_entry'|trans({'%caption%': caption})|raw }}
                     </a>
                 {% endfor %}
                 <a href="{{ path('oktolab_caption_new', {'uniqID': episode.uniqID}) }}" class="list-group-item">
