@@ -3,7 +3,6 @@
 var headerScrollheight;
 var headerHeight;
 var Winwidth;
-var Winheight;
 
 //Zufallsgenerator
 function randomNumber(arr) {
@@ -254,7 +253,7 @@ $(document).ready(function(){
             $(window).on("resize orientationchange", function(){
                 setHeight_more(el);
             });
-        });
+        })
         
         $(window).on("resize orientationchange", function(){
             if ($('.more figure.episode-pin').css('display','block')) {
@@ -262,17 +261,6 @@ $(document).ready(function(){
                 setHeight_more(el);
             }
         });
-    }
-    
-    if ($('body').hasClass('oktothek')) {
-        [].forEach.call(
-            but_part = document.querySelectorAll('#but_participate'),
-            function (but_part) {
-                but_part.addEventListener("click", function () {
-                    _paq.push(['trackEvent','Mitmachen_click','Participate','Go']);
-                });
-            }
-        );
     }
     
 });
