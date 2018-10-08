@@ -35,6 +35,7 @@
         $(document).ready( function(){
             $('#appbundle_slide_onlineAt').datetimepicker({
                 locale: 'de',
+                format: "YYYY-MM-DDThh:mm",
                 date: moment($('#appbundle_slide_onlineAt').children(':input').val()),
                 useCurrent: true,
                 calendarWeeks: true,
