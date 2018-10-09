@@ -78,6 +78,7 @@
                 console.log(moment($('#'+input).children(':input').val()));
                 $('#'+input).datetimepicker({
                     locale: 'de',
+                    format: "YYYY-MM-DDTkk:mm",
                     date: moment($('#'+input).children(':input').val()),
                     useCurrent: true,
                     calendarWeeks: true,
