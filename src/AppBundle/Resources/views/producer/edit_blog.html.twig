@@ -38,6 +38,7 @@
         $('#appbundle_post_onlineAt_picker').datetimepicker({
             locale: 'de',
             date: moment($('#appbundle_post_onlineAt_picker').children(':input').val()),
+            format: "YYYY-MM-DDTkk:mm",
             useCurrent: true,
             calendarWeeks: true,
             allowInputToggle: true,
