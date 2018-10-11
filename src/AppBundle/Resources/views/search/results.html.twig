@@ -17,7 +17,7 @@
             {% if episodes is not empty %}
                 <section class="inc-pins" itemscope="itemscope" itemtype="http://schema.org/ItemList">
                     <h2>{{ 'oktothek_tag_episode_header'|trans }}</h2>
-                    {% include "AppBundle::tag/episode_tag.html.twig" with {'episodes': episodes|slice(0,4)} %}
+                    {% include "AppBundle::tag/episode_tag.html.twig" with {'episodes': episodes|slice(0,5)} %}
                     {% if episodes|length > 5 %}
                         <a href="{{ path('oktothek_detailed_episode_search', {'phrase': searchphrase})}}" class="pull-right more hidden-xs">
                             {{ 'oktothek_search_show_more_episode_results'|trans }} <span class="icon small-arrow-right"></span>
@@ -31,7 +31,7 @@
             {% if seriess is not empty %}
                 <section class="inc-pins">
                     <h2>{{ 'oktothek_tag_series_header'|trans }}</h2>
-                    {% include "AppBundle::tag/series_tag.html.twig" with {'seriess': seriess|slice(0,4)} %}
+                    {% include "AppBundle::tag/series_tag.html.twig" with {'seriess': seriess|slice(0,5)} %}
                     {% if seriess|length > 5 %}
                         <a href="{{ path('oktothek_detailed_series_search', {'phrase': searchphrase})}}" class="pull-right more hidden-xs">
                             {{ 'oktothek_search_show_more_series_results'|trans }} <span class="icon small-arrow-right"></span>
@@ -51,11 +51,20 @@
             {% if coursetypes is not empty %}
                 <section class="inc-pins" itemscope="itemscope" itemtype="http://schema.org/ItemList">
                     <h2>{{ 'oktothek_search_courses_header'|trans }}</h2>
-                    {% include "AppBundle::search/coursetypeResults.html.twig" with {'coursetypes': coursetypes|slice(0,4) } %}
+                    {% include "AppBundle::search/coursetypeResults.html.twig" with {'coursetypes': coursetypes|slice(0,5) } %}
                 </section>
             {% endif %}
         </div>
 {%- endblock -%}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            _paq.push(['trackSiteSearch','{{ searchphrase }}','Suchfeld','{{ episodes|length }}']); 
+            {#{Die korrekte Anzahl der gefundenen Elemente muss an letzter Stelle noch ausgelesen werden. Statt episode|length }#}
+        });
+    </script>
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('bundles/app/css/tagpage.css') }}" rel="stylesheet" />

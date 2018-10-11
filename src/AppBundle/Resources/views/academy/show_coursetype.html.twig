@@ -69,8 +69,8 @@
             <li>
                 <p>
                     {% for date in course.dates %}
-                    <span>{{ 'oktothek_academy_timetable_date'|trans({'%day%': 'oktothek_academy_timetable_days_choice'|transchoice(date.courseStart|date('N')), '%date%': date.courseStart|date('oktothek_academy_timetable_date_format'|trans)})}}</span>
-                    {{ 'oktothek_academy_timetable_time'|trans({'start': date.courseStart|date('oktothek_academy_timetable_time_format'|trans), 'end': date.courseEnd|date('oktothek_academy_timetable_time_format'|trans)}) }}
+                    <span class="date">{{ 'oktothek_academy_timetable_date'|trans({'%day%': 'oktothek_academy_timetable_days_choice'|transchoice(date.courseStart|date('N')), '%date%': date.courseStart|date('oktothek_academy_timetable_date_format'|trans)})}}</span>
+                    <span class="period">{{ 'oktothek_academy_timetable_time'|trans({'start': date.courseStart|date('oktothek_academy_timetable_time_format'|trans), 'end': date.courseEnd|date('oktothek_academy_timetable_time_format'|trans)}) }}</span>
                     {% endfor %}
                 </p>
                 <p class="booking">
