@@ -27,7 +27,7 @@ $(document).ready(function(){
 	
 	/* Headerbackground */
 	headerScrollheight = $( window ).height()/2;
-	headerHeight;
+	var headerHeight;
 	Winwidth = $( window ).width();
 	
 	Sizes();
@@ -264,12 +264,91 @@ $(document).ready(function(){
         });
     }
     
+    //Suchmaschine Matomo
+    
+    //Newsletterbutton
+    [].forEach.call(
+        but_newsletter = document.querySelectorAll('#newsletter_link'),
+        function (but_newsletter) {
+            but_newsletter.addEventListener("click", function () {
+                _paq.push(['trackEvent','Newsletter_Footer_click','Newsletter','Go']);
+            });
+        }
+    );
+    [].forEach.call(
+        but_newsletter_aside = document.querySelectorAll('#newsletter_sidebar'),
+        function (but_newsletter_aside) {
+            but_newsletter_aside.addEventListener("click", function () {
+                _paq.push(['trackEvent','Newsletter_Sidebar_click','Newsletter','Go']);
+            });
+        }
+    );
+    
+    //Oktothek
     if ($('body').hasClass('oktothek')) {
-        [].forEach.call(
+        [].forEach.call(    //Mitmachbutton
             but_part = document.querySelectorAll('#but_participate'),
             function (but_part) {
                 but_part.addEventListener("click", function () {
                     _paq.push(['trackEvent','Mitmachen_click','Participate','Go']);
+                });
+            }
+        );
+        [].forEach.call(    //Slider
+            a_slide = $('#carousel .item figure a'),
+            function (a_slide) {
+                a_slide.addEventListener("click", function (event) {
+                   event_text = $(this).find('h3').text()+ ', ' + $(this).attr('href');
+                   _paq.push(['trackEvent','Slide_click','Slide_News',event_text]);
+                });
+            }
+        );
+        [].forEach.call(    //Neueste Videos
+            a_newestvideos = $('.newest-videos figure.episode-pin a'),
+            function (a_newestvideos) {
+                a_newestvideos.addEventListener("click", function (event) {
+                    event_text = $(this).parents('figure').find('h3').text().trim()+ ', ' + $(this).attr('href');
+                    _paq.push(['trackEvent','Newest_Videos_click','Newest_Videos_Episode',event_text]);
+                });
+            }
+        );
+        [].forEach.call(    //Beliebteste Videos
+            a_favoritevideos = $('.favorite-videos figure.episode-pin a'),
+            function (a_favoritevideos) {
+                a_favoritevideos.addEventListener("click", function (event) {
+                    event_text = $(this).parents('figure').find('h3').text().trim()+ ', ' + $(this).attr('href');
+                    _paq.push(['trackEvent','Favorite_Videos_click','Favorite_Videos_Episode',event_text]);
+                });
+            }
+        );
+        [].forEach.call(    //Neueste Playlisten
+            a_playlists = $('.newest-playlists figure.playlist-pin a'),
+            function (a_playlists) {
+                a_playlists.addEventListener("click", function (event) {
+                    event_text = $(this).parents('figure').find('h3').text().trim()+ ', ' + $(this).attr('href');
+                    _paq.push(['trackEvent','Newest_Playlist_click','Newest_Playlist',event_text]);
+                });
+            }
+        );
+        [].forEach.call(    //News
+            a_oktothek_news = $('.news.container article.pin a'),
+            function (a_oktothek_news) {
+                a_oktothek_news.addEventListener("click", function (event) {
+                    event_text = $(this).parents('article').find('h3').text().trim()+ ', ' + $(this).attr('href');
+                    _paq.push(['trackEvent','Oktothek_News_click','Oktothek_News',event_text]);
+                });
+            }
+        );
+    }
+    
+    //Workshops
+    if ($('body').hasClass('academy')) {
+        [].forEach.call(    //Kurs buchen
+            a_workshops_booking = $('.timetable .booking a'),
+            function (a_workshops_booking) {
+                a_workshops_booking.addEventListener("click", function (event) {
+                    booking_text = $(this).attr('title')+ ', ' + $(this).parents('ul.timetable').find('.date').text().trim()+ ', ' + $(this).parents('ul.timetable').find('.period').text().trim();
+                    _paq.push(['trackEvent','Oktothek_News_click','Oktothek_News',booking_text]);
                 });
             }
         );
